@@ -1096,5 +1096,160 @@ with open(f"{OUT}/intel-cards.json", "w", encoding="utf-8") as f:
     json.dump(intel_cards, f, indent=2, ensure_ascii=False)
 print(f"✓ intel-cards.json — {len(intel_cards)} cards written")
 
-# ── beware entries + community posts will be appended below ──────────────────
+# ── beware entries ────────────────────────────────────────────────────────────
+
+def bw(id_, slug, city, category, title, severity, desc, reported_by, date, location, helpful):
+    return {"id": id_, "destinationSlug": slug, "city": city, "category": category,
+            "title": title, "severity": severity, "description": desc,
+            "reportedBy": reported_by, "reportedDate": date,
+            "location": location, "helpfulCount": helpful}
+
+beware_entries = [
+    # GOA (4)
+    bw("beware-001","goa-india","Goa","Accommodation fraud",
+       "Fake villa booking via Instagram — lost ₹45,000",
+       "critical",
+       "Found a gorgeous villa on Instagram, paid via UPI to a personal number after a 'soft launch' discount. Arrived to find the address was a real house belonging to a confused family who'd never listed it. Lost ₹45,000 with zero recourse. File a cybercrime complaint at cybercrime.gov.in immediately if this happens to you.",
+       "Priya","2026-03-18","Calangute, North Goa",94),
+    bw("beware-002","goa-india","Goa","Scooter rental",
+       "Royal Enfield 'hidden damage' held my deposit for 4 days",
+       "high",
+       "Rented from a shop near Anjuna flea market. Photographed the bike beforehand but missed a small scratch on the underside of the mudguard. Owner refused to return ₹5,000 deposit claiming I caused it. Eventually resolved after showing timestamp photos to a police post. Always photograph undersides and wheel arches.",
+       "Shreya","2026-02-24","Anjuna, North Goa",67),
+    bw("beware-003","goa-india","Goa","Drug setup",
+       "Man approached me twice at Vagator — second approach had a 'cop' nearby",
+       "critical",
+       "A man offered hash at Vagator beach, I declined and walked away. He approached again 10 minutes later near a different area, and within seconds a man claiming to be a plainclothes officer appeared demanding I come with him for 'questioning'. I walked directly into the nearest crowded shack and called my guesthouse. Do not stop walking.",
+       "Ritu","2026-01-30","Vagator Beach, North Goa",112),
+    bw("beware-004","goa-india","Goa","Transport",
+       "GoaMiles impersonator at Mopa airport — quoted ₹2,800 for ₹900 ride",
+       "high",
+       "Man outside Mopa arrivals was holding a card that looked exactly like the GoaMiles logo. Quoted ₹2,800 to Assagao. Actual GoaMiles app shows ₹920 for the same route. He said the 'app doesn't cover Mopa yet' — it does. Only book through the actual app.",
+       "Anushka","2026-03-05","Mopa Airport, North Goa",58),
+
+    # JAIPUR (4)
+    bw("beware-005","jaipur-india","Jaipur","Commission shop",
+       "Auto driver took 45-minute detour to gem 'export warehouse'",
+       "high",
+       "Agreed ₹100 auto to City Palace. Driver said there was a traffic diversion and took me to a 'government gem export centre' in an industrial area. Multi-person sales team inside. Was there 40 minutes before I managed to leave. No gems bought but shaken. Always use Uber/Ola from monuments.",
+       "Meera","2026-02-14","Near City Palace, Old City",81),
+    bw("beware-006","jaipur-india","Jaipur","Ticketing fraud",
+       "Paid ₹800 for 'skip-the-line' Amber Fort ticket — it was fake",
+       "high",
+       "A smartly-dressed man outside Amber Fort sold me a ₹800 ticket that included 'fast entry and audio guide'. At the gate the QR code failed and the security guard confirmed it was counterfeit. Had to buy a real ₹200 ticket at the counter. Report: fake tickets are printed convincingly. Only buy at ASI counter or online.",
+       "Sara","2026-01-22","Amber Fort entrance road",73),
+    bw("beware-007","jaipur-india","Jaipur","Accommodation",
+       "Booking.com listing for 'Heritage Haveli' was someone's house",
+       "medium",
+       "The listing had 40 reviews (all 5-star, all posted within 3 weeks). Arrived to find a private home, no reception, no staff. Owner appeared and tried to show me a room — completely unlisted. Got a refund from Booking.com after filing a dispute but lost 2 hours. Check review date patterns before booking.",
+       "Neha","2026-03-02","Bani Park, Jaipur",45),
+    bw("beware-008","jaipur-india","Jaipur","Elephant ride",
+       "Elephant operator demanded ₹3,500 'tip + feed' after ₹500 agreed price",
+       "medium",
+       "Took an elephant ride up to Amber Fort after agreeing ₹500. At the top, the mahout refused to let me dismount until I paid ₹3,500 for 'feed and tip'. A crowd gathered which increased pressure. Paid ₹500 extra and walked away. Skip elephant rides entirely — jeep taxis to Amber are ₹200 and faster.",
+       "Divya","2026-01-08","Amber Fort approach road",62),
+
+    # DELHI (4)
+    bw("beware-009","delhi-india","Delhi","Tourist office scam",
+       "Fake India Tourism office near Connaught Place — lost 3 hours and ₹12,000",
+       "critical",
+       "A man near Janpath told me India Tourism was closed and walked me to a 'government-approved travel desk' two streets away. Booked a Rajasthan tour for ₹12,000 that included a fake hotel. No tour guide appeared on day 1. The real India Tourism office (88 Janpath) was open the entire time. File complaint at Delhi Police cybercell.",
+       "Kaveri","2026-02-08","Connaught Place, New Delhi",138),
+    bw("beware-010","delhi-india","Delhi","Transport",
+       "Pre-paid taxi booth impersonator at IGI Terminal 2",
+       "high",
+       "Inside T2 arrivals, a man in a vest that read 'PREPAID TAXI' (not official signage) collected ₹800 for a 'pre-paid slip' and directed me to an unofficial cab. Driver demanded an additional ₹1,500 mid-route. The real prepaid booth is marked with Delhi Traffic Police signage and is to the left of the exit doors.",
+       "Farida","2026-03-15","IGI Airport Terminal 2, Delhi",97),
+    bw("beware-011","delhi-india","Delhi","Gem export scam",
+       "'Businessman' at Paharganj offered commission to carry gems to London",
+       "high",
+       "Met a well-dressed man at hotel breakfast who said he was an exporter. Offered £200 to carry a small package of gems to London as 'personal luggage to avoid export duty'. This is illegal gem smuggling and a common Delhi long con. Declined and reported to hotel staff. Never agree to carry anything for anyone.",
+       "Tara","2026-01-19","Paharganj, New Delhi",84),
+    bw("beware-012","delhi-india","Delhi","Rickshaw",
+       "Cycle rickshaw doubled price at destination — refused to move until paid",
+       "medium",
+       "Agreed ₹80 Connaught Place to Janpath. On arrival driver claimed ₹80 was 'per person' (I was alone) and demanded ₹160, then grabbed my bag handle. Shouted once, he let go. A police constable was 30m away — point toward police if this happens. Always state: 'total price, for this journey, right now' before boarding.",
+       "Zoya","2026-02-27","Connaught Place, New Delhi",51),
+
+    # VARANASI (3)
+    bw("beware-013","varanasi-india","Varanasi","Ghat tout",
+       "Silk shop 'student' followed me for 20 minutes from Dashashwamedh Ghat",
+       "high",
+       "A young man claiming to be a BHU student started a friendly conversation at Dashashwamedh Ghat. Perfectly good English, knowledgeable about the Aarti. Eventually guided me toward a 'family silk shop' a kilometre away. I realised the route only when I checked Maps. The student script is extremely polished in Varanasi — end the conversation early.",
+       "Leila","2026-02-01","Dashashwamedh Ghat, Varanasi",76),
+    bw("beware-014","varanasi-india","Varanasi","Boat ride",
+       "Sunrise boat ₹200 agreed — ₹2,400 demanded on return, boat moved from ghat",
+       "high",
+       "Agreed ₹200 for a 45-minute sunrise boat ride, confirmed verbally twice. On return, the boatman anchored mid-river and demanded ₹2,400 — ₹200 'per person per ghat' we'd passed. Refused, he eventually took ₹400. Agree total price and write it on your phone, show the driver, take a photo of the screen. Witnesses help.",
+       "Ananya","2026-01-14","Assi Ghat, Varanasi",91),
+    bw("beware-015","varanasi-india","Varanasi","Food",
+       "Lassi at unnamed stall caused severe disorientation — suspected bhang without disclosure",
+       "critical",
+       "Ordered a plain lassi from a small stall near Manikarnika Ghat. Within 45 minutes had severe disorientation and time distortion consistent with cannabis. Was with a travel companion who got me back to the guesthouse safely. Only order from clearly labelled shops. If you want bhang, go to a licensed bhang shop where it is clearly stated.",
+       "Preethi","2026-03-10","Near Manikarnika Ghat, Varanasi",143),
+
+    # MUMBAI (3)
+    bw("beware-016","mumbai-india","Mumbai","Pickpocket",
+       "Phone lifted from front pocket at Colaba Causeway — felt nothing",
+       "medium",
+       "Walking through the narrow Colaba Causeway market lane, phone was in my front jeans pocket. Felt nothing. Noticed it missing 10 minutes later. The technique involves deliberate shoulder jostling from one person while another lifts. Use a crossbody bag with the clasp facing your body. Never put your phone in a pocket in a crowded market.",
+       "Ishita","2026-02-20","Colaba Causeway, Mumbai",69),
+    bw("beware-017","mumbai-india","Mumbai","Transport",
+       "Taxi driver claimed meter was broken — quoted ₹800 for a ₹200 ride",
+       "medium",
+       "Hailed a black-and-yellow outside CST station. Driver said meter was broken and quoted ₹800 to Bandra. Real metered fare is ₹180–220. Refused and took the next cab whose meter worked fine. All Mumbai taxis are legally required to use meters. 'Broken meter' is always a lie. Take the next cab.",
+       "Rohini","2026-01-25","CST Station, Mumbai",44),
+    bw("beware-018","mumbai-india","Mumbai","Ferry",
+       "Fake Elephanta Island ferry sold at Gateway of India — went nowhere near Elephanta",
+       "high",
+       "Bought what I thought was an Elephanta Island ferry ticket from a man at the Gateway of India pier for ₹350. Boat took me on a 20-minute Harbour cruise and returned. The official MTDC Elephanta ferry ticket is ₹200 and sold only at the orange MTDC booth on the pier. Any other seller is unofficial.",
+       "Sonal","2026-03-08","Gateway of India pier, Mumbai",88),
+
+    # RISHIKESH (3)
+    bw("beware-019","rishikesh-india","Rishikesh","Yoga retreat",
+       "Paid ₹45,000 for a 2-week retreat that matched none of its description",
+       "critical",
+       "Booked a 'women-only certified yoga teacher training' for ₹45,000 after a polished Instagram presence. Arrived to find a shared house with no qualified instructor, no women-only environment, and a male 'guru' I'd never seen in the listings. Unable to get a refund. Always research on TripAdvisor and Lonely Planet forums before paying, and never pay more than one week upfront.",
+       "Sophie","2026-02-12","Ram Jhula area, Rishikesh",167),
+    bw("beware-020","rishikesh-india","Rishikesh","Rafting",
+       "Rafting operator skipped safety briefing — no life jacket check",
+       "high",
+       "Booked rafting with an operator who quoted ₹400 versus the ₹650 TURA-registered operators. No safety briefing, life jackets handed out without fit checks, guide had no visible certification. One person in our group fell out at grade 3 rapids. Ended safely but avoidably. Only use TURA-registered operators. Ask: 'Can I see your TURA registration?'",
+       "Natasha","2026-01-31","Marine Drive rafting stretch, Rishikesh",79),
+    bw("beware-021","rishikesh-india","Rishikesh","Donation",
+       "Temple 'priest' tied thread on my wrist and demanded ₹2,000 to remove curse",
+       "medium",
+       "Man in saffron near Ram Jhula tied a thread on my wrist while saying a blessing I didn't ask for. Demanded ₹2,000 saying the thread must be tied with a proper puja payment or it would bring bad luck. Walked away with the thread on. It did not bring bad luck. No temple in Rishikesh mandates any donation.",
+       "Emma","2026-02-19","Ram Jhula bridge approach, Rishikesh",55),
+
+    # AGRA (2)
+    bw("beware-022","agra-india","Agra","Ticketing",
+       "Paid ₹1,200 for counterfeit Taj Mahal entry ticket",
+       "critical",
+       "A professionally printed ticket sold by a man 200m before the south gate entrance. The QR code scanned green on his personal phone. At the real gate it failed. Had to buy a second ticket. The counterfeit tickets are very convincing. Buy only at the ASI official window at the gate or at asi.payumoney.com the evening before.",
+       "Chloe","2026-03-12","South gate approach road, Agra",102),
+    bw("beware-023","agra-india","Agra","Marble shop",
+       "Auto driver insisted on one stop — 90-minute marble shop ordeal",
+       "medium",
+       "Pre-agreed ₹300 auto to Agra Fort with explicit 'no stops'. Driver still pulled into a marble inlay showroom claiming it was 'on the route'. Multi-person team inside — one blocks the door, one shows samples, one processes payment. Left after 15 minutes without buying anything. Uber/Ola only in Agra.",
+       "Priya","2026-02-03","Between Taj and Agra Fort",47),
+
+    # KOCHI (2)
+    bw("beware-024","kochi-india","Kochi","Spice shopping",
+       "Cardamom sold as premium grade was mostly stems and husks",
+       "medium",
+       "Bought 500g of 'premium Wayanad cardamom' from a Mattancherry shop for ₹1,800. At home found it was mostly stems and low-grade husks. Genuine cardamom at that price should be full green pods. Buy from shops 2–3 streets back from the main synagogue lane, or from the Kerala government spice store on MG Road, Ernakulam.",
+       "Nandita","2026-03-22","Jew Town Road, Mattancherry, Kochi",38),
+    bw("beware-025","kochi-india","Kochi","Transport",
+       "Auto quoted ₹400 for the ₹5 government ferry route",
+       "medium",
+       "Asked an auto at Ernakulam ferry terminal for Fort Kochi. Driver quoted ₹400 and said the ferry 'wasn't running today'. The ferry was running — I could see it from where I was standing. The government ferry from High Court Jetty to Fort Kochi costs ₹5 and runs every 20–30 minutes until about 9:30pm. Never take an auto for this crossing.",
+       "Aisha","2026-01-16","Ernakulam ferry terminal, Kochi",61),
+]
+
+with open(f"{OUT}/beware-entries.json", "w", encoding="utf-8") as f:
+    json.dump(beware_entries, f, indent=2, ensure_ascii=False)
+print(f"✓ beware-entries.json — {len(beware_entries)} entries written")
+
+# ── community posts will be appended below ────────────────────────────────────
 
