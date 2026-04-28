@@ -191,7 +191,6 @@ type RawBeware = {
 async function seedBewareReports() {
   const entries = read<RawBeware[]>("beware-entries.json");
   const rows = entries.map((b) => ({
-    id: b.id,
     destination_slug: b.destinationSlug,
     city: b.city,
     category: b.category,
@@ -207,7 +206,7 @@ async function seedBewareReports() {
   }));
   const { error } = await supabase
     .from("beware_reports")
-    .upsert(rows, { onConflict: "id" });
+    .insert(rows);
   if (error) throw new Error(`beware_reports: ${error.message}`);
   console.log(`✓ beware_reports — ${rows.length} rows`);
 }
