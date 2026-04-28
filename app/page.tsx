@@ -3,6 +3,7 @@ import intelCards from "@/lib/mock-data/intel-cards.json";
 import contributors from "@/lib/mock-data/contributors.json";
 import bewares from "@/lib/mock-data/beware-entries.json";
 import communityPosts from "@/lib/mock-data/community-posts.json";
+import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
 
 export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
 
@@ -16,6 +17,8 @@ export default function HomePage() {
 
   return (
     <main>
+      <ExitIntentModal />
+
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section id="hero" className="relative overflow-hidden bg-warm-white px-6 pt-20 pb-16 md:pt-28 md:pb-24">
         {/* decorative top rule */}
