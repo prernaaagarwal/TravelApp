@@ -354,7 +354,67 @@ export default function HomePage() {
 
       {/* ── Community teaser ─────────────────────────────────────────── */}
       <section id="community" className="bg-warm-white px-6 py-16">
-        <p>Community teaser — Step 7 — {askPosts.length} posts loaded</p>
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-8 flex items-end justify-between">
+            <div>
+              <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
+                Community
+              </p>
+              <h2 className="font-serif text-3xl text-ink md:text-4xl">
+                Women asking the real questions.
+              </h2>
+            </div>
+            <Link
+              href="/community"
+              className="hidden font-mono text-xs uppercase tracking-widest text-rust hover:underline sm:block"
+            >
+              Join the conversation →
+            </Link>
+          </div>
+
+          <div className="space-y-3">
+            {askPosts.map((post) => (
+              <Link
+                key={post.id}
+                href="/community"
+                className="group flex flex-col gap-3 border border-ww-border bg-sand p-5 transition-shadow hover:shadow-sm sm:flex-row sm:items-start sm:gap-5"
+              >
+                {/* avatar placeholder */}
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rust-light font-mono text-sm font-semibold text-rust">
+                  {post.author[0]}
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <div className="mb-1.5 flex flex-wrap items-center gap-2">
+                    <span className="font-mono text-xs font-semibold text-ink">{post.author}</span>
+                    <span className="font-mono text-[10px] text-ww-muted">{post.homeCity}</span>
+                    {post.destination && (
+                      <span className="rounded-full bg-blue-light px-2 py-0.5 font-mono text-[10px] text-blue">
+                        {post.destination.replace("-india", "").replace("-", " ")}
+                      </span>
+                    )}
+                  </div>
+                  <p className="line-clamp-2 text-sm leading-relaxed text-ww-muted">
+                    {post.content}
+                  </p>
+                  <div className="mt-2 flex items-center gap-4 font-mono text-[10px] text-ww-muted">
+                    <span>{post.replyCount} replies</span>
+                    <span>{post.likeCount} found this helpful</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-6 sm:hidden">
+            <Link
+              href="/community"
+              className="font-mono text-xs uppercase tracking-widest text-rust hover:underline"
+            >
+              Join the conversation →
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* ── Contributor earnings showcase ─────────────────────────────── */}
