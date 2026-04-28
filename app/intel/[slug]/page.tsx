@@ -1,4 +1,10 @@
 import { notFound } from "next/navigation";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import intelCards from "@/lib/mock-data/intel-cards.json";
 import contributors from "@/lib/mock-data/contributors.json";
 
@@ -104,7 +110,63 @@ export default async function IntelPage({ params }: { params: Params }) {
             </ol>
           </section>
 
-          {/* sections 3–9 coming in next steps */}
+          {/* ── Neighborhoods ─────────────────────────────────────────── */}
+          <section>
+            <h2 className="mb-4 font-serif text-2xl text-ink">Where to stay</h2>
+
+            <Accordion type="multiple" className="space-y-2">
+              {card.neighborhoods.map((n, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`hood-${i}`}
+                  className="border border-ww-border bg-sand px-0"
+                >
+                  <AccordionTrigger className="px-4 py-3 hover:no-underline">
+                    <div className="flex flex-1 items-center gap-3 text-left">
+                      {/* safety dots */}
+                      <div className="flex shrink-0 gap-0.5">
+                        {Array.from({ length: 5 }).map((_, d) => (
+                          <span
+                            key={d}
+                            className={`h-2 w-2 rounded-full ${
+                              d < n.safetyRating
+                                ? n.safetyRating >= 4
+                                  ? "bg-sage"
+                                  : n.safetyRating === 3
+                                  ? "bg-gold"
+                                  : "bg-rust"
+                                : "bg-ww-border"
+                            }`}
+                          />
+                        ))}
+                      </div>
+
+                      <div className="min-w-0 flex-1">
+                        <span className="font-mono text-sm font-semibold text-ink">
+                          {n.name}
+                        </span>
+                        <span className="ml-2 font-mono text-[10px] text-ww-muted">
+                          {n.vibe}
+                        </span>
+                      </div>
+
+                      {n.stayHere && (
+                        <span className="shrink-0 rounded-full bg-sage-light px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-sage">
+                          Stay here
+                        </span>
+                      )}
+                    </div>
+                  </AccordionTrigger>
+
+                  <AccordionContent className="border-t border-ww-border px-4 pb-4 pt-3">
+                    <p className="text-sm leading-relaxed text-ww-muted">{n.notes}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </section>
+
+          {/* sections 4–9 coming in next steps */}
         </main>
 
         {/* ── Sticky sidebar ───────────────────────────────────────── */}
