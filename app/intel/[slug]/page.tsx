@@ -12,7 +12,9 @@ import { createClient } from "@/lib/supabase/server";
 type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
-  return intelCards.map((c) => ({ slug: c.slug }));
+  const supabase = await createClient();
+  const { data } = await supabase.from("intel_cards").select("slug");
+  return (data ?? []).map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
@@ -42,15 +44,17 @@ export default async function IntelPage({ params }: { params: Params }) {
     lastUpdated: raw.last_updated,
     verifiedByCount: raw.verified_by_count,
     heroImageUrl: raw.hero_image_url,
-    tldr: raw.tldr as string[],
-    neighborhoods: raw.neighborhoods as { name: string; safetyRating: number; vibe: string; notes: string; stayHere: string }[],
-    scams: raw.scams as { title: string; severity: string; where: string; what: string; avoid: string }[],
-    transport: raw.transport as { mode: string; tip: string; approxCost: string }[],
-    hiddenGems: raw.hidden_gems as { name: string; why: string; type: string; angle: string; approxCost: string }[],
-    preBookChecklist: raw.pre_book_checklist as string[],
-    dosAndDonts: raw.dos_and_donts as { do: string[]; dont: string[] },
-    estimatedDailyBudget: raw.estimated_daily_budget as { backpacker: number; midRange: number; comfortable: number },
-    emergencyNumbers: raw.emergency_numbers as { label: string; number: string }[],
+    tldr: raw.tldr as string[] | { summary: string; safetyRating?: string; topTip?: string },
+    neighborhoods: (raw.neighborhoods as { name: string; safetyRating: number; vibe: string; notes: string; stayHere: string }[]) ?? [],
+    scams: (raw.scams as { title: string; severity: string; where: string; what: string; avoid: string }[]) ?? [],
+    transport: (raw.transport as { mode: string; tip: string; approxCost: string }[]) ?? [],
+    hiddenGems: (raw.hidden_gems as { name: string; why: string; type: string; angle: string; approxCost: string }[]) ?? [],
+    preBookChecklist: (raw.pre_book_checklist as string[]) ?? [],
+    dosAndDonts: (raw.dos_and_donts as { do: string[]; dont: string[] }) ?? { do: [], dont: [] },
+    estimatedDailyBudget: raw.estimated_daily_budget as { backpacker: number; midRange: number; comfortable: number; currency?: string } | null,
+    emergencyNumbers: Array.isArray(raw.emergency_numbers)
+      ? (raw.emergency_numbers as { label: string; number: string }[])
+      : Object.entries((raw.emergency_numbers ?? {}) as Record<string, string>).map(([label, number]) => ({ label, number })),
     isPremium: raw.is_premium,
     premiumPreview: raw.premium_preview,
     affiliateLinks: raw.affiliate_links as { booking?: string; worldNomads?: string },
@@ -125,10 +129,17 @@ export default async function IntelPage({ params }: { params: Params }) {
             <span className="font-mono text-xs text-ww-muted">
               ✓ Verified by {card.verifiedByCount} travellers
             </span>
-            <span className="rounded-full bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-              {card.estimatedDailyBudget.backpacker.toLocaleString("en-IN")}–
-              {card.estimatedDailyBudget.comfortable.toLocaleString("en-IN")} ₹/day
-            </span>
+            {card.estimatedDailyBudget && (() => {
+              const b = card.estimatedDailyBudget;
+              const cur = b.currency ?? "INR";
+              const sym = cur === "INR" ? "₹" : cur === "EUR" ? "€" : "$";
+              const loc = cur === "INR" ? "en-IN" : "en-US";
+              return (
+                <span className="rounded-full bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                  {sym}{b.backpacker.toLocaleString(loc)}–{sym}{b.comfortable.toLocaleString(loc)}/{cur === "INR" ? "day" : "day"}
+                </span>
+              );
+            })()}
           </div>
 
           {/* ── TLDR ──────────────────────────────────────────────────── */}
@@ -136,21 +147,37 @@ export default async function IntelPage({ params }: { params: Params }) {
             <div className="mb-4 flex items-center gap-3">
               <div className="h-px flex-1 bg-ww-border" />
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-                5 things to know before you go
+                {Array.isArray(card.tldr) ? "5 things to know before you go" : "Before you go"}
               </span>
               <div className="h-px flex-1 bg-ww-border" />
             </div>
 
-            <ol className="space-y-3">
-              {card.tldr.map((point, i) => (
-                <li key={i} className="flex gap-4 border border-ww-border bg-sand p-4">
-                  <span className="mt-0.5 shrink-0 font-mono text-2xl font-light leading-none text-rust/30">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="text-sm leading-relaxed text-ink">{point}</p>
-                </li>
-              ))}
-            </ol>
+            {Array.isArray(card.tldr) ? (
+              <ol className="space-y-3">
+                {(card.tldr as string[]).map((point, i) => (
+                  <li key={i} className="flex gap-4 border border-ww-border bg-sand p-4">
+                    <span className="mt-0.5 shrink-0 font-mono text-2xl font-light leading-none text-rust/30">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-sm leading-relaxed text-ink">{point}</p>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <div className="space-y-3">
+                <div className="border border-ww-border bg-sand p-4">
+                  <p className="text-sm leading-relaxed text-ink">
+                    {(card.tldr as { summary: string }).summary}
+                  </p>
+                </div>
+                {(card.tldr as { topTip?: string }).topTip && (
+                  <div className="border border-ww-border bg-sage-light/30 p-4">
+                    <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-sage">Top tip</p>
+                    <p className="text-xs leading-relaxed text-ink">{(card.tldr as { topTip: string }).topTip}</p>
+                  </div>
+                )}
+              </div>
+            )}
           </section>
 
           {/* ── Neighborhoods ─────────────────────────────────────────── */}
@@ -319,48 +346,40 @@ export default async function IntelPage({ params }: { params: Params }) {
               Per person, per day. Includes stay, food, and local transport.
             </p>
 
-            {(() => {
+            {card.estimatedDailyBudget && (() => {
+              const b = card.estimatedDailyBudget;
+              const cur = b.currency ?? "INR";
+              const isINR = cur === "INR";
+              const sym = isINR ? "₹" : cur === "EUR" ? "€" : "$";
+              const loc = isINR ? "en-IN" : "en-US";
               const USD_RATE = 84;
               const tiers = [
-                {
-                  label: "Backpacker",
-                  inr: card.estimatedDailyBudget.backpacker,
-                  desc: "Dorm or budget guesthouse, street food, local buses",
-                  color: "border-l-sage",
-                },
-                {
-                  label: "Mid-range",
-                  inr: card.estimatedDailyBudget.midRange,
-                  desc: "Private room, sit-down meals, occasional Uber",
-                  color: "border-l-gold",
-                },
-                {
-                  label: "Comfortable",
-                  inr: card.estimatedDailyBudget.comfortable,
-                  desc: "Boutique hotel, restaurant dining, app taxis",
-                  color: "border-l-blue",
-                },
+                { label: "Backpacker", amount: b.backpacker, desc: "Dorm or budget guesthouse, street food, local buses", color: "border-l-sage" },
+                { label: "Mid-range", amount: b.midRange, desc: "Private room, sit-down meals, occasional Uber", color: "border-l-gold" },
+                { label: "Comfortable", amount: b.comfortable, desc: "Boutique hotel, restaurant dining, app taxis", color: "border-l-blue" },
               ];
+              const cols = isINR ? "grid-cols-[1fr_auto_auto]" : "grid-cols-[1fr_auto]";
               return (
                 <div className="divide-y divide-ww-border border border-ww-border bg-sand">
-                  {/* header row */}
-                  <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-4 py-2">
+                  <div className={`grid ${cols} gap-4 px-4 py-2`}>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Tier</span>
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">INR / day</span>
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">USD / day</span>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">{cur} / day</span>
+                    {isINR && <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">USD / day</span>}
                   </div>
                   {tiers.map((tier) => (
-                    <div key={tier.label} className={`grid grid-cols-[1fr_auto_auto] items-center gap-4 border-l-4 px-4 py-3 ${tier.color}`}>
+                    <div key={tier.label} className={`grid ${cols} items-center gap-4 border-l-4 px-4 py-3 ${tier.color}`}>
                       <div>
                         <p className="font-mono text-sm font-semibold text-ink">{tier.label}</p>
                         <p className="text-xs text-ww-muted">{tier.desc}</p>
                       </div>
                       <span className="font-mono text-sm font-semibold text-ink">
-                        ₹{tier.inr.toLocaleString("en-IN")}
+                        {sym}{tier.amount.toLocaleString(loc)}
                       </span>
-                      <span className="font-mono text-sm text-ww-muted">
-                        ${Math.round(tier.inr / USD_RATE)}
-                      </span>
+                      {isINR && (
+                        <span className="font-mono text-sm text-ww-muted">
+                          ${Math.round(tier.amount / USD_RATE)}
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -368,28 +387,34 @@ export default async function IntelPage({ params }: { params: Params }) {
             })()}
 
             {/* dos and don'ts */}
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <div className="border border-sage/30 bg-sage-light/30 p-4">
-                <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-sage">Do</p>
-                <ul className="space-y-1.5">
-                  {card.dosAndDonts.do.map((d, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs leading-relaxed text-ink">
-                      <span className="mt-0.5 shrink-0 text-sage">✓</span>{d}
-                    </li>
-                  ))}
-                </ul>
+            {((card.dosAndDonts?.do?.length ?? 0) > 0 || (card.dosAndDonts?.dont?.length ?? 0) > 0) && (
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {(card.dosAndDonts?.do?.length ?? 0) > 0 && (
+                  <div className="border border-sage/30 bg-sage-light/30 p-4">
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-sage">Do</p>
+                    <ul className="space-y-1.5">
+                      {card.dosAndDonts.do.map((d, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs leading-relaxed text-ink">
+                          <span className="mt-0.5 shrink-0 text-sage">✓</span>{d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {(card.dosAndDonts?.dont?.length ?? 0) > 0 && (
+                  <div className="border border-rust/30 bg-rust-light/30 p-4">
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-rust">Don&apos;t</p>
+                    <ul className="space-y-1.5">
+                      {card.dosAndDonts.dont.map((d, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs leading-relaxed text-ink">
+                          <span className="mt-0.5 shrink-0 text-rust">✕</span>{d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
-              <div className="border border-rust/30 bg-rust-light/30 p-4">
-                <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-rust">Don&apos;t</p>
-                <ul className="space-y-1.5">
-                  {card.dosAndDonts.dont.map((d, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs leading-relaxed text-ink">
-                      <span className="mt-0.5 shrink-0 text-rust">✕</span>{d}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            )}
           </section>
 
           {/* ── Premium locked section ────────────────────────────────── */}
