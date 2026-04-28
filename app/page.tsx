@@ -68,34 +68,18 @@ export default function HomePage() {
       </section>
 
       {/* ── Trust bar ────────────────────────────────────────────────── */}
-      <section id="trust" className="border-y border-ww-border bg-sand px-6 py-6">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 sm:flex-row sm:justify-between">
-          {/* avatars + stat */}
-          <div className="flex items-center gap-3">
-            <div className="flex -space-x-2">
-              {featuredContributors.map((c) => (
-                <img
-                  key={c.slug}
-                  src={c.photoUrl}
-                  alt={c.name}
-                  className="h-9 w-9 rounded-full border-2 border-sand object-cover"
-                />
-              ))}
-            </div>
-            <p className="font-mono text-xs text-ink">
-              Built by <span className="font-semibold">47 women.</span>
-            </p>
-          </div>
-
-          {/* divider — desktop only */}
-          <div className="hidden h-6 w-px bg-ww-border sm:block" />
-
-          {/* trust stats */}
-          <div className="flex flex-wrap gap-x-6 gap-y-1 font-mono text-xs text-ww-muted">
-            <span><strong className="text-ink">1,200+</strong> travellers trust this</span>
-            <span><strong className="text-ink">15</strong> destinations</span>
-            <span><strong className="text-ink">250+</strong> scam reports</span>
-          </div>
+      <section id="trust" className="border-y border-ww-border bg-sand px-6 py-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
+            V0 — Founding stage
+          </p>
+          <p className="font-serif text-xl leading-relaxed text-ink md:text-2xl">
+            Built by one founder with{" "}
+            <span className="text-rust">7 years</span> of solo travel experience in India.
+          </p>
+          <p className="mt-3 font-mono text-xs leading-relaxed text-ww-muted">
+            Be one of the first <span className="text-ink">200 founding members</span> who shape what this becomes.
+          </p>
         </div>
       </section>
 
