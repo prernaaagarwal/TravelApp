@@ -419,7 +419,68 @@ export default function HomePage() {
 
       {/* ── Contributor earnings showcase ─────────────────────────────── */}
       <section id="contributors" className="bg-sand px-6 py-16">
-        <p>Contributor showcase — Step 8</p>
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-8 flex items-end justify-between">
+            <div>
+              <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
+                For contributors
+              </p>
+              <h2 className="font-serif text-3xl text-ink md:text-4xl">
+                Write what you know. Get paid.
+              </h2>
+            </div>
+            <Link
+              href="/coming-soon"
+              className="hidden font-mono text-xs uppercase tracking-widest text-rust hover:underline sm:block"
+            >
+              Apply to contribute →
+            </Link>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+            {featuredContributors.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/contributor/${c.slug}`}
+                className="group flex flex-col gap-3 border border-ww-border bg-warm-white p-4 transition-shadow hover:shadow-sm"
+              >
+                <div className="flex items-center gap-3">
+                  <img
+                    src={c.photoUrl}
+                    alt={c.name}
+                    className="h-10 w-10 rounded-full object-cover"
+                  />
+                  <div className="min-w-0">
+                    <p className="font-mono text-sm font-semibold text-ink">{c.name}</p>
+                    <p className="truncate font-mono text-[10px] text-ww-muted">{c.homeCity}</p>
+                  </div>
+                </div>
+
+                <p className="line-clamp-2 text-xs leading-relaxed text-ww-muted">
+                  {c.tagline}
+                </p>
+
+                {/* earnings — the contributor pitch */}
+                <div className="mt-auto border-t border-ww-border pt-3">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                    Earnings this month
+                  </p>
+                  <p className="font-mono text-lg font-semibold text-sage">
+                    ₹{c.earningsThisMonth.toLocaleString("en-IN")}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <p className="mt-6 font-mono text-xs text-ww-muted">
+            Contributors earn when members read and cite their cards.
+            Founding contributors earn 2× for the first 12 months.{" "}
+            <Link href="/coming-soon" className="text-rust hover:underline">
+              Apply now →
+            </Link>
+          </p>
+        </div>
       </section>
 
       {/* ── Founding membership email capture ────────────────────────── */}
