@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { PreBookChecklist } from "@/components/intel/PreBookChecklist";
 import {
   Accordion,
   AccordionContent,
@@ -260,7 +261,16 @@ export default async function IntelPage({ params }: { params: Params }) {
             </div>
           </section>
 
-          {/* sections 6–9 coming in next steps */}
+          {/* ── Pre-book checklist ────────────────────────────────────── */}
+          <section>
+            <h2 className="mb-1 font-serif text-2xl text-ink">Before you go</h2>
+            <p className="mb-4 font-mono text-xs text-ww-muted">
+              Tick these off. Progress saves automatically.
+            </p>
+            <PreBookChecklist items={card.preBookChecklist} slug={card.slug} />
+          </section>
+
+          {/* sections 7–9 coming in next steps */}
         </main>
 
         {/* ── Sticky sidebar ───────────────────────────────────────── */}
