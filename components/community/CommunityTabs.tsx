@@ -65,10 +65,10 @@ const TAB_META = {
   beware: {
     label: "Beware Board",
     short: "Beware",
-    placeholder: "Report a scam",
+    placeholder: "Report a scam or safety issue",
     cta: "Report a scam",
     blurb:
-      "Verified scam reports from solo women. All entries are illustrative; demo data only.",
+      "Verified scam reports from solo women. Reviewed before going live.",
   },
 } as const;
 
@@ -120,19 +120,23 @@ export function CommunityTabs({
             </p>
 
             {/* compose */}
-            {userEmail ? (
+            {key === "beware" ? (
+              <Link
+                href={userEmail ? "/contribute/report" : "/account/login?next=/contribute/report"}
+                className="mb-6 flex items-center justify-between border border-dashed border-rust/40 bg-rust/5 px-4 py-3 hover:border-rust transition-colors"
+              >
+                <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-rust">{meta.cta} →</span>
+              </Link>
+            ) : userEmail ? (
               <ComposeForm tab={key} placeholder={meta.placeholder} cta={meta.cta} />
             ) : (
               <Link
-                href={`/account/login?next=/community`}
+                href="/account/login?next=/community"
                 className="mb-6 flex items-center justify-between border border-dashed border-ww-border bg-sand px-4 py-3 hover:border-ink transition-colors"
               >
-                <span className="font-mono text-xs text-ww-muted">
-                  {meta.placeholder}
-                </span>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
-                  Sign in to post →
-                </span>
+                <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-rust">Sign in to post →</span>
               </Link>
             )}
 
