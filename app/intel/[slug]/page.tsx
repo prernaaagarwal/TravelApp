@@ -270,7 +270,144 @@ export default async function IntelPage({ params }: { params: Params }) {
             <PreBookChecklist items={card.preBookChecklist} slug={card.slug} />
           </section>
 
-          {/* sections 7–9 coming in next steps */}
+          {/* ── Money tiers ───────────────────────────────────────────── */}
+          <section>
+            <h2 className="mb-1 font-serif text-2xl text-ink">Daily budget</h2>
+            <p className="mb-4 font-mono text-xs text-ww-muted">
+              Per person, per day. Includes stay, food, and local transport.
+            </p>
+
+            {(() => {
+              const USD_RATE = 84;
+              const tiers = [
+                {
+                  label: "Backpacker",
+                  inr: card.estimatedDailyBudget.backpacker,
+                  desc: "Dorm or budget guesthouse, street food, local buses",
+                  color: "border-l-sage",
+                },
+                {
+                  label: "Mid-range",
+                  inr: card.estimatedDailyBudget.midRange,
+                  desc: "Private room, sit-down meals, occasional Uber",
+                  color: "border-l-gold",
+                },
+                {
+                  label: "Comfortable",
+                  inr: card.estimatedDailyBudget.comfortable,
+                  desc: "Boutique hotel, restaurant dining, app taxis",
+                  color: "border-l-blue",
+                },
+              ];
+              return (
+                <div className="divide-y divide-ww-border border border-ww-border bg-sand">
+                  {/* header row */}
+                  <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-4 py-2">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Tier</span>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">INR / day</span>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">USD / day</span>
+                  </div>
+                  {tiers.map((tier) => (
+                    <div key={tier.label} className={`grid grid-cols-[1fr_auto_auto] items-center gap-4 border-l-4 px-4 py-3 ${tier.color}`}>
+                      <div>
+                        <p className="font-mono text-sm font-semibold text-ink">{tier.label}</p>
+                        <p className="text-xs text-ww-muted">{tier.desc}</p>
+                      </div>
+                      <span className="font-mono text-sm font-semibold text-ink">
+                        ₹{tier.inr.toLocaleString("en-IN")}
+                      </span>
+                      <span className="font-mono text-sm text-ww-muted">
+                        ${Math.round(tier.inr / USD_RATE)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              );
+            })()}
+
+            {/* dos and don'ts */}
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="border border-sage/30 bg-sage-light/30 p-4">
+                <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-sage">Do</p>
+                <ul className="space-y-1.5">
+                  {card.dosAndDonts.do.map((d, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs leading-relaxed text-ink">
+                      <span className="mt-0.5 shrink-0 text-sage">✓</span>{d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="border border-rust/30 bg-rust-light/30 p-4">
+                <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-rust">Don&apos;t</p>
+                <ul className="space-y-1.5">
+                  {card.dosAndDonts.dont.map((d, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs leading-relaxed text-ink">
+                      <span className="mt-0.5 shrink-0 text-rust">✕</span>{d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* ── Premium locked section ────────────────────────────────── */}
+          {card.isPremium && (
+            <section className="relative overflow-hidden border border-ww-border">
+              {/* blurred preview content */}
+              <div className="select-none blur-sm pointer-events-none p-6 space-y-3 bg-sand">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                  Founding member intel
+                </p>
+                <p className="font-mono text-sm text-ink">{card.premiumPreview}</p>
+                <div className="space-y-2">
+                  {["Best women-only hostels with verified reviews", "Local women's WhatsApp groups to join before you arrive", "Insider safety hacks from 12 contributors"].map((line, i) => (
+                    <p key={i} className="flex gap-2 text-xs text-ww-muted">
+                      <span className="text-gold">✦</span>{line}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* lock overlay */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-ink/60 px-6 text-center">
+                <span className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+                  Founding members only
+                </span>
+                <p className="mb-4 font-serif text-xl text-warm-white">
+                  Unlock the full card
+                </p>
+                <a
+                  href="/coming-soon"
+                  className="border border-gold bg-transparent px-6 py-2.5 font-mono text-xs uppercase tracking-widest text-gold hover:bg-gold hover:text-ink transition-colors"
+                >
+                  Join for ₹499 / year →
+                </a>
+              </div>
+            </section>
+          )}
+
+          {/* ── Emergency numbers ─────────────────────────────────────── */}
+          <section>
+            <h2 className="mb-1 font-serif text-2xl text-ink">Emergency contacts</h2>
+            <p className="mb-4 font-mono text-xs text-ww-muted">
+              Save these before you travel. Screenshot this section.
+            </p>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {card.emergencyNumbers.map((e, i) => (
+                <div key={i} className="flex items-center justify-between border border-ww-border bg-sand px-4 py-3">
+                  <span className="font-mono text-xs text-ww-muted">{e.label}</span>
+                  <a
+                    href={`tel:${e.number}`}
+                    className="font-mono text-sm font-semibold text-rust hover:underline"
+                  >
+                    {e.number}
+                  </a>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* section 9 coming in next step */}
         </main>
 
         {/* ── Sticky sidebar ───────────────────────────────────────── */}
