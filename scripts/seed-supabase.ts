@@ -10,13 +10,12 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!url || !key) {
   console.error(
-    "Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY.\n" +
-      "Make sure .env.local is present and run:\n" +
-      "  source .env.local  (or use dotenv-cli)\n"
+    "Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY.\n" +
+      "Make sure .env.local is present.\n"
   );
   process.exit(1);
 }
