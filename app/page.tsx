@@ -1,3 +1,4 @@
+import Link from "next/link";
 import intelCards from "@/lib/mock-data/intel-cards.json";
 import contributors from "@/lib/mock-data/contributors.json";
 import bewares from "@/lib/mock-data/beware-entries.json";
@@ -17,8 +18,54 @@ export default function HomePage() {
   return (
     <main>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section id="hero" className="bg-warm-white px-6 py-20 md:py-28">
-        <p>Hero — Step 2</p>
+      <section id="hero" className="relative overflow-hidden bg-warm-white px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+        {/* decorative top rule */}
+        <div className="mx-auto mb-8 max-w-4xl">
+          <div className="h-px w-12 bg-rust" />
+        </div>
+
+        <div className="mx-auto max-w-4xl">
+          {/* eyebrow */}
+          <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
+            Women-only · Solo travel intelligence · India
+          </p>
+
+          {/* headline — Cormorant, ~64px on desktop */}
+          <h1 className="mb-6 font-serif text-5xl leading-[1.1] tracking-tight text-ink md:text-7xl">
+            Trip intel written by women who{" "}
+            <em className="not-italic text-rust">actually</em> travel solo.
+          </h1>
+
+          {/* subline */}
+          <p className="mb-10 max-w-2xl text-base leading-relaxed text-ww-muted md:text-lg">
+            Real scam warnings, neighbourhood safety ratings, and hidden gems —
+            researched and verified by 47 Indian women who live these routes.
+            Not a listicle. Not a press trip.
+          </p>
+
+          {/* dual CTA */}
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link
+              href="/onboarding?path=indian"
+              className="inline-flex items-center justify-center gap-2 rounded-none bg-rust px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
+            >
+              I travel India as an Indian woman
+              <span aria-hidden>→</span>
+            </Link>
+            <Link
+              href="/onboarding?path=foreign"
+              className="inline-flex items-center justify-center gap-2 rounded-none border border-ink px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-ink hover:text-warm-white"
+            >
+              I&apos;m visiting India from abroad
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+
+          {/* micro trust line */}
+          <p className="mt-8 font-mono text-xs text-ww-muted">
+            Free to browse · Founding membership ₹499 · No spam, ever
+          </p>
+        </div>
       </section>
 
       {/* ── Trust bar ────────────────────────────────────────────────── */}
