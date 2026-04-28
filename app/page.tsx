@@ -12,7 +12,6 @@ export default function HomePage() {
     ["goa-india", "rishikesh-india", "jaipur-india"].includes(c.slug)
   );
   const featuredContributors = contributors.slice(0, 4);
-  const tickerEntries = bewares.slice(0, 15);
   const askPosts = communityPosts.filter((p) => p.tab === "ask").slice(0, 3);
 
   return (
@@ -92,7 +91,7 @@ export default function HomePage() {
           <div className="hidden h-6 w-px bg-ww-border sm:block" />
 
           {/* trust stats */}
-          <div className="flex gap-6 font-mono text-xs text-ww-muted">
+          <div className="flex flex-wrap gap-x-6 gap-y-1 font-mono text-xs text-ww-muted">
             <span><strong className="text-ink">1,200+</strong> travellers trust this</span>
             <span><strong className="text-ink">15</strong> destinations</span>
             <span><strong className="text-ink">250+</strong> scam reports</span>
@@ -516,7 +515,7 @@ export default function HomePage() {
               name="email"
               required
               placeholder="your@email.com"
-              className="flex-1 border border-warm-white/20 bg-warm-white/5 px-4 py-3 font-mono text-sm text-warm-white placeholder-warm-white/30 outline-none focus:border-rust"
+              className="flex-1 border border-warm-white/20 bg-warm-white/5 px-4 py-3 font-mono text-base text-warm-white placeholder-warm-white/30 outline-none focus:border-rust"
             />
             <input type="hidden" name="source" value="landing-founding" />
             <button
