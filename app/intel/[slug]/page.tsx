@@ -407,7 +407,106 @@ export default async function IntelPage({ params }: { params: Params }) {
             </div>
           </section>
 
-          {/* section 9 coming in next step */}
+          {/* ── Affiliate links ───────────────────────────────────────── */}
+          <section className="grid gap-3 sm:grid-cols-2">
+            <a
+              href={card.affiliateLinks.booking}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between border border-ww-border bg-blue-light px-4 py-3 hover:bg-blue/10 transition-colors"
+            >
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-blue">
+                  Booking.com
+                </p>
+                <p className="font-mono text-xs text-ink">
+                  Browse stays in {card.destination} →
+                </p>
+              </div>
+              <span className="shrink-0 text-blue">↗</span>
+            </a>
+            <a
+              href={card.affiliateLinks.worldNomads}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between border border-ww-border bg-sage-light px-4 py-3 hover:bg-sage/10 transition-colors"
+            >
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-sage">
+                  World Nomads
+                </p>
+                <p className="font-mono text-xs text-ink">
+                  Travel insurance for {card.country} →
+                </p>
+              </div>
+              <span className="shrink-0 text-sage">↗</span>
+            </a>
+          </section>
+
+          {/* ── Full contributor card ─────────────────────────────────── */}
+          {contributor && (
+            <section className="border border-ww-border bg-sand p-6">
+              <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
+                About the contributor
+              </p>
+              <div className="flex items-start gap-4">
+                <img
+                  src={contributor.photoUrl}
+                  alt={contributor.name}
+                  className="h-14 w-14 shrink-0 rounded-full object-cover"
+                />
+                <div className="min-w-0 flex-1">
+                  <p className="font-mono text-sm font-semibold text-ink">
+                    {contributor.fullName}
+                  </p>
+                  <p className="font-mono text-xs text-ww-muted">
+                    {contributor.homeCity} · {contributor.tripCount} solo trips
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {contributor.badges.map((badge) => (
+                      <span
+                        key={badge}
+                        className="rounded-full bg-rust-light px-2 py-0.5 font-mono text-[10px] text-rust"
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="mt-4 text-xs leading-relaxed text-ww-muted">
+                {contributor.bio.split("\n")[0]}
+              </p>
+              <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-ww-border pt-4">
+                <div className="flex gap-6">
+                  <div>
+                    <p className="font-mono text-lg font-light text-ink">
+                      {contributor.totalContributions}
+                    </p>
+                    <p className="font-mono text-[10px] text-ww-muted">cards written</p>
+                  </div>
+                  <div>
+                    <p className="font-mono text-lg font-light text-ink">
+                      {contributor.answersInCommunity}
+                    </p>
+                    <p className="font-mono text-[10px] text-ww-muted">community answers</p>
+                  </div>
+                  <div>
+                    <p className="font-mono text-lg font-light text-sage">
+                      ₹{contributor.earningsThisMonth.toLocaleString("en-IN")}
+                    </p>
+                    <p className="font-mono text-[10px] text-ww-muted">earned this month</p>
+                  </div>
+                </div>
+                <a
+                  href={`/contributor/${contributor.slug}`}
+                  className="font-mono text-[10px] uppercase tracking-widest text-rust hover:underline"
+                >
+                  Full profile →
+                </a>
+              </div>
+            </section>
+          )}
         </main>
 
         {/* ── Sticky sidebar ───────────────────────────────────────── */}
