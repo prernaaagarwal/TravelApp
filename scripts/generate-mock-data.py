@@ -958,3 +958,143 @@ card(
     affiliates={"booking": "https://www.booking.com/searchresults.html?ss=Kochi&aid=PLACEHOLDER"},
 ),
 
+# 14 ── KASOL ──────────────────────────────────────────────────────────────────
+card(
+    "kasol-india", "Kasol", "indian", "ananya-mumbai", 7,
+    "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=800&q=80",
+    tldr=[
+        "Kasol is a tiny Parvati Valley village — the trek culture is real but the drug culture is equally real; know what you're walking into.",
+        "The Kheerganga hot spring trek (13km one way) is the single reason most people come — start at 6am.",
+        "Kasol village itself takes 2 hours to walk end to end; the charm is the river, the cafés, and the pine forest.",
+        "Israeli-influenced food scene is excellent — hummus and shakshuka at 2,000m are genuinely good.",
+        "Mobile signal disappears 2km past Kasol; download offline maps and tell someone your itinerary.",
+    ],
+    hoods=[
+        hood("Kasol main village", 4, "Cafés, guesthouses, river views, trailhead", True,
+             "Everything is within a 10-minute walk. Stay on the main street for the best guesthouse options."),
+        hood("Chalal (15-min walk)", 4, "Quieter, riverside, local feel", True,
+             "Cross the bridge from Kasol and walk 15 minutes. Fewer tourists, better views, same trail access."),
+    ],
+    scams=[
+        scm("Drug-laced food", "critical", "Cafés and guesthouses",
+            "Cannabis added to food (brownies, lassi, tea) without clear labelling. Disorientation in remote terrain is dangerous.",
+            "Order only clearly described items. If a café has a 'special menu' in whispers, leave. Ask explicitly: does this contain anything?"),
+        scm("Fake trek guide", "medium", "Kasol village, near trailhead",
+            "Unregistered guides offer Kheerganga treks; take groups off-route or abandon mid-trail.",
+            "Hire through your guesthouse or registered trek agencies in Bhuntar. Ask for local ID and previous client contacts."),
+        scm("Overpriced guesthouse at arrival", "low", "Bus drop point",
+            "Touts at the bus stop claim the 'best' guesthouses are full and take you to commission properties.",
+            "Walk 5 minutes past the drop point independently. Almost no guesthouse is full except Diwali/Holi weekends."),
+    ],
+    transport=[
+        trn("HRTC bus (Bhuntar → Kasol)", "Last bus around 6pm. From Bhuntar, which is on Delhi–Manali highway.", "₹40–60"),
+        trn("Shared taxi (Bhuntar → Kasol)", "Faster than bus. Fills up at Bhuntar bus stand.", "₹80–120/seat"),
+        trn("Trek (Kasol → Kheerganga)", "13km one way, 4–5 hours up. No vehicle access beyond Nakthan village.", "Guide ₹800–1,200/day"),
+    ],
+    gems=[
+        gem("Kheerganga hot spring", "Trek + natural hot spring", "The whole point of Kasol",
+            "13km trek through pine and rhododendron forest ends at sulphur hot springs at 2,960m. Camp overnight for the stars.", "Trek free; camping ₹200–400/night"),
+        gem("Chalal riverside walk", "Forest walk", "20 minutes, zero effort",
+            "Cross the bridge, follow the river. Pine-scented, cold, quiet. Best at 7am before the café crowd wakes.", "Free"),
+        gem("Moon Dance Café, Kasol", "Café", "Best hummus at altitude",
+            "Israeli-run café with proper shakshuka, hummus, and filter coffee. Solar-powered. Seats 15. Opens 8am.", "Meal ₹250–450"),
+    ],
+    checklist=[
+        "Download offline Parvati Valley map on Maps.me — no signal past Kasol",
+        "Tell your guesthouse your trek route and expected return time",
+        "Carry water purification tablets — no reliable clean water source on Kheerganga trail",
+        "Pack warm layers — temperature drops to 5°C at night even in July",
+        "Start Kheerganga trek no later than 7am to reach top before clouds close in",
+    ],
+    dos=[
+        "Start the Kheerganga trek at 6–7am for clear skies and cooler temperatures",
+        "Stay in Chalal for quieter, cheaper, and more scenic guesthouse experience",
+        "Tell someone (guesthouse, family) your exact trek plan before departing",
+        "Carry a portable charger — no charging points on the Kheerganga trail",
+    ],
+    donts=[
+        "Eat anything described as 'special' without asking explicitly what's in it",
+        "Trek solo above Nakthan without a guide if it's your first Himalayan trek",
+        "Leave Kasol after 4pm for Kheerganga — you will not reach before dark",
+        "Assume the trail is marked — it is not consistently marked beyond Nakthan",
+    ],
+    budget={"backpacker": 1200, "midRange": 2500, "comfortable": 5000},
+    emergency=[emg("Kasol Police Post", "01902-265004"), emg("Women's Helpline", "1091"),
+               emg("Kullu District Hospital", "01902-222339"), emg("Mountain Rescue", "112")],
+    affiliates={"worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"},
+),
+
+# 15 ── HAMPI ──────────────────────────────────────────────────────────────────
+card(
+    "hampi-india", "Hampi", "both", "devika-pune", 9,
+    "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80",
+    tldr=[
+        "Hampi is a UNESCO World Heritage Site spread across 4,100 hectares of boulder landscape — rent a bicycle.",
+        "The main bazaar side and Virupapuragadde (across the river) are two different worlds; most backpackers prefer the island side.",
+        "Sunrise at Matanga Hill (400 steps) is the single best thing to do in Hampi — set your alarm for 5:30am.",
+        "Hampi has no ATMs on the island side — withdraw cash in Hospet (13km) before arriving.",
+        "The boulder landscape at sunset turns amber-gold; the Royal Enclosure at 4pm is completely empty.",
+    ],
+    hoods=[
+        hood("Hampi Bazaar (temple side)", 4, "Near Virupaksha Temple, guesthouses, restaurants", True,
+             "Best for temple access and sunrise on Matanga Hill. Mango Tree restaurant is here. Safe and walkable."),
+        hood("Virupapuragadde (island side)", 4, "Backpacker vibe, river views, sunsets, quieter", True,
+             "Cross the coracle (₹20). More relaxed, better sunsets, good cafés. No ATMs — carry all cash."),
+    ],
+    scams=[
+        scm("Coracle price inflation", "low", "River crossing between temple and island sides",
+            "Official coracle fare is ₹20; touts charge ₹100–200 to first-timers.",
+            "Fixed government rate is ₹20 per person. Join the queue at the official ghat and pay only ₹20."),
+        scm("Bicycle rental damage claim", "medium", "Rental shops both sides",
+            "Pre-existing damage cited on return; deposit held.",
+            "Photograph the bicycle before riding. Rentals are cheap enough (₹100/day) to not need a deposit — decline shops that demand one."),
+        scm("Guide 'royal tour' overcharge", "low", "Near Royal Enclosure, Vijayanagara ruins",
+            "Self-appointed guides approach at major ruins and quote ₹2,000+ for basic walking tour.",
+            "ASI-licensed guides are available through the ASI booth near Virupaksha Temple at fixed rates. Or use a good guidebook."),
+    ],
+    transport=[
+        trn("Bicycle hire", "The only sensible way to see Hampi. Both sides have rentals.", "₹100–150/day"),
+        trn("Coracle (river crossing)", "Flat-bottomed boat, ₹20 fixed rate. Runs 6am–6pm approx.", "₹20"),
+        trn("Auto-rickshaw (Hospet ↔ Hampi)", "For arriving/departing with luggage. 13km.", "₹150–250"),
+    ],
+    gems=[
+        gem("Matanga Hill sunrise", "Viewpoint trek", "400 steps, unmissable",
+            "Best view in Hampi — the entire UNESCO landscape turns amber at dawn. Arrive by 6am. Safe, well-trodden path.", "Free"),
+        gem("Vittala Temple and Stone Chariot", "UNESCO temple complex", "Best ruins in Hampi",
+            "Musical pillars and the iconic stone chariot. Go at 8am opening — you'll have it almost to yourself before 10am bus tours arrive.", "₹600 entry (foreigners); ₹40 (Indian)"),
+        gem("Mango Tree restaurant", "Restaurant", "30-year Hampi institution",
+            "Platforms over the river, banana leaf thalis, backpacker crowd. The Hampi ritual — lunch here after the morning ruins walk.", "Thali ₹180–300"),
+    ],
+    checklist=[
+        "Withdraw all cash in Hospet before arriving — no ATMs on island side",
+        "Rent bicycle on arrival — it is the only way to cover the site properly",
+        "Set alarm for 5:30am on at least one morning for Matanga Hill sunrise",
+        "Carry 2L water minimum — Hampi in April–June is extremely hot",
+        "Check KSRTC bus or train times from Hospet to next destination before arriving",
+    ],
+    dos=[
+        "Cross to the island side (Virupapuragadde) for at least one sunset",
+        "Visit Vittala Temple at 8am opening before the group tours arrive at 10am",
+        "Photograph your bicycle before riding to avoid any damage dispute",
+        "Ask Devika's Hampi heritage walk recommendation at your guesthouse — local guides make the ruins come alive",
+    ],
+    donts=[
+        "Pay more than ₹20 for the coracle river crossing — it is a fixed government rate",
+        "Arrive in Hampi without cash — the island side has zero ATMs",
+        "Visit the boulder landscape in the middle of the day in summer — heat is dangerous",
+        "Skip the lesser-visited Zenana Enclosure and Elephant Stables — they are empty of tourists and extraordinary",
+    ],
+    budget={"backpacker": 1200, "midRange": 2800, "comfortable": 6000},
+    emergency=[emg("Hampi Police", "08394-241249"), emg("Women's Helpline", "1091"),
+               emg("Hospet Government Hospital", "08394-228526"), emg("Ambulance", "108")],
+    affiliates={"booking": "https://www.booking.com/searchresults.html?ss=Hampi&aid=PLACEHOLDER"},
+),
+
+] # ── end of intel_cards list ──────────────────────────────────────────────────
+
+with open(f"{OUT}/intel-cards.json", "w", encoding="utf-8") as f:
+    json.dump(intel_cards, f, indent=2, ensure_ascii=False)
+print(f"✓ intel-cards.json — {len(intel_cards)} cards written")
+
+# ── beware entries + community posts will be appended below ──────────────────
+
