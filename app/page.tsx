@@ -403,67 +403,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Contributor earnings showcase ─────────────────────────────── */}
+      {/* ── Contributor model ─────────────────────────────────────────── */}
       <section id="contributors" className="bg-sand px-6 py-16">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-8 flex items-end justify-between">
+          <div className="mb-8">
+            <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
+              For contributors
+            </p>
+            <h2 className="font-serif text-3xl text-ink md:text-4xl">
+              Write what you know.
+            </h2>
+            <p className="mt-3 max-w-xl font-mono text-sm leading-relaxed text-ww-muted">
+              We&apos;re looking for the first founding contributors — women who
+              know one route or city deeply and want to share what guidebooks miss.
+            </p>
+          </div>
+
+          <div className="grid gap-3 border border-ww-border bg-warm-white p-6 sm:grid-cols-3">
             <div>
-              <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
-                For contributors
+              <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">01</p>
+              <p className="font-mono text-sm font-semibold text-ink">You write</p>
+              <p className="mt-1 text-xs leading-relaxed text-ww-muted">
+                One Trip Intel Card on a city or route you&apos;ve travelled solo
+                more than three times.
               </p>
-              <h2 className="font-serif text-3xl text-ink md:text-4xl">
-                Write what you know. Get paid.
-              </h2>
             </div>
-            <Link
-              href="/coming-soon"
-              className="hidden font-mono text-xs uppercase tracking-widest text-rust hover:underline sm:block"
-            >
-              Apply to contribute →
-            </Link>
+            <div>
+              <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">02</p>
+              <p className="font-mono text-sm font-semibold text-ink">We publish</p>
+              <p className="mt-1 text-xs leading-relaxed text-ww-muted">
+                Your name, photo, and bio on the card. You&apos;re credited
+                everywhere it&apos;s shared.
+              </p>
+            </div>
+            <div>
+              <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">03</p>
+              <p className="font-mono text-sm font-semibold text-ink">You earn</p>
+              <p className="mt-1 text-xs leading-relaxed text-ww-muted">
+                Revenue share when founding members read and cite your card.
+                We&apos;ll publish the per-card numbers once we have real data.
+              </p>
+            </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-            {featuredContributors.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/contributor/${c.slug}`}
-                className="group flex flex-col gap-3 border border-ww-border bg-warm-white p-4 transition-shadow hover:shadow-sm"
-              >
-                <div className="flex items-center gap-3">
-                  <img
-                    src={c.photoUrl}
-                    alt={c.name}
-                    className="h-10 w-10 rounded-full object-cover"
-                  />
-                  <div className="min-w-0">
-                    <p className="font-mono text-sm font-semibold text-ink">{c.name}</p>
-                    <p className="truncate font-mono text-[10px] text-ww-muted">{c.homeCity}</p>
-                  </div>
-                </div>
-
-                <p className="line-clamp-2 text-xs leading-relaxed text-ww-muted">
-                  {c.tagline}
-                </p>
-
-                {/* earnings — the contributor pitch */}
-                <div className="mt-auto border-t border-ww-border pt-3">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-                    Earnings this month
-                  </p>
-                  <p className="font-mono text-lg font-semibold text-sage">
-                    ₹{c.earningsThisMonth.toLocaleString("en-IN")}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <p className="mt-6 font-mono text-xs text-ww-muted">
-            Contributors earn when members read and cite their cards.
-            Founding contributors earn 2× for the first 12 months.{" "}
+          <p className="mt-6 font-mono text-xs leading-relaxed text-ww-muted">
+            We&apos;re not promising a number until we&apos;ve paid one out.
+            Founding contributors get 2× the standard share for life.{" "}
             <Link href="/coming-soon" className="text-rust hover:underline">
-              Apply now →
+              Apply to be a founding contributor →
             </Link>
           </p>
         </div>

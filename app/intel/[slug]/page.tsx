@@ -588,10 +588,10 @@ export default async function IntelPage({ params }: { params: Params }) {
                     <p className="font-mono text-[10px] text-ww-muted">community answers</p>
                   </div>
                   <div>
-                    <p className="font-mono text-lg font-light text-sage">
-                      ₹{contributor.earningsThisMonth.toLocaleString("en-IN")}
+                    <p className="font-mono text-lg font-light text-ink">
+                      {contributor.tripCount}
                     </p>
-                    <p className="font-mono text-[10px] text-ww-muted">earned this month</p>
+                    <p className="font-mono text-[10px] text-ww-muted">solo trips</p>
                   </div>
                 </div>
                 <a

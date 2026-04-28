@@ -14,7 +14,7 @@ const ROUTES = [
   { label: "Trip Feed", href: "/feed", desc: "12 real itineraries with cost breakdowns" },
   { label: "Find a Buddy", href: "/buddy", desc: "Buddy matching with overlap tags" },
   { label: "Vault", href: "/vault", desc: "WhatsApp document vault upsell" },
-  { label: "Contributor profile", href: "/contributor/ananya-mumbai", desc: "Ananya — ₹2,400 earned this month" },
+  { label: "Contributor profile", href: "/contributor/ananya-mumbai", desc: "Public profile — bio, badges, cards written" },
   { label: "Onboarding", href: "/onboarding", desc: "3-question flow → personalised intel card" },
   { label: "Safety Shop", href: "/shop", desc: "10 affiliate products — Amazon Associates" },
 ];

@@ -106,23 +106,14 @@ export default async function ContributorPage({ params }: { params: Params }) {
 
       {/* ── Stats bar ──────────────────────────────────────────────── */}
       <div className="border-b border-ww-border bg-sand">
-        <div className="mx-auto grid max-w-3xl grid-cols-2 divide-x divide-ww-border sm:grid-cols-4">
+        <div className="mx-auto grid max-w-3xl grid-cols-3 divide-x divide-ww-border">
           {[
             { value: contributor.tripCount, label: "solo trips" },
             { value: contributor.totalContributions, label: "cards written" },
             { value: contributor.answersInCommunity, label: "community answers" },
-            {
-              value: `₹${contributor.earningsThisMonth.toLocaleString("en-IN")}`,
-              label: "earned this month",
-              highlight: true,
-            },
           ].map((stat) => (
             <div key={stat.label} className="px-6 py-5 text-center">
-              <p
-                className={`font-serif text-2xl font-light ${
-                  stat.highlight ? "text-sage" : "text-ink"
-                }`}
-              >
+              <p className="font-serif text-2xl font-light text-ink">
                 {stat.value}
               </p>
               <p className="font-mono text-[10px] text-ww-muted">{stat.label}</p>
@@ -225,15 +216,15 @@ export default async function ContributorPage({ params }: { params: Params }) {
         {/* ── Contributor CTA ──────────────────────────────────────── */}
         <section className="border border-gold/40 bg-gold-light p-6">
           <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-gold">
-            Earn like {contributor.name}
+            Write like {contributor.name}
           </p>
           <h3 className="mb-2 font-serif text-2xl text-ink">
             Become a founding contributor
           </h3>
           <p className="mb-4 font-mono text-xs leading-relaxed text-ww-muted">
-            Share your travel intel, earn from every card view. {contributor.name} earned{" "}
-            ₹{contributor.earningsThisMonth.toLocaleString("en-IN")} this month alone.
-            Applications open — we review within 48 hours.
+            Share your travel intel, get credited on every card you write, and
+            earn revenue share when founding members read them. We&apos;re
+            reviewing the first 20 contributors now.
           </p>
           <Link
             href="/coming-soon"
