@@ -42,9 +42,12 @@ export async function Header() {
               <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex text-ww-muted hover:text-ink">
                 <Link href="/account/profile">My account</Link>
               </Button>
-              <div className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium">
+              <Link
+                href="/account/profile"
+                className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium hover:bg-rust/30 transition-colors"
+              >
                 {user.email?.[0]?.toUpperCase() ?? "W"}
-              </div>
+              </Link>
             </>
           ) : (
             <>
