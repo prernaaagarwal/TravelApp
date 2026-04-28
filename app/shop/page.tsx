@@ -88,7 +88,7 @@ export default async function ShopPage() {
                         {product.priceRange}
                       </span>
                       <a
-                        href={product.amazonUrl}
+                        href={`/api/track-click?id=${encodeURIComponent(product.id)}&url=${encodeURIComponent(product.amazonUrl)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="border border-ink bg-ink px-4 py-1.5 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-ink/80 transition-colors"
