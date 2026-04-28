@@ -45,10 +45,16 @@ function loadScams(cityName: string) {
   const raw = JSON.parse(
     fs.readFileSync(path.join(RAW_DIR, "india-tourist-scams-top12-cities.json"), "utf8")
   );
-  const rows: string[][] = raw["Master Scam List"].rows;
-  return rows
-    .filter((r) => r[3] && r[3].toLowerCase().includes(cityName.toLowerCase()))
-    .slice(0, 8)
+
+  const aliases: Record<string, string[]> = {
+    Bangalore: ["bangalore", "bengaluru", "bengaluru/bangalore"],
+  };
+  const terms = [cityName.toLowerCase(), ...(aliases[cityName] ?? [])];
+
+  // Master Scam List — cross-city scams mentioning this city
+  const masterRows: string[][] = raw["Master Scam List"].rows;
+  const masterScams = masterRows
+    .filter((r) => r[3] && terms.some((t) => r[3].toLowerCase().includes(t)))
     .map((r) => ({
       title: r[1],
       severity: severityMap(r[6] ?? ""),
@@ -56,6 +62,28 @@ function loadScams(cityName: string) {
       what: r[4],
       avoid: r[7],
     }));
+
+  // Per-city section — city-specific scam rows (format: [#, Scam, Risk, Description])
+  const citySection = raw[cityName];
+  const cityScams: typeof masterScams = [];
+  if (citySection?.rows) {
+    let inData = false;
+    for (const r of citySection.rows as string[][]) {
+      if (r[0] === "#") { inData = true; continue; }
+      if (inData && r[0] && !isNaN(Number(r[0])) && r[1]) {
+        cityScams.push({ title: r[1], severity: severityMap(r[2] ?? ""), where: cityName, what: r[3], avoid: r[3] });
+      }
+      if (inData && r[0] && isNaN(Number(r[0])) && r[0] !== "#") inData = false;
+    }
+  }
+
+  // City-specific first, then master; deduplicate by title; cap at 8
+  const seen = new Set<string>();
+  return [...cityScams, ...masterScams].filter((s) => {
+    if (seen.has(s.title)) return false;
+    seen.add(s.title);
+    return true;
+  }).slice(0, 8);
 }
 
 function loadGems(cityName: string) {
