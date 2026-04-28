@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Mono } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/shared/Header";
+import { Footer } from "@/components/shared/Footer";
+import { MobileNav } from "@/components/shared/MobileNav";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -32,7 +35,12 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${dmMono.variable} antialiased`}
     >
-      <body className="min-h-screen">{children}</body>
+      <body className="flex min-h-screen flex-col pb-16 md:pb-0">
+        <Header />
+        <div className="flex-1">{children}</div>
+        <Footer />
+        <MobileNav />
+      </body>
     </html>
   );
 }
