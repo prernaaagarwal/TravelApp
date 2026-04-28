@@ -485,7 +485,65 @@ export default function HomePage() {
 
       {/* ── Founding membership email capture ────────────────────────── */}
       <section id="membership" className="bg-ink px-6 py-20">
-        <p className="text-warm-white">Membership capture — Step 9</p>
+        <div className="mx-auto max-w-2xl text-center">
+          {/* spots counter */}
+          <div className="mb-6 inline-flex items-center gap-2 border border-warm-white/10 px-4 py-2">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-rust" />
+            <span className="font-mono text-xs text-warm-white/60">
+              <strong className="text-warm-white">17 of 200</strong> founding spots remaining
+            </span>
+          </div>
+
+          <h2 className="mb-4 font-serif text-4xl leading-tight text-warm-white md:text-5xl">
+            Join as a founding member.
+          </h2>
+          <p className="mb-3 text-base leading-relaxed text-warm-white/60">
+            ₹499 once. Lifetime access to all premium intel cards, founding badge,
+            and 2× earnings if you become a contributor.
+          </p>
+          <p className="mb-10 font-mono text-xs text-warm-white/30">
+            Price goes to ₹999 after founding 200 fill. No auto-renewal. No spam.
+          </p>
+
+          {/* Formspree form */}
+          <form
+            action="https://formspree.io/f/PLACEHOLDER"
+            method="POST"
+            className="flex flex-col gap-3 sm:flex-row"
+          >
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+              className="flex-1 border border-warm-white/20 bg-warm-white/5 px-4 py-3 font-mono text-sm text-warm-white placeholder-warm-white/30 outline-none focus:border-rust"
+            />
+            <input type="hidden" name="source" value="landing-founding" />
+            <button
+              type="submit"
+              className="shrink-0 bg-rust px-7 py-3 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
+            >
+              Claim my spot →
+            </button>
+          </form>
+
+          {/* what you get */}
+          <ul className="mt-10 grid gap-2 text-left sm:grid-cols-2">
+            {[
+              "All 15 premium intel cards unlocked",
+              "Founding member badge on your profile",
+              "Early access to buddy matching",
+              "Vote on which destinations we cover next",
+              "2× contributor earnings for 12 months",
+              "Direct line to the founding team",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2 font-mono text-xs text-warm-white/50">
+                <span className="mt-0.5 text-gold">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </main>
   );
