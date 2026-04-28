@@ -16,6 +16,9 @@ export async function createPost(formData: FormData) {
 
   const id = `post-${tab}-${Date.now()}`;
 
+  const imageUrlsRaw = formData.get("image_urls") as string;
+  const imageUrls = imageUrlsRaw ? JSON.parse(imageUrlsRaw) : [];
+
   const { error } = await supabase.from("community_posts").insert({
     id,
     tab,
@@ -23,6 +26,7 @@ export async function createPost(formData: FormData) {
     author_name: user.email?.split("@")[0] ?? "Anonymous",
     content,
     destination,
+    image_urls: imageUrls,
     status: "pending",
   });
 

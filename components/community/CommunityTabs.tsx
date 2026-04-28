@@ -9,6 +9,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import { createPost } from "@/app/community/actions";
+import { createClient } from "@/lib/supabase/client";
 
 type Post = {
   id: string;
@@ -179,6 +180,8 @@ function ComposeForm({ tab, placeholder, cta }: { tab: string; placeholder: stri
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const [uploadedUrls, setUploadedUrls] = useState<string[]>([]);
+  const [uploading, setUploading] = useState(false);
 
   if (sent) {
     return (
@@ -200,11 +203,34 @@ function ComposeForm({ tab, placeholder, cta }: { tab: string; placeholder: stri
     );
   }
 
+  async function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files ?? []).slice(0, 5);
+    if (files.length === 0) return;
+    setUploading(true);
+    setError("");
+    const supabase = createClient();
+    const urls: string[] = [];
+    for (const file of files) {
+      const ext = file.name.split(".").pop();
+      const path = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+      const { error: upErr } = await supabase.storage
+        .from("community-images")
+        .upload(path, file, { upsert: false });
+      if (upErr) { setError(`Upload failed: ${upErr.message}`); continue; }
+      const { data } = supabase.storage.from("community-images").getPublicUrl(path);
+      urls.push(data.publicUrl);
+    }
+    setUploadedUrls((prev) => [...prev, ...urls]);
+    setUploading(false);
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setError("");
-    const result = await createPost(new FormData(e.currentTarget));
+    const fd = new FormData(e.currentTarget);
+    fd.set("image_urls", JSON.stringify(uploadedUrls));
+    const result = await createPost(fd);
     setLoading(false);
     if (result?.error) {
       setError(result.error);
@@ -224,18 +250,42 @@ function ComposeForm({ tab, placeholder, cta }: { tab: string; placeholder: stri
         placeholder={placeholder}
         className="w-full resize-none border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm text-ink placeholder:text-ww-muted focus:outline-none focus:border-ink"
       />
+
+      {/* image upload */}
+      <div>
+        <label className="block font-mono text-[10px] uppercase tracking-widest text-ww-muted mb-1">
+          Add photos (max 5)
+        </label>
+        <input
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={handleImageChange}
+          disabled={uploading}
+          className="block w-full font-mono text-xs text-ww-muted file:mr-3 file:border file:border-ww-border file:bg-sand file:px-3 file:py-1 file:font-mono file:text-[10px] file:uppercase file:tracking-widest file:text-ink hover:file:border-ink"
+        />
+        {uploading && <p className="mt-1 font-mono text-[10px] text-ww-muted">Uploading…</p>}
+        {uploadedUrls.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-2">
+            {uploadedUrls.map((url) => (
+              <img key={url} src={url} alt="" className="h-16 w-16 object-cover border border-ww-border" />
+            ))}
+          </div>
+        )}
+      </div>
+
       {error && <p className="font-mono text-xs text-rust">{error}</p>}
       <div className="flex items-center justify-between gap-3">
         <button
           type="button"
-          onClick={() => setOpen(false)}
+          onClick={() => { setOpen(false); setUploadedUrls([]); }}
           className="font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-ink"
         >
           Cancel
         </button>
         <button
           type="submit"
-          disabled={loading}
+          disabled={loading || uploading}
           className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors disabled:opacity-50"
         >
           {loading ? "Submitting…" : `${cta} →`}
