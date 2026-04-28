@@ -10,9 +10,9 @@ type Card = {
   audience: string;
   contributorSlug: string;
   heroImageUrl: string;
-  tldr: string[];
+  tldr: string[] | { summary: string };
   isPremium: boolean;
-  estimatedDailyBudget: { backpacker: number; comfortable: number };
+  estimatedDailyBudget: { backpacker: number; comfortable: number; currency: string } | null;
 };
 
 type Contributor = {
@@ -128,7 +128,9 @@ export function ExploreGrid({ cards, contributors }: Props) {
                 </div>
 
                 <p className="mb-4 line-clamp-2 text-xs leading-relaxed text-ww-muted">
-                  {card.tldr[0]}
+                  {Array.isArray(card.tldr)
+                    ? card.tldr[0]
+                    : (card.tldr as unknown as { summary: string })?.summary ?? ""}
                 </p>
 
                 <div className="mt-auto flex items-center justify-between border-t border-ww-border pt-3">
@@ -147,10 +149,15 @@ export function ExploreGrid({ cards, contributors }: Props) {
                   </div>
 
                   {/* budget */}
-                  <span className="font-mono text-[10px] text-ww-muted">
-                    ₹{card.estimatedDailyBudget.backpacker.toLocaleString("en-IN")}–
-                    {card.estimatedDailyBudget.comfortable.toLocaleString("en-IN")}/day
-                  </span>
+                  {card.estimatedDailyBudget && (() => {
+                    const b = card.estimatedDailyBudget;
+                    const sym = b.currency === "INR" ? "₹" : b.currency === "EUR" ? "€" : "$";
+                    return (
+                      <span className="font-mono text-[10px] text-ww-muted">
+                        {sym}{b.backpacker}–{b.comfortable}/day
+                      </span>
+                    );
+                  })()}
                 </div>
               </div>
             </Link>
