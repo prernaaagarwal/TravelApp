@@ -8,6 +8,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import { createPost } from "@/app/community/actions";
 
 type Post = {
   id: string;
@@ -76,9 +77,11 @@ type TabKey = keyof typeof TAB_META;
 export function CommunityTabs({
   posts,
   bewares,
+  userEmail,
 }: {
   posts: Post[];
   bewares: Beware[];
+  userEmail: string | null;
 }) {
   const [active, setActive] = useState<TabKey>("ask");
   const [visible, setVisible] = useState(10);
@@ -116,18 +119,22 @@ export function CommunityTabs({
               {meta.blurb}
             </p>
 
-            {/* compose stub */}
-            <Link
-              href="/coming-soon"
-              className="mb-6 flex items-center justify-between border border-dashed border-ww-border bg-sand px-4 py-3 hover:border-ink transition-colors"
-            >
-              <span className="font-mono text-xs text-ww-muted">
-                {meta.placeholder}
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
-                {meta.cta} →
-              </span>
-            </Link>
+            {/* compose */}
+            {userEmail ? (
+              <ComposeForm tab={key} placeholder={meta.placeholder} cta={meta.cta} />
+            ) : (
+              <Link
+                href={`/account/login?next=/community`}
+                className="mb-6 flex items-center justify-between border border-dashed border-ww-border bg-sand px-4 py-3 hover:border-ink transition-colors"
+              >
+                <span className="font-mono text-xs text-ww-muted">
+                  {meta.placeholder}
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
+                  Sign in to post →
+                </span>
+              </Link>
+            )}
 
             {/* posts list */}
             {key === "beware" ? (
@@ -160,6 +167,77 @@ export function CommunityTabs({
         );
       })}
     </Tabs>
+  );
+}
+
+function ComposeForm({ tab, placeholder, cta }: { tab: string; placeholder: string; cta: string }) {
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+
+  if (sent) {
+    return (
+      <div className="mb-6 border border-sage/30 bg-sage-light/30 px-4 py-3 font-mono text-xs text-sage">
+        ✓ Post submitted for review — usually approved within 24 hours.
+      </div>
+    );
+  }
+
+  if (!open) {
+    return (
+      <button
+        onClick={() => setOpen(true)}
+        className="mb-6 flex w-full items-center justify-between border border-dashed border-ww-border bg-sand px-4 py-3 hover:border-ink transition-colors"
+      >
+        <span className="font-mono text-xs text-ww-muted">{placeholder}</span>
+        <span className="font-mono text-[10px] uppercase tracking-widest text-rust">{cta} →</span>
+      </button>
+    );
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    const result = await createPost(new FormData(e.currentTarget));
+    setLoading(false);
+    if (result?.error) {
+      setError(result.error);
+    } else {
+      setSent(true);
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="mb-6 border border-ww-border bg-sand p-4 space-y-3">
+      <input type="hidden" name="tab" value={tab} />
+      <textarea
+        name="content"
+        required
+        minLength={10}
+        rows={4}
+        placeholder={placeholder}
+        className="w-full resize-none border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm text-ink placeholder:text-ww-muted focus:outline-none focus:border-ink"
+      />
+      {error && <p className="font-mono text-xs text-rust">{error}</p>}
+      <div className="flex items-center justify-between gap-3">
+        <button
+          type="button"
+          onClick={() => setOpen(false)}
+          className="font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-ink"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          disabled={loading}
+          className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors disabled:opacity-50"
+        >
+          {loading ? "Submitting…" : `${cta} →`}
+        </button>
+      </div>
+    </form>
   );
 }
 

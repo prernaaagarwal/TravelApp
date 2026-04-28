@@ -9,6 +9,7 @@ export const metadata = {
 
 export default async function CommunityPage() {
   const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
   const [{ data: rawPosts }, { data: rawBeware }] = await Promise.all([
     supabase.from("community_posts").select("id,tab,author_name,author_age_range,home_city,created_at,content,reply_count,like_count,destination").eq("status", "approved").order("created_at", { ascending: false }).limit(100),
@@ -59,7 +60,7 @@ export default async function CommunityPage() {
         </p>
       </div>
 
-      <CommunityTabs posts={posts} bewares={bewares} />
+      <CommunityTabs posts={posts} bewares={bewares} userEmail={user?.email ?? null} />
     </div>
   );
 }
