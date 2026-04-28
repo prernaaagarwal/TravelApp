@@ -3340,5 +3340,648 @@
     "affiliateLinks": {
       "booking": "https://www.booking.com/searchresults.html?ss=Hampi&aid=PLACEHOLDER"
     }
+  },
+  {
+    "slug": "tokyo-japan",
+    "destination": "Tokyo",
+    "country": "Japan",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&q=80",
+    "tldr": {
+      "summary": "One of the safest cities on Earth for solo women. Real risks are nightlife touts in Roppongi/Kabukicho and train groping at rush hour. Cash economy — carry yen always.",
+      "safetyRating": "moderate",
+      "topTip": "NEVER follow anyone soliciting on the street to a bar. Use only places you researched on Google Maps or Tabelog with rev"
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Kabukicho / Roppongi tout 'free drink'",
+        "severity": "critical",
+        "where": "Shinjuku Kabukicho, Roppongi, parts of Shibuya",
+        "what": "Friendly tout offers 'cheap all-you-can-drink' or 'first drink free'; bar bill = 50,000-300,000 JPY ($300-2,000); intimidation if refused; sometimes drink-spiked",
+        "avoid": "NEVER follow anyone soliciting on the street to a bar. Use only places you researched on Google Maps or Tabelog with reviews. Cash for nightlife (limit damage)."
+      },
+      {
+        "title": "Drink spiking (Roppongi)",
+        "severity": "critical",
+        "where": "Roppongi gaijin bars + Kabukicho",
+        "what": "GHB or rohypnol; victim wakes up missing money/cards/phone or assault",
+        "avoid": "Avoid Roppongi gaijin bars solo. Order bottled drinks. Watch bartender pour. Never accept drinks from strangers."
+      },
+      {
+        "title": "Marc/Alex 'lost wallet' scam",
+        "severity": "medium",
+        "where": "Tokyo/Osaka trains, especially targeting solo women",
+        "what": "Foreign man (often called 'Marc' or 'Alex') in black clothes approaches solo travelers showing phone message saying 'help, lost wallet, need to get to airport'",
+        "avoid": "Recognize the pattern (black hat, mask, persistent). Ignore him. Real travelers don't beg from strangers in Japan — embassies help."
+      },
+      {
+        "title": "Fake 'monk' donation",
+        "severity": "medium",
+        "where": "Near temples — Asakusa Sensoji, Ueno, sometimes Kyoto",
+        "what": "Person dressed as Buddhist monk hands you bracelet/card and demands donation",
+        "avoid": "Real monks don't beg on the street. Ignore + walk past. Don't accept anything offered."
+      },
+      {
+        "title": "Model-scout scam",
+        "severity": "high",
+        "where": "Shibuya, Harajuku, Shinjuku — targets young women",
+        "what": "'Talent agent' approaches solo woman, offers contract, takes to office where pressured to sign/pay 'training fees' or worse",
+        "avoid": "Real Japanese model agencies don't street-scout foreigners. Politely decline + walk away. Never go to a private office."
+      },
+      {
+        "title": "'Charity' donation (laminated photos)",
+        "severity": "medium",
+        "where": "Shinjuku, Shibuya, tourist areas",
+        "what": "Person with binder/laminated photos showing other 'donors' pressures you for large donation",
+        "avoid": "Laminated props = scam. Real charities never solicit cash from tourists on streets."
+      },
+      {
+        "title": "Counterfeit fashion (Harajuku/Shinjuku)",
+        "severity": "medium",
+        "where": "Tourist-heavy shopping areas",
+        "what": "'Authentic' designer items at low prices = fakes; or fake-marketing pseudo-luxury",
+        "avoid": "Department stores (Isetan, Mitsukoshi, Takashimaya) only for designer. Vintage/2nd-hand: Komehyo or RagTag are reputable."
+      },
+      {
+        "title": "ATM withdrawal denial / DCC",
+        "severity": "medium",
+        "where": "All Japan ATMs",
+        "what": "DCC offer ('pay in your home currency') = 5-8% worse rate",
+        "avoid": "ALWAYS pay in JPY, not your home currency. Use 7-Eleven (Seven Bank) or Japan Post Bank ATMs (lowest fees)."
+      },
+      {
+        "title": "Taxi long-route",
+        "severity": "medium",
+        "where": "Tokyo airports, less common in metered Tokyo taxis",
+        "what": "Driver takes 30-min detour through unfamiliar area, you can't tell",
+        "avoid": "Use Google Maps live tracking. Or use Go Taxi/JapanTaxi app for transparent metered fares."
+      },
+      {
+        "title": "Tax-free purchase confusion",
+        "severity": "medium",
+        "where": "Department stores; some smaller shops",
+        "what": "Foreigners qualify for tax-free shopping (>5,000 JPY purchase, passport required); some small stores claim no tax-free even when they should offer it",
+        "avoid": "Bring passport. Look for 'Tax Free' sticker. At Bic Camera/Don Quijote/large stores: ask 'tax-free counter'."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "USD",
+      "backpacker": 60,
+      "midRange": 130,
+      "comfortable": 280
+    },
+    "emergencyNumbers": {
+      "Police": "110",
+      "Ambulance": "119",
+      "Tourist Helpline": "03-3201-3331",
+      "JNTO Hotline": "050-3816-2787"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  },
+  {
+    "slug": "bangkok-thailand",
+    "destination": "Bangkok",
+    "country": "Thailand",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1200&q=80",
+    "tldr": {
+      "summary": "High-energy city with a well-worn tourist trail. Tuk-tuk gem scams and Grand Palace closure lies are a daily ritual. Ride Grab, not taxis. Dress modestly at temples.",
+      "safetyRating": "moderate",
+      "topTip": "Verify at official entrance only. Major Bangkok temples NEVER close for random ceremonies. Walk away from anyone offerin"
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Temple closed scam",
+        "severity": "medium",
+        "where": "Bangkok — Wat Pho, Grand Palace, near Khaosan Road",
+        "what": "'Friendly' local says temple is closed for ceremony; offers cheap tuk-tuk tour to gem shops where you're pressured to buy fake/overpriced jewelry",
+        "avoid": "Verify at official entrance only. Major Bangkok temples NEVER close for random ceremonies. Walk away from anyone offering tours nearby."
+      },
+      {
+        "title": "Gem/jewelry shop scam",
+        "severity": "critical",
+        "where": "Bangkok, sometimes Phuket and Chiang Mai",
+        "what": "Tourist taken to 'tax-free government gem store'; pressured to buy 'investment sapphires' for $1,000s that are worth $50",
+        "avoid": "Never buy gems/jewelry from tuk-tuk recommendations. Real gem dealers in Thailand don't approach tourists in the street."
+      },
+      {
+        "title": "Tuk-tuk no meter overcharging",
+        "severity": "high",
+        "where": "Bangkok especially; Chiang Mai, beach towns",
+        "what": "Tuk-tuks have no meters. Driver quotes 200 THB for 50 THB ride; refuses change for larger bills",
+        "avoid": "Use Grab or Bolt apps. If tuk-tuk: negotiate fare BEFORE getting in. Have exact change ready."
+      },
+      {
+        "title": "Taxi 'meter broken'",
+        "severity": "high",
+        "where": "Bangkok especially Suvarnabhumi/Don Mueang airports",
+        "what": "Driver says meter broken, quotes 800 THB for 200 THB ride. Or runs meter at 5x speed.",
+        "avoid": "Insist on meter or get out. Use Grab. From airport: official taxi queue downstairs (not solicitations upstairs)."
+      },
+      {
+        "title": "Scooter rental damage scam",
+        "severity": "critical",
+        "where": "Phuket, Koh Samui, Koh Phangan, Pattaya",
+        "what": "Rental shop demands passport as deposit; on return, claims you damaged scooter (pre-existing scratches), refuses to release passport unless you pay $200-2,000",
+        "avoid": "NEVER leave passport — copy + cash deposit only. Photograph/video bike from all angles BEFORE leaving rental shop. Use shops recommended by your hotel."
+      },
+      {
+        "title": "Drink spiking (Patpong/Nana/Soi Cowboy)",
+        "severity": "critical",
+        "where": "Bangkok red-light zones, Phuket Bangla Road, Pattaya Walking Street",
+        "what": "GHB/rohypnol in drinks → robbery or sexual assault. Sometimes by 'friendly' locals/tourists",
+        "avoid": "Avoid these areas entirely if solo. Order bottled drinks, watch the bartender pour. Never accept drinks from strangers."
+      },
+      {
+        "title": "Jet ski damage scam",
+        "severity": "critical",
+        "where": "Phuket Patong Beach, Pattaya",
+        "what": "Rent jet ski; on return, owner claims you damaged it; demands $500-3,000. Often involves intimidating men appearing 'on cue'",
+        "avoid": "Don't rent jet skis in Thailand — well-documented scam. Stick to hotel-organized water sports."
+      },
+      {
+        "title": "Ping pong show / bar scams",
+        "severity": "high",
+        "where": "Patpong, Bangkok",
+        "what": "'Free' show entry; bill arrives 5,000+ THB ($150) for one beer. Bouncers prevent leaving until paid.",
+        "avoid": "Don't enter Patpong shows. Period. The whole industry is built on this."
+      },
+      {
+        "title": "Wrong change scam",
+        "severity": "medium",
+        "where": "Tuk-tuks, taxis, street vendors near tourist areas",
+        "what": "You give 1,000 THB note, driver gives change for 100 THB note, claims you only paid 100",
+        "avoid": "State note value out loud when handing over: 'one thousand baht'. Have exact change when possible."
+      },
+      {
+        "title": "Bird poop / mustard distraction",
+        "severity": "medium",
+        "where": "Bangkok tourist areas, Chiang Mai night bazaar",
+        "what": "'Bird droppings' (or sauce) lands on you; 'helpful' stranger offers to clean you up while accomplice picks pocket",
+        "avoid": "Politely refuse help. Move away from the area. Clean up at a café or hotel."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "USD",
+      "backpacker": 25,
+      "midRange": 60,
+      "comfortable": 150
+    },
+    "emergencyNumbers": {
+      "Police": "191",
+      "Ambulance": "1669",
+      "Tourist Police": "1155",
+      "Bangkok Helpline": "02-356-0700"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  },
+  {
+    "slug": "hanoi-vietnam",
+    "destination": "Hanoi",
+    "country": "Vietnam",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=1200&q=80",
+    "tldr": {
+      "summary": "Chaotic and wonderful. Street food scams and motorbike grab-thefts are the main risks. Carry bags on your left (away from traffic). Negotiate fares before getting in anything.",
+      "safetyRating": "moderate",
+      "topTip": "Don't accept any 'free taste' from street vendors. Get banh mi instead — better food, fixed prices."
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Donut scam (Hanoi Old Quarter)",
+        "severity": "medium",
+        "where": "Hanoi Old Quarter; women balancing donut baskets on shoulders",
+        "what": "Vendor offers free taste, then loads bag with donuts and charges 200,000+ VND ($8) for inedible product fried in old oil",
+        "avoid": "Don't accept any 'free taste' from street vendors. Get banh mi instead — better food, fixed prices."
+      },
+      {
+        "title": "Taxi meter manipulation",
+        "severity": "high",
+        "where": "All major cities — Hanoi, HCMC, Da Nang, airports especially",
+        "what": "Unmetered taxi or rigged meter that runs 5x normal speed. Common with airport taxis charging 800,000 VND ($32) for a $4 ride",
+        "avoid": "ONLY use Grab app. If you must use a taxi, only Mai Linh (green) or Vinasun (white). Confirm meter on at start."
+      },
+      {
+        "title": "Motorbike bag-snatching",
+        "severity": "critical",
+        "where": "HCMC District 1 streets, Hanoi roadside walking",
+        "what": "Two riders pass quickly, the passenger grabs phone/bag from your hand or shoulder. Can drag tourists who hold on",
+        "avoid": "Cross-body bag on the side AWAY from road. Don't use phone while walking near street. Don't fight back if grabbed — let go."
+      },
+      {
+        "title": "Cyclo (rickshaw) hidden fees",
+        "severity": "medium",
+        "where": "Hanoi Old Quarter, Hue tourist areas",
+        "what": "Driver agrees on 100,000 VND fare, then adds 'waiting fee' 500,000 VND/hr or doubles destination distance",
+        "avoid": "Book cyclo tour through reputable agency, or use phone GPS to verify route. Pay only the agreed-upon amount."
+      },
+      {
+        "title": "Methanol fake alcohol",
+        "severity": "critical",
+        "where": "Cheap bars across SE Asia, especially backpacker areas (Bui Vien HCMC, Old Quarter Hanoi)",
+        "what": "Bootleg spirits laced with methanol — can blind or kill. Most dangerous in 'free shots' or unknown brand bottles",
+        "avoid": "Stick to beer (Saigon, Tiger, 333) or sealed branded spirits. Never accept free shots. Methanol = 'fishy' or solvent smell."
+      },
+      {
+        "title": "SIM card scam at airport",
+        "severity": "medium",
+        "where": "HCMC Tan Son Nhat, Hanoi Noi Bai airports",
+        "what": "Vendor sells $20 SIM card with 1GB; legitimate 30GB Viettel/Vinaphone SIM costs 100,000-150,000 VND ($4-6)",
+        "avoid": "Pre-buy eSIM via Holafly or Airalo before arrival, OR walk past airport vendors to official Viettel/Vinaphone counters."
+      },
+      {
+        "title": "Multiple businesses with same name",
+        "severity": "medium",
+        "where": "Hanoi, HCMC tour agencies",
+        "what": "Famous tour company 'Mekong Tours' has 5+ copycats with names like 'Mekong Tour' or 'Mekong Touring' — bait-and-switch tours",
+        "avoid": "Always book via official website or use platforms like GetYourGuide, Klook with reviews."
+      },
+      {
+        "title": "Restaurant menu without prices",
+        "severity": "high",
+        "where": "Tourist areas — especially Old Quarter Hanoi, Pham Ngu Lao HCMC",
+        "what": "No prices listed; bill arrives 5x normal. Gets worse for foreigners with dual-pricing menus",
+        "avoid": "NEVER sit down without seeing prices. Ask 'bao nhieu?' (how much?) before ordering. Check Google Maps reviews first."
+      },
+      {
+        "title": "ATM skimming",
+        "severity": "high",
+        "where": "Standalone ATMs near tourist sites (not in banks)",
+        "what": "Skimming device on card reader + camera capturing PIN. Drained accounts within 24h",
+        "avoid": "Use ATMs INSIDE bank branches only (Vietcombank, Techcombank, BIDV). Cover PIN entry."
+      },
+      {
+        "title": "Sapa trekking 'private guide' scam",
+        "severity": "medium",
+        "where": "Sapa, Ha Giang trekking areas",
+        "what": "Independent 'guide' offers private trek 50% cheaper than agency, no insurance, gets lost or demands more",
+        "avoid": "Book through Sapa Sisters (women-owned, well-reviewed) or Ethos Spirit. Verify insurance coverage."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "USD",
+      "backpacker": 25,
+      "midRange": 60,
+      "comfortable": 120
+    },
+    "emergencyNumbers": {
+      "Police": "113",
+      "Ambulance": "115",
+      "Fire": "114",
+      "Tourist Helpline": "1800-599-920"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  },
+  {
+    "slug": "dubai-uae",
+    "destination": "Dubai",
+    "country": "UAE",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80",
+    "tldr": {
+      "summary": "Extremely safe for solo women but strict laws apply. Dress modestly outside resorts. Public displays of affection are illegal. Only licensed taxis/Careem — never unofficial cabs.",
+      "safetyRating": "moderate",
+      "topTip": "ONLY use RTA taxis (cream + red roof), or Careem/Uber app. Pink taxis (female driver) available via Careem."
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Unmarked taxi overcharge",
+        "severity": "high",
+        "where": "Dubai Airport, Marina, Downtown",
+        "what": "Unofficial taxi (white car not RTA cream/red) charges 200 AED for 50 AED ride; no receipt",
+        "avoid": "ONLY use RTA taxis (cream + red roof), or Careem/Uber app. Pink taxis (female driver) available via Careem."
+      },
+      {
+        "title": "Gold/jewelry shop overcharge (Deira/Gold Souk)",
+        "severity": "high",
+        "where": "Gold Souk Deira, some Old Dubai shops",
+        "what": "Massive markups for foreign tourists; aggressive bargaining required. 'Free' chai while you decide.",
+        "avoid": "Know spot gold price before entering (goldprice.org). Quote: 'Spot + 10% making charge max.' Walk away from anyone aggressive."
+      },
+      {
+        "title": "Souvenir 'fake antique' scam",
+        "severity": "medium",
+        "where": "Gold Souk, Spice Souk, Madinat Jumeirah souk",
+        "what": "Mass-produced trinkets sold as 'antique Bedouin artifacts' for 500-2,000 AED",
+        "avoid": "Check Madinat Jumeirah souvenir prices first (transparent). Real antiques only at certified dealers."
+      },
+      {
+        "title": "Online booking fraud (apartment/villa)",
+        "severity": "critical",
+        "where": "Marina, JBR, Downtown short-term rentals",
+        "what": "Fake Airbnb/Booking.com listings, often via WhatsApp inquiry redirect; deposit lost",
+        "avoid": "Book ONLY through Booking.com, Airbnb's official app. Never wire-transfer. Pay with credit card for chargeback ability."
+      },
+      {
+        "title": "Pickpocketing in malls",
+        "severity": "high",
+        "where": "Dubai Mall, Mall of the Emirates, Global Village",
+        "what": "Crowded areas, escalators, food courts. Phone snatching from café tables.",
+        "avoid": "Crossbody bag in front. Don't leave phone on café table. Especially careful at Global Village (highest-risk crowded venue)."
+      },
+      {
+        "title": "Charity / petition scam",
+        "severity": "medium",
+        "where": "Marina Walk, Downtown Burj area, near tourist hotels",
+        "what": "'Refugee'/charity worker asks for cash donation; sob story; no receipt",
+        "avoid": "All real UAE charity is regulated; never street-collected. Politely decline. Don't give cash."
+      },
+      {
+        "title": "ATM skimming",
+        "severity": "high",
+        "where": "Standalone ATMs especially Deira, Naif, near souks",
+        "what": "Skimmer + camera for PIN. Account drained in hours.",
+        "avoid": "Use ATMs INSIDE major bank branches (Emirates NBD, ENBD, ADCB, Mashreq) only. Not those in shops/streets."
+      },
+      {
+        "title": "Desert safari low-cost trap",
+        "severity": "medium",
+        "where": "Internet-booked cheap desert safaris",
+        "what": "$30 'all-inclusive' safari = battered 4x4, no insurance, mediocre BBQ. Some accidents reported.",
+        "avoid": "Book reputable: Platinum Heritage, Arabian Adventures, OceanAir Travels. Expect 250-400 AED ($70-110)."
+      },
+      {
+        "title": "Speeding fine surprise (rentals)",
+        "severity": "high",
+        "where": "Highway driving anywhere",
+        "what": "Speed cameras EVERYWHERE; fines 600-3,000 AED + black points; rental company charges admin fee",
+        "avoid": "Stay under speed limit (120 km/h max highway). Check rental car return for fines settled before leaving."
+      },
+      {
+        "title": "Photo of locals",
+        "severity": "high",
+        "where": "Anywhere — beach, mall, restaurants",
+        "what": "NOT a scam but a legal issue — photographing Emirati women without consent = criminal offense; some pretend offense for cash",
+        "avoid": "NEVER photograph people without explicit permission. No selfies with strangers in background. Especially women."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "USD",
+      "backpacker": 60,
+      "midRange": 150,
+      "comfortable": 350
+    },
+    "emergencyNumbers": {
+      "Police": "999",
+      "Ambulance": "998",
+      "Dubai Tourism": "800-9999",
+      "Women's Helpline": "800-HOPE (4673)"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  },
+  {
+    "slug": "seoul-south-korea",
+    "destination": "Seoul",
+    "country": "South Korea",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1538485399081-7191377e8241?w=1200&q=80",
+    "tldr": {
+      "summary": "Very safe with world-class transit. Watch for bar overcharging in Itaewon/Hongdae after midnight. T-money card for everything. Download Kakao T for taxis.",
+      "safetyRating": "high",
+      "topTip": "Use Kakao T app (NOT Uber, weak in Korea). Wait at official taxi stands. Real taxis: silver/orange/black with TAXI roof "
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Unlicensed taxi (illegal callvan)",
+        "severity": "high",
+        "where": "Hongdae, Itaewon, Gangnam after midnight when subway closes",
+        "what": "Black 'callvan' or unmarked car charges 3-4x metered taxi for ride. Especially at popular nightlife exits.",
+        "avoid": "Use Kakao T app (NOT Uber, weak in Korea). Wait at official taxi stands. Real taxis: silver/orange/black with TAXI roof sign + meter."
+      },
+      {
+        "title": "Christian cult recruitment",
+        "severity": "medium",
+        "where": "Hongdae, Sinchon, Gangnam streets — targets foreigners",
+        "what": "Friendly Korean approaches asking for directions, then invites to 'free Korean lesson' or 'cultural exchange'. Leads to multi-hour cult sessions, attempts at conversion + payment.",
+        "avoid": "Polite decline + walk on. Recognize patterns: clipboard, English skills mismatch, scripted questions about religion."
+      },
+      {
+        "title": "Tourist-area restaurant overcharging",
+        "severity": "medium",
+        "where": "Myeongdong, Insadong, near Gyeongbokgung Palace",
+        "what": "Korean BBQ/seafood/ginseng chicken at 2-3x normal price; English menu has higher prices than Korean menu",
+        "avoid": "Use Naver Maps (Korean Yelp) reviews. Eat where Koreans eat — packed locals = good price + quality. Ask for Korean menu if available."
+      },
+      {
+        "title": "Fashion district counterfeit",
+        "severity": "medium",
+        "where": "Dongdaemun Market, Myeongdong, Itaewon",
+        "what": "Fake designer goods marketed as 'authentic', or knockoff K-beauty brands at inflated prices",
+        "avoid": "Designer = department stores (Lotte, Shinsegae, Hyundai). K-beauty: Olive Young (legit chain), Innisfree, Etude House official stores."
+      },
+      {
+        "title": "ATM skimming + DCC",
+        "severity": "high",
+        "where": "Standalone ATMs especially Itaewon/Hongdae",
+        "what": "Skimming + DCC trap (offer 'pay in your currency' — 5% worse rate)",
+        "avoid": "Use ATMs at major banks (KB, Shinhan, Woori) inside branches. Always select 'KRW' not USD on screen."
+      },
+      {
+        "title": "Cosmetic surgery / clinic upselling",
+        "severity": "medium",
+        "where": "Gangnam, Apgujeong (cosmetic surgery streets)",
+        "what": "$50 'consultation' becomes hard-sell pressure; deposit required for procedures pricier than promised",
+        "avoid": "Research clinics via Korea Tourism Org partner list. Get all prices in writing before deposit. Don't go in solo if cult-vulnerable."
+      },
+      {
+        "title": "Aggressive selling in Insadong",
+        "severity": "medium",
+        "where": "Insadong shopping district",
+        "what": "Vendors quote inflated prices for 'traditional Korean handicrafts' that are mass-produced",
+        "avoid": "Bargain (uncommon in Korea otherwise but expected here). Compare prices across multiple stalls."
+      },
+      {
+        "title": "Free Wi-Fi phishing",
+        "severity": "medium",
+        "where": "Tourist areas, airports, cafés",
+        "what": "Fake Wi-Fi ('Korea Free' / 'Tourist Wi-Fi'); captures bank login data",
+        "avoid": "Use mobile data (eSIM/SIM) for banking. VPN if must use public Wi-Fi (NordVPN, ExpressVPN)."
+      },
+      {
+        "title": "DMZ tour bait-switch",
+        "severity": "medium",
+        "where": "Booked DMZ (North Korean border) tours",
+        "what": "Cheap online listing turns out to be 'DMZ overview' from far away, no JSA visit",
+        "avoid": "Book via Koridoor, VIP Travel, or Klook with reviews. Confirm whether JSA (Joint Security Area) is included before paying."
+      },
+      {
+        "title": "Karaoke (noraebang) overcharging",
+        "severity": "medium",
+        "where": "Hongdae, Gangnam late-night",
+        "what": "Some 'karaoke' venues are room-salons with hostesses; charge $200-500 for drinks",
+        "avoid": "Use coin noraebang chains (multi-bang places) — fixed pricing. Or noraebang inside reputable buildings (not hidden alleys)."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "USD",
+      "backpacker": 50,
+      "midRange": 120,
+      "comfortable": 250
+    },
+    "emergencyNumbers": {
+      "Police": "112",
+      "Ambulance": "119",
+      "Foreign Helpline": "1330",
+      "Seoul Hotline": "02-120"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  },
+  {
+    "slug": "paris-france",
+    "destination": "Paris",
+    "country": "France",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=80",
+    "tldr": {
+      "summary": "Beautiful and pickpocket-heavy. 70% of Paris pickpocket victims are women. Metro Line 1 and tourist sites are highest risk. Crossbody bag in front, phone in zipped pocket, always.",
+      "safetyRating": "moderate",
+      "topTip": "Hands in pockets in tourist areas. Walk past, don't make eye contact. If tied: take it off, drop it, walk away."
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Friendship bracelet / rose scam",
+        "severity": "medium",
+        "where": "Paris (Sacré-Cœur, Eiffel), Rome (Spanish Steps), Barcelona (Las Ramblas)",
+        "what": "Stranger ties bracelet on wrist or thrusts rose into hand, then aggressively demands €5-50 + scenes if you refuse",
+        "avoid": "Hands in pockets in tourist areas. Walk past, don't make eye contact. If tied: take it off, drop it, walk away."
+      },
+      {
+        "title": "Petition scam (deaf-mute clipboard)",
+        "severity": "high",
+        "where": "Paris (Eiffel, Louvre, Trocadéro), Rome, Berlin Brandenburg, Barcelona",
+        "what": "Group of 'deaf-mute' women/children with clipboard distract you for petition signature; accomplice picks pocket",
+        "avoid": "Hands on bag/pockets when approached. 'Non!' / 'No!' firmly. Move away. Real charities don't street-collect."
+      },
+      {
+        "title": "Gold ring 'find'",
+        "severity": "medium",
+        "where": "Paris, Rome, Barcelona near tourist sites",
+        "what": "Person 'finds' gold ring, offers to sell it cheap (€20). Ring is brass.",
+        "avoid": "If 'found' near you, walk away. Don't engage."
+      },
+      {
+        "title": "Bird poop / mustard / spilled drink",
+        "severity": "medium",
+        "where": "Rome, Barcelona, Paris, London tourist hubs",
+        "what": "Substance lands on you; helpful stranger offers to clean while accomplice picks pocket",
+        "avoid": "Politely refuse help. Move to a café/store before cleaning. Don't put bag down."
+      },
+      {
+        "title": "Metro pickpocketing (organized gang)",
+        "severity": "critical",
+        "where": "Paris Métro Line 1+4 (CDG-Châtelet); Rome Metro Line A (Termini-Vatican); Barcelona L3 + L4",
+        "what": "Children + adult teams crowd you at door, jostle, lift wallet/phone. Highest rate at Eiffel, Colosseum, Sagrada Familia stops.",
+        "avoid": "Crossbody bag IN FRONT, hand on it. Phone in zipped pocket NEVER back pocket. Stay aware near doors at stops."
+      },
+      {
+        "title": "Fake police 'wallet check'",
+        "severity": "high",
+        "where": "Madrid, Rome, Berlin, Prague",
+        "what": "Plainclothes 'police' demand passport/wallet for 'counterfeit money check'. Take cash + cards.",
+        "avoid": "Real police NEVER ask for wallet on the street. Demand to walk to nearest police station. Walk away if they don't agree."
+      },
+      {
+        "title": "Restaurant menu-swap / no-prices",
+        "severity": "high",
+        "where": "Rome (Trastevere, near Trevi), Paris (near Notre-Dame, Champs-Élysées)",
+        "what": "Verbal 'fish of day' or untranslated menu = €100+ shock bill. 'Coperto' (cover charge) added with stiff tip",
+        "avoid": "Read menu prices before sitting. Ask 'how much?' for any verbal special. Avoid restaurants without prices on menu."
+      },
+      {
+        "title": "Gladiator photo scam (Rome)",
+        "severity": "medium",
+        "where": "Rome — Colosseum, Roman Forum",
+        "what": "Costumed 'gladiators' pose for photo; demand €20-50 after",
+        "avoid": "Don't pose with them. If they appear in your shot, walk on without paying."
+      },
+      {
+        "title": "Taxi airport overcharge",
+        "severity": "high",
+        "where": "All major airports — Rome FCO, Paris CDG, Madrid Barajas, Barcelona BCN, Berlin BER",
+        "what": "Driver claims 'flat rate' or no meter; €100+ for €40 ride",
+        "avoid": "Use Uber/Bolt/FreeNow apps. OR insist on metered taxi from official taxi rank only. Rome + Paris have fixed flat-fares posted online (Rome FCO €50)."
+      },
+      {
+        "title": "ATM skimming (multiple countries)",
+        "severity": "high",
+        "where": "Standalone ATMs in tourist areas — especially Italy, Spain, Berlin",
+        "what": "Skimming device + camera; account drained within hours",
+        "avoid": "Use ATMs INSIDE bank branches. Cover PIN entry. Use credit not debit (better fraud protection)."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "EUR",
+      "backpacker": 70,
+      "midRange": 150,
+      "comfortable": 300
+    },
+    "emergencyNumbers": {
+      "Police": "17",
+      "Ambulance": "15",
+      "Fire": "18",
+      "EU Emergency": "112",
+      "Tourist Police Paris": "+33-1-53-71-53-71"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
   }
 ]

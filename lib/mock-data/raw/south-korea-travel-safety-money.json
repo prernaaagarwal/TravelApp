@@ -1,0 +1,80 @@
+{
+  "scams": [
+    {
+      "title": "Unlicensed taxi (illegal callvan)",
+      "severity": "high",
+      "where": "Hongdae, Itaewon, Gangnam after midnight when subway closes",
+      "what": "Black 'callvan' or unmarked car charges 3-4x metered taxi for ride. Especially at popular nightlife exits.",
+      "avoid": "Use Kakao T app (NOT Uber, weak in Korea). Wait at official taxi stands. Real taxis: silver/orange/black with TAXI roof sign + meter."
+    },
+    {
+      "title": "Christian cult recruitment",
+      "severity": "medium",
+      "where": "Hongdae, Sinchon, Gangnam streets — targets foreigners",
+      "what": "Friendly Korean approaches asking for directions, then invites to 'free Korean lesson' or 'cultural exchange'. Leads to multi-hour cult sessions, attempts at conversion + payment.",
+      "avoid": "Polite decline + walk on. Recognize patterns: clipboard, English skills mismatch, scripted questions about religion."
+    },
+    {
+      "title": "Tourist-area restaurant overcharging",
+      "severity": "medium",
+      "where": "Myeongdong, Insadong, near Gyeongbokgung Palace",
+      "what": "Korean BBQ/seafood/ginseng chicken at 2-3x normal price; English menu has higher prices than Korean menu",
+      "avoid": "Use Naver Maps (Korean Yelp) reviews. Eat where Koreans eat — packed locals = good price + quality. Ask for Korean menu if available."
+    },
+    {
+      "title": "Fashion district counterfeit",
+      "severity": "medium",
+      "where": "Dongdaemun Market, Myeongdong, Itaewon",
+      "what": "Fake designer goods marketed as 'authentic', or knockoff K-beauty brands at inflated prices",
+      "avoid": "Designer = department stores (Lotte, Shinsegae, Hyundai). K-beauty: Olive Young (legit chain), Innisfree, Etude House official stores."
+    },
+    {
+      "title": "ATM skimming + DCC",
+      "severity": "high",
+      "where": "Standalone ATMs especially Itaewon/Hongdae",
+      "what": "Skimming + DCC trap (offer 'pay in your currency' — 5% worse rate)",
+      "avoid": "Use ATMs at major banks (KB, Shinhan, Woori) inside branches. Always select 'KRW' not USD on screen."
+    },
+    {
+      "title": "Cosmetic surgery / clinic upselling",
+      "severity": "medium",
+      "where": "Gangnam, Apgujeong (cosmetic surgery streets)",
+      "what": "$50 'consultation' becomes hard-sell pressure; deposit required for procedures pricier than promised",
+      "avoid": "Research clinics via Korea Tourism Org partner list. Get all prices in writing before deposit. Don't go in solo if cult-vulnerable."
+    },
+    {
+      "title": "Aggressive selling in Insadong",
+      "severity": "medium",
+      "where": "Insadong shopping district",
+      "what": "Vendors quote inflated prices for 'traditional Korean handicrafts' that are mass-produced",
+      "avoid": "Bargain (uncommon in Korea otherwise but expected here). Compare prices across multiple stalls."
+    },
+    {
+      "title": "Free Wi-Fi phishing",
+      "severity": "medium",
+      "where": "Tourist areas, airports, cafés",
+      "what": "Fake Wi-Fi ('Korea Free' / 'Tourist Wi-Fi'); captures bank login data",
+      "avoid": "Use mobile data (eSIM/SIM) for banking. VPN if must use public Wi-Fi (NordVPN, ExpressVPN)."
+    },
+    {
+      "title": "DMZ tour bait-switch",
+      "severity": "medium",
+      "where": "Booked DMZ (North Korean border) tours",
+      "what": "Cheap online listing turns out to be 'DMZ overview' from far away, no JSA visit",
+      "avoid": "Book via Koridoor, VIP Travel, or Klook with reviews. Confirm whether JSA (Joint Security Area) is included before paying."
+    },
+    {
+      "title": "Karaoke (noraebang) overcharging",
+      "severity": "medium",
+      "where": "Hongdae, Gangnam late-night",
+      "what": "Some 'karaoke' venues are room-salons with hostesses; charge $200-500 for drinks",
+      "avoid": "Use coin noraebang chains (multi-bang places) — fixed pricing. Or noraebang inside reputable buildings (not hidden alleys)."
+    }
+  ],
+  "budget": {
+    "currency": "USD",
+    "backpacker": 50,
+    "midRange": 120,
+    "comfortable": 250
+  }
+}

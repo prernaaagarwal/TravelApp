@@ -1,0 +1,80 @@
+{
+  "scams": [
+    {
+      "title": "Temple closed scam",
+      "severity": "medium",
+      "where": "Bangkok — Wat Pho, Grand Palace, near Khaosan Road",
+      "what": "'Friendly' local says temple is closed for ceremony; offers cheap tuk-tuk tour to gem shops where you're pressured to buy fake/overpriced jewelry",
+      "avoid": "Verify at official entrance only. Major Bangkok temples NEVER close for random ceremonies. Walk away from anyone offering tours nearby."
+    },
+    {
+      "title": "Gem/jewelry shop scam",
+      "severity": "critical",
+      "where": "Bangkok, sometimes Phuket and Chiang Mai",
+      "what": "Tourist taken to 'tax-free government gem store'; pressured to buy 'investment sapphires' for $1,000s that are worth $50",
+      "avoid": "Never buy gems/jewelry from tuk-tuk recommendations. Real gem dealers in Thailand don't approach tourists in the street."
+    },
+    {
+      "title": "Tuk-tuk no meter overcharging",
+      "severity": "high",
+      "where": "Bangkok especially; Chiang Mai, beach towns",
+      "what": "Tuk-tuks have no meters. Driver quotes 200 THB for 50 THB ride; refuses change for larger bills",
+      "avoid": "Use Grab or Bolt apps. If tuk-tuk: negotiate fare BEFORE getting in. Have exact change ready."
+    },
+    {
+      "title": "Taxi 'meter broken'",
+      "severity": "high",
+      "where": "Bangkok especially Suvarnabhumi/Don Mueang airports",
+      "what": "Driver says meter broken, quotes 800 THB for 200 THB ride. Or runs meter at 5x speed.",
+      "avoid": "Insist on meter or get out. Use Grab. From airport: official taxi queue downstairs (not solicitations upstairs)."
+    },
+    {
+      "title": "Scooter rental damage scam",
+      "severity": "critical",
+      "where": "Phuket, Koh Samui, Koh Phangan, Pattaya",
+      "what": "Rental shop demands passport as deposit; on return, claims you damaged scooter (pre-existing scratches), refuses to release passport unless you pay $200-2,000",
+      "avoid": "NEVER leave passport — copy + cash deposit only. Photograph/video bike from all angles BEFORE leaving rental shop. Use shops recommended by your hotel."
+    },
+    {
+      "title": "Drink spiking (Patpong/Nana/Soi Cowboy)",
+      "severity": "critical",
+      "where": "Bangkok red-light zones, Phuket Bangla Road, Pattaya Walking Street",
+      "what": "GHB/rohypnol in drinks → robbery or sexual assault. Sometimes by 'friendly' locals/tourists",
+      "avoid": "Avoid these areas entirely if solo. Order bottled drinks, watch the bartender pour. Never accept drinks from strangers."
+    },
+    {
+      "title": "Jet ski damage scam",
+      "severity": "critical",
+      "where": "Phuket Patong Beach, Pattaya",
+      "what": "Rent jet ski; on return, owner claims you damaged it; demands $500-3,000. Often involves intimidating men appearing 'on cue'",
+      "avoid": "Don't rent jet skis in Thailand — well-documented scam. Stick to hotel-organized water sports."
+    },
+    {
+      "title": "Ping pong show / bar scams",
+      "severity": "high",
+      "where": "Patpong, Bangkok",
+      "what": "'Free' show entry; bill arrives 5,000+ THB ($150) for one beer. Bouncers prevent leaving until paid.",
+      "avoid": "Don't enter Patpong shows. Period. The whole industry is built on this."
+    },
+    {
+      "title": "Wrong change scam",
+      "severity": "medium",
+      "where": "Tuk-tuks, taxis, street vendors near tourist areas",
+      "what": "You give 1,000 THB note, driver gives change for 100 THB note, claims you only paid 100",
+      "avoid": "State note value out loud when handing over: 'one thousand baht'. Have exact change when possible."
+    },
+    {
+      "title": "Bird poop / mustard distraction",
+      "severity": "medium",
+      "where": "Bangkok tourist areas, Chiang Mai night bazaar",
+      "what": "'Bird droppings' (or sauce) lands on you; 'helpful' stranger offers to clean you up while accomplice picks pocket",
+      "avoid": "Politely refuse help. Move away from the area. Clean up at a café or hotel."
+    }
+  ],
+  "budget": {
+    "currency": "USD",
+    "backpacker": 25,
+    "midRange": 60,
+    "comfortable": 150
+  }
+}
