@@ -148,6 +148,30 @@
         "angle": "VS — Verified Safe",
         "why": "Authentic Goan market sans the Anjuna tourist hawkers. Hire a local female guide via your stay; you'll hear what locals actually buy.",
         "approxCost": "Free entry; budget ₹500–₹2,000 for guide."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -301,6 +325,18 @@
     ],
     "transport": [
       {
+        "mode": "Sakha / Women on Wheels",
+        "tip": "Social enterprise; all-women drivers from marginalised communities; >1M safe rides reported.",
+        "approxCost": "₹200–600 for city rides",
+        "bookingMethod": "Website: sakhaconsultingwings.com | Phone: +91-11-26521862"
+      },
+      {
+        "mode": "Pink City Rickshaw Company (NOT 'Pink Auto Service')",
+        "tip": "21 electric autos, 45 active women drivers, expanding to 31 by end 2025. Sister orgs in Varanasi (Holy City Rickshaw Co.) and Udaipur (Lake City Rickshaw Co.) launching 2025.",
+        "approxCost": "₹800–2,000 per tour",
+        "bookingMethod": "Website: pinkcityrickshawcompany.com | Heritage Tour, Shop & Hop, Culture Gully tours available"
+      },
+      {
         "mode": "Uber / Ola",
         "tip": "Both work reliably in Jaipur. Always preferred over street autos.",
         "approxCost": "₹80–250 within city"
@@ -351,6 +387,30 @@
         "angle": "VS — Verified Safe",
         "why": "DGCA-certified, professionally run, no harassment risk; the most-loved Jaipur premium experience among solo female travelers.",
         "approxCost": "₹13,500–₹16,500/person; book 24h ahead."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -503,6 +563,12 @@
     ],
     "transport": [
       {
+        "mode": "Holy City Rickshaw Company",
+        "tip": "Launched September 2024 in Varanasi. Sister org of Pink City Rickshaw Company. 25 women drivers, 12 e-autos. Funded by Intrepid Foundation. Perfect for solo women visiting Varanasi ghats.",
+        "approxCost": "₹600–1,500 per tour",
+        "bookingMethod": "Website: holycityrickshaw.com | Direct booking"
+      },
+      {
         "mode": "Cycle rickshaw",
         "tip": "Best for narrow gali (lane) navigation. Agree price before riding.",
         "approxCost": "₹30–100 within ghat area"
@@ -546,6 +612,38 @@
         "angle": "VS+FM — Combined",
         "why": "Daily 6am yoga overlooking Ganga, women-majority class. Drop-in friendly; non-spiritual.",
         "approxCost": "₹300/class; 60 minutes."
+      },
+      {
+        "name": "Hostel LaVie",
+        "type": "Female-only / women-friendly hostel",
+        "angle": "VS — Verified Safe",
+        "why": "Consistently top-rated for solo women in Varanasi. 'Female-only dorms, very safe, excellent staff.' Multiple recent hostel roundups 2024–25.",
+        "approxCost": "₹500–900 dorm | ₹1,800–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -700,6 +798,30 @@
         "angle": "FM — Female-Majority",
         "why": "Zostel Manali has informal female-only hike groups that form daily. Safer way to do Bhrigu Lake / Patalsu Peak hikes than going alone.",
         "approxCost": "Hostel ₹700–₹1,200; hikes ₹500–₹2,500."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -795,25 +917,11 @@
     ],
     "scams": [
       {
-        "title": "Predatory yoga ashram / guru",
+        "title": "Drug Possession Setup (Goa)",
         "severity": "critical",
-        "where": "Ram Jhula area and online listings",
-        "what": "Unregistered 'guru' targets foreign women for extended retreat. Isolation, manipulation, financial drain.",
-        "avoid": "Research on forums (TripAdvisor, Lonely Planet Thorntree) before booking any retreat. Never pay more than 2 weeks upfront."
-      },
-      {
-        "title": "Rafting overcharge and fake safety",
-        "severity": "high",
-        "where": "Marine Drive rafting operators",
-        "what": "Unlicensed operator quotes ₹400 'discount' rafting; no safety briefing, no life jacket inspection.",
-        "avoid": "Use only TURA (Uttarakhand Rafting Association) registered operators. Ask for licence number. Min age/weight rules exist for safety."
-      },
-      {
-        "title": "'Blessing' donation trap",
-        "severity": "medium",
-        "where": "Ghats and temple entrances",
-        "what": "Priest offers forehead tilak or sacred thread; donation of ₹1,000–5,000 demanded before you can leave.",
-        "avoid": "Decline politely and firmly. No temple in Rishikesh charges for entry or mandates donations."
+        "where": "Goa (Anjuna, Vagator, Morjim), Manali (Old Manali, Kasol), Rishikesh",
+        "what": "Local offers drugs at a beach/party; once accepted/handed over, accomplice 'cop' arrives, demands large bribe to avoid arrest. Punishment for narcotics in India is severe — even small amounts = years in jail.",
+        "avoid": "Refuse all drug offers. NDPS Act in India is harsh; 1 year minimum for personal possession. Walk away from anyone offering 'something to relax'."
       }
     ],
     "transport": [
@@ -835,25 +943,36 @@
     ],
     "hiddenGems": [
       {
-        "name": "Beatles Ashram (Chaurasi Kutia)",
-        "type": "Abandoned ashram / street art",
-        "angle": "Instagram but actually worth it",
-        "why": "Where the Beatles studied TM in 1968. Now an open ruin with excellent graffiti. Fee is worth it for the quiet.",
-        "approxCost": "₹150 entry (foreigners ₹600)"
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
       },
       {
-        "name": "Neer Garh Waterfall",
-        "type": "Waterfall trek",
-        "angle": "45-min hike from Laxman Jhula",
-        "why": "Short jungle trek to a multi-tiered waterfall. Best on weekday mornings. Safe for solo.",
-        "approxCost": "₹50 entry"
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
       },
       {
-        "name": "Chotiwala restaurant (original)",
-        "type": "Legendary restaurant",
-        "angle": "Split-location story",
-        "why": "The original 1958 restaurant has a rival next door with the same name. This one has the original costumed doorman on the left.",
-        "approxCost": "Thali ₹180–300"
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Stops Hostels (Female Dorms)",
+        "type": "Hostel chain with female dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Women's dorms in North India locations. Colourful, social hostels. Recommended in solo women India hostel lists 2024.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -1007,6 +1126,30 @@
     ],
     "transport": [
       {
+        "mode": "Sakha / Women on Wheels",
+        "tip": "Social enterprise; all-women drivers from marginalised communities; >1M safe rides reported.",
+        "approxCost": "₹200–600 for city rides",
+        "bookingMethod": "Website: sakhaconsultingwings.com | Phone: +91-11-26521862"
+      },
+      {
+        "mode": "GoPink Cabs",
+        "tip": "Bengaluru-based only. Airport (KIA via KSTDC), city rides, outstation. Confirmed operational. Note: booking confirmation process can be slow.",
+        "approxCost": "Airport: ₹1,200–2,500 | City: ₹400–900",
+        "bookingMethod": "Website: gopinkcabs.com | Phone: 080-23121234 / 9740235556 | Email: operations@gopinkcabs.com"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
         "mode": "Delhi Metro",
         "tip": "Safest and fastest. Women-only coach (first coach, marked pink) on every line.",
         "approxCost": "₹10–60 per journey"
@@ -1064,6 +1207,22 @@
         "angle": "VS — Verified Safe",
         "why": "Quiet alley of cafés (Jugmug Thela, Blue Tokai) and boutiques, mostly female-founded. Solo-women friendly; daytime is best.",
         "approxCost": "Free entry; ₹300–₹800 for café visit. Closed Mondays."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -1254,6 +1413,38 @@
         "angle": "VS — Verified Safe",
         "why": "Free Taj sunset view minus the East-Gate crowd. Hotels can arrange a verified female auto/cab driver for the round trip. Quietest, safest Taj experience.",
         "approxCost": "₹300 (Indian) / ₹300 (foreigner) entry; auto round-trip ₹400–₹600."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Stops Hostels (Female Dorms)",
+        "type": "Hostel chain with female dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Women's dorms in North India locations. Colourful, social hostels. Recommended in solo women India hostel lists 2024.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -1407,6 +1598,18 @@
     ],
     "transport": [
       {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
         "mode": "Mumbai local train (women's coach)",
         "tip": "First coach from Western Line; marked with a 'W'. Safe, fast, ₹5–20.",
         "approxCost": "₹5–20"
@@ -1457,6 +1660,30 @@
         "angle": "FM — Female-Only",
         "why": "Often-missed: Mumbai locals have dedicated women-only carriages, plus a women-only first-class compartment. Genuinely safe, fast, ₹100/ride.",
         "approxCost": "₹100 first-class / ₹10 general; rush hour 8–11am, 5–9pm"
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -1568,6 +1795,12 @@
     ],
     "transport": [
       {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
         "mode": "Namma Metro",
         "tip": "Purple and Green lines cover most tourist areas. Women-only coach, first in train.",
         "approxCost": "₹10–55"
@@ -1618,6 +1851,30 @@
         "angle": "VS — Verified Safe",
         "why": "Lalbagh is fully gated, with morning women walkers from 6am. Pair with iconic MTR breakfast (since 1924) — solo female travelers are routine here.",
         "approxCost": "Park ₹25 entry after 9am, free 6–9am. MTR breakfast ₹200–₹350."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -1742,6 +1999,18 @@
     ],
     "transport": [
       {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
         "mode": "Kolkata Metro",
         "tip": "Blue Line covers Park Street to Howrah. Women-only coach, first in train.",
         "approxCost": "₹5–30"
@@ -1792,6 +2061,30 @@
         "angle": "VS — Verified Safe",
         "why": "Underrated 1767 cemetery; quiet, well-maintained, women-respected. Most peaceful 90 min in central Kolkata.",
         "approxCost": "₹100 entry. Open 8am–5pm daily."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -1902,6 +2195,18 @@
     ],
     "transport": [
       {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
         "mode": "Chennai Metro",
         "tip": "Green and Blue lines. Women-only coach. Covers airport to central.",
         "approxCost": "₹10–60"
@@ -1952,6 +2257,30 @@
         "angle": "VS — Verified Safe",
         "why": "7th-century temple in Mylapore — solo women visit pre-7am for empty courtyards and zero hassle. Modest dress, head covering optional but respectful.",
         "approxCost": "Free. Best 5:30–7am."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -2126,6 +2455,30 @@
         "angle": "VS — Verified Safe",
         "why": "Most-loved Udaipur view that's totally solo-female-friendly. Ropeway is staffed and well-lit; ride down before full dark.",
         "approxCost": "₹130 ropeway round trip; 6–6:30pm sunset window."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -2293,6 +2646,22 @@
         "angle": "VS — Verified Safe",
         "why": "Quirky private museum with traditional Kerala folk art. Less touristy than Kerala Kathakali Centre, more authentic. Solo women welcomed warmly.",
         "approxCost": "₹100 entry; performances additional."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -2380,25 +2749,11 @@
     ],
     "scams": [
       {
-        "title": "Drug-laced food",
+        "title": "Drug Possession Setup (Goa)",
         "severity": "critical",
-        "where": "Cafés and guesthouses",
-        "what": "Cannabis added to food (brownies, lassi, tea) without clear labelling. Disorientation in remote terrain is dangerous.",
-        "avoid": "Order only clearly described items. If a café has a 'special menu' in whispers, leave. Ask explicitly: does this contain anything?"
-      },
-      {
-        "title": "Fake trek guide",
-        "severity": "medium",
-        "where": "Kasol village, near trailhead",
-        "what": "Unregistered guides offer Kheerganga treks; take groups off-route or abandon mid-trail.",
-        "avoid": "Hire through your guesthouse or registered trek agencies in Bhuntar. Ask for local ID and previous client contacts."
-      },
-      {
-        "title": "Overpriced guesthouse at arrival",
-        "severity": "low",
-        "where": "Bus drop point",
-        "what": "Touts at the bus stop claim the 'best' guesthouses are full and take you to commission properties.",
-        "avoid": "Walk 5 minutes past the drop point independently. Almost no guesthouse is full except Diwali/Holi weekends."
+        "where": "Goa (Anjuna, Vagator, Morjim), Manali (Old Manali, Kasol), Rishikesh",
+        "what": "Local offers drugs at a beach/party; once accepted/handed over, accomplice 'cop' arrives, demands large bribe to avoid arrest. Punishment for narcotics in India is severe — even small amounts = years in jail.",
+        "avoid": "Refuse all drug offers. NDPS Act in India is harsh; 1 year minimum for personal possession. Walk away from anyone offering 'something to relax'."
       }
     ],
     "transport": [
@@ -2420,25 +2775,36 @@
     ],
     "hiddenGems": [
       {
-        "name": "Kheerganga hot spring",
-        "type": "Trek + natural hot spring",
-        "angle": "The whole point of Kasol",
-        "why": "13km trek through pine and rhododendron forest ends at sulphur hot springs at 2,960m. Camp overnight for the stars.",
-        "approxCost": "Trek free; camping ₹200–400/night"
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
       },
       {
-        "name": "Chalal riverside walk",
-        "type": "Forest walk",
-        "angle": "20 minutes, zero effort",
-        "why": "Cross the bridge, follow the river. Pine-scented, cold, quiet. Best at 7am before the café crowd wakes.",
-        "approxCost": "Free"
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
       },
       {
-        "name": "Moon Dance Café, Kasol",
-        "type": "Café",
-        "angle": "Best hummus at altitude",
-        "why": "Israeli-run café with proper shakshuka, hummus, and filter coffee. Solar-powered. Seats 15. Opens 8am.",
-        "approxCost": "Meal ₹250–450"
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Stops Hostels (Female Dorms)",
+        "type": "Hostel chain with female dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Women's dorms in North India locations. Colourful, social hostels. Recommended in solo women India hostel lists 2024.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [
@@ -2566,25 +2932,36 @@
     ],
     "hiddenGems": [
       {
-        "name": "Matanga Hill sunrise",
-        "type": "Viewpoint trek",
-        "angle": "400 steps, unmissable",
-        "why": "Best view in Hampi — the entire UNESCO landscape turns amber at dawn. Arrive by 6am. Safe, well-trodden path.",
-        "approxCost": "Free"
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
       },
       {
-        "name": "Vittala Temple and Stone Chariot",
-        "type": "UNESCO temple complex",
-        "angle": "Best ruins in Hampi",
-        "why": "Musical pillars and the iconic stone chariot. Go at 8am opening — you'll have it almost to yourself before 10am bus tours arrive.",
-        "approxCost": "₹600 entry (foreigners); ₹40 (Indian)"
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
       },
       {
-        "name": "Mango Tree restaurant",
-        "type": "Restaurant",
-        "angle": "30-year Hampi institution",
-        "why": "Platforms over the river, banana leaf thalis, backpacker crowd. The Hampi ritual — lunch here after the morning ruins walk.",
-        "approxCost": "Thali ₹180–300"
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Stops Hostels (Female Dorms)",
+        "type": "Hostel chain with female dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Women's dorms in North India locations. Colourful, social hostels. Recommended in solo women India hostel lists 2024.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
       }
     ],
     "preBookChecklist": [

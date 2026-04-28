@@ -4,7 +4,6 @@ import path from "path";
 const DATA_DIR = path.join(process.cwd(), "lib/mock-data");
 const RAW_DIR = path.join(DATA_DIR, "raw");
 
-// City name in intel-cards → city name in Excel (handle mismatches)
 const CITY_MAP: Record<string, string> = {
   Delhi: "Delhi",
   Agra: "Agra",
@@ -18,12 +17,19 @@ const CITY_MAP: Record<string, string> = {
   Udaipur: "Udaipur",
   Manali: "Manali",
   Kochi: "Kochi",
+  Rishikesh: "Rishikesh",
+  Kasol: "Kasol",
+  Hampi: "Hampi",
 };
+
+// Cities covered by Uber Women-only Bike Rides (launched Dec 2024)
+const UBER_WOMEN_CITIES = new Set([
+  "Bangalore", "Delhi", "Mumbai", "Kolkata", "Chennai",
+]);
 
 function parseINR(val: string): number {
   if (!val) return 0;
-  // Take the lower bound of ranges like "2,500–3,500" or "2,500-3,500"
-  const clean = val.replace(/,/g, "").split(/[–-]/)[0].replace(/[^\d]/g, "");
+  const clean = val.replace(/,/g, "").split(/[–\-]/)[0].replace(/[^\d]/g, "");
   return parseInt(clean, 10) || 0;
 }
 
@@ -42,7 +48,7 @@ function loadScams(cityName: string) {
   const rows: string[][] = raw["Master Scam List"].rows;
   return rows
     .filter((r) => r[3] && r[3].toLowerCase().includes(cityName.toLowerCase()))
-    .slice(0, 8) // cap at 8 per city
+    .slice(0, 8)
     .map((r) => ({
       title: r[1],
       severity: severityMap(r[6] ?? ""),
@@ -84,6 +90,76 @@ function loadBudget(cityName: string) {
   };
 }
 
+// Skip rows with unconfirmed/do-not-list flags
+function isConfirmed(notes: string): boolean {
+  if (!notes) return true;
+  const lower = notes.toLowerCase();
+  return !lower.includes("do not list") && !lower.includes("unconfirmed") && !lower.includes("cannot confirm");
+}
+
+function loadWomenTransport(cityName: string) {
+  const raw = JSON.parse(
+    fs.readFileSync(path.join(RAW_DIR, "women-only-travel-services-india-updated-1.json"), "utf8")
+  );
+  const rows: string[][] = raw["Transport"].rows;
+
+  const services = rows
+    .filter((r) => {
+      if (!r[0] || r[0] === "Name") return false;
+      const cities = (r[1] ?? "").toLowerCase();
+      const notes = r[11] ?? "";
+      return cities.includes(cityName.toLowerCase()) && isConfirmed(notes);
+    })
+    .map((r) => ({
+      mode: r[0],
+      tip: r[6] ?? r[11] ?? "",
+      approxCost: r[10] ?? "",
+      bookingMethod: r[9] ?? "",
+    }));
+
+  // Add Uber Women-only Bike if city is covered
+  if (UBER_WOMEN_CITIES.has(cityName)) {
+    services.push({
+      mode: "Uber Women-only Bike Rides",
+      tip: "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+      approxCost: "₹50–200",
+      bookingMethod: "Uber app",
+    });
+  }
+
+  return services;
+}
+
+function loadSafeStays(cityName: string) {
+  const raw = JSON.parse(
+    fs.readFileSync(path.join(RAW_DIR, "women-safe-stays-india-updated-1.json"), "utf8")
+  );
+  const rows: string[][] = raw["Sheet1"].rows;
+
+  // Also include multi-city chains for all cities
+  const chains = ["The Hosteller", "Zostel", "Madpackers", "Stops Hostels"];
+
+  return rows
+    .filter((r) => {
+      if (!r[0] || r[0] === "Name") return false;
+      const city = (r[1] ?? "").toLowerCase();
+      const isThisCity = city.includes(cityName.toLowerCase());
+      const isMultiCity = city.includes("multiple");
+      const isChain = chains.some((c) => r[0].includes(c));
+      const price = r[10] ?? "";
+      const hasPrice = price && !price.toLowerCase().includes("unconfirmed");
+      return (isThisCity || (isMultiCity && isChain)) && hasPrice;
+    })
+    .slice(0, 4)
+    .map((r) => ({
+      name: r[0],
+      type: r[3] ?? "Women-friendly stay",
+      angle: r[5] === "Women only" ? "FO — Women Only" : "VS — Verified Safe",
+      why: r[11] ?? `${r[4] ?? ""} in ${r[1]}. ${r[5] ?? ""}`.trim(),
+      approxCost: r[10] ?? "",
+    }));
+}
+
 function main() {
   const cardsPath = path.join(DATA_DIR, "intel-cards.json");
   const cards = JSON.parse(fs.readFileSync(cardsPath, "utf8"));
@@ -94,20 +170,35 @@ function main() {
     const excelCity = CITY_MAP[dest];
 
     if (!excelCity) {
-      console.log(`  skip (no Excel data): ${dest}`);
+      console.log(`  skip (no city map): ${dest}`);
       return card;
     }
 
     const scams = loadScams(excelCity);
     const gems = loadGems(excelCity);
     const budget = loadBudget(excelCity);
+    const womenTransport = loadWomenTransport(excelCity);
+    const safeStays = loadSafeStays(excelCity);
 
     if (scams.length > 0) card.scams = scams;
-    if (gems.length > 0) card.hiddenGems = gems;
     if (budget) card.estimatedDailyBudget = budget;
 
+    // Merge gems + safe stays into hiddenGems (stays appended after gems)
+    const allGems = [
+      ...gems,
+      ...safeStays.map((s) => ({ ...s, _source: "stay" })),
+    ].slice(0, 8);
+    if (allGems.length > 0) card.hiddenGems = allGems;
+
+    // Prepend women-only transport to existing transport array
+    if (womenTransport.length > 0) {
+      const existing = (card.transport as unknown[]) ?? [];
+      card.transport = [...womenTransport, ...existing].slice(0, 8);
+    }
+
     console.log(
-      `  enriched: ${dest} — ${scams.length} scams, ${gems.length} gems, budget: ${budget ? "yes" : "no"}`
+      `  ${dest} — ${scams.length} scams, ${allGems.length} gems+stays, ` +
+      `${womenTransport.length} women-transport, budget: ${budget ? "yes" : "no"}`
     );
     enriched++;
     return card;
