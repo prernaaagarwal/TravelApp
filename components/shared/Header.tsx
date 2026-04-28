@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { createClient } from "@/lib/supabase/server";
 
 const NAV_ITEMS = [
   { href: "/explore", label: "Intel" },
@@ -9,7 +10,10 @@ const NAV_ITEMS = [
   { href: "/shop", label: "Shop" },
 ];
 
-export function Header() {
+export async function Header() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
   return (
     <header className="sticky top-0 z-40 border-b border-ww-border/60 bg-sand/85 backdrop-blur-sm">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:px-6">
@@ -33,16 +37,29 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-            <Link href="/coming-soon">Sign in</Link>
-          </Button>
-          <Button
-            asChild
-            size="sm"
-            className="bg-rust text-warm-white hover:bg-rust/90"
-          >
-            <Link href="/coming-soon">Join</Link>
-          </Button>
+          {user ? (
+            <>
+              <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex text-ww-muted hover:text-ink">
+                <Link href="/account/profile">My account</Link>
+              </Button>
+              <div className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium">
+                {user.email?.[0]?.toUpperCase() ?? "W"}
+              </div>
+            </>
+          ) : (
+            <>
+              <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+                <Link href="/account/login">Sign in</Link>
+              </Button>
+              <Button
+                asChild
+                size="sm"
+                className="bg-rust text-warm-white hover:bg-rust/90"
+              >
+                <Link href="/account/signup">Join</Link>
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </header>
