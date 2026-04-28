@@ -277,8 +277,79 @@ export default function HomePage() {
       </section>
 
       {/* ── Beware Board scam ticker ──────────────────────────────────── */}
-      <section id="ticker" className="border-y border-ww-border bg-ink px-6 py-10">
-        <p className="text-warm-white">Scam ticker — Step 6 — {tickerEntries.length} entries loaded</p>
+      <section id="ticker" className="overflow-hidden border-y border-ww-border bg-ink py-10">
+        {/* header */}
+        <div className="mb-6 flex items-baseline gap-4 px-6">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-warm-white/40">
+            Live Beware Board
+          </p>
+          <span className="h-px flex-1 bg-warm-white/10" />
+          <Link href="/community" className="font-mono text-[10px] uppercase tracking-widest text-rust hover:underline">
+            See all reports →
+          </Link>
+        </div>
+
+        {/* row 1 — critical, scrolls left */}
+        {(() => {
+          const row = [...bewares.filter(b => b.severity === "critical"), ...bewares.filter(b => b.severity === "high").slice(0,3)];
+          const doubled = [...row, ...row];
+          return (
+            <div className="mb-3 overflow-hidden">
+              <div className="flex w-max gap-3" style={{animation:"marquee-left 28s linear infinite"}}>
+                {doubled.map((b, i) => (
+                  <div key={i} className="flex shrink-0 items-center gap-2 border border-rust/30 bg-rust/10 px-3 py-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-rust" />
+                    <span className="font-mono text-xs text-rust/90">{b.city}</span>
+                    <span className="font-mono text-xs text-warm-white/60">{b.title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* row 2 — high, scrolls right */}
+        {(() => {
+          const row = bewares.filter(b => b.severity === "high").slice(0,8);
+          const doubled = [...row, ...row];
+          return (
+            <div className="mb-3 overflow-hidden">
+              <div className="flex w-max gap-3" style={{animation:"marquee-right 35s linear infinite"}}>
+                {doubled.map((b, i) => (
+                  <div key={i} className="flex shrink-0 items-center gap-2 border border-gold/30 bg-gold/10 px-3 py-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                    <span className="font-mono text-xs text-gold/90">{b.city}</span>
+                    <span className="font-mono text-xs text-warm-white/60">{b.title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* row 3 — medium, scrolls left slower */}
+        {(() => {
+          const row = bewares.filter(b => b.severity === "medium");
+          const doubled = [...row, ...row];
+          return (
+            <div className="overflow-hidden">
+              <div className="flex w-max gap-3" style={{animation:"marquee-left 42s linear infinite"}}>
+                {doubled.map((b, i) => (
+                  <div key={i} className="flex shrink-0 items-center gap-2 border border-sage/30 bg-sage/10 px-3 py-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-sage" />
+                    <span className="font-mono text-xs text-sage/90">{b.city}</span>
+                    <span className="font-mono text-xs text-warm-white/60">{b.title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* disclaimer */}
+        <p className="mt-6 px-6 font-mono text-[10px] text-warm-white/25">
+          All Beware Board entries shown in this V0 demo are illustrative mock data and do not represent real incidents.
+        </p>
       </section>
 
       {/* ── Community teaser ─────────────────────────────────────────── */}
