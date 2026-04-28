@@ -69,8 +69,35 @@ export default function HomePage() {
       </section>
 
       {/* ── Trust bar ────────────────────────────────────────────────── */}
-      <section id="trust" className="border-y border-ww-border bg-sand px-6 py-8">
-        <p>Trust bar — Step 3 — {featuredContributors.length} contributors loaded</p>
+      <section id="trust" className="border-y border-ww-border bg-sand px-6 py-6">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 sm:flex-row sm:justify-between">
+          {/* avatars + stat */}
+          <div className="flex items-center gap-3">
+            <div className="flex -space-x-2">
+              {featuredContributors.map((c) => (
+                <img
+                  key={c.slug}
+                  src={c.photoUrl}
+                  alt={c.name}
+                  className="h-9 w-9 rounded-full border-2 border-sand object-cover"
+                />
+              ))}
+            </div>
+            <p className="font-mono text-xs text-ink">
+              Built by <span className="font-semibold">47 women.</span>
+            </p>
+          </div>
+
+          {/* divider — desktop only */}
+          <div className="hidden h-6 w-px bg-ww-border sm:block" />
+
+          {/* trust stats */}
+          <div className="flex gap-6 font-mono text-xs text-ww-muted">
+            <span><strong className="text-ink">1,200+</strong> travellers trust this</span>
+            <span><strong className="text-ink">15</strong> destinations</span>
+            <span><strong className="text-ink">250+</strong> scam reports</span>
+          </div>
+        </div>
       </section>
 
       {/* ── Intel Card preview strip ──────────────────────────────────── */}
