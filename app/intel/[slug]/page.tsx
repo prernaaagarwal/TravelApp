@@ -212,7 +212,55 @@ export default async function IntelPage({ params }: { params: Params }) {
             </div>
           </section>
 
-          {/* sections 5–9 coming in next steps */}
+          {/* ── Transport ─────────────────────────────────────────────── */}
+          <section>
+            <h2 className="mb-4 font-serif text-2xl text-ink">Getting around</h2>
+            <div className="space-y-2">
+              {card.transport.map((t, i) => (
+                <div key={i} className="flex gap-4 border border-ww-border bg-sand p-4">
+                  <span className="mt-0.5 shrink-0 text-lg">🚌</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-1 flex flex-wrap items-baseline gap-2">
+                      <span className="font-mono text-sm font-semibold text-ink">{t.mode}</span>
+                      <span className="font-mono text-xs text-rust">{t.approxCost}</span>
+                    </div>
+                    <p className="text-xs leading-relaxed text-ww-muted">{t.tip}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ── Hidden Gems ───────────────────────────────────────────── */}
+          <section>
+            <h2 className="mb-1 font-serif text-2xl text-ink">Hidden gems</h2>
+            <p className="mb-4 font-mono text-xs text-ww-muted">
+              Places most travel guides miss. Verified by our contributors.
+            </p>
+            <div className="space-y-3">
+              {card.hiddenGems.map((gem, i) => (
+                <div key={i} className="border border-ww-border bg-sand p-4">
+                  <div className="mb-2 flex flex-wrap items-start justify-between gap-2">
+                    <div>
+                      <h3 className="font-mono text-sm font-semibold text-ink">{gem.name}</h3>
+                      <div className="mt-1 flex flex-wrap gap-2">
+                        <span className="rounded-full bg-blue-light px-2 py-0.5 font-mono text-[10px] text-blue">
+                          {gem.type}
+                        </span>
+                        <span className="rounded-full bg-purple-light px-2 py-0.5 font-mono text-[10px] text-purple">
+                          {gem.angle}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="shrink-0 font-mono text-xs text-ww-muted">{gem.approxCost}</span>
+                  </div>
+                  <p className="text-xs leading-relaxed text-ww-muted">{gem.why}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* sections 6–9 coming in next steps */}
         </main>
 
         {/* ── Sticky sidebar ───────────────────────────────────────── */}
