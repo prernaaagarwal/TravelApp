@@ -1,43 +1,60 @@
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import intelCards from "@/lib/mock-data/intel-cards.json";
+import contributors from "@/lib/mock-data/contributors.json";
+import bewares from "@/lib/mock-data/beware-entries.json";
+import communityPosts from "@/lib/mock-data/community-posts.json";
 
-export default function Home() {
+export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
+
+export default function HomePage() {
+  // pre-select data each section needs
+  const previewCards = intelCards.filter((c) =>
+    ["goa-india", "rishikesh-india", "jaipur-india"].includes(c.slug)
+  );
+  const featuredContributors = contributors.slice(0, 4);
+  const tickerEntries = bewares.slice(0, 15);
+  const askPosts = communityPosts.filter((p) => p.tab === "ask").slice(0, 3);
+
   return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col items-start justify-center gap-8 px-6 py-24">
-      <Badge variant="outline" className="font-mono uppercase tracking-widest">
-        Phase A.1 — scaffold check
-      </Badge>
-      <h1 className="font-serif text-5xl leading-tight tracking-tight md:text-7xl">
-        Trip intel built by <em className="not-italic text-rust">women</em> who
-        actually travel solo.
-      </h1>
-      <p className="max-w-xl text-base leading-relaxed text-ww-muted">
-        Wander Women — V0 demo build. The full landing page lands in step A.5.
-        For now: this confirms fonts, design tokens, and the shadcn primitives
-        are wired correctly.
-      </p>
-      <div className="flex flex-wrap gap-3">
-        <Button>Primary CTA</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="ghost">Ghost</Button>
-      </div>
-      <div className="flex flex-wrap items-center gap-3 text-sm text-ww-muted">
-        <span className="rounded-full bg-rust-light px-3 py-1 text-rust">
-          rust
-        </span>
-        <span className="rounded-full bg-sage-light px-3 py-1 text-sage">
-          sage
-        </span>
-        <span className="rounded-full bg-blue-light px-3 py-1 text-blue">
-          blue
-        </span>
-        <span className="rounded-full bg-gold-light px-3 py-1 text-gold">
-          gold
-        </span>
-        <span className="rounded-full bg-purple-light px-3 py-1 text-purple">
-          purple
-        </span>
-      </div>
+    <main>
+      {/* ── Hero ─────────────────────────────────────────────────────── */}
+      <section id="hero" className="bg-warm-white px-6 py-20 md:py-28">
+        <p>Hero — Step 2</p>
+      </section>
+
+      {/* ── Trust bar ────────────────────────────────────────────────── */}
+      <section id="trust" className="border-y border-ww-border bg-sand px-6 py-8">
+        <p>Trust bar — Step 3 — {featuredContributors.length} contributors loaded</p>
+      </section>
+
+      {/* ── Intel Card preview strip ──────────────────────────────────── */}
+      <section id="intel-preview" className="bg-warm-white px-6 py-16">
+        <p>Intel preview — Step 4 — {previewCards.length} cards loaded</p>
+      </section>
+
+      {/* ── Persona split (Priya / Sara) ──────────────────────────────── */}
+      <section id="personas" className="bg-sand px-6 py-16">
+        <p>Persona split — Step 5</p>
+      </section>
+
+      {/* ── Beware Board scam ticker ──────────────────────────────────── */}
+      <section id="ticker" className="border-y border-ww-border bg-ink px-6 py-10">
+        <p className="text-warm-white">Scam ticker — Step 6 — {tickerEntries.length} entries loaded</p>
+      </section>
+
+      {/* ── Community teaser ─────────────────────────────────────────── */}
+      <section id="community" className="bg-warm-white px-6 py-16">
+        <p>Community teaser — Step 7 — {askPosts.length} posts loaded</p>
+      </section>
+
+      {/* ── Contributor earnings showcase ─────────────────────────────── */}
+      <section id="contributors" className="bg-sand px-6 py-16">
+        <p>Contributor showcase — Step 8</p>
+      </section>
+
+      {/* ── Founding membership email capture ────────────────────────── */}
+      <section id="membership" className="bg-ink px-6 py-20">
+        <p className="text-warm-white">Membership capture — Step 9</p>
+      </section>
     </main>
   );
 }

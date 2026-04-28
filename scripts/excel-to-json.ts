@@ -113,7 +113,7 @@ for (const file of files) {
   const outPath = join(outDir, `${stem}.json`);
   writeFileSync(outPath, JSON.stringify(out, null, 2));
   const totalRows = Object.values(out).reduce(
-    (s, v) => s + ((v as { rows?: unknown[] }).rows?.length ?? 0),
+    (acc: number, v) => acc + ((v as { rows?: unknown[] }).rows?.length ?? 0),
     0
   );
   console.log(
