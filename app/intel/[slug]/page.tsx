@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import intelCards from "@/lib/mock-data/intel-cards.json";
-import contributors from "@/lib/mock-data/contributors.json";
+import { createClient } from "@/lib/supabase/server";
 
 type Params = Promise<{ slug: string }>;
 
@@ -17,20 +17,62 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { slug } = await params;
-  const card = intelCards.find((c) => c.slug === slug);
-  if (!card) return { title: "Not found — Wander Women" };
+  const supabase = await createClient();
+  const { data } = await supabase.from("intel_cards").select("destination,tldr").eq("slug", slug).single();
+  if (!data) return { title: "Not found — Wander Women" };
   return {
-    title: `${card.destination} Solo Travel Intel — Wander Women`,
-    description: card.tldr[0],
+    title: `${data.destination} Solo Travel Intel — Wander Women`,
+    description: (data.tldr as string[])[0],
   };
 }
 
 export default async function IntelPage({ params }: { params: Params }) {
   const { slug } = await params;
-  const card = intelCards.find((c) => c.slug === slug);
-  if (!card) notFound();
+  const supabase = await createClient();
 
-  const contributor = contributors.find((c) => c.slug === card.contributorSlug);
+  const { data: raw } = await supabase.from("intel_cards").select("*").eq("slug", slug).single();
+  if (!raw) notFound();
+
+  const card = {
+    slug: raw.slug,
+    destination: raw.destination,
+    country: raw.country,
+    audience: raw.audience,
+    contributorSlug: raw.contributor_slug,
+    lastUpdated: raw.last_updated,
+    verifiedByCount: raw.verified_by_count,
+    heroImageUrl: raw.hero_image_url,
+    tldr: raw.tldr as string[],
+    neighborhoods: raw.neighborhoods as { name: string; safetyRating: number; vibe: string; notes: string; stayHere: string }[],
+    scams: raw.scams as { title: string; severity: string; where: string; what: string; avoid: string }[],
+    transport: raw.transport as { mode: string; tip: string; approxCost: string }[],
+    hiddenGems: raw.hidden_gems as { name: string; why: string; type: string; angle: string; approxCost: string }[],
+    preBookChecklist: raw.pre_book_checklist as string[],
+    dosAndDonts: raw.dos_and_donts as { do: string[]; dont: string[] },
+    estimatedDailyBudget: raw.estimated_daily_budget as { backpacker: number; midRange: number; comfortable: number },
+    emergencyNumbers: raw.emergency_numbers as { label: string; number: string }[],
+    isPremium: raw.is_premium,
+    premiumPreview: raw.premium_preview,
+    affiliateLinks: raw.affiliate_links as { booking?: string; worldNomads?: string },
+  };
+
+  const { data: rawContributor } = raw.contributor_slug
+    ? await supabase.from("contributors").select("*").eq("slug", raw.contributor_slug).single()
+    : { data: null };
+
+  const contributor = rawContributor ? {
+    slug: rawContributor.slug,
+    name: rawContributor.name,
+    fullName: rawContributor.full_name,
+    homeCity: rawContributor.home_city,
+    tripCount: rawContributor.trip_count,
+    bio: rawContributor.bio,
+    photoUrl: rawContributor.photo_url,
+    badges: rawContributor.badges as string[],
+    totalContributions: rawContributor.total_contributions,
+    answersInCommunity: rawContributor.answers_in_community,
+    earningsThisMonth: rawContributor.earnings_this_month,
+  } : null;
 
   return (
     <div className="bg-warm-white">

@@ -1,4 +1,4 @@
-import shopProducts from "@/lib/mock-data/shop-products.json";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
   title: "Safety Shop — Wander Women",
@@ -6,10 +6,23 @@ export const metadata = {
     "Ten products every solo woman traveler should pack. Curated and tested by our contributors. Real Amazon affiliate links.",
 };
 
-export default function ShopPage() {
-  const sorted = [...shopProducts].sort(
-    (a, b) => a.displayOrder - b.displayOrder
-  );
+export default async function ShopPage() {
+  const supabase = await createClient();
+  const { data: rawProducts } = await supabase
+    .from("safety_products")
+    .select("*")
+    .order("display_order");
+
+  const sorted = (rawProducts ?? []).map((p) => ({
+    id: p.id,
+    name: p.name,
+    category: p.category,
+    whyItMatters: p.why_it_matters,
+    priceRange: p.price_range,
+    imageUrl: p.image_url,
+    amazonUrl: p.amazon_url,
+    displayOrder: p.display_order,
+  }));
 
   const categories = [...new Set(sorted.map((p) => p.category))];
 

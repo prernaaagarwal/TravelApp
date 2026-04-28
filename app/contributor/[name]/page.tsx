@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import intelCards from "@/lib/mock-data/intel-cards.json";
 import contributors from "@/lib/mock-data/contributors.json";
-import communityPosts from "@/lib/mock-data/community-posts.json";
+import { createClient } from "@/lib/supabase/server";
 
 type Params = Promise<{ name: string }>;
 
@@ -12,26 +11,59 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { name } = await params;
-  const c = contributors.find((c) => c.slug === name);
-  if (!c) return { title: "Contributor not found — Wander Women" };
+  const supabase = await createClient();
+  const { data } = await supabase.from("contributors").select("full_name,bio").eq("slug", name).single();
+  if (!data) return { title: "Contributor not found — Wander Women" };
   return {
-    title: `${c.fullName} — Wander Women Contributor`,
-    description: c.bio.split("\n")[0],
+    title: `${data.full_name} — Wander Women Contributor`,
+    description: (data.bio as string).split("\n")[0],
   };
 }
 
 export default async function ContributorPage({ params }: { params: Params }) {
   const { name } = await params;
-  const contributor = contributors.find((c) => c.slug === name);
-  if (!contributor) notFound();
+  const supabase = await createClient();
 
-  const herCards = intelCards.filter(
-    (c) => c.contributorSlug === contributor.slug
-  );
+  const { data: raw } = await supabase.from("contributors").select("*").eq("slug", name).single();
+  if (!raw) notFound();
 
-  const herPosts = communityPosts
-    .filter((p) => p.author === contributor.name && p.tab === "ask")
-    .slice(0, 4);
+  const contributor = {
+    slug: raw.slug,
+    name: raw.name,
+    fullName: raw.full_name,
+    homeCity: raw.home_city,
+    ageRange: raw.age_range,
+    tripCount: raw.trip_count,
+    tagline: raw.tagline,
+    bio: raw.bio as string,
+    photoUrl: raw.photo_url,
+    badges: raw.badges as string[],
+    instagram: raw.instagram,
+    totalContributions: raw.total_contributions,
+    answersInCommunity: raw.answers_in_community,
+    earningsThisMonth: raw.earnings_this_month,
+  };
+
+  const [{ data: rawCards }, { data: rawPosts }] = await Promise.all([
+    supabase.from("intel_cards").select("slug,destination,country,hero_image_url,tldr").eq("contributor_slug", name),
+    supabase.from("community_posts").select("id,content,destination,like_count,created_at").eq("author_name", contributor.name).eq("tab", "ask").eq("status", "approved").limit(4),
+  ]);
+
+  const herCards = (rawCards ?? []).map((c) => ({
+    slug: c.slug,
+    destination: c.destination,
+    country: c.country,
+    heroImageUrl: c.hero_image_url,
+    tldr: c.tldr as string[],
+  }));
+
+  const herPosts = (rawPosts ?? []).map((p) => ({
+    id: p.id,
+    content: p.content,
+    destination: p.destination,
+    likeCount: p.like_count,
+    postedAt: new Date(p.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
+  }));
 
   const bioParagraphs = contributor.bio
     .split("\n")

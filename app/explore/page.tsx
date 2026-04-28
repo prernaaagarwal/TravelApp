@@ -1,6 +1,5 @@
 import { ExploreGrid } from "@/components/intel/ExploreGrid";
-import intelCards from "@/lib/mock-data/intel-cards.json";
-import contributors from "@/lib/mock-data/contributors.json";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
   title: "Explore Trip Intel — Wander Women",
@@ -8,10 +7,34 @@ export const metadata = {
     "Browse 15 solo travel intel cards curated by women who've been there.",
 };
 
-export default function ExplorePage() {
+export default async function ExplorePage() {
+  const supabase = await createClient();
+
+  const [{ data: rawCards }, { data: rawContributors }] = await Promise.all([
+    supabase.from("intel_cards").select("slug,destination,country,audience,contributor_slug,hero_image_url,tldr,is_premium,estimated_daily_budget"),
+    supabase.from("contributors").select("slug,name,photo_url"),
+  ]);
+
+  const cards = (rawCards ?? []).map((c) => ({
+    slug: c.slug,
+    destination: c.destination,
+    country: c.country,
+    audience: c.audience,
+    contributorSlug: c.contributor_slug,
+    heroImageUrl: c.hero_image_url,
+    tldr: c.tldr as string[],
+    isPremium: c.is_premium,
+    estimatedDailyBudget: c.estimated_daily_budget as { backpacker: number; comfortable: number },
+  }));
+
+  const contributors = (rawContributors ?? []).map((c) => ({
+    slug: c.slug,
+    name: c.name,
+    photoUrl: c.photo_url,
+  }));
+
   return (
     <div className="mx-auto max-w-5xl px-6 py-12">
-      {/* header */}
       <div className="mb-10 max-w-xl">
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
           Trip intel library
@@ -25,7 +48,7 @@ export default function ExplorePage() {
         </p>
       </div>
 
-      <ExploreGrid cards={intelCards} contributors={contributors} />
+      <ExploreGrid cards={cards} contributors={contributors} />
     </div>
   );
 }
