@@ -27,11 +27,31 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }) {
   const { slug } = await params;
   const supabase = buildClient();
-  const { data } = await supabase.from("intel_cards").select("destination,tldr").eq("slug", slug).single();
+  const { data } = await supabase
+    .from("intel_cards")
+    .select("destination,country,tldr,scams")
+    .eq("slug", slug)
+    .single();
   if (!data) return { title: "Not found — Wander Women" };
+
+  const summary = Array.isArray(data.tldr)
+    ? (data.tldr as string[])[0]
+    : (data.tldr as { summary?: string })?.summary ?? "";
+  const scams = (data.scams as { title: string }[] | null) ?? [];
+  const scamList = scams.slice(0, 3).map((s) => s.title).join(", ");
+  const description = scamList
+    ? `${summary} Scam warnings: ${scamList}. Verified intel for solo women travellers in ${data.destination}, ${data.country}.`
+    : summary;
+
   return {
-    title: `${data.destination} Solo Travel Intel — Wander Women`,
-    description: Array.isArray(data.tldr) ? (data.tldr as string[])[0] : (data.tldr as { summary: string })?.summary ?? "",
+    title: `Solo Female Travel ${data.destination}, ${data.country} — Safety, Scams, Hidden Gems`,
+    description: description.slice(0, 300),
+    openGraph: {
+      title: `Solo Female Travel ${data.destination} — Wander Women`,
+      description: description.slice(0, 300),
+      type: "article",
+    },
+    alternates: { canonical: `/intel/${slug}` },
   };
 }
 
@@ -106,8 +126,8 @@ export default async function IntelPage({ params }: { params: Params }) {
             {card.destination}
           </h1>
           {card.isPremium && (
-            <span className="mt-2 inline-block bg-gold px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-ink">
-              Premium Card
+            <span className="mt-2 inline-block bg-gold/90 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-ink">
+              + Founding member bonus inside
             </span>
           )}
         </div>
@@ -427,11 +447,13 @@ export default async function IntelPage({ params }: { params: Params }) {
           {/* ── Premium locked section ────────────────────────────────── */}
           {card.isPremium && (
             <section className="relative overflow-hidden border border-ww-border">
+              <div className="border-b border-ww-border bg-sand/50 px-4 py-2">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                  Bonus chapter — founding members
+                </p>
+              </div>
               {/* blurred preview content */}
               <div className="select-none blur-sm pointer-events-none p-6 space-y-3 bg-sand">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-                  Founding member intel
-                </p>
                 <p className="font-mono text-sm text-ink">{card.premiumPreview}</p>
                 <div className="space-y-2">
                   {["Best women-only hostels with verified reviews", "Local women's WhatsApp groups to join before you arrive", "Insider safety hacks from 12 contributors"].map((line, i) => (
@@ -443,12 +465,12 @@ export default async function IntelPage({ params }: { params: Params }) {
               </div>
 
               {/* lock overlay */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-ink/60 px-6 text-center">
+              <div className="absolute inset-0 top-9 flex flex-col items-center justify-center bg-ink/60 px-6 text-center">
                 <span className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
                   Founding members only
                 </span>
                 <p className="mb-4 font-serif text-xl text-warm-white">
-                  Unlock the full card
+                  Unlock the bonus chapter
                 </p>
                 <a
                   href="/coming-soon"

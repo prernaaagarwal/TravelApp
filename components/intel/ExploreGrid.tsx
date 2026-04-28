@@ -99,8 +99,8 @@ export function ExploreGrid({ cards, contributors }: Props) {
                 {/* badges over image */}
                 <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
                   {card.isPremium && (
-                    <span className="bg-gold px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-ink">
-                      Premium
+                    <span className="bg-gold/90 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-ink">
+                      + Bonus chapter
                     </span>
                   )}
                   {card.audience === "indian" && (
