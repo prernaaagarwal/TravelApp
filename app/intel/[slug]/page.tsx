@@ -6,20 +6,27 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import intelCards from "@/lib/mock-data/intel-cards.json";
+import { createClient as createBrowserClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
 
 type Params = Promise<{ slug: string }>;
 
+function buildClient() {
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+}
+
 export async function generateStaticParams() {
-  const supabase = await createClient();
+  const supabase = buildClient();
   const { data } = await supabase.from("intel_cards").select("slug");
   return (data ?? []).map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { slug } = await params;
-  const supabase = await createClient();
+  const supabase = buildClient();
   const { data } = await supabase.from("intel_cards").select("destination,tldr").eq("slug", slug).single();
   if (!data) return { title: "Not found — Wander Women" };
   return {
