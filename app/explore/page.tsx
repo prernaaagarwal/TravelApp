@@ -22,9 +22,9 @@ export default async function ExplorePage() {
     audience: c.audience,
     contributorSlug: c.contributor_slug,
     heroImageUrl: c.hero_image_url,
-    tldr: c.tldr as string[],
+    tldr: c.tldr as string[] | { summary: string },
     isPremium: c.is_premium,
-    estimatedDailyBudget: c.estimated_daily_budget as { backpacker: number; comfortable: number },
+    estimatedDailyBudget: c.estimated_daily_budget as { backpacker: number; comfortable: number; currency: string } | null,
   }));
 
   const contributors = (rawContributors ?? []).map((c) => ({

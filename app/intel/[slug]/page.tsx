@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   if (!data) return { title: "Not found — Wander Women" };
   return {
     title: `${data.destination} Solo Travel Intel — Wander Women`,
-    description: (data.tldr as string[])[0],
+    description: Array.isArray(data.tldr) ? (data.tldr as string[])[0] : (data.tldr as { summary: string })?.summary ?? "",
   };
 }
 

@@ -143,7 +143,7 @@ export default function HomePage() {
                     {c.destination}
                   </h3>
                   <p className="line-clamp-2 text-xs leading-relaxed text-ww-muted">
-                    {c.tldr[0]}
+                    {Array.isArray(c.tldr) ? c.tldr[0] : (c.tldr as { summary: string })?.summary ?? ""}
                   </p>
 
                   {/* contributor */}
