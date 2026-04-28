@@ -506,7 +506,7 @@ export default function HomePage() {
 
           {/* Formspree form */}
           <form
-            action="https://formspree.io/f/PLACEHOLDER"
+            action="https://formspree.io/f/YOUR_FORM_ID"
             method="POST"
             className="flex flex-col gap-3 sm:flex-row"
           >

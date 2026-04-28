@@ -199,7 +199,7 @@ export default function VaultPage() {
             </ul>
 
             <form
-              action="https://formspree.io/f/PLACEHOLDER"
+              action="https://formspree.io/f/YOUR_FORM_ID"
               method="POST"
               className="space-y-2"
             >

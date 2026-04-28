@@ -22,7 +22,7 @@ export default function ComingSoonPage() {
 
       <form
         className="mt-8 flex flex-col gap-3 sm:flex-row"
-        action="https://formspree.io/f/PLACEHOLDER"
+        action="https://formspree.io/f/YOUR_FORM_ID"
         method="POST"
       >
         <Input

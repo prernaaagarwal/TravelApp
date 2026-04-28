@@ -570,7 +570,7 @@ export default async function IntelPage({ params }: { params: Params }) {
           Apply with your email — we review within 48 hours.
         </p>
         <form
-          action="https://formspree.io/f/PLACEHOLDER"
+          action="https://formspree.io/f/YOUR_FORM_ID"
           method="POST"
           className="mx-auto flex max-w-sm gap-0"
         >
