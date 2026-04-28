@@ -556,6 +556,39 @@ export default async function IntelPage({ params }: { params: Params }) {
           </div>
         </aside>
       </div>
+
+      {/* ── Footer contribute CTA ────────────────────────────────────── */}
+      <div className="border-t border-ww-border bg-ink px-6 py-12 text-center">
+        <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-warm-white/40">
+          Know {card.destination} well?
+        </p>
+        <h2 className="mb-3 font-serif text-3xl text-warm-white">
+          Contribute your own intel
+        </h2>
+        <p className="mx-auto mb-6 max-w-sm font-mono text-xs leading-relaxed text-warm-white/60">
+          Founding contributors earn ₹2,000–₹4,000 / month from card revenue share.
+          Apply with your email — we review within 48 hours.
+        </p>
+        <form
+          action="https://formspree.io/f/PLACEHOLDER"
+          method="POST"
+          className="mx-auto flex max-w-sm gap-0"
+        >
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="your@email.com"
+            className="min-w-0 flex-1 border border-warm-white/20 bg-warm-white/10 px-4 py-2.5 font-mono text-base text-warm-white placeholder:text-warm-white/30 focus:outline-none focus:border-gold"
+          />
+          <button
+            type="submit"
+            className="shrink-0 border border-gold bg-gold px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-ink hover:bg-gold/90 transition-colors"
+          >
+            Apply →
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
