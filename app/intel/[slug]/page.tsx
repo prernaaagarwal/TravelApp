@@ -82,10 +82,29 @@ export default async function IntelPage({ params }: { params: Params }) {
             </span>
           </div>
 
-          {/* sections will be filled in steps 2–9 */}
-          <p className="font-mono text-sm text-ww-muted">
-            Sections loading — steps 2–9 will populate this column.
-          </p>
+          {/* ── TLDR ──────────────────────────────────────────────────── */}
+          <section>
+            <div className="mb-4 flex items-center gap-3">
+              <div className="h-px flex-1 bg-ww-border" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
+                5 things to know before you go
+              </span>
+              <div className="h-px flex-1 bg-ww-border" />
+            </div>
+
+            <ol className="space-y-3">
+              {card.tldr.map((point, i) => (
+                <li key={i} className="flex gap-4 border border-ww-border bg-sand p-4">
+                  <span className="mt-0.5 shrink-0 font-mono text-2xl font-light leading-none text-rust/30">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-sm leading-relaxed text-ink">{point}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          {/* sections 3–9 coming in next steps */}
         </main>
 
         {/* ── Sticky sidebar ───────────────────────────────────────── */}
