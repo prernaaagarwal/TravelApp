@@ -40,32 +40,60 @@
     ],
     "scams": [
       {
-        "title": "Fake hotel/villa booking",
+        "title": "Drugged Food / Drink on Trains & Buses",
         "severity": "critical",
-        "where": "Online — Instagram, WhatsApp",
-        "what": "AI-generated photos, fake booking sites. You pay ₹20K–₹2L and arrive to nothing. Raised in Rajya Sabha 2025.",
-        "avoid": "Book only via Booking.com, MakeMyTrip, or direct hotel website. Call hotel to confirm before paying."
+        "where": "Delhi-Varanasi, Mumbai-Goa, all overnight long-distance routes",
+        "what": "A friendly co-passenger offers tea, biscuits, samosa, or water. Sedative knocks you out for hours; bags, phone, cash, passport stolen. Reports increase Oct–March (peak tourist season).",
+        "avoid": "Never accept ANY food/drink from strangers on trains or sleeper buses. Carry your own sealed water and snacks. Lock bags to the seat chain in sleeper class."
       },
       {
-        "title": "Drug possession setup",
+        "title": "Bottled Water Tampering",
+        "severity": "high",
+        "where": "Delhi, Mumbai, Varanasi, Agra, Goa",
+        "what": "Refilled tap water in a sealed-looking bottle. Sometimes lookalike brands (Bisferi instead of Bisleri). Health risk = stomach infection, hospital bill ₹5,000–₹50,000.",
+        "avoid": "Check the seal twists with a click. Inspect label spelling. Buy from sealed cases at chain stores (Reliance, More, 24Seven) when possible. Bisleri, Aquafina, Kinley, Himalayan are reliable brands."
+      },
+      {
+        "title": "Beach Shack & Water Sports Overcharge",
+        "severity": "high",
+        "where": "Goa (Calangute, Baga, Anjuna), Mumbai (Juhu), Kochi",
+        "what": "Menus without prices, jet ski/parasail operators charging 5–10x and damaging equipment to demand 'damage' fees. Renting bikes/scooters with fake damage claims.",
+        "avoid": "Confirm prices in writing/photo. Photograph rental bike from all angles before & after. Use only Goa Tourism-licensed operators (have govt. tag). Never hand over passport as deposit — only photocopy."
+      },
+      {
+        "title": "'Friendly Student / Practice English' Setup",
+        "severity": "high",
+        "where": "Delhi, Jaipur, Agra, Udaipur, Varanasi, Goa",
+        "what": "Well-dressed young person strikes up a conversation, claims to be a student, offers to show you 'authentic local market' / 'cultural show' / 'family shop' = commission trap.",
+        "avoid": "Be politely unavailable. 'No thanks, I'm meeting someone.' Walk away. Real students don't trawl tourist areas looking for foreigners."
+      },
+      {
+        "title": "Fake Police / Plainclothes Officer",
+        "severity": "high",
+        "where": "Delhi (Paharganj, Main Bazaar), Mumbai (Colaba), Goa, Varanasi",
+        "what": "Man flashes ID, claims he's checking for drugs/foreigners' permits. Demands to see passport, money, then 'fines' you on the spot.",
+        "avoid": "Real Indian police do not collect on-the-spot fines from tourists. Demand to go to the nearest police station. Call 112 (national helpline) immediately. Never hand over passport — only show."
+      },
+      {
+        "title": "Drug Possession Setup (Goa)",
         "severity": "critical",
-        "where": "Anjuna, Vagator, Baga beaches",
-        "what": "Stranger offers drugs; 'plainclothes cop' appears immediately demanding bribe. Minimum 1-year jail under NDPS Act.",
-        "avoid": "Zero tolerance. Walk away from all unsolicited beach offers. Never accept cigarettes from strangers."
+        "where": "Goa (Anjuna, Vagator, Morjim), Manali (Old Manali, Kasol), Rishikesh",
+        "what": "Local offers drugs at a beach/party; once accepted/handed over, accomplice 'cop' arrives, demands large bribe to avoid arrest. Punishment for narcotics in India is severe — even small amounts = years in jail.",
+        "avoid": "Refuse all drug offers. NDPS Act in India is harsh; 1 year minimum for personal possession. Walk away from anyone offering 'something to relax'."
       },
       {
-        "title": "Scooter rental damage claim",
-        "severity": "high",
-        "where": "All rental shops",
-        "what": "Pre-existing scratches 'discovered' on return; deposit or passport held hostage for 'repair' costs.",
-        "avoid": "Photograph every centimetre of the bike before riding. Never surrender your passport. Use Royal Brothers app."
+        "title": "Forex / Currency Exchange Cheat",
+        "severity": "medium",
+        "where": "Delhi (Paharganj, CP), Mumbai (Colaba), Goa, Agra",
+        "what": "Unauthorised forex changers offer slightly better rates than banks but short-count cash, give torn notes, or include fakes.",
+        "avoid": "Use only RBI-licensed exchanges (look for FFMC license displayed) or bank ATMs. Count cash on the spot before leaving. Skip Paharganj/Colaba street changers."
       },
       {
-        "title": "GoaMiles impersonation",
+        "title": "Cordelia / Cruise Booking Scam",
         "severity": "high",
-        "where": "Dabolim and Mopa airports",
-        "what": "Unofficial drivers hold GoaMiles-style cards and quote fixed rates that are 2–3× the real app price.",
-        "avoid": "Only book through the actual GoaMiles app. Ignore anyone approaching you in the arrivals hall."
+        "where": "Mumbai, Goa, Kochi (cruise embarkation cities)",
+        "what": "Fake Cordelia / Costa websites take advance for cruises that never sail. Surged in 2025 per Goa MP's statement in Rajya Sabha.",
+        "avoid": "Book only via cordeliacruises.com or authorised travel partners with verifiable office addresses. Never pay via random UPI."
       }
     ],
     "transport": [
@@ -87,25 +115,39 @@
     ],
     "hiddenGems": [
       {
-        "name": "The Project Café, Aldona",
-        "type": "Boutique stay + café",
-        "angle": "Female-founded",
-        "why": "All-women team, 130-year Portuguese mansion. Pool, art books, design-forward interiors. The insider solo-women pick.",
-        "approxCost": "Stay ₹6,000–15,000/night; café open to non-guests"
+        "name": "The Project Café (Aldona, North Goa)",
+        "type": "Boutique stay + café + cultural space",
+        "angle": "FO+FM — Combined",
+        "why": "Founded by Drasty Shah; all-women team. 130-year-old Portuguese mansion converted into design-forward boutique stay. Pool, art, books. The women's travel insider's pick.",
+        "approxCost": "₹6,000–₹15,000/night; café open to non-guests."
       },
       {
-        "name": "Sappadu, Assagao",
+        "name": "Sappadu (Assagao)",
         "type": "Restaurant",
-        "angle": "Female-owned",
-        "why": "Women-run South Indian veg restaurant. Homely thalis, no tourist markup. Featured Tweak India 2025.",
-        "approxCost": "Meal ₹350–700"
+        "angle": "FO — Female-Owned",
+        "why": "Women-run South Indian veg restaurant; homely, simple, authentic. Featured by Tweak India 2025. Solo-women-comfortable.",
+        "approxCost": "Meal ₹350–₹700; dosa-thali specialty."
       },
       {
-        "name": "Mapusa Friday Market",
-        "type": "Market",
-        "angle": "Authentic Goan",
-        "why": "Real Goan market without the Anjuna hawker scrum. Arrive 8am for fish section, leave before 11am heat.",
-        "approxCost": "Free entry; budget ₹500–2,000"
+        "name": "Mojigao (sustainable resort, Assagao)",
+        "type": "Eco-stay",
+        "angle": "VS — Verified Safe",
+        "why": "Female-friendly sustainable resort in cashew forest. Strong solo-female-traveler reviews; quiet, secure, run with feminine sensibility.",
+        "approxCost": "₹6,500–₹14,000/night; includes breakfast."
+      },
+      {
+        "name": "Soul & Surf Goa (Patnem)",
+        "type": "Surf school + yoga retreat",
+        "angle": "VS+FM — Combined",
+        "why": "Surf school with women-led classes; yoga deck; vegan kitchen. Solo female travelers consistently rate as one of safest beach stays in Goa.",
+        "approxCost": "Surf+yoga packages ₹4,500–₹12,000/day all-inclusive."
+      },
+      {
+        "name": "Mapusa Friday Market (with female guide)",
+        "type": "Market visit",
+        "angle": "VS — Verified Safe",
+        "why": "Authentic Goan market sans the Anjuna tourist hawkers. Hire a local female guide via your stay; you'll hear what locals actually buy.",
+        "approxCost": "Free entry; budget ₹500–₹2,000 for guide."
       }
     ],
     "preBookChecklist": [
@@ -130,9 +172,9 @@
       ]
     },
     "estimatedDailyBudget": {
-      "backpacker": 2500,
-      "midRange": 5500,
-      "comfortable": 12000,
+      "backpacker": 2000,
+      "midRange": 4000,
+      "comfortable": 15000,
       "currency": "INR"
     },
     "emergencyNumbers": [
@@ -201,32 +243,60 @@
     ],
     "scams": [
       {
-        "title": "Gem/stone shop commission",
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "severity": "critical",
+        "where": "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "what": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "avoid": "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
+      },
+      {
+        "title": "Fake Government Tourist Office",
+        "severity": "critical",
+        "where": "Delhi (Connaught Place, Paharganj), Agra, Jaipur",
+        "what": "Fake offices with 'Govt. of India Tourism' signage sell inflated tour packages, fake train tickets, or non-existent hotel bookings. The real India Tourism office is at 88 Janpath Road, Delhi. Real IRCTC International Tourist Bureau is on the 1st floor of New Delhi Railway Station only.",
+        "avoid": "Only book via incredibleindia.gov.in, irctc.co.in, or known platforms (MakeMyTrip, Booking.com). Never follow a 'helpful' stranger to an office. Verify location on Google Maps with reviews."
+      },
+      {
+        "title": "Gem & Carpet Export Scam",
+        "severity": "critical",
+        "where": "Jaipur (primary), Agra, Delhi, Varanasi, Udaipur",
+        "what": "Friendly local introduces you to a 'family jeweller'. You're told you can 'export' gems duty-free and resell abroad for huge profit; they ship to your country. Stones are worthless glass/synthetic. Variant: a fake government 'official' calls later demanding fines.",
+        "avoid": "NEVER buy gems/carpets to export. NEVER let a stranger guide you to a shop. Walk away the moment 'export profit' is mentioned. This is the same scam since the 1980s."
+      },
+      {
+        "title": "Pre-paid Taxi Diversion / Fake Driver",
         "severity": "high",
-        "where": "Near all major monuments",
-        "what": "Auto/guide takes you to 'government emporium'; pressure sale of overpriced stones. Driver earns 30–50% cut.",
-        "avoid": "Book rides on Uber/Ola only. Any shop described as 'government approved' near a tourist site is not."
+        "where": "Delhi (IGI), Mumbai (CST), Jaipur, Bangalore",
+        "what": "After paying at the official prepaid counter, driver claims he doesn't know your address, the road is closed, or there's a strike. Detours to commission shops or drops you at wrong hotel. Variant: a tout at the airport claims to be your booked Uber/Ola driver.",
+        "avoid": "Match license plate against the app. Note driver name & phone. Share live location. Refuse all detours. At airports, walk to the official prepaid counter — don't engage anyone in the arrivals area."
       },
       {
-        "title": "Carpet / textile commission loop",
+        "title": "'Monument Closed Today' Scam",
         "severity": "high",
-        "where": "Near Amber Fort, City Palace",
-        "what": "Multi-person tag-team sales with fake 'export price' discounts and manufactured urgency.",
-        "avoid": "Shop independently in Johri Bazaar or Bapu Bazaar. Leave any shop you were taken to by a driver."
+        "where": "Agra (Taj Mahal), Delhi (Red Fort, Qutub Minar), Jaipur (Amer Fort)",
+        "what": "Driver/tout near monument claims it's closed for a religious festival, lunch, VIP visit, or maintenance. Offers an 'alternative' site = commission shop / overpriced fort.",
+        "avoid": "Walk to the actual ticket counter and confirm. Most ASI monuments are open Tue–Sun (Taj Mahal closed Fridays). Buy tickets only at official counters or asi.payumoney.com."
       },
       {
-        "title": "Fake entry tickets",
-        "severity": "medium",
-        "where": "Amber Fort queue",
-        "what": "Touts sell 'skip-the-line' tickets outside the gate. Tickets are counterfeit; you pay twice.",
-        "avoid": "Buy tickets only at official ASI counters or on the ASI India website. No legitimate queue-skip exists."
+        "title": "Fake Priest / Tilak / Forced Blessing",
+        "severity": "high",
+        "where": "Varanasi (ghats), Pushkar, Delhi (temples), Jaipur, Agra, Udaipur",
+        "what": "A 'pandit' ties a thread (kalava) on your wrist or applies tilak before you can refuse, then chants a 'blessing' and demands ₹500–₹10,000 'donation'. Most aggressive at Manikarnika and Dashashwamedh ghats in Varanasi.",
+        "avoid": "Hands in pockets. Firm 'no, thank you' and walk away. Don't make eye contact. If thread is tied anyway, walk away — it costs nothing if you don't pay."
       },
       {
-        "title": "Elephant ride 'tip' demand",
+        "title": "Fake Guide at Monuments",
         "severity": "medium",
-        "where": "Amber Fort approach road",
-        "what": "Ride priced at ₹500; aggressive tip and animal feed demands post-ride with crowd pressure.",
-        "avoid": "Skip elephant rides entirely (ethical + overpriced). Amber Fort jeep taxi ₹200 is faster and cheaper."
+        "where": "Agra (Taj Mahal), Delhi, Jaipur, Udaipur, Varanasi",
+        "what": "Offers 'free' or cheap guided tour, then demands ₹2,000–₹5,000 at the end. May provide false historical 'facts'. Real ASI-licensed guides wear photo ID badges with QR codes.",
+        "avoid": "Hire only licensed guides from the official ticket counter or via Incredible India app. Confirm price upfront in writing/screenshot."
+      },
+      {
+        "title": "Torn Note / Counterfeit Note Swap",
+        "severity": "medium",
+        "where": "Delhi, Mumbai, Varanasi, Jaipur, Agra",
+        "what": "Shopkeeper/auto driver palms your ₹500/₹2000 note and returns a torn or fake one, claims you gave it. Common after a long bargaining session that distracts you.",
+        "avoid": "Inspect every note received as change. State the denomination loud and clear when handing over. Use UPI (PhonePe, GPay, Paytm) — most vendors now accept; eliminates this scam entirely."
       }
     ],
     "transport": [
@@ -248,25 +318,39 @@
     ],
     "hiddenGems": [
       {
-        "name": "Nahargarh Fort at sunset",
-        "type": "Fort / viewpoint",
-        "angle": "Crowd-free after 4pm",
-        "why": "Best views of Jaipur's pink skyline. Rooftop café open till 9pm. Army presence makes it safe.",
-        "approxCost": "₹200 entry; café ₹200–500"
+        "name": "Pink City Rickshaw Co.",
+        "type": "Tour",
+        "angle": "FO+FM — Combined",
+        "why": "Custom-designed e-rickshaws driven by women from low-income backgrounds. Trained female guides. Globally featured on women-only tours of India.",
+        "approxCost": "₹1,500–₹2,500 for ~3-hour Pink City tour."
       },
       {
-        "name": "Galta Ji Monkey Temple",
-        "type": "Temple complex",
-        "angle": "Off tourist trail",
-        "why": "Ancient temple in a gorge — monkeys, pilgrims, zero commission touts. Best 7–9am.",
-        "approxCost": "₹50 entry"
+        "name": "Sadhna Women's Handicraft Enterprise (Jaipur store)",
+        "type": "Shopping + craft visit",
+        "angle": "FO+FM — Combined",
+        "why": "Founded 1988; collective of 550+ women artisans across rural Rajasthan doing patchwork, appliqué, Tanka embroidery. Govt-fixed-price; fair-trade certified.",
+        "approxCost": "₹500–₹15,000 product range. Open Mon–Sat 10am–7pm."
       },
       {
-        "name": "Rajasthali Government Emporium, MI Road",
-        "type": "Shopping",
-        "angle": "Genuine fixed price",
-        "why": "Actual state craft store. Fixed prices, no commission, quality Blue Pottery and block prints.",
-        "approxCost": "Blue Pottery ₹500–3,000"
+        "name": "Anokhi Museum of Hand Printing",
+        "type": "Museum + workshop",
+        "angle": "FO — Female-Owned",
+        "why": "Founded by Faith Singh (UK-Indian textile activist). Working museum with daily block-printing demos. Run primarily by women. Skip the touristy 'family workshop' pitches.",
+        "approxCost": "₹80 entry (Indian) / ₹250 (foreigner). Workshops ₹600–₹2,000."
+      },
+      {
+        "name": "Zostel Jaipur (women-only dorm)",
+        "type": "Hostel",
+        "angle": "FM — Female-Majority",
+        "why": "Most-rated solo-female-friendly hostel in Jaipur on Hostelworld. Dedicated female dorm, well-lit corridors, women-led events.",
+        "approxCost": "₹700–₹1,200 dorm. Bani Park location."
+      },
+      {
+        "name": "Hot air balloon ride at Skywaltz (sunrise)",
+        "type": "Experience",
+        "angle": "VS — Verified Safe",
+        "why": "DGCA-certified, professionally run, no harassment risk; the most-loved Jaipur premium experience among solo female travelers.",
+        "approxCost": "₹13,500–₹16,500/person; book 24h ahead."
       }
     ],
     "preBookChecklist": [
@@ -291,9 +375,9 @@
       ]
     },
     "estimatedDailyBudget": {
-      "backpacker": 1800,
-      "midRange": 4000,
-      "comfortable": 9000,
+      "backpacker": 1500,
+      "midRange": 3500,
+      "comfortable": 12000,
       "currency": "INR"
     },
     "emergencyNumbers": [
@@ -361,32 +445,60 @@
     ],
     "scams": [
       {
-        "title": "Ghat tout to silk shop",
-        "severity": "high",
-        "where": "All major ghats",
-        "what": "Friendly 'student' or 'priest' offers to show you a lesser-known temple, ends at family silk shop.",
-        "avoid": "Decline all unsolicited guiding. Hire a licensed guide through your guesthouse only."
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "severity": "critical",
+        "where": "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "what": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "avoid": "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
       },
       {
-        "title": "Boat ride overcharge",
-        "severity": "high",
-        "where": "All ghat boat launch points",
-        "what": "₹200 sunrise ride quoted; ₹2,000 demanded on return claiming 'per person, not per boat'.",
-        "avoid": "Fix total price and occupancy in writing (phone note, photo) before boarding. Confirm: this is total price."
+        "title": "Gem & Carpet Export Scam",
+        "severity": "critical",
+        "where": "Jaipur (primary), Agra, Delhi, Varanasi, Udaipur",
+        "what": "Friendly local introduces you to a 'family jeweller'. You're told you can 'export' gems duty-free and resell abroad for huge profit; they ship to your country. Stones are worthless glass/synthetic. Variant: a fake government 'official' calls later demanding fines.",
+        "avoid": "NEVER buy gems/carpets to export. NEVER let a stranger guide you to a shop. Walk away the moment 'export profit' is mentioned. This is the same scam since the 1980s."
       },
       {
-        "title": "Fake Ganga Aarti 'donation'",
+        "title": "Auto/Taxi Meter Refusal & Inflation",
+        "severity": "high",
+        "where": "All 12 cities (worst: Delhi, Kolkata, Chennai, Varanasi)",
+        "what": "Driver says meter is 'broken', quotes flat fare 3–10x normal. In Mumbai it's rarer because of strict meter culture. In Bangalore mostly auto drivers at airport/railway.",
+        "avoid": "Default to Uber/Ola/Rapido — they're cheap and GPS-tracked. If using auto, agree fare upfront after checking Uber price. In Mumbai insist on meter (it's the law)."
+      },
+      {
+        "title": "Train Ticket / IRCTC Scam",
+        "severity": "high",
+        "where": "Delhi, Mumbai, Kolkata, Chennai, Varanasi",
+        "what": "Near railway stations, agents sell 'confirmed tickets' that are fake or for slow local trains sold as fast express. Variant: tout claims 'your train is cancelled' and herds you to a fake ticket counter to sell flights/tours at 5x rates.",
+        "avoid": "Book ONLY via irctc.co.in, IRCTC Rail Connect app, MakeMyTrip, or RedBus. Verify train status on the official IRCTC app. Ignore anyone outside the station offering ticket help."
+      },
+      {
+        "title": "Fake Priest / Tilak / Forced Blessing",
+        "severity": "high",
+        "where": "Varanasi (ghats), Pushkar, Delhi (temples), Jaipur, Agra, Udaipur",
+        "what": "A 'pandit' ties a thread (kalava) on your wrist or applies tilak before you can refuse, then chants a 'blessing' and demands ₹500–₹10,000 'donation'. Most aggressive at Manikarnika and Dashashwamedh ghats in Varanasi.",
+        "avoid": "Hands in pockets. Firm 'no, thank you' and walk away. Don't make eye contact. If thread is tied anyway, walk away — it costs nothing if you don't pay."
+      },
+      {
+        "title": "Fake Guide at Monuments",
         "severity": "medium",
-        "where": "Dashashwamedh Ghat",
-        "what": "Man with collection box claims proceeds go to the Aarti organisation. Not affiliated.",
-        "avoid": "Ganga Aarti is free to watch. No official donation collection exists. Ignore all collection boxes."
+        "where": "Agra (Taj Mahal), Delhi, Jaipur, Udaipur, Varanasi",
+        "what": "Offers 'free' or cheap guided tour, then demands ₹2,000–₹5,000 at the end. May provide false historical 'facts'. Real ASI-licensed guides wear photo ID badges with QR codes.",
+        "avoid": "Hire only licensed guides from the official ticket counter or via Incredible India app. Confirm price upfront in writing/screenshot."
       },
       {
-        "title": "Bhang-spiked food or drink",
+        "title": "Drugged Food / Drink on Trains & Buses",
+        "severity": "critical",
+        "where": "Delhi-Varanasi, Mumbai-Goa, all overnight long-distance routes",
+        "what": "A friendly co-passenger offers tea, biscuits, samosa, or water. Sedative knocks you out for hours; bags, phone, cash, passport stolen. Reports increase Oct–March (peak tourist season).",
+        "avoid": "Never accept ANY food/drink from strangers on trains or sleeper buses. Carry your own sealed water and snacks. Lock bags to the seat chain in sleeper class."
+      },
+      {
+        "title": "Bottled Water Tampering",
         "severity": "high",
-        "where": "Lassi shops, street stalls",
-        "what": "Bhang (cannabis) added to food without disclosure. Disorientation leads to theft or worse.",
-        "avoid": "Only order from clearly labelled bhang shops. Never accept food/drinks from strangers near ghats."
+        "where": "Delhi, Mumbai, Varanasi, Agra, Goa",
+        "what": "Refilled tap water in a sealed-looking bottle. Sometimes lookalike brands (Bisferi instead of Bisleri). Health risk = stomach infection, hospital bill ₹5,000–₹50,000.",
+        "avoid": "Check the seal twists with a click. Inspect label spelling. Buy from sealed cases at chain stores (Reliance, More, 24Seven) when possible. Bisleri, Aquafina, Kinley, Himalayan are reliable brands."
       }
     ],
     "transport": [
@@ -408,25 +520,32 @@
     ],
     "hiddenGems": [
       {
-        "name": "Manikarnika Ghat at dawn",
-        "type": "Sacred ghat",
-        "angle": "Off the tourist script",
-        "why": "The burning ghat is visited by many but understood by few. Go at 6am with a licensed local guide who explains context respectfully.",
-        "approxCost": "Guide ₹500–800"
+        "name": "Brown Bread Bakery",
+        "type": "Café + cultural space",
+        "angle": "FO — Female-Owned",
+        "why": "Run by Aleksandra (Polish founder); supports Learning for Life school for street kids. Vegetarian bakery; live classical music nights. Most solo-female-friendly Varanasi café.",
+        "approxCost": "Meal ₹250–₹500; live music free with dinner."
       },
       {
-        "name": "Blue Lassi Shop, Godaulia",
-        "type": "Café",
-        "angle": "Legendary solo stop",
-        "why": "75-year-old family-run lassi stall. The original. Cash only, arrive before 11am before the line forms.",
-        "approxCost": "₹80–150"
+        "name": "BHU campus tour + Bharat Kala Bhavan museum",
+        "type": "Self-guided cultural visit",
+        "angle": "VS — Verified Safe",
+        "why": "Banaras Hindu University's 1,300-acre campus is calm, well-policed, women-respectful. Bharat Kala Bhavan museum has rare Mughal miniatures. Total escape from ghat chaos.",
+        "approxCost": "Campus free; museum ₹40 (Indian) / ₹150 (foreigner). Closed Sun."
       },
       {
-        "name": "Ramnagar Fort",
-        "type": "Fort / museum",
-        "angle": "Away from ghat crowds",
-        "why": "Across the river, no touts, old royal collection. Takes half a day. Best combined with sunset river crossing.",
-        "approxCost": "₹25 entry"
+        "name": "Female-led sunrise boat (via local women's collective)",
+        "type": "Boat ride",
+        "angle": "FO+VS — Combined",
+        "why": "Several Varanasi homestays now arrange female-rowed boats — a relatively new community initiative. Same sunrise, vastly different experience from typical aggressive boatmen.",
+        "approxCost": "₹600–₹1,200/person shared."
+      },
+      {
+        "name": "Ladies' yoga at Ganga View Cafe (sunrise)",
+        "type": "Yoga class",
+        "angle": "VS+FM — Combined",
+        "why": "Daily 6am yoga overlooking Ganga, women-majority class. Drop-in friendly; non-spiritual.",
+        "approxCost": "₹300/class; 60 minutes."
       }
     ],
     "preBookChecklist": [
@@ -451,8 +570,8 @@
       ]
     },
     "estimatedDailyBudget": {
-      "backpacker": 1500,
-      "midRange": 3500,
+      "backpacker": 1200,
+      "midRange": 2800,
       "comfortable": 8000,
       "currency": "INR"
     },
@@ -522,25 +641,11 @@
     ],
     "scams": [
       {
-        "title": "Rohtang Pass fake permit service",
-        "severity": "high",
-        "where": "Near bus stands and travel agents",
-        "what": "Touts sell 'guaranteed permits' for ₹1,500–2,000. NGT permits are free and online only.",
-        "avoid": "Book only at https://rohtangpermits.nic.in — free, government website. No middleman needed."
-      },
-      {
-        "title": "Solang Valley overcharge",
-        "severity": "medium",
-        "where": "Solang Valley activity stalls",
-        "what": "Snow activity prices quoted per-person but charged per-item post-activity with add-ons.",
-        "avoid": "Agree full itemised price in writing before any activity. Walk away if price changes."
-      },
-      {
-        "title": "Fake trek guide",
-        "severity": "medium",
-        "where": "Old Manali cafés and guesthouses",
-        "what": "Self-described guides with no certification take inexperienced trekkers on dangerous routes.",
-        "avoid": "Hire only ITBP-certified guides through registered trek agencies. Ask for licence number."
+        "title": "Drug Possession Setup (Goa)",
+        "severity": "critical",
+        "where": "Goa (Anjuna, Vagator, Morjim), Manali (Old Manali, Kasol), Rishikesh",
+        "what": "Local offers drugs at a beach/party; once accepted/handed over, accomplice 'cop' arrives, demands large bribe to avoid arrest. Punishment for narcotics in India is severe — even small amounts = years in jail.",
+        "avoid": "Refuse all drug offers. NDPS Act in India is harsh; 1 year minimum for personal possession. Walk away from anyone offering 'something to relax'."
       }
     ],
     "transport": [
@@ -562,25 +667,39 @@
     ],
     "hiddenGems": [
       {
-        "name": "Naggar Castle",
-        "type": "Heritage fort / café",
-        "angle": "Crowd-free heritage",
-        "why": "15th-century stone castle with Roerich Art Gallery and valley views. Almost no tourists on weekdays.",
-        "approxCost": "₹100 entry"
-      },
-      {
-        "name": "Café 1947, Old Manali",
+        "name": "Old Manali — Drifters' Cafe",
         "type": "Café",
-        "angle": "Solo-women favourite",
-        "why": "The original Old Manali café. Israeli breakfast, good filter coffee, safe for solo mornings.",
-        "approxCost": "Meal ₹250–500"
+        "angle": "VS — Verified Safe",
+        "why": "Long-running solo-female-traveler hangout. Riverside seating; predictable; staff know who the regulars are.",
+        "approxCost": "Meal ₹350–₹650."
       },
       {
-        "name": "Hamta Pass day trek base",
-        "type": "Trek",
-        "angle": "Gateway to high-altitude",
-        "why": "Hamta Pass (4,270m) trek starts near Jobra. Day-hike to Chika meadow is doable solo.",
-        "approxCost": "Guide ₹800–1,500/day"
+        "name": "Naggar Castle + Roerich Art Gallery",
+        "type": "Cultural site",
+        "angle": "VS — Verified Safe",
+        "why": "16km from Manali; quiet, mountain-view castle + Russian-painter Nicholas Roerich's home gallery. Off the Solang Valley tourist circuit.",
+        "approxCost": "₹50 castle / ₹50 Roerich; auto from Manali ₹600 round trip."
+      },
+      {
+        "name": "Vashisht Hot Springs (women's section)",
+        "type": "Hot springs",
+        "angle": "FM — Female-Only",
+        "why": "Free natural hot springs at temple complex. Separate women's pool; locals trust it; solo women bathe here regularly.",
+        "approxCost": "Free. Bring change of clothes + towel."
+      },
+      {
+        "name": "Ila's Garden Cafe (Manali)",
+        "type": "Café",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded organic café with garden seating. Slow food, mountain ingredients. Quiet enough for journaling/reading solo.",
+        "approxCost": "Meal ₹400–₹700."
+      },
+      {
+        "name": "Solo women hiker community via Zostel Manali",
+        "type": "Hostel + community",
+        "angle": "FM — Female-Majority",
+        "why": "Zostel Manali has informal female-only hike groups that form daily. Safer way to do Bhrigu Lake / Patalsu Peak hikes than going alone.",
+        "approxCost": "Hostel ₹700–₹1,200; hikes ₹500–₹2,500."
       }
     ],
     "preBookChecklist": [
@@ -605,8 +724,8 @@
       ]
     },
     "estimatedDailyBudget": {
-      "backpacker": 2000,
-      "midRange": 4500,
+      "backpacker": 1300,
+      "midRange": 3000,
       "comfortable": 10000,
       "currency": "INR"
     },
@@ -830,32 +949,60 @@
     ],
     "scams": [
       {
-        "title": "Tourist office 'closed/moved' scam",
+        "title": "Hotel Switch / 'Your hotel burned down'",
         "severity": "critical",
-        "where": "Connaught Place, New Delhi station",
-        "what": "Tout or friendly stranger claims India Tourism office is closed and offers to take you to a 'government-approved' travel agent.",
-        "avoid": "India Tourism Delhi office (88 Janpath) is open Mon–Fri 9am–6pm. Walk in yourself. Never follow strangers."
+        "where": "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "what": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "avoid": "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
       },
       {
-        "title": "Airport taxi tout",
+        "title": "Fake Government Tourist Office",
+        "severity": "critical",
+        "where": "Delhi (Connaught Place, Paharganj), Agra, Jaipur",
+        "what": "Fake offices with 'Govt. of India Tourism' signage sell inflated tour packages, fake train tickets, or non-existent hotel bookings. The real India Tourism office is at 88 Janpath Road, Delhi. Real IRCTC International Tourist Bureau is on the 1st floor of New Delhi Railway Station only.",
+        "avoid": "Only book via incredibleindia.gov.in, irctc.co.in, or known platforms (MakeMyTrip, Booking.com). Never follow a 'helpful' stranger to an office. Verify location on Google Maps with reviews."
+      },
+      {
+        "title": "Gem & Carpet Export Scam",
+        "severity": "critical",
+        "where": "Jaipur (primary), Agra, Delhi, Varanasi, Udaipur",
+        "what": "Friendly local introduces you to a 'family jeweller'. You're told you can 'export' gems duty-free and resell abroad for huge profit; they ship to your country. Stones are worthless glass/synthetic. Variant: a fake government 'official' calls later demanding fines.",
+        "avoid": "NEVER buy gems/carpets to export. NEVER let a stranger guide you to a shop. Walk away the moment 'export profit' is mentioned. This is the same scam since the 1980s."
+      },
+      {
+        "title": "Pre-paid Taxi Diversion / Fake Driver",
         "severity": "high",
-        "where": "IGI Airport arrivals hall",
-        "what": "Aggressive men claim your pre-booked cab cancelled and offer cash rides. Overcharge ₹2,000–5,000.",
-        "avoid": "Use only the official Prepaid Taxi booth inside arrivals, or book Uber/Ola before landing and walk to the app-taxi pick-up zone."
+        "where": "Delhi (IGI), Mumbai (CST), Jaipur, Bangalore",
+        "what": "After paying at the official prepaid counter, driver claims he doesn't know your address, the road is closed, or there's a strike. Detours to commission shops or drops you at wrong hotel. Variant: a tout at the airport claims to be your booked Uber/Ola driver.",
+        "avoid": "Match license plate against the app. Note driver name & phone. Share live location. Refuse all detours. At airports, walk to the official prepaid counter — don't engage anyone in the arrivals area."
       },
       {
-        "title": "Gem export investment scam",
+        "title": "Auto/Taxi Meter Refusal & Inflation",
         "severity": "high",
-        "where": "Paharganj, Connaught Place",
-        "what": "Long con: 'businessman' offers you commission to carry gems as exports. Fake gems, real customs trouble.",
-        "avoid": "Never agree to carry anything for anyone. No legitimate gem exporter needs a tourist as a courier."
+        "where": "All 12 cities (worst: Delhi, Kolkata, Chennai, Varanasi)",
+        "what": "Driver says meter is 'broken', quotes flat fare 3–10x normal. In Mumbai it's rarer because of strict meter culture. In Bangalore mostly auto drivers at airport/railway.",
+        "avoid": "Default to Uber/Ola/Rapido — they're cheap and GPS-tracked. If using auto, agree fare upfront after checking Uber price. In Mumbai insist on meter (it's the law)."
       },
       {
-        "title": "Cycle rickshaw price switch",
-        "severity": "medium",
-        "where": "Old Delhi, Paharganj",
-        "what": "Price agreed; demand doubles on arrival citing 'per person' or 'per bag' surcharges.",
-        "avoid": "State destination and total price before boarding. Confirm: 'This is the total, for both of us, for all bags.'"
+        "title": "Train Ticket / IRCTC Scam",
+        "severity": "high",
+        "where": "Delhi, Mumbai, Kolkata, Chennai, Varanasi",
+        "what": "Near railway stations, agents sell 'confirmed tickets' that are fake or for slow local trains sold as fast express. Variant: tout claims 'your train is cancelled' and herds you to a fake ticket counter to sell flights/tours at 5x rates.",
+        "avoid": "Book ONLY via irctc.co.in, IRCTC Rail Connect app, MakeMyTrip, or RedBus. Verify train status on the official IRCTC app. Ignore anyone outside the station offering ticket help."
+      },
+      {
+        "title": "'Monument Closed Today' Scam",
+        "severity": "high",
+        "where": "Agra (Taj Mahal), Delhi (Red Fort, Qutub Minar), Jaipur (Amer Fort)",
+        "what": "Driver/tout near monument claims it's closed for a religious festival, lunch, VIP visit, or maintenance. Offers an 'alternative' site = commission shop / overpriced fort.",
+        "avoid": "Walk to the actual ticket counter and confirm. Most ASI monuments are open Tue–Sun (Taj Mahal closed Fridays). Buy tickets only at official counters or asi.payumoney.com."
+      },
+      {
+        "title": "Fake Priest / Tilak / Forced Blessing",
+        "severity": "high",
+        "where": "Varanasi (ghats), Pushkar, Delhi (temples), Jaipur, Agra, Udaipur",
+        "what": "A 'pandit' ties a thread (kalava) on your wrist or applies tilak before you can refuse, then chants a 'blessing' and demands ₹500–₹10,000 'donation'. Most aggressive at Manikarnika and Dashashwamedh ghats in Varanasi.",
+        "avoid": "Hands in pockets. Firm 'no, thank you' and walk away. Don't make eye contact. If thread is tied anyway, walk away — it costs nothing if you don't pay."
       }
     ],
     "transport": [
@@ -877,25 +1024,46 @@
     ],
     "hiddenGems": [
       {
-        "name": "Lodi Garden at sunrise",
-        "type": "Heritage park",
-        "angle": "Secret morning Delhi",
-        "why": "Mughal-era tombs inside a manicured park. At 7am: joggers, silence, photogenic mist. Zero touts.",
-        "approxCost": "Free entry"
+        "name": "Sheroes Hangout (Delhi outpost — call ahead)",
+        "type": "Café & community space",
+        "angle": "FO+FM — Combined",
+        "why": "Café entirely staffed by acid-attack survivors. Pay-as-you-wish model. The single most-cited solo-female-traveler stop on Delhi-Agra circuit.",
+        "approxCost": "Main location is Agra; Delhi pop-ups occasionally. Pay-what-you-want."
       },
       {
-        "name": "Hauz Khas Complex (village end)",
-        "type": "Ruins + lake",
-        "angle": "Medieval deer park",
-        "why": "14th-century madrasa and tomb above a deer park lake. End of Hauz Khas Village — walk through the boutiques to reach it.",
-        "approxCost": "Free"
+        "name": "Black Cab Cafe (Hauz Khas Village)",
+        "type": "Café",
+        "angle": "VS — Verified Safe",
+        "why": "Women-friendly cafe in HKV with strong solo-female reputation. Quiet, well-lit, genuinely respectful staff.",
+        "approxCost": "Open 11am–11pm; meal for one ~₹600–₹900"
       },
       {
-        "name": "Paranthe Wali Gali, Chandni Chowk",
-        "type": "Street food lane",
-        "angle": "The only tourist trap worth it",
-        "why": "145-year-old lane of stuffed paratha shops. Genuinely delicious. Agree price before sitting down.",
-        "approxCost": "₹80–150 per paratha"
+        "name": "Lodhi Art District (street art walk)",
+        "type": "Self-guided experience",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest open-air street art collection in Lodhi Colony. Daytime walking, residential area, very low harassment reports from solo women.",
+        "approxCost": "Free. Best 7–9am or 4–6pm. ~2 hours self-guided."
+      },
+      {
+        "name": "Hide-In Hostel (women-only dorms)",
+        "type": "Hostel",
+        "angle": "FM — Female-Majority",
+        "why": "Highest-rated female-solo-traveler hostel in Delhi (Hostelworld 9.0+). Dedicated female dorm with secure curtained beds.",
+        "approxCost": "₹600–₹900 dorm. Near Karol Bagh."
+      },
+      {
+        "name": "Master Chef Neha Deepak Shah's cooking class",
+        "type": "Cooking workshop",
+        "angle": "FO — Female-Owned",
+        "why": "Top India MasterChef contestant runs intimate Delhi food walks and cooking sessions. Female-led; small groups.",
+        "approxCost": "₹2,500–₹4,500/session; 4–6 hours."
+      },
+      {
+        "name": "Champa Gali (Saidulajab)",
+        "type": "Café cluster + boutique stores",
+        "angle": "VS — Verified Safe",
+        "why": "Quiet alley of cafés (Jugmug Thela, Blue Tokai) and boutiques, mostly female-founded. Solo-women friendly; daytime is best.",
+        "approxCost": "Free entry; ₹300–₹800 for café visit. Closed Mondays."
       }
     ],
     "preBookChecklist": [
@@ -922,7 +1090,7 @@
     "estimatedDailyBudget": {
       "backpacker": 1800,
       "midRange": 4000,
-      "comfortable": 9000,
+      "comfortable": 12000,
       "currency": "INR"
     },
     "emergencyNumbers": [
@@ -985,25 +1153,60 @@
     ],
     "scams": [
       {
-        "title": "Fake Taj Mahal ticket office",
+        "title": "Hotel Switch / 'Your hotel burned down'",
         "severity": "critical",
-        "where": "South gate approach road",
-        "what": "Official-looking 'ticket office' sells counterfeit tickets. You pay twice at the real gate.",
-        "avoid": "Buy only at official ASI booth at the gate, or online at asi.payumoney.com the night before."
+        "where": "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "what": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "avoid": "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
       },
       {
-        "title": "Marble inlay 'factory' commission",
+        "title": "Fake Government Tourist Office",
+        "severity": "critical",
+        "where": "Delhi (Connaught Place, Paharganj), Agra, Jaipur",
+        "what": "Fake offices with 'Govt. of India Tourism' signage sell inflated tour packages, fake train tickets, or non-existent hotel bookings. The real India Tourism office is at 88 Janpath Road, Delhi. Real IRCTC International Tourist Bureau is on the 1st floor of New Delhi Railway Station only.",
+        "avoid": "Only book via incredibleindia.gov.in, irctc.co.in, or known platforms (MakeMyTrip, Booking.com). Never follow a 'helpful' stranger to an office. Verify location on Google Maps with reviews."
+      },
+      {
+        "title": "Gem & Carpet Export Scam",
+        "severity": "critical",
+        "where": "Jaipur (primary), Agra, Delhi, Varanasi, Udaipur",
+        "what": "Friendly local introduces you to a 'family jeweller'. You're told you can 'export' gems duty-free and resell abroad for huge profit; they ship to your country. Stones are worthless glass/synthetic. Variant: a fake government 'official' calls later demanding fines.",
+        "avoid": "NEVER buy gems/carpets to export. NEVER let a stranger guide you to a shop. Walk away the moment 'export profit' is mentioned. This is the same scam since the 1980s."
+      },
+      {
+        "title": "'Monument Closed Today' Scam",
         "severity": "high",
-        "where": "Agra-wide, tout-assisted",
-        "what": "Rickshaw takes you to 'government marble workshop'. Overpriced souvenirs with heavy sales pressure.",
-        "avoid": "Genuine marble inlay artisans sell in Sadar Bazaar at half the price with no commission markup."
+        "where": "Agra (Taj Mahal), Delhi (Red Fort, Qutub Minar), Jaipur (Amer Fort)",
+        "what": "Driver/tout near monument claims it's closed for a religious festival, lunch, VIP visit, or maintenance. Offers an 'alternative' site = commission shop / overpriced fort.",
+        "avoid": "Walk to the actual ticket counter and confirm. Most ASI monuments are open Tue–Sun (Taj Mahal closed Fridays). Buy tickets only at official counters or asi.payumoney.com."
       },
       {
-        "title": "Auto-rickshaw price flip",
+        "title": "Fake Priest / Tilak / Forced Blessing",
+        "severity": "high",
+        "where": "Varanasi (ghats), Pushkar, Delhi (temples), Jaipur, Agra, Udaipur",
+        "what": "A 'pandit' ties a thread (kalava) on your wrist or applies tilak before you can refuse, then chants a 'blessing' and demands ₹500–₹10,000 'donation'. Most aggressive at Manikarnika and Dashashwamedh ghats in Varanasi.",
+        "avoid": "Hands in pockets. Firm 'no, thank you' and walk away. Don't make eye contact. If thread is tied anyway, walk away — it costs nothing if you don't pay."
+      },
+      {
+        "title": "Fake Guide at Monuments",
         "severity": "medium",
-        "where": "Outside Taj gates",
-        "what": "₹100 agreed for return ride; ₹500 demanded on return citing 'waiting time'.",
-        "avoid": "Agree total return price including waiting before departing. Use Uber/Ola if available."
+        "where": "Agra (Taj Mahal), Delhi, Jaipur, Udaipur, Varanasi",
+        "what": "Offers 'free' or cheap guided tour, then demands ₹2,000–₹5,000 at the end. May provide false historical 'facts'. Real ASI-licensed guides wear photo ID badges with QR codes.",
+        "avoid": "Hire only licensed guides from the official ticket counter or via Incredible India app. Confirm price upfront in writing/screenshot."
+      },
+      {
+        "title": "Bottled Water Tampering",
+        "severity": "high",
+        "where": "Delhi, Mumbai, Varanasi, Agra, Goa",
+        "what": "Refilled tap water in a sealed-looking bottle. Sometimes lookalike brands (Bisferi instead of Bisleri). Health risk = stomach infection, hospital bill ₹5,000–₹50,000.",
+        "avoid": "Check the seal twists with a click. Inspect label spelling. Buy from sealed cases at chain stores (Reliance, More, 24Seven) when possible. Bisleri, Aquafina, Kinley, Himalayan are reliable brands."
+      },
+      {
+        "title": "Torn Note / Counterfeit Note Swap",
+        "severity": "medium",
+        "where": "Delhi, Mumbai, Varanasi, Jaipur, Agra",
+        "what": "Shopkeeper/auto driver palms your ₹500/₹2000 note and returns a torn or fake one, claims you gave it. Common after a long bargaining session that distracts you.",
+        "avoid": "Inspect every note received as change. State the denomination loud and clear when handing over. Use UPI (PhonePe, GPay, Paytm) — most vendors now accept; eliminates this scam entirely."
       }
     ],
     "transport": [
@@ -1025,25 +1228,32 @@
     ],
     "hiddenGems": [
       {
-        "name": "Taj Mahal at sunrise, west gate",
-        "type": "UNESCO monument",
-        "angle": "Fewer crowds than south gate",
-        "why": "West gate (Shilpgram entrance) has shorter queues than south gate. Book west-gate tickets.",
-        "approxCost": "₹1,100 (foreigners); ₹50 (Indian)"
+        "name": "Sheroes Hangout Café",
+        "type": "Café & community space",
+        "angle": "FO+FM — Combined",
+        "why": "The original. Run entirely by acid-attack survivors via Chhanv Foundation. Pay-what-you-can. International women's travel circuits routinely include this. Truly transformative experience.",
+        "approxCost": "Pay-as-you-wish; full meal recommended ₹250–₹500. Open 10am–10pm."
       },
       {
-        "name": "Mehtab Bagh at sunset",
-        "type": "Mughal garden",
-        "angle": "Taj reflection view",
-        "why": "Garden directly north of Taj across the river. Perfect Taj reflection in the water tank at sunset. Almost no crowds.",
-        "approxCost": "₹300 entry"
+        "name": "Mughal Heritage Walk (Kachhpura village)",
+        "type": "Walking tour",
+        "angle": "VS — Verified Safe",
+        "why": "Community-run walking tour through ancient village across Yamuna from Taj. Women guides available on request. Meaningful cultural exchange vs. monument-only itinerary.",
+        "approxCost": "₹500–₹1,000; 2–3 hours; book a day ahead."
       },
       {
-        "name": "Agra Fort inner zenana",
-        "type": "Fort",
-        "angle": "Often missed by day-trippers",
-        "why": "The women's quarters (zenana) inside Agra Fort have the best Taj view in existence — from Shah Jahan's prison cell.",
-        "approxCost": "₹650 (foreigners); ₹40 (Indian)"
+        "name": "Stitching Future Foundation (block printing workshop)",
+        "type": "Workshop",
+        "angle": "FO — Female-Owned",
+        "why": "Female-led foundation teaching block printing and tailoring to local women; visitors can join short workshops. Hands-on with a craft, not just shopping.",
+        "approxCost": "₹1,500–₹3,500 for half-day workshop."
+      },
+      {
+        "name": "Sunset at Mehtab Bagh with female auto driver",
+        "type": "Self-guided + transport",
+        "angle": "VS — Verified Safe",
+        "why": "Free Taj sunset view minus the East-Gate crowd. Hotels can arrange a verified female auto/cab driver for the round trip. Quietest, safest Taj experience.",
+        "approxCost": "₹300 (Indian) / ₹300 (foreigner) entry; auto round-trip ₹400–₹600."
       }
     ],
     "preBookChecklist": [
@@ -1068,9 +1278,9 @@
       ]
     },
     "estimatedDailyBudget": {
-      "backpacker": 1500,
-      "midRange": 3500,
-      "comfortable": 8000,
+      "backpacker": 1400,
+      "midRange": 3000,
+      "comfortable": 10000,
       "currency": "INR"
     },
     "emergencyNumbers": [
@@ -1139,25 +1349,60 @@
     ],
     "scams": [
       {
-        "title": "Colaba Causeway pick-pockets",
-        "severity": "medium",
-        "where": "Colaba Causeway market",
-        "what": "Deliberate jostling in the narrow market lanes; wallet or phone lifted in the crowd.",
-        "avoid": "Crossbody bag, clasp facing your body. Phone in front pocket. Don't pull out wallet in the market."
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "severity": "critical",
+        "where": "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "what": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "avoid": "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
       },
       {
-        "title": "Taxi meter 'broken' scam",
-        "severity": "medium",
-        "where": "Airport exits, Colaba",
-        "what": "Driver claims meter is broken and quotes fixed (inflated) fare.",
-        "avoid": "All Mumbai black-and-yellow taxis must use meters. If it's 'broken', take another cab or use Uber."
+        "title": "Pre-paid Taxi Diversion / Fake Driver",
+        "severity": "high",
+        "where": "Delhi (IGI), Mumbai (CST), Jaipur, Bangalore",
+        "what": "After paying at the official prepaid counter, driver claims he doesn't know your address, the road is closed, or there's a strike. Detours to commission shops or drops you at wrong hotel. Variant: a tout at the airport claims to be your booked Uber/Ola driver.",
+        "avoid": "Match license plate against the app. Note driver name & phone. Share live location. Refuse all detours. At airports, walk to the official prepaid counter — don't engage anyone in the arrivals area."
       },
       {
-        "title": "Gateway of India boat 'tour'",
+        "title": "Train Ticket / IRCTC Scam",
+        "severity": "high",
+        "where": "Delhi, Mumbai, Kolkata, Chennai, Varanasi",
+        "what": "Near railway stations, agents sell 'confirmed tickets' that are fake or for slow local trains sold as fast express. Variant: tout claims 'your train is cancelled' and herds you to a fake ticket counter to sell flights/tours at 5x rates.",
+        "avoid": "Book ONLY via irctc.co.in, IRCTC Rail Connect app, MakeMyTrip, or RedBus. Verify train status on the official IRCTC app. Ignore anyone outside the station offering ticket help."
+      },
+      {
+        "title": "Drugged Food / Drink on Trains & Buses",
+        "severity": "critical",
+        "where": "Delhi-Varanasi, Mumbai-Goa, all overnight long-distance routes",
+        "what": "A friendly co-passenger offers tea, biscuits, samosa, or water. Sedative knocks you out for hours; bags, phone, cash, passport stolen. Reports increase Oct–March (peak tourist season).",
+        "avoid": "Never accept ANY food/drink from strangers on trains or sleeper buses. Carry your own sealed water and snacks. Lock bags to the seat chain in sleeper class."
+      },
+      {
+        "title": "Bottled Water Tampering",
+        "severity": "high",
+        "where": "Delhi, Mumbai, Varanasi, Agra, Goa",
+        "what": "Refilled tap water in a sealed-looking bottle. Sometimes lookalike brands (Bisferi instead of Bisleri). Health risk = stomach infection, hospital bill ₹5,000–₹50,000.",
+        "avoid": "Check the seal twists with a click. Inspect label spelling. Buy from sealed cases at chain stores (Reliance, More, 24Seven) when possible. Bisleri, Aquafina, Kinley, Himalayan are reliable brands."
+      },
+      {
+        "title": "Beach Shack & Water Sports Overcharge",
+        "severity": "high",
+        "where": "Goa (Calangute, Baga, Anjuna), Mumbai (Juhu), Kochi",
+        "what": "Menus without prices, jet ski/parasail operators charging 5–10x and damaging equipment to demand 'damage' fees. Renting bikes/scooters with fake damage claims.",
+        "avoid": "Confirm prices in writing/photo. Photograph rental bike from all angles before & after. Use only Goa Tourism-licensed operators (have govt. tag). Never hand over passport as deposit — only photocopy."
+      },
+      {
+        "title": "Bird Poop / Stained Shirt Distraction",
+        "severity": "high",
+        "where": "Mumbai (Colaba, CST), Delhi (Connaught Place), Bangalore (MG Road)",
+        "what": "Stranger points out 'something' on your shirt; accomplice 'helps clean' while picking your pocket of phone/wallet.",
+        "avoid": "Step back. Don't let anyone touch you. Walk to a clean spot and check yourself. Keep wallet in front pocket; phone in zipped bag."
+      },
+      {
+        "title": "Torn Note / Counterfeit Note Swap",
         "severity": "medium",
-        "where": "Gateway of India pier",
-        "what": "Unlicensed boat operators quote ₹200 for Elephanta ferry; takes you on an unscheduled 'tour' instead.",
-        "avoid": "Buy Elephanta Island ferry tickets only at the MTDC booth on the pier — orange, official signage."
+        "where": "Delhi, Mumbai, Varanasi, Jaipur, Agra",
+        "what": "Shopkeeper/auto driver palms your ₹500/₹2000 note and returns a torn or fake one, claims you gave it. Common after a long bargaining session that distracts you.",
+        "avoid": "Inspect every note received as change. State the denomination loud and clear when handing over. Use UPI (PhonePe, GPay, Paytm) — most vendors now accept; eliminates this scam entirely."
       }
     ],
     "transport": [
@@ -1179,25 +1424,39 @@
     ],
     "hiddenGems": [
       {
-        "name": "Dhobi Ghat viewing platform",
-        "type": "Urban landmark",
-        "angle": "Best at 8am",
-        "why": "The world's largest open-air laundry. Watch from the bridge on Dr E Moses Road. Zero touts, surprisingly meditative.",
-        "approxCost": "Free"
+        "name": "Locomo OG (Andheri East)",
+        "type": "Hostel + café + co-working",
+        "angle": "VS+FM — Combined",
+        "why": "Highest-rated Mumbai hostel for solo female travelers; women-only dorm option, secure 24/7 reception, on-site café. Digital nomad friendly.",
+        "approxCost": "₹800–₹1,500 dorm; private rooms ₹2,500+."
       },
       {
-        "name": "Dharavi township tour (Reality Tours)",
-        "type": "Guided urban experience",
-        "angle": "Ethical and eye-opening",
-        "why": "80% of profits go to Dharavi community projects. The best urban sociology experience in India. Book in advance.",
-        "approxCost": "₹700–1,200"
+        "name": "Roopam (Crawford Market — sari shopping)",
+        "type": "Shopping",
+        "angle": "VS — Verified Safe",
+        "why": "Women-friendly fixed-price sari/textile shop near Crawford. Skip the haggling. Solo female shoppers consistently recommend over the chaos of Mangaldas.",
+        "approxCost": "Saris ₹500–₹15,000; open Mon–Sat 10am–8pm."
       },
       {
-        "name": "Worli Sea Face at sunset",
-        "type": "Promenade",
-        "angle": "Local Mumbai, not tourist",
-        "why": "Less crowded than Marine Drive. Sea Link views. Locals jog here; safe, pleasant, real Mumbai.",
-        "approxCost": "Free"
+        "name": "Reality Tours — Dharavi walking tour",
+        "type": "Walking tour",
+        "angle": "VS — Verified Safe",
+        "why": "Most ethically-run Dharavi tour. 80% of profits to local NGO. Female guides available. Strict no-photo policy respects residents.",
+        "approxCost": "₹950–₹1,400/person; 2.5 hours."
+      },
+      {
+        "name": "Salt Water Cafe (Bandra) + Dr. Bhau Daji Lad Museum",
+        "type": "Café + museum combo",
+        "angle": "VS — Verified Safe",
+        "why": "Salt Water = female-co-founded; Bandra's most welcoming solo-friendly café. Pair with the underrated Bhau Daji Lad Museum (Byculla).",
+        "approxCost": "Café ₹600–₹1,200; museum ₹100 (Indian) / ₹500 (foreigner)."
+      },
+      {
+        "name": "Female-only first-class local train compartment",
+        "type": "Transport experience",
+        "angle": "FM — Female-Only",
+        "why": "Often-missed: Mumbai locals have dedicated women-only carriages, plus a women-only first-class compartment. Genuinely safe, fast, ₹100/ride.",
+        "approxCost": "₹100 first-class / ₹10 general; rush hour 8–11am, 5–9pm"
       }
     ],
     "preBookChecklist": [
@@ -1224,7 +1483,7 @@
     "estimatedDailyBudget": {
       "backpacker": 2500,
       "midRange": 5000,
-      "comfortable": 12000,
+      "comfortable": 15000,
       "currency": "INR"
     },
     "emergencyNumbers": [
@@ -1293,18 +1552,18 @@
     ],
     "scams": [
       {
-        "title": "Airport taxi overcharge",
-        "severity": "medium",
-        "where": "KIA Airport exits",
-        "what": "Touts quote ₹1,500–2,500 for city-centre rides; KIAS pre-paid is ₹700–900.",
-        "avoid": "Use KIAS pre-paid taxi counter inside arrivals, or book Uber/Ola before landing."
+        "title": "Pre-paid Taxi Diversion / Fake Driver",
+        "severity": "high",
+        "where": "Delhi (IGI), Mumbai (CST), Jaipur, Bangalore",
+        "what": "After paying at the official prepaid counter, driver claims he doesn't know your address, the road is closed, or there's a strike. Detours to commission shops or drops you at wrong hotel. Variant: a tout at the airport claims to be your booked Uber/Ola driver.",
+        "avoid": "Match license plate against the app. Note driver name & phone. Share live location. Refuse all detours. At airports, walk to the official prepaid counter — don't engage anyone in the arrivals area."
       },
       {
-        "title": "MG Road gem store",
-        "severity": "medium",
-        "where": "MG Road / Commercial Street",
-        "what": "Same gem commission chain as Jaipur but less common. Friendly stranger leads to 'export store'.",
-        "avoid": "Ignore unsolicited guided shopping from strangers. Shop independently in Chickpete wholesale market."
+        "title": "Bird Poop / Stained Shirt Distraction",
+        "severity": "high",
+        "where": "Mumbai (Colaba, CST), Delhi (Connaught Place), Bangalore (MG Road)",
+        "what": "Stranger points out 'something' on your shirt; accomplice 'helps clean' while picking your pocket of phone/wallet.",
+        "avoid": "Step back. Don't let anyone touch you. Walk to a clean spot and check yourself. Keep wallet in front pocket; phone in zipped bag."
       }
     ],
     "transport": [
@@ -1326,25 +1585,39 @@
     ],
     "hiddenGems": [
       {
-        "name": "Arbor Brewing Company, Indiranagar",
-        "type": "Microbrewery",
-        "angle": "Benchmark Bangalore craft beer",
-        "why": "The craft beer that started the Bangalore microbrewery scene. Solo-female comfortable, excellent food.",
-        "approxCost": "Beer ₹400–600; meal ₹600–1,200"
+        "name": "HattiKaapi all-women café (BLR Airport T2)",
+        "type": "Café",
+        "angle": "FO+FM — Combined",
+        "why": "First all-women café at Bangalore International Airport. Staffed by rural women, differently-abled, senior citizens. South Indian filter coffee perfection.",
+        "approxCost": "Coffee ₹80–₹150; T2, Bangalore Intl Airport."
       },
       {
-        "name": "ISKCON Temple, Rajajinagar",
-        "type": "Temple complex",
-        "angle": "Spectacular Hare Krishna campus",
-        "why": "Massive, calm, beautifully maintained temple complex. Free entry, no touts, good prasadam meals.",
-        "approxCost": "Free entry; meal ₹50–100"
+        "name": "Cubbon Park Sunday morning (women's run group)",
+        "type": "Community run",
+        "angle": "FM — Female-Majority",
+        "why": "Cubbon Park closes to traffic Sun mornings. Multiple women's running/walking groups meet. Pippa Passes Run Club, Bangalore Women Walk are regulars.",
+        "approxCost": "Free; Sun 6–10am."
       },
       {
-        "name": "Cubbon Park morning walk",
-        "type": "Urban park",
-        "angle": "Local Bangalore morning ritual",
-        "why": "150-year-old park in the city centre. 8am: joggers, dogs, families. Safe for solo women at all daylight hours.",
-        "approxCost": "Free"
+        "name": "Champaca Bookstore + Cafe (Vasanth Nagar)",
+        "type": "Bookstore + café",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded indie bookstore + café. Curated South Asian feminist + queer lit section. Quiet, single-female-customer-comfortable.",
+        "approxCost": "Free entry; coffee ₹150–₹250; books ₹400+."
+      },
+      {
+        "name": "Lahe Lahe (Indiranagar)",
+        "type": "Cultural center + café",
+        "angle": "FO — Female-Owned",
+        "why": "Female-co-founded creative space hosting open mics, women's workshops, dance classes, theatre. The most active women-friendly community calendar in Bangalore.",
+        "approxCost": "Free–₹500 for events; café meal ₹300–₹600."
+      },
+      {
+        "name": "MTR Lalbagh + Lalbagh sunrise walk",
+        "type": "Food + park",
+        "angle": "VS — Verified Safe",
+        "why": "Lalbagh is fully gated, with morning women walkers from 6am. Pair with iconic MTR breakfast (since 1924) — solo female travelers are routine here.",
+        "approxCost": "Park ₹25 entry after 9am, free 6–9am. MTR breakfast ₹200–₹350."
       }
     ],
     "preBookChecklist": [
@@ -1369,8 +1642,8 @@
       ]
     },
     "estimatedDailyBudget": {
-      "backpacker": 2000,
-      "midRange": 4500,
+      "backpacker": 1800,
+      "midRange": 3500,
       "comfortable": 10000,
       "currency": "INR"
     },
@@ -1439,25 +1712,32 @@
     ],
     "scams": [
       {
-        "title": "Howrah station taxi overcharge",
-        "severity": "medium",
-        "where": "Howrah and Sealdah stations",
-        "what": "Unofficial taxis cluster at exits; quote 3× meter rates to confused arrivals.",
-        "avoid": "Walk to the prepaid taxi booth inside both stations. Kolkata yellow taxis outside also use meters — insist."
+        "title": "Auto/Taxi Meter Refusal & Inflation",
+        "severity": "high",
+        "where": "All 12 cities (worst: Delhi, Kolkata, Chennai, Varanasi)",
+        "what": "Driver says meter is 'broken', quotes flat fare 3–10x normal. In Mumbai it's rarer because of strict meter culture. In Bangalore mostly auto drivers at airport/railway.",
+        "avoid": "Default to Uber/Ola/Rapido — they're cheap and GPS-tracked. If using auto, agree fare upfront after checking Uber price. In Mumbai insist on meter (it's the law)."
       },
       {
-        "title": "New Market 'closed today' redirect",
-        "severity": "medium",
-        "where": "New Market entrance, Esplanade",
-        "what": "Tout claims New Market is closed for a holiday and offers to take you to a 'better' market (his commission shop).",
-        "avoid": "New Market is almost never closed. Walk past the tout and enter yourself."
+        "title": "Train Ticket / IRCTC Scam",
+        "severity": "high",
+        "where": "Delhi, Mumbai, Kolkata, Chennai, Varanasi",
+        "what": "Near railway stations, agents sell 'confirmed tickets' that are fake or for slow local trains sold as fast express. Variant: tout claims 'your train is cancelled' and herds you to a fake ticket counter to sell flights/tours at 5x rates.",
+        "avoid": "Book ONLY via irctc.co.in, IRCTC Rail Connect app, MakeMyTrip, or RedBus. Verify train status on the official IRCTC app. Ignore anyone outside the station offering ticket help."
       },
       {
-        "title": "Fake donation for Mother Teresa's home",
+        "title": "Begging Mafia (Mother & Baby Milk Scam)",
         "severity": "medium",
-        "where": "Near Kalighat",
-        "what": "Man with official-looking clipboard solicits 'donations' for Missionaries of Charity.",
-        "avoid": "Missionaries of Charity does not collect street donations. Donate only on their official website."
+        "where": "Mumbai, Delhi, Jaipur, Agra, Kolkata",
+        "what": "Woman with baby asks not for money but 'milk powder' or 'baby food'. Leads you to a partnered shop where item is priced 5–10x. After you leave, the goods are returned to the shop and money split.",
+        "avoid": "Don't engage. If you want to help, donate to a registered NGO (Goonj, Smile Foundation, CRY)."
+      },
+      {
+        "title": "Shoe / Slipper Theft at Temples",
+        "severity": "medium",
+        "where": "Varanasi, Delhi, Jaipur, Udaipur, Kolkata",
+        "what": "Mandatory shoe removal at temple entry. Some 'caretakers' charge inflated 'safekeeping fees' (₹50–₹500 instead of ₹10) or your good shoes are swapped with cheap ones.",
+        "avoid": "Wear cheap flip-flops / sliders to temples. Use the official locker (₹10–₹20) where available. Note your shoe spot."
       }
     ],
     "transport": [
@@ -1479,25 +1759,39 @@
     ],
     "hiddenGems": [
       {
-        "name": "Kumartuli potters' quarter",
-        "type": "Artisan neighbourhood",
-        "angle": "Off tourist radar",
-        "why": "Where all of Kolkata's Durga Puja idols are made year-round. Clay sculptors working in tiny workshops. No touts, no entry fee.",
-        "approxCost": "Free"
+        "name": "Kumartuli (idol-making neighbourhood)",
+        "type": "Walking visit",
+        "angle": "VS — Verified Safe",
+        "why": "Watch Durga Puja idols being made by traditional artisan families. Quiet, residential, women-respected area. Best Sep–Oct pre-Durga Puja.",
+        "approxCost": "Free; daytime only."
       },
       {
-        "name": "Flurys, Park Street",
-        "type": "Heritage café",
-        "angle": "1927 institution",
-        "why": "Tea room open since 1927. Solo breakfast with pastries and filter coffee. Safe, civilised, excellent.",
-        "approxCost": "Breakfast ₹400–700"
+        "name": "Indian Coffee House (College Street)",
+        "type": "Café",
+        "angle": "VS — Verified Safe",
+        "why": "Iconic 80+ year adda (intellectual gathering) cafe. Women have been part of College Street culture for decades — solo female reading-and-coffee here is fully normalised.",
+        "approxCost": "Coffee ₹40; chai ₹15. Open noon–9pm."
       },
       {
-        "name": "Princep Ghat at sunset",
-        "type": "Colonial ghat",
-        "angle": "Quiet riverside",
-        "why": "Victorian memorial arch on the Hooghly. Locals come for evening walks. Boats for hire. Almost no tourists.",
-        "approxCost": "Free; boat ₹100–200"
+        "name": "Goecha Saree (Kalighat)",
+        "type": "Shopping",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded handloom saree boutique focused on Bengal weavers. Fair-trade, women weavers' cooperative.",
+        "approxCost": "Saris ₹2,000–₹15,000."
+      },
+      {
+        "name": "Calcutta Walks — heritage tours",
+        "type": "Walking tour",
+        "angle": "VS — Verified Safe",
+        "why": "Best-rated heritage tour company in Kolkata. Female guides available; solo female travelers routinely use it for North Kolkata and Bow Barracks tours.",
+        "approxCost": "₹1,500–₹3,000 per tour."
+      },
+      {
+        "name": "Park Street Cemetery",
+        "type": "Heritage walk",
+        "angle": "VS — Verified Safe",
+        "why": "Underrated 1767 cemetery; quiet, well-maintained, women-respected. Most peaceful 90 min in central Kolkata.",
+        "approxCost": "₹100 entry. Open 8am–5pm daily."
       }
     ],
     "preBookChecklist": [
@@ -1522,9 +1816,9 @@
       ]
     },
     "estimatedDailyBudget": {
-      "backpacker": 1500,
-      "midRange": 3500,
-      "comfortable": 8000,
+      "backpacker": 1400,
+      "midRange": 3000,
+      "comfortable": 9000,
       "currency": "INR"
     },
     "emergencyNumbers": [
@@ -1592,25 +1886,18 @@
     ],
     "scams": [
       {
-        "title": "Auto meter refusal",
+        "title": "Auto/Taxi Meter Refusal & Inflation",
         "severity": "high",
-        "where": "City-wide",
-        "what": "Autos quote 2–3× Uber rates and refuse to use meters, especially from airport and Central Station.",
-        "avoid": "Use Uber or Ola exclusively in Chennai. If you must use auto, get Ola Auto — it's app-metered."
+        "where": "All 12 cities (worst: Delhi, Kolkata, Chennai, Varanasi)",
+        "what": "Driver says meter is 'broken', quotes flat fare 3–10x normal. In Mumbai it's rarer because of strict meter culture. In Bangalore mostly auto drivers at airport/railway.",
+        "avoid": "Default to Uber/Ola/Rapido — they're cheap and GPS-tracked. If using auto, agree fare upfront after checking Uber price. In Mumbai insist on meter (it's the law)."
       },
       {
-        "title": "Silk 'wholesale' store redirect",
-        "severity": "medium",
-        "where": "T Nagar and tourist areas",
-        "what": "Friendly local offers to show you the 'real' silk shop where 'only locals go'. Commission-based.",
-        "avoid": "Buy silk independently at Co-optex (government textile store, fixed prices) on Anna Salai."
-      },
-      {
-        "title": "Marina Beach photography harassment",
-        "severity": "medium",
-        "where": "Marina Beach",
-        "what": "Groups of young men photograph women without consent; camera pointed at face/body.",
-        "avoid": "Sunrise hours (6–8am) are peaceful. Avoid evenings. If photographed without consent, confront directly or walk to nearest police booth."
+        "title": "Train Ticket / IRCTC Scam",
+        "severity": "high",
+        "where": "Delhi, Mumbai, Kolkata, Chennai, Varanasi",
+        "what": "Near railway stations, agents sell 'confirmed tickets' that are fake or for slow local trains sold as fast express. Variant: tout claims 'your train is cancelled' and herds you to a fake ticket counter to sell flights/tours at 5x rates.",
+        "avoid": "Book ONLY via irctc.co.in, IRCTC Rail Connect app, MakeMyTrip, or RedBus. Verify train status on the official IRCTC app. Ignore anyone outside the station offering ticket help."
       }
     ],
     "transport": [
@@ -1632,25 +1919,39 @@
     ],
     "hiddenGems": [
       {
-        "name": "Murugan Idli Shop, Mylapore",
-        "type": "Tiffin restaurant",
-        "angle": "The Chennai breakfast benchmark",
-        "why": "Open since 1969. Idli, sambar, chutney. The standard against which all South Indian breakfast is measured. Queue moves fast.",
-        "approxCost": "Breakfast ₹80–150"
+        "name": "Amethyst Café (Royapettah)",
+        "type": "Café + boutique",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded heritage bungalow café — one of Chennai's longest-loved women-friendly spaces. Garden seating, quiet, popular for working solo.",
+        "approxCost": "Coffee ₹250; meal ₹600–₹1,200."
       },
       {
-        "name": "Kapaleeshwarar Temple at dawn",
-        "type": "Temple complex",
-        "angle": "600-year-old Dravidian architecture",
-        "why": "The best Dravidian gopuram in Tamil Nadu accessible without a day trip. 6am: priests, flowers, no tourists.",
-        "approxCost": "Free for Hindus; non-Hindus welcome in outer courtyard"
+        "name": "Spaces — co-working + community",
+        "type": "Co-working",
+        "angle": "FO+FM — Combined",
+        "why": "Founded by Sangeeta Isvaran. Women's co-working community + arts space in Besant Nagar. Solo women working/staying in Chennai swear by it.",
+        "approxCost": "Day pass ₹400–₹800."
+      },
+      {
+        "name": "Mylapore food walk (Storytrails)",
+        "type": "Walking tour",
+        "angle": "VS — Verified Safe",
+        "why": "Storytrails was founded by Vijay Baskar's wife and runs female-led Mylapore tiffin walks. 50+ tiffin shops in 1km. Authentic, safe, women-respected neighbourhood.",
+        "approxCost": "₹1,200–₹2,000/person; 3 hours."
       },
       {
         "name": "Cholamandal Artists' Village",
-        "type": "Artist colony",
-        "angle": "Largest in Asia",
-        "why": "Living artist community 20km south of Chennai. Galleries, studios, sculpture garden. Completely overlooked by tourists.",
-        "approxCost": "Free entry; gallery ₹50"
+        "type": "Art village",
+        "angle": "VS — Verified Safe",
+        "why": "1966 artist commune (India's oldest); female artists in residence. Galleries, studios, sea-side cafe. Solo women routinely spend a half-day here without issues.",
+        "approxCost": "Free entry; gallery ₹50."
+      },
+      {
+        "name": "Kapaleeshwarar Temple (early morning)",
+        "type": "Temple visit",
+        "angle": "VS — Verified Safe",
+        "why": "7th-century temple in Mylapore — solo women visit pre-7am for empty courtyards and zero hassle. Modest dress, head covering optional but respectful.",
+        "approxCost": "Free. Best 5:30–7am."
       }
     ],
     "preBookChecklist": [
@@ -1675,8 +1976,8 @@
       ]
     },
     "estimatedDailyBudget": {
-      "backpacker": 1800,
-      "midRange": 4000,
+      "backpacker": 1500,
+      "midRange": 3000,
       "comfortable": 9000,
       "currency": "INR"
     },
@@ -1738,25 +2039,39 @@
     ],
     "scams": [
       {
-        "title": "Lake Palace boat ticket fraud",
-        "severity": "medium",
-        "where": "Lake Pichola ghats",
-        "what": "Touts sell 'boat tickets to Lake Palace'. Lake Palace is a private Taj hotel — public boats go to Jag Mandir only.",
-        "avoid": "Book RTDC boat tickets at the official booth at Rameshwar Ghat only. Jag Mandir is the correct destination."
+        "title": "Gem & Carpet Export Scam",
+        "severity": "critical",
+        "where": "Jaipur (primary), Agra, Delhi, Varanasi, Udaipur",
+        "what": "Friendly local introduces you to a 'family jeweller'. You're told you can 'export' gems duty-free and resell abroad for huge profit; they ship to your country. Stones are worthless glass/synthetic. Variant: a fake government 'official' calls later demanding fines.",
+        "avoid": "NEVER buy gems/carpets to export. NEVER let a stranger guide you to a shop. Walk away the moment 'export profit' is mentioned. This is the same scam since the 1980s."
       },
       {
-        "title": "Miniature painting 'artist' commission",
-        "severity": "medium",
-        "where": "Old City lanes",
-        "what": "Artist invites you to watch him paint, then sells at inflated prices with social pressure to buy.",
-        "avoid": "Genuine miniature painting workshops exist (Shilpgram craft village). Browse independently; prices are fixed."
+        "title": "Fake Priest / Tilak / Forced Blessing",
+        "severity": "high",
+        "where": "Varanasi (ghats), Pushkar, Delhi (temples), Jaipur, Agra, Udaipur",
+        "what": "A 'pandit' ties a thread (kalava) on your wrist or applies tilak before you can refuse, then chants a 'blessing' and demands ₹500–₹10,000 'donation'. Most aggressive at Manikarnika and Dashashwamedh ghats in Varanasi.",
+        "avoid": "Hands in pockets. Firm 'no, thank you' and walk away. Don't make eye contact. If thread is tied anyway, walk away — it costs nothing if you don't pay."
       },
       {
-        "title": "Sunset rooftop 'cover charge'",
-        "severity": "low",
-        "where": "Lake-view restaurants",
-        "what": "Minimum spend of ₹500–1,000 per person imposed only when bill arrives, not when seated.",
-        "avoid": "Ask explicitly about minimum spend before sitting. Most honest places display it on the menu."
+        "title": "Fake Guide at Monuments",
+        "severity": "medium",
+        "where": "Agra (Taj Mahal), Delhi, Jaipur, Udaipur, Varanasi",
+        "what": "Offers 'free' or cheap guided tour, then demands ₹2,000–₹5,000 at the end. May provide false historical 'facts'. Real ASI-licensed guides wear photo ID badges with QR codes.",
+        "avoid": "Hire only licensed guides from the official ticket counter or via Incredible India app. Confirm price upfront in writing/screenshot."
+      },
+      {
+        "title": "'Friendly Student / Practice English' Setup",
+        "severity": "high",
+        "where": "Delhi, Jaipur, Agra, Udaipur, Varanasi, Goa",
+        "what": "Well-dressed young person strikes up a conversation, claims to be a student, offers to show you 'authentic local market' / 'cultural show' / 'family shop' = commission trap.",
+        "avoid": "Be politely unavailable. 'No thanks, I'm meeting someone.' Walk away. Real students don't trawl tourist areas looking for foreigners."
+      },
+      {
+        "title": "Shoe / Slipper Theft at Temples",
+        "severity": "medium",
+        "where": "Varanasi, Delhi, Jaipur, Udaipur, Kolkata",
+        "what": "Mandatory shoe removal at temple entry. Some 'caretakers' charge inflated 'safekeeping fees' (₹50–₹500 instead of ₹10) or your good shoes are swapped with cheap ones.",
+        "avoid": "Wear cheap flip-flops / sliders to temples. Use the official locker (₹10–₹20) where available. Note your shoe spot."
       }
     ],
     "transport": [
@@ -1778,25 +2093,39 @@
     ],
     "hiddenGems": [
       {
-        "name": "Bagore Ki Haveli museum",
-        "type": "Heritage haveli",
-        "angle": "Best folk art collection in Rajasthan",
-        "why": "18th-century haveli on the lake with 138 rooms of folk costumes, puppets, and daily cultural performances at 7pm.",
-        "approxCost": "₹60 entry; show ₹100"
+        "name": "Sadhna Women's Collective HQ (Udaipur)",
+        "type": "Shop + workshop",
+        "angle": "FO+FM — Combined",
+        "why": "The mothership. 550+ rural Rajasthani women artisans; founded 1988. Workshops, store, cafe. Direct purchase = direct artisan income. Strongest single recommendation in Udaipur for women travelers.",
+        "approxCost": "Products ₹500–₹15,000; workshops ₹2,000–₹5,000."
       },
       {
-        "name": "Shilpgram craft village",
-        "type": "Artisan village",
-        "angle": "Fixed-price genuine crafts",
-        "why": "Rural arts and crafts complex, 3km west of city. No commission touts. Miniature painting, block printing, pottery.",
-        "approxCost": "₹30 entry"
+        "name": "Jagat Niwas Palace Hotel — afternoon tea solo deal",
+        "type": "Hotel café",
+        "angle": "VS — Verified Safe",
+        "why": "Heritage haveli with lake-facing terrace. Many solo female travelers visit just for the high tea — no booking required, no judgment about coming alone.",
+        "approxCost": "Tea + scones ₹650–₹950."
       },
       {
-        "name": "Fateh Sagar at sunset",
-        "type": "Lake promenade",
-        "angle": "Local Udaipur evening",
-        "why": "The lake Udaipuris actually use. Boat rides, island park, kulfi stalls. Completely tourist-free.",
-        "approxCost": "Boat ₹30–100"
+        "name": "Shilpgram Crafts Village",
+        "type": "Crafts village",
+        "angle": "VS — Verified Safe",
+        "why": "Govt-run rural arts village; rotating women artisans demonstrate weaving, pottery. Clean, safe, low-hassle compared to old-city bazaars.",
+        "approxCost": "₹50 (Indian) / ₹300 (foreigner). Open 11am–7pm."
+      },
+      {
+        "name": "Millets of Mewar (cooking class)",
+        "type": "Cooking workshop + restaurant",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded restaurant championing local millets. Run cooking classes for solo travelers. Sustainable, vegetarian, real Mewar cuisine.",
+        "approxCost": "Class ₹2,500; meal ₹350–₹600."
+      },
+      {
+        "name": "Sunset at Karni Mata Hill (ropeway)",
+        "type": "Viewpoint",
+        "angle": "VS — Verified Safe",
+        "why": "Most-loved Udaipur view that's totally solo-female-friendly. Ropeway is staffed and well-lit; ride down before full dark.",
+        "approxCost": "₹130 ropeway round trip; 6–6:30pm sunset window."
       }
     ],
     "preBookChecklist": [
@@ -1821,9 +2150,9 @@
       ]
     },
     "estimatedDailyBudget": {
-      "backpacker": 1800,
-      "midRange": 4000,
-      "comfortable": 10000,
+      "backpacker": 1500,
+      "midRange": 3500,
+      "comfortable": 20000,
       "currency": "INR"
     },
     "emergencyNumbers": [
@@ -1891,25 +2220,18 @@
     ],
     "scams": [
       {
-        "title": "Kathakali 'donation' after performance",
-        "severity": "low",
-        "where": "Fort Kochi performance venues",
-        "what": "Performers pass a collection box post-show and create social pressure for large amounts.",
-        "avoid": "Fixed-price ticket covers the performance. Tip generously if moved but ₹100–200 is appropriate — not ₹1,000."
+        "title": "Beach Shack & Water Sports Overcharge",
+        "severity": "high",
+        "where": "Goa (Calangute, Baga, Anjuna), Mumbai (Juhu), Kochi",
+        "what": "Menus without prices, jet ski/parasail operators charging 5–10x and damaging equipment to demand 'damage' fees. Renting bikes/scooters with fake damage claims.",
+        "avoid": "Confirm prices in writing/photo. Photograph rental bike from all angles before & after. Use only Goa Tourism-licensed operators (have govt. tag). Never hand over passport as deposit — only photocopy."
       },
       {
-        "title": "Spice shop overcharge, Mattancherry",
-        "severity": "medium",
-        "where": "Mattancherry spice district",
-        "what": "Shops near the synagogue quote tourist prices 5–10× the real wholesale rate.",
-        "avoid": "Shops 2–3 streets back from the main synagogue lane have honest prices. Compare at 3 shops before buying."
-      },
-      {
-        "title": "Auto overcharge, Ernakulam",
-        "severity": "medium",
-        "where": "Ernakulam ferry terminal, railway station",
-        "what": "Autos at transport hubs refuse meters and quote flat rates to Fort Kochi ferry.",
-        "avoid": "Take the government ferry from Ernakulam to Fort Kochi (₹5) — faster and infinitely more scenic than any auto."
+        "title": "Cordelia / Cruise Booking Scam",
+        "severity": "high",
+        "where": "Mumbai, Goa, Kochi (cruise embarkation cities)",
+        "what": "Fake Cordelia / Costa websites take advance for cruises that never sail. Surged in 2025 per Goa MP's statement in Rajya Sabha.",
+        "avoid": "Book only via cordeliacruises.com or authorised travel partners with verifiable office addresses. Never pay via random UPI."
       }
     ],
     "transport": [
@@ -1931,25 +2253,46 @@
     ],
     "hiddenGems": [
       {
-        "name": "Kashi Art Café, Fort Kochi",
-        "type": "Art gallery + café",
-        "angle": "The original Fort Kochi institution",
-        "why": "Gallery and café since 1997. Solo breakfast with rotating contemporary art on the walls. The most civilised morning in Kerala.",
-        "approxCost": "Breakfast ₹300–500"
+        "name": "Kashi Art Cafe (Fort Kochi)",
+        "type": "Café + art gallery",
+        "angle": "VS — Verified Safe",
+        "why": "Decades-old artists' café; rotating women artists exhibit. Garden courtyard, solo-female-comfortable, popular with international solo travelers.",
+        "approxCost": "Coffee ₹150–₹250; meal ₹400–₹700."
       },
       {
-        "name": "Kerala Folklore Museum, Ernakulam",
-        "type": "Museum",
-        "angle": "Largest in Kerala, almost no tourists",
-        "why": "Three floors of masks, costumes, murals, and ritual objects. Extraordinary collection; entry is never crowded.",
-        "approxCost": "₹300 entry"
+        "name": "Kudumbashree Cafe (Mattancherry)",
+        "type": "Café",
+        "angle": "FO+FM — Combined",
+        "why": "Run by Kerala's iconic women's collective Kudumbashree (4.5M+ women members across Kerala). Authentic Kerala home food at honest prices.",
+        "approxCost": "Meal ₹150–₹300."
       },
       {
-        "name": "Alleppey backwaters day cruise",
-        "type": "Backwaters experience",
-        "angle": "Non-negotiable add-on",
-        "why": "90km south. Government DTPC boat (₹400, half-day) or private houseboat. The single best day trip in South India.",
-        "approxCost": "DTPC cruise ₹400; private houseboat from ₹3,500"
+        "name": "Fort Kochi cycling (Tuk Tuk Tours / Kochi Bike Tours)",
+        "type": "Cycling tour",
+        "angle": "VS — Verified Safe",
+        "why": "Female guides available. Cycle through Fort Kochi → Mattancherry. Daytime, well-lit roads, families everywhere — extremely solo-female-friendly.",
+        "approxCost": "₹1,500–₹2,500 for half-day tour with bike + guide."
+      },
+      {
+        "name": "Mocha Art Cafe (Fort Kochi)",
+        "type": "Café",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded; small, quiet, non-touristy. The 'where do locals actually go' answer in Fort Kochi.",
+        "approxCost": "Meal ₹300–₹500."
+      },
+      {
+        "name": "Aspinwall House (Kochi-Muziris Biennale venue)",
+        "type": "Art venue",
+        "angle": "VS — Verified Safe",
+        "why": "Kochi-Muziris Biennale runs Dec–Apr at multiple Fort Kochi venues. Female-curated programs; very solo-female-friendly art-world atmosphere.",
+        "approxCost": "₹100–₹200 entry per venue."
+      },
+      {
+        "name": "Kerala Folklore Theatre & Museum (Edappally)",
+        "type": "Museum + show",
+        "angle": "VS — Verified Safe",
+        "why": "Quirky private museum with traditional Kerala folk art. Less touristy than Kerala Kathakali Centre, more authentic. Solo women welcomed warmly.",
+        "approxCost": "₹100 entry; performances additional."
       }
     ],
     "preBookChecklist": [
@@ -1974,9 +2317,9 @@
       ]
     },
     "estimatedDailyBudget": {
-      "backpacker": 1800,
-      "midRange": 4000,
-      "comfortable": 9000,
+      "backpacker": 1400,
+      "midRange": 3000,
+      "comfortable": 11000,
       "currency": "INR"
     },
     "emergencyNumbers": [
