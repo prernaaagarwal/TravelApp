@@ -27,6 +27,7 @@ export function BuddyMatcher({ buddies }: { buddies: Buddy[] }) {
   useEffect(() => {
     try {
       const s = localStorage.getItem("saved-buddies");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (s) setSaved(JSON.parse(s));
     } catch {}
   }, []);

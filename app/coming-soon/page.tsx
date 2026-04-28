@@ -16,7 +16,7 @@ export default function ComingSoonPage() {
       </h1>
       <p className="mt-4 max-w-xl text-base leading-relaxed text-ww-muted">
         Real accounts, real posting, and the founding membership unlock when
-        we open the closed beta. Drop your email and we'll send you the
+        we open the closed beta. Drop your email and we&apos;ll send you the
         invite link first.
       </p>
 
@@ -41,7 +41,7 @@ export default function ComingSoonPage() {
       </form>
 
       <p className="mt-3 text-xs text-ww-muted">
-        We'll only email you about the founding-200 launch. No newsletter, no
+        We&apos;ll only email you about the founding-200 launch. No newsletter, no
         sharing.
       </p>
 
