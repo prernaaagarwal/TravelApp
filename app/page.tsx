@@ -184,7 +184,96 @@ export default function HomePage() {
 
       {/* ── Persona split (Priya / Sara) ──────────────────────────────── */}
       <section id="personas" className="bg-sand px-6 py-16">
-        <p>Persona split — Step 5</p>
+        <div className="mx-auto max-w-4xl">
+          <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
+            Who is this for?
+          </p>
+          <h2 className="mb-8 font-serif text-3xl text-ink md:text-4xl">
+            The intel is different. Choose yours.
+          </h2>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {/* Priya — Indian woman */}
+            <Link
+              href="/onboarding?path=indian"
+              className="group flex flex-col justify-between border border-ww-border bg-warm-white p-7 transition-shadow hover:shadow-md"
+            >
+              <div>
+                <div className="mb-4 flex items-center gap-3">
+                  <img
+                    src={contributors.find(c => c.slug === "ananya-mumbai")?.photoUrl}
+                    alt="Priya"
+                    className="h-11 w-11 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Indian women</p>
+                    <p className="font-serif text-lg text-ink">The Priya path</p>
+                  </div>
+                </div>
+                <p className="mb-5 text-sm leading-relaxed text-ww-muted">
+                  You know India. You know the language, the culture, the looks.
+                  But solo travel still carries weight — family pressure, neighbourhood
+                  safety gaps, the auto driver who won&apos;t use the meter.
+                  This intel is written for you.
+                </p>
+                <ul className="space-y-1.5 font-mono text-xs text-ww-muted">
+                  {["City-by-city safety ratings", "Scam patterns specific to women travelling alone", "Women-only stays and female-founded spaces", "How to navigate family pushback"].map(item => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-0.5 text-sage">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-7 flex items-center justify-between border-t border-ww-border pt-4">
+                <span className="font-mono text-xs uppercase tracking-widest text-rust">
+                  Start here →
+                </span>
+                <span className="font-mono text-[10px] text-ww-muted">23 destinations</span>
+              </div>
+            </Link>
+
+            {/* Sara — foreign woman */}
+            <Link
+              href="/onboarding?path=foreign"
+              className="group flex flex-col justify-between border border-ww-border bg-ink p-7 transition-shadow hover:shadow-md"
+            >
+              <div>
+                <div className="mb-4 flex items-center gap-3">
+                  <img
+                    src={contributors.find(c => c.slug === "sara-berlin")?.photoUrl}
+                    alt="Sara"
+                    className="h-11 w-11 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-gold">Foreign women</p>
+                    <p className="font-serif text-lg text-warm-white">The Sara path</p>
+                  </div>
+                </div>
+                <p className="mb-5 text-sm leading-relaxed text-warm-white/70">
+                  You&apos;re coming from outside India. The rules are different —
+                  visibly foreign women face a different threat profile. The intel
+                  here is blunt about what&apos;s harder, what&apos;s genuinely fine,
+                  and what every travel article gets wrong.
+                </p>
+                <ul className="space-y-1.5 font-mono text-xs text-warm-white/60">
+                  {["What changes when you look foreign", "Visa, SIM card and cash reality", "Which cities are hardest and why", "Pre-trip safety kit for India specifically"].map(item => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-0.5 text-gold">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-7 flex items-center justify-between border-t border-warm-white/10 pt-4">
+                <span className="font-mono text-xs uppercase tracking-widest text-gold">
+                  Start here →
+                </span>
+                <span className="font-mono text-[10px] text-warm-white/40">Written by Sara, Berlin → Goa</span>
+              </div>
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* ── Beware Board scam ticker ──────────────────────────────────── */}
