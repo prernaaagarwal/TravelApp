@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { updateSegment } from "@/app/onboarding/actions";
 
 const TRIP_OPTIONS = [
   { value: "0", label: "Zero — first solo trip", emoji: "🌱" },
@@ -42,19 +43,14 @@ export function OnboardingWizard() {
     );
   }
 
-  function submit() {
+  async function submit() {
     setSubmitting(true);
-    const payload = {
-      tripCount,
-      destination,
-      worries,
-      completedAt: new Date().toISOString(),
-    };
+    const payload = { tripCount, destination, worries };
     try {
-      localStorage.setItem("ww-onboarding", JSON.stringify(payload));
+      localStorage.setItem("ww-onboarding", JSON.stringify({ ...payload, completedAt: new Date().toISOString() }));
     } catch {}
-    // brief delay so the user sees the completed state
-    setTimeout(() => router.push(`/intel/${destination}`), 600);
+    await updateSegment(payload).catch(() => {});
+    router.push(`/intel/${destination}`);
   }
 
   const canAdvance =
