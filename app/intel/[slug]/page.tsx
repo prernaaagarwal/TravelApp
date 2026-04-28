@@ -166,7 +166,53 @@ export default async function IntelPage({ params }: { params: Params }) {
             </Accordion>
           </section>
 
-          {/* sections 4–9 coming in next steps */}
+          {/* ── Scams ─────────────────────────────────────────────────── */}
+          <section>
+            <h2 className="mb-1 font-serif text-2xl text-ink">Scam watch</h2>
+            <p className="mb-4 font-mono text-xs text-ww-muted">
+              Reported and verified for {card.destination}. Read before you arrive.
+            </p>
+
+            <div className="space-y-3">
+              {card.scams.map((scam, i) => {
+                const severity = scam.severity as "critical" | "high" | "medium";
+                const border = severity === "critical" ? "border-l-rust" : severity === "high" ? "border-l-gold" : "border-l-sage";
+                const badge = severity === "critical"
+                  ? "bg-rust/10 text-rust"
+                  : severity === "high"
+                  ? "bg-gold/10 text-gold"
+                  : "bg-sage/10 text-sage";
+
+                return (
+                  <div key={i} className={`border border-ww-border border-l-4 bg-sand p-4 ${border}`}>
+                    <div className="mb-2 flex flex-wrap items-center gap-2">
+                      <span className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest ${badge}`}>
+                        {severity}
+                      </span>
+                      <h3 className="font-mono text-sm font-semibold text-ink">{scam.title}</h3>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <p className="flex gap-2 text-xs leading-relaxed text-ww-muted">
+                        <span className="shrink-0 font-mono font-semibold text-ink">Where</span>
+                        {scam.where}
+                      </p>
+                      <p className="flex gap-2 text-xs leading-relaxed text-ww-muted">
+                        <span className="shrink-0 font-mono font-semibold text-ink">What</span>
+                        {scam.what}
+                      </p>
+                      <p className="flex gap-2 text-xs leading-relaxed text-ww-muted">
+                        <span className="shrink-0 font-mono font-semibold text-sage">Avoid</span>
+                        {scam.avoid}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* sections 5–9 coming in next steps */}
         </main>
 
         {/* ── Sticky sidebar ───────────────────────────────────────── */}
