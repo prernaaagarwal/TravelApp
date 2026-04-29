@@ -110,7 +110,7 @@ export default function SignupPage() {
         </div>
 
         <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
-          <Suspense>
+          <Suspense fallback={<div className="space-y-3"><div className="h-10 animate-pulse rounded bg-ww-border" /><div className="h-10 animate-pulse rounded bg-ww-border" /><div className="h-10 animate-pulse rounded bg-ww-border" /></div>}>
             <SignupForm />
           </Suspense>
         </div>

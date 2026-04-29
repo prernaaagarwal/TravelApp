@@ -7,12 +7,24 @@ import type { Map as LeafletMap } from "leaflet";
 import type { MapReport, Neighbourhood } from "@/lib/beware-cities";
 import { toggleBewareHelpful, reportBeware } from "@/app/community/actions";
 
+// All map colours in one place — change here only.
+// Matches globals.css CSS variables where exact; map-specific shades named explicitly.
+const MAP_COLORS = {
+  rust:       "#c4522a",  // = --rust
+  sage:       "#4a7c59",  // = --sage
+  harassment: "#8b2252",  // deep crimson — no CSS var equivalent
+  transport:  "#b5710a",  // amber — no CSS var equivalent
+  stay:       "#1a4a7a",  // navy — no CSS var equivalent
+  heatMid:    "#f5c842",  // heat gradient mid
+  heatHigh:   "#e8760a",  // heat gradient high
+} as const;
+
 const COLORS: Record<MapReport["type"], string> = {
-  scam:       "#c4522a",
-  harassment: "#8b2252",
-  transport:  "#b5710a",
-  stay:       "#1a4a7a",
-  safe:       "#2d6a4f",
+  scam:       MAP_COLORS.rust,
+  harassment: MAP_COLORS.harassment,
+  transport:  MAP_COLORS.transport,
+  stay:       MAP_COLORS.stay,
+  safe:       MAP_COLORS.sage,
 };
 
 const TYPES: MapReport["type"][] = ["scam", "harassment", "transport", "stay", "safe"];
@@ -26,10 +38,10 @@ const INTENSITY: Record<MapReport["type"], number> = {
 };
 
 const HEAT_GRADIENT = {
-  0.1: "#4a7c59",
-  0.4: "#f5c842",
-  0.7: "#e8760a",
-  1.0: "#c4522a",
+  0.1: MAP_COLORS.sage,
+  0.4: MAP_COLORS.heatMid,
+  0.7: MAP_COLORS.heatHigh,
+  1.0: MAP_COLORS.rust,
 };
 
 const ZOOM_BREAKPOINT = 13;
@@ -300,7 +312,7 @@ export function ScamMapClient({
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const boundaryLine = L.geoJSON(json.geojson as any, {
           style: {
-            color: "#c4522a",
+            color: MAP_COLORS.rust,
             weight: 3,
             opacity: 0.9,
             fillOpacity: 0,
