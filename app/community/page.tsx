@@ -11,10 +11,14 @@ export default async function CommunityPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
-  const [{ data: rawPosts }, { data: rawBeware }] = await Promise.all([
+  const [{ data: rawPosts }, { data: rawBeware }, profileResult] = await Promise.all([
     supabase.from("community_posts").select("id,tab,author_name,author_age_range,home_city,created_at,content,reply_count,like_count,destination").eq("status", "approved").order("created_at", { ascending: false }).limit(100),
     supabase.from("beware_reports").select("id,destination_slug,city,category,title,severity,description,reported_by_name,created_at,location,helpful_count").eq("status", "approved").order("created_at", { ascending: false }).limit(50),
+    user ? supabase.from("profiles").select("segment").eq("id", user.id).single() : Promise.resolve({ data: null }),
   ]);
+
+  const userDestination =
+    (profileResult.data?.segment as { destination?: string } | null)?.destination ?? null;
 
   const posts = (rawPosts ?? []).map((p) => ({
     id: p.id,
@@ -23,6 +27,7 @@ export default async function CommunityPage() {
     authorAgeRange: p.author_age_range ?? "",
     homeCity: p.home_city ?? "",
     postedAt: new Date(p.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
+    createdAt: p.created_at,
     content: p.content,
     replyCount: p.reply_count,
     likeCount: p.like_count,
@@ -39,6 +44,7 @@ export default async function CommunityPage() {
     description: b.description,
     reportedBy: b.reported_by_name ?? "Anonymous",
     reportedDate: new Date(b.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
+    createdAt: b.created_at,
     location: b.location ?? "",
     helpfulCount: b.helpful_count,
   }));
@@ -60,7 +66,7 @@ export default async function CommunityPage() {
         </p>
       </div>
 
-      <CommunityTabs posts={posts} bewares={bewares} userEmail={user?.email ?? null} />
+      <CommunityTabs posts={posts} bewares={bewares} userEmail={user?.email ?? null} userDestination={userDestination} />
     </div>
   );
 }

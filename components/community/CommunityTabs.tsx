@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   Tabs,
@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/tabs";
 import { createPost } from "@/app/community/actions";
 import { createClient } from "@/lib/supabase/client";
+import { BEWARE_CITIES, SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 
 type Post = {
   id: string;
@@ -18,6 +19,7 @@ type Post = {
   authorAgeRange: string;
   homeCity: string;
   postedAt: string;
+  createdAt: string;
   content: string;
   replyCount: number;
   likeCount: number;
@@ -34,9 +36,17 @@ type Beware = {
   description: string;
   reportedBy: string;
   reportedDate: string;
+  createdAt: string;
   location: string;
   helpfulCount: number;
 };
+
+type SortKey = "engagement" | "oldest" | "relevance";
+type CountryKey = "india" | "international";
+
+const INDIA_CITY_OPTIONS = Object.values(BEWARE_CITIES)
+  .map((e) => ({ slug: e.config.slug, name: e.config.name }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 
 const TAB_META = {
   ask: {
@@ -79,22 +89,42 @@ export function CommunityTabs({
   posts,
   bewares,
   userEmail,
+  userDestination,
 }: {
   posts: Post[];
   bewares: Beware[];
   userEmail: string | null;
+  userDestination: string | null;
 }) {
   const [active, setActive] = useState<TabKey>("ask");
   const [visible, setVisible] = useState(10);
+  const [sort, setSort] = useState<SortKey>("engagement");
+  const [country, setCountry] = useState<CountryKey>("india");
+  const [city, setCity] = useState<string>("all");
 
-  const filteredPosts = posts.filter((p) => p.tab === active).slice(0, visible);
+  useEffect(() => {
+    setVisible(10);
+  }, [sort, country, city, active]);
+
+  const filteredPosts = useMemo(
+    () => applySort(applyLocation(posts, country, city), sort, userDestination),
+    [posts, country, city, sort, userDestination]
+  );
+  const filteredBewares = useMemo(
+    () => applySort(applyLocation(bewares, country, city), sort, userDestination),
+    [bewares, country, city, sort, userDestination]
+  );
+
+  const tabPosts = filteredPosts.filter((p) => p.tab === active);
+  const visiblePosts = tabPosts.slice(0, visible);
+  const visibleBewares = filteredBewares.slice(0, visible);
+  const cityName = city !== "all" && BEWARE_CITIES[city] ? BEWARE_CITIES[city].config.name : "";
 
   return (
     <Tabs
       value={active}
       onValueChange={(v) => {
         setActive(v as TabKey);
-        setVisible(10);
       }}
     >
       {/* tab buttons — horizontally scrollable on mobile */}
@@ -110,6 +140,58 @@ export function CommunityTabs({
           </TabsTrigger>
         ))}
       </TabsList>
+
+      {/* filter bar */}
+      <div className="mt-4 mb-2 flex flex-wrap items-center gap-2 border-b border-ww-border pb-3">
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value as SortKey)}
+          className="border border-ww-border bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+          aria-label="Sort posts"
+        >
+          <option value="engagement">Top engagement</option>
+          <option value="oldest">Oldest first</option>
+          <option value="relevance">Relevance</option>
+        </select>
+
+        <select
+          value={country}
+          onChange={(e) => {
+            setCountry(e.target.value as CountryKey);
+            setCity("all");
+          }}
+          className="border border-ww-border bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+          aria-label="Filter by country"
+        >
+          <option value="india">India</option>
+          <option value="international">International</option>
+        </select>
+
+        {country === "india" && (
+          <select
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="border border-ww-border bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+            aria-label="Filter by city"
+          >
+            <option value="all">All cities</option>
+            {INDIA_CITY_OPTIONS.map(({ slug, name }) => (
+              <option key={slug} value={slug}>
+                {name}
+              </option>
+            ))}
+          </select>
+        )}
+
+        {country === "india" && city !== "all" && SUPPORTED_BEWARE_CITIES.has(city) && (
+          <Link
+            href={`/community/beware/${city}`}
+            className="ml-auto border border-rust/40 bg-rust/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-rust hover:bg-rust/10 transition-colors"
+          >
+            📍 See {cityName} scam map →
+          </Link>
+        )}
+      </div>
 
       {/* tab content */}
       {(Object.keys(TAB_META) as TabKey[]).map((key) => {
@@ -143,24 +225,30 @@ export function CommunityTabs({
 
             {/* posts list */}
             {key === "beware" ? (
-              <BewareList bewares={bewares.slice(0, visible)} />
+              <>
+                <BewareList bewares={visibleBewares} />
+                {visibleBewares.length === 0 && (
+                  <p className="py-12 text-center font-mono text-xs text-ww-muted">
+                    No reports match these filters.
+                  </p>
+                )}
+              </>
             ) : (
               <div className="space-y-3">
-                {filteredPosts.map((post) => (
+                {visiblePosts.map((post) => (
                   <PostCard key={post.id} post={post} />
                 ))}
-                {filteredPosts.length === 0 && (
+                {visiblePosts.length === 0 && (
                   <p className="py-12 text-center font-mono text-xs text-ww-muted">
-                    No posts in this tab yet.
+                    No posts match these filters.
                   </p>
                 )}
               </div>
             )}
 
             {/* load more */}
-            {((key === "beware" && bewares.length > visible) ||
-              (key !== "beware" &&
-                posts.filter((p) => p.tab === key).length > visible)) && (
+            {((key === "beware" && filteredBewares.length > visible) ||
+              (key !== "beware" && tabPosts.length > visible)) && (
               <button
                 onClick={() => setVisible((v) => v + 10)}
                 className="mt-6 w-full border border-ww-border bg-sand py-3 font-mono text-xs uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors"
@@ -173,6 +261,51 @@ export function CommunityTabs({
       })}
     </Tabs>
   );
+}
+
+function applyLocation<T extends { destination?: string; destinationSlug?: string }>(
+  items: T[],
+  country: CountryKey,
+  city: string
+): T[] {
+  if (country === "international") {
+    return items.filter((i) => {
+      const dest = i.destination ?? i.destinationSlug;
+      return !dest || !dest.endsWith("-india");
+    });
+  }
+  if (city === "all") {
+    return items.filter((i) => {
+      const dest = i.destination ?? i.destinationSlug;
+      return !dest || dest.endsWith("-india");
+    });
+  }
+  return items.filter((i) => (i.destination ?? i.destinationSlug) === city);
+}
+
+function applySort<
+  T extends {
+    createdAt: string;
+    likeCount?: number;
+    replyCount?: number;
+    helpfulCount?: number;
+    destination?: string;
+    destinationSlug?: string;
+  }
+>(items: T[], sort: SortKey, userDestination: string | null): T[] {
+  if (sort === "oldest") {
+    return [...items].sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+  }
+  const score = (i: T) => {
+    const eng = (i.likeCount ?? i.helpfulCount ?? 0) + (i.replyCount ?? 0) * 2;
+    if (sort === "relevance") {
+      const dest = i.destination ?? i.destinationSlug;
+      const boost = userDestination && dest === userDestination ? 50 : 0;
+      return eng + boost;
+    }
+    return eng;
+  };
+  return [...items].sort((a, b) => score(b) - score(a));
 }
 
 function ComposeForm({ tab, placeholder, cta }: { tab: string; placeholder: string; cta: string }) {
