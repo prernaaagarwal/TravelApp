@@ -1,9 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 import intelCards from "@/lib/mock-data/intel-cards.json";
 import contributors from "@/lib/mock-data/contributors.json";
 import bewares from "@/lib/mock-data/beware-entries.json";
 import communityPosts from "@/lib/mock-data/community-posts.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
+
+// Persona slugs for the "Priya path" and "Sara path" onboarding cards.
+// Change here if contributors are renamed — nowhere else.
+const PRIYA_SLUG = "ananya-mumbai";
+const SARA_SLUG  = "sara-berlin";
 
 export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
 
@@ -186,9 +192,10 @@ export default function HomePage() {
             >
               <div>
                 <div className="mb-4 flex items-center gap-3">
-                  <img
-                    src={contributors.find(c => c.slug === "ananya-mumbai")?.photoUrl}
+                  <Image
+                    src={contributors.find(c => c.slug === PRIYA_SLUG)?.photoUrl ?? ""}
                     alt="Priya"
+                    width={44} height={44}
                     className="h-11 w-11 rounded-full object-cover"
                   />
                   <div>
@@ -226,9 +233,10 @@ export default function HomePage() {
             >
               <div>
                 <div className="mb-4 flex items-center gap-3">
-                  <img
-                    src={contributors.find(c => c.slug === "sara-berlin")?.photoUrl}
+                  <Image
+                    src={contributors.find(c => c.slug === SARA_SLUG)?.photoUrl ?? ""}
                     alt="Sara"
+                    width={44} height={44}
                     className="h-11 w-11 rounded-full object-cover"
                   />
                   <div>
