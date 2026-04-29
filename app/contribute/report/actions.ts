@@ -58,7 +58,7 @@ export async function submitBewareReport(formData: FormData) {
     gps_lat,
     gps_lng,
     photo_urls: photoUrls,
-    status: "pending",
+    status: "approved",
   });
 
   if (error) return { error: error.message };
