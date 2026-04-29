@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type * as LeafletNS from "leaflet";
 import type { Map as LeafletMap } from "leaflet";
-import type { MapReport } from "@/lib/beware-cities";
+import type { MapReport, Neighbourhood } from "@/lib/beware-cities";
 import { toggleBewareHelpful, reportBeware } from "@/app/community/actions";
 
 const COLORS: Record<MapReport["type"], string> = {
@@ -17,6 +17,25 @@ const COLORS: Record<MapReport["type"], string> = {
 
 const TYPES: MapReport["type"][] = ["scam", "harassment", "transport", "stay", "safe"];
 
+const INTENSITY: Record<MapReport["type"], number> = {
+  harassment: 1.0,
+  scam:       0.8,
+  transport:  0.7,
+  stay:       0.6,
+  safe:       0.1,
+};
+
+const HEAT_GRADIENT = {
+  0.1: "#4a7c59",
+  0.4: "#f5c842",
+  0.7: "#e8760a",
+  1.0: "#c4522a",
+};
+
+const ZOOM_BREAKPOINT = 13;
+const LABEL_MIN_ZOOM  = 12;
+const LABEL_MAX_ZOOM  = 13;
+
 function createIcon(L: typeof LeafletNS, type: MapReport["type"]) {
   const color = COLORS[type];
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32">
@@ -26,17 +45,45 @@ function createIcon(L: typeof LeafletNS, type: MapReport["type"]) {
   return L.divIcon({ html: svg, className: "", iconSize: [24, 32], iconAnchor: [12, 32] });
 }
 
+function createLabelIcon(L: typeof LeafletNS, name: string) {
+  const html = `<div style="
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #1a1510;
+    background: rgba(250,248,244,0.85);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 0.5px solid rgba(0,0,0,0.12);
+    white-space: nowrap;
+    pointer-events: none;
+  ">${name}</div>`;
+  return L.divIcon({ html, className: "", iconAnchor: [0, 0] });
+}
+
 type Props = {
   citySlug: string;
   cityName: string;
   center: [number, number];
   zoom: number;
+  country: string;
+  neighbourhoods: Neighbourhood[];
   demoReports: MapReport[];
   dbReports: MapReport[];
   isLoggedIn: boolean;
 };
 
-export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, dbReports, isLoggedIn }: Props) {
+export function ScamMapClient({
+  citySlug,
+  cityName,
+  center,
+  zoom,
+  country,
+  neighbourhoods,
+  demoReports,
+  dbReports,
+  isLoggedIn,
+}: Props) {
   const dbTitles = new Set(dbReports.map((r) => r.title.trim().toLowerCase()));
   const demo = demoReports.filter((r) => !dbTitles.has(r.title.trim().toLowerCase()));
   const reports = [...dbReports, ...demo];
@@ -44,21 +91,43 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
   const [activeTypes, setActiveTypes] = useState<Set<MapReport["type"]>>(new Set(TYPES));
   const [visibleCount, setVisibleCount] = useState(reports.length);
   const [selected, setSelected]         = useState<MapReport | null>(null);
+  const [viewMode, setViewMode]         = useState<"overview" | "pins">("overview");
 
-  const mapDivRef      = useRef<HTMLDivElement>(null);
-  const mapRef         = useRef<LeafletMap | null>(null);
+  const mapDivRef     = useRef<HTMLDivElement>(null);
+  const mapRef        = useRef<LeafletMap | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const clusterRef     = useRef<any>(null);
+  const clusterRef    = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const markersRef     = useRef<{ marker: any; report: MapReport }[]>([]);
+  const heatLayerRef  = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const labelsLayerRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const boundaryRef   = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const markersRef    = useRef<{ marker: any; report: MapReport }[]>([]);
+  const activeTypesRef = useRef<Set<MapReport["type"]>>(new Set(TYPES));
 
-  function refreshMarkers(types: Set<MapReport["type"]>) {
+  function buildHeatData(types: Set<MapReport["type"]>) {
+    return reports
+      .filter((r) => types.has(r.type))
+      .map((r) => [r.lat, r.lng, INTENSITY[r.type]] as [number, number, number]);
+  }
+
+  function refreshLayers(types: Set<MapReport["type"]>) {
+    activeTypesRef.current = types;
+
+    // Update cluster (used in pins mode)
     const cluster = clusterRef.current;
-    if (!cluster) return;
-    cluster.clearLayers();
-    const visible = markersRef.current.filter(({ report }) => types.has(report.type));
-    visible.forEach(({ marker }) => cluster.addLayer(marker));
-    setVisibleCount(visible.length);
+    if (cluster) {
+      cluster.clearLayers();
+      const visible = markersRef.current.filter(({ report }) => types.has(report.type));
+      visible.forEach(({ marker }) => cluster.addLayer(marker));
+      setVisibleCount(visible.length);
+    }
+
+    // Update heatmap (used in overview mode)
+    const heat = heatLayerRef.current;
+    if (heat) heat.setLatLngs(buildHeatData(types));
   }
 
   function toggleType(t: MapReport["type"]) {
@@ -66,14 +135,42 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
     if (next.has(t)) next.delete(t);
     else next.add(t);
     setActiveTypes(next);
-    refreshMarkers(next);
+    refreshLayers(next);
   }
 
   function toggleAll() {
     const allOn = activeTypes.size === TYPES.length;
     const next = allOn ? new Set<MapReport["type"]>() : new Set(TYPES);
     setActiveTypes(next);
-    refreshMarkers(next);
+    refreshLayers(next);
+  }
+
+  function applyViewMode(mode: "overview" | "pins", L: typeof LeafletNS, map: LeafletMap) {
+    const cluster = clusterRef.current;
+    const heat = heatLayerRef.current;
+    if (mode === "pins") {
+      if (heat && map.hasLayer(heat)) map.removeLayer(heat);
+      if (cluster && !map.hasLayer(cluster)) map.addLayer(cluster);
+    } else {
+      if (cluster && map.hasLayer(cluster)) map.removeLayer(cluster);
+      if (heat && !map.hasLayer(heat)) map.addLayer(heat);
+    }
+  }
+
+  function applyLabelVisibility(zoomLevel: number, map: LeafletMap) {
+    const labels = labelsLayerRef.current;
+    if (!labels) return;
+    const shouldShow = zoomLevel >= LABEL_MIN_ZOOM && zoomLevel <= LABEL_MAX_ZOOM;
+    if (shouldShow && !map.hasLayer(labels)) map.addLayer(labels);
+    if (!shouldShow && map.hasLayer(labels)) map.removeLayer(labels);
+  }
+
+  function handleManualToggle(mode: "overview" | "pins") {
+    const map = mapRef.current;
+    if (!map) return;
+    const target = mode === "pins" ? Math.max(map.getZoom(), 14) : Math.min(map.getZoom(), 11);
+    setViewMode(mode);
+    map.setZoom(target);
   }
 
   useEffect(() => {
@@ -89,6 +186,8 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
       await import("leaflet.markercluster/dist/MarkerCluster.Default.css");
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const { MarkerClusterGroup } = await import("leaflet.markercluster") as any;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      await import("leaflet.heat") as any;
 
       if (cancelled || !mapDivRef.current) return;
 
@@ -105,6 +204,7 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
 
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
+      // Build markers + cluster
       const cluster = new MarkerClusterGroup({ maxClusterRadius: 50 });
       markersRef.current = [];
       reports.forEach((r) => {
@@ -113,10 +213,78 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
         cluster.addLayer(marker);
         markersRef.current.push({ marker, report: r });
       });
-      map.addLayer(cluster);
       clusterRef.current = cluster;
 
+      // Build heat layer
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const heat = (L as any).heatLayer(buildHeatData(activeTypesRef.current), {
+        radius: 35,
+        blur: 25,
+        maxZoom: ZOOM_BREAKPOINT,
+        gradient: HEAT_GRADIENT,
+      });
+      heatLayerRef.current = heat;
+
+      // Neighbourhood labels group
+      if (neighbourhoods.length > 0) {
+        const labels = L.layerGroup(
+          neighbourhoods.map((n) =>
+            L.marker([n.lat, n.lng], {
+              icon: createLabelIcon(L, n.name),
+              interactive: false,
+              keyboard: false,
+            })
+          )
+        );
+        labelsLayerRef.current = labels;
+      }
+
+      // Initial layer state — overview/heat by default
+      map.addLayer(heat);
+
+      // Zoom event drives layer + label visibility + view mode state
+      map.on("zoomend", () => {
+        const z = map.getZoom();
+        if (z >= ZOOM_BREAKPOINT) {
+          applyViewMode("pins", L, map);
+          setViewMode("pins");
+        } else {
+          applyViewMode("overview", L, map);
+          setViewMode("overview");
+        }
+        applyLabelVisibility(z, map);
+      });
+
       mapRef.current = map;
+      applyLabelVisibility(map.getZoom(), map);
+
+      // Fetch + draw city boundary, then fit bounds
+      try {
+        const res = await fetch(
+          `/api/city-boundary?q=${encodeURIComponent(cityName)}&country=${encodeURIComponent(country)}`,
+          { cache: "force-cache" },
+        );
+        const json = await res.json();
+        if (cancelled || !mapRef.current) return;
+        if (!json?.geojson) return;
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const boundary = L.geoJSON(json.geojson as any, {
+          style: {
+            color: "#c4522a",
+            weight: 2,
+            opacity: 0.6,
+            fillColor: "#c4522a",
+            fillOpacity: 0.04,
+            dashArray: "6, 4",
+          },
+          interactive: false,
+        }).addTo(map);
+        boundaryRef.current = boundary;
+        map.fitBounds(boundary.getBounds(), { padding: [32, 32], maxZoom: 13 });
+      } catch {
+        // Fall back to hardcoded center/zoom — already applied
+      }
     }
 
     initMap();
@@ -136,11 +304,37 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
 
   return (
     <div className="flex flex-col" style={{ height: "calc(100dvh - 56px)" }}>
-      {/* Filter chips — multiselect */}
+      {/* Filter bar — view-mode toggle + type chips */}
       <div
         className="flex shrink-0 items-center gap-2 overflow-x-auto border-b border-ww-border bg-warm-white px-4 scrollbar-none"
         style={{ height: FILTER_BAR_H }}
       >
+        {/* View mode toggle */}
+        <div className="flex shrink-0 items-center gap-1">
+          <button
+            onClick={() => handleManualToggle("overview")}
+            className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
+              viewMode === "overview"
+                ? "border-ink bg-ink text-warm-white"
+                : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
+            }`}
+          >
+            Overview
+          </button>
+          <button
+            onClick={() => handleManualToggle("pins")}
+            className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
+              viewMode === "pins"
+                ? "border-ink bg-ink text-warm-white"
+                : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
+            }`}
+          >
+            Pins
+          </button>
+        </div>
+
+        <div className="h-5 w-px shrink-0 bg-ww-border/60" />
+
         <button
           onClick={toggleAll}
           className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
@@ -212,7 +406,7 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
           +
         </Link>
 
-        {/* Detail panel — left side on desktop, bottom sheet on mobile */}
+        {/* Detail panel */}
         {selected && (
           <DetailPanel
             key={selected.id}
