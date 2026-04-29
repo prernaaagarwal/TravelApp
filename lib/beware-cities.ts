@@ -49,7 +49,24 @@ function deriveCountry(slug: string): string {
 // Per-city OSM relation IDs — used instead of name search for precision
 // Lookup via: nominatim.openstreetmap.org/lookup?osm_ids=R{id}&polygon_geojson=1
 const BOUNDARY_OSM_ID_BY_SLUG: Record<string, string> = {
-  "delhi-india": "R1942586",  // Delhi NCT administrative boundary, excludes Noida/Gurgaon
+  "goa-india":          "R1263478",
+  "delhi-india":        "R1942586",  // Delhi NCT administrative boundary, excludes Noida/Gurgaon
+  "mumbai-india":       "R7888990",
+  "jaipur-india":       "R1278173",
+  "agra-india":         "R1278716",
+  "bangalore-india":    "R1277806",
+  "chennai-india":      "R1278274",
+  "kolkata-india":      "R1278011",
+  "varanasi-india":     "R1278771",
+  "udaipur-india":      "R1278946",
+  "manali-india":       "R1267327",
+  "kochi-india":        "R1278721",
+  "tokyo-japan":        "R1543125",
+  "bangkok-thailand":   "R1809197",
+  "hanoi-vietnam":      "R1903588",
+  "dubai-uae":          "R3374080",
+  "seoul-south-korea":  "R2297418",
+  "paris-france":       "R71525",
 };
 
 const NEIGHBOURHOODS_BY_SLUG: Record<string, Neighbourhood[]> = {
@@ -91,6 +108,7 @@ const goa: CityEntry = {
     zoom: 11,
     country: "IN",
     neighbourhoods: NEIGHBOURHOODS_BY_SLUG["goa-india"] ?? [],
+    boundaryOsmId: BOUNDARY_OSM_ID_BY_SLUG["goa-india"],
   },
   reports: GOA_DEMO_REPORTS,
 };
