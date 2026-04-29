@@ -75,7 +75,7 @@ const BOUNDARY_OSM_ID_BY_SLUG: Record<string, string> = {
   "delhi-india":        "R1942586",  // Delhi NCT administrative boundary, excludes Noida/Gurgaon
   "mumbai-india":       "R7888990",
   "jaipur-india":       "R1278173",
-  "agra-india":         "R1278716",
+  // Agra: R1278716 is UP state boundary — omitted; using hand-crafted city polygon instead
   "bangalore-india":    "R1277806",
   "chennai-india":      "R1278274",
   "kolkata-india":      "R1278011",
