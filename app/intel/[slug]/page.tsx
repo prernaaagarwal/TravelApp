@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: { params: Params }) {
   if (!data) return { title: "Not found — Wander Women" };
 
   const summary = Array.isArray(data.tldr)
-    ? (data.tldr as string[])[0]
-    : (data.tldr as { summary?: string })?.summary ?? "";
+    ? ((data.tldr as string[])[0] ?? "")
+    : ((data.tldr as { summary?: string })?.summary ?? "");
   const scams = (data.scams as { title: string }[] | null) ?? [];
   const scamList = scams.slice(0, 3).map((s) => s.title).join(", ");
   const description = scamList
