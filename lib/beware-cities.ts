@@ -1,5 +1,13 @@
-import data from "./beware-cities-data.json";
+import rawData from "./beware-cities-data.json";
 import { GOA_DEMO_REPORTS } from "./beware-goa-demo";
+import { bewareCitiesDataSchema } from "./schemas";
+
+const dataParseResult = bewareCitiesDataSchema.safeParse(rawData);
+if (!dataParseResult.success) {
+  // Log at startup so bad JSON is caught immediately in dev/CI.
+  console.error("[beware-cities] JSON validation failed:", dataParseResult.error.issues);
+}
+const data = dataParseResult.success ? dataParseResult.data : {};
 
 export type MapReport = {
   id: string;
@@ -80,21 +88,20 @@ const NEIGHBOURHOODS_BY_SLUG: Record<string, Neighbourhood[]> = {
   ],
 };
 
-// JSON loses tuple/literal types — narrow at runtime
 const generated: Record<string, CityEntry> = Object.fromEntries(
-  Object.entries(data as Record<string, { config: { slug: string; name: string; center: number[]; zoom: number }; reports: (Omit<MapReport, "type"> & { type: string })[] }>).map(([slug, entry]) => [
+  Object.entries(data).map(([slug, entry]) => [
     slug,
     {
       config: {
-        slug: entry.config.slug,
-        name: entry.config.name,
-        center: [entry.config.center[0], entry.config.center[1]] as [number, number],
-        zoom: entry.config.zoom,
-        country: deriveCountry(entry.config.slug),
+        slug:           entry.config.slug,
+        name:           entry.config.name,
+        center:         entry.config.center,
+        zoom:           entry.config.zoom,
+        country:        deriveCountry(entry.config.slug),
         neighbourhoods: NEIGHBOURHOODS_BY_SLUG[entry.config.slug] ?? [],
         ...(BOUNDARY_OSM_ID_BY_SLUG[entry.config.slug] ? { boundaryOsmId: BOUNDARY_OSM_ID_BY_SLUG[entry.config.slug] } : {}),
       },
-      reports: entry.reports.map((r) => ({ ...r, type: r.type as MapReport["type"] })),
+      reports: entry.reports,
     },
   ])
 );
