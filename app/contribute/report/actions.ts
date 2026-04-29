@@ -2,18 +2,30 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
+import { submitBewareReportSchema } from "@/lib/schemas";
 
 export async function submitBewareReport(formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: "Not logged in" };
 
-  const title = (formData.get("title") as string)?.trim();
-  const description = (formData.get("description") as string)?.trim();
-  if (!title || !description) return { error: "Title and description are required" };
+  const gpsLatRaw = formData.get("gps_lat");
+  const gpsLngRaw = formData.get("gps_lng");
 
-  const gpsLat = formData.get("gps_lat") ? parseFloat(formData.get("gps_lat") as string) : null;
-  const gpsLng = formData.get("gps_lng") ? parseFloat(formData.get("gps_lng") as string) : null;
+  const result = submitBewareReportSchema.safeParse({
+    title:            (formData.get("title") as string)?.trim(),
+    description:      (formData.get("description") as string)?.trim(),
+    category:         (formData.get("category") as string) || null,
+    severity:         (formData.get("severity") as string) || "medium",
+    city:             (formData.get("city") as string) || null,
+    location:         (formData.get("location") as string) || null,
+    destination_slug: (formData.get("destination_slug") as string) || null,
+    gps_lat:          gpsLatRaw ? parseFloat(gpsLatRaw as string) : null,
+    gps_lng:          gpsLngRaw ? parseFloat(gpsLngRaw as string) : null,
+  });
+  if (!result.success) return { error: result.error.issues[0].message };
+
+  const { title, description, category, severity, city, location, destination_slug, gps_lat, gps_lng } = result.data;
 
   // upload photos to storage if bucket exists
   const photoFiles = formData.getAll("photos") as File[];
@@ -36,15 +48,15 @@ export async function submitBewareReport(formData: FormData) {
   const { error } = await supabase.from("beware_reports").insert({
     title,
     description,
-    city: (formData.get("city") as string) || null,
-    location: (formData.get("location") as string) || null,
-    category: (formData.get("category") as string) || null,
-    severity: (formData.get("severity") as string) || "medium",
-    destination_slug: (formData.get("destination_slug") as string) || null,
+    city,
+    location,
+    category,
+    severity,
+    destination_slug,
     reported_by_id: user.id,
     reported_by_name: user.email?.split("@")[0] ?? "Anonymous",
-    gps_lat: gpsLat,
-    gps_lng: gpsLng,
+    gps_lat,
+    gps_lng,
     photo_urls: photoUrls,
     status: "pending",
   });

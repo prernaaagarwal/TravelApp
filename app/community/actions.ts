@@ -2,33 +2,35 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
+import { createPostSchema } from "@/lib/schemas";
 
 export async function createPost(formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: "Not logged in" };
 
-  const content = (formData.get("content") as string)?.trim();
-  const title = (formData.get("title") as string)?.trim();
-  const tab = formData.get("tab") as string;
-  const destination = (formData.get("destination") as string) || null;
-
-  if (!title || title.length < 5) return { error: "Title too short (min 5 chars)" };
-  if (title.length > 120) return { error: "Title too long (max 120 chars)" };
-  if (!content || content.length < 10) return { error: "Post too short" };
-
-  const id = `post-${tab}-${crypto.randomUUID()}`;
-
   const imageUrlsRaw = formData.get("image_urls") as string;
-  let imageUrls: string[] = [];
+  let imageParsed: string[] = [];
   if (imageUrlsRaw) {
     try {
       const parsed = JSON.parse(imageUrlsRaw);
-      if (Array.isArray(parsed)) imageUrls = parsed;
+      if (Array.isArray(parsed)) imageParsed = parsed;
     } catch {
       return { error: "Invalid image data" };
     }
   }
+
+  const result = createPostSchema.safeParse({
+    title:       (formData.get("title") as string)?.trim(),
+    content:     (formData.get("content") as string)?.trim(),
+    tab:         formData.get("tab"),
+    destination: (formData.get("destination") as string) || null,
+    image_urls:  imageParsed,
+  });
+  if (!result.success) return { error: result.error.issues[0].message };
+
+  const { title, content, tab, destination, image_urls } = result.data;
+  const id = `post-${tab}-${crypto.randomUUID()}`;
 
   const { error } = await supabase.from("community_posts").insert({
     id,
@@ -38,7 +40,7 @@ export async function createPost(formData: FormData) {
     author_name: user.email?.split("@")[0] ?? "Anonymous",
     content,
     destination,
-    image_urls: imageUrls,
+    image_urls: image_urls ?? [],
     status: "pending",
   });
 
