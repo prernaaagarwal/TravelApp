@@ -361,9 +361,9 @@ export function ScamMapClient({
 
   return (
     <div className="flex flex-col" style={{ height: "calc(100dvh - 56px)" }}>
-      {/* Filter bar — view-mode toggle + type chips */}
+      {/* Filter bar — type chips, mobile only (desktop uses SidePanel dropdown) */}
       <div
-        className="flex shrink-0 items-center gap-2 overflow-x-auto border-b border-ww-border bg-warm-white px-4 scrollbar-none"
+        className="flex shrink-0 items-center gap-2 overflow-x-auto border-b border-ww-border bg-warm-white px-4 scrollbar-none md:hidden"
         style={{ height: FILTER_BAR_H }}
       >
         <button
@@ -398,10 +398,10 @@ export function ScamMapClient({
       <div className="relative flex-1">
         <div ref={mapDivRef} className="h-full w-full" />
 
-        {/* Stats pill — click to open reports list */}
+        {/* Stats pill — mobile only; desktop uses SidePanel header */}
         <button
-          onClick={() => { setListOpen((o) => !o); setSelected(null); }}
-          className="absolute left-1/2 top-3 z-[999] -translate-x-1/2 rounded-full border border-ww-border bg-warm-white/90 px-3 py-1 shadow-sm backdrop-blur-sm hover:border-rust transition-colors"
+          onClick={() => { setListOpen((o: boolean) => !o); setSelected(null); }}
+          className="absolute left-1/2 top-3 z-[999] -translate-x-1/2 rounded-full border border-ww-border bg-warm-white/90 px-3 py-1 shadow-sm backdrop-blur-sm hover:border-rust transition-colors md:hidden"
         >
           <span className="font-mono text-[10px] text-ww-muted">
             {visibleCount} reports · {cityName} · Updated today
@@ -440,25 +440,30 @@ export function ScamMapClient({
           +
         </Link>
 
-        {/* Reports list panel */}
-        {listOpen && !selected && (
-          <ReportsListPanel
-            reports={[...reports].sort((a, b) => {
-              const da = new Date(a.date).getTime();
-              const db = new Date(b.date).getTime();
-              return (isNaN(db) || isNaN(da)) ? 0 : db - da;
-            })}
-            onSelect={(r) => {
-              mapRef.current?.flyTo([r.lat, r.lng], Math.max(mapRef.current.getZoom(), 14), {
-                animate: true,
-                duration: 1.2,
-              });
-              setSelected(r);
-              setListOpen(false);
-            }}
-            onClose={() => setListOpen(false)}
-          />
-        )}
+        {/* Side panel — permanent header on desktop, conditional on mobile */}
+        <SidePanel
+          cityName={cityName}
+          visibleCount={visibleCount}
+          activeTypes={activeTypes}
+          onToggleType={toggleType}
+          onToggleAll={toggleAll}
+          listOpen={listOpen}
+          onToggleList={() => { setListOpen((o: boolean) => !o); setSelected(null); }}
+          onClose={() => setListOpen(false)}
+          reports={[...reports].sort((a, b) => {
+            const da = new Date(a.date).getTime();
+            const db = new Date(b.date).getTime();
+            return (isNaN(db) || isNaN(da)) ? 0 : db - da;
+          })}
+          onSelect={(r) => {
+            mapRef.current?.flyTo([r.lat, r.lng], Math.max(mapRef.current.getZoom(), 14), {
+              animate: true,
+              duration: 1.2,
+            });
+            setSelected(r);
+            setListOpen(false);
+          }}
+        />
 
         {/* Detail panel */}
         {selected && (
@@ -466,6 +471,7 @@ export function ScamMapClient({
             key={selected.id}
             report={selected}
             onClose={() => setSelected(null)}
+            onBack={() => { setSelected(null); setListOpen(true); }}
             isLoggedIn={isLoggedIn}
           />
         )}
@@ -474,58 +480,143 @@ export function ScamMapClient({
   );
 }
 
-function ReportsListPanel({
+function FilterDropdown({
+  activeTypes,
+  onToggleType,
+  onToggleAll,
+}: {
+  activeTypes: Set<MapReport["type"]>;
+  onToggleType: (t: MapReport["type"]) => void;
+  onToggleAll: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handle(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handle);
+    return () => document.removeEventListener("mousedown", handle);
+  }, []);
+
+  const allOn = activeTypes.size === TYPES.length;
+  const label = allOn ? "All types" : `${activeTypes.size}/${TYPES.length} types`;
+
+  return (
+    <div ref={ref} className="relative shrink-0">
+      <button
+        onClick={() => setOpen((o: boolean) => !o)}
+        className="flex items-center gap-1 border border-ww-border bg-sand px-2.5 py-1 font-mono text-[9px] uppercase tracking-widest text-ink hover:border-ink transition-colors"
+      >
+        {label} <span className="text-ww-muted">▾</span>
+      </button>
+      {open && (
+        <div className="absolute right-0 top-full z-[10000] mt-1 min-w-[130px] border border-ww-border bg-warm-white shadow-lg">
+          <button
+            onClick={onToggleAll}
+            className={`w-full px-3 py-2 text-left font-mono text-[9px] uppercase tracking-widest transition-colors hover:bg-sand ${allOn ? "text-ink font-semibold" : "text-ww-muted"}`}
+          >
+            {allOn ? "✓ " : "  "}All
+          </button>
+          {TYPES.map((t) => {
+            const on = activeTypes.has(t);
+            return (
+              <button
+                key={t}
+                onClick={() => onToggleType(t)}
+                className="flex w-full items-center gap-2 px-3 py-2 text-left font-mono text-[9px] uppercase tracking-widest transition-colors hover:bg-sand"
+              >
+                <span
+                  className="h-1.5 w-1.5 shrink-0 rounded-full"
+                  style={{ background: on ? COLORS[t] : "transparent", border: `1.5px solid ${COLORS[t]}` }}
+                />
+                <span className={on ? "text-ink" : "text-ww-muted"}>{t}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SidePanel({
+  cityName,
+  visibleCount,
+  activeTypes,
+  onToggleType,
+  onToggleAll,
+  listOpen,
+  onToggleList,
+  onClose,
   reports,
   onSelect,
-  onClose,
 }: {
+  cityName: string;
+  visibleCount: number;
+  activeTypes: Set<MapReport["type"]>;
+  onToggleType: (t: MapReport["type"]) => void;
+  onToggleAll: () => void;
+  listOpen: boolean;
+  onToggleList: () => void;
+  onClose: () => void;
   reports: MapReport[];
   onSelect: (r: MapReport) => void;
-  onClose: () => void;
 }) {
   return (
-    <div className="fixed z-[9999] flex flex-col border-ww-border bg-warm-white shadow-2xl inset-x-0 bottom-0 border-t max-h-[65dvh] md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[360px] md:max-h-none md:border-r md:border-t-0">
-      <div className="flex shrink-0 items-center justify-between border-b border-ww-border px-4 py-3">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-          {reports.length} Reports · Newest first
-        </span>
-        <button onClick={onClose} className="font-mono text-sm text-ww-muted hover:text-ink" aria-label="Close">
+    <div
+      className={`fixed z-[9999] flex-col border-ww-border bg-warm-white shadow-2xl
+        inset-x-0 bottom-0 border-t max-h-[65dvh]
+        md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[360px] md:max-h-none md:border-r md:border-t-0
+        ${listOpen ? "flex" : "hidden md:flex"}`}
+    >
+      {/* Header — always visible on desktop */}
+      <div className="flex shrink-0 items-center justify-between gap-2 border-b border-ww-border px-4 py-3">
+        <button
+          onClick={onToggleList}
+          className="min-w-0 flex-1 text-left font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-ink transition-colors truncate"
+        >
+          {visibleCount} reports · {cityName} · Updated today
+        </button>
+        <FilterDropdown activeTypes={activeTypes} onToggleType={onToggleType} onToggleAll={onToggleAll} />
+        {/* Close button — mobile only */}
+        <button onClick={onClose} className="shrink-0 font-mono text-sm text-ww-muted hover:text-ink md:hidden" aria-label="Close">
           ✕
         </button>
       </div>
-      <div className="overflow-y-auto">
-        {reports.length === 0 ? (
-          <p className="px-4 py-6 font-mono text-xs text-ww-muted">No reports yet.</p>
-        ) : (
-          reports.map((r) => (
-            <button
-              key={r.id}
-              onClick={() => onSelect(r)}
-              className="flex w-full flex-col gap-1 border-b border-ww-border/50 px-4 py-3 text-left hover:bg-sand transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <span
-                  className="shrink-0 rounded px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-white"
-                  style={{ background: COLORS[r.type] }}
-                >
-                  {r.type}
-                </span>
-                {r.isDemo && (
-                  <span className="rounded border border-ww-border bg-sand px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-widest text-ww-muted">
-                    Demo
+
+      {/* List body — only when open */}
+      {listOpen && (
+        <div className="overflow-y-auto">
+          {reports.length === 0 ? (
+            <p className="px-4 py-6 font-mono text-xs text-ww-muted">No reports yet.</p>
+          ) : (
+            reports.map((r) => (
+              <button
+                key={r.id}
+                onClick={() => onSelect(r)}
+                className="flex w-full flex-col gap-1 border-b border-ww-border/50 px-4 py-3 text-left hover:bg-sand transition-colors"
+              >
+                <div className="flex items-center gap-2">
+                  <span
+                    className="shrink-0 rounded px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-white"
+                    style={{ background: COLORS[r.type] }}
+                  >
+                    {r.type}
                   </span>
-                )}
-              </div>
-              <p className="line-clamp-2 font-mono text-xs font-medium text-ink leading-snug">{r.title}</p>
-              <div className="flex items-center gap-2 font-mono text-[10px] text-ww-muted">
-                <span>📍 {r.place}</span>
-                <span>·</span>
-                <span>{r.date}</span>
-              </div>
-            </button>
-          ))
-        )}
-      </div>
+                </div>
+                <p className="line-clamp-2 font-mono text-xs font-medium text-ink leading-snug">{r.title}</p>
+                <div className="flex items-center gap-2 font-mono text-[10px] text-ww-muted">
+                  <span>📍 {r.place}</span>
+                  <span>·</span>
+                  <span>{r.date}</span>
+                </div>
+              </button>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -533,10 +624,12 @@ function ReportsListPanel({
 function DetailPanel({
   report,
   onClose,
+  onBack,
   isLoggedIn,
 }: {
   report: MapReport;
   onClose: () => void;
+  onBack: () => void;
   isLoggedIn: boolean;
 }) {
   const [liked, setLiked] = useState(report.isHelpfulByMe ?? false);
@@ -591,19 +684,21 @@ function DetailPanel({
     <div
       className="fixed z-[9999] flex flex-col border-ww-border bg-warm-white shadow-2xl inset-x-0 bottom-0 border-t max-h-[55dvh] md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[380px] md:max-h-none md:border-r md:border-t-0"
     >
-      <div className="flex shrink-0 items-center justify-between px-4 pt-3 pb-2">
+      <div className="flex shrink-0 items-center justify-between gap-2 px-4 pt-3 pb-2">
         <div className="flex items-center gap-2">
+          <button
+            onClick={onBack}
+            className="font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-ink transition-colors"
+            aria-label="Back to list"
+          >
+            ← Back
+          </button>
           <span
             className="rounded px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-white"
             style={{ background: COLORS[report.type] }}
           >
             {report.type}
           </span>
-          {report.isDemo && (
-            <span className="rounded border border-ww-border bg-sand px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-ww-muted">
-              Demo
-            </span>
-          )}
         </div>
         <button
           onClick={onClose}
