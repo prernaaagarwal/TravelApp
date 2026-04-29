@@ -12,6 +12,8 @@ export type MapReport = {
   date: string;
   confirms: number;
   reporter: string;
+  isDemo?: boolean;
+  isHelpfulByMe?: boolean;
 };
 
 export type CityConfig = {

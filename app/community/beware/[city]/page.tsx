@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { createClient as buildClient } from "@supabase/supabase-js";
+import { createClient } from "@/lib/supabase/server";
 import { ScamMapClient } from "./ScamMapClient";
 import { BEWARE_CITIES, type MapReport } from "@/lib/beware-cities";
 
@@ -22,10 +22,8 @@ export default async function CityScamMapPage({ params }: { params: Promise<{ ci
   const entry = BEWARE_CITIES[city];
   if (!entry) notFound();
 
-  const supabase = buildClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
   const { data: rows } = await supabase
     .from("beware_reports")
@@ -34,6 +32,15 @@ export default async function CityScamMapPage({ params }: { params: Promise<{ ci
     .eq("status", "approved")
     .not("gps_lat", "is", null)
     .order("created_at", { ascending: false });
+
+  let helpfulIds = new Set<string>();
+  if (user) {
+    const { data: hp } = await supabase
+      .from("beware_helpful")
+      .select("report_id")
+      .eq("user_id", user.id);
+    helpfulIds = new Set((hp ?? []).map((r) => String(r.report_id)));
+  }
 
   const dbReports: MapReport[] = (rows ?? []).map((r) => ({
     id: String(r.id),
@@ -46,6 +53,14 @@ export default async function CityScamMapPage({ params }: { params: Promise<{ ci
     date: new Date(r.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }),
     confirms: r.helpful_count ?? 0,
     reporter: r.reported_by_name ?? "Anonymous",
+    isDemo: false,
+    isHelpfulByMe: helpfulIds.has(String(r.id)),
+  }));
+
+  const demoReports: MapReport[] = entry.reports.map((r) => ({
+    ...r,
+    isDemo: true,
+    isHelpfulByMe: false,
   }));
 
   return (
@@ -54,8 +69,9 @@ export default async function CityScamMapPage({ params }: { params: Promise<{ ci
       cityName={entry.config.name}
       center={entry.config.center}
       zoom={entry.config.zoom}
-      demoReports={entry.reports}
+      demoReports={demoReports}
       dbReports={dbReports}
+      isLoggedIn={!!user}
     />
   );
 }

@@ -5,6 +5,7 @@ import Link from "next/link";
 import type * as LeafletNS from "leaflet";
 import type { Map as LeafletMap } from "leaflet";
 import type { MapReport } from "@/lib/beware-cities";
+import { toggleBewareHelpful, reportBeware } from "@/app/community/actions";
 
 const COLORS: Record<MapReport["type"], string> = {
   scam:       "#c4522a",
@@ -13,6 +14,8 @@ const COLORS: Record<MapReport["type"], string> = {
   stay:       "#1a4a7a",
   safe:       "#2d6a4f",
 };
+
+const TYPES: MapReport["type"][] = ["scam", "harassment", "transport", "stay", "safe"];
 
 function createIcon(L: typeof LeafletNS, type: MapReport["type"]) {
   const color = COLORS[type];
@@ -30,14 +33,15 @@ type Props = {
   zoom: number;
   demoReports: MapReport[];
   dbReports: MapReport[];
+  isLoggedIn: boolean;
 };
 
-export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, dbReports }: Props) {
+export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, dbReports, isLoggedIn }: Props) {
   const dbTitles = new Set(dbReports.map((r) => r.title.trim().toLowerCase()));
   const demo = demoReports.filter((r) => !dbTitles.has(r.title.trim().toLowerCase()));
   const reports = [...dbReports, ...demo];
 
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeTypes, setActiveTypes] = useState<Set<MapReport["type"]>>(new Set(TYPES));
   const [visibleCount, setVisibleCount] = useState(reports.length);
   const [selected, setSelected]         = useState<MapReport | null>(null);
 
@@ -47,21 +51,29 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
   const clusterRef     = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const markersRef     = useRef<{ marker: any; report: MapReport }[]>([]);
-  const setSelectedRef = useRef(setSelected);
-  setSelectedRef.current = setSelected;
 
-  const FILTER_LABELS = ["All", "Scam", "Harassment", "Transport", "Stay", "Safe"];
-
-  function applyFilter(f: string) {
-    setActiveFilter(f);
+  function refreshMarkers(types: Set<MapReport["type"]>) {
     const cluster = clusterRef.current;
     if (!cluster) return;
     cluster.clearLayers();
-    const visible = markersRef.current.filter(({ report }) =>
-      f === "All" ? true : report.type === f.toLowerCase()
-    );
+    const visible = markersRef.current.filter(({ report }) => types.has(report.type));
     visible.forEach(({ marker }) => cluster.addLayer(marker));
     setVisibleCount(visible.length);
+  }
+
+  function toggleType(t: MapReport["type"]) {
+    const next = new Set(activeTypes);
+    if (next.has(t)) next.delete(t);
+    else next.add(t);
+    setActiveTypes(next);
+    refreshMarkers(next);
+  }
+
+  function toggleAll() {
+    const allOn = activeTypes.size === TYPES.length;
+    const next = allOn ? new Set<MapReport["type"]>() : new Set(TYPES);
+    setActiveTypes(next);
+    refreshMarkers(next);
   }
 
   useEffect(() => {
@@ -97,7 +109,7 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
       markersRef.current = [];
       reports.forEach((r) => {
         const marker = L.marker([r.lat, r.lng], { icon: createIcon(L, r.type) });
-        marker.on("click", () => setSelectedRef.current(r));
+        marker.on("click", () => setSelected(r));
         cluster.addLayer(marker);
         markersRef.current.push({ marker, report: r });
       });
@@ -120,27 +132,41 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
   }, []);
 
   const FILTER_BAR_H = 40;
+  const allOn = activeTypes.size === TYPES.length;
 
   return (
     <div className="flex flex-col" style={{ height: "calc(100dvh - 56px)" }}>
-      {/* Filter chips */}
+      {/* Filter chips — multiselect */}
       <div
         className="flex shrink-0 items-center gap-2 overflow-x-auto border-b border-ww-border bg-warm-white px-4 scrollbar-none"
         style={{ height: FILTER_BAR_H }}
       >
-        {FILTER_LABELS.map((f) => (
-          <button
-            key={f}
-            onClick={() => applyFilter(f)}
-            className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
-              activeFilter === f
-                ? "border-ink bg-ink text-warm-white"
-                : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
-            }`}
-          >
-            {f}
-          </button>
-        ))}
+        <button
+          onClick={toggleAll}
+          className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
+            allOn
+              ? "border-ink bg-ink text-warm-white"
+              : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
+          }`}
+        >
+          All
+        </button>
+        {TYPES.map((t) => {
+          const on = activeTypes.has(t);
+          return (
+            <button
+              key={t}
+              onClick={() => toggleType(t)}
+              className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
+                on
+                  ? "border-ink bg-ink text-warm-white"
+                  : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
+              }`}
+            >
+              {t}
+            </button>
+          );
+        })}
       </div>
 
       {/* Map + floating overlays */}
@@ -156,7 +182,7 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
 
         {/* Legend */}
         <div className="absolute right-3 top-3 z-[999] flex flex-col gap-1.5 rounded border border-ww-border bg-warm-white/90 p-2 shadow-sm backdrop-blur-sm">
-          {(["scam", "harassment", "transport", "stay", "safe"] as MapReport["type"][]).map((t) => (
+          {TYPES.map((t) => (
             <div key={t} className="flex items-center gap-1.5">
               <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: COLORS[t] }} />
               <span className="font-mono text-[9px] capitalize text-ww-muted">{t}</span>
@@ -185,50 +211,173 @@ export function ScamMapClient({ citySlug, cityName, center, zoom, demoReports, d
         >
           +
         </Link>
+
+        {/* Detail panel — left side on desktop, bottom sheet on mobile */}
+        {selected && (
+          <DetailPanel
+            key={selected.id}
+            report={selected}
+            onClose={() => setSelected(null)}
+            isLoggedIn={isLoggedIn}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
+function DetailPanel({
+  report,
+  onClose,
+  isLoggedIn,
+}: {
+  report: MapReport;
+  onClose: () => void;
+  isLoggedIn: boolean;
+}) {
+  const [liked, setLiked] = useState(report.isHelpfulByMe ?? false);
+  const [count, setCount] = useState(report.confirms);
+  const [busy, setBusy] = useState(false);
+  const [reportOpen, setReportOpen] = useState(false);
+  const [reported, setReported] = useState(false);
+
+  async function onHelpful() {
+    if (!isLoggedIn) {
+      window.location.href = "/account/login?next=/community";
+      return;
+    }
+    if (busy) return;
+    const prevLiked = liked;
+    const prevCount = count;
+    setLiked(!prevLiked);
+    setCount(prevLiked ? Math.max(0, prevCount - 1) : prevCount + 1);
+
+    if (report.isDemo) return;
+
+    setBusy(true);
+    const res = await toggleBewareHelpful(report.id);
+    setBusy(false);
+    if ("error" in res) {
+      setLiked(prevLiked);
+      setCount(prevCount);
+    } else if (typeof res.count === "number") {
+      setCount(res.count);
+      setLiked(!!res.liked);
+    }
+  }
+
+  async function submitReport(reason: string) {
+    if (!isLoggedIn) {
+      window.location.href = "/account/login?next=/community";
+      return;
+    }
+    if (report.isDemo) {
+      setReported(true);
+      setReportOpen(false);
+      return;
+    }
+    const res = await reportBeware(report.id, reason);
+    if (!("error" in res)) {
+      setReported(true);
+      setReportOpen(false);
+    }
+  }
+
+  return (
+    <div
+      className="fixed z-[9999] flex flex-col border-ww-border bg-warm-white shadow-2xl inset-x-0 bottom-0 border-t md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[380px] md:max-h-none md:border-r md:border-t-0"
+      style={{ maxHeight: "55dvh" }}
+    >
+      <div className="flex shrink-0 items-center justify-between px-4 pt-3 pb-2">
+        <div className="flex items-center gap-2">
+          <span
+            className="rounded px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-white"
+            style={{ background: COLORS[report.type] }}
+          >
+            {report.type}
+          </span>
+          {report.isDemo && (
+            <span className="rounded border border-ww-border bg-sand px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-ww-muted">
+              Demo
+            </span>
+          )}
+        </div>
+        <button
+          onClick={onClose}
+          className="font-mono text-sm text-ww-muted hover:text-ink"
+          aria-label="Close"
+        >
+          ✕
+        </button>
       </div>
 
-      {/* Bottom sheet */}
-      {selected && (
-        <div
-          className="fixed inset-x-0 bottom-0 z-[9999] flex flex-col border-t border-ww-border bg-warm-white shadow-2xl"
-          style={{ maxHeight: "55dvh" }}
-        >
-          <div className="flex shrink-0 items-center justify-between px-4 pt-3 pb-2">
-            <span
-              className="rounded px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-white"
-              style={{ background: COLORS[selected.type] }}
-            >
-              {selected.type}
-            </span>
+      <div className="overflow-y-auto px-4 pb-6 space-y-3">
+        <h3 className="font-serif text-xl leading-snug text-ink">{report.title}</h3>
+        <p className="font-mono text-[11px] text-ww-muted">📍 {report.place}</p>
+        <p className="font-mono text-xs leading-relaxed text-ink">{report.desc}</p>
+        <div className="flex flex-wrap gap-3 font-mono text-[10px] text-ww-muted">
+          <span>{report.date}</span>
+          <span>— {report.reporter}</span>
+        </div>
+        <div className="flex flex-wrap gap-2 pt-1">
+          <button
+            onClick={onHelpful}
+            disabled={busy}
+            className={`border px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest transition-colors ${
+              liked
+                ? "border-sage bg-sage text-warm-white"
+                : "border-sage/30 bg-sage-light/50 text-sage hover:bg-sage-light"
+            }`}
+          >
+            Helpful ({count})
+          </button>
+          <button
+            onClick={() => setReportOpen((o) => !o)}
+            disabled={reported}
+            className="border border-ww-border bg-sand px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:border-rust hover:text-rust transition-colors disabled:opacity-50"
+          >
+            {reported ? "Reported ✓" : "Report"}
+          </button>
+        </div>
+
+        {reportOpen && !reported && (
+          <div className="border border-ww-border bg-sand p-3 space-y-2">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+              Why are you reporting?
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["Spam", "Inappropriate", "Wrong info", "Other"].map((r) => (
+                <ReasonButton key={r} reason={r} onSubmit={submitReport} />
+              ))}
+            </div>
             <button
-              onClick={() => setSelected(null)}
-              className="font-mono text-sm text-ww-muted hover:text-ink"
-              aria-label="Close"
+              type="button"
+              onClick={() => setReportOpen(false)}
+              className="font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-ink"
             >
-              ✕
+              Cancel
             </button>
           </div>
-
-          <div className="overflow-y-auto px-4 pb-6 space-y-3">
-            <h3 className="font-serif text-xl leading-snug text-ink">{selected.title}</h3>
-            <p className="font-mono text-[11px] text-ww-muted">📍 {selected.place}</p>
-            <p className="font-mono text-xs leading-relaxed text-ink">{selected.desc}</p>
-            <div className="flex flex-wrap gap-3 font-mono text-[10px] text-ww-muted">
-              <span>{selected.date}</span>
-              <span>✓ {selected.confirms} confirmed</span>
-              <span>— {selected.reporter}</span>
-            </div>
-            <div className="flex flex-wrap gap-2 pt-1">
-              <button className="border border-rust px-3 py-1.5 font-mono text-[10px] text-rust transition-colors hover:bg-rust hover:text-white">
-                ⚠️ I experienced this too
-              </button>
-              <button className="border border-ww-border px-3 py-1.5 font-mono text-[10px] text-ww-muted transition-colors hover:border-ink hover:text-ink">
-                ✓ Seems fine now
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
+  );
+}
+
+function ReasonButton({ reason, onSubmit }: { reason: string; onSubmit: (r: string) => Promise<void> }) {
+  const [busy, setBusy] = useState(false);
+  return (
+    <button
+      type="button"
+      disabled={busy}
+      onClick={async () => {
+        setBusy(true);
+        await onSubmit(reason);
+        setBusy(false);
+      }}
+      className="border border-ww-border bg-warm-white px-2 py-1 font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:border-rust hover:text-rust disabled:opacity-50"
+    >
+      {reason}
+    </button>
   );
 }
