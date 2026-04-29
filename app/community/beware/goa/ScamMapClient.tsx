@@ -1,5 +1,8 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import type { Map as LeafletMap } from "leaflet";
+
 // ── Types ────────────────────────────────────────────────────────────────────
 
 export type MapReport = {
@@ -52,7 +55,7 @@ export const DEMO_REPORTS: MapReport[] = [
   { id: "d20", lat: 15.7172, lng: 73.6928, type: "safe",       title: "Morjim Beach — calm north Goa option",             place: "Morjim Beach",                                   desc: "Much quieter than Calangute/Baga. Russian expat community means vendors leave tourists alone more. Good for a solo day trip. Rickshaw to Morjim from Arambol costs ₹120 fixed (negotiate first).",                                      date: "1 week ago",   confirms: 14, reporter: "Anonymous" },
 ];
 
-// ── Component (stub — Leaflet logic added in steps 2–7) ───────────────────────
+// ── Component ────────────────────────────────────────────────────────────────
 
 type Props = { dbReports: MapReport[] };
 
@@ -62,11 +65,68 @@ export function ScamMapClient({ dbReports }: Props) {
   const demo = DEMO_REPORTS.filter((r) => !dbTitles.has(r.title.trim().toLowerCase()));
   const reports = [...dbReports, ...demo];
 
+  const mapDivRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<LeafletMap | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (mapRef.current) return; // already initialised
+
+    let cancelled = false;
+
+    async function initMap() {
+      const L = (await import("leaflet")).default;
+      await import("leaflet/dist/leaflet.css");
+
+      if (cancelled || !mapDivRef.current) return;
+
+      const map = L.map(mapDivRef.current, {
+        center: [15.5793, 73.8143],
+        zoom: 11,
+        zoomControl: false, // we'll reposition it
+      });
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+        maxZoom: 19,
+      }).addTo(map);
+
+      // Zoom control — bottom right
+      L.control.zoom({ position: "bottomright" }).addTo(map);
+
+      mapRef.current = map;
+    }
+
+    initMap();
+
+    return () => {
+      cancelled = true;
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
+      }
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const FILTER_BAR_H = 40; // px — matches the filter bar height added in step 5
+
   return (
-    <div className="flex min-h-[60vh] items-center justify-center bg-sand">
-      <p className="font-mono text-sm text-ww-muted">
-        Map loading… ({reports.length} reports)
-      </p>
+    <div className="flex flex-col" style={{ height: "calc(100dvh - 56px)" }}>
+      {/* Filter bar placeholder — replaced in step 5 */}
+      <div
+        className="flex shrink-0 items-center border-b border-ww-border bg-warm-white px-4"
+        style={{ height: FILTER_BAR_H }}
+      >
+        <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+          {reports.length} reports · Goa
+        </span>
+      </div>
+
+      {/* Map */}
+      <div className="relative flex-1">
+        <div ref={mapDivRef} className="h-full w-full" />
+      </div>
     </div>
   );
 }
