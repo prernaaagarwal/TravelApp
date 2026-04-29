@@ -243,8 +243,8 @@ export function ScamMapClient({
       // Build heat layer
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const heat = (L as any).heatLayer(buildHeatData(activeTypesRef.current), {
-        radius: 120,
-        blur: 86,
+        radius: 70,
+        blur: 50,
         maxZoom: ZOOM_BREAKPOINT,
         gradient: HEAT_GRADIENT,
       });
