@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type Buddy = {
   id: string;
@@ -102,9 +103,11 @@ export function BuddyMatcher({ buddies }: { buddies: Buddy[] }) {
               </span>
 
               <div className="flex flex-wrap items-start gap-4">
-                <img
+                <Image
                   src={b.photoUrl}
                   alt={b.firstName}
+                  width={64}
+                  height={64}
                   className="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-ww-border"
                 />
                 <div className="min-w-0 flex-1">

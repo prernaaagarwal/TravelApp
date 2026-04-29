@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 type Card = {
   slug: string;
@@ -89,10 +90,11 @@ export function ExploreGrid({ cards, contributors }: Props) {
             >
               {/* image */}
               <div className="relative h-44 overflow-hidden bg-rust-light">
-                <img
+                <Image
                   src={card.heroImageUrl}
                   alt={card.destination}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
 
@@ -137,9 +139,11 @@ export function ExploreGrid({ cards, contributors }: Props) {
                   {/* contributor */}
                   <div className="flex items-center gap-2">
                     {contrib && (
-                      <img
+                      <Image
                         src={contrib.photoUrl}
                         alt={contrib.name}
+                        width={24}
+                        height={24}
                         className="h-6 w-6 rounded-full object-cover"
                       />
                     )}

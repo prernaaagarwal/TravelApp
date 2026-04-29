@@ -19,7 +19,6 @@ export function PreBookChecklist({
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setChecked(saved ? JSON.parse(saved) : Array(items.length).fill(false));
     } catch {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setChecked(Array(items.length).fill(false));
     }
   }, [storageKey, items.length]);

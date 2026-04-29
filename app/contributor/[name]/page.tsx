@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import contributors from "@/lib/mock-data/contributors.json";
 import { createClient } from "@/lib/supabase/server";
 
@@ -75,9 +76,11 @@ export default async function ContributorPage({ params }: { params: Params }) {
       {/* ── Hero strip ─────────────────────────────────────────────── */}
       <div className="border-b border-ww-border bg-ink px-6 py-12">
         <div className="mx-auto flex max-w-3xl flex-col items-start gap-6 sm:flex-row sm:items-center">
-          <img
+          <Image
             src={contributor.photoUrl}
             alt={contributor.fullName}
+            width={96}
+            height={96}
             className="h-24 w-24 shrink-0 rounded-full object-cover ring-2 ring-gold"
           />
           <div className="min-w-0 flex-1">
@@ -155,11 +158,12 @@ export default async function ContributorPage({ params }: { params: Params }) {
                   href={`/intel/${card.slug}`}
                   className="group flex gap-4 border border-ww-border bg-sand p-4 hover:bg-ww-border/40 transition-colors"
                 >
-                  <div className="h-16 w-16 shrink-0 overflow-hidden bg-rust-light">
-                    <img
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden bg-rust-light">
+                    <Image
                       src={card.heroImageUrl}
                       alt={card.destination}
-                      className="h-full w-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <div className="min-w-0 flex-1">

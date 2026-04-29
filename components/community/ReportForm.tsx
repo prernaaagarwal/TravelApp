@@ -226,6 +226,7 @@ export function ReportForm() {
           <div className="mt-3 flex flex-wrap gap-2">
             {photos.map((file, i) => (
               <div key={i} className="relative">
+                {/* eslint-disable-next-line @next/next/no-img-element -- blob URLs from createObjectURL are not supported by next/image */}
                 <img
                   src={URL.createObjectURL(file)}
                   alt={file.name}

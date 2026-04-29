@@ -1,0 +1,21 @@
+#!/bin/sh
+commit_msg=$(head -1 "$1")
+
+# Allow merge and revert commits
+if echo "$commit_msg" | grep -qE "^(Merge|Revert)"; then
+  exit 0
+fi
+
+# Format: <area>: <description>  e.g. "intel-card: add neighborhoods accordion"
+if ! echo "$commit_msg" | grep -qE "^[a-z][a-z0-9/-]*: .+"; then
+  echo ""
+  echo "  Bad commit message: $commit_msg"
+  echo ""
+  echo "  Format: <area>: <what changed in plain English>"
+  echo "  Examples:"
+  echo "    intel-card: add neighborhoods accordion"
+  echo "    landing: fix mobile hero overflow"
+  echo "    data: add 3 more Beware Board entries"
+  echo ""
+  exit 1
+fi

@@ -142,7 +142,7 @@ export default async function BuddyPage() {
   );
 }
 
-function MockBuddyCard({ buddy, rank }: { buddy: typeof buddyMatches[0]; rank: number }) {
+function MockBuddyCard({ buddy }: { buddy: typeof buddyMatches[0]; rank: number }) {
   return (
     <article className="relative border border-ww-border bg-sand p-5">
       <span className="absolute right-4 top-4 rounded-full bg-sand border border-ww-border px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">

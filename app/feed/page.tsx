@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import tripFeed from "@/lib/mock-data/trip-feed.json";
 import contributors from "@/lib/mock-data/contributors.json";
 
@@ -46,11 +47,12 @@ export default function FeedPage() {
               {/* photo collage */}
               <div className="grid h-48 grid-cols-3 gap-0.5 overflow-hidden bg-ww-border">
                 {trip.photoUrls.slice(0, 3).map((url, i) => (
-                  <div key={i} className="overflow-hidden">
-                    <img
+                  <div key={i} className="relative overflow-hidden">
+                    <Image
                       src={url}
                       alt={`${trip.destination} photo ${i + 1}`}
-                      className="h-full w-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 ))}
@@ -138,9 +140,11 @@ export default function FeedPage() {
                 {/* contributor footer */}
                 <div className="mt-4 flex items-center gap-2 border-t border-ww-border pt-4">
                   {contrib && (
-                    <img
+                    <Image
                       src={contrib.photoUrl}
                       alt={contrib.name}
+                      width={24}
+                      height={24}
                       className="h-6 w-6 rounded-full object-cover"
                     />
                   )}

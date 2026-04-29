@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import Image from "next/image";
 
 export const metadata = {
   title: "Safety Shop — Wander Women",
@@ -67,11 +68,12 @@ export default async function ShopPage() {
                   className="group flex flex-col border border-ww-border bg-sand"
                 >
                   {/* product image */}
-                  <div className="h-44 overflow-hidden bg-rust-light/30">
-                    <img
+                  <div className="relative h-44 overflow-hidden bg-rust-light/30">
+                    <Image
                       src={product.imageUrl}
                       alt={product.name}
-                      className="h-full w-full object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                      fill
+                      className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
 

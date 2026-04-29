@@ -112,10 +112,11 @@ export default async function IntelPage({ params }: { params: Params }) {
     <div className="bg-warm-white">
       {/* ── Hero image ───────────────────────────────────────────────── */}
       <div className="relative h-64 w-full overflow-hidden bg-rust-light md:h-80">
-        <img
+        <Image
           src={card.heroImageUrl}
           alt={card.destination}
-          className="h-full w-full object-cover"
+          fill
+          className="object-cover"
         />
         {/* dark scrim for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent" />
@@ -544,9 +545,11 @@ export default async function IntelPage({ params }: { params: Params }) {
                 About the contributor
               </p>
               <div className="flex items-start gap-4">
-                <img
+                <Image
                   src={contributor.photoUrl}
                   alt={contributor.name}
+                  width={56}
+                  height={56}
                   className="h-14 w-14 shrink-0 rounded-full object-cover"
                 />
                 <div className="min-w-0 flex-1">

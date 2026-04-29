@@ -18,7 +18,6 @@ export default function HomePage() {
   const previewCards = intelCards.filter((c) =>
     ["goa-india", "rishikesh-india", "jaipur-india"].includes(c.slug)
   );
-  const featuredContributors = contributors.slice(0, 4);
   const askPosts = communityPosts.filter((p) => p.tab === "ask").slice(0, 3);
 
   return (
@@ -115,10 +114,11 @@ export default function HomePage() {
               >
                 {/* hero image */}
                 <div className="relative h-44 overflow-hidden bg-rust-light">
-                  <img
+                  <Image
                     src={c.heroImageUrl}
                     alt={c.destination}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {c.isPremium && (
                     <span className="absolute right-3 top-3 bg-ink px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-gold">
@@ -142,9 +142,11 @@ export default function HomePage() {
                   {/* contributor */}
                   {contributor && (
                     <div className="mt-auto flex items-center gap-2 pt-3">
-                      <img
+                      <Image
                         src={contributor.photoUrl}
                         alt={contributor.name}
+                        width={24}
+                        height={24}
                         className="h-6 w-6 rounded-full object-cover"
                       />
                       <span className="font-mono text-[10px] text-ww-muted">
