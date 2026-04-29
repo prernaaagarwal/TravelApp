@@ -3,6 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { createPostSchema } from "@/lib/schemas";
+import { getErrorMessage } from "@/lib/errors";
 
 export async function createPost(formData: FormData) {
   const supabase = await createClient();
@@ -15,8 +16,8 @@ export async function createPost(formData: FormData) {
     try {
       const parsed = JSON.parse(imageUrlsRaw);
       if (Array.isArray(parsed)) imageParsed = parsed;
-    } catch {
-      return { error: "Invalid image data" };
+    } catch (err) {
+      return { error: getErrorMessage(err) };
     }
   }
 

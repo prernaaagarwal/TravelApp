@@ -3,6 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { updateProfileSchema } from "@/lib/schemas";
+import { getErrorMessage } from "@/lib/errors";
 
 export async function updateProfile(formData: FormData) {
   const supabase = await createClient();
@@ -23,7 +24,7 @@ export async function updateProfile(formData: FormData) {
     try {
       update.segment = JSON.parse(segmentRaw);
     } catch (err) {
-      console.error("[profile] invalid segment JSON:", err);
+      console.error("[profile] invalid segment JSON:", getErrorMessage(err));
     }
   }
 
