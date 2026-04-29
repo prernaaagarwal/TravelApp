@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import type * as LeafletNS from "leaflet";
 import type { Map as LeafletMap } from "leaflet";
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -67,7 +68,7 @@ const COLORS: Record<MapReport["type"], string> = {
 };
 
 function createIcon(
-  L: typeof import("leaflet").default,
+  L: typeof LeafletNS,
   type: MapReport["type"]
 ) {
   const color = COLORS[type];
