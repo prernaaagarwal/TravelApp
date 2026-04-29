@@ -225,8 +225,12 @@ export function ScamMapClient({
         zoomControl: false,
       });
 
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "© OpenStreetMap contributors",
+      // CartoDB Positron — minimal, near-white tiles with sparse labels.
+      // Significantly less visual noise than OSM standard; heatmap and pins
+      // read much more clearly against the clean background.
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: "abcd",
         maxZoom: 19,
       }).addTo(map);
 
@@ -310,7 +314,7 @@ export function ScamMapClient({
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const maskLayer = L.geoJSON(maskFeature as any, {
           style: {
-            fillColor: "#1a1510",
+            fillColor: "#ffffff",
             fillOpacity: 0.9,
             stroke: false,
             fillRule: "evenodd",
