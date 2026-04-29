@@ -4,7 +4,8 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { NotificationToggles } from "./NotificationToggles";
-import { signOut, deleteAccount, updateEmail } from "./actions";
+import { DangerZoneButtons } from "./DangerZoneButtons";
+import { updateEmail } from "./actions";
 
 export const metadata = {
   title: "Settings — Wander Women",
@@ -169,28 +170,7 @@ export default async function SettingsPage() {
         {/* ── Danger zone ──────────────────────────── */}
         <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm space-y-3">
           <p className="font-mono text-[10px] uppercase tracking-wider text-ww-muted">Account</p>
-          <form action={signOut}>
-            <button
-              type="submit"
-              className="font-mono text-sm text-ww-muted hover:text-ink"
-              onClick={(e) => {
-                if (!confirm("Sign out?")) e.preventDefault();
-              }}
-            >
-              Sign out
-            </button>
-          </form>
-          <form action={deleteAccount}>
-            <button
-              type="submit"
-              className="font-mono text-sm text-rust/70 hover:text-rust"
-              onClick={(e) => {
-                if (!confirm("Delete your account permanently? This cannot be undone.")) e.preventDefault();
-              }}
-            >
-              Delete account
-            </button>
-          </form>
+          <DangerZoneButtons />
         </div>
       </div>
     </main>
