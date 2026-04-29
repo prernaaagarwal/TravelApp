@@ -53,19 +53,20 @@ export async function togglePostHelpful(postId: string) {
 
   if (existing) {
     await supabase.from("community_post_helpful").delete().eq("post_id", postId).eq("user_id", user.id);
-    const { data: post } = await supabase.from("community_posts").select("like_count").eq("id", postId).single();
-    const newCount = Math.max(0, (post?.like_count ?? 1) - 1);
-    await supabase.from("community_posts").update({ like_count: newCount }).eq("id", postId);
-    revalidatePath("/community");
-    return { liked: false, count: newCount };
+  } else {
+    await supabase.from("community_post_helpful").insert({ post_id: postId, user_id: user.id });
   }
 
-  await supabase.from("community_post_helpful").insert({ post_id: postId, user_id: user.id });
-  const { data: post } = await supabase.from("community_posts").select("like_count").eq("id", postId).single();
-  const newCount = (post?.like_count ?? 0) + 1;
+  // Count actual junction rows — avoids read-modify-write race where two concurrent
+  // taps both read the same cached number and both write the same incremented value.
+  const { count } = await supabase
+    .from("community_post_helpful")
+    .select("*", { count: "exact", head: true })
+    .eq("post_id", postId);
+  const newCount = count ?? 0;
   await supabase.from("community_posts").update({ like_count: newCount }).eq("id", postId);
   revalidatePath("/community");
-  return { liked: true, count: newCount };
+  return { liked: !existing, count: newCount };
 }
 
 export async function reportPost(postId: string, reason: string) {
@@ -99,17 +100,18 @@ export async function toggleBewareHelpful(reportId: string) {
 
   if (existing) {
     await supabase.from("beware_helpful").delete().eq("report_id", reportId).eq("user_id", user.id);
-    const { data: report } = await supabase.from("beware_reports").select("helpful_count").eq("id", reportId).single();
-    const newCount = Math.max(0, (report?.helpful_count ?? 1) - 1);
-    await supabase.from("beware_reports").update({ helpful_count: newCount }).eq("id", reportId);
-    return { liked: false, count: newCount };
+  } else {
+    await supabase.from("beware_helpful").insert({ report_id: reportId, user_id: user.id });
   }
 
-  await supabase.from("beware_helpful").insert({ report_id: reportId, user_id: user.id });
-  const { data: report } = await supabase.from("beware_reports").select("helpful_count").eq("id", reportId).single();
-  const newCount = (report?.helpful_count ?? 0) + 1;
+  // Count actual junction rows — avoids read-modify-write race.
+  const { count } = await supabase
+    .from("beware_helpful")
+    .select("*", { count: "exact", head: true })
+    .eq("report_id", reportId);
+  const newCount = count ?? 0;
   await supabase.from("beware_reports").update({ helpful_count: newCount }).eq("id", reportId);
-  return { liked: true, count: newCount };
+  return { liked: !existing, count: newCount };
 }
 
 export async function reportBeware(reportId: string, reason: string) {
