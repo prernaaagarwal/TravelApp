@@ -93,7 +93,9 @@ export function ScamMapClient({ dbReports }: Props) {
   const reports = [...dbReports, ...demo];
 
   const mapDivRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<LeafletMap | null>(null);
+  const mapRef    = useRef<LeafletMap | null>(null);
+  const clusterRef  = useRef<any>(null);
+  const markersRef  = useRef<{ marker: any; report: MapReport }[]>([]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -104,6 +106,10 @@ export function ScamMapClient({ dbReports }: Props) {
     async function initMap() {
       const L = (await import("leaflet")).default;
       await import("leaflet/dist/leaflet.css");
+      await import("leaflet.markercluster/dist/MarkerCluster.css");
+      await import("leaflet.markercluster/dist/MarkerCluster.Default.css");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { MarkerClusterGroup } = await import("leaflet.markercluster") as any;
 
       if (cancelled || !mapDivRef.current) return;
 
@@ -121,10 +127,16 @@ export function ScamMapClient({ dbReports }: Props) {
       // Zoom control — bottom right
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
-      // Place markers
+      // Cluster group + markers
+      const cluster = new MarkerClusterGroup({ maxClusterRadius: 50 });
+      markersRef.current = [];
       reports.forEach((r) => {
-        L.marker([r.lat, r.lng], { icon: createIcon(L, r.type) }).addTo(map);
+        const marker = L.marker([r.lat, r.lng], { icon: createIcon(L, r.type) });
+        cluster.addLayer(marker);
+        markersRef.current.push({ marker, report: r });
       });
+      map.addLayer(cluster);
+      clusterRef.current = cluster;
 
       mapRef.current = map;
     }
