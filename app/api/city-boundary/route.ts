@@ -5,17 +5,18 @@ import { NextResponse } from "next/server";
 // it more than once per (city, country, day).
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
+  const osmId = searchParams.get("osmId");   // e.g. "R1942586" — precise lookup
   const q = searchParams.get("q");
   const country = searchParams.get("country");
 
-  if (!q || !country) {
+  if (!osmId && (!q || !country)) {
     return NextResponse.json({ geojson: null }, { status: 400 });
   }
 
-  const url =
-    `https://nominatim.openstreetmap.org/search?` +
-    `q=${encodeURIComponent(q)}&country=${encodeURIComponent(country)}` +
-    `&polygon_geojson=1&format=json&limit=1`;
+  // OSM ID lookup is more precise than name search — use it when available
+  const url = osmId
+    ? `https://nominatim.openstreetmap.org/lookup?osm_ids=${encodeURIComponent(osmId)}&polygon_geojson=1&format=json`
+    : `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q!)}&country=${encodeURIComponent(country!)}&polygon_geojson=1&format=json&limit=1`;
 
   try {
     const res = await fetch(url, {

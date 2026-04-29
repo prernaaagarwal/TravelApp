@@ -81,6 +81,7 @@ type Props = {
   zoom: number;
   country: string;
   boundaryQuery?: string;
+  boundaryOsmId?: string;
   neighbourhoods: Neighbourhood[];
   demoReports: MapReport[];
   dbReports: MapReport[];
@@ -94,6 +95,7 @@ export function ScamMapClient({
   zoom,
   country,
   boundaryQuery,
+  boundaryOsmId,
   neighbourhoods,
   demoReports,
   dbReports,
@@ -275,11 +277,10 @@ export function ScamMapClient({
 
       // Fetch + draw city boundary, then fit bounds
       try {
-        const q = boundaryQuery ?? cityName;
-        const res = await fetch(
-          `/api/city-boundary?q=${encodeURIComponent(q)}&country=${encodeURIComponent(country)}`,
-          { cache: "force-cache" },
-        );
+        const boundaryUrl = boundaryOsmId
+          ? `/api/city-boundary?osmId=${encodeURIComponent(boundaryOsmId)}`
+          : `/api/city-boundary?q=${encodeURIComponent(boundaryQuery ?? cityName)}&country=${encodeURIComponent(country)}`;
+        const res = await fetch(boundaryUrl, { cache: "force-cache" });
         const json = await res.json();
         if (cancelled || !mapRef.current) return;
         if (!json?.geojson) return;

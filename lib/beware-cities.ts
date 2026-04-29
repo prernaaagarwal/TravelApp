@@ -26,6 +26,7 @@ export type CityConfig = {
   country: string;            // ISO-3166-1 alpha-2
   neighbourhoods: Neighbourhood[];
   boundaryQuery?: string;     // Nominatim q= override when city name is ambiguous
+  boundaryOsmId?: string;     // Nominatim lookup by OSM ID (e.g. "R1942586") — highest precision
 };
 
 type CityEntry = { config: CityConfig; reports: MapReport[] };
@@ -45,9 +46,10 @@ function deriveCountry(slug: string): string {
   return COUNTRY_BY_SUFFIX[suffix] ?? "IN";
 }
 
-// Per-city Nominatim query overrides — used when the city name alone is ambiguous
-const BOUNDARY_QUERY_BY_SLUG: Record<string, string> = {
-  "delhi-india": "National Capital Territory of Delhi",
+// Per-city OSM relation IDs — used instead of name search for precision
+// Lookup via: nominatim.openstreetmap.org/lookup?osm_ids=R{id}&polygon_geojson=1
+const BOUNDARY_OSM_ID_BY_SLUG: Record<string, string> = {
+  "delhi-india": "R1942586",  // Delhi NCT administrative boundary, excludes Noida/Gurgaon
 };
 
 const NEIGHBOURHOODS_BY_SLUG: Record<string, Neighbourhood[]> = {
@@ -73,7 +75,7 @@ const generated: Record<string, CityEntry> = Object.fromEntries(
         zoom: entry.config.zoom,
         country: deriveCountry(entry.config.slug),
         neighbourhoods: NEIGHBOURHOODS_BY_SLUG[entry.config.slug] ?? [],
-        ...(BOUNDARY_QUERY_BY_SLUG[entry.config.slug] ? { boundaryQuery: BOUNDARY_QUERY_BY_SLUG[entry.config.slug] } : {}),
+        ...(BOUNDARY_OSM_ID_BY_SLUG[entry.config.slug] ? { boundaryOsmId: BOUNDARY_OSM_ID_BY_SLUG[entry.config.slug] } : {}),
       },
       reports: entry.reports.map((r) => ({ ...r, type: r.type as MapReport["type"] })),
     },
