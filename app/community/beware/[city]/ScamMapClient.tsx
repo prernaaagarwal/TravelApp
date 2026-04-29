@@ -61,12 +61,26 @@ function createLabelIcon(L: typeof LeafletNS, name: string) {
   return L.divIcon({ html, className: "", iconAnchor: [0, 0] });
 }
 
+// Convert GeoJSON polygon outer ring(s) from [lng,lat] to Leaflet [lat,lng]
+function extractOuterRings(geojson: { type: string; coordinates: unknown }): [number, number][][] {
+  if (geojson.type === "Polygon") {
+    return [(geojson.coordinates as number[][][])[0].map(([lng, lat]) => [lat, lng] as [number, number])];
+  }
+  if (geojson.type === "MultiPolygon") {
+    return (geojson.coordinates as number[][][][]).map((poly) =>
+      poly[0].map(([lng, lat]) => [lat, lng] as [number, number])
+    );
+  }
+  return [];
+}
+
 type Props = {
   citySlug: string;
   cityName: string;
   center: [number, number];
   zoom: number;
   country: string;
+  boundaryQuery?: string;
   neighbourhoods: Neighbourhood[];
   demoReports: MapReport[];
   dbReports: MapReport[];
@@ -79,6 +93,7 @@ export function ScamMapClient({
   center,
   zoom,
   country,
+  boundaryQuery,
   neighbourhoods,
   demoReports,
   dbReports,
@@ -260,28 +275,41 @@ export function ScamMapClient({
 
       // Fetch + draw city boundary, then fit bounds
       try {
+        const q = boundaryQuery ?? cityName;
         const res = await fetch(
-          `/api/city-boundary?q=${encodeURIComponent(cityName)}&country=${encodeURIComponent(country)}`,
+          `/api/city-boundary?q=${encodeURIComponent(q)}&country=${encodeURIComponent(country)}`,
           { cache: "force-cache" },
         );
         const json = await res.json();
         if (cancelled || !mapRef.current) return;
         if (!json?.geojson) return;
 
+        // Dark mask outside the city — world polygon with city rings as holes
+        const worldRing: [number, number][] = [[90, -180], [90, 180], [-90, 180], [-90, -180]];
+        const cityRings = extractOuterRings(json.geojson as { type: string; coordinates: unknown });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const boundary = L.geoJSON(json.geojson as any, {
+        const maskLayer = (L as any).polygon([worldRing, ...cityRings], {
+          fillColor: "#1a1510",
+          fillOpacity: 0.30,
+          stroke: false,
+          interactive: false,
+        }).addTo(map);
+
+        // Visible boundary ring on top
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const boundaryLine = L.geoJSON(json.geojson as any, {
           style: {
             color: "#c4522a",
-            weight: 2,
-            opacity: 0.6,
-            fillColor: "#c4522a",
-            fillOpacity: 0.04,
+            weight: 3,
+            opacity: 0.9,
+            fillOpacity: 0,
             dashArray: "6, 4",
           },
           interactive: false,
         }).addTo(map);
-        boundaryRef.current = boundary;
-        map.fitBounds(boundary.getBounds(), { padding: [32, 32], maxZoom: 13 });
+
+        boundaryRef.current = L.layerGroup([maskLayer, boundaryLine]);
+        map.fitBounds(boundaryLine.getBounds(), { padding: [32, 32], maxZoom: 13 });
       } catch {
         // Fall back to hardcoded center/zoom — already applied
       }

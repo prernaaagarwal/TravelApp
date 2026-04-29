@@ -25,6 +25,7 @@ export type CityConfig = {
   zoom: number;
   country: string;            // ISO-3166-1 alpha-2
   neighbourhoods: Neighbourhood[];
+  boundaryQuery?: string;     // Nominatim q= override when city name is ambiguous
 };
 
 type CityEntry = { config: CityConfig; reports: MapReport[] };
@@ -43,6 +44,11 @@ function deriveCountry(slug: string): string {
   const suffix = slug.split("-").slice(1).join("-");
   return COUNTRY_BY_SUFFIX[suffix] ?? "IN";
 }
+
+// Per-city Nominatim query overrides — used when the city name alone is ambiguous
+const BOUNDARY_QUERY_BY_SLUG: Record<string, string> = {
+  "delhi-india": "National Capital Territory of Delhi",
+};
 
 const NEIGHBOURHOODS_BY_SLUG: Record<string, Neighbourhood[]> = {
   "delhi-india": [
@@ -67,6 +73,7 @@ const generated: Record<string, CityEntry> = Object.fromEntries(
         zoom: entry.config.zoom,
         country: deriveCountry(entry.config.slug),
         neighbourhoods: NEIGHBOURHOODS_BY_SLUG[entry.config.slug] ?? [],
+        ...(BOUNDARY_QUERY_BY_SLUG[entry.config.slug] ? { boundaryQuery: BOUNDARY_QUERY_BY_SLUG[entry.config.slug] } : {}),
       },
       reports: entry.reports.map((r) => ({ ...r, type: r.type as MapReport["type"] })),
     },

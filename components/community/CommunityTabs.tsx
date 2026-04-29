@@ -42,6 +42,7 @@ type Beware = {
   location: string;
   helpfulCount: number;
   isHelpfulByMe: boolean;
+  hasScamMap?: boolean;
 };
 
 const INDIA_CITY_OPTIONS = Object.values(BEWARE_CITIES)
@@ -676,6 +677,11 @@ function BewareCard({ b, userEmail }: { b: Beware; userEmail: string | null }) {
         <Link href={`/intel/${b.destinationSlug}`} className="text-rust hover:underline">
           #{b.city}
         </Link>
+        {b.hasScamMap && (
+          <Link href={`/community/beware/${b.destinationSlug}`} className="text-rust hover:underline">
+            📍 See scam map →
+          </Link>
+        )}
         <span>Reported by {b.reportedBy}</span>
       </div>
 

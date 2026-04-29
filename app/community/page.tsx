@@ -118,6 +118,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     location: b.location ?? "",
     helpfulCount: b.helpful_count,
     isHelpfulByMe: helpfulBewareIds.has(b.id),
+    hasScamMap: SUPPORTED_BEWARE_CITIES.has(b.destination_slug ?? ""),
   }));
 
   const supportedBewareSlugs = Array.from(SUPPORTED_BEWARE_CITIES);

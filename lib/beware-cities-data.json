@@ -1389,5 +1389,479 @@
         "reporter": "Aisha B."
       }
     ]
+  },
+  "tokyo-japan": {
+    "config": {
+      "slug": "tokyo-japan",
+      "name": "Tokyo",
+      "center": [
+        35.6762,
+        139.6503
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "tokyo-japan-s0",
+        "lat": 35.659,
+        "lng": 139.7005,
+        "type": "scam",
+        "title": "Taxi flat-rate scam from Shibuya",
+        "place": "Shibuya",
+        "desc": "Driver offers 'flat rate' to your hotel but charges 3× the meter. Always insist on the meter or use official Tokyo taxis (JPN Taxi app).",
+        "date": "3 days ago",
+        "confirms": 14,
+        "reporter": "Priya R."
+      },
+      {
+        "id": "tokyo-japan-s1",
+        "lat": 35.7147,
+        "lng": 139.7967,
+        "type": "scam",
+        "title": "Rickshaw overcharging in Asakusa",
+        "place": "Asakusa",
+        "desc": "Jinrikisha (rickshaw) riders quote 500 yen, bill ¥5,000 per person after the ride. Agree on price and duration in writing beforehand.",
+        "date": "1 week ago",
+        "confirms": 8,
+        "reporter": "Sophie L."
+      },
+      {
+        "id": "tokyo-japan-s2",
+        "lat": 35.6702,
+        "lng": 139.7027,
+        "type": "harassment",
+        "title": "Fake 'English students' near Harajuku",
+        "place": "Harajuku",
+        "desc": "Approach claiming to be English students who need practice. Leads to expensive restaurant or bar — bill split between you and 'host'.",
+        "date": "5 days ago",
+        "confirms": 11,
+        "reporter": "Yuki M."
+      },
+      {
+        "id": "tokyo-japan-s3",
+        "lat": 35.6627,
+        "lng": 139.7316,
+        "type": "harassment",
+        "title": "Bar tout harassment in Roppongi",
+        "place": "Roppongi",
+        "desc": "Men outside bars offer 'free drinks' — bill arrives for thousands of yen. Avoid bars with persistent touts on the street.",
+        "date": "2 days ago",
+        "confirms": 19,
+        "reporter": "Nadia K."
+      },
+      {
+        "id": "tokyo-japan-s4",
+        "lat": 35.6762,
+        "lng": 139.7033,
+        "type": "transport",
+        "title": "Pickpocketing on Yamanote Line rush hour",
+        "place": "Yamanote Line",
+        "desc": "Morning rush (7–9 AM) on the loop line is a prime window. Use women-only carriages (first carriage, pink signage) and keep bags in front.",
+        "date": "4 days ago",
+        "confirms": 7,
+        "reporter": "Ananya T."
+      },
+      {
+        "id": "tokyo-japan-s5",
+        "lat": 35.6938,
+        "lng": 139.7034,
+        "type": "scam",
+        "title": "Fake monk donation request in Shinjuku",
+        "place": "Shinjuku",
+        "desc": "Robed men approach, hand you a charm, then demand large donation. Legitimate monks do not solicit tourists on streets.",
+        "date": "1 week ago",
+        "confirms": 5,
+        "reporter": "Meera S."
+      }
+    ]
+  },
+  "bangkok-thailand": {
+    "config": {
+      "slug": "bangkok-thailand",
+      "name": "Bangkok",
+      "center": [
+        13.7563,
+        100.5018
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "bangkok-thailand-s0",
+        "lat": 13.75,
+        "lng": 100.4914,
+        "type": "scam",
+        "title": "Tuk-tuk 'closed temple' scam near Grand Palace",
+        "place": "Grand Palace area",
+        "desc": "Tuk-tuk driver says temple is closed for cleaning, offers to take you to a 'local market' — a gem store paying the driver commission. Grand Palace is almost never closed to tourists.",
+        "date": "2 days ago",
+        "confirms": 28,
+        "reporter": "Priya S."
+      },
+      {
+        "id": "bangkok-thailand-s1",
+        "lat": 13.7462,
+        "lng": 100.5346,
+        "type": "scam",
+        "title": "Gem scam near Siam Square",
+        "place": "Siam Square",
+        "desc": "Friendly local says gems are heavily discounted 'government sale'. Items resold at home for a fraction. Do not buy gems from street strangers.",
+        "date": "3 days ago",
+        "confirms": 15,
+        "reporter": "Lisa M."
+      },
+      {
+        "id": "bangkok-thailand-s2",
+        "lat": 13.73,
+        "lng": 100.567,
+        "type": "transport",
+        "title": "Taxi refusing meter on Sukhumvit",
+        "place": "Sukhumvit",
+        "desc": "Drivers near tourist hotels quote flat rates 3× higher. Say 'meter, please' firmly — if refused, exit and hail another taxi.",
+        "date": "1 week ago",
+        "confirms": 22,
+        "reporter": "Riya A."
+      },
+      {
+        "id": "bangkok-thailand-s3",
+        "lat": 13.76,
+        "lng": 100.4976,
+        "type": "scam",
+        "title": "Overpriced pad thai near Khao San Road",
+        "place": "Khao San Road",
+        "desc": "Street stalls here charge 5–10× standard Bangkok prices. Walk two streets away from Khao San for regular rates.",
+        "date": "5 days ago",
+        "confirms": 9,
+        "reporter": "Sunita P."
+      },
+      {
+        "id": "bangkok-thailand-s4",
+        "lat": 13.76,
+        "lng": 100.4976,
+        "type": "harassment",
+        "title": "Ping-pong show touts on Khao San Road at night",
+        "place": "Khao San Road",
+        "desc": "Aggressive touts outside bars offer 'free shows'. Entry may be free, drinks are not — and leaving before paying a 'minimum' leads to intimidation.",
+        "date": "4 days ago",
+        "confirms": 12,
+        "reporter": "Aisha K."
+      },
+      {
+        "id": "bangkok-thailand-s5",
+        "lat": 13.7563,
+        "lng": 100.5018,
+        "type": "safe",
+        "title": "BTS Skytrain is safe, well-lit, cheap",
+        "place": "BTS Skytrain",
+        "desc": "The elevated rail network is the safest way to move around Bangkok at any hour. Carry a Rabbit card (refillable, cheaper than cash fares).",
+        "date": "1 week ago",
+        "confirms": 31,
+        "reporter": "Meera V."
+      }
+    ]
+  },
+  "hanoi-vietnam": {
+    "config": {
+      "slug": "hanoi-vietnam",
+      "name": "Hanoi",
+      "center": [
+        21.0285,
+        105.8542
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "hanoi-vietnam-s0",
+        "lat": 21.034,
+        "lng": 105.8485,
+        "type": "scam",
+        "title": "Cyclo overcharging in Old Quarter",
+        "place": "Old Quarter",
+        "desc": "Cyclo drivers agree verbally to 20,000 VND but demand 200,000 at destination. Agree on price in writing and confirm if it's per person before boarding.",
+        "date": "2 days ago",
+        "confirms": 17,
+        "reporter": "Lan N."
+      },
+      {
+        "id": "hanoi-vietnam-s1",
+        "lat": 21.034,
+        "lng": 105.8475,
+        "type": "scam",
+        "title": "Fake Ha Long Bay tour operators in Old Quarter",
+        "place": "Old Quarter",
+        "desc": "Street agents sell 'budget' Ha Long cruises that don't match the brochure — old boats, no life vests, different itinerary. Book directly with certified operators.",
+        "date": "5 days ago",
+        "confirms": 21,
+        "reporter": "Priya G."
+      },
+      {
+        "id": "hanoi-vietnam-s2",
+        "lat": 21.0285,
+        "lng": 105.8519,
+        "type": "transport",
+        "title": "Motorbike phone grab near Hoan Kiem Lake",
+        "place": "Hoan Kiem Lake",
+        "desc": "Thieves on motorbikes snatch phones from pedestrians walking close to the road. Keep phones in a pocket, not in hand, especially on the lakeside promenade.",
+        "date": "3 days ago",
+        "confirms": 13,
+        "reporter": "Sophie T."
+      },
+      {
+        "id": "hanoi-vietnam-s3",
+        "lat": 21.033,
+        "lng": 105.85,
+        "type": "stay",
+        "title": "Lookalike hotel names in Old Quarter",
+        "place": "Old Quarter",
+        "desc": "Many hotels copy names of popular rated properties. Confirm address and check-in details via booking app — do not rely on the hotel name alone.",
+        "date": "1 week ago",
+        "confirms": 9,
+        "reporter": "Ananya R."
+      },
+      {
+        "id": "hanoi-vietnam-s4",
+        "lat": 21.0285,
+        "lng": 105.8542,
+        "type": "safe",
+        "title": "Grab app is reliable and safe in Hanoi",
+        "place": "City-wide",
+        "desc": "Grab motorbike and car options have licensed drivers, GPS tracking, and in-app payment. Always safer than hailing a random xe ôm.",
+        "date": "4 days ago",
+        "confirms": 25,
+        "reporter": "Nadia M."
+      }
+    ]
+  },
+  "dubai-uae": {
+    "config": {
+      "slug": "dubai-uae",
+      "name": "Dubai",
+      "center": [
+        25.2048,
+        55.2708
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "dubai-uae-s0",
+        "lat": 25.2697,
+        "lng": 55.3094,
+        "type": "scam",
+        "title": "Fake gold quality in Deira Gold Souq",
+        "place": "Deira Gold Souq",
+        "desc": "Gold sold as 22k or 24k tested elsewhere at 14k. Reputable sellers show UAE hallmarks — insist on a receipt with karat and weight.",
+        "date": "3 days ago",
+        "confirms": 11,
+        "reporter": "Meera K."
+      },
+      {
+        "id": "dubai-uae-s1",
+        "lat": 25.1972,
+        "lng": 55.2796,
+        "type": "transport",
+        "title": "Unlicensed taxis near Dubai Mall exit",
+        "place": "Dubai Mall",
+        "desc": "Men in street clothes offer rides cheaper than taxis. Unlicensed, no meter, may demand cash far above quoted rate. Use the official taxi rank or Careem app.",
+        "date": "5 days ago",
+        "confirms": 8,
+        "reporter": "Aisha P."
+      },
+      {
+        "id": "dubai-uae-s2",
+        "lat": 25.0748,
+        "lng": 55.1318,
+        "type": "harassment",
+        "title": "Timeshare pitch at JBR beach walk",
+        "place": "JBR Beach",
+        "desc": "Staff offer 'free hotel breakfast' or gift in exchange for attending a 90-minute timeshare presentation. Sessions run 4+ hours and use high-pressure tactics.",
+        "date": "2 days ago",
+        "confirms": 14,
+        "reporter": "Sunita L."
+      },
+      {
+        "id": "dubai-uae-s3",
+        "lat": 25.1972,
+        "lng": 55.281,
+        "type": "scam",
+        "title": "Restaurant hidden service charges Downtown",
+        "place": "Downtown Dubai",
+        "desc": "5% municipality tax + 10% service charge added to bill not shown on menu prices. Check totals before paying — overcharging beyond these rates is illegal.",
+        "date": "1 week ago",
+        "confirms": 7,
+        "reporter": "Riya G."
+      },
+      {
+        "id": "dubai-uae-s4",
+        "lat": 25.2048,
+        "lng": 55.2708,
+        "type": "safe",
+        "title": "Dubai Metro is safe, AC, and punctual",
+        "place": "Dubai Metro",
+        "desc": "The Red and Green Lines are spotlessly safe. Pink carriages at front are women-and-children only — use them for comfort. Off-peak is very quiet.",
+        "date": "4 days ago",
+        "confirms": 18,
+        "reporter": "Priya M."
+      }
+    ]
+  },
+  "seoul-south-korea": {
+    "config": {
+      "slug": "seoul-south-korea",
+      "name": "Seoul",
+      "center": [
+        37.5665,
+        126.978
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "seoul-south-korea-s0",
+        "lat": 37.5572,
+        "lng": 126.9247,
+        "type": "scam",
+        "title": "Bar overcharging foreigners in Hongdae",
+        "place": "Hongdae",
+        "desc": "Staff quote one price, charge double at the end citing 'table fee' or 'service'. Photograph menus and confirm total before ordering.",
+        "date": "3 days ago",
+        "confirms": 13,
+        "reporter": "Yuki L."
+      },
+      {
+        "id": "seoul-south-korea-s1",
+        "lat": 37.5636,
+        "lng": 126.9869,
+        "type": "scam",
+        "title": "Counterfeit K-beauty products near Myeongdong",
+        "place": "Myeongdong",
+        "desc": "Street vendors sell fake Laneige / Sulwhasoo / COSRX. Products can cause skin reactions. Buy from brand stores or authorised pharmacies (Olive Young).",
+        "date": "5 days ago",
+        "confirms": 10,
+        "reporter": "Sophie K."
+      },
+      {
+        "id": "seoul-south-korea-s2",
+        "lat": 37.558,
+        "lng": 126.9784,
+        "type": "transport",
+        "title": "Pickpockets at Namdaemun Market",
+        "place": "Namdaemun Market",
+        "desc": "Crowded weekend market is prime pickpocket territory. Use a cross-body bag kept in front. Card skimming also reported at small restaurants — use cash or Samsung Pay.",
+        "date": "1 week ago",
+        "confirms": 6,
+        "reporter": "Ananya J."
+      },
+      {
+        "id": "seoul-south-korea-s3",
+        "lat": 37.5345,
+        "lng": 126.9938,
+        "type": "harassment",
+        "title": "Bar harassment near Itaewon late night",
+        "place": "Itaewon",
+        "desc": "Solo women followed from bars on the main strip after midnight. Walk in groups, use official taxis from designated stands, and avoid narrow alleys off the main road.",
+        "date": "2 days ago",
+        "confirms": 19,
+        "reporter": "Nadia S."
+      },
+      {
+        "id": "seoul-south-korea-s4",
+        "lat": 37.574,
+        "lng": 126.9875,
+        "type": "safe",
+        "title": "Insadong is well-lit and tourist-safe at night",
+        "place": "Insadong",
+        "desc": "The arts district has good street lighting, CCTV coverage, and is popular with families at all hours. Good base for evening solo walks.",
+        "date": "4 days ago",
+        "confirms": 22,
+        "reporter": "Meera P."
+      }
+    ]
+  },
+  "paris-france": {
+    "config": {
+      "slug": "paris-france",
+      "name": "Paris",
+      "center": [
+        48.8566,
+        2.3522
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "paris-france-s0",
+        "lat": 48.8601,
+        "lng": 2.292,
+        "type": "scam",
+        "title": "Gold ring scam on Pont d'Iéna",
+        "place": "Pont d'Iéna (Eiffel Tower)",
+        "desc": "Stranger 'finds' a gold ring, offers it to you, then asks for money. The ring is worthless brass. Ignore and keep walking.",
+        "date": "2 days ago",
+        "confirms": 24,
+        "reporter": "Sophie D."
+      },
+      {
+        "id": "paris-france-s1",
+        "lat": 48.8867,
+        "lng": 2.3431,
+        "type": "scam",
+        "title": "'Deaf charity' petition near Sacré-Cœur",
+        "place": "Montmartre / Sacré-Cœur",
+        "desc": "Person approaches with a clipboard claiming to collect signatures for a deaf charity, then demands a cash donation. Not a registered charity — politely decline.",
+        "date": "4 days ago",
+        "confirms": 31,
+        "reporter": "Priya B."
+      },
+      {
+        "id": "paris-france-s2",
+        "lat": 48.865,
+        "lng": 2.3369,
+        "type": "transport",
+        "title": "Pickpockets on Métro Line 1",
+        "place": "Métro Line 1 (Louvre–Champs-Élysées)",
+        "desc": "The tourist corridor between Louvre and Champs-Élysées is the most pickpocketed stretch in Europe. Hold bag in front, use RER B from CDG rather than Line 1 from stations.",
+        "date": "1 week ago",
+        "confirms": 38,
+        "reporter": "Ananya F."
+      },
+      {
+        "id": "paris-france-s3",
+        "lat": 48.8699,
+        "lng": 2.3078,
+        "type": "scam",
+        "title": "Overpriced drinks at Champs-Élysées bars",
+        "place": "Champs-Élysées",
+        "desc": "Bars on the main strip charge €18–25 for a beer. Walk one or two streets off the avenue for standard Parisian café prices.",
+        "date": "5 days ago",
+        "confirms": 12,
+        "reporter": "Nadia C."
+      },
+      {
+        "id": "paris-france-s4",
+        "lat": 48.8863,
+        "lng": 2.3434,
+        "type": "scam",
+        "title": "Friendship bracelet touts at Sacré-Cœur steps",
+        "place": "Montmartre",
+        "desc": "Men tie a bracelet on your wrist before you can refuse, then demand €20 to remove it. Keep hands in pockets on the steps — if it happens, a firm 'non' and walking away works.",
+        "date": "3 days ago",
+        "confirms": 17,
+        "reporter": "Meera G."
+      },
+      {
+        "id": "paris-france-s5",
+        "lat": 48.8566,
+        "lng": 2.3522,
+        "type": "safe",
+        "title": "Vélib' bike sharing is safe and cheap city-wide",
+        "place": "City-wide",
+        "desc": "The shared bike system has 20,000 bikes. Day pass is €5, and dedicated lanes cover most of the city. Good alternative to crowded Métro during tourist season.",
+        "date": "6 days ago",
+        "confirms": 15,
+        "reporter": "Sophie M."
+      }
+    ]
   }
 }

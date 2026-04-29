@@ -70,6 +70,7 @@ export default async function CityScamMapPage({ params }: { params: Promise<{ ci
       center={entry.config.center}
       zoom={entry.config.zoom}
       country={entry.config.country}
+      boundaryQuery={entry.config.boundaryQuery}
       neighbourhoods={entry.config.neighbourhoods}
       demoReports={demoReports}
       dbReports={dbReports}
