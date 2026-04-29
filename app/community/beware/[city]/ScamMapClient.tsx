@@ -57,6 +57,17 @@ function createIcon(L: typeof LeafletNS, type: MapReport["type"]) {
   return L.divIcon({ html: svg, className: "", iconSize: [81, 108], iconAnchor: [41, 108] });
 }
 
+// Larger pin with white halo — used to highlight the currently-selected report.
+function createSelectedIcon(L: typeof LeafletNS, type: MapReport["type"]) {
+  const color = COLORS[type];
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="108" height="144" viewBox="0 0 24 32">
+    <circle cx="12" cy="12" r="14" fill="white" opacity="0.85"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20S24 21 24 12C24 5.373 18.627 0 12 0z" fill="${color}"/>
+    <circle cx="12" cy="12" r="5" fill="white"/>
+  </svg>`;
+  return L.divIcon({ html: svg, className: "", iconSize: [108, 144], iconAnchor: [54, 144] });
+}
+
 function createLabelIcon(L: typeof LeafletNS, name: string) {
   const html = `<div style="
     font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -125,6 +136,8 @@ export function ScamMapClient({
   const mapDivRef     = useRef<HTMLDivElement>(null);
   const mapRef        = useRef<LeafletMap | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const leafletRef    = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const clusterRef    = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const heatLayerRef  = useRef<any>(null);
@@ -134,6 +147,8 @@ export function ScamMapClient({
   const boundaryRef   = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const markersRef    = useRef<{ marker: any; report: MapReport }[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const selectedMarkerRef = useRef<any>(null);
   const activeTypesRef = useRef<Set<MapReport["type"]>>(new Set(TYPES));
 
   function buildHeatData(types: Set<MapReport["type"]>) {
@@ -202,6 +217,7 @@ export function ScamMapClient({
 
     async function initMap() {
       const L = (await import("leaflet")).default;
+      leafletRef.current = L;
       await import("leaflet/dist/leaflet.css");
       await import("leaflet.markercluster/dist/MarkerCluster.css");
       await import("leaflet.markercluster/dist/MarkerCluster.Default.css");
@@ -356,42 +372,73 @@ export function ScamMapClient({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [citySlug]);
 
+  // Highlight the marker matching the selected report; reset previous selection.
+  useEffect(() => {
+    const L = leafletRef.current;
+    if (!L) return;
+    if (selectedMarkerRef.current) {
+      const prev = markersRef.current.find((m) => m.marker === selectedMarkerRef.current);
+      if (prev) prev.marker.setIcon(createIcon(L, prev.report.type));
+      selectedMarkerRef.current = null;
+    }
+    if (selected) {
+      const match = markersRef.current.find((m) => m.report.id === selected.id);
+      if (match) {
+        match.marker.setIcon(createSelectedIcon(L, selected.type));
+        selectedMarkerRef.current = match.marker;
+      }
+    }
+  }, [selected]);
+
   const FILTER_BAR_H = 40;
   const allOn = activeTypes.size === TYPES.length;
 
   return (
     <div className="flex flex-col" style={{ height: "calc(100dvh - 56px)" }}>
-      {/* Filter bar — type chips, mobile only (desktop uses SidePanel dropdown) */}
+      {/* Filter bar — chips on mobile, stats + dropdown on desktop */}
       <div
-        className="flex shrink-0 items-center gap-2 overflow-x-auto border-b border-ww-border bg-warm-white px-4 scrollbar-none md:hidden"
+        className="flex shrink-0 items-center border-b border-ww-border bg-warm-white px-4"
         style={{ height: FILTER_BAR_H }}
       >
-        <button
-          onClick={toggleAll}
-          className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
-            allOn
-              ? "border-ink bg-ink text-warm-white"
-              : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
-          }`}
-        >
-          All
-        </button>
-        {TYPES.map((t) => {
-          const on = activeTypes.has(t);
-          return (
-            <button
-              key={t}
-              onClick={() => toggleType(t)}
-              className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
-                on
-                  ? "border-ink bg-ink text-warm-white"
-                  : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
-              }`}
-            >
-              {t}
-            </button>
-          );
-        })}
+        {/* Mobile: type chip buttons */}
+        <div className="flex items-center gap-2 overflow-x-auto scrollbar-none md:hidden">
+          <button
+            onClick={toggleAll}
+            className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
+              allOn
+                ? "border-ink bg-ink text-warm-white"
+                : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
+            }`}
+          >
+            All
+          </button>
+          {TYPES.map((t) => {
+            const on = activeTypes.has(t);
+            return (
+              <button
+                key={t}
+                onClick={() => toggleType(t)}
+                className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
+                  on
+                    ? "border-ink bg-ink text-warm-white"
+                    : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
+                }`}
+              >
+                {t}
+              </button>
+            );
+          })}
+        </div>
+        {/* Desktop: clickable stats text + filter dropdown */}
+        <div className="hidden md:flex w-full items-center justify-between gap-4">
+          <button
+            onClick={() => { setListOpen((o: boolean) => !o); setSelected(null); }}
+            className="font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-ink transition-colors"
+          >
+            {visibleCount} reports · {cityName} · Updated today
+          </button>
+          <FilterDropdown activeTypes={activeTypes} onToggleType={toggleType} onToggleAll={toggleAll} />
+        </div>
       </div>
 
       {/* Map + floating overlays */}
@@ -440,26 +487,20 @@ export function ScamMapClient({
           +
         </Link>
 
-        {/* Side panel — permanent header on desktop, conditional on mobile */}
+        {/* Side panel — hidden until listOpen, both mobile + desktop */}
         <SidePanel
-          cityName={cityName}
-          visibleCount={visibleCount}
-          activeTypes={activeTypes}
-          onToggleType={toggleType}
-          onToggleAll={toggleAll}
           listOpen={listOpen}
-          onToggleList={() => { setListOpen((o: boolean) => !o); setSelected(null); }}
           onClose={() => setListOpen(false)}
-          reports={[...reports].sort((a, b) => {
-            const da = new Date(a.date).getTime();
-            const db = new Date(b.date).getTime();
-            return (isNaN(db) || isNaN(da)) ? 0 : db - da;
-          })}
+          reports={[...reports]
+            .filter((r) => activeTypes.has(r.type))
+            .sort((a, b) => {
+              const da = new Date(a.date).getTime();
+              const db = new Date(b.date).getTime();
+              return (isNaN(db) || isNaN(da)) ? 0 : db - da;
+            })}
           onSelect={(r) => {
-            mapRef.current?.flyTo([r.lat, r.lng], Math.max(mapRef.current.getZoom(), 14), {
-              animate: true,
-              duration: 1.2,
-            });
+            const map = mapRef.current;
+            if (map) map.flyTo([r.lat, r.lng], Math.max(map.getZoom(), 15), { animate: true, duration: 1.2 });
             setSelected(r);
             setListOpen(false);
           }}
@@ -542,24 +583,12 @@ function FilterDropdown({
 }
 
 function SidePanel({
-  cityName,
-  visibleCount,
-  activeTypes,
-  onToggleType,
-  onToggleAll,
   listOpen,
-  onToggleList,
   onClose,
   reports,
   onSelect,
 }: {
-  cityName: string;
-  visibleCount: number;
-  activeTypes: Set<MapReport["type"]>;
-  onToggleType: (t: MapReport["type"]) => void;
-  onToggleAll: () => void;
   listOpen: boolean;
-  onToggleList: () => void;
   onClose: () => void;
   reports: MapReport[];
   onSelect: (r: MapReport) => void;
@@ -569,54 +598,44 @@ function SidePanel({
       className={`fixed z-[9999] flex-col border-ww-border bg-warm-white shadow-2xl
         inset-x-0 bottom-0 border-t max-h-[65dvh]
         md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[360px] md:max-h-none md:border-r md:border-t-0
-        ${listOpen ? "flex" : "hidden md:flex"}`}
+        ${listOpen ? "flex" : "hidden"}`}
     >
-      {/* Header — always visible on desktop */}
-      <div className="flex shrink-0 items-center justify-between gap-2 border-b border-ww-border px-4 py-3">
-        <button
-          onClick={onToggleList}
-          className="min-w-0 flex-1 text-left font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-ink transition-colors truncate"
-        >
-          {visibleCount} reports · {cityName} · Updated today
-        </button>
-        <FilterDropdown activeTypes={activeTypes} onToggleType={onToggleType} onToggleAll={onToggleAll} />
-        {/* Close button — mobile only */}
-        <button onClick={onClose} className="shrink-0 font-mono text-sm text-ww-muted hover:text-ink md:hidden" aria-label="Close">
+      <div className="flex shrink-0 items-center justify-between border-b border-ww-border px-4 py-3">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+          {reports.length} Reports · Newest first
+        </span>
+        <button onClick={onClose} className="font-mono text-sm text-ww-muted hover:text-ink" aria-label="Close">
           ✕
         </button>
       </div>
-
-      {/* List body — only when open */}
-      {listOpen && (
-        <div className="overflow-y-auto">
-          {reports.length === 0 ? (
-            <p className="px-4 py-6 font-mono text-xs text-ww-muted">No reports yet.</p>
-          ) : (
-            reports.map((r) => (
-              <button
-                key={r.id}
-                onClick={() => onSelect(r)}
-                className="flex w-full flex-col gap-1 border-b border-ww-border/50 px-4 py-3 text-left hover:bg-sand transition-colors"
-              >
-                <div className="flex items-center gap-2">
-                  <span
-                    className="shrink-0 rounded px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-white"
-                    style={{ background: COLORS[r.type] }}
-                  >
-                    {r.type}
-                  </span>
-                </div>
-                <p className="line-clamp-2 font-mono text-xs font-medium text-ink leading-snug">{r.title}</p>
-                <div className="flex items-center gap-2 font-mono text-[10px] text-ww-muted">
-                  <span>📍 {r.place}</span>
-                  <span>·</span>
-                  <span>{r.date}</span>
-                </div>
-              </button>
-            ))
-          )}
-        </div>
-      )}
+      <div className="overflow-y-auto">
+        {reports.length === 0 ? (
+          <p className="px-4 py-6 font-mono text-xs text-ww-muted">No reports match the selected filters.</p>
+        ) : (
+          reports.map((r) => (
+            <button
+              key={r.id}
+              onClick={() => onSelect(r)}
+              className="flex w-full flex-col gap-1 border-b border-ww-border/50 px-4 py-3 text-left hover:bg-sand transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span
+                  className="shrink-0 rounded px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-white"
+                  style={{ background: COLORS[r.type] }}
+                >
+                  {r.type}
+                </span>
+              </div>
+              <p className="line-clamp-2 font-mono text-xs font-medium text-ink leading-snug">{r.title}</p>
+              <div className="flex items-center gap-2 font-mono text-[10px] text-ww-muted">
+                <span>📍 {r.place}</span>
+                <span>·</span>
+                <span>{r.date}</span>
+              </div>
+            </button>
+          ))
+        )}
+      </div>
     </div>
   );
 }
