@@ -160,11 +160,11 @@ If you suggest anything outside this list, you must (a) tell me why, (b) propose
 
 > Update this section as we progress.
 
-- [ ] Phase 1 — Setup + content port (Days 1-3)
-- [ ] Phase 2 — Layout + shell (Days 4-5)
-- [ ] Phase 3 — Core content pages (Days 6-9)
-- [ ] Phase 4 — Community + secondary (Days 10-12)
-- [ ] Phase 5 — Polish (Days 13-14)
+- [x] Phase 1 — Setup + content port (Days 1-3)
+- [x] Phase 2 — Layout + shell (Days 4-5)
+- [x] Phase 3 — Core content pages (Days 6-9)
+- [x] Phase 4 — Community + secondary (Days 10-12)
+- [ ] Phase 5 — Polish (Days 13-14) ← in progress
 - [ ] Phase 6 — Investor layer (Day 15)
 
 ## Workflow expectations
