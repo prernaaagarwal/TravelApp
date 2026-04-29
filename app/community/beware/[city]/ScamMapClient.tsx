@@ -50,11 +50,11 @@ const LABEL_MAX_ZOOM  = 13;
 
 function createIcon(L: typeof LeafletNS, type: MapReport["type"]) {
   const color = COLORS[type];
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="36" height="48" viewBox="0 0 24 32">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="54" height="72" viewBox="0 0 24 32">
     <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20S24 21 24 12C24 5.373 18.627 0 12 0z" fill="${color}"/>
     <circle cx="12" cy="12" r="4" fill="white"/>
   </svg>`;
-  return L.divIcon({ html: svg, className: "", iconSize: [36, 48], iconAnchor: [18, 48] });
+  return L.divIcon({ html: svg, className: "", iconSize: [54, 72], iconAnchor: [27, 72] });
 }
 
 function createLabelIcon(L: typeof LeafletNS, name: string) {
@@ -250,8 +250,8 @@ export function ScamMapClient({
       // Build heat layer
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const heat = (L as any).heatLayer(buildHeatData(activeTypesRef.current), {
-        radius: 53,
-        blur: 38,
+        radius: 80,
+        blur: 57,
         maxZoom: ZOOM_BREAKPOINT,
         gradient: HEAT_GRADIENT,
       });
