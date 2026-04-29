@@ -361,14 +361,16 @@
         "bookingMethod": "Website: pinkcityrickshawcompany.com | Heritage Tour, Shop & Hop, Culture Gully tours available"
       },
       {
-        "mode": "Uber / Ola",
-        "tip": "Both work reliably in Jaipur. Always preferred over street autos.",
-        "approxCost": "₹80–250 within city"
+        "mode": "Sakha / Women on Wheels",
+        "tip": "Social enterprise; all-women drivers from marginalised communities; >1M safe rides reported.",
+        "approxCost": "₹200–600 for city rides",
+        "bookingMethod": "Website: sakhaconsultingwings.com | Phone: +91-11-26521862"
       },
       {
-        "mode": "Auto-rickshaw (metered)",
-        "tip": "Insist on meter. Hawa Mahal → City Palace benchmark: ₹40–60.",
-        "approxCost": "₹30–150"
+        "mode": "Pink City Rickshaw Company (NOT 'Pink Auto Service')",
+        "tip": "21 electric autos, 45 active women drivers, expanding to 31 by end 2025. Sister orgs in Varanasi (Holy City Rickshaw Co.) and Udaipur (Lake City Rickshaw Co.) launching 2025.",
+        "approxCost": "₹800–2,000 per tour",
+        "bookingMethod": "Website: pinkcityrickshawcompany.com | Heritage Tour, Shop & Hop, Culture Gully tours available"
       }
     ],
     "hiddenGems": [
@@ -581,6 +583,12 @@
       }
     ],
     "transport": [
+      {
+        "mode": "Holy City Rickshaw Company",
+        "tip": "Launched September 2024 in Varanasi. Sister org of Pink City Rickshaw Company. 25 women drivers, 12 e-autos. Funded by Intrepid Foundation. Perfect for solo women visiting Varanasi ghats.",
+        "approxCost": "₹600–1,500 per tour",
+        "bookingMethod": "Website: holycityrickshaw.com | Direct booking"
+      },
       {
         "mode": "Holy City Rickshaw Company",
         "tip": "Launched September 2024 in Varanasi. Sister org of Pink City Rickshaw Company. 25 women drivers, 12 e-autos. Funded by Intrepid Foundation. Perfect for solo women visiting Varanasi ghats.",
@@ -1716,14 +1724,16 @@
         "bookingMethod": "Uber app"
       },
       {
-        "mode": "Mumbai local train (women's coach)",
-        "tip": "First coach from Western Line; marked with a 'W'. Safe, fast, ₹5–20.",
-        "approxCost": "₹5–20"
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
       },
       {
-        "mode": "Uber / Ola",
-        "tip": "Fully operational. Better than autos for cross-city journeys.",
-        "approxCost": "₹100–400"
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
       }
     ],
     "hiddenGems": [
@@ -1937,6 +1947,12 @@
       }
     ],
     "transport": [
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
       {
         "mode": "Uber Women-only Bike Rides",
         "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
@@ -2218,14 +2234,16 @@
         "bookingMethod": "Uber app"
       },
       {
-        "mode": "Kolkata Metro",
-        "tip": "Blue Line covers Park Street to Howrah. Women-only coach, first in train.",
-        "approxCost": "₹5–30"
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
       },
       {
-        "mode": "Yellow Ambassador taxi (metered)",
-        "tip": "Iconic and honest. Insist on meter — drivers comply.",
-        "approxCost": "₹30–150"
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
       }
     ],
     "hiddenGems": [
@@ -2475,14 +2493,16 @@
         "bookingMethod": "Uber app"
       },
       {
-        "mode": "Chennai Metro",
-        "tip": "Green and Blue lines. Women-only coach. Covers airport to central.",
-        "approxCost": "₹10–60"
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
       },
       {
-        "mode": "Uber / Ola",
-        "tip": "Essential in Chennai — auto meters are unreliable. Use app-based always.",
-        "approxCost": "₹80–300"
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
       }
     ],
     "hiddenGems": [
