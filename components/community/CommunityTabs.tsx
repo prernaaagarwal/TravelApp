@@ -47,6 +47,7 @@ type Beware = {
 };
 
 const INDIA_CITY_OPTIONS = Object.values(BEWARE_CITIES)
+  .filter((e) => e.config.slug.endsWith("-india"))
   .map((e) => ({ slug: e.config.slug, name: e.config.name }))
   .sort((a, b) => a.name.localeCompare(b.name));
 
