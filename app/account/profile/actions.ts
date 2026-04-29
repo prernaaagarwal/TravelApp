@@ -18,7 +18,9 @@ export async function updateProfile(formData: FormData) {
   if (segmentRaw) {
     try {
       update.segment = JSON.parse(segmentRaw);
-    } catch {}
+    } catch (err) {
+      console.error("[profile] invalid segment JSON:", err);
+    }
   }
 
   await supabase.from("profiles").update(update).eq("id", user.id);

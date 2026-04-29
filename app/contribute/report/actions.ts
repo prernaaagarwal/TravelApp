@@ -22,7 +22,7 @@ export async function submitBewareReport(formData: FormData) {
   for (const file of photoFiles.slice(0, 3)) {
     if (!file || file.size === 0) continue;
     const ext = file.name.split(".").pop();
-    const path = `${user.id}/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    const path = `${user.id}/${crypto.randomUUID()}.${ext}`;
     const bytes = await file.arrayBuffer();
     const { data: uploaded } = await supabase.storage
       .from("beware-photos")

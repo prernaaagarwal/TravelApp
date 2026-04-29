@@ -17,10 +17,18 @@ export async function createPost(formData: FormData) {
   if (title.length > 120) return { error: "Title too long (max 120 chars)" };
   if (!content || content.length < 10) return { error: "Post too short" };
 
-  const id = `post-${tab}-${Date.now()}`;
+  const id = `post-${tab}-${crypto.randomUUID()}`;
 
   const imageUrlsRaw = formData.get("image_urls") as string;
-  const imageUrls = imageUrlsRaw ? JSON.parse(imageUrlsRaw) : [];
+  let imageUrls: string[] = [];
+  if (imageUrlsRaw) {
+    try {
+      const parsed = JSON.parse(imageUrlsRaw);
+      if (Array.isArray(parsed)) imageUrls = parsed;
+    } catch {
+      return { error: "Invalid image data" };
+    }
+  }
 
   const { error } = await supabase.from("community_posts").insert({
     id,
