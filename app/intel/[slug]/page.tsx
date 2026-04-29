@@ -7,29 +7,21 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { createClient as createBrowserClient } from "@supabase/supabase-js";
+import { createClient as createBrowserClient } from "@/lib/supabase/client";
 import { createClient } from "@/lib/supabase/server";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
-import { env } from "@/lib/config";
 
 type Params = Promise<{ slug: string }>;
 
-function buildClient() {
-  return createBrowserClient(
-    env.NEXT_PUBLIC_SUPABASE_URL,
-    env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  );
-}
-
 export async function generateStaticParams() {
-  const supabase = buildClient();
+  const supabase = createBrowserClient();
   const { data } = await supabase.from("intel_cards").select("slug");
   return (data ?? []).map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { slug } = await params;
-  const supabase = buildClient();
+  const supabase = createBrowserClient();
   const { data } = await supabase
     .from("intel_cards")
     .select("destination,country,tldr,scams")

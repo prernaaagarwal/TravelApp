@@ -125,4 +125,13 @@ export const BEWARE_CITIES: Record<string, CityEntry> = {
   ...generated,
 };
 
+export function normaliseCategory(raw: string): MapReport["type"] {
+  const s = raw.toLowerCase();
+  if (s.includes("harass")) return "harassment";
+  if (s.includes("transport") || s.includes("taxi") || s.includes("auto") || s.includes("bus")) return "transport";
+  if (s.includes("stay") || s.includes("accom") || s.includes("hotel") || s.includes("hostel")) return "stay";
+  if (s.includes("safe")) return "safe";
+  return "scam";
+}
+
 export const SUPPORTED_BEWARE_CITIES = new Set(Object.keys(BEWARE_CITIES));

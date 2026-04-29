@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { ScamMapClient } from "./ScamMapClient";
-import { BEWARE_CITIES, type MapReport } from "@/lib/beware-cities";
+import { BEWARE_CITIES, normaliseCategory, type MapReport } from "@/lib/beware-cities";
 
 export async function generateStaticParams() {
   return Object.keys(BEWARE_CITIES).map((city) => ({ city }));
@@ -78,13 +78,4 @@ export default async function CityScamMapPage({ params }: { params: Promise<{ ci
       isLoggedIn={!!user}
     />
   );
-}
-
-function normaliseCategory(raw: string): MapReport["type"] {
-  const s = raw.toLowerCase();
-  if (s.includes("harass")) return "harassment";
-  if (s.includes("transport") || s.includes("taxi") || s.includes("auto") || s.includes("bus")) return "transport";
-  if (s.includes("stay") || s.includes("accom") || s.includes("hotel") || s.includes("hostel")) return "stay";
-  if (s.includes("safe")) return "safe";
-  return "scam";
 }

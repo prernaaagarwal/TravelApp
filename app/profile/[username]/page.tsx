@@ -2,37 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ProfileEditClient } from "./ProfileEditClient";
-
-const CITY_LABELS: Record<string, string> = {
-  "goa-india": "Goa", "delhi-india": "Delhi", "mumbai-india": "Mumbai",
-  "jaipur-india": "Jaipur", "manali-india": "Manali", "rishikesh-india": "Rishikesh",
-  "varanasi-india": "Varanasi", "udaipur-india": "Udaipur", "agra-india": "Agra",
-  "bangalore-india": "Bangalore", "kolkata-india": "Kolkata", "chennai-india": "Chennai",
-  "kochi-india": "Kochi", "kasol-india": "Kasol", "hampi-india": "Hampi",
-  "tokyo-japan": "Tokyo", "bangkok-thailand": "Bangkok", "hanoi-vietnam": "Hanoi",
-  "dubai-uae": "Dubai", "seoul-south-korea": "Seoul", "paris-france": "Paris",
-};
-
-const WORRY_LABELS: Record<string, string> = {
-  scams:       "🎭 Scams",
-  harassment:  "🛡️ Harassment",
-  transport:   "🚌 Transport",
-  health:      "🏥 Health",
-  solo_nights: "🌙 Solo nights",
-  language:    "💬 Language",
-};
-
-const BADGE_META: Record<string, { icon: string; label: string }> = {
-  founding_contributor: { icon: "🌟", label: "Founding Contributor" },
-  intel_writer:         { icon: "✍️", label: "Intel Writer" },
-  beware_reporter:      { icon: "🛡️", label: "Safety Reporter" },
-  community_helper:     { icon: "💬", label: "Community Helper" },
-  local_sister:         { icon: "📍", label: "Local Sister" },
-};
-
-const TRIP_LABELS: Record<string, string> = {
-  "0": "First solo trip", "1-2": "1–2 trips", "3-5": "3–5 trips", "6+": "6+ trips",
-};
+import { CITY_LABELS, WORRY_LABELS, BADGE_META, TRIP_LABELS } from "@/lib/constants";
 
 type Segment = {
   tripCount?: string;
