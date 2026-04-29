@@ -3,40 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ProfileEditClient } from "./ProfileEditClient";
 import { CITY_LABELS, WORRY_LABELS, BADGE_META, TRIP_LABELS } from "@/lib/constants";
-
-type Segment = {
-  tripCount?: string;
-  travelPreference?: string;
-  travelStyle?: string[];
-  citiesVisited?: string[];
-  languages?: string[];
-  destination?: string;
-  destinations?: string[];
-  need?: string;
-  worries?: string[];
-  ageGroup?: string;
-};
-
-type Badge = {
-  badge_type: string;
-  destination_slug: string | null;
-  awarded_at: string;
-};
-
-type SavedDestRow = {
-  destination_slug: string;
-  saved_at: string;
-  intel_cards: { destination: string; country: string }[] | null;
-};
-
-type IntelCardRow = {
-  slug: string;
-  destination: string;
-  country: string;
-  hero_image_url: string | null;
-  last_updated: string | null;
-  verified_by_count: number;
-};
+import type { Segment, Badge, SavedDestRow, IntelCardRow } from "@/types";
 
 export default async function ProfilePage({
   params,
