@@ -55,6 +55,33 @@ export const DEMO_REPORTS: MapReport[] = [
   { id: "d20", lat: 15.7172, lng: 73.6928, type: "safe",       title: "Morjim Beach — calm north Goa option",             place: "Morjim Beach",                                   desc: "Much quieter than Calangute/Baga. Russian expat community means vendors leave tourists alone more. Good for a solo day trip. Rickshaw to Morjim from Arambol costs ₹120 fixed (negotiate first).",                                      date: "1 week ago",   confirms: 14, reporter: "Anonymous" },
 ];
 
+// ── Colours & icon factory ────────────────────────────────────────────────────
+
+const COLORS: Record<MapReport["type"], string> = {
+  scam:       "#c4522a",
+  harassment: "#8b2252",
+  transport:  "#b5710a",
+  stay:       "#1a4a7a",
+  safe:       "#2d6a4f",
+};
+
+function createIcon(
+  L: typeof import("leaflet").default,
+  type: MapReport["type"]
+) {
+  const color = COLORS[type];
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32">
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20S24 21 24 12C24 5.373 18.627 0 12 0z" fill="${color}"/>
+    <circle cx="12" cy="12" r="4" fill="white"/>
+  </svg>`;
+  return L.divIcon({
+    html: svg,
+    className: "",
+    iconSize:   [24, 32],
+    iconAnchor: [12, 32],
+  });
+}
+
 // ── Component ────────────────────────────────────────────────────────────────
 
 type Props = { dbReports: MapReport[] };
@@ -93,6 +120,11 @@ export function ScamMapClient({ dbReports }: Props) {
 
       // Zoom control — bottom right
       L.control.zoom({ position: "bottomright" }).addTo(map);
+
+      // Place markers
+      reports.forEach((r) => {
+        L.marker([r.lat, r.lng], { icon: createIcon(L, r.type) }).addTo(map);
+      });
 
       mapRef.current = map;
     }
