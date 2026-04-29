@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { createClient as createBrowserClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
+import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 
 type Params = Promise<{ slug: string }>;
 
@@ -309,10 +310,10 @@ export default async function IntelPage({ params }: { params: Params }) {
             </div>
           </section>
 
-          {/* Scam map CTA — Goa only */}
-          {card.slug === "goa-india" && (
+          {/* Scam map CTA — supported cities */}
+          {SUPPORTED_BEWARE_CITIES.has(card.slug) && (
             <a
-              href="/community/beware/goa"
+              href={`/community/beware/${card.slug}`}
               className="flex items-center justify-between border border-rust/30 bg-rust-light/40 px-4 py-3 font-mono text-xs transition-colors hover:bg-rust-light"
             >
               <span className="text-rust">📍 See all scam locations on the map</span>
