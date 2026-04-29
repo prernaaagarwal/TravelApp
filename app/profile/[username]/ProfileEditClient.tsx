@@ -48,6 +48,22 @@ const LANG_OPTIONS = [
   "French", "Spanish", "Japanese", "Mandarin",
 ];
 
+const WORRY_OPTIONS = [
+  { value: "scams",       label: "Scams & fraud",            emoji: "🎭" },
+  { value: "harassment",  label: "Street harassment",        emoji: "🛡️" },
+  { value: "transport",   label: "Transport & getting lost", emoji: "🚌" },
+  { value: "health",      label: "Health & safety",          emoji: "🏥" },
+  { value: "solo_nights", label: "Solo nights out",          emoji: "🌙" },
+  { value: "language",    label: "Language barrier",         emoji: "💬" },
+];
+
+const AGE_OPTIONS = [
+  { value: "18-24", label: "18–24" },
+  { value: "25-32", label: "25–32" },
+  { value: "33-40", label: "33–40" },
+  { value: "40+",   label: "40+" },
+];
+
 type Seg = {
   tripCount?: string;
   travelPreference?: string;
@@ -56,6 +72,8 @@ type Seg = {
   languages?: string[];
   destination?: string;
   need?: string;
+  worries?: string[];
+  ageGroup?: string;
 };
 
 type Props = {
@@ -64,6 +82,7 @@ type Props = {
   instagram: string;
   username: string;
   segment: Seg;
+  ageGroup?: string;
 };
 
 export function ProfileEditClient({ firstName, homeCity, instagram, username, segment }: Props) {
@@ -75,6 +94,9 @@ export function ProfileEditClient({ firstName, homeCity, instagram, username, se
   const [styles, setStyles]           = useState<string[]>(segment.travelStyle ?? []);
   const [cities, setCities]           = useState<string[]>(segment.citiesVisited ?? []);
   const [langs, setLangs]             = useState<string[]>(segment.languages ?? []);
+  const [nextDest, setNextDest]       = useState(segment.destination ?? "");
+  const [worries, setWorries]         = useState<string[]>(segment.worries ?? []);
+  const [ageGroup, setAgeGroup]       = useState(segment.ageGroup ?? "");
 
   function saveBlur(field: string, value: string) {
     startTransition(() => updateProfileField(field, value));
@@ -214,6 +236,65 @@ export function ProfileEditClient({ firstName, homeCity, instagram, username, se
               color="blue"
               onClick={() => toggleChip(l, langs, setLangs, "languages")}
             />
+          ))}
+        </div>
+      </Section>
+
+      {/* Where headed next */}
+      <Section title="Where are you headed next?">
+        <div className="flex flex-wrap gap-2">
+          {CITY_CHIPS.map((c) => (
+            <Chip
+              key={c.slug}
+              label={c.label}
+              active={nextDest === c.slug}
+              color="rust"
+              onClick={() => {
+                const next = nextDest === c.slug ? "" : c.slug;
+                setNextDest(next);
+                patchSeg({ destination: next });
+              }}
+            />
+          ))}
+        </div>
+      </Section>
+
+      {/* What worries you most */}
+      <Section title="What worries you most about solo travel?" subtitle="Personalises your feed">
+        <div className="flex flex-wrap gap-2">
+          {WORRY_OPTIONS.map((o) => (
+            <button
+              key={o.value}
+              type="button"
+              onClick={() => toggleChip(o.value, worries, setWorries, "worries")}
+              className={`flex items-center gap-1.5 border px-2.5 py-1 font-mono text-[11px] transition-colors ${
+                worries.includes(o.value)
+                  ? "border-gold bg-gold/20 text-gold"
+                  : "border-ww-border bg-warm-white text-ww-muted hover:border-ink hover:text-ink"
+              }`}
+            >
+              {o.emoji} {o.label}
+            </button>
+          ))}
+        </div>
+      </Section>
+
+      {/* Age group */}
+      <Section title="Age group">
+        <div className="grid grid-cols-4 gap-2">
+          {AGE_OPTIONS.map((o) => (
+            <button
+              key={o.value}
+              type="button"
+              onClick={() => { setAgeGroup(o.value); patchSeg({ ageGroup: o.value }); }}
+              className={`border p-3 text-center font-mono text-sm transition-colors ${
+                ageGroup === o.value
+                  ? "border-rust bg-rust/10 text-ink"
+                  : "border-ww-border bg-warm-white text-ww-muted hover:border-ink hover:text-ink"
+              }`}
+            >
+              {o.label}
+            </button>
           ))}
         </div>
       </Section>

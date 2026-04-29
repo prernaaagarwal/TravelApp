@@ -13,6 +13,15 @@ const CITY_LABELS: Record<string, string> = {
   "dubai-uae": "Dubai", "seoul-south-korea": "Seoul", "paris-france": "Paris",
 };
 
+const WORRY_LABELS: Record<string, string> = {
+  scams:       "🎭 Scams",
+  harassment:  "🛡️ Harassment",
+  transport:   "🚌 Transport",
+  health:      "🏥 Health",
+  solo_nights: "🌙 Solo nights",
+  language:    "💬 Language",
+};
+
 const BADGE_META: Record<string, { icon: string; label: string }> = {
   founding_contributor: { icon: "🌟", label: "Founding Contributor" },
   intel_writer:         { icon: "✍️", label: "Intel Writer" },
@@ -33,6 +42,8 @@ type Segment = {
   languages?: string[];
   destination?: string;
   need?: string;
+  worries?: string[];
+  ageGroup?: string;
 };
 
 type Badge = {
@@ -116,6 +127,8 @@ export default async function ProfilePage({
   const hasPrefs =
     segment.travelStyle?.length || segment.travelPreference || segment.tripCount;
   const hasBio = !!profile.instagram;
+  const hasNextDest = !!segment.destination;
+  const hasWorries = (segment.worries?.length ?? 0) > 0;
 
   return (
     <main className="min-h-screen bg-sand px-4 py-12">
@@ -151,6 +164,9 @@ export default async function ProfilePage({
                   <p className="font-mono text-xs text-ww-muted">📍 {profile.home_city}</p>
                 )}
                 <p className="font-mono text-[10px] text-ww-muted">Member since {memberSince}</p>
+                {segment.ageGroup && (
+                  <p className="font-mono text-[10px] text-ww-muted">{segment.ageGroup} yrs</p>
+                )}
               </div>
             </div>
             {profile.membership_tier === "founding" && (
@@ -191,7 +207,37 @@ export default async function ProfilePage({
           )}
         </div>
 
-        {/* ── 2. Contribution stats ─────────────────────── */}
+        {/* ── 2. Headed next ───────────────────────────── */}
+        {hasNextDest && (
+          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+            <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Headed next</p>
+            <Link
+              href={`/intel/${segment.destination}`}
+              className="inline-flex items-center gap-1.5 rounded-full bg-rust/10 px-3 py-1.5 font-mono text-sm text-rust hover:bg-rust/20 transition-colors"
+            >
+              📍 {CITY_LABELS[segment.destination!] ?? segment.destination} →
+            </Link>
+          </div>
+        )}
+
+        {/* ── 3. Watches out for ───────────────────────── */}
+        {hasWorries && (
+          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+            <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Watches out for</p>
+            <div className="flex flex-wrap gap-1.5">
+              {segment.worries!.map((w) => (
+                <span
+                  key={w}
+                  className="rounded-full bg-gold/10 px-2.5 py-1 font-mono text-[10px] text-gold"
+                >
+                  {WORRY_LABELS[w] ?? w}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── 4. Contribution stats ─────────────────────── */}
         {hasStats && (
           <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
             <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
@@ -286,6 +332,14 @@ export default async function ProfilePage({
                 {profile.instagram}
               </a>
             )}
+          </div>
+        )}
+
+        {/* ── Intel written (owner) ───────────────────── */}
+        {isOwner && (
+          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+            <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Intel written</p>
+            <p className="font-mono text-xs text-ww-muted">Coming soon — your published intel cards will appear here.</p>
           </div>
         )}
 
