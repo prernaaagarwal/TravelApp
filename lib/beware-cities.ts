@@ -40,13 +40,27 @@ export type CityConfig = {
 type CityEntry = { config: CityConfig; reports: MapReport[] };
 
 const COUNTRY_BY_SUFFIX: Record<string, string> = {
-  india: "IN",
-  japan: "JP",
-  thailand: "TH",
-  vietnam: "VN",
-  uae: "AE",
-  "south-korea": "KR",
-  france: "FR",
+  // Asia-Pacific
+  india: "IN", japan: "JP", thailand: "TH", vietnam: "VN",
+  "south-korea": "KR", china: "CN", indonesia: "ID", malaysia: "MY",
+  philippines: "PH", singapore: "SG", taiwan: "TW", nepal: "NP",
+  "sri-lanka": "LK", cambodia: "KH", myanmar: "MM", laos: "LA",
+  bangladesh: "BD", pakistan: "PK", australia: "AU", "new-zealand": "NZ",
+  // Middle East
+  uae: "AE", israel: "IL", jordan: "JO", turkey: "TR", egypt: "EG",
+  qatar: "QA", bahrain: "BH", kuwait: "KW", oman: "OM",
+  // Europe
+  france: "FR", germany: "DE", spain: "ES", italy: "IT", portugal: "PT",
+  "united-kingdom": "GB", uk: "GB", netherlands: "NL", belgium: "BE",
+  switzerland: "CH", austria: "AT", greece: "GR", sweden: "SE",
+  norway: "NO", denmark: "DK", finland: "FI", poland: "PL",
+  "czech-republic": "CZ", hungary: "HU", croatia: "HR",
+  // Americas
+  usa: "US", mexico: "MX", brazil: "BR", argentina: "AR", colombia: "CO",
+  peru: "PE", chile: "CL", canada: "CA",
+  // Africa
+  morocco: "MA", kenya: "KE", "south-africa": "ZA", ghana: "GH",
+  tanzania: "TZ", ethiopia: "ET",
 };
 
 function deriveCountry(slug: string): string {
