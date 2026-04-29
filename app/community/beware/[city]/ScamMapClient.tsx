@@ -289,10 +289,11 @@ export function ScamMapClient({
 
       // Fetch + draw city boundary, then fit bounds
       try {
+        const base = `/api/city-boundary?slug=${encodeURIComponent(citySlug)}`;
         const boundaryUrl = boundaryOsmId
-          ? `/api/city-boundary?osmId=${encodeURIComponent(boundaryOsmId)}`
-          : `/api/city-boundary?q=${encodeURIComponent(boundaryQuery ?? cityName)}&country=${encodeURIComponent(country)}`;
-        const res = await fetch(boundaryUrl, { cache: "force-cache" });
+          ? `${base}&osmId=${encodeURIComponent(boundaryOsmId)}`
+          : `${base}&q=${encodeURIComponent(boundaryQuery ?? cityName)}&country=${encodeURIComponent(country)}`;
+        const res = await fetch(boundaryUrl);
         const json = await res.json();
         if (cancelled || !mapRef.current) return;
         if (!json?.geojson) return;
