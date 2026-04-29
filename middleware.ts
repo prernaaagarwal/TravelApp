@@ -25,8 +25,13 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  // Refresh session — keeps cookie alive on every request
-  await supabase.auth.getUser();
+  // Refresh session — keeps cookie alive on every request.
+  // Wrapped in try-catch so a Supabase outage never breaks page rendering.
+  try {
+    await supabase.auth.getUser();
+  } catch {
+    // session refresh failed; continue serving the page unauthenticated
+  }
 
   return supabaseResponse;
 }

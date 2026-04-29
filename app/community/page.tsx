@@ -1,7 +1,8 @@
 import { CommunityTabs } from "@/components/community/CommunityTabs";
-import { createClient } from "@/lib/supabase/server";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { INTERNATIONAL_CITY_SLUGS } from "@/lib/international-destinations";
+import rawPosts from "@/lib/mock-data/community-posts.json";
+import rawBeware from "@/lib/mock-data/beware-entries.json";
 
 export const metadata = {
   title: "Community — Wander Women",
@@ -28,97 +29,71 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const intlCountry = sp.intlCountry ?? "all";
   const city = sp.city ?? "all";
 
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  let postsQuery = supabase
-    .from("community_posts")
-    .select("id,tab,title,author_name,author_age_range,home_city,created_at,content,reply_count,like_count,destination")
-    .eq("status", "approved");
-
-  let bewareQuery = supabase
-    .from("beware_reports")
-    .select("id,destination_slug,city,category,title,severity,description,reported_by_name,created_at,location,helpful_count")
-    .eq("status", "approved");
-
-  // Location filter
-  if (country === "india") {
-    if (city !== "all") {
-      postsQuery = postsQuery.eq("destination", city);
-      bewareQuery = bewareQuery.eq("destination_slug", city);
+  // Filter posts by location
+  let filteredPosts = rawPosts.filter((p) => {
+    const dest = p.destination ?? "";
+    if (country === "india") {
+      return city !== "all" ? dest === city : (!dest || dest.endsWith("-india"));
     } else {
-      postsQuery = postsQuery.or("destination.is.null,destination.like.%-india");
-      bewareQuery = bewareQuery.like("destination_slug", "%-india");
+      return city !== "all" && INTERNATIONAL_CITY_SLUGS.has(city)
+        ? dest === city
+        : INTERNATIONAL_CITY_SLUGS.has(dest);
     }
-  } else {
-    if (city !== "all" && INTERNATIONAL_CITY_SLUGS.has(city)) {
-      postsQuery = postsQuery.eq("destination", city);
-      bewareQuery = bewareQuery.eq("destination_slug", city);
+  });
+
+  // Filter bewares by location
+  let filteredBewares = rawBeware.filter((b) => {
+    const dest = b.destinationSlug ?? "";
+    if (country === "india") {
+      return city !== "all" ? dest === city : dest.endsWith("-india");
     } else {
-      const intlList = Array.from(INTERNATIONAL_CITY_SLUGS);
-      postsQuery = postsQuery.in("destination", intlList);
-      bewareQuery = bewareQuery.in("destination_slug", intlList);
+      return city !== "all" && INTERNATIONAL_CITY_SLUGS.has(city)
+        ? dest === city
+        : INTERNATIONAL_CITY_SLUGS.has(dest);
     }
-  }
+  });
 
   // Sort
   if (sort === "oldest") {
-    postsQuery = postsQuery.order("created_at", { ascending: true });
-    bewareQuery = bewareQuery.order("created_at", { ascending: true });
+    filteredPosts = [...filteredPosts].sort((a, b) => a.postedAt.localeCompare(b.postedAt));
+    filteredBewares = [...filteredBewares].sort((a, b) => a.reportedDate.localeCompare(b.reportedDate));
   } else if (sort === "popular") {
-    postsQuery = postsQuery.order("like_count", { ascending: false });
-    bewareQuery = bewareQuery.order("helpful_count", { ascending: false });
+    filteredPosts = [...filteredPosts].sort((a, b) => b.likeCount - a.likeCount);
+    filteredBewares = [...filteredBewares].sort((a, b) => b.helpfulCount - a.helpfulCount);
   } else {
-    postsQuery = postsQuery.order("created_at", { ascending: false });
-    bewareQuery = bewareQuery.order("created_at", { ascending: false });
+    filteredPosts = [...filteredPosts].sort((a, b) => b.postedAt.localeCompare(a.postedAt));
+    filteredBewares = [...filteredBewares].sort((a, b) => b.reportedDate.localeCompare(a.reportedDate));
   }
 
-  postsQuery = postsQuery.limit(100);
-  bewareQuery = bewareQuery.limit(50);
-
-  const [{ data: rawPosts }, { data: rawBeware }] = await Promise.all([postsQuery, bewareQuery]);
-
-  // Helpful state for current user
-  let helpfulPostIds = new Set<string>();
-  let helpfulBewareIds = new Set<string>();
-  if (user) {
-    const [{ data: hp }, { data: hb }] = await Promise.all([
-      supabase.from("community_post_helpful").select("post_id").eq("user_id", user.id),
-      supabase.from("beware_helpful").select("report_id").eq("user_id", user.id),
-    ]);
-    helpfulPostIds = new Set((hp ?? []).map((r) => r.post_id as string));
-    helpfulBewareIds = new Set((hb ?? []).map((r) => r.report_id as string));
-  }
-
-  const posts = (rawPosts ?? []).map((p) => ({
+  const posts = filteredPosts.map((p) => ({
     id: p.id,
     tab: p.tab,
-    title: p.title ?? "",
-    author: p.author_name ?? "Anonymous",
-    authorAgeRange: p.author_age_range ?? "",
-    homeCity: p.home_city ?? "",
-    postedAt: new Date(p.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
+    title: "",
+    author: p.author,
+    authorAgeRange: p.authorAgeRange,
+    homeCity: p.homeCity,
+    postedAt: new Date(p.postedAt).toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
     content: p.content,
-    replyCount: p.reply_count,
-    likeCount: p.like_count,
+    replyCount: p.replyCount,
+    likeCount: p.likeCount,
     destination: p.destination ?? undefined,
-    isHelpfulByMe: helpfulPostIds.has(p.id),
+    isHelpfulByMe: false,
   }));
 
-  const bewares = (rawBeware ?? []).map((b) => ({
+  const bewares = filteredBewares.map((b) => ({
     id: b.id,
-    destinationSlug: b.destination_slug ?? "",
-    city: b.city ?? "",
-    category: b.category ?? "",
+    destinationSlug: b.destinationSlug,
+    city: b.city,
+    category: b.category,
     title: b.title,
-    severity: b.severity ?? "medium",
+    severity: b.severity,
     description: b.description,
-    reportedBy: b.reported_by_name ?? "Anonymous",
-    reportedDate: new Date(b.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
-    location: b.location ?? "",
-    helpfulCount: b.helpful_count,
-    isHelpfulByMe: helpfulBewareIds.has(b.id),
-    hasScamMap: SUPPORTED_BEWARE_CITIES.has(b.destination_slug ?? ""),
+    reportedBy: b.reportedBy,
+    reportedDate: new Date(b.reportedDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
+    location: b.location,
+    helpfulCount: b.helpfulCount,
+    isHelpfulByMe: false,
+    hasScamMap: SUPPORTED_BEWARE_CITIES.has(b.destinationSlug),
   }));
 
   const supportedBewareSlugs = Array.from(SUPPORTED_BEWARE_CITIES);
@@ -143,7 +118,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
       <CommunityTabs
         posts={posts}
         bewares={bewares}
-        userEmail={user?.email ?? null}
+        userEmail={null}
         activeTab={tab}
         sort={sort}
         country={country}

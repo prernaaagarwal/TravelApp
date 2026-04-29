@@ -1,5 +1,6 @@
 import { ExploreGrid } from "@/components/intel/ExploreGrid";
-import { createClient } from "@/lib/supabase/server";
+import intelCardsData from "@/lib/mock-data/intel-cards.json";
+import contributorsData from "@/lib/mock-data/contributors.json";
 
 export const metadata = {
   title: "Explore Trip Intel — Wander Women",
@@ -7,30 +8,27 @@ export const metadata = {
     "Browse 15 solo travel intel cards curated by women who've been there.",
 };
 
-export default async function ExplorePage() {
-  const supabase = await createClient();
-
-  const [{ data: rawCards }, { data: rawContributors }] = await Promise.all([
-    supabase.from("intel_cards").select("slug,destination,country,audience,contributor_slug,hero_image_url,tldr,is_premium,estimated_daily_budget"),
-    supabase.from("contributors").select("slug,name,photo_url"),
-  ]);
-
-  const cards = (rawCards ?? []).map((c) => ({
+export default function ExplorePage() {
+  const cards = intelCardsData.map((c) => ({
     slug: c.slug,
     destination: c.destination,
     country: c.country,
     audience: c.audience,
-    contributorSlug: c.contributor_slug,
-    heroImageUrl: c.hero_image_url,
+    contributorSlug: c.contributorSlug,
+    heroImageUrl: c.heroImageUrl,
     tldr: c.tldr as string[] | { summary: string },
-    isPremium: c.is_premium,
-    estimatedDailyBudget: c.estimated_daily_budget as { backpacker: number; comfortable: number; currency: string } | null,
+    isPremium: c.isPremium,
+    estimatedDailyBudget: c.estimatedDailyBudget as {
+      backpacker: number;
+      comfortable: number;
+      currency: string;
+    } | null,
   }));
 
-  const contributors = (rawContributors ?? []).map((c) => ({
+  const contributors = contributorsData.map((c) => ({
     slug: c.slug,
     name: c.name,
-    photoUrl: c.photo_url,
+    photoUrl: c.photoUrl,
   }));
 
   return (
