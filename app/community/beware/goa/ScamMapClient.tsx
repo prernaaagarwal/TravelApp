@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import type { Map as LeafletMap } from "leaflet";
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -198,9 +199,51 @@ export function ScamMapClient({ dbReports }: Props) {
         ))}
       </div>
 
-      {/* Map */}
+      {/* Map + floating overlays */}
       <div className="relative flex-1">
         <div ref={mapDivRef} className="h-full w-full" />
+
+        {/* Stats pill — top centre */}
+        <div className="absolute left-1/2 top-3 z-[999] -translate-x-1/2 rounded-full border border-ww-border bg-warm-white/90 px-3 py-1 shadow-sm backdrop-blur-sm">
+          <span className="font-mono text-[10px] text-ww-muted">
+            {visibleCount} reports · Goa
+          </span>
+        </div>
+
+        {/* Legend — top right */}
+        <div className="absolute right-3 top-3 z-[999] flex flex-col gap-1.5 rounded border border-ww-border bg-warm-white/90 p-2 shadow-sm backdrop-blur-sm">
+          {(["scam", "harassment", "transport", "stay", "safe"] as MapReport["type"][]).map((t) => (
+            <div key={t} className="flex items-center gap-1.5">
+              <span
+                className="h-2 w-2 shrink-0 rounded-full"
+                style={{ background: COLORS[t] }}
+              />
+              <span className="font-mono text-[9px] capitalize text-ww-muted">{t}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Locate-me — bottom left */}
+        <button
+          onClick={() => {
+            navigator.geolocation?.getCurrentPosition((pos) => {
+              mapRef.current?.flyTo([pos.coords.latitude, pos.coords.longitude], 14);
+            });
+          }}
+          title="My location"
+          className="absolute bottom-20 left-3 z-[999] flex h-10 w-10 items-center justify-center rounded-full border border-ww-border bg-warm-white shadow-md hover:bg-sand"
+        >
+          📍
+        </button>
+
+        {/* FAB — bottom right */}
+        <Link
+          href="/contribute/report?destination=goa-india"
+          title="Add a report"
+          className="absolute bottom-20 right-3 z-[999] flex h-12 w-12 items-center justify-center rounded-full bg-rust text-xl text-white shadow-md hover:bg-rust/90"
+        >
+          +
+        </Link>
       </div>
 
       {/* Bottom sheet */}
