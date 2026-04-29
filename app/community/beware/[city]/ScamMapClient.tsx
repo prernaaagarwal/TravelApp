@@ -73,15 +73,14 @@ function createLabelIcon(L: typeof LeafletNS, name: string) {
   return L.divIcon({ html, className: "", iconAnchor: [0, 0] });
 }
 
-// Convert GeoJSON polygon outer ring(s) from [lng,lat] to Leaflet [lat,lng]
-function extractOuterRings(geojson: { type: string; coordinates: unknown }): [number, number][][] {
+// Extract outer ring(s) from a GeoJSON geometry — returns coordinates in GeoJSON [lng,lat] order.
+// Used to build the outside-dim mask via L.geoJSON + fillRule:"evenodd".
+function extractGeoJSONOuterRings(geojson: { type: string; coordinates: unknown }): number[][][] {
   if (geojson.type === "Polygon") {
-    return [(geojson.coordinates as number[][][])[0].map(([lng, lat]) => [lat, lng] as [number, number])];
+    return [(geojson.coordinates as number[][][])[0]];
   }
   if (geojson.type === "MultiPolygon") {
-    return (geojson.coordinates as number[][][][]).map((poly) =>
-      poly[0].map(([lng, lat]) => [lat, lng] as [number, number])
-    );
+    return (geojson.coordinates as number[][][][]).map((poly) => poly[0]);
   }
   return [];
 }
@@ -298,39 +297,49 @@ export function ScamMapClient({
         if (cancelled || !mapRef.current) return;
         if (!json?.geojson) return;
 
-        // Dark mask outside the city — world polygon with city rings as holes
-        const worldRing: [number, number][] = [[90, -180], [90, 180], [-90, 180], [-90, -180]];
-        const cityRings = extractOuterRings(json.geojson as { type: string; coordinates: unknown });
+        // 90% dim mask outside the city.
+        // L.geoJSON + fillRule:"evenodd" avoids the diagonal stitching artifact
+        // that L.polygon produces when given a world-ring + hole approach.
+        const worldRing: number[][] = [[-180, 85], [180, 85], [180, -85], [-180, -85], [-180, 85]];
+        const cityGeoRings = extractGeoJSONOuterRings(json.geojson as { type: string; coordinates: unknown });
+        const maskFeature = {
+          type: "Feature" as const,
+          properties: {},
+          geometry: { type: "Polygon" as const, coordinates: [worldRing, ...cityGeoRings] },
+        };
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const maskLayer = (L as any).polygon([worldRing, ...cityRings], {
-          fillColor: "#1a1510",
-          fillOpacity: 0.30,
-          stroke: false,
+        const maskLayer = L.geoJSON(maskFeature as any, {
+          style: {
+            fillColor: "#1a1510",
+            fillOpacity: 0.9,
+            stroke: false,
+            fillRule: "evenodd",
+          } as L.PathOptions,
           interactive: false,
         }).addTo(map);
 
-        // Visible boundary ring on top
+        // Prominent dashed boundary ring on top of the mask
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const boundaryLine = L.geoJSON(json.geojson as any, {
           style: {
             color: MAP_COLORS.rust,
-            weight: 3,
-            opacity: 0.9,
+            weight: 5,
+            opacity: 1,
             fillOpacity: 0,
-            dashArray: "6, 4",
+            dashArray: "10, 6",
           },
           interactive: false,
         }).addTo(map);
 
         boundaryRef.current = L.layerGroup([maskLayer, boundaryLine]);
 
-        // Skip fitBounds when the boundary would zoom us out below the configured
-        // zoom — protects cities like Tokyo whose admin boundary includes remote
-        // islands (Ogasawara). The mask still renders correctly either way.
+        // Only auto-fit when the full boundary fits at or above the configured zoom.
+        // For large admin areas (Goa state, Tokyo islands) keep the configured
+        // center/zoom so heatmap data stays in focus.
         const fitted = boundaryLine.getBounds();
         const targetZoom = map.getBoundsZoom(fitted, false, L.point(32, 32));
-        if (targetZoom >= zoom - 1) {
-          map.fitBounds(fitted, { padding: [32, 32], maxZoom: 13 });
+        if (targetZoom >= zoom) {
+          map.fitBounds(fitted, { padding: [32, 32], maxZoom: zoom + 2 });
         }
       } catch (err) {
         console.error("[beware-map] boundary fetch failed:", err);
