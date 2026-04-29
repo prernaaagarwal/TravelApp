@@ -236,4 +236,42 @@ If I am clearly stressed, frustrated, or talking about scope-creep — pause and
 
 Be honest with me. The biggest risk to this project is me, not the code.
 
+## How to add a new beware-board city
+
+Follow these steps in order. Takes ~15 minutes.
+
+**1. Add city config** — `lib/beware-cities-data.json`
+```json
+"barcelona-spain": {
+  "config": { "slug": "barcelona-spain", "name": "Barcelona", "center": [41.3851, 2.1734], "zoom": 12 },
+  "reports": []
+}
+```
+
+**2. Add OSM relation ID** — `lib/beware-cities.ts`, `BOUNDARY_OSM_ID_BY_SLUG`
+Look up the ID at `nominatim.openstreetmap.org/search?q=Barcelona&country=ES`.
+Click the result → note the OSM relation number (e.g. R347950).
+```ts
+"barcelona-spain": "R347950",
+```
+
+**3. Pre-fetch the boundary file** (run this locally, requires internet)
+```bash
+npx ts-node scripts/fetch-boundary.ts barcelona-spain
+```
+This saves `lib/mock-data/boundaries/barcelona-spain.json` and prints next steps.
+
+**4. Commit and deploy**
+```bash
+git add lib/mock-data/boundaries/barcelona-spain.json
+git commit -m "data: add boundary for barcelona-spain"
+git push origin main
+```
+
+After deploy: heatmap, pins, boundary line, and white fog mask all work immediately.
+The city slug is also registered as a static route automatically via `generateStaticParams`.
+
+> **Country codes** — 50+ country suffixes are already mapped in `COUNTRY_BY_SUFFIX`
+> (lib/beware-cities.ts). If your suffix isn't there, add it before running the script.
+
 ## End of file
