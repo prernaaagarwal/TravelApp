@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* shadcn stone base (OKLCH) — required by primitives */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.147 0.004 49.25);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.147 0.004 49.25);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.147 0.004 49.25);
+  --primary: oklch(0.216 0.006 56.043);
+  --primary-foreground: oklch(0.985 0.001 106.423);
+  --secondary: oklch(0.97 0.001 106.424);
+  --secondary-foreground: oklch(0.216 0.006 56.043);
+  --muted: oklch(0.97 0.001 106.424);
+  --muted-foreground: oklch(0.553 0.013 58.071);
+  --accent: oklch(0.97 0.001 106.424);
+  --accent-foreground: oklch(0.216 0.006 56.043);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0.001 106.423);
+  --border: oklch(0.923 0.003 48.717);
+  --input: oklch(0.923 0.003 48.717);
+  --ring: oklch(0.709 0.01 56.259);
+  --radius: 0.5rem;
+
+  /* Wander Women design tokens (per CLAUDE.md) */
+  --sand: #f5f0e6;
+  --ink: #1a1510;
+  --rust: #c4522a;
+  --rust-light: #f0d5c8;
+  --sage: #4a7c59;
+  --sage-light: #d4e8d8;
+  --blue: #2a4d7a;
+  --blue-light: #d8e6f5;
+  --gold: #b5860a;
+  --gold-light: #f5e8c0;
+  --purple: #6b3a7a;
+  --purple-light: #ead8f0;
+  --ww-muted: #8a7d72;
+  --ww-border: #e0d8cc;
+  --warm-white: #faf8f4;
+}
+
+@theme inline {
+  /* shadcn token aliases (used by Button, Card, Tabs, etc.) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Wander Women color utilities — bg-sand, text-rust, border-ink, etc. */
+  --color-sand: var(--sand);
+  --color-ink: var(--ink);
+  --color-rust: var(--rust);
+  --color-rust-light: var(--rust-light);
+  --color-sage: var(--sage);
+  --color-sage-light: var(--sage-light);
+  --color-blue: var(--blue);
+  --color-blue-light: var(--blue-light);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-purple: var(--purple);
+  --color-purple-light: var(--purple-light);
+  --color-warm-white: var(--warm-white);
+  --color-ww-muted: var(--ww-muted);
+  --color-ww-border: var(--ww-border);
+
+  /* Fonts (wired via next/font in layout.tsx) */
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-mono: var(--font-dm-mono), "DM Mono", ui-monospace, monospace;
+  --font-sans: var(--font-dm-mono), "DM Mono", ui-monospace, monospace;
+
+  /* Accordion animations (consumed by components/ui/accordion.tsx) */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@layer base {
+  * {
+    border-color: var(--ww-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--sand);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-weight: 400;
+    /* Grain texture overlay (PRD 6.3) — fixed SVG noise as body background */
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/></svg>");
+    background-attachment: fixed;
+    background-size: 256px 256px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+}

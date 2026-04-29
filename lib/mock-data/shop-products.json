@@ -1,0 +1,102 @@
+[
+  {
+    "id": "product-001",
+    "name": "She's Birdie 130dB Personal Alarm",
+    "category": "Personal alarm",
+    "whyItMatters": "Pull-pin keychain siren + LED strobe. Disorients an attacker, alerts everyone in 50 metres.",
+    "priceRange": "₹599 – ₹1,799",
+    "imageUrl": "https://placehold.co/600x600/f5f0e6/c4522a?text=Personal+Alarm",
+    "amazonUrl": "https://www.amazon.in/s?k=she%27s+birdie+personal+alarm&tag=PLACEHOLDER-21",
+    "displayOrder": 1
+  },
+  {
+    "id": "product-002",
+    "name": "Addalock Portable Door Lock",
+    "category": "Door security",
+    "whyItMatters": "Locks any inward-swinging hostel/hotel door from inside even if the front-desk key is duplicated.",
+    "priceRange": "₹999 – ₹2,499",
+    "imageUrl": "https://placehold.co/600x600/f5f0e6/c4522a?text=Door+Lock",
+    "amazonUrl": "https://www.amazon.in/s?k=addalock+portable+door+lock&tag=PLACEHOLDER-21",
+    "displayOrder": 2
+  },
+  {
+    "id": "product-003",
+    "name": "GE Door Stop Alarm (or eBoot 3-pack)",
+    "category": "Door security",
+    "whyItMatters": "Wedge-style stopper with built-in 120dB alarm. Backup if the Addalock fails or you forget it.",
+    "priceRange": "₹399 – ₹999",
+    "imageUrl": "https://placehold.co/600x600/f5f0e6/c4522a?text=Door+Stop+Alarm",
+    "amazonUrl": "https://www.amazon.in/s?k=door+stop+alarm+wedge&tag=PLACEHOLDER-21",
+    "displayOrder": 3
+  },
+  {
+    "id": "product-004",
+    "name": "Pacsafe Citysafe CX Anti-Theft Crossbody",
+    "category": "Anti-theft bag",
+    "whyItMatters": "Slash-resistant body, lockable zippers, RFID-blocking pockets. Pickpocket-proof for crowded markets.",
+    "priceRange": "₹4,999 – ₹12,999",
+    "imageUrl": "https://placehold.co/600x600/f5f0e6/c4522a?text=Anti-Theft+Bag",
+    "amazonUrl": "https://www.amazon.in/s?k=pacsafe+citysafe+cx&tag=PLACEHOLDER-21",
+    "displayOrder": 4
+  },
+  {
+    "id": "product-005",
+    "name": "Apple AirTag (4-pack) or Samsung SmartTag2",
+    "category": "Tracking tag",
+    "whyItMatters": "Drop one in luggage, one in handbag, one in hostel room. Find My / SmartThings tells you where they are.",
+    "priceRange": "₹3,499 – ₹10,500",
+    "imageUrl": "https://placehold.co/600x600/f5f0e6/c4522a?text=AirTag",
+    "amazonUrl": "https://www.amazon.in/s?k=apple+airtag+4+pack&tag=PLACEHOLDER-21",
+    "displayOrder": 5
+  },
+  {
+    "id": "product-006",
+    "name": "Mi / Anker 10,000 mAh Power Bank",
+    "category": "Backup power",
+    "whyItMatters": "Phone dies = stranded with no Uber, no maps, no SOS. 10,000 mAh = 3 phone charges minimum.",
+    "priceRange": "₹999 – ₹2,499",
+    "imageUrl": "https://placehold.co/600x600/f5f0e6/c4522a?text=Power+Bank",
+    "amazonUrl": "https://www.amazon.in/s?k=mi+power+bank+10000mah&tag=PLACEHOLDER-21",
+    "displayOrder": 6
+  },
+  {
+    "id": "product-007",
+    "name": "Zoppen RFID-Blocking Travel Wallet",
+    "category": "Document safety",
+    "whyItMatters": "Holds passport + cards + cash. RFID shielding stops contactless skimming attacks at crowded stations.",
+    "priceRange": "₹599 – ₹2,999",
+    "imageUrl": "https://placehold.co/600x600/f5f0e6/c4522a?text=RFID+Wallet",
+    "amazonUrl": "https://www.amazon.in/s?k=zoppen+rfid+travel+wallet&tag=PLACEHOLDER-21",
+    "displayOrder": 7
+  },
+  {
+    "id": "product-008",
+    "name": "Eagle Creek Silk Money Belt",
+    "category": "Document safety",
+    "whyItMatters": "Worn under clothing for emergency cash, backup card, passport copy. If your main bag goes, you still get home.",
+    "priceRange": "₹399 – ₹1,499",
+    "imageUrl": "https://placehold.co/600x600/f5f0e6/c4522a?text=Money+Belt",
+    "amazonUrl": "https://www.amazon.in/s?k=eagle+creek+money+belt&tag=PLACEHOLDER-21",
+    "displayOrder": 8
+  },
+  {
+    "id": "product-009",
+    "name": "Airalo eSIM (India tourist plan)",
+    "category": "Connectivity",
+    "whyItMatters": "Activate before landing — no airport SIM-counter scams, no ID-swap fraud, no waiting in a queue at 2am.",
+    "priceRange": "₹999 – ₹1,999 (28 days, ~2 GB/day)",
+    "imageUrl": "https://placehold.co/600x600/f5f0e6/c4522a?text=eSIM",
+    "amazonUrl": "https://www.airalo.com/india-esim?ref=PLACEHOLDER",
+    "displayOrder": 9
+  },
+  {
+    "id": "product-010",
+    "name": "LifeStraw Go Filter Bottle",
+    "category": "Health",
+    "whyItMatters": "Built-in filter purifies tap water. Saves ₹50/day on bottled water and eliminates the tampered-bottle risk.",
+    "priceRange": "₹2,499 – ₹4,499",
+    "imageUrl": "https://placehold.co/600x600/f5f0e6/c4522a?text=Filter+Bottle",
+    "amazonUrl": "https://www.amazon.in/s?k=lifestraw+go+filter+bottle&tag=PLACEHOLDER-21",
+    "displayOrder": 10
+  }
+]

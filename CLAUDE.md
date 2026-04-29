@@ -79,7 +79,7 @@ When you fix a bug: tell me what the bug *was*, why it happened, and what you ch
 ## Stack (locked)
 
 ```
-Next.js 15 (App Router)
+Next.js 16 (App Router) — bumped from 15 on 2026-04-28; current stable
 TypeScript (strict mode)
 Tailwind CSS v4
 shadcn/ui (theme: stone base, customized colors)
@@ -89,6 +89,10 @@ DM Mono (Google Fonts) — body + UI
 ```
 
 If you suggest anything outside this list, you must (a) tell me why, (b) propose alternatives, and (c) get my "yes" before installing.
+
+> Next.js 16 has breaking changes from 15 (async cookies/headers, caching defaults, etc.). Read the relevant docs in `node_modules/next/dist/docs/` before assuming v15 behavior. See `/AGENTS.md`.
+
+@AGENTS.md
 
 ## Design tokens (paste into globals.css)
 
@@ -156,11 +160,11 @@ If you suggest anything outside this list, you must (a) tell me why, (b) propose
 
 > Update this section as we progress.
 
-- [ ] Phase 1 — Setup + content port (Days 1-3)
-- [ ] Phase 2 — Layout + shell (Days 4-5)
-- [ ] Phase 3 — Core content pages (Days 6-9)
-- [ ] Phase 4 — Community + secondary (Days 10-12)
-- [ ] Phase 5 — Polish (Days 13-14)
+- [x] Phase 1 — Setup + content port (Days 1-3)
+- [x] Phase 2 — Layout + shell (Days 4-5)
+- [x] Phase 3 — Core content pages (Days 6-9)
+- [x] Phase 4 — Community + secondary (Days 10-12)
+- [ ] Phase 5 — Polish (Days 13-14) ← in progress
 - [ ] Phase 6 — Investor layer (Day 15)
 
 ## Workflow expectations

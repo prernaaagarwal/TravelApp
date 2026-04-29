@@ -1,0 +1,4007 @@
+[
+  {
+    "slug": "goa-india",
+    "destination": "Goa",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 12,
+    "heroImageUrl": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&q=80",
+    "tldr": [
+      "Goa taxi union blocks Uber/Ola in most areas — use GoaMiles app (govt-backed, fixed fares).",
+      "Drug possession setups on beaches are not myths; NDPS Act means 1+ year jail, no bail.",
+      "Never give your passport as scooter-rental collateral — photograph every scratch before you ride.",
+      "North Goa for energy and nightlife; South Goa (Palolem, Agonda) for quiet and yoga.",
+      "Book accommodation 3+ months ahead for Dec 20 – Jan 10; prices triple without notice."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Assagao",
+        "safetyRating": 5,
+        "vibe": "Boutique cafés, female-founder stays, quiet lanes",
+        "stayHere": true,
+        "notes": "The Project Café is here. Safer than Anjuna, walkable to Vagator. Best first base."
+      },
+      {
+        "name": "Anjuna / Vagator",
+        "safetyRating": 3,
+        "vibe": "Party beach, flea market, lively nights",
+        "stayHere": false,
+        "notes": "Highest drug-offer and overcharge density. Great energy; go with a group after dark."
+      },
+      {
+        "name": "Palolem, South Goa",
+        "safetyRating": 4,
+        "vibe": "Backpacker beach, yoga, sunset shacks",
+        "stayHere": true,
+        "notes": "Cleanest solo-female-friendly beach. Silent Noise Club on Saturdays is unmissable."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Fake hotel/villa booking online",
+        "severity": "critical",
+        "where": "Goa",
+        "what": "Goa MP raised this in Rajya Sabha 2025. Fake sites mimic real hotels, AI-generated photos. Lose ₹20K–₹2L.",
+        "avoid": "Goa MP raised this in Rajya Sabha 2025. Fake sites mimic real hotels, AI-generated photos. Lose ₹20K–₹2L."
+      },
+      {
+        "title": "Drug possession setup",
+        "severity": "critical",
+        "where": "Goa",
+        "what": "Beach offer → 'cop' demands bribe. NDPS Act = 1+ year jail minimum. Refuse all offers.",
+        "avoid": "Beach offer → 'cop' demands bribe. NDPS Act = 1+ year jail minimum. Refuse all offers."
+      },
+      {
+        "title": "Scooter/bike rental damage scam",
+        "severity": "high",
+        "where": "Goa",
+        "what": "Fake scratches added; deposit/passport held hostage. Photo entire bike before+after; never give passport.",
+        "avoid": "Fake scratches added; deposit/passport held hostage. Photo entire bike before+after; never give passport."
+      },
+      {
+        "title": "Goa taxi mafia overcharge",
+        "severity": "high",
+        "where": "Goa",
+        "what": "No Uber/Ola in much of Goa due to taxi union resistance. Use GoaMiles app (govt-backed) or pre-fixed kadamba rates.",
+        "avoid": "No Uber/Ola in much of Goa due to taxi union resistance. Use GoaMiles app (govt-backed) or pre-fixed kadamba rates."
+      },
+      {
+        "title": "Beach shack 'tourist menu' overcharge",
+        "severity": "high",
+        "where": "Goa",
+        "what": "Different menu/pricing for foreigners. Always ask for printed menu with prices.",
+        "avoid": "Different menu/pricing for foreigners. Always ask for printed menu with prices."
+      },
+      {
+        "title": "Water sports operator overcharge & 'damage'",
+        "severity": "high",
+        "where": "Goa",
+        "what": "₹5,000 jet ski quoted as ₹2,000; demand 'damage' fees after. Use only Goa Tourism-licensed operators.",
+        "avoid": "₹5,000 jet ski quoted as ₹2,000; demand 'damage' fees after. Use only Goa Tourism-licensed operators."
+      },
+      {
+        "title": "Cordelia / cruise fake booking",
+        "severity": "high",
+        "where": "Goa",
+        "what": "Fake websites take advance for non-existent sailings.",
+        "avoid": "Fake websites take advance for non-existent sailings."
+      },
+      {
+        "title": "Drugged Food / Drink on Trains & Buses",
+        "severity": "critical",
+        "where": "Delhi-Varanasi, Mumbai-Goa, all overnight long-distance routes",
+        "what": "A friendly co-passenger offers tea, biscuits, samosa, or water. Sedative knocks you out for hours; bags, phone, cash, passport stolen. Reports increase Oct–March (peak tourist season).",
+        "avoid": "Never accept ANY food/drink from strangers on trains or sleeper buses. Carry your own sealed water and snacks. Lock bags to the seat chain in sleeper class."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "GoaMiles app",
+        "tip": "Govt-backed fixed-fare taxi. Book before landing. Only reliable pre-paid option.",
+        "approxCost": "₹800–1,200 airport → North Goa"
+      },
+      {
+        "mode": "Scooter (Royal Brothers / Onn Bikes app)",
+        "tip": "App-based rental with GPS insurance. Saves ₹1,500+/day vs taxis.",
+        "approxCost": "₹350–500/day"
+      },
+      {
+        "mode": "Kadamba state bus",
+        "tip": "Safe, AC inter-city routes. Panaji ↔ Margao ↔ Mapusa.",
+        "approxCost": "₹15–60"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "The Project Café (Aldona, North Goa)",
+        "type": "Boutique stay + café + cultural space",
+        "angle": "FO+FM — Combined",
+        "why": "Founded by Drasty Shah; all-women team. 130-year-old Portuguese mansion converted into design-forward boutique stay. Pool, art, books. The women's travel insider's pick.",
+        "approxCost": "₹6,000–₹15,000/night; café open to non-guests."
+      },
+      {
+        "name": "Sappadu (Assagao)",
+        "type": "Restaurant",
+        "angle": "FO — Female-Owned",
+        "why": "Women-run South Indian veg restaurant; homely, simple, authentic. Featured by Tweak India 2025. Solo-women-comfortable.",
+        "approxCost": "Meal ₹350–₹700; dosa-thali specialty."
+      },
+      {
+        "name": "Mojigao (sustainable resort, Assagao)",
+        "type": "Eco-stay",
+        "angle": "VS — Verified Safe",
+        "why": "Female-friendly sustainable resort in cashew forest. Strong solo-female-traveler reviews; quiet, secure, run with feminine sensibility.",
+        "approxCost": "₹6,500–₹14,000/night; includes breakfast."
+      },
+      {
+        "name": "Soul & Surf Goa (Patnem)",
+        "type": "Surf school + yoga retreat",
+        "angle": "VS+FM — Combined",
+        "why": "Surf school with women-led classes; yoga deck; vegan kitchen. Solo female travelers consistently rate as one of safest beach stays in Goa.",
+        "approxCost": "Surf+yoga packages ₹4,500–₹12,000/day all-inclusive."
+      },
+      {
+        "name": "Mapusa Friday Market (with female guide)",
+        "type": "Market visit",
+        "angle": "VS — Verified Safe",
+        "why": "Authentic Goan market sans the Anjuna tourist hawkers. Hire a local female guide via your stay; you'll hear what locals actually buy.",
+        "approxCost": "Free entry; budget ₹500–₹2,000 for guide."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Book accommodation via Booking.com and call hotel to confirm reservation",
+      "Download GoaMiles app before your flight lands",
+      "Save Goa Police helpline in phone: 0832-2423400",
+      "Buy travel insurance (World Nomads covers scooter accidents in India)",
+      "Check NGT/pollution odd-even days if visiting in peak season"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Use only GoaMiles or pre-agreed fixed taxi fares — no street negotiations",
+        "Photograph scooter 360° before and after every rental",
+        "Carry a door-stop alarm for hostel/guesthouse rooms",
+        "Stick to South Goa beaches if it's your first solo India trip"
+      ],
+      "dont": [
+        "Hand over your passport as collateral for any rental or deposit",
+        "Accept anything from strangers on beaches — not even fruit",
+        "Trust anyone claiming to be an off-duty police officer demanding documentation",
+        "Book Goa villas or party packages through Instagram DMs"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 2000,
+      "midRange": 4000,
+      "comfortable": 15000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Goa Police Control",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Tourist Police Panaji",
+        "number": "0832-2423400"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": true,
+    "premiumPreview": "Premium covers: the 3 hostels that actively vet solo female guests, full GoaMiles booking walkthrough with screenshots, a complete Palolem vs Agonda vs Patnem comparison, and the November shoulder-season hack that cuts mid-range accommodation costs by 40%.",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Goa&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "jaipur-india",
+    "destination": "Jaipur",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "neha-jaipur",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 14,
+    "heroImageUrl": "https://images.unsplash.com/photo-1477013144938-7c68caa9f76a?w=800&q=80",
+    "tldr": [
+      "Every auto near Hawa Mahal will try to take you to a commission shop — use Uber/Ola only.",
+      "Old City is best at dawn (7–9am) before heat and touts both hit peak intensity.",
+      "No real 'government gem emporium' exists at tourist spots — every one of them is commission-based.",
+      "Nahargarh Fort after 4pm is dramatically less crowded and the light is better.",
+      "Heritage havelis in Bani Park give you proximity to sights without the Old City chaos."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Bani Park",
+        "safetyRating": 4,
+        "vibe": "Residential, heritage hotels, quiet streets",
+        "stayHere": true,
+        "notes": "15 min from all major sights, none of the Old City noise. Most solo female travelers prefer staying here."
+      },
+      {
+        "name": "Old City (Pink City)",
+        "safetyRating": 3,
+        "vibe": "Heritage architecture, dense markets",
+        "stayHere": false,
+        "notes": "Beautiful but exhausting solo. Go with a plan, use app taxis, leave before dusk."
+      },
+      {
+        "name": "C-Scheme / MI Road",
+        "safetyRating": 4,
+        "vibe": "Modern area, cafés, safe evenings",
+        "stayHere": true,
+        "notes": "For evenings out — Tapri, Curious Life Coffee, Maa restaurant. Feels like any Indian metro."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Gem export scam (the legendary one)",
+        "severity": "critical",
+        "where": "Jaipur",
+        "what": "Friendly local → 'family jeweller' → 'export gems for profit' → glass beads. Lose lakhs.",
+        "avoid": "Friendly local → 'family jeweller' → 'export gems for profit' → glass beads. Lose lakhs."
+      },
+      {
+        "title": "Textile / block print 'family workshop'",
+        "severity": "high",
+        "where": "Jaipur",
+        "what": "Driver commissions you to specific shop. Prices 5–10x normal Bapu Bazaar rates.",
+        "avoid": "Driver commissions you to specific shop. Prices 5–10x normal Bapu Bazaar rates."
+      },
+      {
+        "title": "'Friendly student' approaches at Hawa Mahal",
+        "severity": "high",
+        "where": "Jaipur",
+        "what": "Sets up the gem scam. Walk away from anyone unprompted.",
+        "avoid": "Sets up the gem scam. Walk away from anyone unprompted."
+      },
+      {
+        "title": "Amer Fort 'closed' / wrong gate",
+        "severity": "medium",
+        "where": "Jaipur",
+        "what": "Touts redirect you to a paid 'alternate viewing point' = commission shop.",
+        "avoid": "Touts redirect you to a paid 'alternate viewing point' = commission shop."
+      },
+      {
+        "title": "Auto charging by 'tourist rate'",
+        "severity": "high",
+        "where": "Jaipur",
+        "what": "Use Ola/Uber/Rapido. Auto from station to old city = ₹150 by app vs ₹500 quoted.",
+        "avoid": "Use Ola/Uber/Rapido. Auto from station to old city = ₹150 by app vs ₹500 quoted."
+      },
+      {
+        "title": "Fake palace tour packages",
+        "severity": "medium",
+        "where": "Jaipur",
+        "what": "WhatsApp groups offering ₹500 'all monuments tour' drop you at commission shops.",
+        "avoid": "WhatsApp groups offering ₹500 'all monuments tour' drop you at commission shops."
+      },
+      {
+        "title": "Elephant ride at Amer overcharge & welfare issue",
+        "severity": "medium",
+        "where": "Jaipur",
+        "what": "Govt rate is fixed (~₹1,100). Touts charge ₹3,000+. Also: ethical concerns documented by PETA India.",
+        "avoid": "Govt rate is fixed (~₹1,100). Touts charge ₹3,000+. Also: ethical concerns documented by PETA India."
+      },
+      {
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "severity": "critical",
+        "where": "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "what": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "avoid": "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Sakha / Women on Wheels",
+        "tip": "Social enterprise; all-women drivers from marginalised communities; >1M safe rides reported.",
+        "approxCost": "₹200–600 for city rides",
+        "bookingMethod": "Website: sakhaconsultingwings.com | Phone: +91-11-26521862"
+      },
+      {
+        "mode": "Pink City Rickshaw Company (NOT 'Pink Auto Service')",
+        "tip": "21 electric autos, 45 active women drivers, expanding to 31 by end 2025. Sister orgs in Varanasi (Holy City Rickshaw Co.) and Udaipur (Lake City Rickshaw Co.) launching 2025.",
+        "approxCost": "₹800–2,000 per tour",
+        "bookingMethod": "Website: pinkcityrickshawcompany.com | Heritage Tour, Shop & Hop, Culture Gully tours available"
+      },
+      {
+        "mode": "Sakha / Women on Wheels",
+        "tip": "Social enterprise; all-women drivers from marginalised communities; >1M safe rides reported.",
+        "approxCost": "₹200–600 for city rides",
+        "bookingMethod": "Website: sakhaconsultingwings.com | Phone: +91-11-26521862"
+      },
+      {
+        "mode": "Pink City Rickshaw Company (NOT 'Pink Auto Service')",
+        "tip": "21 electric autos, 45 active women drivers, expanding to 31 by end 2025. Sister orgs in Varanasi (Holy City Rickshaw Co.) and Udaipur (Lake City Rickshaw Co.) launching 2025.",
+        "approxCost": "₹800–2,000 per tour",
+        "bookingMethod": "Website: pinkcityrickshawcompany.com | Heritage Tour, Shop & Hop, Culture Gully tours available"
+      },
+      {
+        "mode": "Sakha / Women on Wheels",
+        "tip": "Social enterprise; all-women drivers from marginalised communities; >1M safe rides reported.",
+        "approxCost": "₹200–600 for city rides",
+        "bookingMethod": "Website: sakhaconsultingwings.com | Phone: +91-11-26521862"
+      },
+      {
+        "mode": "Pink City Rickshaw Company (NOT 'Pink Auto Service')",
+        "tip": "21 electric autos, 45 active women drivers, expanding to 31 by end 2025. Sister orgs in Varanasi (Holy City Rickshaw Co.) and Udaipur (Lake City Rickshaw Co.) launching 2025.",
+        "approxCost": "₹800–2,000 per tour",
+        "bookingMethod": "Website: pinkcityrickshawcompany.com | Heritage Tour, Shop & Hop, Culture Gully tours available"
+      },
+      {
+        "mode": "Sakha / Women on Wheels",
+        "tip": "Social enterprise; all-women drivers from marginalised communities; >1M safe rides reported.",
+        "approxCost": "₹200–600 for city rides",
+        "bookingMethod": "Website: sakhaconsultingwings.com | Phone: +91-11-26521862"
+      },
+      {
+        "mode": "Pink City Rickshaw Company (NOT 'Pink Auto Service')",
+        "tip": "21 electric autos, 45 active women drivers, expanding to 31 by end 2025. Sister orgs in Varanasi (Holy City Rickshaw Co.) and Udaipur (Lake City Rickshaw Co.) launching 2025.",
+        "approxCost": "₹800–2,000 per tour",
+        "bookingMethod": "Website: pinkcityrickshawcompany.com | Heritage Tour, Shop & Hop, Culture Gully tours available"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Pink City Rickshaw Co.",
+        "type": "Tour",
+        "angle": "FO+FM — Combined",
+        "why": "Custom-designed e-rickshaws driven by women from low-income backgrounds. Trained female guides. Globally featured on women-only tours of India.",
+        "approxCost": "₹1,500–₹2,500 for ~3-hour Pink City tour."
+      },
+      {
+        "name": "Sadhna Women's Handicraft Enterprise (Jaipur store)",
+        "type": "Shopping + craft visit",
+        "angle": "FO+FM — Combined",
+        "why": "Founded 1988; collective of 550+ women artisans across rural Rajasthan doing patchwork, appliqué, Tanka embroidery. Govt-fixed-price; fair-trade certified.",
+        "approxCost": "₹500–₹15,000 product range. Open Mon–Sat 10am–7pm."
+      },
+      {
+        "name": "Anokhi Museum of Hand Printing",
+        "type": "Museum + workshop",
+        "angle": "FO — Female-Owned",
+        "why": "Founded by Faith Singh (UK-Indian textile activist). Working museum with daily block-printing demos. Run primarily by women. Skip the touristy 'family workshop' pitches.",
+        "approxCost": "₹80 entry (Indian) / ₹250 (foreigner). Workshops ₹600–₹2,000."
+      },
+      {
+        "name": "Zostel Jaipur (women-only dorm)",
+        "type": "Hostel",
+        "angle": "FM — Female-Majority",
+        "why": "Most-rated solo-female-friendly hostel in Jaipur on Hostelworld. Dedicated female dorm, well-lit corridors, women-led events.",
+        "approxCost": "₹700–₹1,200 dorm. Bani Park location."
+      },
+      {
+        "name": "Hot air balloon ride at Skywaltz (sunrise)",
+        "type": "Experience",
+        "angle": "VS — Verified Safe",
+        "why": "DGCA-certified, professionally run, no harassment risk; the most-loved Jaipur premium experience among solo female travelers.",
+        "approxCost": "₹13,500–₹16,500/person; book 24h ahead."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Book heritage hotel in Bani Park or Civil Lines, not the Old City",
+      "Download Uber/Ola before arrival — don't negotiate with autos from monuments",
+      "Buy Amber Fort tickets on ASI India website to skip the queue",
+      "Check Jaipur Literature Festival dates if visiting in January",
+      "Carry ₹500–1,000 in small bills for bazaar shopping"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Browse Johri Bazaar and Bapu Bazaar independently — no guide needed",
+        "Visit Amber Fort at 8am opening to beat both heat and crowds",
+        "Use Rajasthali on MI Road for authentic fixed-price Rajasthani crafts",
+        "Ask your hotel staff (not auto drivers) for restaurant recommendations"
+      ],
+      "dont": [
+        "Accept auto rides to 'government-approved' gem or carpet shops",
+        "Engage with any 'export wholesale' fabric pitch near tourist sites",
+        "Share your hotel name or onward plans with persistent strangers",
+        "Ride elephants at Amber Fort — choose jeep or walking instead"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1500,
+      "midRange": 3500,
+      "comfortable": 12000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Jaipur Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Tourist Police Jaipur",
+        "number": "0141-5110595"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": true,
+    "premiumPreview": "Premium covers: exact Hawa Mahal early-access hack (saves 90 min queuing), two heritage hotels with women-only floors, 8-day Rajasthan circuit itinerary (Jaipur → Jodhpur → Udaipur), and female artisan workshop visits where the money goes directly to the maker.",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Jaipur&aid=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "varanasi-india",
+    "destination": "Varanasi",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 9,
+    "heroImageUrl": "https://images.unsplash.com/photo-1561361513-2d8ab5bad3f4?w=800&q=80",
+    "tldr": [
+      "Allow 3 full days minimum — Varanasi cannot be rushed and rushing makes you a better scam target.",
+      "Morning boat ride on the Ganges at sunrise is the single non-negotiable experience; book night before.",
+      "Never accept 'free' blessings, sindoor, or marigolds at ghats — a donation demand follows instantly.",
+      "Bhang lassi is legal here and widely served — know exactly what you're ordering before you drink.",
+      "Assi Ghat area is calmer and safer for solo women than the main Dashashwamedh Ghat strip."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Assi Ghat",
+        "safetyRating": 4,
+        "vibe": "Quieter south end, guesthouses, yoga, cafés",
+        "stayHere": true,
+        "notes": "Best solo-female base. Morning yoga on the ghats, safe café culture. 20 min walk from main ghats."
+      },
+      {
+        "name": "Godaulia / Dashashwamedh",
+        "safetyRating": 3,
+        "vibe": "Dense, intense, highest foot traffic",
+        "stayHere": false,
+        "notes": "Stay only if you want the full immersion. Overwhelming for first-timers. Touts are constant."
+      },
+      {
+        "name": "Cantonment / Sigra",
+        "safetyRating": 4,
+        "vibe": "Modern, hotels, away from ghat chaos",
+        "stayHere": true,
+        "notes": "Budget mid-range hotels with working AC. Good if you want to retreat from the intensity."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Fake priest forced tilak/thread + 'donation'",
+        "severity": "high",
+        "where": "Varanasi",
+        "what": "Ties thread before you can refuse, demands ₹500–₹10,000. Hands in pockets, firm 'no'.",
+        "avoid": "Ties thread before you can refuse, demands ₹500–₹10,000. Hands in pockets, firm 'no'."
+      },
+      {
+        "title": "Photography extortion at Manikarnika (cremation ghat)",
+        "severity": "critical",
+        "where": "Varanasi",
+        "what": "Photo strictly forbidden anyway, but fake 'caretakers' threaten heavy fines if you have a camera. Don't take photos there at all — out of respect & safety.",
+        "avoid": "Photo strictly forbidden anyway, but fake 'caretakers' threaten heavy fines if you have a camera. Don't take photos there at all — out of respect & safety."
+      },
+      {
+        "title": "Boat overcharge for sunrise / Aarti",
+        "severity": "high",
+        "where": "Varanasi",
+        "what": "Quoted ₹3,000–₹5,000; real rate is ₹500–₹800 for a shared boat, ₹1,500–₹2,500 private.",
+        "avoid": "Quoted ₹3,000–₹5,000; real rate is ₹500–₹800 for a shared boat, ₹1,500–₹2,500 private."
+      },
+      {
+        "title": "Fake guide claiming to be 'temple authority'",
+        "severity": "high",
+        "where": "Varanasi",
+        "what": "At Kashi Vishwanath, asks for 'special darshan fee' = pocket money.",
+        "avoid": "At Kashi Vishwanath, asks for 'special darshan fee' = pocket money."
+      },
+      {
+        "title": "Drugged tea / lassi from random shops",
+        "severity": "critical",
+        "where": "Varanasi",
+        "what": "Bhang lassi shops sometimes much stronger than declared. Tourists hospitalised.",
+        "avoid": "Bhang lassi shops sometimes much stronger than declared. Tourists hospitalised."
+      },
+      {
+        "title": "Hotel switch from station",
+        "severity": "high",
+        "where": "Varanasi",
+        "what": "Cyclo/auto driver claims hotel closed → commission guesthouse.",
+        "avoid": "Cyclo/auto driver claims hotel closed → commission guesthouse."
+      },
+      {
+        "title": "Shoe theft at temples",
+        "severity": "medium",
+        "where": "Varanasi",
+        "what": "Wear cheap sliders. Use the official locker.",
+        "avoid": "Wear cheap sliders. Use the official locker."
+      },
+      {
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "severity": "critical",
+        "where": "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "what": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "avoid": "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Holy City Rickshaw Company",
+        "tip": "Launched September 2024 in Varanasi. Sister org of Pink City Rickshaw Company. 25 women drivers, 12 e-autos. Funded by Intrepid Foundation. Perfect for solo women visiting Varanasi ghats.",
+        "approxCost": "₹600–1,500 per tour",
+        "bookingMethod": "Website: holycityrickshaw.com | Direct booking"
+      },
+      {
+        "mode": "Holy City Rickshaw Company",
+        "tip": "Launched September 2024 in Varanasi. Sister org of Pink City Rickshaw Company. 25 women drivers, 12 e-autos. Funded by Intrepid Foundation. Perfect for solo women visiting Varanasi ghats.",
+        "approxCost": "₹600–1,500 per tour",
+        "bookingMethod": "Website: holycityrickshaw.com | Direct booking"
+      },
+      {
+        "mode": "Holy City Rickshaw Company",
+        "tip": "Launched September 2024 in Varanasi. Sister org of Pink City Rickshaw Company. 25 women drivers, 12 e-autos. Funded by Intrepid Foundation. Perfect for solo women visiting Varanasi ghats.",
+        "approxCost": "₹600–1,500 per tour",
+        "bookingMethod": "Website: holycityrickshaw.com | Direct booking"
+      },
+      {
+        "mode": "Holy City Rickshaw Company",
+        "tip": "Launched September 2024 in Varanasi. Sister org of Pink City Rickshaw Company. 25 women drivers, 12 e-autos. Funded by Intrepid Foundation. Perfect for solo women visiting Varanasi ghats.",
+        "approxCost": "₹600–1,500 per tour",
+        "bookingMethod": "Website: holycityrickshaw.com | Direct booking"
+      },
+      {
+        "mode": "Cycle rickshaw",
+        "tip": "Best for narrow gali (lane) navigation. Agree price before riding.",
+        "approxCost": "₹30–100 within ghat area"
+      },
+      {
+        "mode": "Auto-rickshaw",
+        "tip": "For Cantonment ↔ ghats. Insist on meter or fixed price.",
+        "approxCost": "₹50–150"
+      },
+      {
+        "mode": "Pre-paid taxi (station/airport)",
+        "tip": "Book at official pre-paid counter only — ignore touts outside.",
+        "approxCost": "₹300–500 from Varanasi Junction"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Brown Bread Bakery",
+        "type": "Café + cultural space",
+        "angle": "FO — Female-Owned",
+        "why": "Run by Aleksandra (Polish founder); supports Learning for Life school for street kids. Vegetarian bakery; live classical music nights. Most solo-female-friendly Varanasi café.",
+        "approxCost": "Meal ₹250–₹500; live music free with dinner."
+      },
+      {
+        "name": "BHU campus tour + Bharat Kala Bhavan museum",
+        "type": "Self-guided cultural visit",
+        "angle": "VS — Verified Safe",
+        "why": "Banaras Hindu University's 1,300-acre campus is calm, well-policed, women-respectful. Bharat Kala Bhavan museum has rare Mughal miniatures. Total escape from ghat chaos.",
+        "approxCost": "Campus free; museum ₹40 (Indian) / ₹150 (foreigner). Closed Sun."
+      },
+      {
+        "name": "Female-led sunrise boat (via local women's collective)",
+        "type": "Boat ride",
+        "angle": "FO+VS — Combined",
+        "why": "Several Varanasi homestays now arrange female-rowed boats — a relatively new community initiative. Same sunrise, vastly different experience from typical aggressive boatmen.",
+        "approxCost": "₹600–₹1,200/person shared."
+      },
+      {
+        "name": "Ladies' yoga at Ganga View Cafe (sunrise)",
+        "type": "Yoga class",
+        "angle": "VS+FM — Combined",
+        "why": "Daily 6am yoga overlooking Ganga, women-majority class. Drop-in friendly; non-spiritual.",
+        "approxCost": "₹300/class; 60 minutes."
+      },
+      {
+        "name": "Hostel LaVie",
+        "type": "Female-only / women-friendly hostel",
+        "angle": "VS — Verified Safe",
+        "why": "Consistently top-rated for solo women in Varanasi. 'Female-only dorms, very safe, excellent staff.' Multiple recent hostel roundups 2024–25.",
+        "approxCost": "₹500–900 dorm | ₹1,800–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Book sunrise boat ride through your guesthouse the evening before",
+      "Carry a scarf to cover shoulders and head at all temple and ghat sites",
+      "Download offline Varanasi map (Maps.me) — alleys have no signal",
+      "Confirm train onward to next destination — Varanasi Junction gets very crowded",
+      "Keep ₹100–200 in exact change for boat rides, rickshaws, and temple donations"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Hire only licensed guides through your guesthouse, not ghat touts",
+        "Agree total boat ride price and passenger count before boarding",
+        "Stay in Assi Ghat area for calmer mornings and safer evenings",
+        "Attend Ganga Aarti at Dashashwamedh Ghat — arrive 30 min early for a standing spot"
+      ],
+      "dont": [
+        "Accept free marigolds, sindoor, or blessings from anyone at the ghats",
+        "Drink or eat anything offered by a stranger near any ghat",
+        "Follow anyone offering to show you a 'lesser-known temple' or 'secret ceremony'",
+        "Photograph burning ghats without explicit permission from the family present"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1200,
+      "midRange": 2800,
+      "comfortable": 8000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Varanasi Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Tourist Police Varanasi",
+        "number": "0542-2502020"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": true,
+    "premiumPreview": "Premium covers: the 4 guesthouses with women-only floors on Assi Ghat, exact guide to navigating Manikarnika ethically, a Varanasi → Sarnath day-trip itinerary with female-led guide contact, and the Benares Hindu University campus walk (secretly one of the safest and most beautiful morning walks in the city).",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Varanasi&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "manali-india",
+    "destination": "Manali",
+    "country": "India",
+    "audience": "indian",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 8,
+    "heroImageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "tldr": [
+      "Old Manali is for backpackers and café culture; New Manali has ATMs, pharmacies, and reliable transport.",
+      "Rohtang Pass requires an NGT online permit — book minimum 2 days in advance, slots fill fast.",
+      "July–August is peak monsoon; landslides close the Manali–Leh highway with zero warning.",
+      "Altitude sickness starts around 2,050m — acclimatise for a full day before trekking anywhere.",
+      "Solo after 10pm in New Manali: stay in. Old Manali lanes are fine until sunset, not after."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Old Manali",
+        "safetyRating": 4,
+        "vibe": "Backpacker cafés, Israeli vibe, chill lanes",
+        "stayHere": true,
+        "notes": "Best solo-female atmosphere. Dragon Café, Café 1947, Dylan's Toasted & Roasted. Quiet by 10pm."
+      },
+      {
+        "name": "New Manali (Mall Road)",
+        "safetyRating": 3,
+        "vibe": "Busy, ATMs, transport, shops",
+        "stayHere": false,
+        "notes": "Practical for logistics; avoid budget hotels here — they face the noisy bus stand."
+      },
+      {
+        "name": "Vashisht village",
+        "safetyRating": 4,
+        "vibe": "Hot springs, guesthouses, temple, calm",
+        "stayHere": true,
+        "notes": "15 min from Mall Road. Female-friendly guesthouses, sulphur hot springs, Vashisht Temple."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Drug possession setup (Old Manali / Kasol nearby)",
+        "severity": "critical",
+        "where": "Manali",
+        "what": "Charas offered → 'cop' demands bribe. NDPS Act jail risk. Refuse all offers.",
+        "avoid": "Charas offered → 'cop' demands bribe. NDPS Act jail risk. Refuse all offers."
+      },
+      {
+        "title": "Bike/scooter rental damage scam",
+        "severity": "high",
+        "where": "Manali",
+        "what": "Photo before+after, never leave passport, use known agencies.",
+        "avoid": "Photo before+after, never leave passport, use known agencies."
+      },
+      {
+        "title": "Taxi cartel rates to Rohtang/Solang",
+        "severity": "high",
+        "where": "Manali",
+        "what": "Fixed by union; high but unavoidable. Hotel can sometimes negotiate.",
+        "avoid": "Fixed by union; high but unavoidable. Hotel can sometimes negotiate."
+      },
+      {
+        "title": "Paragliding operator overcharge / no insurance",
+        "severity": "high",
+        "where": "Manali",
+        "what": "Use only HP Tourism-licensed operators. Verify pilot license.",
+        "avoid": "Use only HP Tourism-licensed operators. Verify pilot license."
+      },
+      {
+        "title": "Honeymoon package fraud online",
+        "severity": "high",
+        "where": "Manali",
+        "what": "Fake Instagram/WhatsApp packages with advance UPI demand. Lose ₹20K–₹1L.",
+        "avoid": "Fake Instagram/WhatsApp packages with advance UPI demand. Lose ₹20K–₹1L."
+      },
+      {
+        "title": "Photographer at Hidimba Temple / Mall Road",
+        "severity": "medium",
+        "where": "Manali",
+        "what": "'Free photo with traditional dress' → demands ₹500–₹2,000.",
+        "avoid": "'Free photo with traditional dress' → demands ₹500–₹2,000."
+      },
+      {
+        "title": "Drug Possession Setup (Goa)",
+        "severity": "critical",
+        "where": "Goa (Anjuna, Vagator, Morjim), Manali (Old Manali, Kasol), Rishikesh",
+        "what": "Local offers drugs at a beach/party; once accepted/handed over, accomplice 'cop' arrives, demands large bribe to avoid arrest. Punishment for narcotics in India is severe — even small amounts = years in jail.",
+        "avoid": "Refuse all drug offers. NDPS Act in India is harsh; 1 year minimum for personal possession. Walk away from anyone offering 'something to relax'."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "HRTC Volvo bus (Delhi → Manali)",
+        "tip": "Overnight AC sleeper. Most reliable option; book on HRTC website.",
+        "approxCost": "₹700–1,400 Delhi → Manali"
+      },
+      {
+        "mode": "Shared taxi / cab",
+        "tip": "For Solang Valley, Rohtang, Naggar. Pre-book via guesthouse.",
+        "approxCost": "₹300–800/day shared"
+      },
+      {
+        "mode": "Local auto-rickshaw",
+        "tip": "Within New Manali and between Vashisht and Mall Road.",
+        "approxCost": "₹30–80"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Old Manali — Drifters' Cafe",
+        "type": "Café",
+        "angle": "VS — Verified Safe",
+        "why": "Long-running solo-female-traveler hangout. Riverside seating; predictable; staff know who the regulars are.",
+        "approxCost": "Meal ₹350–₹650."
+      },
+      {
+        "name": "Naggar Castle + Roerich Art Gallery",
+        "type": "Cultural site",
+        "angle": "VS — Verified Safe",
+        "why": "16km from Manali; quiet, mountain-view castle + Russian-painter Nicholas Roerich's home gallery. Off the Solang Valley tourist circuit.",
+        "approxCost": "₹50 castle / ₹50 Roerich; auto from Manali ₹600 round trip."
+      },
+      {
+        "name": "Vashisht Hot Springs (women's section)",
+        "type": "Hot springs",
+        "angle": "FM — Female-Only",
+        "why": "Free natural hot springs at temple complex. Separate women's pool; locals trust it; solo women bathe here regularly.",
+        "approxCost": "Free. Bring change of clothes + towel."
+      },
+      {
+        "name": "Ila's Garden Cafe (Manali)",
+        "type": "Café",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded organic café with garden seating. Slow food, mountain ingredients. Quiet enough for journaling/reading solo.",
+        "approxCost": "Meal ₹400–₹700."
+      },
+      {
+        "name": "Solo women hiker community via Zostel Manali",
+        "type": "Hostel + community",
+        "angle": "FM — Female-Majority",
+        "why": "Zostel Manali has informal female-only hike groups that form daily. Safer way to do Bhrigu Lake / Patalsu Peak hikes than going alone.",
+        "approxCost": "Hostel ₹700–₹1,200; hikes ₹500–₹2,500."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Book Rohtang Pass NGT permit at rohtangpermits.nic.in (free, 2 days ahead)",
+      "Carry altitude sickness tablets (Diamox) from a pharmacy before ascending",
+      "Download offline HRTC bus schedule — connectivity drops above Kullu",
+      "Pack a down jacket regardless of season — nights drop to 5°C even in July",
+      "Check Manali–Leh highway status on HP Traffic Police Twitter before Leh plans"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Acclimatise for one full day in Manali before any high-altitude activity",
+        "Stay in Old Manali or Vashisht for the best solo-female guesthouse culture",
+        "Book treks only through registered agencies with ITBP-certified guides",
+        "Carry ₹5,000+ in cash — ATMs in Lahaul-Spiti area frequently run out"
+      ],
+      "dont": [
+        "Trek alone above 3,000m without an acclimatisation day and a registered guide",
+        "Ignore the 'road closed' signs on the Rohtang approach during monsoon",
+        "Pay any middleman for Rohtang permits — they are free and online-only",
+        "Drive rented bikes above Rohtang without proper gear and experience"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1300,
+      "midRange": 3000,
+      "comfortable": 10000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Manali Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Kullu–Manali Hospital",
+        "number": "01902-252779"
+      },
+      {
+        "label": "ITBP Emergency",
+        "number": "01902-252533"
+      }
+    ],
+    "isPremium": true,
+    "premiumPreview": "Premium covers: the 5 guesthouses in Old Manali rated safest by solo female travellers, exact Spiti Valley extension itinerary (Manali → Kaza → Chandratal, 7 days), monsoon-season alternatives when Rohtang is closed, and winter (Dec–Feb) Manali survival guide.",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Manali&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "rishikesh-india",
+    "destination": "Rishikesh",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "priya-kochi",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 11,
+    "heroImageUrl": "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=800&q=80",
+    "tldr": [
+      "Rishikesh is the global yoga capital — but 30% of 'ashrams' are unregulated and target foreign women.",
+      "Laxman Jhula bridge is the beating heart of the backpacker belt; stay within 1km of it.",
+      "Bungee jumping and white-water rafting are legitimate and world-class here — use only registered operators.",
+      "Most of the town is alcohol and meat free; this is a genuine religious city, not a performance.",
+      "Monsoon (Jul–Sep): Ganges floods, rafting closed, ghats underwater — plan around this."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Laxman Jhula",
+        "safetyRating": 4,
+        "vibe": "Backpacker belt, cafés, yoga studios, shopping",
+        "stayHere": true,
+        "notes": "Best solo-female base. Walkable to most activities. German Bakery, Little Buddha Café."
+      },
+      {
+        "name": "Ram Jhula / Swarg Ashram",
+        "safetyRating": 3,
+        "vibe": "Ashram-dense, religious, intense",
+        "stayHere": false,
+        "notes": "Beautiful but requires constant polite boundary-setting. Better as day visit from Laxman Jhula."
+      },
+      {
+        "name": "Tapovan",
+        "safetyRating": 4,
+        "vibe": "Upscale yoga retreats, calm, riverside resorts",
+        "stayHere": true,
+        "notes": "For mid-range to premium stays. Quieter than Laxman Jhula. 5-min auto ride."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Drug Possession Setup (Goa)",
+        "severity": "critical",
+        "where": "Goa (Anjuna, Vagator, Morjim), Manali (Old Manali, Kasol), Rishikesh",
+        "what": "Local offers drugs at a beach/party; once accepted/handed over, accomplice 'cop' arrives, demands large bribe to avoid arrest. Punishment for narcotics in India is severe — even small amounts = years in jail.",
+        "avoid": "Refuse all drug offers. NDPS Act in India is harsh; 1 year minimum for personal possession. Walk away from anyone offering 'something to relax'."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Shared auto (Haridwar ↔ Rishikesh)",
+        "tip": "Cheapest and most used. Runs constantly.",
+        "approxCost": "₹40–80"
+      },
+      {
+        "mode": "Cycle rickshaw (within town)",
+        "tip": "Best for navigating the narrow lanes of the ashram belt.",
+        "approxCost": "₹30–80"
+      },
+      {
+        "mode": "AC bus (Delhi → Rishikesh)",
+        "tip": "UPSRTC or private Volvo. 6–7 hours, comfortable.",
+        "approxCost": "₹400–700"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Stops Hostels (Female Dorms)",
+        "type": "Hostel chain with female dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Women's dorms in North India locations. Colourful, social hostels. Recommended in solo women India hostel lists 2024.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Research any yoga retreat or ashram on TripAdvisor and Lonely Planet Thorntree forums before booking",
+      "Book white-water rafting with a TURA-registered operator (ask for licence number)",
+      "Carry a scarf for temples and ashrams — exposed shoulders aren't welcome",
+      "Pack mosquito repellent — riverside location means evening bites",
+      "Check Ganges flood status if visiting June–September"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Stay in Laxman Jhula area for the best balance of safety and social vibe",
+        "Book yoga classes at established studios (Sivananda, Parmarth Niketan) not street-tout pop-ups",
+        "Attend the Parmarth Ganga Aarti at sunset — free, spectacular, and genuinely moving",
+        "Use TURA-registered rafting operators even if they cost ₹200 more"
+      ],
+      "dont": [
+        "Pay more than 2 weeks upfront for any ashram or retreat programme",
+        "Accept invitations to private 'meditation sessions' with individual gurus",
+        "Raft with any operator who skips the safety briefing or life-jacket check",
+        "Swim in the Ganges during or after monsoon — current is dangerous"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1500,
+      "midRange": 3500,
+      "comfortable": 7500,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Rishikesh Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "AIIMS Rishikesh",
+        "number": "0135-2462941"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": true,
+    "premiumPreview": "Premium covers: vetted list of 6 yoga retreats safe for solo foreign women (with red flags to watch for), the Rishikesh–Chopta–Tungnath trek guide (3 days, beginner-friendly), best riverside guesthouses with women-only floors, and a Haridwar day-trip add-on guide.",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Rishikesh&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "delhi-india",
+    "destination": "Delhi",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "leila-delhi",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 15,
+    "heroImageUrl": "https://images.unsplash.com/photo-1587474135619-672929a8af76?w=800&q=80",
+    "tldr": [
+      "Delhi Metro is your best friend — safe, AC, women-only coaches on every train.",
+      "Old Delhi (Chandni Chowk) is overwhelming and scam-dense; go with a plan and leave by 6pm.",
+      "Prepaid taxi booth inside IGI Airport arrivals is the only safe airport exit — ignore everyone else.",
+      "Connaught Place touts will claim the tourist office is closed/moved; it is not — walk in yourself.",
+      "South Delhi (Hauz Khas, Saket, Lodi Colony) is a different city — modern, safe, great food."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Hauz Khas / South Delhi",
+        "safetyRating": 5,
+        "vibe": "Cafés, boutiques, safe nights, metro access",
+        "stayHere": true,
+        "notes": "Best base for solo women. Hauz Khas Village has rooftop bars; Lodi Colony has street art and Green's Café."
+      },
+      {
+        "name": "Paharganj",
+        "safetyRating": 2,
+        "vibe": "Budget hotel strip, backpacker chaos, near New Delhi station",
+        "stayHere": false,
+        "notes": "Cheap but high harassment and scam density. Only stay if you're catching an early train and need proximity."
+      },
+      {
+        "name": "Connaught Place / CP",
+        "safetyRating": 3,
+        "vibe": "Commercial centre, heritage architecture, central",
+        "stayHere": true,
+        "notes": "Good for day visits. Underground metro-connected. High tout density; walk confidently and ignore everyone."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Hotel switch from IGI airport",
+        "severity": "critical",
+        "where": "Delhi",
+        "what": "Driver claims hotel closed/full, takes you to commission hotel paying him 30–50%.",
+        "avoid": "Driver claims hotel closed/full, takes you to commission hotel paying him 30–50%."
+      },
+      {
+        "title": "Fake 'Government Tourist Office' in CP/Paharganj",
+        "severity": "critical",
+        "where": "Delhi",
+        "what": "Sells fake train tickets, overpriced tours. Real one is at 88 Janpath Road.",
+        "avoid": "Sells fake train tickets, overpriced tours. Real one is at 88 Janpath Road."
+      },
+      {
+        "title": "New Delhi Railway Station 'tourist office' upstairs",
+        "severity": "critical",
+        "where": "Delhi",
+        "what": "Real IRCTC International Tourist Bureau is on 1st floor. Touts redirect you to fake one.",
+        "avoid": "Real IRCTC International Tourist Bureau is on 1st floor. Touts redirect you to fake one."
+      },
+      {
+        "title": "Fake police in Paharganj",
+        "severity": "high",
+        "where": "Delhi",
+        "what": "Plainclothes 'officers' demand passport check + on-spot fine. Real police don't fine on the spot.",
+        "avoid": "Plainclothes 'officers' demand passport check + on-spot fine. Real police don't fine on the spot."
+      },
+      {
+        "title": "Auto refusing meter / inflated fares",
+        "severity": "high",
+        "where": "Delhi",
+        "what": "Use Uber/Ola — they're 30–60% cheaper than tourist auto rates.",
+        "avoid": "Use Uber/Ola — they're 30–60% cheaper than tourist auto rates."
+      },
+      {
+        "title": "Pickpocketing in Chandni Chowk metro",
+        "severity": "high",
+        "where": "Delhi",
+        "what": "Yellow line during rush hour is hotspot. Front pocket only, zipped bag.",
+        "avoid": "Yellow line during rush hour is hotspot. Front pocket only, zipped bag."
+      },
+      {
+        "title": "Bird poop / shirt stain distraction in CP",
+        "severity": "medium",
+        "where": "Delhi",
+        "what": "Two-person team. Step back, don't let anyone touch you.",
+        "avoid": "Two-person team. Step back, don't let anyone touch you."
+      },
+      {
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "severity": "critical",
+        "where": "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "what": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "avoid": "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Sakha / Women on Wheels",
+        "tip": "Social enterprise; all-women drivers from marginalised communities; >1M safe rides reported.",
+        "approxCost": "₹200–600 for city rides",
+        "bookingMethod": "Website: sakhaconsultingwings.com | Phone: +91-11-26521862"
+      },
+      {
+        "mode": "GoPink Cabs",
+        "tip": "Bengaluru-based only. Airport (KIA via KSTDC), city rides, outstation. Confirmed operational. Note: booking confirmation process can be slow.",
+        "approxCost": "Airport: ₹1,200–2,500 | City: ₹400–900",
+        "bookingMethod": "Website: gopinkcabs.com | Phone: 080-23121234 / 9740235556 | Email: operations@gopinkcabs.com"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Sakha / Women on Wheels",
+        "tip": "Social enterprise; all-women drivers from marginalised communities; >1M safe rides reported.",
+        "approxCost": "₹200–600 for city rides",
+        "bookingMethod": "Website: sakhaconsultingwings.com | Phone: +91-11-26521862"
+      },
+      {
+        "mode": "GoPink Cabs",
+        "tip": "Bengaluru-based only. Airport (KIA via KSTDC), city rides, outstation. Confirmed operational. Note: booking confirmation process can be slow.",
+        "approxCost": "Airport: ₹1,200–2,500 | City: ₹400–900",
+        "bookingMethod": "Website: gopinkcabs.com | Phone: 080-23121234 / 9740235556 | Email: operations@gopinkcabs.com"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Sheroes Hangout (Delhi outpost — call ahead)",
+        "type": "Café & community space",
+        "angle": "FO+FM — Combined",
+        "why": "Café entirely staffed by acid-attack survivors. Pay-as-you-wish model. The single most-cited solo-female-traveler stop on Delhi-Agra circuit.",
+        "approxCost": "Main location is Agra; Delhi pop-ups occasionally. Pay-what-you-want."
+      },
+      {
+        "name": "Black Cab Cafe (Hauz Khas Village)",
+        "type": "Café",
+        "angle": "VS — Verified Safe",
+        "why": "Women-friendly cafe in HKV with strong solo-female reputation. Quiet, well-lit, genuinely respectful staff.",
+        "approxCost": "Open 11am–11pm; meal for one ~₹600–₹900"
+      },
+      {
+        "name": "Lodhi Art District (street art walk)",
+        "type": "Self-guided experience",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest open-air street art collection in Lodhi Colony. Daytime walking, residential area, very low harassment reports from solo women.",
+        "approxCost": "Free. Best 7–9am or 4–6pm. ~2 hours self-guided."
+      },
+      {
+        "name": "Hide-In Hostel (women-only dorms)",
+        "type": "Hostel",
+        "angle": "FM — Female-Majority",
+        "why": "Highest-rated female-solo-traveler hostel in Delhi (Hostelworld 9.0+). Dedicated female dorm with secure curtained beds.",
+        "approxCost": "₹600–₹900 dorm. Near Karol Bagh."
+      },
+      {
+        "name": "Master Chef Neha Deepak Shah's cooking class",
+        "type": "Cooking workshop",
+        "angle": "FO — Female-Owned",
+        "why": "Top India MasterChef contestant runs intimate Delhi food walks and cooking sessions. Female-led; small groups.",
+        "approxCost": "₹2,500–₹4,500/session; 4–6 hours."
+      },
+      {
+        "name": "Champa Gali (Saidulajab)",
+        "type": "Café cluster + boutique stores",
+        "angle": "VS — Verified Safe",
+        "why": "Quiet alley of cafés (Jugmug Thela, Blue Tokai) and boutiques, mostly female-founded. Solo-women friendly; daytime is best.",
+        "approxCost": "Free entry; ₹300–₹800 for café visit. Closed Mondays."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Download Delhi Metro app and top up a Metro Smart Card on arrival",
+      "Book airport transfer via Uber/Ola app before landing — prepaid taxi as backup",
+      "Save India Tourism Delhi helpline: 1800-111-363 (free, English)",
+      "Check air quality index (AQI Delhi) before travel — Nov–Jan can be severe",
+      "Book Agra day-trip train (Gatimaan Express or Shatabdi) on IRCTC app in advance"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Use the metro women-only coach for every journey — it is safe and enforced",
+        "Walk into India Tourism office on Janpath yourself; ignore all claims it is closed",
+        "Explore Lodi Colony street art and Lodi Garden as a morning pair",
+        "Eat at Karim's in Old Delhi for lunch — old establishment, table service, safe"
+      ],
+      "dont": [
+        "Follow any stranger who claims to be a 'student' wanting to practice English",
+        "Accept auto or taxi rides from touts inside the airport arrivals hall",
+        "Walk Paharganj lanes alone after dark",
+        "Agree to carry any package or parcel for anyone, however friendly they seem"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1800,
+      "midRange": 4000,
+      "comfortable": 12000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Delhi Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "India Tourism Delhi",
+        "number": "1800-111-363"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": false,
+    "premiumPreview": "",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Delhi&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER",
+      "airalo": "https://www.airalo.com/india-esim?ref=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "agra-india",
+    "destination": "Agra",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "sara-berlin",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 10,
+    "heroImageUrl": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80",
+    "tldr": [
+      "Taj Mahal at sunrise (gates open 6am) means 90 minutes of soft light before bus tours arrive.",
+      "Agra Fort and Fatehpur Sikri are world-class and almost always skipped — don't skip them.",
+      "Agra is a 2-night city maximum; most people do it as a Golden Triangle stop, not a base.",
+      "The area around Taj Mahal's south gate is the highest scam-density zone in India.",
+      "Book Taj Mahal tickets on the ASI India website the night before — gate tickets sell out."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Taj Ganj (south gate area)",
+        "safetyRating": 2,
+        "vibe": "Closest to Taj, maximum tout density",
+        "stayHere": false,
+        "notes": "Budget hotels here but you'll run a gaunt of scams every time you step outside. Stay in Sadar Bazaar instead."
+      },
+      {
+        "name": "Sadar Bazaar",
+        "safetyRating": 4,
+        "vibe": "Lively market area, better hotels, 10 min to Taj",
+        "stayHere": true,
+        "notes": "Best balance of convenience and calm. Dasaprakash for South Indian food; Pind Balluchi for North Indian."
+      }
+    ],
+    "scams": [
+      {
+        "title": "'Taj Mahal closed today' / fake holiday",
+        "severity": "high",
+        "where": "Agra",
+        "what": "Touts near gates. Taj is closed only on FRIDAYS — verify yourself at the ticket counter.",
+        "avoid": "Touts near gates. Taj is closed only on FRIDAYS — verify yourself at the ticket counter."
+      },
+      {
+        "title": "Fake guides at Taj Mahal",
+        "severity": "high",
+        "where": "Agra",
+        "what": "Demand ₹2,000–₹5,000 after free 'tour'. Hire only ASI-licensed guides with photo ID at the counter.",
+        "avoid": "Demand ₹2,000–₹5,000 after free 'tour'. Hire only ASI-licensed guides with photo ID at the counter."
+      },
+      {
+        "title": "Marble inlay / gem export scam",
+        "severity": "critical",
+        "where": "Agra",
+        "what": "Drivers commission you to shops claiming 'family workshop'. Same scam as Jaipur — overpriced fakes.",
+        "avoid": "Drivers commission you to shops claiming 'family workshop'. Same scam as Jaipur — overpriced fakes."
+      },
+      {
+        "title": "Auto/taxi inflated fares from Cantt station",
+        "severity": "high",
+        "where": "Agra",
+        "what": "Use prepaid taxi at station OR Uber/Ola. Quoted rates are 3–5x real.",
+        "avoid": "Use prepaid taxi at station OR Uber/Ola. Quoted rates are 3–5x real."
+      },
+      {
+        "title": "Photographer at Taj demanding fees",
+        "severity": "medium",
+        "where": "Agra",
+        "what": "Approach you with 'free photo' offer, then demand ₹500–₹2,000 per print.",
+        "avoid": "Approach you with 'free photo' offer, then demand ₹500–₹2,000 per print."
+      },
+      {
+        "title": "Shoe-cover fee scam",
+        "severity": "medium",
+        "where": "Agra",
+        "what": "Free shoe covers come with your Taj ticket. Don't pay anyone selling them.",
+        "avoid": "Free shoe covers come with your Taj ticket. Don't pay anyone selling them."
+      },
+      {
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "severity": "critical",
+        "where": "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "what": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "avoid": "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
+      },
+      {
+        "title": "Fake Government Tourist Office",
+        "severity": "critical",
+        "where": "Delhi (Connaught Place, Paharganj), Agra, Jaipur",
+        "what": "Fake offices with 'Govt. of India Tourism' signage sell inflated tour packages, fake train tickets, or non-existent hotel bookings. The real India Tourism office is at 88 Janpath Road, Delhi. Real IRCTC International Tourist Bureau is on the 1st floor of New Delhi Railway Station only.",
+        "avoid": "Only book via incredibleindia.gov.in, irctc.co.in, or known platforms (MakeMyTrip, Booking.com). Never follow a 'helpful' stranger to an office. Verify location on Google Maps with reviews."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Tonga (horse carriage) or e-rickshaw",
+        "tip": "Mandatory for Taj Mahal approach — no petrol vehicles within 500m.",
+        "approxCost": "₹50–150"
+      },
+      {
+        "mode": "Uber / Ola",
+        "tip": "Available in Agra. Best for Agra Fort ↔ Taj ↔ Fatehpur Sikri day-loop.",
+        "approxCost": "₹100–400"
+      },
+      {
+        "mode": "Gatimaan Express (Delhi → Agra)",
+        "tip": "Fastest train, 1h35m. Book on IRCTC 60 days ahead.",
+        "approxCost": "₹750 (AC chair car)"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Sheroes Hangout Café",
+        "type": "Café & community space",
+        "angle": "FO+FM — Combined",
+        "why": "The original. Run entirely by acid-attack survivors via Chhanv Foundation. Pay-what-you-can. International women's travel circuits routinely include this. Truly transformative experience.",
+        "approxCost": "Pay-as-you-wish; full meal recommended ₹250–₹500. Open 10am–10pm."
+      },
+      {
+        "name": "Mughal Heritage Walk (Kachhpura village)",
+        "type": "Walking tour",
+        "angle": "VS — Verified Safe",
+        "why": "Community-run walking tour through ancient village across Yamuna from Taj. Women guides available on request. Meaningful cultural exchange vs. monument-only itinerary.",
+        "approxCost": "₹500–₹1,000; 2–3 hours; book a day ahead."
+      },
+      {
+        "name": "Stitching Future Foundation (block printing workshop)",
+        "type": "Workshop",
+        "angle": "FO — Female-Owned",
+        "why": "Female-led foundation teaching block printing and tailoring to local women; visitors can join short workshops. Hands-on with a craft, not just shopping.",
+        "approxCost": "₹1,500–₹3,500 for half-day workshop."
+      },
+      {
+        "name": "Sunset at Mehtab Bagh with female auto driver",
+        "type": "Self-guided + transport",
+        "angle": "VS — Verified Safe",
+        "why": "Free Taj sunset view minus the East-Gate crowd. Hotels can arrange a verified female auto/cab driver for the round trip. Quietest, safest Taj experience.",
+        "approxCost": "₹300 (Indian) / ₹300 (foreigner) entry; auto round-trip ₹400–₹600."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Stops Hostels (Female Dorms)",
+        "type": "Hostel chain with female dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Women's dorms in North India locations. Colourful, social hostels. Recommended in solo women India hostel lists 2024.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Book Taj Mahal tickets online at asi.payumoney.com the evening before",
+      "Set alarm for 5:30am — Taj gates open 6am and sunrise light is 6:30–8am",
+      "Book Gatimaan Express or Shatabdi on IRCTC app well in advance",
+      "Carry exact change for e-rickshaw to Taj south gate (₹50–100)",
+      "Pack sunscreen and a hat — Agra has zero shade between sites"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Enter via west gate for shorter queues, same monument",
+        "Visit Agra Fort the afternoon of arrival — it is genuinely spectacular and always uncrowded",
+        "Buy marble souvenirs from Sadar Bazaar artisans, not commission shops",
+        "Do Mehtab Bagh at sunset as your last activity — it is free of touts"
+      ],
+      "dont": [
+        "Buy Taj tickets from any booth on the approach road — official only",
+        "Accept free marigold garlands or 'blessings' outside the Taj gates",
+        "Agree to an auto return price that isn't fixed before you depart",
+        "Skip Fatehpur Sikri — it is 40km away and completely worth the detour"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1400,
+      "midRange": 3000,
+      "comfortable": 10000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Agra Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Tourist Police Agra",
+        "number": "0562-2421204"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": false,
+    "premiumPreview": "",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Agra&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "mumbai-india",
+    "destination": "Mumbai",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 13,
+    "heroImageUrl": "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=800&q=80",
+    "tldr": [
+      "Mumbai local trains have women-only coaches — use them; the general coaches during peak hour are not safe.",
+      "Mumbai is India's safest major city for solo women at night, but marine drive after midnight is still solo-avoid.",
+      "Taxis (black-and-yellow) are metered and honest here; Uber/Ola also fully operational.",
+      "Colaba Causeway is pick-pocket central — use a crossbody bag with the clasp facing inward.",
+      "Dharavi is a thriving urban township, not a tragedy — the Reality Tours guided visit is genuinely excellent."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Bandra West",
+        "safetyRating": 5,
+        "vibe": "Trendy, safe, restaurants, nightlife, sea link views",
+        "stayHere": true,
+        "notes": "Best solo-female base in Mumbai. Carter Road, Hill Road, Linking Road. Metro and local train access."
+      },
+      {
+        "name": "Colaba",
+        "safetyRating": 4,
+        "vibe": "Heritage, Taj hotel, cafés, tourist belt",
+        "stayHere": true,
+        "notes": "Gateway of India, Leopold Café, Mondegar. Tourist-dense but safe. Pick-pocket aware at Causeway market."
+      },
+      {
+        "name": "Juhu / Andheri West",
+        "safetyRating": 4,
+        "vibe": "Airport-close, Bollywood adjacent, beach",
+        "stayHere": true,
+        "notes": "Good for transit stays near airport. Juhu Beach at sunset is pleasant; skip after 9pm."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Pickpocketing on local trains & at CST",
+        "severity": "high",
+        "where": "Mumbai",
+        "what": "Mumbai's #1 tourist crime. Front pocket, zipped bag, no phone in back pocket.",
+        "avoid": "Mumbai's #1 tourist crime. Front pocket, zipped bag, no phone in back pocket."
+      },
+      {
+        "title": "Fake police at Colaba / Gateway",
+        "severity": "high",
+        "where": "Mumbai",
+        "what": "Demand 'foreigner check' + on-spot fine. Demand to go to police station instead.",
+        "avoid": "Demand 'foreigner check' + on-spot fine. Demand to go to police station instead."
+      },
+      {
+        "title": "Gem & carpet shops in Colaba",
+        "severity": "high",
+        "where": "Mumbai",
+        "what": "Same export scam, slightly less aggressive than Jaipur.",
+        "avoid": "Same export scam, slightly less aggressive than Jaipur."
+      },
+      {
+        "title": "Tourist boat overcharge to Elephanta",
+        "severity": "medium",
+        "where": "Mumbai",
+        "what": "Official Elephanta ferry is ₹220–270 from Gateway. Touts quote ₹500–800.",
+        "avoid": "Official Elephanta ferry is ₹220–270 from Gateway. Touts quote ₹500–800."
+      },
+      {
+        "title": "Photo + 'small donation' at Gateway",
+        "severity": "medium",
+        "where": "Mumbai",
+        "what": "Photographer gives 'free' photo, then asks for ₹500.",
+        "avoid": "Photographer gives 'free' photo, then asks for ₹500."
+      },
+      {
+        "title": "Hotel switch from airport",
+        "severity": "high",
+        "where": "Mumbai",
+        "what": "Less common than Delhi but still happens at international arrivals after midnight.",
+        "avoid": "Less common than Delhi but still happens at international arrivals after midnight."
+      },
+      {
+        "title": "Bottled water tampering near beaches",
+        "severity": "medium",
+        "where": "Mumbai",
+        "what": "Check seal, prefer chain stores.",
+        "avoid": "Check seal, prefer chain stores."
+      },
+      {
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "severity": "critical",
+        "where": "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "what": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "avoid": "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Locomo OG (Andheri East)",
+        "type": "Hostel + café + co-working",
+        "angle": "VS+FM — Combined",
+        "why": "Highest-rated Mumbai hostel for solo female travelers; women-only dorm option, secure 24/7 reception, on-site café. Digital nomad friendly.",
+        "approxCost": "₹800–₹1,500 dorm; private rooms ₹2,500+."
+      },
+      {
+        "name": "Roopam (Crawford Market — sari shopping)",
+        "type": "Shopping",
+        "angle": "VS — Verified Safe",
+        "why": "Women-friendly fixed-price sari/textile shop near Crawford. Skip the haggling. Solo female shoppers consistently recommend over the chaos of Mangaldas.",
+        "approxCost": "Saris ₹500–₹15,000; open Mon–Sat 10am–8pm."
+      },
+      {
+        "name": "Reality Tours — Dharavi walking tour",
+        "type": "Walking tour",
+        "angle": "VS — Verified Safe",
+        "why": "Most ethically-run Dharavi tour. 80% of profits to local NGO. Female guides available. Strict no-photo policy respects residents.",
+        "approxCost": "₹950–₹1,400/person; 2.5 hours."
+      },
+      {
+        "name": "Salt Water Cafe (Bandra) + Dr. Bhau Daji Lad Museum",
+        "type": "Café + museum combo",
+        "angle": "VS — Verified Safe",
+        "why": "Salt Water = female-co-founded; Bandra's most welcoming solo-friendly café. Pair with the underrated Bhau Daji Lad Museum (Byculla).",
+        "approxCost": "Café ₹600–₹1,200; museum ₹100 (Indian) / ₹500 (foreigner)."
+      },
+      {
+        "name": "Female-only first-class local train compartment",
+        "type": "Transport experience",
+        "angle": "FM — Female-Only",
+        "why": "Often-missed: Mumbai locals have dedicated women-only carriages, plus a women-only first-class compartment. Genuinely safe, fast, ₹100/ride.",
+        "approxCost": "₹100 first-class / ₹10 general; rush hour 8–11am, 5–9pm"
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Download Mumbai local train map offline — Western, Central, and Harbour lines",
+      "Book Elephanta Island ferry at MTDC pier booth, not from touts",
+      "Save Mumbai Police helpline: 100 and Women's helpline: 103",
+      "Check monsoon dates — July–August, Mumbai floods badly and local trains halt",
+      "Carry a small crossbody bag for Colaba Causeway shopping"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Use the women's coach on all local train journeys — it is safe and air-conditioned on newer trains",
+        "Eat at Britannia & Co in Ballard Estate — 100-year-old Irani café, unmissable berry pulao",
+        "Walk Marine Drive at sunrise for the best crowd-free Gateway view",
+        "Take the Reality Tours Dharavi visit — context changes everything"
+      ],
+      "dont": [
+        "Travel in general coach of local trains during 8–10am or 5–8pm peak hours",
+        "Buy Elephanta ferry tickets from anyone other than the official MTDC booth",
+        "Leave valuables in your hotel room — use the safe or carry them",
+        "Dismiss Dharavi as unsafe — it is a working township and the tour is genuinely safe"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 2500,
+      "midRange": 5000,
+      "comfortable": 15000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Mumbai Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "103"
+      },
+      {
+        "label": "Tourist Helpline",
+        "number": "1800-22-1363"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": false,
+    "premiumPreview": "",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Mumbai&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "bangalore-india",
+    "destination": "Bangalore",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "riya-bangalore",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 10,
+    "heroImageUrl": "https://images.unsplash.com/photo-1596176530799-ede15e49ada9?w=800&q=80",
+    "tldr": [
+      "Bangalore is India's most liveable city for solo women — the tech culture genuinely shifts the baseline.",
+      "Namma Metro (Purple + Green lines) is excellent; women-only coach in every train.",
+      "MG Road and Brigade Road are the tourist belts; Indiranagar and Koramangala are where locals actually go.",
+      "Traffic is brutal — build 2× the expected travel time into any schedule.",
+      "The microbrewery scene here is world-class and solo-female-comfortable; Arbor is the benchmark."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Indiranagar",
+        "safetyRating": 5,
+        "vibe": "Cafés, craft beer, boutiques, young crowd, metro-connected",
+        "stayHere": true,
+        "notes": "The solo-female ideal base. 100 Feet Road for food and nightlife; safe auto culture."
+      },
+      {
+        "name": "Koramangala",
+        "safetyRating": 5,
+        "vibe": "Startup district, restaurants, 24-hour cafés",
+        "stayHere": true,
+        "notes": "Great food at all price points. Social is the best microbrewery. Well-lit streets, Uber always available."
+      },
+      {
+        "name": "MG Road / Brigade Road",
+        "safetyRating": 3,
+        "vibe": "Commercial, hotel strip, tourist-adjacent",
+        "stayHere": false,
+        "notes": "Fine for transit; hotels here are expensive and the neighbourhood is more chaotic than Indiranagar."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Auto rickshaw refusing meter",
+        "severity": "high",
+        "where": "Bangalore",
+        "what": "Most rampant scam in Bangalore. ALWAYS use Rapido/Uber/Namma Yatri (official BMTC-backed app).",
+        "avoid": "Most rampant scam in Bangalore. ALWAYS use Rapido/Uber/Namma Yatri (official BMTC-backed app)."
+      },
+      {
+        "title": "Fake driver at airport claiming to be your Uber/Ola",
+        "severity": "high",
+        "where": "Bangalore",
+        "what": "Verify license plate before getting in.",
+        "avoid": "Verify license plate before getting in."
+      },
+      {
+        "title": "Fake brand stores in Commercial Street",
+        "severity": "medium",
+        "where": "Bangalore",
+        "what": "Counterfeit Apple/Samsung accessories. Buy electronics at authorised stores only.",
+        "avoid": "Counterfeit Apple/Samsung accessories. Buy electronics at authorised stores only."
+      },
+      {
+        "title": "ATM skimming in standalone street ATMs",
+        "severity": "high",
+        "where": "Bangalore",
+        "what": "Use only HDFC/ICICI/SBI/Axis branch ATMs.",
+        "avoid": "Use only HDFC/ICICI/SBI/Axis branch ATMs."
+      },
+      {
+        "title": "Pickpocketing at Majestic during festivals",
+        "severity": "medium",
+        "where": "Bangalore",
+        "what": "Especially during Dussehra, Diwali.",
+        "avoid": "Especially during Dussehra, Diwali."
+      },
+      {
+        "title": "Fake job/visa scam targeting foreign workers",
+        "severity": "high",
+        "where": "Bangalore",
+        "what": "Recent rise — affects African and SE Asian tourists.",
+        "avoid": "Recent rise — affects African and SE Asian tourists."
+      },
+      {
+        "title": "Pre-paid Taxi Diversion / Fake Driver",
+        "severity": "high",
+        "where": "Delhi (IGI), Mumbai (CST), Jaipur, Bangalore",
+        "what": "After paying at the official prepaid counter, driver claims he doesn't know your address, the road is closed, or there's a strike. Detours to commission shops or drops you at wrong hotel. Variant: a tout at the airport claims to be your booked Uber/Ola driver.",
+        "avoid": "Match license plate against the app. Note driver name & phone. Share live location. Refuse all detours. At airports, walk to the official prepaid counter — don't engage anyone in the arrivals area."
+      },
+      {
+        "title": "Bird Poop / Stained Shirt Distraction",
+        "severity": "high",
+        "where": "Mumbai (Colaba, CST), Delhi (Connaught Place), Bangalore (MG Road)",
+        "what": "Stranger points out 'something' on your shirt; accomplice 'helps clean' while picking your pocket of phone/wallet.",
+        "avoid": "Step back. Don't let anyone touch you. Walk to a clean spot and check yourself. Keep wallet in front pocket; phone in zipped bag."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Namma Metro",
+        "tip": "Purple and Green lines cover most tourist areas. Women-only coach, first in train.",
+        "approxCost": "₹10–55"
+      },
+      {
+        "mode": "Uber / Ola / Rapido",
+        "tip": "All three fully operational. Rapido bike-taxi cheapest for short hops.",
+        "approxCost": "₹50–250"
+      },
+      {
+        "mode": "BMTC Volvo AC bus",
+        "tip": "Covers routes metro doesn't. Route 500-series covers airport.",
+        "approxCost": "₹5–50"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "HattiKaapi all-women café (BLR Airport T2)",
+        "type": "Café",
+        "angle": "FO+FM — Combined",
+        "why": "First all-women café at Bangalore International Airport. Staffed by rural women, differently-abled, senior citizens. South Indian filter coffee perfection.",
+        "approxCost": "Coffee ₹80–₹150; T2, Bangalore Intl Airport."
+      },
+      {
+        "name": "Cubbon Park Sunday morning (women's run group)",
+        "type": "Community run",
+        "angle": "FM — Female-Majority",
+        "why": "Cubbon Park closes to traffic Sun mornings. Multiple women's running/walking groups meet. Pippa Passes Run Club, Bangalore Women Walk are regulars.",
+        "approxCost": "Free; Sun 6–10am."
+      },
+      {
+        "name": "Champaca Bookstore + Cafe (Vasanth Nagar)",
+        "type": "Bookstore + café",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded indie bookstore + café. Curated South Asian feminist + queer lit section. Quiet, single-female-customer-comfortable.",
+        "approxCost": "Free entry; coffee ₹150–₹250; books ₹400+."
+      },
+      {
+        "name": "Lahe Lahe (Indiranagar)",
+        "type": "Cultural center + café",
+        "angle": "FO — Female-Owned",
+        "why": "Female-co-founded creative space hosting open mics, women's workshops, dance classes, theatre. The most active women-friendly community calendar in Bangalore.",
+        "approxCost": "Free–₹500 for events; café meal ₹300–₹600."
+      },
+      {
+        "name": "MTR Lalbagh + Lalbagh sunrise walk",
+        "type": "Food + park",
+        "angle": "VS — Verified Safe",
+        "why": "Lalbagh is fully gated, with morning women walkers from 6am. Pair with iconic MTR breakfast (since 1924) — solo female travelers are routine here.",
+        "approxCost": "Park ₹25 entry after 9am, free 6–9am. MTR breakfast ₹200–₹350."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Download Namma Metro app and top up a Bangalore Metro smart card",
+      "Book hotel in Indiranagar or Koramangala, not MG Road corridor",
+      "Save Bangalore Women's Helpline: 1091 and Police: 100",
+      "Allow extra travel time — Bangalore traffic is genuinely bad at 9am and 6pm",
+      "Book Coorg or Chikmagalur day trip through a registered tour operator if extending trip"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Base yourself in Indiranagar for the best solo-female food and café culture",
+        "Use Namma Metro for all metro-connected journeys — faster than road always",
+        "Visit ISKCON Temple at 7am for the morning aarti — peaceful and crowd-free",
+        "Eat at MTR (Mavalli Tiffin Room) in Lalbagh for the authentic Bangalore breakfast experience"
+      ],
+      "dont": [
+        "Accept cab rides from touts at KIA Airport — use the pre-paid counter or app",
+        "Plan more than 3 sights in a day — traffic will defeat you",
+        "Miss the microbrewery belt in Indiranagar/Koramangala for at least one evening",
+        "Ignore the day-trip options — Coorg, Chikmagalur, and Hampi are all reachable"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1800,
+      "midRange": 3500,
+      "comfortable": 10000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Bangalore Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Namma Metro helpline",
+        "number": "080-22969999"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": false,
+    "premiumPreview": "",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Bangalore&aid=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "kolkata-india",
+    "destination": "Kolkata",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "leila-delhi",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 8,
+    "heroImageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    "tldr": [
+      "Kolkata is one of India's safest cities for solo women — the street culture is genuinely different.",
+      "The Metro is clean, safe, and has women-only coaches; yellow taxis are metered and reliable.",
+      "Park Street is the nightlife and café spine; Ballygunge and Lake Road are the best residential bases.",
+      "Howrah Bridge at dawn (6–7am) is one of the most photogenic 20 minutes in India — and there are almost no touts.",
+      "Budget ₹3–4 days: Kumartuli potters' quarter and New Market are completely off most tourist itineraries."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Ballygunge / Lake Road",
+        "safetyRating": 5,
+        "vibe": "Residential, safe, cafés, easy Metro access",
+        "stayHere": true,
+        "notes": "Best solo-female base. Quiet tree-lined streets, excellent food at all price points, feels like old Calcutta."
+      },
+      {
+        "name": "Park Street",
+        "safetyRating": 4,
+        "vibe": "Restaurants, cafés, colonial architecture, nightlife",
+        "stayHere": true,
+        "notes": "Flurys for breakfast, Peter Cat for dinner. Well-lit evenings. Safe for solo dining and walking."
+      },
+      {
+        "name": "Sudder Street (backpacker belt)",
+        "safetyRating": 3,
+        "vibe": "Budget hotels, tourist-adjacent, central",
+        "stayHere": false,
+        "notes": "Functional and cheap but scruffier than Ballygunge. Fine as a base; just less pleasant to walk around."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Pickpocketing on Kolkata Metro & at Howrah",
+        "severity": "high",
+        "where": "Kolkata",
+        "what": "Front pocket, zipped bag. Especially on Howrah-Dum Dum line during rush.",
+        "avoid": "Front pocket, zipped bag. Especially on Howrah-Dum Dum line during rush."
+      },
+      {
+        "title": "Fake porter overcharge at Howrah",
+        "severity": "high",
+        "where": "Kolkata",
+        "what": "Real porters wear red shirt + metal armband with number. Pre-fix price: ₹50–₹100/bag.",
+        "avoid": "Real porters wear red shirt + metal armband with number. Pre-fix price: ₹50–₹100/bag."
+      },
+      {
+        "title": "Kalighat 'priest' demanding offering",
+        "severity": "high",
+        "where": "Kolkata",
+        "what": "₹500–₹5,000 demanded. Same as Varanasi pattern. Walk away firmly.",
+        "avoid": "₹500–₹5,000 demanded. Same as Varanasi pattern. Walk away firmly."
+      },
+      {
+        "title": "Fake brand stores in New Market",
+        "severity": "medium",
+        "where": "Kolkata",
+        "what": "Counterfeit watches, perfumes, leather.",
+        "avoid": "Counterfeit watches, perfumes, leather."
+      },
+      {
+        "title": "Auto/taxi refusing meter or quoting flat",
+        "severity": "high",
+        "where": "Kolkata",
+        "what": "Use Uber/Ola. Yellow Ambassador taxis often refuse short distances.",
+        "avoid": "Use Uber/Ola. Yellow Ambassador taxis often refuse short distances."
+      },
+      {
+        "title": "Hotel switch scam",
+        "severity": "medium",
+        "where": "Kolkata",
+        "what": "Less common than Delhi but happens at Howrah.",
+        "avoid": "Less common than Delhi but happens at Howrah."
+      },
+      {
+        "title": "Auto/Taxi Meter Refusal & Inflation",
+        "severity": "high",
+        "where": "All 12 cities (worst: Delhi, Kolkata, Chennai, Varanasi)",
+        "what": "Driver says meter is 'broken', quotes flat fare 3–10x normal. In Mumbai it's rarer because of strict meter culture. In Bangalore mostly auto drivers at airport/railway.",
+        "avoid": "Default to Uber/Ola/Rapido — they're cheap and GPS-tracked. If using auto, agree fare upfront after checking Uber price. In Mumbai insist on meter (it's the law)."
+      },
+      {
+        "title": "Train Ticket / IRCTC Scam",
+        "severity": "high",
+        "where": "Delhi, Mumbai, Kolkata, Chennai, Varanasi",
+        "what": "Near railway stations, agents sell 'confirmed tickets' that are fake or for slow local trains sold as fast express. Variant: tout claims 'your train is cancelled' and herds you to a fake ticket counter to sell flights/tours at 5x rates.",
+        "avoid": "Book ONLY via irctc.co.in, IRCTC Rail Connect app, MakeMyTrip, or RedBus. Verify train status on the official IRCTC app. Ignore anyone outside the station offering ticket help."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Kumartuli (idol-making neighbourhood)",
+        "type": "Walking visit",
+        "angle": "VS — Verified Safe",
+        "why": "Watch Durga Puja idols being made by traditional artisan families. Quiet, residential, women-respected area. Best Sep–Oct pre-Durga Puja.",
+        "approxCost": "Free; daytime only."
+      },
+      {
+        "name": "Indian Coffee House (College Street)",
+        "type": "Café",
+        "angle": "VS — Verified Safe",
+        "why": "Iconic 80+ year adda (intellectual gathering) cafe. Women have been part of College Street culture for decades — solo female reading-and-coffee here is fully normalised.",
+        "approxCost": "Coffee ₹40; chai ₹15. Open noon–9pm."
+      },
+      {
+        "name": "Goecha Saree (Kalighat)",
+        "type": "Shopping",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded handloom saree boutique focused on Bengal weavers. Fair-trade, women weavers' cooperative.",
+        "approxCost": "Saris ₹2,000–₹15,000."
+      },
+      {
+        "name": "Calcutta Walks — heritage tours",
+        "type": "Walking tour",
+        "angle": "VS — Verified Safe",
+        "why": "Best-rated heritage tour company in Kolkata. Female guides available; solo female travelers routinely use it for North Kolkata and Bow Barracks tours.",
+        "approxCost": "₹1,500–₹3,000 per tour."
+      },
+      {
+        "name": "Park Street Cemetery",
+        "type": "Heritage walk",
+        "angle": "VS — Verified Safe",
+        "why": "Underrated 1767 cemetery; quiet, well-maintained, women-respected. Most peaceful 90 min in central Kolkata.",
+        "approxCost": "₹100 entry. Open 8am–5pm daily."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Book hotel in Ballygunge or near Park Street, not Sudder Street if budget allows",
+      "Download Kolkata Metro app and buy a Metro smart card at any station",
+      "Check Durga Puja dates (October) — if visiting during festival, book months ahead",
+      "Carry ₹500 in small change for yellow taxi meters and street food",
+      "Save Kolkata Police helpline: 100 and Women's helpline: 1091"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Eat at Kewpie's in Elgin for authentic Bengali home cooking — book ahead",
+        "Walk Howrah Bridge from the Kolkata side at 6am for zero crowds and best light",
+        "Visit Kumartuli on a weekday morning — sculptors are at work and welcoming",
+        "Use yellow Ambassador taxis — they are metered, honest, and a Kolkata experience"
+      ],
+      "dont": [
+        "Accept rides from anyone approaching you at Howrah or Sealdah station exits",
+        "Give money to anyone collecting for Missionaries of Charity on the street",
+        "Miss the Sunday morning book market on College Street — largest second-hand book market in the world",
+        "Rush Kolkata — it rewards slow travel more than almost any Indian city"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1400,
+      "midRange": 3000,
+      "comfortable": 9000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Kolkata Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Tourist Police Kolkata",
+        "number": "033-22143004"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": false,
+    "premiumPreview": "",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Kolkata&aid=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "chennai-india",
+    "destination": "Chennai",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "kavya-chennai",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 9,
+    "heroImageUrl": "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80",
+    "tldr": [
+      "Chennai has the best South Indian food in the world — if you leave without eating a proper tiffin breakfast, you have failed.",
+      "Marina Beach is the world's second-longest urban beach; it is safe at sunrise, avoid after sunset.",
+      "Auto-rickshaws here notoriously refuse meters — use Uber/Ola or negotiate firmly before boarding.",
+      "The MRTS and Chennai Metro together cover most tourist areas; women-only coach on Metro.",
+      "Mylapore is the cultural and religious heart of the city — older, calmer, and more authentic than T Nagar."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Mylapore",
+        "safetyRating": 5,
+        "vibe": "Temple culture, old Madras, filter coffee, silk sarees",
+        "stayHere": true,
+        "notes": "Best solo-female base. Kapaleeshwarar Temple, Luz Church, cycle-rickshaw lanes. Morning filter coffee ritual."
+      },
+      {
+        "name": "Nungambakkam / Egmore",
+        "safetyRating": 4,
+        "vibe": "Hotels, Metro access, restaurants, central",
+        "stayHere": true,
+        "notes": "Practical base with good mid-range hotels. Saravana Bhavan HQ is here — eat there."
+      },
+      {
+        "name": "T Nagar",
+        "safetyRating": 3,
+        "vibe": "Shopping, silk, crowds, congested",
+        "stayHere": false,
+        "notes": "Great for silk and jewellery shopping but extremely crowded. Stay only if that's your primary purpose."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Auto rickshaw extreme overcharge",
+        "severity": "high",
+        "where": "Chennai",
+        "what": "Chennai autos are notorious. ALWAYS use Uber/Ola/Rapido.",
+        "avoid": "Chennai autos are notorious. ALWAYS use Uber/Ola/Rapido."
+      },
+      {
+        "title": "Medical tourism middleman scam",
+        "severity": "critical",
+        "where": "Chennai",
+        "what": "Fake 'patient coordinator' offers cheap surgery at top hospital, takes advance, disappears. Book directly with hospital international patient desk.",
+        "avoid": "Fake 'patient coordinator' offers cheap surgery at top hospital, takes advance, disappears. Book directly with hospital international patient desk."
+      },
+      {
+        "title": "Marina Beach hawker overcharge",
+        "severity": "medium",
+        "where": "Chennai",
+        "what": "₹100 corn for tourists vs ₹30 for locals. Fix price first.",
+        "avoid": "₹100 corn for tourists vs ₹30 for locals. Fix price first."
+      },
+      {
+        "title": "Pickpocketing in T Nagar (Pondy Bazaar)",
+        "severity": "medium",
+        "where": "Chennai",
+        "what": "Especially Saturdays. Crowded shopping district.",
+        "avoid": "Especially Saturdays. Crowded shopping district."
+      },
+      {
+        "title": "Fake gold/silver shops",
+        "severity": "high",
+        "where": "Chennai",
+        "what": "Especially Sowcarpet & Mint Street. Buy only from BIS-hallmarked retailers (Tanishq, GRT, Joyalukkas).",
+        "avoid": "Especially Sowcarpet & Mint Street. Buy only from BIS-hallmarked retailers (Tanishq, GRT, Joyalukkas)."
+      },
+      {
+        "title": "Airport pre-paid taxi diversion",
+        "severity": "medium",
+        "where": "Chennai",
+        "what": "Less common than Delhi but happens.",
+        "avoid": "Less common than Delhi but happens."
+      },
+      {
+        "title": "Auto/Taxi Meter Refusal & Inflation",
+        "severity": "high",
+        "where": "All 12 cities (worst: Delhi, Kolkata, Chennai, Varanasi)",
+        "what": "Driver says meter is 'broken', quotes flat fare 3–10x normal. In Mumbai it's rarer because of strict meter culture. In Bangalore mostly auto drivers at airport/railway.",
+        "avoid": "Default to Uber/Ola/Rapido — they're cheap and GPS-tracked. If using auto, agree fare upfront after checking Uber price. In Mumbai insist on meter (it's the law)."
+      },
+      {
+        "title": "Train Ticket / IRCTC Scam",
+        "severity": "high",
+        "where": "Delhi, Mumbai, Kolkata, Chennai, Varanasi",
+        "what": "Near railway stations, agents sell 'confirmed tickets' that are fake or for slow local trains sold as fast express. Variant: tout claims 'your train is cancelled' and herds you to a fake ticket counter to sell flights/tours at 5x rates.",
+        "avoid": "Book ONLY via irctc.co.in, IRCTC Rail Connect app, MakeMyTrip, or RedBus. Verify train status on the official IRCTC app. Ignore anyone outside the station offering ticket help."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "approxCost": "Standard Uber bike rates ₹40–150",
+        "bookingMethod": "Uber app — filter for women-only bike ride option"
+      },
+      {
+        "mode": "Uber Women-only Bike Rides",
+        "tip": "Book via Uber app. Women-only ride with women drivers. Launched Dec 2024, expanding across major cities.",
+        "approxCost": "₹50–200",
+        "bookingMethod": "Uber app"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Amethyst Café (Royapettah)",
+        "type": "Café + boutique",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded heritage bungalow café — one of Chennai's longest-loved women-friendly spaces. Garden seating, quiet, popular for working solo.",
+        "approxCost": "Coffee ₹250; meal ₹600–₹1,200."
+      },
+      {
+        "name": "Spaces — co-working + community",
+        "type": "Co-working",
+        "angle": "FO+FM — Combined",
+        "why": "Founded by Sangeeta Isvaran. Women's co-working community + arts space in Besant Nagar. Solo women working/staying in Chennai swear by it.",
+        "approxCost": "Day pass ₹400–₹800."
+      },
+      {
+        "name": "Mylapore food walk (Storytrails)",
+        "type": "Walking tour",
+        "angle": "VS — Verified Safe",
+        "why": "Storytrails was founded by Vijay Baskar's wife and runs female-led Mylapore tiffin walks. 50+ tiffin shops in 1km. Authentic, safe, women-respected neighbourhood.",
+        "approxCost": "₹1,200–₹2,000/person; 3 hours."
+      },
+      {
+        "name": "Cholamandal Artists' Village",
+        "type": "Art village",
+        "angle": "VS — Verified Safe",
+        "why": "1966 artist commune (India's oldest); female artists in residence. Galleries, studios, sea-side cafe. Solo women routinely spend a half-day here without issues.",
+        "approxCost": "Free entry; gallery ₹50."
+      },
+      {
+        "name": "Kapaleeshwarar Temple (early morning)",
+        "type": "Temple visit",
+        "angle": "VS — Verified Safe",
+        "why": "7th-century temple in Mylapore — solo women visit pre-7am for empty courtyards and zero hassle. Modest dress, head covering optional but respectful.",
+        "approxCost": "Free. Best 5:30–7am."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Book hotel in Mylapore or Nungambakkam — not T Nagar unless shopping is the focus",
+      "Download Uber/Ola before arrival — auto meter situation makes apps essential",
+      "Visit Murugan Idli Shop before 9am on your first morning",
+      "Check Pongal festival dates (January) if visiting in winter — major and beautiful",
+      "Carry a dupatta for temple visits — shoulders must be covered"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Eat tiffin breakfast (idli/vada/dosa) at a proper Mylapore restaurant on day one",
+        "Visit Kapaleeshwarar Temple at dawn — the 6am rituals are stunning",
+        "Use Uber/Ola for all transport — saves the daily auto negotiation frustration",
+        "Go to Cholamandal Artists' Village if you have a half-day to spare"
+      ],
+      "dont": [
+        "Negotiate with autos outside Central Station or the airport — use app always",
+        "Visit Marina Beach alone after 7pm",
+        "Buy silk from any shop you were taken to by an auto driver or 'friendly local'",
+        "Skip the filter coffee — it is a defining Chennai experience and costs ₹20"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1500,
+      "midRange": 3000,
+      "comfortable": 9000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Chennai Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Tourist Helpline Tamil Nadu",
+        "number": "1800-425-4747"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": false,
+    "premiumPreview": "",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Chennai&aid=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "udaipur-india",
+    "destination": "Udaipur",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "sara-berlin",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 11,
+    "heroImageUrl": "https://images.unsplash.com/photo-1588083949709-a82cad48aed7?w=800&q=80",
+    "tldr": [
+      "Udaipur is Rajasthan's most romantic and solo-female-comfortable city — the pace is slower, the touts fewer.",
+      "Lake Pichola at sunset from a rooftop café is one of India's iconic experiences — and it is free.",
+      "Book heritage havelis in the old city for the view; book modern hotels in New City for the amenities.",
+      "The boat ride to Jag Mandir (not Lake Palace, which is hotel-only) is worth every rupee.",
+      "Holi in Udaipur (March) is internationally famous; solo women should visit with a group or organised event."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Old City (Lake Pichola side)",
+        "safetyRating": 4,
+        "vibe": "Heritage havelis, rooftop cafés, lake views",
+        "stayHere": true,
+        "notes": "Best atmosphere. Walk to City Palace, Jagdish Temple. Rooftop restaurants with lake views are everywhere."
+      },
+      {
+        "name": "Fateh Sagar Lake area",
+        "safetyRating": 4,
+        "vibe": "Local Udaipur, less touristy, evening promenade",
+        "stayHere": true,
+        "notes": "Where locals go in the evenings. Nehru Park island, ice cream stalls, quiet. Good mid-range hotels."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Boat ride overcharge on Lake Pichola",
+        "severity": "high",
+        "where": "Udaipur",
+        "what": "Official rates posted at City Palace ticket counter. Ignore touts at the ghat.",
+        "avoid": "Official rates posted at City Palace ticket counter. Ignore touts at the ghat."
+      },
+      {
+        "title": "Gem & miniature painting export scam",
+        "severity": "high",
+        "where": "Udaipur",
+        "what": "Same as Jaipur. 'Family workshop' = commission. Walk away.",
+        "avoid": "Same as Jaipur. 'Family workshop' = commission. Walk away."
+      },
+      {
+        "title": "Fake heritage 'haveli' bookings",
+        "severity": "high",
+        "where": "Udaipur",
+        "what": "Several scam websites in 2025 — book via Booking.com/MMT only.",
+        "avoid": "Several scam websites in 2025 — book via Booking.com/MMT only."
+      },
+      {
+        "title": "Auto refusing meter from station",
+        "severity": "high",
+        "where": "Udaipur",
+        "what": "Use Uber/Ola — Udaipur has good coverage now.",
+        "avoid": "Use Uber/Ola — Udaipur has good coverage now."
+      },
+      {
+        "title": "Fake guide at City Palace",
+        "severity": "medium",
+        "where": "Udaipur",
+        "what": "Hire only from official counter.",
+        "avoid": "Hire only from official counter."
+      },
+      {
+        "title": "Sunset Point camel/horse ride overcharge",
+        "severity": "medium",
+        "where": "Udaipur",
+        "what": "Fix price before mounting.",
+        "avoid": "Fix price before mounting."
+      },
+      {
+        "title": "Gem & Carpet Export Scam",
+        "severity": "critical",
+        "where": "Jaipur (primary), Agra, Delhi, Varanasi, Udaipur",
+        "what": "Friendly local introduces you to a 'family jeweller'. You're told you can 'export' gems duty-free and resell abroad for huge profit; they ship to your country. Stones are worthless glass/synthetic. Variant: a fake government 'official' calls later demanding fines.",
+        "avoid": "NEVER buy gems/carpets to export. NEVER let a stranger guide you to a shop. Walk away the moment 'export profit' is mentioned. This is the same scam since the 1980s."
+      },
+      {
+        "title": "Fake Priest / Tilak / Forced Blessing",
+        "severity": "high",
+        "where": "Varanasi (ghats), Pushkar, Delhi (temples), Jaipur, Agra, Udaipur",
+        "what": "A 'pandit' ties a thread (kalava) on your wrist or applies tilak before you can refuse, then chants a 'blessing' and demands ₹500–₹10,000 'donation'. Most aggressive at Manikarnika and Dashashwamedh ghats in Varanasi.",
+        "avoid": "Hands in pockets. Firm 'no, thank you' and walk away. Don't make eye contact. If thread is tied anyway, walk away — it costs nothing if you don't pay."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Auto-rickshaw",
+        "tip": "Metered in Udaipur; drivers are generally more honest than Jaipur or Chennai.",
+        "approxCost": "₹30–150"
+      },
+      {
+        "mode": "Uber / Ola",
+        "tip": "Available and reliable. Best for airport and day trips to Haldighati.",
+        "approxCost": "₹100–300"
+      },
+      {
+        "mode": "Cycle hire",
+        "tip": "Old City is compact and flat enough for cycling. Hire from most guesthouses.",
+        "approxCost": "₹100–200/day"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Sadhna Women's Collective HQ (Udaipur)",
+        "type": "Shop + workshop",
+        "angle": "FO+FM — Combined",
+        "why": "The mothership. 550+ rural Rajasthani women artisans; founded 1988. Workshops, store, cafe. Direct purchase = direct artisan income. Strongest single recommendation in Udaipur for women travelers.",
+        "approxCost": "Products ₹500–₹15,000; workshops ₹2,000–₹5,000."
+      },
+      {
+        "name": "Jagat Niwas Palace Hotel — afternoon tea solo deal",
+        "type": "Hotel café",
+        "angle": "VS — Verified Safe",
+        "why": "Heritage haveli with lake-facing terrace. Many solo female travelers visit just for the high tea — no booking required, no judgment about coming alone.",
+        "approxCost": "Tea + scones ₹650–₹950."
+      },
+      {
+        "name": "Shilpgram Crafts Village",
+        "type": "Crafts village",
+        "angle": "VS — Verified Safe",
+        "why": "Govt-run rural arts village; rotating women artisans demonstrate weaving, pottery. Clean, safe, low-hassle compared to old-city bazaars.",
+        "approxCost": "₹50 (Indian) / ₹300 (foreigner). Open 11am–7pm."
+      },
+      {
+        "name": "Millets of Mewar (cooking class)",
+        "type": "Cooking workshop + restaurant",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded restaurant championing local millets. Run cooking classes for solo travelers. Sustainable, vegetarian, real Mewar cuisine.",
+        "approxCost": "Class ₹2,500; meal ₹350–₹600."
+      },
+      {
+        "name": "Sunset at Karni Mata Hill (ropeway)",
+        "type": "Viewpoint",
+        "angle": "VS — Verified Safe",
+        "why": "Most-loved Udaipur view that's totally solo-female-friendly. Ropeway is staffed and well-lit; ride down before full dark.",
+        "approxCost": "₹130 ropeway round trip; 6–6:30pm sunset window."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Book lake-view haveli in Old City 2–3 months ahead for peak season (Oct–Mar)",
+      "Buy RTDC boat tickets at Rameshwar Ghat booth only — not from touts",
+      "Pack a light cardigan — Udaipur evenings are cool October through February",
+      "Check Holi dates if visiting March — book a structured event for solo travel",
+      "Carry ₹200 exact change for Jagdish Temple boat and Bagore Ki Haveli entry"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Watch the sunset from Ambrai Ghat — free, no minimum spend, the best lake view",
+        "Visit Bagore Ki Haveli for the 7pm folk performance — it is genuinely excellent",
+        "Explore Shilpgram for honest fixed-price Rajasthani crafts",
+        "Hire a cycle for Old City — it is the best way to discover the lanes"
+      ],
+      "dont": [
+        "Buy boat tickets to 'Lake Palace' from touts — public boats go to Jag Mandir only",
+        "Sit down at a lake-view restaurant without confirming the minimum spend",
+        "Visit Monsoon Palace (Sajjangarh) without checking opening times — it closes early",
+        "Rush out of Udaipur — it is one of the rare Indian cities that rewards an extra day"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1500,
+      "midRange": 3500,
+      "comfortable": 20000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Udaipur Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Tourist Police Udaipur",
+        "number": "0294-2411535"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": false,
+    "premiumPreview": "",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Udaipur&aid=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "kochi-india",
+    "destination": "Kochi",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "priya-kochi",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 12,
+    "heroImageUrl": "https://images.unsplash.com/photo-1576186614082-7162e8a1b25d?w=800&q=80",
+    "tldr": [
+      "Fort Kochi is one of India's most solo-female-comfortable neighbourhoods — slow, walkable, art-filled.",
+      "The Chinese fishing nets at dawn are the classic image but the light is only good 6:30–8am.",
+      "Kathakali and Kalaripayattu performances in Fort Kochi are tourist-facing but genuinely excellent.",
+      "Kerala backwaters day cruise (Alleppey/Alappuzha, 90km south) is the most-recommended solo add-on.",
+      "Monsoon season (June–August) is hot and very wet — but Kochi stays open and is half the price."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Fort Kochi",
+        "safetyRating": 5,
+        "vibe": "Colonial heritage, cafés, art galleries, Chinese nets",
+        "stayHere": true,
+        "notes": "The entire solo-travel reason to come to Kochi. Princess Street is the spine. Walkable, safe, excellent food."
+      },
+      {
+        "name": "Mattancherry",
+        "safetyRating": 4,
+        "vibe": "Spice warehouses, Jewish quarter, antique shops",
+        "stayHere": true,
+        "notes": "20-min walk or ₹30 auto from Fort Kochi. Paradesi Synagogue, Dutch Palace, spice market. Very safe."
+      },
+      {
+        "name": "Ernakulam (mainland)",
+        "safetyRating": 3,
+        "vibe": "Commercial, transport hub, modern",
+        "stayHere": false,
+        "notes": "Where the buses and trains are. Fine for transit; no reason to base yourself here if Fort Kochi has rooms."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Fake houseboat / backwater booking online",
+        "severity": "critical",
+        "where": "Kochi",
+        "what": "Lookalike Kerala Tourism websites. Pay advance, no boat. Book via keralatourism.org or trusted operator (Spice Coast, Lakes & Lagoons).",
+        "avoid": "Lookalike Kerala Tourism websites. Pay advance, no boat. Book via keralatourism.org or trusted operator (Spice Coast, Lakes & Lagoons)."
+      },
+      {
+        "title": "Auto/tuk-tuk overcharge in Fort Kochi",
+        "severity": "high",
+        "where": "Kochi",
+        "what": "Use Uber/Ola/Rapido — strong coverage.",
+        "avoid": "Use Uber/Ola/Rapido — strong coverage."
+      },
+      {
+        "title": "Fake antique / spice 'discount' shops in Jew Town",
+        "severity": "high",
+        "where": "Kochi",
+        "what": "Inflated prices for 'genuine' spices and 'antiques'. Bargain hard or buy from chain stores.",
+        "avoid": "Inflated prices for 'genuine' spices and 'antiques'. Bargain hard or buy from chain stores."
+      },
+      {
+        "title": "Chinese fishing net 'demonstration fee'",
+        "severity": "medium",
+        "where": "Kochi",
+        "what": "Operators ask ₹500–₹1,000 to 'pull the net'. Fixed local rate is ₹100–₹200.",
+        "avoid": "Operators ask ₹500–₹1,000 to 'pull the net'. Fixed local rate is ₹100–₹200."
+      },
+      {
+        "title": "Cruise booking scam (Cordelia)",
+        "severity": "high",
+        "where": "Kochi",
+        "what": "Fake websites. Book only via cordeliacruises.com or authorised agents.",
+        "avoid": "Fake websites. Book only via cordeliacruises.com or authorised agents."
+      },
+      {
+        "title": "Fake Ayurveda spa packages",
+        "severity": "high",
+        "where": "Kochi",
+        "what": "Some 'Ayurvedic clinics' have no licensed doctors. Check NABH-accreditation.",
+        "avoid": "Some 'Ayurvedic clinics' have no licensed doctors. Check NABH-accreditation."
+      },
+      {
+        "title": "Beach Shack & Water Sports Overcharge",
+        "severity": "high",
+        "where": "Goa (Calangute, Baga, Anjuna), Mumbai (Juhu), Kochi",
+        "what": "Menus without prices, jet ski/parasail operators charging 5–10x and damaging equipment to demand 'damage' fees. Renting bikes/scooters with fake damage claims.",
+        "avoid": "Confirm prices in writing/photo. Photograph rental bike from all angles before & after. Use only Goa Tourism-licensed operators (have govt. tag). Never hand over passport as deposit — only photocopy."
+      },
+      {
+        "title": "Cordelia / Cruise Booking Scam",
+        "severity": "high",
+        "where": "Mumbai, Goa, Kochi (cruise embarkation cities)",
+        "what": "Fake Cordelia / Costa websites take advance for cruises that never sail. Surged in 2025 per Goa MP's statement in Rajya Sabha.",
+        "avoid": "Book only via cordeliacruises.com or authorised travel partners with verifiable office addresses. Never pay via random UPI."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Government ferry (Ernakulam ↔ Fort Kochi)",
+        "tip": "₹5 and a 15-minute scenic harbour crossing. Best transport in Kochi.",
+        "approxCost": "₹5"
+      },
+      {
+        "mode": "Auto-rickshaw within Fort Kochi",
+        "tip": "Short distances only. Agree price before; ₹50–100 most rides.",
+        "approxCost": "₹50–120"
+      },
+      {
+        "mode": "Cycle hire",
+        "tip": "Fort Kochi is flat and compact. Most guesthouses rent bikes.",
+        "approxCost": "₹100–150/day"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Kashi Art Cafe (Fort Kochi)",
+        "type": "Café + art gallery",
+        "angle": "VS — Verified Safe",
+        "why": "Decades-old artists' café; rotating women artists exhibit. Garden courtyard, solo-female-comfortable, popular with international solo travelers.",
+        "approxCost": "Coffee ₹150–₹250; meal ₹400–₹700."
+      },
+      {
+        "name": "Kudumbashree Cafe (Mattancherry)",
+        "type": "Café",
+        "angle": "FO+FM — Combined",
+        "why": "Run by Kerala's iconic women's collective Kudumbashree (4.5M+ women members across Kerala). Authentic Kerala home food at honest prices.",
+        "approxCost": "Meal ₹150–₹300."
+      },
+      {
+        "name": "Fort Kochi cycling (Tuk Tuk Tours / Kochi Bike Tours)",
+        "type": "Cycling tour",
+        "angle": "VS — Verified Safe",
+        "why": "Female guides available. Cycle through Fort Kochi → Mattancherry. Daytime, well-lit roads, families everywhere — extremely solo-female-friendly.",
+        "approxCost": "₹1,500–₹2,500 for half-day tour with bike + guide."
+      },
+      {
+        "name": "Mocha Art Cafe (Fort Kochi)",
+        "type": "Café",
+        "angle": "FO — Female-Owned",
+        "why": "Female-founded; small, quiet, non-touristy. The 'where do locals actually go' answer in Fort Kochi.",
+        "approxCost": "Meal ₹300–₹500."
+      },
+      {
+        "name": "Aspinwall House (Kochi-Muziris Biennale venue)",
+        "type": "Art venue",
+        "angle": "VS — Verified Safe",
+        "why": "Kochi-Muziris Biennale runs Dec–Apr at multiple Fort Kochi venues. Female-curated programs; very solo-female-friendly art-world atmosphere.",
+        "approxCost": "₹100–₹200 entry per venue."
+      },
+      {
+        "name": "Kerala Folklore Theatre & Museum (Edappally)",
+        "type": "Museum + show",
+        "angle": "VS — Verified Safe",
+        "why": "Quirky private museum with traditional Kerala folk art. Less touristy than Kerala Kathakali Centre, more authentic. Solo women welcomed warmly.",
+        "approxCost": "₹100 entry; performances additional."
+      },
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Book Fort Kochi guesthouse on Princess Street or Burgher Street 2+ months ahead in peak season",
+      "Check ferry timings from Ernakulam Boat Jetty — last ferry is around 9:30pm",
+      "Book Alleppey backwaters day cruise through DTPC Kochi or your guesthouse",
+      "Carry a light rain jacket October through May — Kerala gets unexpected showers",
+      "Save Kerala Tourist Police helpline: 1800-425-4747"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Arrive at Chinese fishing nets by 6:30am for the best light and fewest people",
+        "Take the government ferry between Ernakulam and Fort Kochi — ₹5 and spectacular",
+        "Attend a Kathakali performance at Kerala Kathakali Centre (best in Fort Kochi)",
+        "Walk the full Mattancherry-to-Fort Kochi coastal path in the early morning"
+      ],
+      "dont": [
+        "Buy spices from the first shop near the Paradesi Synagogue — walk deeper into the lanes",
+        "Skip Alleppey if you have even one extra day — the backwaters are the whole point of Kerala",
+        "Miss the Kochi–Muziris Biennale if visiting in December–February — one of Asia's best art events",
+        "Take an auto where the government ferry goes — it is slower, more expensive, and less beautiful"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1400,
+      "midRange": 3000,
+      "comfortable": 11000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Kochi Police",
+        "number": "100"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Tourist Police Kerala",
+        "number": "1800-425-4747"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": false,
+    "premiumPreview": "",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Kochi&aid=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "kasol-india",
+    "destination": "Kasol",
+    "country": "India",
+    "audience": "indian",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 7,
+    "heroImageUrl": "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=800&q=80",
+    "tldr": [
+      "Kasol is a tiny Parvati Valley village — the trek culture is real but the drug culture is equally real; know what you're walking into.",
+      "The Kheerganga hot spring trek (13km one way) is the single reason most people come — start at 6am.",
+      "Kasol village itself takes 2 hours to walk end to end; the charm is the river, the cafés, and the pine forest.",
+      "Israeli-influenced food scene is excellent — hummus and shakshuka at 2,000m are genuinely good.",
+      "Mobile signal disappears 2km past Kasol; download offline maps and tell someone your itinerary."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Kasol main village",
+        "safetyRating": 4,
+        "vibe": "Cafés, guesthouses, river views, trailhead",
+        "stayHere": true,
+        "notes": "Everything is within a 10-minute walk. Stay on the main street for the best guesthouse options."
+      },
+      {
+        "name": "Chalal (15-min walk)",
+        "safetyRating": 4,
+        "vibe": "Quieter, riverside, local feel",
+        "stayHere": true,
+        "notes": "Cross the bridge from Kasol and walk 15 minutes. Fewer tourists, better views, same trail access."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Drug Possession Setup (Goa)",
+        "severity": "critical",
+        "where": "Goa (Anjuna, Vagator, Morjim), Manali (Old Manali, Kasol), Rishikesh",
+        "what": "Local offers drugs at a beach/party; once accepted/handed over, accomplice 'cop' arrives, demands large bribe to avoid arrest. Punishment for narcotics in India is severe — even small amounts = years in jail.",
+        "avoid": "Refuse all drug offers. NDPS Act in India is harsh; 1 year minimum for personal possession. Walk away from anyone offering 'something to relax'."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "HRTC bus (Bhuntar → Kasol)",
+        "tip": "Last bus around 6pm. From Bhuntar, which is on Delhi–Manali highway.",
+        "approxCost": "₹40–60"
+      },
+      {
+        "mode": "Shared taxi (Bhuntar → Kasol)",
+        "tip": "Faster than bus. Fills up at Bhuntar bus stand.",
+        "approxCost": "₹80–120/seat"
+      },
+      {
+        "mode": "Trek (Kasol → Kheerganga)",
+        "tip": "13km one way, 4–5 hours up. No vehicle access beyond Nakthan village.",
+        "approxCost": "Guide ₹800–1,200/day"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Stops Hostels (Female Dorms)",
+        "type": "Hostel chain with female dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Women's dorms in North India locations. Colourful, social hostels. Recommended in solo women India hostel lists 2024.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Download offline Parvati Valley map on Maps.me — no signal past Kasol",
+      "Tell your guesthouse your trek route and expected return time",
+      "Carry water purification tablets — no reliable clean water source on Kheerganga trail",
+      "Pack warm layers — temperature drops to 5°C at night even in July",
+      "Start Kheerganga trek no later than 7am to reach top before clouds close in"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Start the Kheerganga trek at 6–7am for clear skies and cooler temperatures",
+        "Stay in Chalal for quieter, cheaper, and more scenic guesthouse experience",
+        "Tell someone (guesthouse, family) your exact trek plan before departing",
+        "Carry a portable charger — no charging points on the Kheerganga trail"
+      ],
+      "dont": [
+        "Eat anything described as 'special' without asking explicitly what's in it",
+        "Trek solo above Nakthan without a guide if it's your first Himalayan trek",
+        "Leave Kasol after 4pm for Kheerganga — you will not reach before dark",
+        "Assume the trail is marked — it is not consistently marked beyond Nakthan"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1200,
+      "midRange": 2500,
+      "comfortable": 5000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Kasol Police Post",
+        "number": "01902-265004"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Kullu District Hospital",
+        "number": "01902-222339"
+      },
+      {
+        "label": "Mountain Rescue",
+        "number": "112"
+      }
+    ],
+    "isPremium": false,
+    "premiumPreview": "",
+    "affiliateLinks": {
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "hampi-india",
+    "destination": "Hampi",
+    "country": "India",
+    "audience": "both",
+    "contributorSlug": "devika-pune",
+    "lastUpdated": "2026-04-10",
+    "verifiedByCount": 9,
+    "heroImageUrl": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80",
+    "tldr": [
+      "Hampi is a UNESCO World Heritage Site spread across 4,100 hectares of boulder landscape — rent a bicycle.",
+      "The main bazaar side and Virupapuragadde (across the river) are two different worlds; most backpackers prefer the island side.",
+      "Sunrise at Matanga Hill (400 steps) is the single best thing to do in Hampi — set your alarm for 5:30am.",
+      "Hampi has no ATMs on the island side — withdraw cash in Hospet (13km) before arriving.",
+      "The boulder landscape at sunset turns amber-gold; the Royal Enclosure at 4pm is completely empty."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Hampi Bazaar (temple side)",
+        "safetyRating": 4,
+        "vibe": "Near Virupaksha Temple, guesthouses, restaurants",
+        "stayHere": true,
+        "notes": "Best for temple access and sunrise on Matanga Hill. Mango Tree restaurant is here. Safe and walkable."
+      },
+      {
+        "name": "Virupapuragadde (island side)",
+        "safetyRating": 4,
+        "vibe": "Backpacker vibe, river views, sunsets, quieter",
+        "stayHere": true,
+        "notes": "Cross the coracle (₹20). More relaxed, better sunsets, good cafés. No ATMs — carry all cash."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Coracle price inflation",
+        "severity": "low",
+        "where": "River crossing between temple and island sides",
+        "what": "Official coracle fare is ₹20; touts charge ₹100–200 to first-timers.",
+        "avoid": "Fixed government rate is ₹20 per person. Join the queue at the official ghat and pay only ₹20."
+      },
+      {
+        "title": "Bicycle rental damage claim",
+        "severity": "medium",
+        "where": "Rental shops both sides",
+        "what": "Pre-existing damage cited on return; deposit held.",
+        "avoid": "Photograph the bicycle before riding. Rentals are cheap enough (₹100/day) to not need a deposit — decline shops that demand one."
+      },
+      {
+        "title": "Guide 'royal tour' overcharge",
+        "severity": "low",
+        "where": "Near Royal Enclosure, Vijayanagara ruins",
+        "what": "Self-appointed guides approach at major ruins and quote ₹2,000+ for basic walking tour.",
+        "avoid": "ASI-licensed guides are available through the ASI booth near Virupaksha Temple at fixed rates. Or use a good guidebook."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Bicycle hire",
+        "tip": "The only sensible way to see Hampi. Both sides have rentals.",
+        "approxCost": "₹100–150/day"
+      },
+      {
+        "mode": "Coracle (river crossing)",
+        "tip": "Flat-bottomed boat, ₹20 fixed rate. Runs 6am–6pm approx.",
+        "approxCost": "₹20"
+      },
+      {
+        "mode": "Auto-rickshaw (Hospet ↔ Hampi)",
+        "tip": "For arriving/departing with luggage. 13km.",
+        "approxCost": "₹150–250"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "The Hosteller (Female Dorms)",
+        "type": "Chain hostels with female-only dorm options",
+        "angle": "VS — Verified Safe",
+        "why": "Well-established chain with female-only dorms in Delhi, Manali, Kasol, Jaipur, Rishikesh, Coorg and more. Consistently recommended on Reddit solo women travel threads 2024–25.",
+        "approxCost": "₹400–800 dorm | ₹1,500–3,000 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Zostel (Women’s Dorms)",
+        "type": "Chain hostels with women’s dorms",
+        "angle": "VS — Verified Safe",
+        "why": "India's largest hostel chain. Women-only dorm options available in most locations. Highly recommended on r/solotravel for Indian women 2024–25.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Madpackers (Female Dorms)",
+        "type": "Hostel chain with women-only dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Popular backpacker chain. Women's dorms in select locations. Younger vibe. Multiple 2024 reviews recommend for solo women travelers.",
+        "approxCost": "₹400–800 dorm | ₹1,500–2,800 private",
+        "_source": "stay"
+      },
+      {
+        "name": "Stops Hostels (Female Dorms)",
+        "type": "Hostel chain with female dorms",
+        "angle": "VS — Verified Safe",
+        "why": "Women's dorms in North India locations. Colourful, social hostels. Recommended in solo women India hostel lists 2024.",
+        "approxCost": "₹350–700 dorm | ₹1,200–2,500 private",
+        "_source": "stay"
+      }
+    ],
+    "preBookChecklist": [
+      "Withdraw all cash in Hospet before arriving — no ATMs on island side",
+      "Rent bicycle on arrival — it is the only way to cover the site properly",
+      "Set alarm for 5:30am on at least one morning for Matanga Hill sunrise",
+      "Carry 2L water minimum — Hampi in April–June is extremely hot",
+      "Check KSRTC bus or train times from Hospet to next destination before arriving"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Cross to the island side (Virupapuragadde) for at least one sunset",
+        "Visit Vittala Temple at 8am opening before the group tours arrive at 10am",
+        "Photograph your bicycle before riding to avoid any damage dispute",
+        "Ask Devika's Hampi heritage walk recommendation at your guesthouse — local guides make the ruins come alive"
+      ],
+      "dont": [
+        "Pay more than ₹20 for the coracle river crossing — it is a fixed government rate",
+        "Arrive in Hampi without cash — the island side has zero ATMs",
+        "Visit the boulder landscape in the middle of the day in summer — heat is dangerous",
+        "Skip the lesser-visited Zenana Enclosure and Elephant Stables — they are empty of tourists and extraordinary"
+      ]
+    },
+    "estimatedDailyBudget": {
+      "backpacker": 1200,
+      "midRange": 2800,
+      "comfortable": 6000,
+      "currency": "INR"
+    },
+    "emergencyNumbers": [
+      {
+        "label": "Hampi Police",
+        "number": "08394-241249"
+      },
+      {
+        "label": "Women's Helpline",
+        "number": "1091"
+      },
+      {
+        "label": "Hospet Government Hospital",
+        "number": "08394-228526"
+      },
+      {
+        "label": "Ambulance",
+        "number": "108"
+      }
+    ],
+    "isPremium": false,
+    "premiumPreview": "",
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Hampi&aid=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "tokyo-japan",
+    "destination": "Tokyo",
+    "country": "Japan",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&q=80",
+    "tldr": {
+      "summary": "One of the safest cities on Earth for solo women. Real risks are nightlife touts in Roppongi/Kabukicho and train groping at rush hour. Cash economy — carry yen always.",
+      "safetyRating": "moderate",
+      "topTip": "NEVER follow anyone soliciting on the street to a bar. Use only places you researched on Google Maps or Tabelog with rev"
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Kabukicho / Roppongi tout 'free drink'",
+        "severity": "critical",
+        "where": "Shinjuku Kabukicho, Roppongi, parts of Shibuya",
+        "what": "Friendly tout offers 'cheap all-you-can-drink' or 'first drink free'; bar bill = 50,000-300,000 JPY ($300-2,000); intimidation if refused; sometimes drink-spiked",
+        "avoid": "NEVER follow anyone soliciting on the street to a bar. Use only places you researched on Google Maps or Tabelog with reviews. Cash for nightlife (limit damage)."
+      },
+      {
+        "title": "Drink spiking (Roppongi)",
+        "severity": "critical",
+        "where": "Roppongi gaijin bars + Kabukicho",
+        "what": "GHB or rohypnol; victim wakes up missing money/cards/phone or assault",
+        "avoid": "Avoid Roppongi gaijin bars solo. Order bottled drinks. Watch bartender pour. Never accept drinks from strangers."
+      },
+      {
+        "title": "Marc/Alex 'lost wallet' scam",
+        "severity": "medium",
+        "where": "Tokyo/Osaka trains, especially targeting solo women",
+        "what": "Foreign man (often called 'Marc' or 'Alex') in black clothes approaches solo travelers showing phone message saying 'help, lost wallet, need to get to airport'",
+        "avoid": "Recognize the pattern (black hat, mask, persistent). Ignore him. Real travelers don't beg from strangers in Japan — embassies help."
+      },
+      {
+        "title": "Fake 'monk' donation",
+        "severity": "medium",
+        "where": "Near temples — Asakusa Sensoji, Ueno, sometimes Kyoto",
+        "what": "Person dressed as Buddhist monk hands you bracelet/card and demands donation",
+        "avoid": "Real monks don't beg on the street. Ignore + walk past. Don't accept anything offered."
+      },
+      {
+        "title": "Model-scout scam",
+        "severity": "high",
+        "where": "Shibuya, Harajuku, Shinjuku — targets young women",
+        "what": "'Talent agent' approaches solo woman, offers contract, takes to office where pressured to sign/pay 'training fees' or worse",
+        "avoid": "Real Japanese model agencies don't street-scout foreigners. Politely decline + walk away. Never go to a private office."
+      },
+      {
+        "title": "'Charity' donation (laminated photos)",
+        "severity": "medium",
+        "where": "Shinjuku, Shibuya, tourist areas",
+        "what": "Person with binder/laminated photos showing other 'donors' pressures you for large donation",
+        "avoid": "Laminated props = scam. Real charities never solicit cash from tourists on streets."
+      },
+      {
+        "title": "Counterfeit fashion (Harajuku/Shinjuku)",
+        "severity": "medium",
+        "where": "Tourist-heavy shopping areas",
+        "what": "'Authentic' designer items at low prices = fakes; or fake-marketing pseudo-luxury",
+        "avoid": "Department stores (Isetan, Mitsukoshi, Takashimaya) only for designer. Vintage/2nd-hand: Komehyo or RagTag are reputable."
+      },
+      {
+        "title": "ATM withdrawal denial / DCC",
+        "severity": "medium",
+        "where": "All Japan ATMs",
+        "what": "DCC offer ('pay in your home currency') = 5-8% worse rate",
+        "avoid": "ALWAYS pay in JPY, not your home currency. Use 7-Eleven (Seven Bank) or Japan Post Bank ATMs (lowest fees)."
+      },
+      {
+        "title": "Taxi long-route",
+        "severity": "medium",
+        "where": "Tokyo airports, less common in metered Tokyo taxis",
+        "what": "Driver takes 30-min detour through unfamiliar area, you can't tell",
+        "avoid": "Use Google Maps live tracking. Or use Go Taxi/JapanTaxi app for transparent metered fares."
+      },
+      {
+        "title": "Tax-free purchase confusion",
+        "severity": "medium",
+        "where": "Department stores; some smaller shops",
+        "what": "Foreigners qualify for tax-free shopping (>5,000 JPY purchase, passport required); some small stores claim no tax-free even when they should offer it",
+        "avoid": "Bring passport. Look for 'Tax Free' sticker. At Bic Camera/Don Quijote/large stores: ask 'tax-free counter'."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "USD",
+      "backpacker": 60,
+      "midRange": 130,
+      "comfortable": 280
+    },
+    "emergencyNumbers": {
+      "Police": "110",
+      "Ambulance": "119",
+      "Tourist Helpline": "03-3201-3331",
+      "JNTO Hotline": "050-3816-2787"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  },
+  {
+    "slug": "bangkok-thailand",
+    "destination": "Bangkok",
+    "country": "Thailand",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1200&q=80",
+    "tldr": {
+      "summary": "High-energy city with a well-worn tourist trail. Tuk-tuk gem scams and Grand Palace closure lies are a daily ritual. Ride Grab, not taxis. Dress modestly at temples.",
+      "safetyRating": "moderate",
+      "topTip": "Verify at official entrance only. Major Bangkok temples NEVER close for random ceremonies. Walk away from anyone offerin"
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Temple closed scam",
+        "severity": "medium",
+        "where": "Bangkok — Wat Pho, Grand Palace, near Khaosan Road",
+        "what": "'Friendly' local says temple is closed for ceremony; offers cheap tuk-tuk tour to gem shops where you're pressured to buy fake/overpriced jewelry",
+        "avoid": "Verify at official entrance only. Major Bangkok temples NEVER close for random ceremonies. Walk away from anyone offering tours nearby."
+      },
+      {
+        "title": "Gem/jewelry shop scam",
+        "severity": "critical",
+        "where": "Bangkok, sometimes Phuket and Chiang Mai",
+        "what": "Tourist taken to 'tax-free government gem store'; pressured to buy 'investment sapphires' for $1,000s that are worth $50",
+        "avoid": "Never buy gems/jewelry from tuk-tuk recommendations. Real gem dealers in Thailand don't approach tourists in the street."
+      },
+      {
+        "title": "Tuk-tuk no meter overcharging",
+        "severity": "high",
+        "where": "Bangkok especially; Chiang Mai, beach towns",
+        "what": "Tuk-tuks have no meters. Driver quotes 200 THB for 50 THB ride; refuses change for larger bills",
+        "avoid": "Use Grab or Bolt apps. If tuk-tuk: negotiate fare BEFORE getting in. Have exact change ready."
+      },
+      {
+        "title": "Taxi 'meter broken'",
+        "severity": "high",
+        "where": "Bangkok especially Suvarnabhumi/Don Mueang airports",
+        "what": "Driver says meter broken, quotes 800 THB for 200 THB ride. Or runs meter at 5x speed.",
+        "avoid": "Insist on meter or get out. Use Grab. From airport: official taxi queue downstairs (not solicitations upstairs)."
+      },
+      {
+        "title": "Scooter rental damage scam",
+        "severity": "critical",
+        "where": "Phuket, Koh Samui, Koh Phangan, Pattaya",
+        "what": "Rental shop demands passport as deposit; on return, claims you damaged scooter (pre-existing scratches), refuses to release passport unless you pay $200-2,000",
+        "avoid": "NEVER leave passport — copy + cash deposit only. Photograph/video bike from all angles BEFORE leaving rental shop. Use shops recommended by your hotel."
+      },
+      {
+        "title": "Drink spiking (Patpong/Nana/Soi Cowboy)",
+        "severity": "critical",
+        "where": "Bangkok red-light zones, Phuket Bangla Road, Pattaya Walking Street",
+        "what": "GHB/rohypnol in drinks → robbery or sexual assault. Sometimes by 'friendly' locals/tourists",
+        "avoid": "Avoid these areas entirely if solo. Order bottled drinks, watch the bartender pour. Never accept drinks from strangers."
+      },
+      {
+        "title": "Jet ski damage scam",
+        "severity": "critical",
+        "where": "Phuket Patong Beach, Pattaya",
+        "what": "Rent jet ski; on return, owner claims you damaged it; demands $500-3,000. Often involves intimidating men appearing 'on cue'",
+        "avoid": "Don't rent jet skis in Thailand — well-documented scam. Stick to hotel-organized water sports."
+      },
+      {
+        "title": "Ping pong show / bar scams",
+        "severity": "high",
+        "where": "Patpong, Bangkok",
+        "what": "'Free' show entry; bill arrives 5,000+ THB ($150) for one beer. Bouncers prevent leaving until paid.",
+        "avoid": "Don't enter Patpong shows. Period. The whole industry is built on this."
+      },
+      {
+        "title": "Wrong change scam",
+        "severity": "medium",
+        "where": "Tuk-tuks, taxis, street vendors near tourist areas",
+        "what": "You give 1,000 THB note, driver gives change for 100 THB note, claims you only paid 100",
+        "avoid": "State note value out loud when handing over: 'one thousand baht'. Have exact change when possible."
+      },
+      {
+        "title": "Bird poop / mustard distraction",
+        "severity": "medium",
+        "where": "Bangkok tourist areas, Chiang Mai night bazaar",
+        "what": "'Bird droppings' (or sauce) lands on you; 'helpful' stranger offers to clean you up while accomplice picks pocket",
+        "avoid": "Politely refuse help. Move away from the area. Clean up at a café or hotel."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "USD",
+      "backpacker": 25,
+      "midRange": 60,
+      "comfortable": 150
+    },
+    "emergencyNumbers": {
+      "Police": "191",
+      "Ambulance": "1669",
+      "Tourist Police": "1155",
+      "Bangkok Helpline": "02-356-0700"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  },
+  {
+    "slug": "hanoi-vietnam",
+    "destination": "Hanoi",
+    "country": "Vietnam",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1557750255-c76072a7aad1?w=1200&q=80",
+    "tldr": {
+      "summary": "Chaotic and wonderful. Street food scams and motorbike grab-thefts are the main risks. Carry bags on your left (away from traffic). Negotiate fares before getting in anything.",
+      "safetyRating": "moderate",
+      "topTip": "Don't accept any 'free taste' from street vendors. Get banh mi instead — better food, fixed prices."
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Donut scam (Hanoi Old Quarter)",
+        "severity": "medium",
+        "where": "Hanoi Old Quarter; women balancing donut baskets on shoulders",
+        "what": "Vendor offers free taste, then loads bag with donuts and charges 200,000+ VND ($8) for inedible product fried in old oil",
+        "avoid": "Don't accept any 'free taste' from street vendors. Get banh mi instead — better food, fixed prices."
+      },
+      {
+        "title": "Taxi meter manipulation",
+        "severity": "high",
+        "where": "All major cities — Hanoi, HCMC, Da Nang, airports especially",
+        "what": "Unmetered taxi or rigged meter that runs 5x normal speed. Common with airport taxis charging 800,000 VND ($32) for a $4 ride",
+        "avoid": "ONLY use Grab app. If you must use a taxi, only Mai Linh (green) or Vinasun (white). Confirm meter on at start."
+      },
+      {
+        "title": "Motorbike bag-snatching",
+        "severity": "critical",
+        "where": "HCMC District 1 streets, Hanoi roadside walking",
+        "what": "Two riders pass quickly, the passenger grabs phone/bag from your hand or shoulder. Can drag tourists who hold on",
+        "avoid": "Cross-body bag on the side AWAY from road. Don't use phone while walking near street. Don't fight back if grabbed — let go."
+      },
+      {
+        "title": "Cyclo (rickshaw) hidden fees",
+        "severity": "medium",
+        "where": "Hanoi Old Quarter, Hue tourist areas",
+        "what": "Driver agrees on 100,000 VND fare, then adds 'waiting fee' 500,000 VND/hr or doubles destination distance",
+        "avoid": "Book cyclo tour through reputable agency, or use phone GPS to verify route. Pay only the agreed-upon amount."
+      },
+      {
+        "title": "Methanol fake alcohol",
+        "severity": "critical",
+        "where": "Cheap bars across SE Asia, especially backpacker areas (Bui Vien HCMC, Old Quarter Hanoi)",
+        "what": "Bootleg spirits laced with methanol — can blind or kill. Most dangerous in 'free shots' or unknown brand bottles",
+        "avoid": "Stick to beer (Saigon, Tiger, 333) or sealed branded spirits. Never accept free shots. Methanol = 'fishy' or solvent smell."
+      },
+      {
+        "title": "SIM card scam at airport",
+        "severity": "medium",
+        "where": "HCMC Tan Son Nhat, Hanoi Noi Bai airports",
+        "what": "Vendor sells $20 SIM card with 1GB; legitimate 30GB Viettel/Vinaphone SIM costs 100,000-150,000 VND ($4-6)",
+        "avoid": "Pre-buy eSIM via Holafly or Airalo before arrival, OR walk past airport vendors to official Viettel/Vinaphone counters."
+      },
+      {
+        "title": "Multiple businesses with same name",
+        "severity": "medium",
+        "where": "Hanoi, HCMC tour agencies",
+        "what": "Famous tour company 'Mekong Tours' has 5+ copycats with names like 'Mekong Tour' or 'Mekong Touring' — bait-and-switch tours",
+        "avoid": "Always book via official website or use platforms like GetYourGuide, Klook with reviews."
+      },
+      {
+        "title": "Restaurant menu without prices",
+        "severity": "high",
+        "where": "Tourist areas — especially Old Quarter Hanoi, Pham Ngu Lao HCMC",
+        "what": "No prices listed; bill arrives 5x normal. Gets worse for foreigners with dual-pricing menus",
+        "avoid": "NEVER sit down without seeing prices. Ask 'bao nhieu?' (how much?) before ordering. Check Google Maps reviews first."
+      },
+      {
+        "title": "ATM skimming",
+        "severity": "high",
+        "where": "Standalone ATMs near tourist sites (not in banks)",
+        "what": "Skimming device on card reader + camera capturing PIN. Drained accounts within 24h",
+        "avoid": "Use ATMs INSIDE bank branches only (Vietcombank, Techcombank, BIDV). Cover PIN entry."
+      },
+      {
+        "title": "Sapa trekking 'private guide' scam",
+        "severity": "medium",
+        "where": "Sapa, Ha Giang trekking areas",
+        "what": "Independent 'guide' offers private trek 50% cheaper than agency, no insurance, gets lost or demands more",
+        "avoid": "Book through Sapa Sisters (women-owned, well-reviewed) or Ethos Spirit. Verify insurance coverage."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "USD",
+      "backpacker": 25,
+      "midRange": 60,
+      "comfortable": 120
+    },
+    "emergencyNumbers": {
+      "Police": "113",
+      "Ambulance": "115",
+      "Fire": "114",
+      "Tourist Helpline": "1800-599-920"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  },
+  {
+    "slug": "dubai-uae",
+    "destination": "Dubai",
+    "country": "UAE",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80",
+    "tldr": {
+      "summary": "Extremely safe for solo women but strict laws apply. Dress modestly outside resorts. Public displays of affection are illegal. Only licensed taxis/Careem — never unofficial cabs.",
+      "safetyRating": "moderate",
+      "topTip": "ONLY use RTA taxis (cream + red roof), or Careem/Uber app. Pink taxis (female driver) available via Careem."
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Unmarked taxi overcharge",
+        "severity": "high",
+        "where": "Dubai Airport, Marina, Downtown",
+        "what": "Unofficial taxi (white car not RTA cream/red) charges 200 AED for 50 AED ride; no receipt",
+        "avoid": "ONLY use RTA taxis (cream + red roof), or Careem/Uber app. Pink taxis (female driver) available via Careem."
+      },
+      {
+        "title": "Gold/jewelry shop overcharge (Deira/Gold Souk)",
+        "severity": "high",
+        "where": "Gold Souk Deira, some Old Dubai shops",
+        "what": "Massive markups for foreign tourists; aggressive bargaining required. 'Free' chai while you decide.",
+        "avoid": "Know spot gold price before entering (goldprice.org). Quote: 'Spot + 10% making charge max.' Walk away from anyone aggressive."
+      },
+      {
+        "title": "Souvenir 'fake antique' scam",
+        "severity": "medium",
+        "where": "Gold Souk, Spice Souk, Madinat Jumeirah souk",
+        "what": "Mass-produced trinkets sold as 'antique Bedouin artifacts' for 500-2,000 AED",
+        "avoid": "Check Madinat Jumeirah souvenir prices first (transparent). Real antiques only at certified dealers."
+      },
+      {
+        "title": "Online booking fraud (apartment/villa)",
+        "severity": "critical",
+        "where": "Marina, JBR, Downtown short-term rentals",
+        "what": "Fake Airbnb/Booking.com listings, often via WhatsApp inquiry redirect; deposit lost",
+        "avoid": "Book ONLY through Booking.com, Airbnb's official app. Never wire-transfer. Pay with credit card for chargeback ability."
+      },
+      {
+        "title": "Pickpocketing in malls",
+        "severity": "high",
+        "where": "Dubai Mall, Mall of the Emirates, Global Village",
+        "what": "Crowded areas, escalators, food courts. Phone snatching from café tables.",
+        "avoid": "Crossbody bag in front. Don't leave phone on café table. Especially careful at Global Village (highest-risk crowded venue)."
+      },
+      {
+        "title": "Charity / petition scam",
+        "severity": "medium",
+        "where": "Marina Walk, Downtown Burj area, near tourist hotels",
+        "what": "'Refugee'/charity worker asks for cash donation; sob story; no receipt",
+        "avoid": "All real UAE charity is regulated; never street-collected. Politely decline. Don't give cash."
+      },
+      {
+        "title": "ATM skimming",
+        "severity": "high",
+        "where": "Standalone ATMs especially Deira, Naif, near souks",
+        "what": "Skimmer + camera for PIN. Account drained in hours.",
+        "avoid": "Use ATMs INSIDE major bank branches (Emirates NBD, ENBD, ADCB, Mashreq) only. Not those in shops/streets."
+      },
+      {
+        "title": "Desert safari low-cost trap",
+        "severity": "medium",
+        "where": "Internet-booked cheap desert safaris",
+        "what": "$30 'all-inclusive' safari = battered 4x4, no insurance, mediocre BBQ. Some accidents reported.",
+        "avoid": "Book reputable: Platinum Heritage, Arabian Adventures, OceanAir Travels. Expect 250-400 AED ($70-110)."
+      },
+      {
+        "title": "Speeding fine surprise (rentals)",
+        "severity": "high",
+        "where": "Highway driving anywhere",
+        "what": "Speed cameras EVERYWHERE; fines 600-3,000 AED + black points; rental company charges admin fee",
+        "avoid": "Stay under speed limit (120 km/h max highway). Check rental car return for fines settled before leaving."
+      },
+      {
+        "title": "Photo of locals",
+        "severity": "high",
+        "where": "Anywhere — beach, mall, restaurants",
+        "what": "NOT a scam but a legal issue — photographing Emirati women without consent = criminal offense; some pretend offense for cash",
+        "avoid": "NEVER photograph people without explicit permission. No selfies with strangers in background. Especially women."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "USD",
+      "backpacker": 60,
+      "midRange": 150,
+      "comfortable": 350
+    },
+    "emergencyNumbers": {
+      "Police": "999",
+      "Ambulance": "998",
+      "Dubai Tourism": "800-9999",
+      "Women's Helpline": "800-HOPE (4673)"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  },
+  {
+    "slug": "seoul-south-korea",
+    "destination": "Seoul",
+    "country": "South Korea",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1538485399081-7191377e8241?w=1200&q=80",
+    "tldr": {
+      "summary": "Very safe with world-class transit. Watch for bar overcharging in Itaewon/Hongdae after midnight. T-money card for everything. Download Kakao T for taxis.",
+      "safetyRating": "high",
+      "topTip": "Use Kakao T app (NOT Uber, weak in Korea). Wait at official taxi stands. Real taxis: silver/orange/black with TAXI roof "
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Unlicensed taxi (illegal callvan)",
+        "severity": "high",
+        "where": "Hongdae, Itaewon, Gangnam after midnight when subway closes",
+        "what": "Black 'callvan' or unmarked car charges 3-4x metered taxi for ride. Especially at popular nightlife exits.",
+        "avoid": "Use Kakao T app (NOT Uber, weak in Korea). Wait at official taxi stands. Real taxis: silver/orange/black with TAXI roof sign + meter."
+      },
+      {
+        "title": "Christian cult recruitment",
+        "severity": "medium",
+        "where": "Hongdae, Sinchon, Gangnam streets — targets foreigners",
+        "what": "Friendly Korean approaches asking for directions, then invites to 'free Korean lesson' or 'cultural exchange'. Leads to multi-hour cult sessions, attempts at conversion + payment.",
+        "avoid": "Polite decline + walk on. Recognize patterns: clipboard, English skills mismatch, scripted questions about religion."
+      },
+      {
+        "title": "Tourist-area restaurant overcharging",
+        "severity": "medium",
+        "where": "Myeongdong, Insadong, near Gyeongbokgung Palace",
+        "what": "Korean BBQ/seafood/ginseng chicken at 2-3x normal price; English menu has higher prices than Korean menu",
+        "avoid": "Use Naver Maps (Korean Yelp) reviews. Eat where Koreans eat — packed locals = good price + quality. Ask for Korean menu if available."
+      },
+      {
+        "title": "Fashion district counterfeit",
+        "severity": "medium",
+        "where": "Dongdaemun Market, Myeongdong, Itaewon",
+        "what": "Fake designer goods marketed as 'authentic', or knockoff K-beauty brands at inflated prices",
+        "avoid": "Designer = department stores (Lotte, Shinsegae, Hyundai). K-beauty: Olive Young (legit chain), Innisfree, Etude House official stores."
+      },
+      {
+        "title": "ATM skimming + DCC",
+        "severity": "high",
+        "where": "Standalone ATMs especially Itaewon/Hongdae",
+        "what": "Skimming + DCC trap (offer 'pay in your currency' — 5% worse rate)",
+        "avoid": "Use ATMs at major banks (KB, Shinhan, Woori) inside branches. Always select 'KRW' not USD on screen."
+      },
+      {
+        "title": "Cosmetic surgery / clinic upselling",
+        "severity": "medium",
+        "where": "Gangnam, Apgujeong (cosmetic surgery streets)",
+        "what": "$50 'consultation' becomes hard-sell pressure; deposit required for procedures pricier than promised",
+        "avoid": "Research clinics via Korea Tourism Org partner list. Get all prices in writing before deposit. Don't go in solo if cult-vulnerable."
+      },
+      {
+        "title": "Aggressive selling in Insadong",
+        "severity": "medium",
+        "where": "Insadong shopping district",
+        "what": "Vendors quote inflated prices for 'traditional Korean handicrafts' that are mass-produced",
+        "avoid": "Bargain (uncommon in Korea otherwise but expected here). Compare prices across multiple stalls."
+      },
+      {
+        "title": "Free Wi-Fi phishing",
+        "severity": "medium",
+        "where": "Tourist areas, airports, cafés",
+        "what": "Fake Wi-Fi ('Korea Free' / 'Tourist Wi-Fi'); captures bank login data",
+        "avoid": "Use mobile data (eSIM/SIM) for banking. VPN if must use public Wi-Fi (NordVPN, ExpressVPN)."
+      },
+      {
+        "title": "DMZ tour bait-switch",
+        "severity": "medium",
+        "where": "Booked DMZ (North Korean border) tours",
+        "what": "Cheap online listing turns out to be 'DMZ overview' from far away, no JSA visit",
+        "avoid": "Book via Koridoor, VIP Travel, or Klook with reviews. Confirm whether JSA (Joint Security Area) is included before paying."
+      },
+      {
+        "title": "Karaoke (noraebang) overcharging",
+        "severity": "medium",
+        "where": "Hongdae, Gangnam late-night",
+        "what": "Some 'karaoke' venues are room-salons with hostesses; charge $200-500 for drinks",
+        "avoid": "Use coin noraebang chains (multi-bang places) — fixed pricing. Or noraebang inside reputable buildings (not hidden alleys)."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "USD",
+      "backpacker": 50,
+      "midRange": 120,
+      "comfortable": 250
+    },
+    "emergencyNumbers": {
+      "Police": "112",
+      "Ambulance": "119",
+      "Foreign Helpline": "1330",
+      "Seoul Hotline": "02-120"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  },
+  {
+    "slug": "paris-france",
+    "destination": "Paris",
+    "country": "France",
+    "audience": "foreign-women",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 5,
+    "heroImageUrl": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=80",
+    "tldr": {
+      "summary": "Beautiful and pickpocket-heavy. 70% of Paris pickpocket victims are women. Metro Line 1 and tourist sites are highest risk. Crossbody bag in front, phone in zipped pocket, always.",
+      "safetyRating": "moderate",
+      "topTip": "Hands in pockets in tourist areas. Walk past, don't make eye contact. If tied: take it off, drop it, walk away."
+    },
+    "neighborhoods": [],
+    "scams": [
+      {
+        "title": "Friendship bracelet / rose scam",
+        "severity": "medium",
+        "where": "Paris (Sacré-Cœur, Eiffel), Rome (Spanish Steps), Barcelona (Las Ramblas)",
+        "what": "Stranger ties bracelet on wrist or thrusts rose into hand, then aggressively demands €5-50 + scenes if you refuse",
+        "avoid": "Hands in pockets in tourist areas. Walk past, don't make eye contact. If tied: take it off, drop it, walk away."
+      },
+      {
+        "title": "Petition scam (deaf-mute clipboard)",
+        "severity": "high",
+        "where": "Paris (Eiffel, Louvre, Trocadéro), Rome, Berlin Brandenburg, Barcelona",
+        "what": "Group of 'deaf-mute' women/children with clipboard distract you for petition signature; accomplice picks pocket",
+        "avoid": "Hands on bag/pockets when approached. 'Non!' / 'No!' firmly. Move away. Real charities don't street-collect."
+      },
+      {
+        "title": "Gold ring 'find'",
+        "severity": "medium",
+        "where": "Paris, Rome, Barcelona near tourist sites",
+        "what": "Person 'finds' gold ring, offers to sell it cheap (€20). Ring is brass.",
+        "avoid": "If 'found' near you, walk away. Don't engage."
+      },
+      {
+        "title": "Bird poop / mustard / spilled drink",
+        "severity": "medium",
+        "where": "Rome, Barcelona, Paris, London tourist hubs",
+        "what": "Substance lands on you; helpful stranger offers to clean while accomplice picks pocket",
+        "avoid": "Politely refuse help. Move to a café/store before cleaning. Don't put bag down."
+      },
+      {
+        "title": "Metro pickpocketing (organized gang)",
+        "severity": "critical",
+        "where": "Paris Métro Line 1+4 (CDG-Châtelet); Rome Metro Line A (Termini-Vatican); Barcelona L3 + L4",
+        "what": "Children + adult teams crowd you at door, jostle, lift wallet/phone. Highest rate at Eiffel, Colosseum, Sagrada Familia stops.",
+        "avoid": "Crossbody bag IN FRONT, hand on it. Phone in zipped pocket NEVER back pocket. Stay aware near doors at stops."
+      },
+      {
+        "title": "Fake police 'wallet check'",
+        "severity": "high",
+        "where": "Madrid, Rome, Berlin, Prague",
+        "what": "Plainclothes 'police' demand passport/wallet for 'counterfeit money check'. Take cash + cards.",
+        "avoid": "Real police NEVER ask for wallet on the street. Demand to walk to nearest police station. Walk away if they don't agree."
+      },
+      {
+        "title": "Restaurant menu-swap / no-prices",
+        "severity": "high",
+        "where": "Rome (Trastevere, near Trevi), Paris (near Notre-Dame, Champs-Élysées)",
+        "what": "Verbal 'fish of day' or untranslated menu = €100+ shock bill. 'Coperto' (cover charge) added with stiff tip",
+        "avoid": "Read menu prices before sitting. Ask 'how much?' for any verbal special. Avoid restaurants without prices on menu."
+      },
+      {
+        "title": "Gladiator photo scam (Rome)",
+        "severity": "medium",
+        "where": "Rome — Colosseum, Roman Forum",
+        "what": "Costumed 'gladiators' pose for photo; demand €20-50 after",
+        "avoid": "Don't pose with them. If they appear in your shot, walk on without paying."
+      },
+      {
+        "title": "Taxi airport overcharge",
+        "severity": "high",
+        "where": "All major airports — Rome FCO, Paris CDG, Madrid Barajas, Barcelona BCN, Berlin BER",
+        "what": "Driver claims 'flat rate' or no meter; €100+ for €40 ride",
+        "avoid": "Use Uber/Bolt/FreeNow apps. OR insist on metered taxi from official taxi rank only. Rome + Paris have fixed flat-fares posted online (Rome FCO €50)."
+      },
+      {
+        "title": "ATM skimming (multiple countries)",
+        "severity": "high",
+        "where": "Standalone ATMs in tourist areas — especially Italy, Spain, Berlin",
+        "what": "Skimming device + camera; account drained within hours",
+        "avoid": "Use ATMs INSIDE bank branches. Cover PIN entry. Use credit not debit (better fraud protection)."
+      }
+    ],
+    "transport": [],
+    "hiddenGems": [],
+    "preBookChecklist": [],
+    "dosAndDonts": {},
+    "estimatedDailyBudget": {
+      "currency": "EUR",
+      "backpacker": 70,
+      "midRange": 150,
+      "comfortable": 300
+    },
+    "emergencyNumbers": {
+      "Police": "17",
+      "Ambulance": "15",
+      "Fire": "18",
+      "EU Emergency": "112",
+      "Tourist Police Paris": "+33-1-53-71-53-71"
+    },
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {}
+  }
+]
