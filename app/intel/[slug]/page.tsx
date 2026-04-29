@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { PreBookChecklist } from "@/components/intel/PreBookChecklist";
 import {
   Accordion,
@@ -144,8 +145,8 @@ export default async function IntelPage({ params }: { params: Params }) {
           <div className="flex flex-wrap items-center gap-4 border-b border-ww-border pb-6">
             <div className="flex items-center gap-2">
               {contributor && (
-                <img src={contributor.photoUrl} alt={contributor.name}
-                  className="h-7 w-7 rounded-full object-cover" />
+                <Image src={contributor.photoUrl} alt={contributor.name}
+                  width={28} height={28} className="h-7 w-7 rounded-full object-cover" />
               )}
               <span className="font-mono text-xs text-ww-muted">
                 by <span className="text-ink">{contributor?.name ?? "Wander Women"}</span>
@@ -629,8 +630,8 @@ export default async function IntelPage({ params }: { params: Params }) {
                   Written by
                 </p>
                 <div className="flex items-center gap-3">
-                  <img src={contributor.photoUrl} alt={contributor.name}
-                    className="h-10 w-10 rounded-full object-cover" />
+                  <Image src={contributor.photoUrl} alt={contributor.name}
+                    width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
                   <div>
                     <p className="font-mono text-sm font-semibold text-ink">{contributor.name}</p>
                     <p className="font-mono text-[10px] text-ww-muted">{contributor.tripCount} solo trips</p>

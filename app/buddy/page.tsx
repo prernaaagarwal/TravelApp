@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
+import Image from "next/image";
 import { RegisterTripForm } from "@/components/intel/RegisterTripForm";
 import { ConnectButton } from "@/components/intel/ConnectButton";
 import buddyMatches from "@/lib/mock-data/buddy-matches.json";
@@ -148,8 +149,8 @@ function MockBuddyCard({ buddy, rank }: { buddy: typeof buddyMatches[0]; rank: n
         Demo match
       </span>
       <div className="flex flex-wrap items-start gap-4">
-        <img src={buddy.photoUrl} alt={buddy.firstName}
-          className="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-ww-border" />
+        <Image src={buddy.photoUrl} alt={buddy.firstName}
+          width={64} height={64} className="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-ww-border" />
         <div className="min-w-0 flex-1">
           <h3 className="font-serif text-2xl text-ink">{buddy.firstName}</h3>
           <p className="font-mono text-xs text-ww-muted">

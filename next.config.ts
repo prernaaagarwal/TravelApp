@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
       { source: "/community/beware/goa", destination: "/community/beware/goa-india", permanent: false },
     ];
   },
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "i.pravatar.cc" },
+      { protocol: "https", hostname: "*.supabase.co" },
+    ],
+  },
 };
 
 export default nextConfig;

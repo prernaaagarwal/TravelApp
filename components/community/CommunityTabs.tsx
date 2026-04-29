@@ -3,6 +3,7 @@
 import { useState, useTransition, useCallback } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Tabs,
   TabsContent,
@@ -421,8 +422,7 @@ function ComposeForm({ tab, placeholder, cta }: { tab: string; placeholder: stri
         {uploadedUrls.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-2">
             {uploadedUrls.map((url) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img key={url} src={url} alt="" className="h-16 w-16 object-cover border border-ww-border" />
+              <Image key={url} src={url} alt="" width={64} height={64} className="h-16 w-16 object-cover border border-ww-border" />
             ))}
           </div>
         )}
