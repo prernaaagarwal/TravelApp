@@ -309,6 +309,17 @@ export default async function IntelPage({ params }: { params: Params }) {
             </div>
           </section>
 
+          {/* Scam map CTA — Goa only */}
+          {card.slug === "goa-india" && (
+            <a
+              href="/community/beware/goa"
+              className="flex items-center justify-between border border-rust/30 bg-rust-light/40 px-4 py-3 font-mono text-xs transition-colors hover:bg-rust-light"
+            >
+              <span className="text-rust">📍 See all scam locations on the map</span>
+              <span className="text-rust">→</span>
+            </a>
+          )}
+
           {/* ── Transport ─────────────────────────────────────────────── */}
           <section>
             <h2 className="mb-4 font-serif text-2xl text-ink">Getting around</h2>
