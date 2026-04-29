@@ -73,17 +73,17 @@ function deriveCountry(slug: string): string {
 const BOUNDARY_OSM_ID_BY_SLUG: Record<string, string> = {
   "goa-india":          "R1263478",
   "delhi-india":        "R1942586",  // Delhi NCT administrative boundary, excludes Noida/Gurgaon
-  "mumbai-india":       "R7888990",
-  "jaipur-india":       "R1278173",
+  // mumbai: R7888990 resolves to Maharashtra state — omitted; using hand-crafted city polygon
+  // jaipur: R1278173 resolves to Rajasthan state — omitted; using hand-crafted city polygon
   // Agra: R1278716 is UP state boundary — omitted; using hand-crafted city polygon instead
-  "bangalore-india":    "R1277806",
-  "chennai-india":      "R1278274",
+  // bangalore: R1277806 resolves to Karnataka state — omitted; using hand-crafted city polygon
+  // chennai:   R1278274 resolves to large Tamil Nadu area — omitted; using hand-crafted city polygon
   "kolkata-india":      "R1278011",
-  "varanasi-india":     "R1278771",
-  "udaipur-india":      "R1278946",
-  "manali-india":       "R1267327",
-  "kochi-india":        "R1278721",
-  "tokyo-japan":        "R1543125",
+  // varanasi:  R1278771 resolves to UP state — omitted; using hand-crafted city polygon
+  // udaipur:   R1278946 resolves to Rajasthan state — omitted; using hand-crafted city polygon
+  // manali:    R1267327 resolves to Himachal Pradesh state — omitted; using hand-crafted city polygon
+  // kochi:     R1278721 resolves to Kerala state area — omitted; using hand-crafted city polygon
+  // tokyo:     R1543125 resolves to Ogasawara Island (Pacific), not Tokyo city — omitted; using hand-crafted city polygon
   "bangkok-thailand":   "R1809197",
   "hanoi-vietnam":      "R1903588",
   "dubai-uae":          "R3374080",
