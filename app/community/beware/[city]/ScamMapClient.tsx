@@ -50,11 +50,11 @@ const LABEL_MAX_ZOOM  = 13;
 
 function createIcon(L: typeof LeafletNS, type: MapReport["type"]) {
   const color = COLORS[type];
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 24 32">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="81" height="108" viewBox="0 0 24 32">
     <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20S24 21 24 12C24 5.373 18.627 0 12 0z" fill="${color}"/>
     <circle cx="12" cy="12" r="4" fill="white"/>
   </svg>`;
-  return L.divIcon({ html: svg, className: "", iconSize: [24, 32], iconAnchor: [12, 32] });
+  return L.divIcon({ html: svg, className: "", iconSize: [81, 108], iconAnchor: [41, 108] });
 }
 
 function createLabelIcon(L: typeof LeafletNS, name: string) {
@@ -120,6 +120,7 @@ export function ScamMapClient({
   const [visibleCount, setVisibleCount] = useState(reports.length);
   const [selected, setSelected]         = useState<MapReport | null>(null);
   const [viewMode, setViewMode]         = useState<"overview" | "pins">("overview");
+  const [listOpen, setListOpen]         = useState(false);
 
   const mapDivRef     = useRef<HTMLDivElement>(null);
   const mapRef        = useRef<LeafletMap | null>(null);
@@ -193,14 +194,6 @@ export function ScamMapClient({
     if (!shouldShow && map.hasLayer(labels)) map.removeLayer(labels);
   }
 
-  function handleManualToggle(mode: "overview" | "pins") {
-    const map = mapRef.current;
-    if (!map) return;
-    const target = mode === "pins" ? Math.max(map.getZoom(), 14) : Math.min(map.getZoom(), 11);
-    setViewMode(mode);
-    map.setZoom(target);
-  }
-
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (mapRef.current) return;
@@ -225,8 +218,12 @@ export function ScamMapClient({
         zoomControl: false,
       });
 
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "© OpenStreetMap contributors",
+      // CartoDB Positron — minimal, near-white tiles with sparse labels.
+      // Significantly less visual noise than OSM standard; heatmap and pins
+      // read much more clearly against the clean background.
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: "abcd",
         maxZoom: 19,
       }).addTo(map);
 
@@ -246,8 +243,8 @@ export function ScamMapClient({
       // Build heat layer
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const heat = (L as any).heatLayer(buildHeatData(activeTypesRef.current), {
-        radius: 35,
-        blur: 25,
+        radius: 120,
+        blur: 86,
         maxZoom: ZOOM_BREAKPOINT,
         gradient: HEAT_GRADIENT,
       });
@@ -310,7 +307,7 @@ export function ScamMapClient({
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const maskLayer = L.geoJSON(maskFeature as any, {
           style: {
-            fillColor: "#1a1510",
+            fillColor: "#ffffff",
             fillOpacity: 0.9,
             stroke: false,
             fillRule: "evenodd",
@@ -369,32 +366,6 @@ export function ScamMapClient({
         className="flex shrink-0 items-center gap-2 overflow-x-auto border-b border-ww-border bg-warm-white px-4 scrollbar-none"
         style={{ height: FILTER_BAR_H }}
       >
-        {/* View mode toggle */}
-        <div className="flex shrink-0 items-center gap-1">
-          <button
-            onClick={() => handleManualToggle("overview")}
-            className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
-              viewMode === "overview"
-                ? "border-ink bg-ink text-warm-white"
-                : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
-            }`}
-          >
-            Overview
-          </button>
-          <button
-            onClick={() => handleManualToggle("pins")}
-            className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
-              viewMode === "pins"
-                ? "border-ink bg-ink text-warm-white"
-                : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
-            }`}
-          >
-            Pins
-          </button>
-        </div>
-
-        <div className="h-5 w-px shrink-0 bg-ww-border/60" />
-
         <button
           onClick={toggleAll}
           className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
@@ -427,12 +398,15 @@ export function ScamMapClient({
       <div className="relative flex-1">
         <div ref={mapDivRef} className="h-full w-full" />
 
-        {/* Stats pill */}
-        <div className="absolute left-1/2 top-3 z-[999] -translate-x-1/2 rounded-full border border-ww-border bg-warm-white/90 px-3 py-1 shadow-sm backdrop-blur-sm">
+        {/* Stats pill — click to open reports list */}
+        <button
+          onClick={() => { setListOpen((o) => !o); setSelected(null); }}
+          className="absolute left-1/2 top-3 z-[999] -translate-x-1/2 rounded-full border border-ww-border bg-warm-white/90 px-3 py-1 shadow-sm backdrop-blur-sm hover:border-rust transition-colors"
+        >
           <span className="font-mono text-[10px] text-ww-muted">
             {visibleCount} reports · {cityName} · Updated today
           </span>
-        </div>
+        </button>
 
         {/* Legend */}
         <div className="absolute right-3 top-3 z-[999] flex flex-col gap-1.5 rounded border border-ww-border bg-warm-white/90 p-2 shadow-sm backdrop-blur-sm">
@@ -466,6 +440,19 @@ export function ScamMapClient({
           +
         </Link>
 
+        {/* Reports list panel */}
+        {listOpen && !selected && (
+          <ReportsListPanel
+            reports={[...reports].sort((a, b) => {
+              const da = new Date(a.date).getTime();
+              const db = new Date(b.date).getTime();
+              return (isNaN(db) || isNaN(da)) ? 0 : db - da;
+            })}
+            onSelect={(r) => { setSelected(r); setListOpen(false); }}
+            onClose={() => setListOpen(false)}
+          />
+        )}
+
         {/* Detail panel */}
         {selected && (
           <DetailPanel
@@ -474,6 +461,62 @@ export function ScamMapClient({
             onClose={() => setSelected(null)}
             isLoggedIn={isLoggedIn}
           />
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ReportsListPanel({
+  reports,
+  onSelect,
+  onClose,
+}: {
+  reports: MapReport[];
+  onSelect: (r: MapReport) => void;
+  onClose: () => void;
+}) {
+  return (
+    <div className="fixed z-[9999] flex flex-col border-ww-border bg-warm-white shadow-2xl inset-x-0 bottom-0 border-t md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[360px] md:max-h-none md:border-r md:border-t-0" style={{ maxHeight: "65dvh" }}>
+      <div className="flex shrink-0 items-center justify-between border-b border-ww-border px-4 py-3">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+          {reports.length} Reports · Newest first
+        </span>
+        <button onClick={onClose} className="font-mono text-sm text-ww-muted hover:text-ink" aria-label="Close">
+          ✕
+        </button>
+      </div>
+      <div className="overflow-y-auto">
+        {reports.length === 0 ? (
+          <p className="px-4 py-6 font-mono text-xs text-ww-muted">No reports yet.</p>
+        ) : (
+          reports.map((r) => (
+            <button
+              key={r.id}
+              onClick={() => onSelect(r)}
+              className="flex w-full flex-col gap-1 border-b border-ww-border/50 px-4 py-3 text-left hover:bg-sand transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span
+                  className="shrink-0 rounded px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-white"
+                  style={{ background: COLORS[r.type] }}
+                >
+                  {r.type}
+                </span>
+                {r.isDemo && (
+                  <span className="rounded border border-ww-border bg-sand px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-widest text-ww-muted">
+                    Demo
+                  </span>
+                )}
+              </div>
+              <p className="line-clamp-2 font-mono text-xs font-medium text-ink leading-snug">{r.title}</p>
+              <div className="flex items-center gap-2 font-mono text-[10px] text-ww-muted">
+                <span>📍 {r.place}</span>
+                <span>·</span>
+                <span>{r.date}</span>
+              </div>
+            </button>
+          ))
         )}
       </div>
     </div>
