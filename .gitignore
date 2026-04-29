@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# research source files (raw Excel/HTML exports, not part of the codebase)
+/research-source/
