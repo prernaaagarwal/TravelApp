@@ -58,12 +58,14 @@ export default async function ProfilePage({
   const { data: { user: viewer } } = await supabase.auth.getUser();
 
   // Resolve profile by username OR uuid (fallback for users without username yet)
-  const { data: profile } = await supabase
+  const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(username);
+  const lookup = supabase
     .from("profiles")
     .select("*")
-    .or(`username.eq.${username},id.eq.${username}`)
-    .is("deleted_at", null)
-    .single();
+    .is("deleted_at", null);
+  const { data: profile } = isUuid
+    ? await lookup.eq("id", username).single()
+    : await lookup.eq("username", username).single();
 
   if (!profile) notFound();
 
