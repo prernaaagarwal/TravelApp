@@ -310,9 +310,17 @@ export function ScamMapClient({
         }).addTo(map);
 
         boundaryRef.current = L.layerGroup([maskLayer, boundaryLine]);
-        map.fitBounds(boundaryLine.getBounds(), { padding: [32, 32], maxZoom: 13 });
-      } catch {
-        // Fall back to hardcoded center/zoom — already applied
+
+        // Skip fitBounds when the boundary would zoom us out below the configured
+        // zoom — protects cities like Tokyo whose admin boundary includes remote
+        // islands (Ogasawara). The mask still renders correctly either way.
+        const fitted = boundaryLine.getBounds();
+        const targetZoom = map.getBoundsZoom(fitted, false, L.point(32, 32));
+        if (targetZoom >= zoom - 1) {
+          map.fitBounds(fitted, { padding: [32, 32], maxZoom: 13 });
+        }
+      } catch (err) {
+        console.error("[beware-map] boundary fetch failed:", err);
       }
     }
 
@@ -325,8 +333,9 @@ export function ScamMapClient({
         mapRef.current = null;
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    // Re-init only when the city changes; other props are derived from citySlug.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [citySlug]);
 
   const FILTER_BAR_H = 40;
   const allOn = activeTypes.size === TYPES.length;
