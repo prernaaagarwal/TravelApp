@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
 
@@ -39,11 +40,17 @@ export async function Header() {
         <div className="flex items-center gap-2">
           {user ? (
             <>
-              <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex text-ww-muted hover:text-ink">
-                <Link href="/account/profile">My account</Link>
-              </Button>
+              <Link
+                href="/account/settings"
+                aria-label="Settings"
+                title="Settings"
+                className="text-ww-muted hover:text-ink p-1"
+              >
+                <Settings className="h-4 w-4" />
+              </Link>
               <Link
                 href="/account/profile"
+                aria-label="Profile"
                 className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium hover:bg-rust/30 transition-colors"
               >
                 {user.email?.[0]?.toUpperCase() ?? "W"}
@@ -68,3 +75,4 @@ export async function Header() {
     </header>
   );
 }
+

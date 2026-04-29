@@ -1,25 +1,34 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { updateProfile, signOut } from "./actions";
+import { TravelProfileForm } from "@/components/account/TravelProfileForm";
 
-const WORRY_LABELS: Record<string, string> = {
-  safety: "Safety",
-  scams: "Scams",
-  loneliness: "Loneliness",
-  money: "Money",
-  transport: "Transport",
-  stay: "Accommodation",
+const CITY_LABELS: Record<string, string> = {
+  "goa-india":         "Goa",
+  "delhi-india":       "Delhi",
+  "mumbai-india":      "Mumbai",
+  "jaipur-india":      "Jaipur",
+  "manali-india":      "Manali",
+  "rishikesh-india":   "Rishikesh",
+  "varanasi-india":    "Varanasi",
+  "udaipur-india":     "Udaipur",
+  "agra-india":        "Agra",
+  "bangalore-india":   "Bangalore",
+  "kolkata-india":     "Kolkata",
+  "chennai-india":     "Chennai",
+  "kochi-india":       "Kochi",
+  "kasol-india":       "Kasol",
+  "hampi-india":       "Hampi",
+  "tokyo-japan":       "Tokyo",
+  "bangkok-thailand":  "Bangkok",
+  "hanoi-vietnam":     "Hanoi",
+  "dubai-uae":         "Dubai",
+  "seoul-south-korea": "Seoul",
+  "paris-france":      "Paris",
 };
 
-const TRIP_COUNT_LABELS: Record<string, string> = {
-  "0": "No solo trips yet",
-  "1-2": "1–2 trips",
-  "3-5": "3–5 trips",
-  "6+": "6+ trips",
+export const metadata = {
+  title: "My profile — Wander Women",
 };
 
 export default async function ProfilePage() {
@@ -30,258 +39,133 @@ export default async function ProfilePage() {
     redirect("/account/login?next=/account/profile");
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single();
+  const [{ data: profile }, { count: bewareReportsCount }, { count: postsCount }] =
+    await Promise.all([
+      supabase.from("profiles").select("*").eq("id", user.id).single(),
+      supabase
+        .from("beware_reports")
+        .select("id", { count: "exact", head: true })
+        .eq("reported_by_id", user.id),
+      supabase
+        .from("community_posts")
+        .select("id", { count: "exact", head: true })
+        .eq("author_id", user.id),
+    ]);
 
-  const { data: connections } = await supabase
-    .from("buddy_connections")
-    .select("id, status, to_match_id, created_at")
-    .eq("from_user_id", user.id)
-    .order("created_at", { ascending: false });
-
-  const tier = profile?.membership_tier ?? "free";
   const displayName = profile?.first_name ?? user.email?.split("@")[0] ?? "W";
   const initial = displayName[0].toUpperCase();
-  const memberSince = profile?.created_at
-    ? new Date(profile.created_at).toLocaleDateString("en-IN", { month: "long", year: "numeric" })
-    : null;
 
-  const segment = profile?.segment as {
-    tripCount?: string;
+  const segment = (profile?.segment as {
     destination?: string;
-    worries?: string[];
-  } | null;
+    need?: string;
+    tripCount?: string;
+    travelPreference?: string;
+    travelStyle?: string[];
+    citiesVisited?: string[];
+    languages?: string[];
+  } | null) ?? {};
+
+  const visited = segment.citiesVisited ?? [];
+  const styles = segment.travelStyle ?? [];
 
   return (
     <main className="min-h-screen bg-sand px-4 py-12">
       <div className="mx-auto max-w-lg space-y-4">
-        <div className="mb-6">
+        <div className="mb-2 flex items-center justify-between">
           <Link href="/" className="text-sm text-ww-muted hover:text-ink">
-            ← Back to home
+            ← Home
+          </Link>
+          <Link
+            href="/account/settings"
+            className="font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted hover:text-ink"
+          >
+            Settings →
           </Link>
         </div>
 
-        {/* Avatar + name */}
+        {/* Public identity hero */}
         <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
           <div className="flex items-center gap-4">
-            <div className="h-14 w-14 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xl font-medium shrink-0">
+            <div className="h-16 w-16 rounded-full bg-rust/20 flex items-center justify-center text-rust text-2xl font-medium shrink-0">
               {initial}
             </div>
-            <div>
-              <h1 className="font-serif text-2xl text-ink">{displayName}</h1>
-              <p className="text-sm text-ww-muted">{user.email}</p>
-              {memberSince && (
-                <p className="text-xs text-ww-muted mt-0.5">Member since {memberSince}</p>
+            <div className="min-w-0">
+              <h1 className="font-serif text-2xl text-ink truncate">{displayName}</h1>
+              {profile?.home_city && (
+                <p className="font-mono text-xs text-ww-muted">
+                  📍 {profile.home_city}
+                </p>
+              )}
+              {profile?.instagram && (
+                <p className="font-mono text-[11px] text-ww-muted mt-0.5">
+                  {profile.instagram}
+                </p>
               )}
             </div>
           </div>
+
+          {/* Inline tag preview of style + visited */}
+          {(styles.length > 0 || visited.length > 0) && (
+            <div className="mt-4 space-y-2 border-t border-ww-border pt-4">
+              {styles.length > 0 && (
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Style</span>
+                  {styles.map((s) => (
+                    <span key={s} className="rounded-full bg-rust/10 text-rust text-[10px] px-2 py-0.5 font-mono">
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {visited.length > 0 && (
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Solo&apos;d</span>
+                  {visited.slice(0, 8).map((slug) => (
+                    <span key={slug} className="rounded-full bg-sage/10 text-sage text-[10px] px-2 py-0.5 font-mono">
+                      {CITY_LABELS[slug] ?? slug}
+                    </span>
+                  ))}
+                  {visited.length > 8 && (
+                    <span className="font-mono text-[10px] text-ww-muted">+{visited.length - 8}</span>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
-        {/* Membership */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm space-y-3">
-          <div className="flex items-center justify-between">
-            <p className="text-xs uppercase tracking-wider text-ww-muted">Membership</p>
-            <Badge
-              className={
-                tier === "founding"
-                  ? "bg-gold/20 text-gold border-gold/30"
-                  : "bg-ww-border text-ww-muted"
-              }
-            >
-              {tier === "founding" ? "Founding member" : "Free"}
-            </Badge>
+        {/* Community stats */}
+        <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+          <p className="mb-3 text-xs uppercase tracking-wider text-ww-muted">Community</p>
+          <div className="grid grid-cols-3 gap-3 text-center">
+            <Stat label="Posts" value={postsCount ?? 0} />
+            <Stat label="Reports filed" value={bewareReportsCount ?? 0} />
+            <Stat label="Saved" value={0} hint="Soon" />
           </div>
-
-          {tier === "founding" && profile?.membership_expiry && (
-            <p className="text-sm text-ink">
-              Valid until{" "}
-              {new Date(profile.membership_expiry).toLocaleDateString("en-IN", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </p>
-          )}
-
-          {tier === "free" && (
-            <div className="rounded-lg bg-rust/5 border border-rust/20 p-4">
-              <p className="text-sm text-ink font-medium mb-1">Upgrade to Founding membership</p>
-              <p className="text-xs text-ww-muted mb-3">
-                Unlock premium intel, early features, and support the community.
-              </p>
-              <Button asChild size="sm" className="bg-rust text-warm-white hover:bg-rust/90">
-                <Link href="/account/membership">Join the Founding 200 →</Link>
-              </Button>
-            </div>
-          )}
         </div>
 
-        {/* Travel profile from onboarding */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm space-y-3">
-          <p className="text-xs uppercase tracking-wider text-ww-muted">My travel profile</p>
-          {segment ? (
-            <div className="space-y-2 text-sm text-ink">
-              {segment.tripCount && (
-                <div className="flex justify-between">
-                  <span className="text-ww-muted">Solo trips taken</span>
-                  <span>{TRIP_COUNT_LABELS[segment.tripCount] ?? segment.tripCount}</span>
-                </div>
-              )}
-              {segment.destination && (
-                <div className="flex justify-between">
-                  <span className="text-ww-muted">Next destination</span>
-                  <span className="capitalize">{segment.destination.replace(/-india|-japan|-vietnam|-thailand/, "").replace(/-/g, " ")}</span>
-                </div>
-              )}
-              {segment.worries && segment.worries.length > 0 && (
-                <div>
-                  <p className="text-ww-muted mb-1">Top worries</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {segment.worries.map((w) => (
-                      <span
-                        key={w}
-                        className="rounded-full bg-rust/10 text-rust text-xs px-2.5 py-0.5"
-                      >
-                        {WORRY_LABELS[w] ?? w}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              <Link
-                href="/onboarding"
-                className="block text-xs text-ww-muted underline hover:text-ink pt-1"
-              >
-                Update my answers
-              </Link>
-            </div>
-          ) : (
-            <div>
-              <p className="text-sm text-ww-muted mb-3">
-                Answer 3 quick questions to personalise your intel.
-              </p>
-              <Button asChild size="sm" variant="ghost" className="border border-ww-border text-ink hover:bg-sand">
-                <Link href="/onboarding">Answer 3 questions →</Link>
-              </Button>
-            </div>
-          )}
-        </div>
-
-        {/* Edit details */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm space-y-4">
-          <p className="text-xs uppercase tracking-wider text-ww-muted">My details</p>
-          <form action={updateProfile} className="space-y-3">
-            <div>
-              <label htmlFor="first_name" className="block text-xs text-ww-muted mb-1">
-                First name
-              </label>
-              <Input
-                id="first_name"
-                name="first_name"
-                placeholder="Priya"
-                defaultValue={profile?.first_name ?? ""}
-                className="bg-warm-white border-ww-border text-sm"
-              />
-            </div>
-            <div>
-              <label htmlFor="home_city" className="block text-xs text-ww-muted mb-1">
-                Home city
-              </label>
-              <Input
-                id="home_city"
-                name="home_city"
-                placeholder="Mumbai"
-                defaultValue={profile?.home_city ?? ""}
-                className="bg-warm-white border-ww-border text-sm"
-              />
-            </div>
-            <div>
-              <label htmlFor="instagram" className="block text-xs text-ww-muted mb-1">
-                Instagram handle <span className="text-ww-muted/60">(optional — for buddy verification)</span>
-              </label>
-              <Input
-                id="instagram"
-                name="instagram"
-                placeholder="@yourhandle"
-                defaultValue={profile?.instagram ?? ""}
-                className="bg-warm-white border-ww-border text-sm"
-              />
-            </div>
-            <div>
-              <label htmlFor="phone" className="block text-xs text-ww-muted mb-1">
-                WhatsApp number <span className="text-ww-muted/60">(optional)</span>
-              </label>
-              <Input
-                id="phone"
-                name="phone"
-                placeholder="+91 98765 43210"
-                defaultValue={profile?.phone ?? ""}
-                className="bg-warm-white border-ww-border text-sm"
-              />
-            </div>
-            <Button
-              type="submit"
-              size="sm"
-              className="bg-rust text-warm-white hover:bg-rust/90"
-            >
-              Save details
-            </Button>
-          </form>
-        </div>
-
-        {/* Buddy connections */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm space-y-3">
-          <div className="flex items-center justify-between">
-            <p className="text-xs uppercase tracking-wider text-ww-muted">Buddy connections</p>
-            <Link href="/buddy" className="text-xs text-rust hover:underline">
-              Find buddies →
-            </Link>
-          </div>
-          {connections && connections.length > 0 ? (
-            <ul className="space-y-2">
-              {connections.map((c) => (
-                <li key={c.id} className="flex items-center justify-between text-sm">
-                  <span className="text-ink">Connection request</span>
-                  <span
-                    className={`text-xs px-2 py-0.5 rounded-full ${
-                      c.status === "accepted"
-                        ? "bg-sage/10 text-sage"
-                        : "bg-gold/10 text-gold"
-                    }`}
-                  >
-                    {c.status}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-sm text-ww-muted">
-              No connections yet.{" "}
-              <Link href="/buddy" className="underline hover:text-ink">
-                Find a travel buddy
-              </Link>{" "}
-              to get started.
-            </p>
-          )}
-        </div>
-
-        {/* Sign out */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
-          <form action={signOut}>
-            <Button
-              type="submit"
-              variant="ghost"
-              size="sm"
-              className="text-ww-muted hover:text-rust"
-            >
-              Sign out
-            </Button>
-          </form>
-        </div>
+        {/* Editable profile */}
+        <TravelProfileForm
+          firstName={profile?.first_name ?? ""}
+          homeCity={profile?.home_city ?? ""}
+          instagram={profile?.instagram ?? ""}
+          segment={segment}
+        />
       </div>
     </main>
+  );
+}
+
+function Stat({ label, value, hint }: { label: string; value: number; hint?: string }) {
+  return (
+    <div className="border border-ww-border bg-sand py-3">
+      <p className="font-serif text-2xl text-ink">{value}</p>
+      <p className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+        {label}
+      </p>
+      {hint && (
+        <p className="mt-0.5 font-mono text-[9px] text-rust">{hint}</p>
+      )}
+    </div>
   );
 }
