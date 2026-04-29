@@ -10,13 +10,14 @@ import {
 import { createClient as createBrowserClient } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
+import { env } from "@/lib/config";
 
 type Params = Promise<{ slug: string }>;
 
 function buildClient() {
   return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    env.NEXT_PUBLIC_SUPABASE_URL,
+    env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   );
 }
 
