@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Map as LeafletMap } from "leaflet";
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -92,10 +92,27 @@ export function ScamMapClient({ dbReports }: Props) {
   const demo = DEMO_REPORTS.filter((r) => !dbTitles.has(r.title.trim().toLowerCase()));
   const reports = [...dbReports, ...demo];
 
-  const mapDivRef = useRef<HTMLDivElement>(null);
-  const mapRef    = useRef<LeafletMap | null>(null);
-  const clusterRef  = useRef<any>(null);
-  const markersRef  = useRef<{ marker: any; report: MapReport }[]>([]);
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(reports.length);
+
+  const mapDivRef  = useRef<HTMLDivElement>(null);
+  const mapRef     = useRef<LeafletMap | null>(null);
+  const clusterRef = useRef<any>(null);
+  const markersRef = useRef<{ marker: any; report: MapReport }[]>([]);
+
+  const FILTER_LABELS = ["All", "Scam", "Harassment", "Transport", "Stay", "Safe"];
+
+  function applyFilter(f: string) {
+    setActiveFilter(f);
+    const cluster = clusterRef.current;
+    if (!cluster) return;
+    cluster.clearLayers();
+    const visible = markersRef.current.filter(({ report }) =>
+      f === "All" ? true : report.type === f.toLowerCase()
+    );
+    visible.forEach(({ marker }) => cluster.addLayer(marker));
+    setVisibleCount(visible.length);
+  }
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -153,18 +170,28 @@ export function ScamMapClient({ dbReports }: Props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const FILTER_BAR_H = 40; // px — matches the filter bar height added in step 5
+  const FILTER_BAR_H = 40;
 
   return (
     <div className="flex flex-col" style={{ height: "calc(100dvh - 56px)" }}>
-      {/* Filter bar placeholder — replaced in step 5 */}
+      {/* Filter chips */}
       <div
-        className="flex shrink-0 items-center border-b border-ww-border bg-warm-white px-4"
+        className="flex shrink-0 items-center gap-2 overflow-x-auto border-b border-ww-border bg-warm-white px-4 scrollbar-none"
         style={{ height: FILTER_BAR_H }}
       >
-        <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-          {reports.length} reports · Goa
-        </span>
+        {FILTER_LABELS.map((f) => (
+          <button
+            key={f}
+            onClick={() => applyFilter(f)}
+            className={`shrink-0 border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
+              activeFilter === f
+                ? "border-ink bg-ink text-warm-white"
+                : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
+            }`}
+          >
+            {f}
+          </button>
+        ))}
       </div>
 
       {/* Map */}
