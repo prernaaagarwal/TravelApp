@@ -3,9 +3,10 @@
 import { createClient } from "@/lib/supabase/server";
 
 export async function updateSegment(segment: {
-  tripCount: string;
   destination: string;
-  worries: string[];
+  need?: string;
+  tripCount?: string;
+  worries?: string[];
 }) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();

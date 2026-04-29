@@ -3,7 +3,7 @@ import { OnboardingWizard } from "@/components/intel/OnboardingWizard";
 export const metadata = {
   title: "Get Started — Wander Women",
   description:
-    "Three questions. We route you straight to the Trip Intel Card built for your trip.",
+    "Two questions. We route you to exactly the right feature for your trip.",
 };
 
 export default function OnboardingPage() {
@@ -11,14 +11,13 @@ export default function OnboardingPage() {
     <div className="mx-auto max-w-2xl px-6 py-12">
       <div className="mb-8 text-center">
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-          90 seconds, 3 questions
+          30 seconds, 2 questions
         </p>
         <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
           Tell us about your trip.
         </h1>
         <p className="font-mono text-sm leading-relaxed text-ww-muted">
-          Answer three things — we route you to the Trip Intel Card built for
-          your stage of solo travel.
+          Pick your destination and what you need — we take you straight there.
         </p>
       </div>
 

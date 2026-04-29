@@ -271,55 +271,39 @@ export default async function IntelPage({ params }: { params: Params }) {
               Reported and verified for {card.destination}. Read before you arrive.
             </p>
 
-            <div className="space-y-3">
-              {card.scams.map((scam, i) => {
-                const severity = scam.severity as "critical" | "high" | "medium";
-                const border = severity === "critical" ? "border-l-rust" : severity === "high" ? "border-l-gold" : "border-l-sage";
-                const badge = severity === "critical"
-                  ? "bg-rust/10 text-rust"
-                  : severity === "high"
-                  ? "bg-gold/10 text-gold"
-                  : "bg-sage/10 text-sage";
-
-                return (
-                  <div key={i} className={`border border-ww-border border-l-4 bg-sand p-4 ${border}`}>
-                    <div className="mb-2 flex flex-wrap items-center gap-2">
-                      <span className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest ${badge}`}>
-                        {severity}
-                      </span>
-                      <h3 className="font-mono text-sm font-semibold text-ink">{scam.title}</h3>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <p className="flex gap-2 text-xs leading-relaxed text-ww-muted">
-                        <span className="shrink-0 font-mono font-semibold text-ink">Where</span>
-                        {scam.where}
-                      </p>
-                      <p className="flex gap-2 text-xs leading-relaxed text-ww-muted">
-                        <span className="shrink-0 font-mono font-semibold text-ink">What</span>
-                        {scam.what}
-                      </p>
-                      <p className="flex gap-2 text-xs leading-relaxed text-ww-muted">
-                        <span className="shrink-0 font-mono font-semibold text-sage">Avoid</span>
-                        {scam.avoid}
-                      </p>
-                    </div>
+            {SUPPORTED_BEWARE_CITIES.has(card.slug) ? (
+              <a
+                href={`/community/beware/${card.slug}`}
+                className="flex items-center justify-between border border-rust/30 bg-rust-light/60 px-5 py-5 transition-colors hover:bg-rust-light"
+              >
+                <div>
+                  <p className="font-mono text-sm font-semibold text-rust">
+                    📍 {card.scams.length} scam reports — see them on the map
+                  </p>
+                  <p className="mt-1 font-mono text-[10px] text-ww-muted">
+                    Exact locations, community warnings, and how to avoid each one
+                  </p>
+                </div>
+                <span className="ml-4 shrink-0 font-mono text-sm text-rust">→</span>
+              </a>
+            ) : (
+              <div className="space-y-1.5">
+                {card.scams.slice(0, 4).map((scam, i) => (
+                  <div key={i} className="flex items-center gap-3 border border-ww-border bg-sand px-4 py-3">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                      {scam.severity}
+                    </span>
+                    <span className="font-mono text-sm text-ink">{scam.title}</span>
                   </div>
-                );
-              })}
-            </div>
+                ))}
+                {card.scams.length > 4 && (
+                  <p className="font-mono text-[10px] text-ww-muted">
+                    +{card.scams.length - 4} more
+                  </p>
+                )}
+              </div>
+            )}
           </section>
-
-          {/* Scam map CTA — supported cities */}
-          {SUPPORTED_BEWARE_CITIES.has(card.slug) && (
-            <a
-              href={`/community/beware/${card.slug}`}
-              className="flex items-center justify-between border border-rust/30 bg-rust-light/40 px-4 py-3 font-mono text-xs transition-colors hover:bg-rust-light"
-            >
-              <span className="text-rust">📍 See all scam locations on the map</span>
-              <span className="text-rust">→</span>
-            </a>
-          )}
 
           {/* ── Transport ─────────────────────────────────────────────── */}
           <section>
