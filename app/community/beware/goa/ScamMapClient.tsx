@@ -94,11 +94,14 @@ export function ScamMapClient({ dbReports }: Props) {
 
   const [activeFilter, setActiveFilter] = useState("All");
   const [visibleCount, setVisibleCount] = useState(reports.length);
+  const [selected, setSelected]         = useState<MapReport | null>(null);
 
-  const mapDivRef  = useRef<HTMLDivElement>(null);
-  const mapRef     = useRef<LeafletMap | null>(null);
-  const clusterRef = useRef<any>(null);
-  const markersRef = useRef<{ marker: any; report: MapReport }[]>([]);
+  const mapDivRef      = useRef<HTMLDivElement>(null);
+  const mapRef         = useRef<LeafletMap | null>(null);
+  const clusterRef     = useRef<any>(null);
+  const markersRef     = useRef<{ marker: any; report: MapReport }[]>([]);
+  const setSelectedRef = useRef(setSelected);
+  setSelectedRef.current = setSelected;
 
   const FILTER_LABELS = ["All", "Scam", "Harassment", "Transport", "Stay", "Safe"];
 
@@ -149,6 +152,7 @@ export function ScamMapClient({ dbReports }: Props) {
       markersRef.current = [];
       reports.forEach((r) => {
         const marker = L.marker([r.lat, r.lng], { icon: createIcon(L, r.type) });
+        marker.on("click", () => setSelectedRef.current(r));
         cluster.addLayer(marker);
         markersRef.current.push({ marker, report: r });
       });
@@ -198,6 +202,53 @@ export function ScamMapClient({ dbReports }: Props) {
       <div className="relative flex-1">
         <div ref={mapDivRef} className="h-full w-full" />
       </div>
+
+      {/* Bottom sheet */}
+      {selected && (
+        <div
+          className="fixed inset-x-0 bottom-0 z-[9999] flex flex-col border-t border-ww-border bg-warm-white shadow-2xl"
+          style={{ maxHeight: "55dvh" }}
+        >
+          {/* Header row */}
+          <div className="flex shrink-0 items-center justify-between px-4 pt-3 pb-2">
+            <span
+              className="rounded px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-white"
+              style={{ background: COLORS[selected.type] }}
+            >
+              {selected.type}
+            </span>
+            <button
+              onClick={() => setSelected(null)}
+              className="font-mono text-sm text-ww-muted hover:text-ink"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Scrollable body */}
+          <div className="overflow-y-auto px-4 pb-6 space-y-3">
+            <h3 className="font-serif text-xl leading-snug text-ink">
+              {selected.title}
+            </h3>
+            <p className="font-mono text-[11px] text-ww-muted">📍 {selected.place}</p>
+            <p className="font-mono text-xs leading-relaxed text-ink">{selected.desc}</p>
+            <div className="flex flex-wrap gap-3 font-mono text-[10px] text-ww-muted">
+              <span>{selected.date}</span>
+              <span>✓ {selected.confirms} confirmed</span>
+              <span>— {selected.reporter}</span>
+            </div>
+            <div className="flex flex-wrap gap-2 pt-1">
+              <button className="border border-rust px-3 py-1.5 font-mono text-[10px] text-rust transition-colors hover:bg-rust hover:text-white">
+                ⚠️ I experienced this too
+              </button>
+              <button className="border border-ww-border px-3 py-1.5 font-mono text-[10px] text-ww-muted transition-colors hover:border-ink hover:text-ink">
+                ✓ Seems fine now
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
