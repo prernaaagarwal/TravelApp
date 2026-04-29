@@ -41,6 +41,7 @@ type Segment = {
   citiesVisited?: string[];
   languages?: string[];
   destination?: string;
+  destinations?: string[];
   need?: string;
   worries?: string[];
   ageGroup?: string;
@@ -52,9 +53,19 @@ type Badge = {
   awarded_at: string;
 };
 
-type SavedDest = {
+type SavedDestRow = {
   destination_slug: string;
   saved_at: string;
+  intel_cards: { destination: string; country: string }[] | null;
+};
+
+type IntelCardRow = {
+  slug: string;
+  destination: string;
+  country: string;
+  hero_image_url: string | null;
+  last_updated: string | null;
+  verified_by_count: number;
 };
 
 export default async function ProfilePage({
@@ -65,15 +76,10 @@ export default async function ProfilePage({
   const { username } = await params;
   const supabase = await createClient();
 
-  // Viewer identity
   const { data: { user: viewer } } = await supabase.auth.getUser();
 
-  // Resolve profile by username OR uuid (fallback for users without username yet)
   const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(username);
-  const lookup = supabase
-    .from("profiles")
-    .select("*")
-    .is("deleted_at", null);
+  const lookup = supabase.from("profiles").select("*").is("deleted_at", null);
   const { data: profile } = isUuid
     ? await lookup.eq("id", username).single()
     : await lookup.eq("username", username).single();
@@ -89,11 +95,13 @@ export default async function ProfilePage({
   });
 
   const segment = (profile.segment as Segment | null) ?? {};
+  const nextDestList: string[] =
+    segment.destinations ?? (segment.destination ? [segment.destination] : []);
 
-  // Parallel data fetches
   const [
     { data: badges },
     { data: savedDests },
+    { data: intelCards, count: intelCount },
     { count: bewareCount },
     { count: postCount },
   ] = await Promise.all([
@@ -104,10 +112,15 @@ export default async function ProfilePage({
       .order("awarded_at"),
     supabase
       .from("saved_destinations")
-      .select("destination_slug, saved_at")
+      .select("destination_slug, saved_at, intel_cards(destination, country)")
       .eq("user_id", profile.id)
       .order("saved_at", { ascending: false })
       .limit(12),
+    supabase
+      .from("intel_cards")
+      .select("slug, destination, country, hero_image_url, last_updated, verified_by_count", { count: "exact" })
+      .eq("contributor_slug", profile.username ?? "__none__")
+      .order("last_updated", { ascending: false }),
     supabase
       .from("beware_reports")
       .select("id", { count: "exact", head: true })
@@ -120,20 +133,42 @@ export default async function ProfilePage({
       .eq("status", "approved"),
   ]);
 
-  const totalContribs = (bewareCount ?? 0) + (postCount ?? 0);
-  const hasStats = totalContribs > 0;
+  // Buddy CTA: show only if viewer (non-owner) and viewer's buddy_matches share a destination with profile owner's
+  let showBuddyCTA = false;
+  if (viewer && !isOwner) {
+    const { data: ownerMatches } = await supabase
+      .from("buddy_matches")
+      .select("destination_slug")
+      .eq("user_id", profile.id);
+    const ownerDests = new Set(
+      (ownerMatches ?? []).map((m) => m.destination_slug).filter(Boolean) as string[]
+    );
+    if (ownerDests.size > 0) {
+      const { data: viewerMatches } = await supabase
+        .from("buddy_matches")
+        .select("destination_slug")
+        .eq("user_id", viewer.id);
+      showBuddyCTA = (viewerMatches ?? []).some(
+        (m) => m.destination_slug && ownerDests.has(m.destination_slug)
+      );
+    }
+  }
+
+  const intelCountSafe = intelCount ?? 0;
+  const bewareCountSafe = bewareCount ?? 0;
+  const postCountSafe = postCount ?? 0;
   const hasBadges = (badges?.length ?? 0) > 0;
   const hasSaved = (savedDests?.length ?? 0) > 0;
+  const hasIntel = intelCountSafe > 0;
   const hasPrefs =
     segment.travelStyle?.length || segment.travelPreference || segment.tripCount;
   const hasBio = !!profile.instagram;
-  const hasNextDest = !!segment.destination;
+  const hasNextDest = nextDestList.length > 0;
   const hasWorries = (segment.worries?.length ?? 0) > 0;
 
   return (
     <main className="min-h-screen bg-sand px-4 py-12">
       <div className="mx-auto max-w-lg space-y-4">
-        {/* Back + settings link */}
         <div className="mb-2 flex items-center justify-between">
           <Link href="/" className="text-sm text-ww-muted hover:text-ink">
             ← Home
@@ -148,7 +183,7 @@ export default async function ProfilePage({
           )}
         </div>
 
-        {/* ── 1. Identity block ────────────────────────── */}
+        {/* ── Identity ─────────────────────────────────── */}
         <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-4">
@@ -176,7 +211,6 @@ export default async function ProfilePage({
             )}
           </div>
 
-          {/* Tag preview for public view */}
           {!isOwner && (
             <div className="mt-4 space-y-2 border-t border-ww-border pt-4">
               {(segment.travelStyle?.length ?? 0) > 0 && (
@@ -207,20 +241,37 @@ export default async function ProfilePage({
           )}
         </div>
 
-        {/* ── 2. Headed next ───────────────────────────── */}
-        {hasNextDest && (
+        {/* ── Connect as buddy (non-owner only, if overlap) ─── */}
+        {showBuddyCTA && (
           <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
-            <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Headed next</p>
             <Link
-              href={`/intel/${segment.destination}`}
-              className="inline-flex items-center gap-1.5 rounded-full bg-rust/10 px-3 py-1.5 font-mono text-sm text-rust hover:bg-rust/20 transition-colors"
+              href="/buddy"
+              className="inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-rust px-4 py-2 font-mono text-sm text-warm-white hover:bg-rust/90"
             >
-              📍 {CITY_LABELS[segment.destination!] ?? segment.destination} →
+              Connect as buddy →
             </Link>
           </div>
         )}
 
-        {/* ── 3. Watches out for ───────────────────────── */}
+        {/* ── Headed next ──────────────────────────────── */}
+        {hasNextDest && (
+          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+            <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Headed next</p>
+            <div className="flex flex-wrap gap-1.5">
+              {nextDestList.map((slug) => (
+                <Link
+                  key={slug}
+                  href={`/intel/${slug}`}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-rust/10 px-3 py-1.5 font-mono text-sm text-rust hover:bg-rust/20 transition-colors"
+                >
+                  📍 {CITY_LABELS[slug] ?? slug}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── Watches out for ──────────────────────────── */}
         {hasWorries && (
           <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
             <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Watches out for</p>
@@ -237,20 +288,19 @@ export default async function ProfilePage({
           </div>
         )}
 
-        {/* ── 4. Contribution stats ─────────────────────── */}
-        {hasStats && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
-            <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
-              Community
-            </p>
-            <div className="grid grid-cols-2 gap-3 text-center">
-              {(postCount ?? 0) > 0 && <StatPill label="Posts" value={postCount!} />}
-              {(bewareCount ?? 0) > 0 && <StatPill label="Reports filed" value={bewareCount!} />}
-            </div>
+        {/* ── Contribution stats — always 3 pills ─────── */}
+        <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+          <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
+            Community
+          </p>
+          <div className="grid grid-cols-3 gap-3 text-center">
+            <StatPill label="Intel cards" value={intelCountSafe} />
+            <StatPill label="Reports filed" value={bewareCountSafe} />
+            <StatPill label="Posts" value={postCountSafe} />
           </div>
-        )}
+        </div>
 
-        {/* ── 3. Badges ────────────────────────────────── */}
+        {/* ── Badges ───────────────────────────────────── */}
         {hasBadges && (
           <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
             <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Badges</p>
@@ -272,25 +322,60 @@ export default async function ProfilePage({
           </div>
         )}
 
-        {/* ── 4. Saved destinations ────────────────────── */}
-        {hasSaved && (
+        {/* ── Intel cards contributed ──────────────────── */}
+        {hasIntel && (
           <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
-            <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Saved destinations</p>
-            <div className="flex flex-wrap gap-2">
-              {(savedDests as SavedDest[]).map((s) => (
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Intel written</p>
+            <div className="space-y-2">
+              {(intelCards as IntelCardRow[]).map((card) => (
                 <Link
-                  key={s.destination_slug}
-                  href={`/intel/${s.destination_slug}`}
-                  className="border border-ww-border bg-sand px-3 py-1.5 font-mono text-xs text-ink hover:border-rust hover:text-rust transition-colors"
+                  key={card.slug}
+                  href={`/intel/${card.slug}`}
+                  className="flex items-center justify-between gap-3 border border-ww-border bg-sand px-3 py-2.5 hover:border-rust transition-colors"
                 >
-                  {CITY_LABELS[s.destination_slug] ?? s.destination_slug}
+                  <div className="min-w-0">
+                    <p className="font-mono text-sm text-ink truncate">
+                      {card.destination}, {card.country}
+                    </p>
+                    {card.last_updated && (
+                      <p className="font-mono text-[10px] text-ww-muted">
+                        Updated {new Date(card.last_updated).toLocaleDateString("en-IN", { month: "short", year: "numeric" })}
+                      </p>
+                    )}
+                  </div>
+                  <span className="shrink-0 font-mono text-[10px] text-ww-muted">
+                    ✓ {card.verified_by_count}
+                  </span>
                 </Link>
               ))}
             </div>
           </div>
         )}
 
-        {/* ── 5. Travel preferences (read-only for non-owner) ── */}
+        {/* ── Saved destinations ───────────────────────── */}
+        {hasSaved && (
+          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Saved destinations</p>
+            <div className="flex flex-wrap gap-2">
+              {(savedDests as SavedDestRow[]).map((s) => {
+                const card = s.intel_cards?.[0];
+                const dest = card?.destination ?? CITY_LABELS[s.destination_slug] ?? s.destination_slug;
+                const country = card?.country;
+                return (
+                  <Link
+                    key={s.destination_slug}
+                    href={`/intel/${s.destination_slug}`}
+                    className="border border-ww-border bg-sand px-3 py-1.5 font-mono text-xs text-ink hover:border-rust hover:text-rust transition-colors"
+                  >
+                    {dest}{country ? `, ${country}` : ""}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* ── Travel preferences (read-only for non-owner) ── */}
         {!isOwner && hasPrefs && (
           <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
             <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
@@ -319,7 +404,7 @@ export default async function ProfilePage({
           </div>
         )}
 
-        {/* ── 7. Bio + Instagram (non-owner) ─────────── */}
+        {/* ── Bio + Instagram (non-owner) ─────────── */}
         {!isOwner && hasBio && (
           <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
             {profile.instagram && (
@@ -332,14 +417,6 @@ export default async function ProfilePage({
                 {profile.instagram}
               </a>
             )}
-          </div>
-        )}
-
-        {/* ── Intel written (owner) ───────────────────── */}
-        {isOwner && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
-            <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Intel written</p>
-            <p className="font-mono text-xs text-ww-muted">Coming soon — your published intel cards will appear here.</p>
           </div>
         )}
 

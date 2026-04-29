@@ -17,7 +17,7 @@ export default async function SettingsPage() {
 
   if (!user) redirect("/account/login?next=/settings");
 
-  const [{ data: profile }, { data: rawPrefs }] = await Promise.all([
+  const [{ data: profile }, { data: rawPrefs }, { data: vault }] = await Promise.all([
     supabase
       .from("profiles")
       .select("first_name, username, membership_tier, membership_expiry, phone")
@@ -28,6 +28,13 @@ export default async function SettingsPage() {
       .select("*")
       .eq("user_id", user.id)
       .single(),
+    supabase
+      .from("vault_purchases")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("status", "active")
+      .limit(1)
+      .maybeSingle(),
   ]);
 
   // Ensure prefs row exists (create with defaults if missing)
@@ -163,7 +170,7 @@ export default async function SettingsPage() {
             WhatsApp vault
           </p>
           <Link href="/vault" className="font-mono text-sm text-rust hover:underline">
-            Set up trip vault ₹199/trip →
+            {vault ? "Manage vault →" : "Set up trip vault ₹199/trip →"}
           </Link>
         </div>
 

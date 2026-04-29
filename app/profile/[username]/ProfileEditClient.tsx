@@ -2,6 +2,7 @@
 
 import { useTransition, useState } from "react";
 import { updateProfileField, updateSegmentField } from "./actions";
+import { MultiSelect, MultiSelectOption } from "@/components/ui/MultiSelect";
 
 const TRIP_OPTIONS = [
   { value: "0",   label: "First solo trip", emoji: "🌱" },
@@ -18,37 +19,37 @@ const TRAVEL_PREF = [
 
 const STYLE_OPTIONS = ["Adventure", "Culture", "Food", "Offbeat", "Relaxation"];
 
-const CITY_CHIPS = [
-  { slug: "goa-india",         label: "Goa" },
-  { slug: "delhi-india",       label: "Delhi" },
-  { slug: "mumbai-india",      label: "Mumbai" },
-  { slug: "jaipur-india",      label: "Jaipur" },
-  { slug: "manali-india",      label: "Manali" },
-  { slug: "rishikesh-india",   label: "Rishikesh" },
-  { slug: "varanasi-india",    label: "Varanasi" },
-  { slug: "udaipur-india",     label: "Udaipur" },
-  { slug: "agra-india",        label: "Agra" },
-  { slug: "bangalore-india",   label: "Bangalore" },
-  { slug: "kolkata-india",     label: "Kolkata" },
-  { slug: "chennai-india",     label: "Chennai" },
-  { slug: "kochi-india",       label: "Kochi" },
-  { slug: "kasol-india",       label: "Kasol" },
-  { slug: "hampi-india",       label: "Hampi" },
-  { slug: "tokyo-japan",       label: "Tokyo" },
-  { slug: "bangkok-thailand",  label: "Bangkok" },
-  { slug: "hanoi-vietnam",     label: "Hanoi" },
-  { slug: "dubai-uae",         label: "Dubai" },
-  { slug: "seoul-south-korea", label: "Seoul" },
-  { slug: "paris-france",      label: "Paris" },
+const CITY_OPTIONS: MultiSelectOption[] = [
+  { value: "goa-india",         label: "Goa" },
+  { value: "delhi-india",       label: "Delhi" },
+  { value: "mumbai-india",      label: "Mumbai" },
+  { value: "jaipur-india",      label: "Jaipur" },
+  { value: "manali-india",      label: "Manali" },
+  { value: "rishikesh-india",   label: "Rishikesh" },
+  { value: "varanasi-india",    label: "Varanasi" },
+  { value: "udaipur-india",     label: "Udaipur" },
+  { value: "agra-india",        label: "Agra" },
+  { value: "bangalore-india",   label: "Bangalore" },
+  { value: "kolkata-india",     label: "Kolkata" },
+  { value: "chennai-india",     label: "Chennai" },
+  { value: "kochi-india",       label: "Kochi" },
+  { value: "kasol-india",       label: "Kasol" },
+  { value: "hampi-india",       label: "Hampi" },
+  { value: "tokyo-japan",       label: "Tokyo" },
+  { value: "bangkok-thailand",  label: "Bangkok" },
+  { value: "hanoi-vietnam",     label: "Hanoi" },
+  { value: "dubai-uae",         label: "Dubai" },
+  { value: "seoul-south-korea", label: "Seoul" },
+  { value: "paris-france",      label: "Paris" },
 ];
 
-const LANG_OPTIONS = [
+const LANG_OPTIONS: MultiSelectOption[] = [
   "English", "Hindi", "Marathi", "Tamil", "Telugu",
   "Kannada", "Bengali", "Punjabi", "Gujarati", "Malayalam",
   "French", "Spanish", "Japanese", "Mandarin",
-];
+].map((l) => ({ value: l, label: l }));
 
-const WORRY_OPTIONS = [
+const WORRY_OPTIONS: MultiSelectOption[] = [
   { value: "scams",       label: "Scams & fraud",            emoji: "🎭" },
   { value: "harassment",  label: "Street harassment",        emoji: "🛡️" },
   { value: "transport",   label: "Transport & getting lost", emoji: "🚌" },
@@ -70,7 +71,8 @@ type Seg = {
   travelStyle?: string[];
   citiesVisited?: string[];
   languages?: string[];
-  destination?: string;
+  destination?: string;       // legacy single (from onboarding)
+  destinations?: string[];    // multi (from profile)
   need?: string;
   worries?: string[];
   ageGroup?: string;
@@ -82,21 +84,23 @@ type Props = {
   instagram: string;
   username: string;
   segment: Seg;
-  ageGroup?: string;
 };
 
 export function ProfileEditClient({ firstName, homeCity, instagram, username, segment }: Props) {
   const [, startTransition] = useTransition();
 
-  // Local state (optimistic)
-  const [tripCount, setTripCount]     = useState(segment.tripCount ?? "");
-  const [travPref, setTravPref]       = useState(segment.travelPreference ?? "");
-  const [styles, setStyles]           = useState<string[]>(segment.travelStyle ?? []);
-  const [cities, setCities]           = useState<string[]>(segment.citiesVisited ?? []);
-  const [langs, setLangs]             = useState<string[]>(segment.languages ?? []);
-  const [nextDest, setNextDest]       = useState(segment.destination ?? "");
-  const [worries, setWorries]         = useState<string[]>(segment.worries ?? []);
-  const [ageGroup, setAgeGroup]       = useState(segment.ageGroup ?? "");
+  // Coerce legacy single destination → array on first load
+  const initialDests =
+    segment.destinations ?? (segment.destination ? [segment.destination] : []);
+
+  const [tripCount, setTripCount] = useState(segment.tripCount ?? "");
+  const [travPref, setTravPref]   = useState(segment.travelPreference ?? "");
+  const [styles, setStyles]       = useState<string[]>(segment.travelStyle ?? []);
+  const [cities, setCities]       = useState<string[]>(segment.citiesVisited ?? []);
+  const [langs, setLangs]         = useState<string[]>(segment.languages ?? []);
+  const [nextDests, setNextDests] = useState<string[]>(initialDests);
+  const [worries, setWorries]     = useState<string[]>(segment.worries ?? []);
+  const [ageGroup, setAgeGroup]   = useState(segment.ageGroup ?? "");
 
   function saveBlur(field: string, value: string) {
     startTransition(() => updateProfileField(field, value));
@@ -106,51 +110,14 @@ export function ProfileEditClient({ firstName, homeCity, instagram, username, se
     startTransition(() => updateSegmentField(patch));
   }
 
-  function toggleChip<T extends string>(
-    val: T,
-    current: T[],
-    setter: (v: T[]) => void,
-    segKey: keyof Seg
-  ) {
-    const next = current.includes(val)
-      ? current.filter((v) => v !== val)
-      : [...current, val];
-    setter(next);
-    patchSeg({ [segKey]: next });
-  }
-
   return (
     <div className="space-y-4">
-      {/* Identity fields */}
+      {/* Identity */}
       <Section title="Identity">
-        <BlurField
-          label="Name"
-          name="first_name"
-          defaultValue={firstName}
-          placeholder="Priya"
-          onSave={(v) => saveBlur("first_name", v)}
-        />
-        <BlurField
-          label="Home city"
-          name="home_city"
-          defaultValue={homeCity}
-          placeholder="Mumbai"
-          onSave={(v) => saveBlur("home_city", v)}
-        />
-        <BlurField
-          label="Username"
-          name="username"
-          defaultValue={username}
-          placeholder="priya_travels"
-          onSave={(v) => saveBlur("username", v)}
-        />
-        <BlurField
-          label="Instagram"
-          name="instagram"
-          defaultValue={instagram}
-          placeholder="@yourhandle"
-          onSave={(v) => saveBlur("instagram", v)}
-        />
+        <BlurField label="Name"      name="first_name" defaultValue={firstName} placeholder="Priya"           onSave={(v) => saveBlur("first_name", v)} />
+        <BlurField label="Home city" name="home_city"  defaultValue={homeCity}  placeholder="Mumbai"          onSave={(v) => saveBlur("home_city", v)} />
+        <BlurField label="Username"  name="username"   defaultValue={username}  placeholder="priya_travels"   onSave={(v) => saveBlur("username", v)} />
+        <BlurField label="Instagram" name="instagram"  defaultValue={instagram} placeholder="@yourhandle"     onSave={(v) => saveBlur("instagram", v)} />
       </Section>
 
       {/* Trip count */}
@@ -195,88 +162,71 @@ export function ProfileEditClient({ firstName, homeCity, instagram, username, se
         </div>
       </Section>
 
-      {/* Travel style */}
+      {/* Travel style — kept as chips (small fixed list) */}
       <Section title="Travel style" subtitle="Powers buddy matching">
         <div className="flex flex-wrap gap-2">
-          {STYLE_OPTIONS.map((s) => (
-            <Chip
-              key={s}
-              label={s}
-              active={styles.includes(s)}
-              color="rust"
-              onClick={() => toggleChip(s, styles, setStyles, "travelStyle")}
-            />
-          ))}
+          {STYLE_OPTIONS.map((s) => {
+            const active = styles.includes(s);
+            return (
+              <button
+                key={s}
+                type="button"
+                onClick={() => {
+                  const next = active ? styles.filter((v) => v !== s) : [...styles, s];
+                  setStyles(next);
+                  patchSeg({ travelStyle: next });
+                }}
+                className={`border px-2.5 py-1 font-mono text-[11px] transition-colors ${
+                  active
+                    ? "border-rust bg-rust text-warm-white"
+                    : "border-ww-border bg-warm-white text-ww-muted hover:border-ink hover:text-ink"
+                }`}
+              >
+                {s}
+              </button>
+            );
+          })}
         </div>
       </Section>
 
-      {/* Cities visited */}
-      <Section title="Cities you've solo-traveled" subtitle="Shows your experience to the community">
-        <div className="flex flex-wrap gap-2">
-          {CITY_CHIPS.map((c) => (
-            <Chip
-              key={c.slug}
-              label={c.label}
-              active={cities.includes(c.slug)}
-              color="sage"
-              onClick={() => toggleChip(c.slug, cities, setCities, "citiesVisited")}
-            />
-          ))}
-        </div>
+      {/* Cities visited — multi-select dropdown */}
+      <Section title="Places you've traveled" subtitle="Shows your experience to the community">
+        <MultiSelect
+          options={CITY_OPTIONS}
+          selected={cities}
+          onChange={(next) => { setCities(next); patchSeg({ citiesVisited: next }); }}
+          placeholder="Pick cities you've solo-traveled"
+        />
       </Section>
 
-      {/* Languages */}
+      {/* Languages — multi-select dropdown */}
       <Section title="Languages you speak" subtitle="Connects you with local sisters">
-        <div className="flex flex-wrap gap-2">
-          {LANG_OPTIONS.map((l) => (
-            <Chip
-              key={l}
-              label={l}
-              active={langs.includes(l)}
-              color="blue"
-              onClick={() => toggleChip(l, langs, setLangs, "languages")}
-            />
-          ))}
-        </div>
+        <MultiSelect
+          options={LANG_OPTIONS}
+          selected={langs}
+          onChange={(next) => { setLangs(next); patchSeg({ languages: next }); }}
+          placeholder="Pick languages"
+        />
       </Section>
 
-      {/* Where headed next */}
+      {/* Where headed next — multi-select dropdown */}
       <Section title="Where are you headed next?">
-        <div className="flex flex-wrap gap-2">
-          {CITY_CHIPS.map((c) => (
-            <Chip
-              key={c.slug}
-              label={c.label}
-              active={nextDest === c.slug}
-              color="rust"
-              onClick={() => {
-                const next = nextDest === c.slug ? "" : c.slug;
-                setNextDest(next);
-                patchSeg({ destination: next });
-              }}
-            />
-          ))}
-        </div>
+        <MultiSelect
+          options={CITY_OPTIONS}
+          selected={nextDests}
+          onChange={(next) => { setNextDests(next); patchSeg({ destinations: next }); }}
+          placeholder="Pick upcoming destinations"
+        />
       </Section>
 
-      {/* What worries you most */}
+      {/* Worries — multi-select dropdown */}
       <Section title="What worries you most about solo travel?" subtitle="Personalises your feed">
-        <div className="flex flex-wrap gap-2">
-          {WORRY_OPTIONS.map((o) => (
-            <button
-              key={o.value}
-              type="button"
-              onClick={() => toggleChip(o.value, worries, setWorries, "worries")}
-              className={`flex items-center gap-1.5 border px-2.5 py-1 font-mono text-[11px] transition-colors ${
-                worries.includes(o.value)
-                  ? "border-gold bg-gold/20 text-gold"
-                  : "border-ww-border bg-warm-white text-ww-muted hover:border-ink hover:text-ink"
-              }`}
-            >
-              {o.emoji} {o.label}
-            </button>
-          ))}
-        </div>
+        <MultiSelect
+          options={WORRY_OPTIONS}
+          selected={worries}
+          onChange={(next) => { setWorries(next); patchSeg({ worries: next }); }}
+          placeholder="Pick concerns"
+        />
       </Section>
 
       {/* Age group */}
@@ -353,38 +303,5 @@ function BlurField({
         className="w-full border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm text-ink focus:border-ink focus:outline-none"
       />
     </div>
-  );
-}
-
-function Chip({
-  label,
-  active,
-  color,
-  onClick,
-}: {
-  label: string;
-  active: boolean;
-  color: "rust" | "sage" | "blue";
-  onClick: () => void;
-}) {
-  const activeClass =
-    color === "rust"
-      ? "border-rust bg-rust text-warm-white"
-      : color === "sage"
-      ? "border-sage bg-sage text-warm-white"
-      : "border-blue bg-blue text-warm-white";
-
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`border px-2.5 py-1 font-mono text-[11px] transition-colors ${
-        active
-          ? activeClass
-          : "border-ww-border bg-warm-white text-ww-muted hover:border-ink hover:text-ink"
-      }`}
-    >
-      {label}
-    </button>
   );
 }
