@@ -448,7 +448,14 @@ export function ScamMapClient({
               const db = new Date(b.date).getTime();
               return (isNaN(db) || isNaN(da)) ? 0 : db - da;
             })}
-            onSelect={(r) => { setSelected(r); setListOpen(false); }}
+            onSelect={(r) => {
+              mapRef.current?.flyTo([r.lat, r.lng], Math.max(mapRef.current.getZoom(), 14), {
+                animate: true,
+                duration: 1.2,
+              });
+              setSelected(r);
+              setListOpen(false);
+            }}
             onClose={() => setListOpen(false)}
           />
         )}
@@ -477,7 +484,7 @@ function ReportsListPanel({
   onClose: () => void;
 }) {
   return (
-    <div className="fixed z-[9999] flex flex-col border-ww-border bg-warm-white shadow-2xl inset-x-0 bottom-0 border-t md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[360px] md:max-h-none md:border-r md:border-t-0" style={{ maxHeight: "65dvh" }}>
+    <div className="fixed z-[9999] flex flex-col border-ww-border bg-warm-white shadow-2xl inset-x-0 bottom-0 border-t max-h-[65dvh] md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[360px] md:max-h-none md:border-r md:border-t-0">
       <div className="flex shrink-0 items-center justify-between border-b border-ww-border px-4 py-3">
         <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
           {reports.length} Reports · Newest first
@@ -582,8 +589,7 @@ function DetailPanel({
 
   return (
     <div
-      className="fixed z-[9999] flex flex-col border-ww-border bg-warm-white shadow-2xl inset-x-0 bottom-0 border-t md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[380px] md:max-h-none md:border-r md:border-t-0"
-      style={{ maxHeight: "55dvh" }}
+      className="fixed z-[9999] flex flex-col border-ww-border bg-warm-white shadow-2xl inset-x-0 bottom-0 border-t max-h-[55dvh] md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[380px] md:max-h-none md:border-r md:border-t-0"
     >
       <div className="flex shrink-0 items-center justify-between px-4 pt-3 pb-2">
         <div className="flex items-center gap-2">
