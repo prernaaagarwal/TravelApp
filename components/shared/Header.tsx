@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
 
@@ -14,6 +13,19 @@ const NAV_ITEMS = [
 export async function Header() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
+
+  let profileSlug: string | null = null;
+  let initial = "W";
+  if (user) {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("username, first_name")
+      .eq("id", user.id)
+      .single();
+    profileSlug = profile?.username ?? user.id;
+    const name = profile?.first_name ?? user.email ?? "W";
+    initial = name[0].toUpperCase();
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b border-ww-border/60 bg-sand/85 backdrop-blur-sm">
@@ -39,23 +51,13 @@ export async function Header() {
 
         <div className="flex items-center gap-2">
           {user ? (
-            <>
-              <Link
-                href="/account/settings"
-                aria-label="Settings"
-                title="Settings"
-                className="text-ww-muted hover:text-ink p-1"
-              >
-                <Settings className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/account/profile"
-                aria-label="Profile"
-                className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium hover:bg-rust/30 transition-colors"
-              >
-                {user.email?.[0]?.toUpperCase() ?? "W"}
-              </Link>
-            </>
+            <Link
+              href={`/profile/${profileSlug}`}
+              aria-label="My profile"
+              className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium hover:bg-rust/30 transition-colors"
+            >
+              {initial}
+            </Link>
           ) : (
             <>
               <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
