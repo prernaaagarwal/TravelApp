@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { createClient } from "@/lib/supabase/server";
 
 const NAV_ITEMS = [
   { href: "/explore", label: "Intel" },
@@ -9,7 +11,23 @@ const NAV_ITEMS = [
   { href: "/shop", label: "Shop" },
 ];
 
-export function Header() {
+export async function Header() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  let profileSlug: string | null = null;
+  let initial = "W";
+  if (user) {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("username, first_name")
+      .eq("id", user.id)
+      .single();
+    profileSlug = profile?.username ?? user.id;
+    const name = profile?.first_name ?? user.email ?? "W";
+    initial = name[0].toUpperCase();
+  }
+
   return (
     <header className="sticky top-0 z-40 border-b border-ww-border/60 bg-sand/85 backdrop-blur-sm">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:px-6">
@@ -33,16 +51,38 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-            <Link href="/account/login">Sign in</Link>
-          </Button>
-          <Button
-            asChild
-            size="sm"
-            className="bg-rust text-warm-white hover:bg-rust/90"
-          >
-            <Link href="/account/membership">Join</Link>
-          </Button>
+          {user ? (
+            <>
+              <Link
+                href="/settings"
+                aria-label="Settings"
+                title="Settings"
+                className="text-ww-muted hover:text-ink p-1"
+              >
+                <Settings className="h-4 w-4" />
+              </Link>
+              <Link
+                href={`/profile/${profileSlug}`}
+                aria-label="My profile"
+                className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium hover:bg-rust/30 transition-colors"
+              >
+                {initial}
+              </Link>
+            </>
+          ) : (
+            <>
+              <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+                <Link href="/account/login">Sign in</Link>
+              </Button>
+              <Button
+                asChild
+                size="sm"
+                className="bg-rust text-warm-white hover:bg-rust/90"
+              >
+                <Link href="/account/membership">Join</Link>
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </header>
