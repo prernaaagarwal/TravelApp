@@ -1,6 +1,7 @@
 import { CommunityTabs } from "@/components/community/CommunityTabs";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { INTERNATIONAL_CITY_SLUGS } from "@/lib/international-destinations";
+import { createClient } from "@/lib/supabase/server";
 import rawPosts from "@/lib/mock-data/community-posts.json";
 import rawBeware from "@/lib/mock-data/beware-entries.json";
 
@@ -23,6 +24,9 @@ const VALID_SORTS = new Set(["newest", "oldest", "popular"]);
 
 export default async function CommunityPage({ searchParams }: { searchParams: SearchParams }) {
   const sp = await searchParams;
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  const userEmail = user?.email ?? null;
   const tab = VALID_TABS.has(sp.tab ?? "") ? (sp.tab as string) : "ask";
   const sort = VALID_SORTS.has(sp.sort ?? "") ? (sp.sort as string) : "newest";
   const country = sp.country === "international" ? "international" : "india";
@@ -118,7 +122,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
       <CommunityTabs
         posts={posts}
         bewares={bewares}
-        userEmail={null}
+        userEmail={userEmail}
         activeTab={tab}
         sort={sort}
         country={country}
