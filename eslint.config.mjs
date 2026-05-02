@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Standalone Chrome extension — uses cross-file globals via manifest.json
+    // load order, which ESLint can't model. Has its own runtime context.
+    "chrome-extension/**",
   ]),
 ]);
 

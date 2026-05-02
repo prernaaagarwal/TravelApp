@@ -130,7 +130,9 @@ export function ScamMapClient({
   const [activeTypes, setActiveTypes] = useState<Set<MapReport["type"]>>(new Set(TYPES));
   const [visibleCount, setVisibleCount] = useState(reports.length);
   const [selected, setSelected]         = useState<MapReport | null>(null);
-  const [viewMode, setViewMode]         = useState<"overview" | "pins">("overview");
+  // viewMode is set but not read directly — it's tracked for future UI bindings
+  // and to keep React aware of the imperative Leaflet state changes.
+  const [, setViewMode]                 = useState<"overview" | "pins">("overview");
   const [listOpen, setListOpen]         = useState(false);
 
   const mapDivRef     = useRef<HTMLDivElement>(null);
