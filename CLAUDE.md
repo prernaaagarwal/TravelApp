@@ -79,7 +79,7 @@ When you fix a bug: tell me what the bug *was*, why it happened, and what you ch
 ## Stack (locked)
 
 ```
-Next.js 15 (App Router)
+Next.js 16 (App Router) — bumped from 15 on 2026-04-28; current stable
 TypeScript (strict mode)
 Tailwind CSS v4
 shadcn/ui (theme: stone base, customized colors)
@@ -89,6 +89,10 @@ DM Mono (Google Fonts) — body + UI
 ```
 
 If you suggest anything outside this list, you must (a) tell me why, (b) propose alternatives, and (c) get my "yes" before installing.
+
+> Next.js 16 has breaking changes from 15 (async cookies/headers, caching defaults, etc.). Read the relevant docs in `node_modules/next/dist/docs/` before assuming v15 behavior. See `/AGENTS.md`.
+
+@AGENTS.md
 
 ## Design tokens (paste into globals.css)
 
@@ -156,11 +160,11 @@ If you suggest anything outside this list, you must (a) tell me why, (b) propose
 
 > Update this section as we progress.
 
-- [ ] Phase 1 — Setup + content port (Days 1-3)
-- [ ] Phase 2 — Layout + shell (Days 4-5)
-- [ ] Phase 3 — Core content pages (Days 6-9)
-- [ ] Phase 4 — Community + secondary (Days 10-12)
-- [ ] Phase 5 — Polish (Days 13-14)
+- [x] Phase 1 — Setup + content port (Days 1-3)
+- [x] Phase 2 — Layout + shell (Days 4-5)
+- [x] Phase 3 — Core content pages (Days 6-9)
+- [x] Phase 4 — Community + secondary (Days 10-12)
+- [ ] Phase 5 — Polish (Days 13-14) ← in progress
 - [ ] Phase 6 — Investor layer (Day 15)
 
 ## Workflow expectations
@@ -231,5 +235,43 @@ We are done when the 8 success criteria in `/PRD.md` Section 12 are met. Not bef
 If I am clearly stressed, frustrated, or talking about scope-creep — pause and ask: *"Are you adding scope or building toward the 8 success criteria? I want to make sure we ship V0."*
 
 Be honest with me. The biggest risk to this project is me, not the code.
+
+## How to add a new beware-board city
+
+Follow these steps in order. Takes ~15 minutes.
+
+**1. Add city config** — `lib/beware-cities-data.json`
+```json
+"barcelona-spain": {
+  "config": { "slug": "barcelona-spain", "name": "Barcelona", "center": [41.3851, 2.1734], "zoom": 12 },
+  "reports": []
+}
+```
+
+**2. Add OSM relation ID** — `lib/beware-cities.ts`, `BOUNDARY_OSM_ID_BY_SLUG`
+Look up the ID at `nominatim.openstreetmap.org/search?q=Barcelona&country=ES`.
+Click the result → note the OSM relation number (e.g. R347950).
+```ts
+"barcelona-spain": "R347950",
+```
+
+**3. Pre-fetch the boundary file** (run this locally, requires internet)
+```bash
+npx ts-node scripts/fetch-boundary.ts barcelona-spain
+```
+This saves `lib/mock-data/boundaries/barcelona-spain.json` and prints next steps.
+
+**4. Commit and deploy**
+```bash
+git add lib/mock-data/boundaries/barcelona-spain.json
+git commit -m "data: add boundary for barcelona-spain"
+git push origin main
+```
+
+After deploy: heatmap, pins, boundary line, and white fog mask all work immediately.
+The city slug is also registered as a static route automatically via `generateStaticParams`.
+
+> **Country codes** — 50+ country suffixes are already mapped in `COUNTRY_BY_SUFFIX`
+> (lib/beware-cities.ts). If your suffix isn't there, add it before running the script.
 
 ## End of file

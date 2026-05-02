@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Wander Women — Beware Board",
+  "version": "1.0",
+  "description": "Check safety reports and submit new ones to the Wander Women beware board from any page.",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Wander Women Beware Board"
+  },
+  "content_scripts": [],
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

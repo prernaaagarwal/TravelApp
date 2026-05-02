@@ -1,0 +1,1867 @@
+{
+  "delhi-india": {
+    "config": {
+      "slug": "delhi-india",
+      "name": "Delhi",
+      "center": [
+        28.6139,
+        77.209
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "delhi-india-s0",
+        "lat": 28.557989356474376,
+        "lng": 77.09912626145548,
+        "type": "transport",
+        "title": "Hotel switch from IGI airport",
+        "place": "IGI Airport T3",
+        "desc": "Driver claims hotel closed/full, takes you to commission hotel paying him 30–50%.",
+        "date": "2 days ago",
+        "confirms": 9,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "delhi-india-s1",
+        "lat": 28.632705284846963,
+        "lng": 77.21705291637006,
+        "type": "transport",
+        "title": "Fake 'Government Tourist Office' in CP/Paharganj",
+        "place": "Connaught Place",
+        "desc": "Sells fake train tickets, overpriced tours. Real one is at 88 Janpath Road.",
+        "date": "5 days ago",
+        "confirms": 5,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "delhi-india-s2",
+        "lat": 28.64345190302583,
+        "lng": 77.21687212039525,
+        "type": "scam",
+        "title": "New Delhi Railway Station 'tourist office' upstairs",
+        "place": "Paharganj",
+        "desc": "Real IRCTC International Tourist Bureau is on 1st floor. Touts redirect you to fake one.",
+        "date": "1 week ago",
+        "confirms": 23,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "delhi-india-s3",
+        "lat": 28.6504888548575,
+        "lng": 77.19097238157795,
+        "type": "scam",
+        "title": "Fake police in Paharganj",
+        "place": "Karol Bagh",
+        "desc": "Plainclothes 'officers' demand passport check + on-spot fine. Real police don't fine on the spot.",
+        "date": "2 weeks ago",
+        "confirms": 23,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "delhi-india-s4",
+        "lat": 28.654272133553114,
+        "lng": 77.2428397791226,
+        "type": "transport",
+        "title": "Auto refusing meter / inflated fares",
+        "place": "Chandni Chowk",
+        "desc": "Use Uber/Ola — they're 30–60% cheaper than tourist auto rates.",
+        "date": "3 days ago",
+        "confirms": 14,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "delhi-india-s5",
+        "lat": 28.644772822166537,
+        "lng": 77.21965832053341,
+        "type": "transport",
+        "title": "Pickpocketing in Chandni Chowk metro",
+        "place": "New Delhi Railway Stn",
+        "desc": "Yellow line during rush hour is hotspot. Front pocket only, zipped bag.",
+        "date": "6 days ago",
+        "confirms": 8,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "delhi-india-s6",
+        "lat": 28.598327205220265,
+        "lng": 77.2275609352099,
+        "type": "scam",
+        "title": "Bird poop / shirt stain distraction in CP",
+        "place": "Khan Market",
+        "desc": "Two-person team. Step back, don't let anyone touch you.",
+        "date": "4 days ago",
+        "confirms": 37,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "delhi-india-s7",
+        "lat": 28.548352394616018,
+        "lng": 77.19220149075595,
+        "type": "transport",
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "place": "Hauz Khas",
+        "desc": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "date": "10 days ago",
+        "confirms": 9,
+        "reporter": "Anonymous"
+      },
+      {
+        "id": "delhi-india-safe0",
+        "lat": 28.555341655553157,
+        "lng": 77.0992571171024,
+        "type": "safe",
+        "title": "Sakha — women-only taxis run by women",
+        "place": "All Delhi",
+        "desc": "Social enterprise; all-women drivers from marginalised communities. >1M safe rides reported. ₹200–600 city rides. Book via app or call.",
+        "date": "2 days ago",
+        "confirms": 74,
+        "reporter": "Divya K."
+      },
+      {
+        "id": "delhi-india-safe1",
+        "lat": 28.629841994123687,
+        "lng": 77.21650074860048,
+        "type": "safe",
+        "title": "Delhi Metro is genuinely safe for solo women",
+        "place": "All metro stations",
+        "desc": "Women-only first coach. CCTV on all platforms. Late-night service 11pm. Avoid sketchy autos by taking metro to closest station.",
+        "date": "5 days ago",
+        "confirms": 78,
+        "reporter": "Aisha B."
+      }
+    ]
+  },
+  "mumbai-india": {
+    "config": {
+      "slug": "mumbai-india",
+      "name": "Mumbai",
+      "center": [
+        19.076,
+        72.8777
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "mumbai-india-s0",
+        "lat": 18.939852072848634,
+        "lng": 72.83359058169668,
+        "type": "transport",
+        "title": "Pickpocketing on local trains & at CST",
+        "place": "CST Station",
+        "desc": "Mumbai's #1 tourist crime. Front pocket, zipped bag, no phone in back pocket.",
+        "date": "2 days ago",
+        "confirms": 13,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "mumbai-india-s1",
+        "lat": 18.906643698061362,
+        "lng": 72.81567280501822,
+        "type": "transport",
+        "title": "Fake police at Colaba / Gateway",
+        "place": "Colaba Causeway",
+        "desc": "Demand 'foreigner check' + on-spot fine. Demand to go to police station instead.",
+        "date": "5 days ago",
+        "confirms": 21,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "mumbai-india-s2",
+        "lat": 19.06134859960637,
+        "lng": 72.82952382616443,
+        "type": "transport",
+        "title": "Gem & carpet shops in Colaba",
+        "place": "Bandra W",
+        "desc": "Same export scam, slightly less aggressive than Jaipur.",
+        "date": "1 week ago",
+        "confirms": 26,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "mumbai-india-s3",
+        "lat": 19.11969144428761,
+        "lng": 72.84713171636777,
+        "type": "scam",
+        "title": "Tourist boat overcharge to Elephanta",
+        "place": "Andheri E",
+        "desc": "Official Elephanta ferry is ₹220–270 from Gateway. Touts quote ₹500–800.",
+        "date": "2 weeks ago",
+        "confirms": 25,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "mumbai-india-s4",
+        "lat": 19.089870208954377,
+        "lng": 72.82465655193606,
+        "type": "scam",
+        "title": "Photo + 'small donation' at Gateway",
+        "place": "Juhu Beach",
+        "desc": "Photographer gives 'free' photo, then asks for ₹500.",
+        "date": "3 days ago",
+        "confirms": 6,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "mumbai-india-s5",
+        "lat": 19.01645651645054,
+        "lng": 72.84487293099416,
+        "type": "stay",
+        "title": "Hotel switch from airport",
+        "place": "Dadar",
+        "desc": "Less common than Delhi but still happens at international arrivals after midnight.",
+        "date": "6 days ago",
+        "confirms": 15,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "mumbai-india-s6",
+        "lat": 18.94418303060636,
+        "lng": 72.82262285825713,
+        "type": "scam",
+        "title": "Bottled water tampering near beaches",
+        "place": "Marine Drive",
+        "desc": "Check seal, prefer chain stores.",
+        "date": "4 days ago",
+        "confirms": 33,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "mumbai-india-s7",
+        "lat": 19.088087991294866,
+        "lng": 72.8656762039804,
+        "type": "transport",
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "place": "Mumbai Airport T2",
+        "desc": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "date": "10 days ago",
+        "confirms": 22,
+        "reporter": "Anonymous"
+      },
+      {
+        "id": "mumbai-india-safe0",
+        "lat": 18.939792274850564,
+        "lng": 72.83607687247385,
+        "type": "safe",
+        "title": "Mumbai Local women-only compartments",
+        "place": "Western/Central/Harbour Line",
+        "desc": "First-class ladies coach is the safest way to travel. Off-peak hours quietest. Avoid 8–10am and 5–8pm rush in general compartment.",
+        "date": "2 days ago",
+        "confirms": 67,
+        "reporter": "Divya K."
+      },
+      {
+        "id": "mumbai-india-safe1",
+        "lat": 18.908231731119532,
+        "lng": 72.8155377875879,
+        "type": "safe",
+        "title": "Priyadarshini Taxi — women-driver service",
+        "place": "Greater Mumbai",
+        "desc": "Verified women drivers. Pre-book via phone or Uber Women-only Bike Rides via app. ₹150–400 typical city ride.",
+        "date": "5 days ago",
+        "confirms": 41,
+        "reporter": "Aisha B."
+      }
+    ]
+  },
+  "jaipur-india": {
+    "config": {
+      "slug": "jaipur-india",
+      "name": "Jaipur",
+      "center": [
+        26.9124,
+        75.7873
+      ],
+      "zoom": 13
+    },
+    "reports": [
+      {
+        "id": "jaipur-india-s0",
+        "lat": 26.923560514304103,
+        "lng": 75.82821705154844,
+        "type": "scam",
+        "title": "Gem export scam (the legendary one)",
+        "place": "Hawa Mahal",
+        "desc": "Friendly local → 'family jeweller' → 'export gems for profit' → glass beads. Lose lakhs.",
+        "date": "2 days ago",
+        "confirms": 13,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "jaipur-india-s1",
+        "lat": 26.98443971424559,
+        "lng": 75.85089988446948,
+        "type": "transport",
+        "title": "Textile / block print 'family workshop'",
+        "place": "Amber Fort",
+        "desc": "Driver commissions you to specific shop. Prices 5–10x normal Bapu Bazaar rates.",
+        "date": "5 days ago",
+        "confirms": 21,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "jaipur-india-s2",
+        "lat": 26.92400552352421,
+        "lng": 75.82465823924103,
+        "type": "scam",
+        "title": "'Friendly student' approaches at Hawa Mahal",
+        "place": "City Palace",
+        "desc": "Sets up the gem scam. Walk away from anyone unprompted.",
+        "date": "1 week ago",
+        "confirms": 21,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "jaipur-india-s3",
+        "lat": 26.926221372604743,
+        "lng": 75.82275076381923,
+        "type": "scam",
+        "title": "Amer Fort 'closed' / wrong gate",
+        "place": "Jantar Mantar",
+        "desc": "Touts redirect you to a paid 'alternate viewing point' = commission shop.",
+        "date": "2 weeks ago",
+        "confirms": 26,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "jaipur-india-s4",
+        "lat": 26.921338932834306,
+        "lng": 75.78608445548421,
+        "type": "transport",
+        "title": "Auto charging by 'tourist rate'",
+        "place": "Jaipur Railway Station",
+        "desc": "Use Ola/Uber/Rapido. Auto from station to old city = ₹150 by app vs ₹500 quoted.",
+        "date": "3 days ago",
+        "confirms": 7,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "jaipur-india-s5",
+        "lat": 26.912318028245974,
+        "lng": 75.8091644554339,
+        "type": "scam",
+        "title": "Fake palace tour packages",
+        "place": "Bapu Bazaar",
+        "desc": "WhatsApp groups offering ₹500 'all monuments tour' drop you at commission shops.",
+        "date": "6 days ago",
+        "confirms": 21,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "jaipur-india-s6",
+        "lat": 26.91903634091162,
+        "lng": 75.82885704240852,
+        "type": "scam",
+        "title": "Elephant ride at Amer overcharge & welfare issue",
+        "place": "Johari Bazaar",
+        "desc": "Govt rate is fixed (~₹1,100). Touts charge ₹3,000+. Also: ethical concerns documented by PETA India.",
+        "date": "4 days ago",
+        "confirms": 5,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "jaipur-india-s7",
+        "lat": 26.922955988181517,
+        "lng": 75.8007376130446,
+        "type": "transport",
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "place": "Sindhi Camp Bus Stand",
+        "desc": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "date": "10 days ago",
+        "confirms": 38,
+        "reporter": "Anonymous"
+      },
+      {
+        "id": "jaipur-india-safe0",
+        "lat": 26.922208521764254,
+        "lng": 75.82577866365688,
+        "type": "safe",
+        "title": "Pink City Rickshaw Co — women drivers",
+        "place": "Old City heritage tours",
+        "desc": "Women drivers from low-income backgrounds. Heritage walks + day rentals. ₹400–800/day. Book at official kiosk near Hawa Mahal or call.",
+        "date": "2 days ago",
+        "confirms": 44,
+        "reporter": "Divya K."
+      }
+    ]
+  },
+  "agra-india": {
+    "config": {
+      "slug": "agra-india",
+      "name": "Agra",
+      "center": [
+        27.1767,
+        78.0081
+      ],
+      "zoom": 13
+    },
+    "reports": [
+      {
+        "id": "agra-india-s0",
+        "lat": 27.17579138748453,
+        "lng": 78.04329220551122,
+        "type": "scam",
+        "title": "'Taj Mahal closed today' / fake holiday",
+        "place": "Taj Mahal East Gate",
+        "desc": "Touts near gates. Taj is closed only on FRIDAYS — verify yourself at the ticket counter.",
+        "date": "2 days ago",
+        "confirms": 28,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "agra-india-s1",
+        "lat": 27.177946799030963,
+        "lng": 78.02305789112565,
+        "type": "scam",
+        "title": "Fake guides at Taj Mahal",
+        "place": "Agra Fort",
+        "desc": "Demand ₹2,000–₹5,000 after free 'tour'. Hire only ASI-licensed guides with photo ID at the counter.",
+        "date": "5 days ago",
+        "confirms": 18,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "agra-india-s2",
+        "lat": 27.173607248959033,
+        "lng": 78.01739472587933,
+        "type": "transport",
+        "title": "Marble inlay / gem export scam",
+        "place": "Sadar Bazaar",
+        "desc": "Drivers commission you to shops claiming 'family workshop'. Same scam as Jaipur — overpriced fakes.",
+        "date": "1 week ago",
+        "confirms": 31,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "agra-india-s3",
+        "lat": 27.154933755700572,
+        "lng": 77.9905581720801,
+        "type": "transport",
+        "title": "Auto/taxi inflated fares from Cantt station",
+        "place": "Agra Cantt Station",
+        "desc": "Use prepaid taxi at station OR Uber/Ola. Quoted rates are 3–5x real.",
+        "date": "2 weeks ago",
+        "confirms": 34,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "agra-india-s4",
+        "lat": 27.16740139299788,
+        "lng": 78.02482444822745,
+        "type": "scam",
+        "title": "Photographer at Taj demanding fees",
+        "place": "Fatehabad Road",
+        "desc": "Approach you with 'free photo' offer, then demand ₹500–₹2,000 per print.",
+        "date": "3 days ago",
+        "confirms": 13,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "agra-india-s5",
+        "lat": 27.18313221617879,
+        "lng": 78.04225964438415,
+        "type": "scam",
+        "title": "Shoe-cover fee scam",
+        "place": "Mehtab Bagh",
+        "desc": "Free shoe covers come with your Taj ticket. Don't pay anyone selling them.",
+        "date": "6 days ago",
+        "confirms": 22,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "agra-india-s6",
+        "lat": 27.169153166789588,
+        "lng": 77.98271711681225,
+        "type": "transport",
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "place": "Idgah Bus Stand",
+        "desc": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "date": "4 days ago",
+        "confirms": 35,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "agra-india-s7",
+        "lat": 27.17381175553286,
+        "lng": 78.01229364463697,
+        "type": "transport",
+        "title": "Fake Government Tourist Office",
+        "place": "Kinari Bazaar",
+        "desc": "Fake offices with 'Govt. of India Tourism' signage sell inflated tour packages, fake train tickets, or non-existent hotel bookings. The real India Tourism office is at 88 Janpath Road, Delhi. Real IRCTC International Tourist Bureau is on the 1st floor of New Delhi Railway Stat…",
+        "date": "10 days ago",
+        "confirms": 6,
+        "reporter": "Anonymous"
+      },
+      {
+        "id": "agra-india-safe0",
+        "lat": 27.174715116006197,
+        "lng": 78.04061904406846,
+        "type": "safe",
+        "title": "Buy Taj tickets online at asi.payumoney.com",
+        "place": "Online before arrival",
+        "desc": "Avoids the 200+ touts at the gate selling fake or marked-up tickets. Foreign tourist ₹1,100, India ₹50. QR scan at gate. Skip the queue too.",
+        "date": "2 days ago",
+        "confirms": 58,
+        "reporter": "Divya K."
+      }
+    ]
+  },
+  "bangalore-india": {
+    "config": {
+      "slug": "bangalore-india",
+      "name": "Bangalore",
+      "center": [
+        12.9716,
+        77.5946
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "bangalore-india-s0",
+        "lat": 12.973391449293064,
+        "lng": 77.60735526555308,
+        "type": "transport",
+        "title": "Auto rickshaw refusing meter",
+        "place": "MG Road",
+        "desc": "Most rampant scam in Bangalore. ALWAYS use Rapido/Uber/Namma Yatri (official BMTC-backed app).",
+        "date": "2 days ago",
+        "confirms": 28,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "bangalore-india-s1",
+        "lat": 12.972341199971101,
+        "lng": 77.6092699567555,
+        "type": "transport",
+        "title": "Fake driver at airport claiming to be your Uber/Ola",
+        "place": "Brigade Road",
+        "desc": "Verify license plate before getting in.",
+        "date": "5 days ago",
+        "confirms": 23,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "bangalore-india-s2",
+        "lat": 12.969934684600299,
+        "lng": 77.64161192435758,
+        "type": "scam",
+        "title": "Fake brand stores in Commercial Street",
+        "place": "Indiranagar 100ft",
+        "desc": "Counterfeit Apple/Samsung accessories. Buy electronics at authorised stores only.",
+        "date": "1 week ago",
+        "confirms": 23,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "bangalore-india-s3",
+        "lat": 12.933692757424506,
+        "lng": 77.62350699692736,
+        "type": "scam",
+        "title": "ATM skimming in standalone street ATMs",
+        "place": "Koramangala",
+        "desc": "Use only HDFC/ICICI/SBI/Axis branch ATMs.",
+        "date": "2 weeks ago",
+        "confirms": 37,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "bangalore-india-s4",
+        "lat": 12.975580424993225,
+        "lng": 77.57112594081015,
+        "type": "scam",
+        "title": "Pickpocketing at Majestic during festivals",
+        "place": "Majestic Bus Stand",
+        "desc": "Especially during Dussehra, Diwali.",
+        "date": "3 days ago",
+        "confirms": 39,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "bangalore-india-s5",
+        "lat": 12.907004570354378,
+        "lng": 77.64649090903998,
+        "type": "scam",
+        "title": "Fake job/visa scam targeting foreign workers",
+        "place": "HSR Layout",
+        "desc": "Recent rise — affects African and SE Asian tourists.",
+        "date": "6 days ago",
+        "confirms": 39,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "bangalore-india-s6",
+        "lat": 12.96974679587851,
+        "lng": 77.74874915966089,
+        "type": "transport",
+        "title": "Pre-paid Taxi Diversion / Fake Driver",
+        "place": "Whitefield",
+        "desc": "After paying at the official prepaid counter, driver claims he doesn't know your address, the road is closed, or there's a strike. Detours to commission shops or drops you at wrong hotel. Variant: a tout at the airport claims to be your booked Uber/Ola driver.",
+        "date": "4 days ago",
+        "confirms": 8,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "bangalore-india-s7",
+        "lat": 13.19770301232087,
+        "lng": 77.70734239825985,
+        "type": "scam",
+        "title": "Bird Poop / Stained Shirt Distraction",
+        "place": "Kempegowda Airport",
+        "desc": "Stranger points out 'something' on your shirt; accomplice 'helps clean' while picking your pocket of phone/wallet.",
+        "date": "10 days ago",
+        "confirms": 10,
+        "reporter": "Anonymous"
+      },
+      {
+        "id": "bangalore-india-safe0",
+        "lat": 12.975065022472714,
+        "lng": 77.60958120168847,
+        "type": "safe",
+        "title": "Uber Women — women drivers, women riders only",
+        "place": "All Bangalore",
+        "desc": "Launched Dec 2024. Book via Uber app. Women-only driver matched with women-only rider. ₹50–200 typical. Available 24/7 across the city.",
+        "date": "2 days ago",
+        "confirms": 55,
+        "reporter": "Divya K."
+      },
+      {
+        "id": "bangalore-india-safe1",
+        "lat": 12.971443596307672,
+        "lng": 77.60679488329046,
+        "type": "safe",
+        "title": "Namma Metro is safe — women-only coach",
+        "place": "Purple + Green Line",
+        "desc": "First coach reserved for women on every train. CCTV throughout. Stations well-lit and staffed until 11pm. Best way to skip evening traffic safely.",
+        "date": "5 days ago",
+        "confirms": 73,
+        "reporter": "Aisha B."
+      }
+    ]
+  },
+  "chennai-india": {
+    "config": {
+      "slug": "chennai-india",
+      "name": "Chennai",
+      "center": [
+        13.0827,
+        80.2707
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "chennai-india-s0",
+        "lat": 13.050212611261736,
+        "lng": 80.28134909402546,
+        "type": "transport",
+        "title": "Auto rickshaw extreme overcharge",
+        "place": "Marina Beach",
+        "desc": "Chennai autos are notorious. ALWAYS use Uber/Ola/Rapido.",
+        "date": "2 days ago",
+        "confirms": 22,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "chennai-india-s1",
+        "lat": 13.084547111288286,
+        "lng": 80.2745352554731,
+        "type": "scam",
+        "title": "Medical tourism middleman scam",
+        "place": "Chennai Central",
+        "desc": "Fake 'patient coordinator' offers cheap surgery at top hospital, takes advance, disappears. Book directly with hospital international patient desk.",
+        "date": "5 days ago",
+        "confirms": 38,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "chennai-india-s2",
+        "lat": 13.040300013205385,
+        "lng": 80.23432470396331,
+        "type": "scam",
+        "title": "Marina Beach hawker overcharge",
+        "place": "T. Nagar",
+        "desc": "₹100 corn for tourists vs ₹30 for locals. Fix price first.",
+        "date": "1 week ago",
+        "confirms": 27,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "chennai-india-s3",
+        "lat": 13.035383384593061,
+        "lng": 80.26876030427466,
+        "type": "scam",
+        "title": "Pickpocketing in T Nagar (Pondy Bazaar)",
+        "place": "Mylapore",
+        "desc": "Especially Saturdays. Crowded shopping district.",
+        "date": "2 weeks ago",
+        "confirms": 20,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "chennai-india-s4",
+        "lat": 13.034474939305507,
+        "lng": 80.26879626669859,
+        "type": "scam",
+        "title": "Fake gold/silver shops",
+        "place": "Kapaleeshwarar Temple",
+        "desc": "Especially Sowcarpet & Mint Street. Buy only from BIS-hallmarked retailers (Tanishq, GRT, Joyalukkas).",
+        "date": "3 days ago",
+        "confirms": 27,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "chennai-india-s5",
+        "lat": 12.994708708921536,
+        "lng": 80.17241379485256,
+        "type": "transport",
+        "title": "Airport pre-paid taxi diversion",
+        "place": "Chennai Airport",
+        "desc": "Less common than Delhi but happens.",
+        "date": "6 days ago",
+        "confirms": 34,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "chennai-india-s6",
+        "lat": 13.062290092756458,
+        "lng": 80.26129259612436,
+        "type": "transport",
+        "title": "Auto/Taxi Meter Refusal & Inflation",
+        "place": "Anna Salai",
+        "desc": "Driver says meter is 'broken', quotes flat fare 3–10x normal. In Mumbai it's rarer because of strict meter culture. In Bangalore mostly auto drivers at airport/railway.",
+        "date": "4 days ago",
+        "confirms": 37,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "chennai-india-s7",
+        "lat": 13.00619302026614,
+        "lng": 80.25741469378066,
+        "type": "transport",
+        "title": "Train Ticket / IRCTC Scam",
+        "place": "Adyar",
+        "desc": "Near railway stations, agents sell 'confirmed tickets' that are fake or for slow local trains sold as fast express. Variant: tout claims 'your train is cancelled' and herds you to a fake ticket counter to sell flights/tours at 5x rates.",
+        "date": "10 days ago",
+        "confirms": 31,
+        "reporter": "Anonymous"
+      },
+      {
+        "id": "chennai-india-safe0",
+        "lat": 13.049699937532967,
+        "lng": 80.28350959552925,
+        "type": "safe",
+        "title": "Pre-paid taxi counter at Chennai Airport",
+        "place": "Inside arrivals hall",
+        "desc": "Government counter inside airport gives fixed rates with receipt. Avoids the touts outside. ₹400–600 to most city locations. Show receipt + driver ID match before getting in.",
+        "date": "2 days ago",
+        "confirms": 60,
+        "reporter": "Divya K."
+      },
+      {
+        "id": "chennai-india-safe1",
+        "lat": 13.083178414963365,
+        "lng": 80.2767620429805,
+        "type": "safe",
+        "title": "Chennai Metro — clean, safe, women-friendly",
+        "place": "Blue + Green Line",
+        "desc": "Women-only first coach. CCTV throughout. Late-night service until 11pm. ₹10–50 fare. Way safer + faster than autos for cross-city trips.",
+        "date": "5 days ago",
+        "confirms": 34,
+        "reporter": "Aisha B."
+      }
+    ]
+  },
+  "kolkata-india": {
+    "config": {
+      "slug": "kolkata-india",
+      "name": "Kolkata",
+      "center": [
+        22.5726,
+        88.3639
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "kolkata-india-s0",
+        "lat": 22.58446275126498,
+        "lng": 88.34225730228572,
+        "type": "transport",
+        "title": "Pickpocketing on Kolkata Metro & at Howrah",
+        "place": "Howrah Station",
+        "desc": "Front pocket, zipped bag. Especially on Howrah-Dum Dum line during rush.",
+        "date": "2 days ago",
+        "confirms": 38,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "kolkata-india-s1",
+        "lat": 22.552705191899513,
+        "lng": 88.35217431545554,
+        "type": "scam",
+        "title": "Fake porter overcharge at Howrah",
+        "place": "Park Street",
+        "desc": "Real porters wear red shirt + metal armband with number. Pre-fix price: ₹50–₹100/bag.",
+        "date": "5 days ago",
+        "confirms": 12,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "kolkata-india-s2",
+        "lat": 22.5612378919658,
+        "lng": 88.3524478645707,
+        "type": "scam",
+        "title": "Kalighat 'priest' demanding offering",
+        "place": "New Market",
+        "desc": "₹500–₹5,000 demanded. Same as Varanasi pattern. Walk away firmly.",
+        "date": "1 week ago",
+        "confirms": 13,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "kolkata-india-s3",
+        "lat": 22.54564525535823,
+        "lng": 88.34454001744604,
+        "type": "scam",
+        "title": "Fake brand stores in New Market",
+        "place": "Victoria Memorial",
+        "desc": "Counterfeit watches, perfumes, leather.",
+        "date": "2 weeks ago",
+        "confirms": 29,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "kolkata-india-s4",
+        "lat": 22.523701208788005,
+        "lng": 88.34187103905441,
+        "type": "transport",
+        "title": "Auto/taxi refusing meter or quoting flat",
+        "place": "Kalighat",
+        "desc": "Use Uber/Ola. Yellow Ambassador taxis often refuse short distances.",
+        "date": "3 days ago",
+        "confirms": 39,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "kolkata-india-s5",
+        "lat": 22.55992692104602,
+        "lng": 88.34977493441176,
+        "type": "stay",
+        "title": "Hotel switch scam",
+        "place": "Sudder Street",
+        "desc": "Less common than Delhi but happens at Howrah.",
+        "date": "6 days ago",
+        "confirms": 29,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "kolkata-india-s6",
+        "lat": 22.58111692473012,
+        "lng": 88.41754704232088,
+        "type": "transport",
+        "title": "Auto/Taxi Meter Refusal & Inflation",
+        "place": "Salt Lake City",
+        "desc": "Driver says meter is 'broken', quotes flat fare 3–10x normal. In Mumbai it's rarer because of strict meter culture. In Bangalore mostly auto drivers at airport/railway.",
+        "date": "4 days ago",
+        "confirms": 17,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "kolkata-india-s7",
+        "lat": 22.651953096530953,
+        "lng": 88.4466528798599,
+        "type": "transport",
+        "title": "Train Ticket / IRCTC Scam",
+        "place": "NSCBI Airport",
+        "desc": "Near railway stations, agents sell 'confirmed tickets' that are fake or for slow local trains sold as fast express. Variant: tout claims 'your train is cancelled' and herds you to a fake ticket counter to sell flights/tours at 5x rates.",
+        "date": "10 days ago",
+        "confirms": 37,
+        "reporter": "Anonymous"
+      },
+      {
+        "id": "kolkata-india-safe0",
+        "lat": 22.581718788093365,
+        "lng": 88.34376872412066,
+        "type": "safe",
+        "title": "Yellow Ambassador taxis run honest meters",
+        "place": "All Kolkata",
+        "desc": "The iconic yellow taxis here mostly run meters honestly — better than autos. ₹30 base + ₹15/km. Most drivers are decent and Kolkata is generally safe for solo women in daytime.",
+        "date": "2 days ago",
+        "confirms": 62,
+        "reporter": "Divya K."
+      },
+      {
+        "id": "kolkata-india-safe1",
+        "lat": 22.550323324198366,
+        "lng": 88.35195697114679,
+        "type": "safe",
+        "title": "Kolkata Metro — oldest, cheapest, safest",
+        "place": "Blue + Green Line",
+        "desc": "₹5–25 fare across the city. Women-only first coach. Crowded at peak hours but safe. Quickest way to avoid Park Street traffic at evenings.",
+        "date": "5 days ago",
+        "confirms": 68,
+        "reporter": "Aisha B."
+      }
+    ]
+  },
+  "varanasi-india": {
+    "config": {
+      "slug": "varanasi-india",
+      "name": "Varanasi",
+      "center": [
+        25.3176,
+        82.9739
+      ],
+      "zoom": 13
+    },
+    "reports": [
+      {
+        "id": "varanasi-india-s0",
+        "lat": 25.30807680569756,
+        "lng": 83.01028278291228,
+        "type": "scam",
+        "title": "Fake priest forced tilak/thread + 'donation'",
+        "place": "Dashashwamedh Ghat",
+        "desc": "Ties thread before you can refuse, demands ₹500–₹10,000. Hands in pockets, firm 'no'.",
+        "date": "2 days ago",
+        "confirms": 9,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "varanasi-india-s1",
+        "lat": 25.309593965469222,
+        "lng": 83.01586067547082,
+        "type": "scam",
+        "title": "Photography extortion at Manikarnika (cremation ghat)",
+        "place": "Manikarnika Ghat",
+        "desc": "Photo strictly forbidden anyway, but fake 'caretakers' threaten heavy fines if you have a camera. Don't take photos there at all — out of respect & safety.",
+        "date": "5 days ago",
+        "confirms": 31,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "varanasi-india-s2",
+        "lat": 25.287171087366552,
+        "lng": 83.00686850123016,
+        "type": "scam",
+        "title": "Boat overcharge for sunrise / Aarti",
+        "place": "Assi Ghat",
+        "desc": "Quoted ₹3,000–₹5,000; real rate is ₹500–₹800 for a shared boat, ₹1,500–₹2,500 private.",
+        "date": "1 week ago",
+        "confirms": 19,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "varanasi-india-s3",
+        "lat": 25.31280009665746,
+        "lng": 83.00982259714229,
+        "type": "scam",
+        "title": "Fake guide claiming to be 'temple authority'",
+        "place": "Kashi Vishwanath",
+        "desc": "At Kashi Vishwanath, asks for 'special darshan fee' = pocket money.",
+        "date": "2 weeks ago",
+        "confirms": 34,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "varanasi-india-s4",
+        "lat": 25.32747007631514,
+        "lng": 82.98699823633964,
+        "type": "scam",
+        "title": "Drugged tea / lassi from random shops",
+        "place": "Varanasi Junction",
+        "desc": "Bhang lassi shops sometimes much stronger than declared. Tourists hospitalised.",
+        "date": "3 days ago",
+        "confirms": 25,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "varanasi-india-s5",
+        "lat": 25.38230154612067,
+        "lng": 83.02297941233134,
+        "type": "transport",
+        "title": "Hotel switch from station",
+        "place": "Sarnath",
+        "desc": "Cyclo/auto driver claims hotel closed → commission guesthouse.",
+        "date": "6 days ago",
+        "confirms": 5,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "varanasi-india-s6",
+        "lat": 25.307181256113353,
+        "lng": 83.0093290578479,
+        "type": "scam",
+        "title": "Shoe theft at temples",
+        "place": "Godowlia Crossing",
+        "desc": "Wear cheap sliders. Use the official locker.",
+        "date": "4 days ago",
+        "confirms": 28,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "varanasi-india-s7",
+        "lat": 25.45154347254927,
+        "lng": 82.85929608736222,
+        "type": "transport",
+        "title": "Hotel Switch / 'Your hotel burned down'",
+        "place": "Varanasi Airport",
+        "desc": "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "date": "10 days ago",
+        "confirms": 27,
+        "reporter": "Anonymous"
+      },
+      {
+        "id": "varanasi-india-safe0",
+        "lat": 25.307370573929564,
+        "lng": 83.01209616505857,
+        "type": "safe",
+        "title": "Stay near Assi Ghat, not Dashashwamedh",
+        "place": "South end of ghats",
+        "desc": "Quieter, more solo-women friendly, less hustle. Walk north to main ghats during day. Multiple verified women-friendly guesthouses. Avoid alleys after 10pm — they're confusing.",
+        "date": "2 days ago",
+        "confirms": 59,
+        "reporter": "Divya K."
+      }
+    ]
+  },
+  "udaipur-india": {
+    "config": {
+      "slug": "udaipur-india",
+      "name": "Udaipur",
+      "center": [
+        24.5854,
+        73.7125
+      ],
+      "zoom": 13
+    },
+    "reports": [
+      {
+        "id": "udaipur-india-s0",
+        "lat": 24.57753308700185,
+        "lng": 73.68522419962406,
+        "type": "transport",
+        "title": "Boat ride overcharge on Lake Pichola",
+        "place": "City Palace",
+        "desc": "Official rates posted at City Palace ticket counter. Ignore touts at the ghat.",
+        "date": "2 days ago",
+        "confirms": 24,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "udaipur-india-s1",
+        "lat": 24.57782282147862,
+        "lng": 73.68183633121566,
+        "type": "scam",
+        "title": "Gem & miniature painting export scam",
+        "place": "Lake Pichola Ghat",
+        "desc": "Same as Jaipur. 'Family workshop' = commission. Walk away.",
+        "date": "5 days ago",
+        "confirms": 18,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "udaipur-india-s2",
+        "lat": 24.578769337812073,
+        "lng": 73.68177346087569,
+        "type": "stay",
+        "title": "Fake heritage 'haveli' bookings",
+        "place": "Bagore-ki-Haveli",
+        "desc": "Several scam websites in 2025 — book via Booking.com/MMT only.",
+        "date": "1 week ago",
+        "confirms": 34,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "udaipur-india-s3",
+        "lat": 24.57947383976092,
+        "lng": 73.68529839082463,
+        "type": "transport",
+        "title": "Auto refusing meter from station",
+        "place": "Jagdish Temple",
+        "desc": "Use Uber/Ola — Udaipur has good coverage now.",
+        "date": "2 weeks ago",
+        "confirms": 24,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "udaipur-india-s4",
+        "lat": 24.572380449847618,
+        "lng": 73.68490882430858,
+        "type": "scam",
+        "title": "Fake guide at City Palace",
+        "place": "Udaipur Railway Stn",
+        "desc": "Hire only from official counter.",
+        "date": "3 days ago",
+        "confirms": 19,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "udaipur-india-s5",
+        "lat": 24.58328691410552,
+        "lng": 73.68774053942238,
+        "type": "scam",
+        "title": "Sunset Point camel/horse ride overcharge",
+        "place": "Hathi Pol Bazaar",
+        "desc": "Fix price before mounting.",
+        "date": "6 days ago",
+        "confirms": 21,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "udaipur-india-s6",
+        "lat": 24.60250946210353,
+        "lng": 73.68337135868184,
+        "type": "scam",
+        "title": "Gem & Carpet Export Scam",
+        "place": "Fateh Sagar Lake",
+        "desc": "Friendly local introduces you to a 'family jeweller'. You're told you can 'export' gems duty-free and resell abroad for huge profit; they ship to your country. Stones are worthless glass/synthetic. Variant: a fake government 'official' calls later demanding fines.",
+        "date": "4 days ago",
+        "confirms": 9,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "udaipur-india-s7",
+        "lat": 24.616060725785655,
+        "lng": 73.8968913211504,
+        "type": "scam",
+        "title": "Fake Priest / Tilak / Forced Blessing",
+        "place": "Udaipur Airport",
+        "desc": "A 'pandit' ties a thread (kalava) on your wrist or applies tilak before you can refuse, then chants a 'blessing' and demands ₹500–₹10,000 'donation'. Most aggressive at Manikarnika and Dashashwamedh ghats in Varanasi.",
+        "date": "10 days ago",
+        "confirms": 32,
+        "reporter": "Anonymous"
+      },
+      {
+        "id": "udaipur-india-safe0",
+        "lat": 24.574481619495867,
+        "lng": 73.68404780288611,
+        "type": "safe",
+        "title": "Udaipur is the safest big tourist city in India",
+        "place": "Old city + lake area",
+        "desc": "Consistently rated safest big tourist city for solo women. Walking the Old City alone after dark is fine. Locals genuinely helpful, not pushy. Stay near Lake Pichola for best experience.",
+        "date": "2 days ago",
+        "confirms": 73,
+        "reporter": "Divya K."
+      }
+    ]
+  },
+  "manali-india": {
+    "config": {
+      "slug": "manali-india",
+      "name": "Manali",
+      "center": [
+        32.2396,
+        77.1887
+      ],
+      "zoom": 13
+    },
+    "reports": [
+      {
+        "id": "manali-india-s0",
+        "lat": 32.246585529290044,
+        "lng": 77.18551022645525,
+        "type": "scam",
+        "title": "Drug possession setup (Old Manali / Kasol nearby)",
+        "place": "Mall Road",
+        "desc": "Charas offered → 'cop' demands bribe. NDPS Act jail risk. Refuse all offers.",
+        "date": "2 days ago",
+        "confirms": 9,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "manali-india-s1",
+        "lat": 32.251649944686854,
+        "lng": 77.17600631920328,
+        "type": "scam",
+        "title": "Bike/scooter rental damage scam",
+        "place": "Hadimba Temple",
+        "desc": "Photo before+after, never leave passport, use known agencies.",
+        "date": "5 days ago",
+        "confirms": 37,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "manali-india-s2",
+        "lat": 32.257049934405885,
+        "lng": 77.18610915919851,
+        "type": "transport",
+        "title": "Taxi cartel rates to Rohtang/Solang",
+        "place": "Old Manali",
+        "desc": "Fixed by union; high but unavoidable. Hotel can sometimes negotiate.",
+        "date": "1 week ago",
+        "confirms": 18,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "manali-india-s3",
+        "lat": 32.267520208828934,
+        "lng": 77.18687909453129,
+        "type": "scam",
+        "title": "Paragliding operator overcharge / no insurance",
+        "place": "Vashisht Temple",
+        "desc": "Use only HP Tourism-licensed operators. Verify pilot license.",
+        "date": "2 weeks ago",
+        "confirms": 26,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "manali-india-s4",
+        "lat": 32.316174382454626,
+        "lng": 77.15945039924185,
+        "type": "scam",
+        "title": "Honeymoon package fraud online",
+        "place": "Solang Valley",
+        "desc": "Fake Instagram/WhatsApp packages with advance UPI demand. Lose ₹20K–₹1L.",
+        "date": "3 days ago",
+        "confirms": 5,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "manali-india-s5",
+        "lat": 32.23796860303838,
+        "lng": 77.18999619067688,
+        "type": "scam",
+        "title": "Photographer at Hidimba Temple / Mall Road",
+        "place": "Manali Bus Stand",
+        "desc": "'Free photo with traditional dress' → demands ₹500–₹2,000.",
+        "date": "6 days ago",
+        "confirms": 28,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "manali-india-s6",
+        "lat": 32.244056143266064,
+        "lng": 77.18283006601906,
+        "type": "scam",
+        "title": "Drug Possession Setup (Goa)",
+        "place": "Mall Restaurant Strip",
+        "desc": "Local offers drugs at a beach/party; once accepted/handed over, accomplice 'cop' arrives, demands large bribe to avoid arrest. Punishment for narcotics in India is severe — even small amounts = years in jail.",
+        "date": "4 days ago",
+        "confirms": 20,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "manali-india-safe0",
+        "lat": 32.268822502822886,
+        "lng": 77.18907808754261,
+        "type": "safe",
+        "title": "Old Manali is the solo-traveller hub",
+        "place": "Across the river from Mall Road",
+        "desc": "Cafe culture, hostels with solo women travellers, walking-friendly. Way safer than the touristy Mall Road. Stay at Hosteller / Zostel / Madpackers — all women-friendly chains.",
+        "date": "10 days ago",
+        "confirms": 52,
+        "reporter": "Anonymous"
+      }
+    ]
+  },
+  "kochi-india": {
+    "config": {
+      "slug": "kochi-india",
+      "name": "Kochi",
+      "center": [
+        9.9312,
+        76.2673
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "kochi-india-s0",
+        "lat": 9.964498895245297,
+        "lng": 76.24044470883034,
+        "type": "scam",
+        "title": "Fake houseboat / backwater booking online",
+        "place": "Fort Kochi",
+        "desc": "Lookalike Kerala Tourism websites. Pay advance, no boat. Book via keralatourism.org or trusted operator (Spice Coast, Lakes & Lagoons).",
+        "date": "2 days ago",
+        "confirms": 6,
+        "reporter": "Ananya M."
+      },
+      {
+        "id": "kochi-india-s1",
+        "lat": 9.960095491305305,
+        "lng": 76.25866664377266,
+        "type": "transport",
+        "title": "Auto/tuk-tuk overcharge in Fort Kochi",
+        "place": "Mattancherry Palace",
+        "desc": "Use Uber/Ola/Rapido — strong coverage.",
+        "date": "5 days ago",
+        "confirms": 18,
+        "reporter": "Sara K."
+      },
+      {
+        "id": "kochi-india-s2",
+        "lat": 9.977632793459609,
+        "lng": 76.2715695372827,
+        "type": "scam",
+        "title": "Fake antique / spice 'discount' shops in Jew Town",
+        "place": "Marine Drive Kochi",
+        "desc": "Inflated prices for 'genuine' spices and 'antiques'. Bargain hard or buy from chain stores.",
+        "date": "1 week ago",
+        "confirms": 38,
+        "reporter": "Riya S."
+      },
+      {
+        "id": "kochi-india-s3",
+        "lat": 9.968746235748895,
+        "lng": 76.28180011348309,
+        "type": "scam",
+        "title": "Chinese fishing net 'demonstration fee'",
+        "place": "Ernakulam Junction",
+        "desc": "Operators ask ₹500–₹1,000 to 'pull the net'. Fixed local rate is ₹100–₹200.",
+        "date": "2 weeks ago",
+        "confirms": 36,
+        "reporter": "Maya R."
+      },
+      {
+        "id": "kochi-india-s4",
+        "lat": 10.028432703643157,
+        "lng": 76.30963424042365,
+        "type": "scam",
+        "title": "Cruise booking scam (Cordelia)",
+        "place": "Lulu Mall",
+        "desc": "Fake websites. Book only via cordeliacruises.com or authorised agents.",
+        "date": "3 days ago",
+        "confirms": 19,
+        "reporter": "Priya N."
+      },
+      {
+        "id": "kochi-india-s5",
+        "lat": 10.140710526172928,
+        "lng": 76.18029886340672,
+        "type": "scam",
+        "title": "Fake Ayurveda spa packages",
+        "place": "Cherai Beach",
+        "desc": "Some 'Ayurvedic clinics' have no licensed doctors. Check NABH-accreditation.",
+        "date": "6 days ago",
+        "confirms": 26,
+        "reporter": "Devika P."
+      },
+      {
+        "id": "kochi-india-s6",
+        "lat": 9.955831467739019,
+        "lng": 76.25851256040227,
+        "type": "scam",
+        "title": "Beach Shack & Water Sports Overcharge",
+        "place": "Jew Town",
+        "desc": "Menus without prices, jet ski/parasail operators charging 5–10x and damaging equipment to demand 'damage' fees. Renting bikes/scooters with fake damage claims.",
+        "date": "4 days ago",
+        "confirms": 37,
+        "reporter": "Sneha T."
+      },
+      {
+        "id": "kochi-india-s7",
+        "lat": 10.15481468146446,
+        "lng": 76.40002876735186,
+        "type": "scam",
+        "title": "Cordelia / Cruise Booking Scam",
+        "place": "Kochi Airport",
+        "desc": "Fake Cordelia / Costa websites take advance for cruises that never sail. Surged in 2025 per Goa MP's statement in Rajya Sabha.",
+        "date": "10 days ago",
+        "confirms": 24,
+        "reporter": "Anonymous"
+      },
+      {
+        "id": "kochi-india-safe0",
+        "lat": 9.964695735158271,
+        "lng": 76.24045712630381,
+        "type": "safe",
+        "title": "Kochi Metro + ferry combo for safe travel",
+        "place": "Across Ernakulam + Fort Kochi",
+        "desc": "Metro covers Ernakulam side. Public ferry to Fort Kochi from High Court Junction is ₹4 + safe + scenic. Avoids touristy auto overcharging by 5–10x.",
+        "date": "2 days ago",
+        "confirms": 68,
+        "reporter": "Divya K."
+      },
+      {
+        "id": "kochi-india-safe1",
+        "lat": 9.957129122613166,
+        "lng": 76.25653620949754,
+        "type": "safe",
+        "title": "Fort Kochi homestays are safest accommodation",
+        "place": "Fort Kochi area",
+        "desc": "Verified women-friendly homestays in colonial heritage area. Owner-run, walking distance to all sights, ₹1,500–3,500/night. Way better than the mainland hotels for solo women.",
+        "date": "5 days ago",
+        "confirms": 34,
+        "reporter": "Aisha B."
+      }
+    ]
+  },
+  "tokyo-japan": {
+    "config": {
+      "slug": "tokyo-japan",
+      "name": "Tokyo",
+      "center": [
+        35.6762,
+        139.6503
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "tokyo-japan-s0",
+        "lat": 35.659,
+        "lng": 139.7005,
+        "type": "scam",
+        "title": "Taxi flat-rate scam from Shibuya",
+        "place": "Shibuya",
+        "desc": "Driver offers 'flat rate' to your hotel but charges 3× the meter. Always insist on the meter or use official Tokyo taxis (JPN Taxi app).",
+        "date": "3 days ago",
+        "confirms": 14,
+        "reporter": "Priya R."
+      },
+      {
+        "id": "tokyo-japan-s1",
+        "lat": 35.7147,
+        "lng": 139.7967,
+        "type": "scam",
+        "title": "Rickshaw overcharging in Asakusa",
+        "place": "Asakusa",
+        "desc": "Jinrikisha (rickshaw) riders quote 500 yen, bill ¥5,000 per person after the ride. Agree on price and duration in writing beforehand.",
+        "date": "1 week ago",
+        "confirms": 8,
+        "reporter": "Sophie L."
+      },
+      {
+        "id": "tokyo-japan-s2",
+        "lat": 35.6702,
+        "lng": 139.7027,
+        "type": "harassment",
+        "title": "Fake 'English students' near Harajuku",
+        "place": "Harajuku",
+        "desc": "Approach claiming to be English students who need practice. Leads to expensive restaurant or bar — bill split between you and 'host'.",
+        "date": "5 days ago",
+        "confirms": 11,
+        "reporter": "Yuki M."
+      },
+      {
+        "id": "tokyo-japan-s3",
+        "lat": 35.6627,
+        "lng": 139.7316,
+        "type": "harassment",
+        "title": "Bar tout harassment in Roppongi",
+        "place": "Roppongi",
+        "desc": "Men outside bars offer 'free drinks' — bill arrives for thousands of yen. Avoid bars with persistent touts on the street.",
+        "date": "2 days ago",
+        "confirms": 19,
+        "reporter": "Nadia K."
+      },
+      {
+        "id": "tokyo-japan-s4",
+        "lat": 35.6762,
+        "lng": 139.7033,
+        "type": "transport",
+        "title": "Pickpocketing on Yamanote Line rush hour",
+        "place": "Yamanote Line",
+        "desc": "Morning rush (7–9 AM) on the loop line is a prime window. Use women-only carriages (first carriage, pink signage) and keep bags in front.",
+        "date": "4 days ago",
+        "confirms": 7,
+        "reporter": "Ananya T."
+      },
+      {
+        "id": "tokyo-japan-s5",
+        "lat": 35.6938,
+        "lng": 139.7034,
+        "type": "scam",
+        "title": "Fake monk donation request in Shinjuku",
+        "place": "Shinjuku",
+        "desc": "Robed men approach, hand you a charm, then demand large donation. Legitimate monks do not solicit tourists on streets.",
+        "date": "1 week ago",
+        "confirms": 5,
+        "reporter": "Meera S."
+      }
+    ]
+  },
+  "bangkok-thailand": {
+    "config": {
+      "slug": "bangkok-thailand",
+      "name": "Bangkok",
+      "center": [
+        13.7563,
+        100.5018
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "bangkok-thailand-s0",
+        "lat": 13.75,
+        "lng": 100.4914,
+        "type": "scam",
+        "title": "Tuk-tuk 'closed temple' scam near Grand Palace",
+        "place": "Grand Palace area",
+        "desc": "Tuk-tuk driver says temple is closed for cleaning, offers to take you to a 'local market' — a gem store paying the driver commission. Grand Palace is almost never closed to tourists.",
+        "date": "2 days ago",
+        "confirms": 28,
+        "reporter": "Priya S."
+      },
+      {
+        "id": "bangkok-thailand-s1",
+        "lat": 13.7462,
+        "lng": 100.5346,
+        "type": "scam",
+        "title": "Gem scam near Siam Square",
+        "place": "Siam Square",
+        "desc": "Friendly local says gems are heavily discounted 'government sale'. Items resold at home for a fraction. Do not buy gems from street strangers.",
+        "date": "3 days ago",
+        "confirms": 15,
+        "reporter": "Lisa M."
+      },
+      {
+        "id": "bangkok-thailand-s2",
+        "lat": 13.73,
+        "lng": 100.567,
+        "type": "transport",
+        "title": "Taxi refusing meter on Sukhumvit",
+        "place": "Sukhumvit",
+        "desc": "Drivers near tourist hotels quote flat rates 3× higher. Say 'meter, please' firmly — if refused, exit and hail another taxi.",
+        "date": "1 week ago",
+        "confirms": 22,
+        "reporter": "Riya A."
+      },
+      {
+        "id": "bangkok-thailand-s3",
+        "lat": 13.76,
+        "lng": 100.4976,
+        "type": "scam",
+        "title": "Overpriced pad thai near Khao San Road",
+        "place": "Khao San Road",
+        "desc": "Street stalls here charge 5–10× standard Bangkok prices. Walk two streets away from Khao San for regular rates.",
+        "date": "5 days ago",
+        "confirms": 9,
+        "reporter": "Sunita P."
+      },
+      {
+        "id": "bangkok-thailand-s4",
+        "lat": 13.76,
+        "lng": 100.4976,
+        "type": "harassment",
+        "title": "Ping-pong show touts on Khao San Road at night",
+        "place": "Khao San Road",
+        "desc": "Aggressive touts outside bars offer 'free shows'. Entry may be free, drinks are not — and leaving before paying a 'minimum' leads to intimidation.",
+        "date": "4 days ago",
+        "confirms": 12,
+        "reporter": "Aisha K."
+      },
+      {
+        "id": "bangkok-thailand-s5",
+        "lat": 13.7563,
+        "lng": 100.5018,
+        "type": "safe",
+        "title": "BTS Skytrain is safe, well-lit, cheap",
+        "place": "BTS Skytrain",
+        "desc": "The elevated rail network is the safest way to move around Bangkok at any hour. Carry a Rabbit card (refillable, cheaper than cash fares).",
+        "date": "1 week ago",
+        "confirms": 31,
+        "reporter": "Meera V."
+      }
+    ]
+  },
+  "hanoi-vietnam": {
+    "config": {
+      "slug": "hanoi-vietnam",
+      "name": "Hanoi",
+      "center": [
+        21.0285,
+        105.8542
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "hanoi-vietnam-s0",
+        "lat": 21.034,
+        "lng": 105.8485,
+        "type": "scam",
+        "title": "Cyclo overcharging in Old Quarter",
+        "place": "Old Quarter",
+        "desc": "Cyclo drivers agree verbally to 20,000 VND but demand 200,000 at destination. Agree on price in writing and confirm if it's per person before boarding.",
+        "date": "2 days ago",
+        "confirms": 17,
+        "reporter": "Lan N."
+      },
+      {
+        "id": "hanoi-vietnam-s1",
+        "lat": 21.034,
+        "lng": 105.8475,
+        "type": "scam",
+        "title": "Fake Ha Long Bay tour operators in Old Quarter",
+        "place": "Old Quarter",
+        "desc": "Street agents sell 'budget' Ha Long cruises that don't match the brochure — old boats, no life vests, different itinerary. Book directly with certified operators.",
+        "date": "5 days ago",
+        "confirms": 21,
+        "reporter": "Priya G."
+      },
+      {
+        "id": "hanoi-vietnam-s2",
+        "lat": 21.0285,
+        "lng": 105.8519,
+        "type": "transport",
+        "title": "Motorbike phone grab near Hoan Kiem Lake",
+        "place": "Hoan Kiem Lake",
+        "desc": "Thieves on motorbikes snatch phones from pedestrians walking close to the road. Keep phones in a pocket, not in hand, especially on the lakeside promenade.",
+        "date": "3 days ago",
+        "confirms": 13,
+        "reporter": "Sophie T."
+      },
+      {
+        "id": "hanoi-vietnam-s3",
+        "lat": 21.033,
+        "lng": 105.85,
+        "type": "stay",
+        "title": "Lookalike hotel names in Old Quarter",
+        "place": "Old Quarter",
+        "desc": "Many hotels copy names of popular rated properties. Confirm address and check-in details via booking app — do not rely on the hotel name alone.",
+        "date": "1 week ago",
+        "confirms": 9,
+        "reporter": "Ananya R."
+      },
+      {
+        "id": "hanoi-vietnam-s4",
+        "lat": 21.0285,
+        "lng": 105.8542,
+        "type": "safe",
+        "title": "Grab app is reliable and safe in Hanoi",
+        "place": "City-wide",
+        "desc": "Grab motorbike and car options have licensed drivers, GPS tracking, and in-app payment. Always safer than hailing a random xe ôm.",
+        "date": "4 days ago",
+        "confirms": 25,
+        "reporter": "Nadia M."
+      }
+    ]
+  },
+  "dubai-uae": {
+    "config": {
+      "slug": "dubai-uae",
+      "name": "Dubai",
+      "center": [
+        25.2048,
+        55.2708
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "dubai-uae-s0",
+        "lat": 25.2697,
+        "lng": 55.3094,
+        "type": "scam",
+        "title": "Fake gold quality in Deira Gold Souq",
+        "place": "Deira Gold Souq",
+        "desc": "Gold sold as 22k or 24k tested elsewhere at 14k. Reputable sellers show UAE hallmarks — insist on a receipt with karat and weight.",
+        "date": "3 days ago",
+        "confirms": 11,
+        "reporter": "Meera K."
+      },
+      {
+        "id": "dubai-uae-s1",
+        "lat": 25.1972,
+        "lng": 55.2796,
+        "type": "transport",
+        "title": "Unlicensed taxis near Dubai Mall exit",
+        "place": "Dubai Mall",
+        "desc": "Men in street clothes offer rides cheaper than taxis. Unlicensed, no meter, may demand cash far above quoted rate. Use the official taxi rank or Careem app.",
+        "date": "5 days ago",
+        "confirms": 8,
+        "reporter": "Aisha P."
+      },
+      {
+        "id": "dubai-uae-s2",
+        "lat": 25.0748,
+        "lng": 55.1318,
+        "type": "harassment",
+        "title": "Timeshare pitch at JBR beach walk",
+        "place": "JBR Beach",
+        "desc": "Staff offer 'free hotel breakfast' or gift in exchange for attending a 90-minute timeshare presentation. Sessions run 4+ hours and use high-pressure tactics.",
+        "date": "2 days ago",
+        "confirms": 14,
+        "reporter": "Sunita L."
+      },
+      {
+        "id": "dubai-uae-s3",
+        "lat": 25.1972,
+        "lng": 55.281,
+        "type": "scam",
+        "title": "Restaurant hidden service charges Downtown",
+        "place": "Downtown Dubai",
+        "desc": "5% municipality tax + 10% service charge added to bill not shown on menu prices. Check totals before paying — overcharging beyond these rates is illegal.",
+        "date": "1 week ago",
+        "confirms": 7,
+        "reporter": "Riya G."
+      },
+      {
+        "id": "dubai-uae-s4",
+        "lat": 25.2048,
+        "lng": 55.2708,
+        "type": "safe",
+        "title": "Dubai Metro is safe, AC, and punctual",
+        "place": "Dubai Metro",
+        "desc": "The Red and Green Lines are spotlessly safe. Pink carriages at front are women-and-children only — use them for comfort. Off-peak is very quiet.",
+        "date": "4 days ago",
+        "confirms": 18,
+        "reporter": "Priya M."
+      }
+    ]
+  },
+  "seoul-south-korea": {
+    "config": {
+      "slug": "seoul-south-korea",
+      "name": "Seoul",
+      "center": [
+        37.5665,
+        126.978
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "seoul-south-korea-s0",
+        "lat": 37.5572,
+        "lng": 126.9247,
+        "type": "scam",
+        "title": "Bar overcharging foreigners in Hongdae",
+        "place": "Hongdae",
+        "desc": "Staff quote one price, charge double at the end citing 'table fee' or 'service'. Photograph menus and confirm total before ordering.",
+        "date": "3 days ago",
+        "confirms": 13,
+        "reporter": "Yuki L."
+      },
+      {
+        "id": "seoul-south-korea-s1",
+        "lat": 37.5636,
+        "lng": 126.9869,
+        "type": "scam",
+        "title": "Counterfeit K-beauty products near Myeongdong",
+        "place": "Myeongdong",
+        "desc": "Street vendors sell fake Laneige / Sulwhasoo / COSRX. Products can cause skin reactions. Buy from brand stores or authorised pharmacies (Olive Young).",
+        "date": "5 days ago",
+        "confirms": 10,
+        "reporter": "Sophie K."
+      },
+      {
+        "id": "seoul-south-korea-s2",
+        "lat": 37.558,
+        "lng": 126.9784,
+        "type": "transport",
+        "title": "Pickpockets at Namdaemun Market",
+        "place": "Namdaemun Market",
+        "desc": "Crowded weekend market is prime pickpocket territory. Use a cross-body bag kept in front. Card skimming also reported at small restaurants — use cash or Samsung Pay.",
+        "date": "1 week ago",
+        "confirms": 6,
+        "reporter": "Ananya J."
+      },
+      {
+        "id": "seoul-south-korea-s3",
+        "lat": 37.5345,
+        "lng": 126.9938,
+        "type": "harassment",
+        "title": "Bar harassment near Itaewon late night",
+        "place": "Itaewon",
+        "desc": "Solo women followed from bars on the main strip after midnight. Walk in groups, use official taxis from designated stands, and avoid narrow alleys off the main road.",
+        "date": "2 days ago",
+        "confirms": 19,
+        "reporter": "Nadia S."
+      },
+      {
+        "id": "seoul-south-korea-s4",
+        "lat": 37.574,
+        "lng": 126.9875,
+        "type": "safe",
+        "title": "Insadong is well-lit and tourist-safe at night",
+        "place": "Insadong",
+        "desc": "The arts district has good street lighting, CCTV coverage, and is popular with families at all hours. Good base for evening solo walks.",
+        "date": "4 days ago",
+        "confirms": 22,
+        "reporter": "Meera P."
+      }
+    ]
+  },
+  "paris-france": {
+    "config": {
+      "slug": "paris-france",
+      "name": "Paris",
+      "center": [
+        48.8566,
+        2.3522
+      ],
+      "zoom": 12
+    },
+    "reports": [
+      {
+        "id": "paris-france-s0",
+        "lat": 48.8601,
+        "lng": 2.292,
+        "type": "scam",
+        "title": "Gold ring scam on Pont d'Iéna",
+        "place": "Pont d'Iéna (Eiffel Tower)",
+        "desc": "Stranger 'finds' a gold ring, offers it to you, then asks for money. The ring is worthless brass. Ignore and keep walking.",
+        "date": "2 days ago",
+        "confirms": 24,
+        "reporter": "Sophie D."
+      },
+      {
+        "id": "paris-france-s1",
+        "lat": 48.8867,
+        "lng": 2.3431,
+        "type": "scam",
+        "title": "'Deaf charity' petition near Sacré-Cœur",
+        "place": "Montmartre / Sacré-Cœur",
+        "desc": "Person approaches with a clipboard claiming to collect signatures for a deaf charity, then demands a cash donation. Not a registered charity — politely decline.",
+        "date": "4 days ago",
+        "confirms": 31,
+        "reporter": "Priya B."
+      },
+      {
+        "id": "paris-france-s2",
+        "lat": 48.865,
+        "lng": 2.3369,
+        "type": "transport",
+        "title": "Pickpockets on Métro Line 1",
+        "place": "Métro Line 1 (Louvre–Champs-Élysées)",
+        "desc": "The tourist corridor between Louvre and Champs-Élysées is the most pickpocketed stretch in Europe. Hold bag in front, use RER B from CDG rather than Line 1 from stations.",
+        "date": "1 week ago",
+        "confirms": 38,
+        "reporter": "Ananya F."
+      },
+      {
+        "id": "paris-france-s3",
+        "lat": 48.8699,
+        "lng": 2.3078,
+        "type": "scam",
+        "title": "Overpriced drinks at Champs-Élysées bars",
+        "place": "Champs-Élysées",
+        "desc": "Bars on the main strip charge €18–25 for a beer. Walk one or two streets off the avenue for standard Parisian café prices.",
+        "date": "5 days ago",
+        "confirms": 12,
+        "reporter": "Nadia C."
+      },
+      {
+        "id": "paris-france-s4",
+        "lat": 48.8863,
+        "lng": 2.3434,
+        "type": "scam",
+        "title": "Friendship bracelet touts at Sacré-Cœur steps",
+        "place": "Montmartre",
+        "desc": "Men tie a bracelet on your wrist before you can refuse, then demand €20 to remove it. Keep hands in pockets on the steps — if it happens, a firm 'non' and walking away works.",
+        "date": "3 days ago",
+        "confirms": 17,
+        "reporter": "Meera G."
+      },
+      {
+        "id": "paris-france-s5",
+        "lat": 48.8566,
+        "lng": 2.3522,
+        "type": "safe",
+        "title": "Vélib' bike sharing is safe and cheap city-wide",
+        "place": "City-wide",
+        "desc": "The shared bike system has 20,000 bikes. Day pass is €5, and dedicated lanes cover most of the city. Good alternative to crowded Métro during tourist season.",
+        "date": "6 days ago",
+        "confirms": 15,
+        "reporter": "Sophie M."
+      }
+    ]
+  }
+}

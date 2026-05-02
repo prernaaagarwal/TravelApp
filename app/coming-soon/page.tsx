@@ -1,0 +1,55 @@
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+
+export const metadata = { title: "Coming soon — Wander Women" };
+
+export default function ComingSoonPage() {
+  return (
+    <main className="mx-auto max-w-2xl px-4 py-16 md:px-6 md:py-24">
+      <Badge variant="outline" className="font-mono uppercase tracking-widest">
+        V1 — invite only
+      </Badge>
+      <h1 className="mt-6 font-serif text-5xl leading-tight tracking-tight md:text-6xl">
+        Sign-in opens with the founding 200.
+      </h1>
+      <p className="mt-4 max-w-xl text-base leading-relaxed text-ww-muted">
+        Real accounts, real posting, and the founding membership unlock when
+        we open the closed beta. Drop your email and we&apos;ll send you the
+        invite link first.
+      </p>
+
+      <form
+        className="mt-8 flex flex-col gap-3 sm:flex-row"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+      >
+        <Input
+          name="email"
+          type="email"
+          required
+          placeholder="you@example.com"
+          className="flex-1 bg-warm-white"
+        />
+        <Button
+          type="submit"
+          className="bg-rust text-warm-white hover:bg-rust/90"
+        >
+          Notify me
+        </Button>
+      </form>
+
+      <p className="mt-3 text-xs text-ww-muted">
+        We&apos;ll only email you about the founding-200 launch. No newsletter, no
+        sharing.
+      </p>
+
+      <div className="mt-12">
+        <Link href="/" className="text-sm text-ww-muted hover:text-ink">
+          ← Back to landing
+        </Link>
+      </div>
+    </main>
+  );
+}
