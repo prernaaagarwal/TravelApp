@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { VaultSignupForm } from "./VaultSignupForm";
 
 export const metadata = {
   title: "WhatsApp Trip Vault — Wander Women",
@@ -198,25 +199,7 @@ export default function VaultPage() {
               ))}
             </ul>
 
-            <form
-              action="https://formspree.io/f/YOUR_FORM_ID"
-              method="POST"
-              className="space-y-2"
-            >
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="your@email.com"
-                className="w-full border border-ink bg-warm-white px-4 py-2.5 font-mono text-base text-ink placeholder:text-ww-muted focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="w-full border border-ink bg-ink px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-warm-white hover:bg-ink/80 transition-colors"
-              >
-                Set up vault →
-              </button>
-            </form>
+            <VaultSignupForm />
             <p className="mt-3 font-mono text-[10px] text-ww-muted">
               We&apos;ll WhatsApp you when the vault is live.
             </p>
