@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Settings } from "lucide-react";
+import { Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
+import { NotificationBell } from "@/components/shared/NotificationBell";
 
 const NAV_ITEMS = [
   { href: "/explore", label: "Intel" },
@@ -17,15 +18,34 @@ export async function Header() {
 
   let profileSlug: string | null = null;
   let initial = "W";
+  let isModerator = false;
+  let unreadCount = 0;
+  let notifications: {
+    id: string; type: string; title: string; body: string;
+    read: boolean; related_report_id: string | null; created_at: string;
+  }[] = [];
+
   if (user) {
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("username, first_name")
-      .eq("id", user.id)
-      .single();
+    const [{ data: profile }, { data: notifs }] = await Promise.all([
+      supabase
+        .from("profiles")
+        .select("username, first_name, role")
+        .eq("id", user.id)
+        .single(),
+      supabase
+        .from("notifications")
+        .select("id, type, title, body, read, related_report_id, created_at")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false })
+        .limit(10),
+    ]);
+
     profileSlug = profile?.username ?? user.id;
     const name = profile?.first_name ?? user.email ?? "W";
     initial = name[0].toUpperCase();
+    isModerator = ["moderator", "admin"].includes(profile?.role ?? "");
+    notifications = notifs ?? [];
+    unreadCount = notifications.filter((n) => !n.read).length;
   }
 
   return (
@@ -53,18 +73,32 @@ export async function Header() {
         <div className="flex items-center gap-2">
           {user ? (
             <>
+              {isModerator && (
+                <Link
+                  href="/admin"
+                  aria-label="Admin panel"
+                  title="Admin panel"
+                  className="p-1 text-ww-muted transition-colors hover:text-rust"
+                >
+                  <Shield className="h-4 w-4" />
+                </Link>
+              )}
+              <NotificationBell
+                initialUnread={unreadCount}
+                notifications={notifications}
+              />
               <Link
                 href="/settings"
                 aria-label="Settings"
                 title="Settings"
-                className="text-ww-muted hover:text-ink p-1"
+                className="p-1 text-ww-muted hover:text-ink"
               >
                 <Settings className="h-4 w-4" />
               </Link>
               <Link
                 href={`/profile/${profileSlug}`}
                 aria-label="My profile"
-                className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium hover:bg-rust/30 transition-colors"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-rust/20 text-xs font-medium text-rust transition-colors hover:bg-rust/30"
               >
                 {initial}
               </Link>
