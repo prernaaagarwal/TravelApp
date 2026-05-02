@@ -1,32 +1,39 @@
-import { createClient } from "@/lib/supabase/server";
 import Image from "next/image";
+import rawProducts from "@/lib/mock-data/shop-products.json";
 
 export const metadata = {
   title: "Safety Shop — Wander Women",
   description:
-    "Ten products every solo woman traveler should pack. Curated and tested by our contributors. Real Amazon affiliate links.",
+    "15 products every solo woman traveller should pack. Curated by our contributors. Real Amazon affiliate links.",
 };
 
-export default async function ShopPage() {
-  const supabase = await createClient();
-  const { data: rawProducts } = await supabase
-    .from("safety_products")
-    .select("*")
-    .order("display_order");
+type Product = {
+  id: string;
+  name: string;
+  category: string;
+  whyItMatters: string;
+  priceRange: string;
+  imageUrl: string;
+  amazonUrl: string;
+  displayOrder: number;
+};
 
-  const sorted = (rawProducts ?? []).map((p) => ({
-    id: p.id,
-    name: p.name,
-    category: p.category,
-    whyItMatters: p.why_it_matters,
-    priceRange: p.price_range,
-    imageUrl: p.image_url,
-    amazonUrl: p.amazon_url,
-    displayOrder: p.display_order,
-  }));
+const CATEGORY_ORDER = [
+  "Safety & Security",
+  "Tech & Connectivity",
+  "Packing & Organisation",
+  "Health & Hygiene",
+];
 
-  const categories = [...new Set(sorted.map((p) => p.category))];
+const sorted = [...(rawProducts as Product[])].sort(
+  (a, b) => a.displayOrder - b.displayOrder
+);
 
+const categories = CATEGORY_ORDER.filter((cat) =>
+  sorted.some((p) => p.category === cat)
+);
+
+export default function ShopPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
       {/* header */}
@@ -38,7 +45,7 @@ export default async function ShopPage() {
           The safety kit.
         </h1>
         <p className="mb-4 font-mono text-sm leading-relaxed text-ww-muted">
-          10 products our contributors actually carry. Every link is an Amazon
+          15 products our contributors actually carry. Every link is an Amazon
           affiliate — you pay nothing extra, we earn a small commission that
           funds more intel cards.
         </p>
@@ -68,7 +75,7 @@ export default async function ShopPage() {
                   className="group flex flex-col border border-ww-border bg-sand"
                 >
                   {/* product image */}
-                  <div className="relative h-44 overflow-hidden bg-rust-light/30">
+                  <div className="relative h-44 overflow-hidden bg-warm-white">
                     <Image
                       src={product.imageUrl}
                       alt={product.name}
@@ -90,10 +97,10 @@ export default async function ShopPage() {
                         {product.priceRange}
                       </span>
                       <a
-                        href={`/api/track-click?id=${encodeURIComponent(product.id)}&url=${encodeURIComponent(product.amazonUrl)}`}
+                        href={product.amazonUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="border border-ink bg-ink px-4 py-1.5 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-ink/80 transition-colors"
+                        className="border border-ink bg-ink px-4 py-1.5 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-colors hover:bg-ink/80"
                       >
                         Buy on Amazon ↗
                       </a>
