@@ -60,11 +60,11 @@ const URL_OVERRIDES: Record<string, string> = {
   "intel:jaipur-india":
     "https://images.unsplash.com/photo-1477586957327-847a0f3f4fe3?w=800&q=80",
   "intel:varanasi-india":
-    "https://images.unsplash.com/photo-1561361398-a8e07ec5142e?w=800&q=80",
+    "https://picsum.photos/seed/varanasi-ghats/800/600",
   "intel:delhi-india":
-    "https://images.unsplash.com/photo-1587135304067-0d11ee3a35e2?w=800&q=80",
+    "https://picsum.photos/seed/delhi-monument/800/600",
   "intel:bangalore-india":
-    "https://images.unsplash.com/photo-1580294672305-a09a5117dba1?w=800&q=80",
+    "https://picsum.photos/seed/bangalore-city/800/600",
   "intel:udaipur-india":
     "https://images.unsplash.com/photo-1568438350562-2cae6d394ad0?w=800&q=80",
   "intel:kochi-india":
@@ -75,13 +75,13 @@ const URL_OVERRIDES: Record<string, string> = {
   "trip:trip-003#1":
     "https://images.unsplash.com/photo-1524613032530-449a5d94c285?w=800&q=80",
   "trip:trip-006#1":
-    "https://images.unsplash.com/photo-1602216552003-67ec70eee9c0?w=800&q=80",
+    "https://picsum.photos/seed/kochi-backwaters-1/800/600",
   "trip:trip-006#2":
-    "https://images.unsplash.com/photo-1591201294415-3df8af1d8aae?w=800&q=80",
+    "https://picsum.photos/seed/kochi-backwaters-2/800/600",
   "trip:trip-008#1":
     "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&q=80",
   "trip:trip-011#2":
-    "https://images.unsplash.com/photo-1565013110-04cdfd9b6acc?w=800&q=80",
+    "https://picsum.photos/seed/bangalore-weekend/800/600",
 };
 
 async function downloadOnce(url: string, destPath: string): Promise<void> {
