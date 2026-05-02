@@ -412,119 +412,127 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Contributor model ─────────────────────────────────────────── */}
-      <section id="contributors" className="bg-sand px-6 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-8">
-            <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
-              For contributors
-            </p>
-            <h2 className="font-serif text-3xl text-ink md:text-4xl">
-              Write what you know.
-            </h2>
-            <p className="mt-3 max-w-xl font-mono text-sm leading-relaxed text-ww-muted">
-              We&apos;re looking for the first founding contributors — women who
-              know one route or city deeply and want to share what guidebooks miss.
-            </p>
-          </div>
-
-          <div className="grid gap-3 border border-ww-border bg-warm-white p-6 sm:grid-cols-3">
-            <div>
-              <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">01</p>
-              <p className="font-mono text-sm font-semibold text-ink">You write</p>
-              <p className="mt-1 text-xs leading-relaxed text-ww-muted">
-                One Trip Intel Card on a city or route you&apos;ve travelled solo
-                more than three times.
-              </p>
-            </div>
-            <div>
-              <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">02</p>
-              <p className="font-mono text-sm font-semibold text-ink">We publish</p>
-              <p className="mt-1 text-xs leading-relaxed text-ww-muted">
-                Your name, photo, and bio on the card. You&apos;re credited
-                everywhere it&apos;s shared.
-              </p>
-            </div>
-            <div>
-              <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">03</p>
-              <p className="font-mono text-sm font-semibold text-ink">You earn</p>
-              <p className="mt-1 text-xs leading-relaxed text-ww-muted">
-                Revenue share when founding members read and cite your card.
-                We&apos;ll publish the per-card numbers once we have real data.
-              </p>
-            </div>
-          </div>
-
-          <p className="mt-6 font-mono text-xs leading-relaxed text-ww-muted">
-            We&apos;re not promising a number until we&apos;ve paid one out.
-            Founding contributors get 2× the standard share for life.{" "}
-            <Link href="/coming-soon" className="text-rust hover:underline">
-              Apply to be a founding contributor →
-            </Link>
-          </p>
-        </div>
-      </section>
-
-      {/* ── Founding membership email capture ────────────────────────── */}
+      {/* ── Founding community (member + contributor combined) ───────── */}
       <section id="membership" className="bg-ink px-6 py-20">
-        <div className="mx-auto max-w-2xl text-center">
-          {/* spots counter */}
-          <div className="mb-6 inline-flex items-center gap-2 border border-warm-white/10 px-4 py-2">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-rust" />
-            <span className="font-mono text-xs text-warm-white/60">
-              <strong className="text-warm-white">17 of 200</strong> founding spots remaining
-            </span>
+        <div className="mx-auto max-w-5xl">
+
+          {/* shared header */}
+          <div className="mb-10 text-center">
+            <div className="mb-5 inline-flex items-center gap-2 border border-warm-white/10 px-4 py-2">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-rust" />
+              <span className="font-mono text-xs text-warm-white/60">
+                <strong className="text-warm-white">17 of 200</strong> founding spots remaining
+              </span>
+            </div>
+            <h2 className="font-serif text-4xl leading-tight text-warm-white md:text-5xl">
+              Be part of the founding community.
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl font-mono text-sm leading-relaxed text-warm-white/50">
+              Two ways in. One as a member who reads. One as a contributor who writes.
+              Both get founding-tier access for life.
+            </p>
           </div>
 
-          <h2 className="mb-4 font-serif text-4xl leading-tight text-warm-white md:text-5xl">
-            Join as a founding member.
-          </h2>
-          <p className="mb-3 text-base leading-relaxed text-warm-white/60">
-            ₹499 once. Lifetime access to all premium intel cards, founding badge,
-            and 2× earnings if you become a contributor.
-          </p>
-          <p className="mb-10 font-mono text-xs text-warm-white/30">
-            Price goes to ₹999 after founding 200 fill. No auto-renewal. No spam.
-          </p>
+          {/* two-column cards */}
+          <div className="grid gap-4 md:grid-cols-2">
 
-          {/* Formspree form */}
-          <form
-            action="https://formspree.io/f/YOUR_FORM_ID"
-            method="POST"
-            className="flex flex-col gap-3 sm:flex-row"
-          >
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="your@email.com"
-              className="flex-1 border border-warm-white/20 bg-warm-white/5 px-4 py-3 font-mono text-base text-warm-white placeholder-warm-white/30 outline-none focus:border-rust"
-            />
-            <input type="hidden" name="source" value="landing-founding" />
-            <button
-              type="submit"
-              className="shrink-0 bg-rust px-7 py-3 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-            >
-              Claim my spot →
-            </button>
-          </form>
+            {/* ── Member card ── */}
+            <div className="flex flex-col border border-warm-white/10 bg-warm-white/5 p-7">
+              <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
+                Join as a member
+              </p>
+              <p className="mb-2 font-serif text-2xl text-warm-white">
+                ₹499 once.
+              </p>
+              <p className="mb-6 font-mono text-xs leading-relaxed text-warm-white/50">
+                Lifetime access to all premium intel cards, founding badge, and
+                2× earnings if you later become a contributor.
+              </p>
 
-          {/* what you get */}
-          <ul className="mt-10 grid gap-2 text-left sm:grid-cols-2">
-            {[
-              "All 15 premium intel cards unlocked",
-              "Founding member badge on your profile",
-              "Early access to buddy matching",
-              "Vote on which destinations we cover next",
-              "2× contributor earnings for 12 months",
-              "Direct line to the founding team",
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-2 font-mono text-xs text-warm-white/50">
-                <span className="mt-0.5 text-gold">✓</span>
-                {item}
-              </li>
-            ))}
-          </ul>
+              <ul className="mb-8 space-y-2">
+                {[
+                  "All 15 premium intel cards unlocked",
+                  "Founding member badge on your profile",
+                  "Early access to buddy matching",
+                  "Vote on which destinations we cover next",
+                  "2× contributor earnings for 12 months",
+                  "Direct line to the founding team",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 font-mono text-xs text-warm-white/50">
+                    <span className="mt-0.5 shrink-0 text-gold">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mb-4 font-mono text-[10px] text-warm-white/25">
+                Price goes to ₹999 after founding 200 fill. No auto-renewal. No spam.
+              </p>
+
+              <form
+                action="https://formspree.io/f/YOUR_FORM_ID"
+                method="POST"
+                className="mt-auto flex flex-col gap-2"
+              >
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="your@email.com"
+                  className="border border-warm-white/20 bg-warm-white/5 px-4 py-3 font-mono text-sm text-warm-white placeholder-warm-white/30 outline-none focus:border-rust"
+                />
+                <input type="hidden" name="source" value="landing-founding" />
+                <button
+                  type="submit"
+                  className="bg-rust px-7 py-3 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
+                >
+                  Claim my spot →
+                </button>
+              </form>
+            </div>
+
+            {/* ── Contributor card ── */}
+            <div className="flex flex-col border border-warm-white/10 bg-warm-white/5 p-7">
+              <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
+                Join as a contributor
+              </p>
+              <p className="mb-2 font-serif text-2xl text-warm-white">
+                Write what you know.
+              </p>
+              <p className="mb-8 font-mono text-xs leading-relaxed text-warm-white/50">
+                Women who know one route or city deeply and want to share what
+                guidebooks miss. No journalism background required.
+              </p>
+
+              <div className="mb-8 space-y-5">
+                {[
+                  { n: "01", title: "You write", body: "One Trip Intel Card on a city or route you've travelled solo more than three times." },
+                  { n: "02", title: "We publish", body: "Your name, photo, and bio on the card. You're credited everywhere it's shared." },
+                  { n: "03", title: "You earn", body: "Revenue share when members read and cite your card. Founding contributors get 2× the standard share for life." },
+                ].map(({ n, title, body }) => (
+                  <div key={n} className="flex gap-4">
+                    <span className="shrink-0 font-mono text-[10px] text-rust">{n}</span>
+                    <div>
+                      <p className="font-mono text-xs font-semibold text-warm-white">{title}</p>
+                      <p className="mt-1 font-mono text-xs leading-relaxed text-warm-white/50">{body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mb-5 font-mono text-[10px] leading-relaxed text-warm-white/25">
+                We&apos;re not promising a number until we&apos;ve paid one out.
+              </p>
+
+              <Link
+                href="/coming-soon"
+                className="mt-auto inline-block border border-warm-white/20 px-7 py-3 text-center font-mono text-sm uppercase tracking-widest text-warm-white/70 transition-colors hover:border-warm-white/50 hover:text-warm-white"
+              >
+                Apply to contribute →
+              </Link>
+            </div>
+
+          </div>
         </div>
       </section>
     </main>
