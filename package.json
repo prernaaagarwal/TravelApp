@@ -9,6 +9,7 @@
     "lint": "eslint . --max-warnings 0",
     "type-check": "tsc --noEmit",
     "images:download": "tsx scripts/download-images.ts",
+    "images:shop": "tsx scripts/download-shop-images.ts",
     "prepare": "husky"
   },
   "dependencies": {
