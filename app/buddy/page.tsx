@@ -46,7 +46,7 @@ export default async function BuddyPage() {
           Travel buddy match
         </p>
         <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
-          Solo, but not alone.
+          Find friends
         </h1>
         <p className="font-mono text-sm leading-relaxed text-ww-muted">
           Match with women going where you&apos;re going on dates that actually
