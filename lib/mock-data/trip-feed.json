@@ -4,16 +4,25 @@
     "contributorSlug": "ananya-mumbai",
     "destinationSlug": "goa-india",
     "destination": "Goa (North + interior)",
-    "tripDates": { "start": "2026-02-12", "end": "2026-02-21" },
+    "tripDates": {
+      "start": "2026-02-12",
+      "end": "2026-02-21"
+    },
     "dayCount": 9,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&q=80",
-      "https://images.unsplash.com/photo-1582551992300-19094f7e2c4f?w=800&q=80",
-      "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&q=80"
+      "/images/feed/trip-001-1.jpg",
+      "/images/feed/trip-001-2.jpg",
+      "/images/feed/trip-001-3.jpg"
     ],
     "totalCostInr": 27800,
     "totalCostUsd": 327,
-    "costBreakdown": { "stay": 11400, "food": 6800, "transport": 4200, "activities": 3800, "misc": 1600 },
+    "costBreakdown": {
+      "stay": 11400,
+      "food": 6800,
+      "transport": 4200,
+      "activities": 3800,
+      "misc": 1600
+    },
     "topNotes": [
       "Skip Calangute. Stay in Aldona or Assagao if you can afford the extra ₹500/night.",
       "Scooter rental from a women-run garage in Mapusa was cheaper and less hassle than the beach-shack guys.",
@@ -26,16 +35,25 @@
     "contributorSlug": "leila-delhi",
     "destinationSlug": "rishikesh-india",
     "destination": "Rishikesh — yoga + Ganga aarti",
-    "tripDates": { "start": "2026-03-08", "end": "2026-03-14" },
+    "tripDates": {
+      "start": "2026-03-08",
+      "end": "2026-03-14"
+    },
     "dayCount": 6,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=800&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80"
+      "/images/feed/trip-002-1.jpg",
+      "/images/feed/trip-002-2.jpg",
+      "/images/feed/trip-002-3.jpg"
     ],
     "totalCostInr": 18400,
     "totalCostUsd": 217,
-    "costBreakdown": { "stay": 7200, "food": 3600, "transport": 3800, "activities": 2800, "misc": 1000 },
+    "costBreakdown": {
+      "stay": 7200,
+      "food": 3600,
+      "transport": 3800,
+      "activities": 2800,
+      "misc": 1000
+    },
     "topNotes": [
       "Tapovan side > Lakshman Jhula side for solo women. Quieter, fewer hawkers, better cafés.",
       "Volvo from Delhi (overnight) saved a hotel night and ₹2,500.",
@@ -48,16 +66,25 @@
     "contributorSlug": "sara-berlin",
     "destinationSlug": "jaipur-india",
     "destination": "Jaipur — Pink City circuit",
-    "tripDates": { "start": "2026-01-22", "end": "2026-01-26" },
+    "tripDates": {
+      "start": "2026-01-22",
+      "end": "2026-01-26"
+    },
     "dayCount": 4,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1599661046827-dacde6976549?w=800&q=80",
-      "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&q=80",
-      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80"
+      "/images/feed/trip-003-1.jpg",
+      "/images/feed/trip-003-2.jpg",
+      "/images/feed/trip-003-3.jpg"
     ],
     "totalCostInr": 22300,
     "totalCostUsd": 262,
-    "costBreakdown": { "stay": 9800, "food": 4200, "transport": 3100, "activities": 4400, "misc": 800 },
+    "costBreakdown": {
+      "stay": 9800,
+      "food": 4200,
+      "transport": 3100,
+      "activities": 4400,
+      "misc": 800
+    },
     "topNotes": [
       "Composite Ticket is the only smart move — ₹400 for 5 monuments, valid 2 days.",
       "Pink City Rickshaw Company (women drivers) is worth every rupee for a half-day Old City tour.",
@@ -70,16 +97,25 @@
     "contributorSlug": "ananya-mumbai",
     "destinationSlug": "kasol-india",
     "destination": "Kasol → Tosh trek",
-    "tripDates": { "start": "2026-04-02", "end": "2026-04-09" },
+    "tripDates": {
+      "start": "2026-04-02",
+      "end": "2026-04-09"
+    },
     "dayCount": 7,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80",
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
+      "/images/feed/trip-004-1.jpg",
+      "/images/feed/trip-004-2.jpg",
+      "/images/feed/trip-004-3.jpg"
     ],
     "totalCostInr": 14600,
     "totalCostUsd": 172,
-    "costBreakdown": { "stay": 5400, "food": 3200, "transport": 4200, "activities": 1200, "misc": 600 },
+    "costBreakdown": {
+      "stay": 5400,
+      "food": 3200,
+      "transport": 4200,
+      "activities": 1200,
+      "misc": 600
+    },
     "topNotes": [
       "Volvo Delhi → Bhuntar overnight, then shared cab to Kasol. ₹1,800 total, beats flying.",
       "Stayhappy Hostel in Kasol has the only female-only dorm I trust in the valley.",
@@ -92,16 +128,25 @@
     "contributorSlug": "devika-pune",
     "destinationSlug": "hampi-india",
     "destination": "Hampi heritage walk",
-    "tripDates": { "start": "2026-02-26", "end": "2026-03-02" },
+    "tripDates": {
+      "start": "2026-02-26",
+      "end": "2026-03-02"
+    },
     "dayCount": 4,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800&q=80",
-      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80",
-      "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&q=80"
+      "/images/feed/trip-005-1.jpg",
+      "/images/feed/trip-005-2.jpg",
+      "/images/feed/trip-005-3.jpg"
     ],
     "totalCostInr": 11200,
     "totalCostUsd": 132,
-    "costBreakdown": { "stay": 3800, "food": 2600, "transport": 2400, "activities": 1800, "misc": 600 },
+    "costBreakdown": {
+      "stay": 3800,
+      "food": 2600,
+      "transport": 2400,
+      "activities": 1800,
+      "misc": 600
+    },
     "topNotes": [
       "Stay on the Hippie Island side (Virupapur Gaddi). Hampi Bazaar side is dry, no alcohol, by 9pm dead.",
       "Rent a moped from Hampi Bazaar — boulders are too far apart to walk.",
@@ -114,16 +159,25 @@
     "contributorSlug": "kavya-chennai",
     "destinationSlug": "kochi-india",
     "destination": "Fort Kochi + backwaters",
-    "tripDates": { "start": "2026-03-19", "end": "2026-03-25" },
+    "tripDates": {
+      "start": "2026-03-19",
+      "end": "2026-03-25"
+    },
     "dayCount": 6,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1585498678613-4c3f43dc3aa1?w=800&q=80",
-      "https://images.unsplash.com/photo-1582551992300-19094f7e2c4f?w=800&q=80",
-      "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&q=80"
+      "/images/feed/trip-006-1.jpg",
+      "/images/feed/trip-006-2.jpg",
+      "/images/feed/trip-006-3.jpg"
     ],
     "totalCostInr": 13800,
     "totalCostUsd": 162,
-    "costBreakdown": { "stay": 4800, "food": 3200, "transport": 2800, "activities": 2400, "misc": 600 },
+    "costBreakdown": {
+      "stay": 4800,
+      "food": 3200,
+      "transport": 2800,
+      "activities": 2400,
+      "misc": 600
+    },
     "topNotes": [
       "₹4 government ferry between Fort Kochi and Ernakulam — 25 minutes, sunset view, unbeatable.",
       "Skip the houseboat overnight scam. Day trip from Alleppey is enough and ₹4,000 cheaper.",
@@ -136,16 +190,25 @@
     "contributorSlug": "leila-delhi",
     "destinationSlug": "udaipur-india",
     "destination": "Udaipur — lake circuit",
-    "tripDates": { "start": "2026-01-15", "end": "2026-01-19" },
+    "tripDates": {
+      "start": "2026-01-15",
+      "end": "2026-01-19"
+    },
     "dayCount": 4,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80",
-      "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&q=80",
-      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80"
+      "/images/feed/trip-007-1.jpg",
+      "/images/feed/trip-007-2.jpg",
+      "/images/feed/trip-007-3.jpg"
     ],
     "totalCostInr": 19800,
     "totalCostUsd": 233,
-    "costBreakdown": { "stay": 8400, "food": 3800, "transport": 2600, "activities": 4200, "misc": 800 },
+    "costBreakdown": {
+      "stay": 8400,
+      "food": 3800,
+      "transport": 2600,
+      "activities": 4200,
+      "misc": 800
+    },
     "topNotes": [
       "Stay in Hanuman Ghat side, not Lal Ghat. Same view, half the price, zero touts.",
       "Sadhna Collective HQ visit is a 30-minute auto from the city — and the heart of women-led Rajasthan.",
@@ -158,16 +221,25 @@
     "contributorSlug": "neha-jaipur",
     "destinationSlug": "jaipur-india",
     "destination": "Jaipur for repeat visitors",
-    "tripDates": { "start": "2026-03-04", "end": "2026-03-08" },
+    "tripDates": {
+      "start": "2026-03-04",
+      "end": "2026-03-08"
+    },
     "dayCount": 4,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1599661046827-dacde6976549?w=800&q=80",
-      "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&q=80",
-      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80"
+      "/images/feed/trip-008-1.jpg",
+      "/images/feed/trip-008-2.jpg",
+      "/images/feed/trip-008-3.jpg"
     ],
     "totalCostInr": 15600,
     "totalCostUsd": 184,
-    "costBreakdown": { "stay": 6800, "food": 3200, "transport": 2200, "activities": 2600, "misc": 800 },
+    "costBreakdown": {
+      "stay": 6800,
+      "food": 3200,
+      "transport": 2200,
+      "activities": 2600,
+      "misc": 800
+    },
     "topNotes": [
       "Skip the Pink City. Spend two days in Amer (the village, not just the fort) and Nahargarh.",
       "Eat at LMB only once. Then go where I go: Sahu Chai for breakfast, Rawat for kachori.",
@@ -180,16 +252,25 @@
     "contributorSlug": "priya-kochi",
     "destinationSlug": "rishikesh-india",
     "destination": "Rishikesh — yoga teacher training prep",
-    "tripDates": { "start": "2026-02-04", "end": "2026-02-12" },
+    "tripDates": {
+      "start": "2026-02-04",
+      "end": "2026-02-12"
+    },
     "dayCount": 8,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?w=800&q=80",
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+      "/images/feed/trip-009-1.jpg",
+      "/images/feed/trip-009-2.jpg",
+      "/images/feed/trip-009-3.jpg"
     ],
     "totalCostInr": 32400,
     "totalCostUsd": 381,
-    "costBreakdown": { "stay": 14600, "food": 5200, "transport": 4400, "activities": 7400, "misc": 800 },
+    "costBreakdown": {
+      "stay": 14600,
+      "food": 5200,
+      "transport": 4400,
+      "activities": 7400,
+      "misc": 800
+    },
     "topNotes": [
       "Anand Prakash Yoga Ashram is the only TTC I'd send a beginner to. Avoid the Tapovan strip mills.",
       "₹6/day Ganga ferry (not the tourist boat) is the secret crossing.",
@@ -202,16 +283,25 @@
     "contributorSlug": "ananya-mumbai",
     "destinationSlug": "varanasi-india",
     "destination": "Varanasi — three slow days",
-    "tripDates": { "start": "2026-03-25", "end": "2026-03-28" },
+    "tripDates": {
+      "start": "2026-03-25",
+      "end": "2026-03-28"
+    },
     "dayCount": 3,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
-      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80",
-      "https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&q=80"
+      "/images/feed/trip-010-1.jpg",
+      "/images/feed/trip-010-2.jpg",
+      "/images/feed/trip-010-3.jpg"
     ],
     "totalCostInr": 8900,
     "totalCostUsd": 105,
-    "costBreakdown": { "stay": 2700, "food": 2400, "transport": 1800, "activities": 1500, "misc": 500 },
+    "costBreakdown": {
+      "stay": 2700,
+      "food": 2400,
+      "transport": 1800,
+      "activities": 1500,
+      "misc": 500
+    },
     "topNotes": [
       "Stay at Hostel LaVie's female dorm — the only one I trust on the ghats.",
       "Take the female-rowed sunrise boat (collective near Assi Ghat) instead of the tourist boatmen.",
@@ -224,16 +314,25 @@
     "contributorSlug": "riya-bangalore",
     "destinationSlug": "bangalore-india",
     "destination": "A weekend in Bangalore (when you live in Bangalore)",
-    "tripDates": { "start": "2026-04-12", "end": "2026-04-14" },
+    "tripDates": {
+      "start": "2026-04-12",
+      "end": "2026-04-14"
+    },
     "dayCount": 2,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=800&q=80",
-      "https://images.unsplash.com/photo-1582551992300-19094f7e2c4f?w=800&q=80",
-      "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&q=80"
+      "/images/feed/trip-011-1.jpg",
+      "/images/feed/trip-011-2.jpg",
+      "/images/feed/trip-011-3.jpg"
     ],
     "totalCostInr": 4800,
     "totalCostUsd": 56,
-    "costBreakdown": { "stay": 0, "food": 1800, "transport": 800, "activities": 1900, "misc": 300 },
+    "costBreakdown": {
+      "stay": 0,
+      "food": 1800,
+      "transport": 800,
+      "activities": 1900,
+      "misc": 300
+    },
     "topNotes": [
       "Lahe Lahe in Indiranagar on a Saturday morning = tea + a women-only writing circle.",
       "Champaca Books in Vasanth Nagar is the bookstore I send everyone to.",
@@ -246,16 +345,25 @@
     "contributorSlug": "sara-berlin",
     "destinationSlug": "delhi-india",
     "destination": "Delhi for a returning foreigner",
-    "tripDates": { "start": "2026-04-18", "end": "2026-04-22" },
+    "tripDates": {
+      "start": "2026-04-18",
+      "end": "2026-04-22"
+    },
     "dayCount": 4,
     "photoUrls": [
-      "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
-      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80",
-      "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80"
+      "/images/feed/trip-012-1.jpg",
+      "/images/feed/trip-012-2.jpg",
+      "/images/feed/trip-012-3.jpg"
     ],
     "totalCostInr": 24600,
     "totalCostUsd": 290,
-    "costBreakdown": { "stay": 11200, "food": 4400, "transport": 3800, "activities": 4400, "misc": 800 },
+    "costBreakdown": {
+      "stay": 11200,
+      "food": 4400,
+      "transport": 3800,
+      "activities": 4400,
+      "misc": 800
+    },
     "topNotes": [
       "Hauz Khas Village > Paharganj for a returning foreigner. Pay the extra ₹1,500/night.",
       "Metro is the cheat code. ₹70 for a day pass beats every Uber I've taken in Delhi.",
