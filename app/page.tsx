@@ -39,15 +39,14 @@ export default function HomePage() {
 
           {/* headline — Cormorant, ~64px on desktop */}
           <h1 className="mb-6 font-serif text-5xl leading-[1.1] tracking-tight text-ink md:text-7xl">
-            Trip intel written by women who{" "}
-            <em className="not-italic text-rust">actually</em> travel solo.
+            Stress free travel. The guidebook that was never written for you,{" "}
+            <em className="not-italic text-rust">yet</em>
           </h1>
 
           {/* subline */}
           <p className="mb-10 max-w-2xl text-base leading-relaxed text-ww-muted md:text-lg">
-            Real scam warnings, neighbourhood safety ratings, and hidden gems —
-            researched and verified by 47 Indian women who live these routes.
-            Not a listicle. Not a press trip.
+            Safety intel, hidden gems, verified ground-truth tips — crowd-sourced
+            from women who actually live these routes. Free to browse. No fluff.
           </p>
 
           {/* dual CTA */}
@@ -56,14 +55,14 @@ export default function HomePage() {
               href="/onboarding?path=indian"
               className="inline-flex items-center justify-center gap-2 rounded-none bg-rust px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
             >
-              I travel India as an Indian woman
+              Travel India
               <span aria-hidden>→</span>
             </Link>
             <Link
               href="/onboarding?path=foreign"
               className="inline-flex items-center justify-center gap-2 rounded-none border border-ink px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-ink hover:text-warm-white"
             >
-              I&apos;m visiting India from abroad
+              Travel Outside India
               <span aria-hidden>→</span>
             </Link>
           </div>
