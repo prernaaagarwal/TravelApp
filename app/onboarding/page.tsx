@@ -6,7 +6,15 @@ export const metadata = {
     "Two questions. We route you to exactly the right feature for your trip.",
 };
 
-export default function OnboardingPage() {
+export default async function OnboardingPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ path?: string }>;
+}) {
+  const { path } = await searchParams;
+  const scope: "indian" | "foreign" | "all" =
+    path === "indian" ? "indian" : path === "foreign" ? "foreign" : "all";
+
   return (
     <div className="mx-auto max-w-2xl px-6 py-12">
       <div className="mb-8 text-center">
@@ -21,7 +29,7 @@ export default function OnboardingPage() {
         </p>
       </div>
 
-      <OnboardingWizard />
+      <OnboardingWizard scope={scope} />
 
       <p className="mt-6 text-center font-mono text-[10px] text-ww-muted">
         Your answers are stored locally on this device. No account needed for V0.
