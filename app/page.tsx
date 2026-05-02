@@ -74,199 +74,165 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Trust bar ────────────────────────────────────────────────── */}
-      <section id="trust" className="border-y border-ww-border bg-sand px-6 py-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
-            V0 — Founding stage
-          </p>
-          <p className="font-serif text-xl leading-relaxed text-ink md:text-2xl">
-            Built by one founder with{" "}
-            <span className="text-rust">7 years</span> of solo travel experience in India.
-          </p>
-          <p className="mt-3 font-mono text-xs leading-relaxed text-ww-muted">
-            Be one of the first <span className="text-ink">200 founding members</span> who shape what this becomes.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Intel Card preview strip ──────────────────────────────────── */}
-      <section id="intel-preview" className="bg-warm-white py-16">
-        <div className="mx-auto mb-8 max-w-4xl px-6">
-          <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
-            Trip Intel Cards
-          </p>
-          <h2 className="font-serif text-3xl text-ink md:text-4xl">
-            Real intel. Not a travel blog.
-          </h2>
-        </div>
-
-        {/* horizontal scroll on mobile, 3-col grid on md+ */}
-        <div className="flex gap-4 overflow-x-auto px-6 pb-4 md:mx-auto md:grid md:max-w-4xl md:grid-cols-3 md:overflow-visible md:pb-0">
-          {previewCards.map((c) => {
-            const contributor = contributors.find((x) => x.slug === c.contributorSlug);
-            return (
-              <Link
-                key={c.slug}
-                href={`/intel/${c.slug}`}
-                className="group relative flex min-w-[280px] flex-col overflow-hidden border border-ww-border bg-sand transition-shadow hover:shadow-md md:min-w-0"
-              >
-                {/* hero image */}
-                <div className="relative h-44 overflow-hidden bg-rust-light">
-                  <Image
-                    src={c.heroImageUrl}
-                    alt={c.destination}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {c.isPremium && (
-                    <span className="absolute right-3 top-3 bg-ink px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-gold">
-                      Premium
-                    </span>
-                  )}
-                </div>
-
-                {/* content */}
-                <div className="flex flex-1 flex-col gap-2 p-4">
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-                    {c.country}
-                  </p>
-                  <h3 className="font-serif text-xl leading-tight text-ink">
-                    {c.destination}
-                  </h3>
-                  <p className="line-clamp-2 text-xs leading-relaxed text-ww-muted">
-                    {Array.isArray(c.tldr) ? c.tldr[0] : (c.tldr as { summary: string })?.summary ?? ""}
-                  </p>
-
-                  {/* contributor */}
-                  {contributor && (
-                    <div className="mt-auto flex items-center gap-2 pt-3">
-                      <Image
-                        src={contributor.photoUrl}
-                        alt={contributor.name}
-                        width={24}
-                        height={24}
-                        className="h-6 w-6 rounded-full object-cover"
-                      />
-                      <span className="font-mono text-[10px] text-ww-muted">
-                        by {contributor.name}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="border-t border-ww-border px-4 py-2.5">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
-                    Read the intel →
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-
-        <div className="mx-auto mt-8 max-w-4xl px-6">
-          <Link
-            href="/explore"
-            className="font-mono text-xs uppercase tracking-widest text-rust hover:underline"
-          >
-            Browse all 15 destinations →
-          </Link>
-        </div>
-      </section>
-
-      {/* ── Persona split (Priya / Sara) ──────────────────────────────── */}
-      <section id="personas" className="bg-sand px-6 py-16">
+      {/* ── Feature bento (Intel + Path + Community) ─────────────────── */}
+      <section id="features" className="bg-warm-white px-6 py-16">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
-            Who is this for?
-          </p>
-          <h2 className="mb-8 font-serif text-3xl text-ink md:text-4xl">
-            The intel is different. Choose yours.
-          </h2>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {/* Priya — Indian woman */}
-            <Link
-              href="/onboarding?path=indian"
-              className="group flex flex-col justify-between border border-ww-border bg-warm-white p-7 transition-shadow hover:shadow-md"
-            >
-              <div>
-                <div className="mb-4 flex items-center gap-3">
+          <div className="mb-8">
+            <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
+              What&apos;s inside
+            </p>
+            <h2 className="font-serif text-3xl text-ink md:text-4xl">
+              Real intel. Your path. Your people.
+            </h2>
+            <p className="mt-3 max-w-xl font-mono text-sm leading-relaxed text-ww-muted">
+              Built on 7 years of solo travel in India — written by women,
+              verified by women, for women only.
+            </p>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-3">
+
+            {/* ── Intel Cards — wide cell ── */}
+            <div className="overflow-hidden border border-ww-border bg-sand md:col-span-2">
+              {/* 3-city image strip */}
+              <div className="flex h-40 divide-x divide-ww-border">
+                {previewCards.map((c) => (
+                  <div key={c.slug} className="relative flex-1 overflow-hidden">
+                    <Image
+                      src={c.heroImageUrl}
+                      alt={c.destination}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="p-5">
+                <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">
+                  Trip Intel Cards
+                </p>
+                <p className="mb-2 font-serif text-xl text-ink">
+                  15 destinations. Every scam, gem, and neighbourhood rated.
+                </p>
+                <p className="mb-4 font-mono text-xs leading-relaxed text-ww-muted">
+                  Ground-truth intel from women who&apos;ve done each route 3+ times. Safety
+                  ratings, women-only stays, what every travel article gets wrong.
+                </p>
+                <Link
+                  href="/explore"
+                  className="font-mono text-[10px] uppercase tracking-widest text-rust hover:underline"
+                >
+                  Browse all destinations →
+                </Link>
+              </div>
+            </div>
+
+            {/* ── Your path — narrow cell ── */}
+            <div className="flex flex-col border border-ww-border bg-ink p-5">
+              <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-gold">
+                Your path
+              </p>
+              <p className="mb-5 font-serif text-lg leading-snug text-warm-white">
+                The intel is different.<br />Choose yours.
+              </p>
+              <div className="mt-auto space-y-2">
+                <Link
+                  href="/onboarding?path=indian"
+                  className="flex items-center gap-3 border border-warm-white/10 bg-warm-white/5 p-3 transition-colors hover:bg-warm-white/10"
+                >
                   <Image
-                    src={contributors.find(c => c.slug === PRIYA_SLUG)?.photoUrl ?? ""}
+                    src={contributors.find((c) => c.slug === PRIYA_SLUG)?.photoUrl ?? ""}
                     alt="Priya"
-                    width={44} height={44}
-                    className="h-11 w-11 rounded-full object-cover"
+                    width={28}
+                    height={28}
+                    className="h-7 w-7 shrink-0 rounded-full object-cover"
                   />
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Indian women</p>
-                    <p className="font-serif text-lg text-ink">The Priya path</p>
+                    <p className="font-mono text-[9px] uppercase tracking-widest text-warm-white/40">
+                      Indian women
+                    </p>
+                    <p className="font-serif text-sm text-warm-white">The Priya path</p>
                   </div>
-                </div>
-                <p className="mb-5 text-sm leading-relaxed text-ww-muted">
-                  You know India. You know the language, the culture, the looks.
-                  But solo travel still carries weight — family pressure, neighbourhood
-                  safety gaps, the auto driver who won&apos;t use the meter.
-                  This intel is written for you.
-                </p>
-                <ul className="space-y-1.5 font-mono text-xs text-ww-muted">
-                  {["City-by-city safety ratings", "Scam patterns specific to women travelling alone", "Women-only stays and female-founded spaces", "How to navigate family pushback"].map(item => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-sage">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-7 flex items-center justify-between border-t border-ww-border pt-4">
-                <span className="font-mono text-xs uppercase tracking-widest text-rust">
-                  Start here →
-                </span>
-                <span className="font-mono text-[10px] text-ww-muted">23 destinations</span>
-              </div>
-            </Link>
-
-            {/* Sara — foreign woman */}
-            <Link
-              href="/onboarding?path=foreign"
-              className="group flex flex-col justify-between border border-ww-border bg-ink p-7 transition-shadow hover:shadow-md"
-            >
-              <div>
-                <div className="mb-4 flex items-center gap-3">
+                </Link>
+                <Link
+                  href="/onboarding?path=foreign"
+                  className="flex items-center gap-3 border border-warm-white/10 bg-warm-white/5 p-3 transition-colors hover:bg-warm-white/10"
+                >
                   <Image
-                    src={contributors.find(c => c.slug === SARA_SLUG)?.photoUrl ?? ""}
+                    src={contributors.find((c) => c.slug === SARA_SLUG)?.photoUrl ?? ""}
                     alt="Sara"
-                    width={44} height={44}
-                    className="h-11 w-11 rounded-full object-cover"
+                    width={28}
+                    height={28}
+                    className="h-7 w-7 shrink-0 rounded-full object-cover"
                   />
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-widest text-gold">Foreign women</p>
-                    <p className="font-serif text-lg text-warm-white">The Sara path</p>
+                    <p className="font-mono text-[9px] uppercase tracking-widest text-gold/60">
+                      Foreign women
+                    </p>
+                    <p className="font-serif text-sm text-warm-white">The Sara path</p>
                   </div>
+                </Link>
+              </div>
+            </div>
+
+            {/* ── Community — full-width bottom cell ── */}
+            <div className="border border-ww-border bg-sand p-5 md:col-span-3">
+              <div className="mb-4 flex items-center justify-between">
+                <div>
+                  <p className="mb-0.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                    Community
+                  </p>
+                  <p className="font-serif text-lg text-ink">
+                    Women asking the real questions.
+                  </p>
                 </div>
-                <p className="mb-5 text-sm leading-relaxed text-warm-white/70">
-                  You&apos;re coming from outside India. The rules are different —
-                  visibly foreign women face a different threat profile. The intel
-                  here is blunt about what&apos;s harder, what&apos;s genuinely fine,
-                  and what every travel article gets wrong.
-                </p>
-                <ul className="space-y-1.5 font-mono text-xs text-warm-white/60">
-                  {["What changes when you look foreign", "Visa, SIM card and cash reality", "Which cities are hardest and why", "Pre-trip safety kit for India specifically"].map(item => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-gold">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <Link
+                  href="/community"
+                  className="hidden font-mono text-[10px] uppercase tracking-widest text-rust hover:underline sm:block"
+                >
+                  Join the conversation →
+                </Link>
               </div>
-              <div className="mt-7 flex items-center justify-between border-t border-warm-white/10 pt-4">
-                <span className="font-mono text-xs uppercase tracking-widest text-gold">
-                  Start here →
-                </span>
-                <span className="font-mono text-[10px] text-warm-white/40">Written by Sara, Berlin → Goa</span>
+              <div className="grid gap-2 sm:grid-cols-3">
+                {askPosts.map((post) => (
+                  <Link
+                    key={post.id}
+                    href="/community"
+                    className="border border-ww-border bg-warm-white p-4 transition-shadow hover:shadow-sm"
+                  >
+                    <div className="mb-2 flex items-center gap-2">
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rust-light font-mono text-xs font-semibold text-rust">
+                        {post.author[0]}
+                      </div>
+                      <span className="font-mono text-[10px] font-semibold text-ink">
+                        {post.author}
+                      </span>
+                      {post.destination && (
+                        <span className="rounded-full bg-blue-light px-1.5 py-0.5 font-mono text-[8px] text-blue">
+                          {post.destination.replace("-india", "").replace("-", " ")}
+                        </span>
+                      )}
+                    </div>
+                    <p className="line-clamp-2 text-xs leading-relaxed text-ww-muted">
+                      {post.content}
+                    </p>
+                    <p className="mt-2 font-mono text-[9px] text-ww-muted">
+                      {post.replyCount} replies · {post.likeCount} found this helpful
+                    </p>
+                  </Link>
+                ))}
               </div>
-            </Link>
+              <div className="mt-4 sm:hidden">
+                <Link
+                  href="/community"
+                  className="font-mono text-[10px] uppercase tracking-widest text-rust hover:underline"
+                >
+                  Join the conversation →
+                </Link>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -345,71 +311,6 @@ export default function HomePage() {
         <p className="mt-6 px-6 font-mono text-[10px] text-warm-white/25">
           All Beware Board entries shown in this V0 demo are illustrative mock data and do not represent real incidents.
         </p>
-      </section>
-
-      {/* ── Community teaser ─────────────────────────────────────────── */}
-      <section id="community" className="bg-warm-white px-6 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-8 flex items-end justify-between">
-            <div>
-              <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
-                Community
-              </p>
-              <h2 className="font-serif text-3xl text-ink md:text-4xl">
-                Women asking the real questions.
-              </h2>
-            </div>
-            <Link
-              href="/community"
-              className="hidden font-mono text-xs uppercase tracking-widest text-rust hover:underline sm:block"
-            >
-              Join the conversation →
-            </Link>
-          </div>
-
-          <div className="space-y-3">
-            {askPosts.map((post) => (
-              <Link
-                key={post.id}
-                href="/community"
-                className="group flex flex-col gap-3 border border-ww-border bg-sand p-5 transition-shadow hover:shadow-sm sm:flex-row sm:items-start sm:gap-5"
-              >
-                {/* avatar placeholder */}
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rust-light font-mono text-sm font-semibold text-rust">
-                  {post.author[0]}
-                </div>
-
-                <div className="flex-1 min-w-0">
-                  <div className="mb-1.5 flex flex-wrap items-center gap-2">
-                    <span className="font-mono text-xs font-semibold text-ink">{post.author}</span>
-                    <span className="font-mono text-[10px] text-ww-muted">{post.homeCity}</span>
-                    {post.destination && (
-                      <span className="rounded-full bg-blue-light px-2 py-0.5 font-mono text-[10px] text-blue">
-                        {post.destination.replace("-india", "").replace("-", " ")}
-                      </span>
-                    )}
-                  </div>
-                  <p className="line-clamp-2 text-sm leading-relaxed text-ww-muted">
-                    {post.content}
-                  </p>
-                  <div className="mt-2 flex items-center gap-4 font-mono text-[10px] text-ww-muted">
-                    <span>{post.replyCount} replies</span>
-                    <span>{post.likeCount} found this helpful</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-6 sm:hidden">
-            <Link
-              href="/community"
-              className="font-mono text-xs uppercase tracking-widest text-rust hover:underline"
-            >
-              Join the conversation →
-            </Link>
-          </div>
-        </div>
       </section>
 
       {/* ── Founding community (member + contributor combined) ───────── */}
