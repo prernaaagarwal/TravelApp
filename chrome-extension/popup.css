@@ -1,0 +1,113 @@
+/* WW design tokens */
+:root {
+  --sand: #f5f0e6;
+  --ink: #1a1510;
+  --rust: #c4522a;
+  --rust-light: #f0d5c8;
+  --sage: #4a7c59;
+  --sage-light: #d4e8d8;
+  --muted: #8a7d72;
+  --border: #e0d8cc;
+  --warm-white: #faf8f4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 340px;
+  min-height: 200px;
+  background: var(--warm-white);
+  color: var(--ink);
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 12px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--sand);
+}
+.header-logo { font-family: "Cormorant Garamond", Georgia, serif; font-size: 15px; color: var(--ink); }
+.header-user { display: flex; align-items: center; gap: 8px; }
+.avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(196,82,42,0.15);
+  color: var(--rust); font-size: 11px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+}
+.signout-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: inherit; font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--muted);
+}
+.signout-btn:hover { color: var(--rust); }
+
+/* Body */
+.body { padding: 14px; }
+
+/* Login */
+.login-title { font-family: "Cormorant Garamond", Georgia, serif; font-size: 17px; margin-bottom: 4px; }
+.login-sub { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+
+/* Form elements */
+label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; margin-top: 10px; }
+label:first-child { margin-top: 0; }
+input, textarea, select {
+  width: 100%; padding: 7px 9px;
+  border: 1px solid var(--border); background: white;
+  font-family: inherit; font-size: 11px; color: var(--ink);
+  outline: none;
+}
+input:focus, textarea:focus, select:focus { border-color: var(--rust); }
+textarea { resize: vertical; min-height: 70px; }
+
+/* Buttons */
+.btn {
+  display: block; width: 100%; padding: 8px 12px; margin-top: 12px;
+  border: none; cursor: pointer;
+  font-family: inherit; font-size: 10px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  transition: opacity 0.15s;
+}
+.btn:hover { opacity: 0.85; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: var(--rust); color: white; }
+.btn-secondary { background: var(--sand); color: var(--ink); border: 1px solid var(--border); margin-top: 6px; }
+.btn-ghost { background: none; border: 1px solid var(--border); color: var(--muted); }
+
+/* Home buttons */
+.home-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.home-place { font-size: 13px; font-family: "Cormorant Garamond", Georgia, serif; margin-bottom: 10px; color: var(--ink); line-height: 1.3; }
+.home-url { font-size: 9px; color: var(--muted); margin-bottom: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Check results */
+.check-title { font-family: "Cormorant Garamond", Georgia, serif; font-size: 15px; margin-bottom: 10px; }
+.report-count { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.tag {
+  padding: 3px 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+  border-radius: 2px; color: white;
+}
+.tag-scam       { background: #c4522a; }
+.tag-harassment { background: #8b2252; }
+.tag-transport  { background: #b5710a; }
+.tag-stay       { background: #1a4a7a; }
+.tag-safe       { background: #4a7c59; }
+.tag-none       { background: var(--muted); }
+.safe-msg { color: var(--sage); font-size: 11px; margin-bottom: 10px; }
+.warn-msg { color: var(--rust); font-size: 11px; margin-bottom: 10px; }
+
+/* Radio groups */
+.radio-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.radio-group label { margin: 0; display: flex; align-items: center; gap: 4px; text-transform: uppercase; font-size: 10px; cursor: pointer; color: var(--ink); }
+.radio-group input { width: auto; }
+
+/* Error / success */
+.error { color: var(--rust); font-size: 10px; margin-top: 8px; }
+.success { color: var(--sage); font-size: 11px; text-align: center; padding: 16px 0; }
+.success-icon { font-size: 28px; display: block; margin-bottom: 8px; }
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 12px 0; }

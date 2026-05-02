@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- Open this file in Chrome, right-click each canvas → Save image as icon48.png / icon128.png -->
+<body style="background:#f5f0e6;padding:20px;font-family:monospace">
+<p style="margin-bottom:12px">Right-click each → <strong>Save image as</strong> → save as icon48.png and icon128.png in this folder</p>
+
+<canvas id="c48" width="48" height="48"></canvas>
+&nbsp;&nbsp;
+<canvas id="c128" width="128" height="128"></canvas>
+
+<script>
+function draw(id, size) {
+  const c = document.getElementById(id);
+  const ctx = c.getContext("2d");
+  const r = size / 2;
+
+  // Background circle
+  ctx.fillStyle = "#c4522a";
+  ctx.beginPath();
+  ctx.arc(r, r, r, 0, Math.PI * 2);
+  ctx.fill();
+
+  // "W" letter
+  ctx.fillStyle = "white";
+  ctx.font = `bold ${size * 0.5}px Georgia, serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText("W", r, r + size * 0.03);
+}
+draw("c48", 48);
+draw("c128", 128);
+</script>
+</body>
