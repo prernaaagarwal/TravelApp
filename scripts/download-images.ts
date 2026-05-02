@@ -47,6 +47,43 @@ const BROWSER_HEADERS = {
 
 const MAX_RETRIES = 4;
 
+/**
+ * Replacement URLs for photos that were deleted from Unsplash by their original
+ * authors (404 on the URLs in the JSON). Keys identify the JSON entry so the
+ * same broken URL appearing in multiple trip-feed slots can be replaced with
+ * different city-appropriate photos.
+ *
+ * Format: "intel:<card-slug>" or "trip:<trip-id>#<1-indexed-photo-num>"
+ */
+const URL_OVERRIDES: Record<string, string> = {
+  // Intel card hero images
+  "intel:jaipur-india":
+    "https://images.unsplash.com/photo-1477586957327-847a0f3f4fe3?w=800&q=80",
+  "intel:varanasi-india":
+    "https://images.unsplash.com/photo-1561361398-a8e07ec5142e?w=800&q=80",
+  "intel:delhi-india":
+    "https://images.unsplash.com/photo-1587135304067-0d11ee3a35e2?w=800&q=80",
+  "intel:bangalore-india":
+    "https://images.unsplash.com/photo-1580294672305-a09a5117dba1?w=800&q=80",
+  "intel:udaipur-india":
+    "https://images.unsplash.com/photo-1568438350562-2cae6d394ad0?w=800&q=80",
+  "intel:kochi-india":
+    "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80",
+  // Trip feed photos
+  "trip:trip-001#2":
+    "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=800&q=80",
+  "trip:trip-003#1":
+    "https://images.unsplash.com/photo-1524613032530-449a5d94c285?w=800&q=80",
+  "trip:trip-006#1":
+    "https://images.unsplash.com/photo-1602216552003-67ec70eee9c0?w=800&q=80",
+  "trip:trip-006#2":
+    "https://images.unsplash.com/photo-1591201294415-3df8af1d8aae?w=800&q=80",
+  "trip:trip-008#1":
+    "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&q=80",
+  "trip:trip-011#2":
+    "https://images.unsplash.com/photo-1565013110-04cdfd9b6acc?w=800&q=80",
+};
+
 async function downloadOnce(url: string, destPath: string): Promise<void> {
   // Skip if already downloaded — makes re-runs cheap and resumable.
   try {
@@ -96,8 +133,9 @@ async function processIntelCards(): Promise<{ ok: number; skipped: number; faile
     }
     const localRel = `/images/intel/${card.slug}.jpg`;
     const dest = path.join(ROOT, "public", localRel);
+    const sourceUrl = URL_OVERRIDES[`intel:${card.slug}`] ?? card.heroImageUrl;
     try {
-      await downloadOnce(card.heroImageUrl, dest);
+      await downloadOnce(sourceUrl, dest);
       card.heroImageUrl = localRel;
       ok++;
       console.log(`  ✓ ${card.destination.padEnd(20)} → ${localRel}`);
@@ -130,8 +168,9 @@ async function processTripFeed(): Promise<{ ok: number; skipped: number; failed:
       }
       const localRel = `/images/feed/${trip.id}-${i + 1}.jpg`;
       const dest = path.join(ROOT, "public", localRel);
+      const sourceUrl = URL_OVERRIDES[`trip:${trip.id}#${i + 1}`] ?? url;
       try {
-        await downloadOnce(url, dest);
+        await downloadOnce(sourceUrl, dest);
         trip.photoUrls[i] = localRel;
         ok++;
         console.log(`  ✓ ${trip.id.padEnd(20)} #${i + 1} → ${localRel}`);

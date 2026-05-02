@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "i.pravatar.cc" },
       // *.supabase.co — user-uploaded photos (Beware Board, future user content)
       { protocol: "https", hostname: "*.supabase.co" },
+      // images.unsplash.com — safety net while migrating remaining hotlinked
+      // hero/trip photos to /public/images. Remove once all JSON entries
+      // reference local paths.
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
 };
