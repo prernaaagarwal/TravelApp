@@ -9,11 +9,6 @@
       "end": "2026-02-21"
     },
     "dayCount": 9,
-    "photoUrls": [
-      "/images/feed/trip-001-1.jpg",
-      "/images/feed/trip-001-2.jpg",
-      "/images/feed/trip-001-3.jpg"
-    ],
     "totalCostInr": 27800,
     "totalCostUsd": 327,
     "costBreakdown": {
@@ -24,27 +19,22 @@
       "misc": 1600
     },
     "topNotes": [
-      "Skip Calangute. Stay in Aldona or Assagao if you can afford the extra ₹500/night.",
+      "Skip Calangute. Stay in Aldona or Assagao if you can afford the extra \u20b9500/night.",
       "Scooter rental from a women-run garage in Mapusa was cheaper and less hassle than the beach-shack guys.",
-      "Curlie's at sunset is still worth it. Get there at 5:30, leave by 9 — after that the crowd changes."
+      "Curlie's at sunset is still worth it. Get there at 5:30, leave by 9 \u2014 after that the crowd changes."
     ],
-    "highlight": "The Project Café in Aldona on a Wednesday afternoon — empty pool, a pile of art books, three other solo women already there."
+    "highlight": "The Project Caf\u00e9 in Aldona on a Wednesday afternoon \u2014 empty pool, a pile of art books, three other solo women already there."
   },
   {
     "id": "trip-002",
     "contributorSlug": "leila-delhi",
     "destinationSlug": "rishikesh-india",
-    "destination": "Rishikesh — yoga + Ganga aarti",
+    "destination": "Rishikesh \u2014 yoga + Ganga aarti",
     "tripDates": {
       "start": "2026-03-08",
       "end": "2026-03-14"
     },
     "dayCount": 6,
-    "photoUrls": [
-      "/images/feed/trip-002-1.jpg",
-      "/images/feed/trip-002-2.jpg",
-      "/images/feed/trip-002-3.jpg"
-    ],
     "totalCostInr": 18400,
     "totalCostUsd": 217,
     "costBreakdown": {
@@ -55,27 +45,22 @@
       "misc": 1000
     },
     "topNotes": [
-      "Tapovan side > Lakshman Jhula side for solo women. Quieter, fewer hawkers, better cafés.",
-      "Volvo from Delhi (overnight) saved a hotel night and ₹2,500.",
+      "Tapovan side > Lakshman Jhula side for solo women. Quieter, fewer hawkers, better caf\u00e9s.",
+      "Volvo from Delhi (overnight) saved a hotel night and \u20b92,500.",
       "Don't pay for a Ganga aarti 'guided experience'. Just turn up at Triveni Ghat at 6pm."
     ],
-    "highlight": "Sunrise Ganga walk from Tapovan to Lakshman Jhula — alone for 40 minutes, then 80 monkeys."
+    "highlight": "Sunrise Ganga walk from Tapovan to Lakshman Jhula \u2014 alone for 40 minutes, then 80 monkeys."
   },
   {
     "id": "trip-003",
     "contributorSlug": "sara-berlin",
     "destinationSlug": "jaipur-india",
-    "destination": "Jaipur — Pink City circuit",
+    "destination": "Jaipur \u2014 Pink City circuit",
     "tripDates": {
       "start": "2026-01-22",
       "end": "2026-01-26"
     },
     "dayCount": 4,
-    "photoUrls": [
-      "/images/feed/trip-003-1.jpg",
-      "/images/feed/trip-003-2.jpg",
-      "/images/feed/trip-003-3.jpg"
-    ],
     "totalCostInr": 22300,
     "totalCostUsd": 262,
     "costBreakdown": {
@@ -86,9 +71,9 @@
       "misc": 800
     },
     "topNotes": [
-      "Composite Ticket is the only smart move — ₹400 for 5 monuments, valid 2 days.",
+      "Composite Ticket is the only smart move \u2014 \u20b9400 for 5 monuments, valid 2 days.",
       "Pink City Rickshaw Company (women drivers) is worth every rupee for a half-day Old City tour.",
-      "Anokhi Café is the breakfast you want after a 6am Amber Fort trip. Not a tourist trap."
+      "Anokhi Caf\u00e9 is the breakfast you want after a 6am Amber Fort trip. Not a tourist trap."
     ],
     "highlight": "Block-printing workshop at the Anokhi Museum. Three hours, two new friends, one ruined kurta."
   },
@@ -96,17 +81,12 @@
     "id": "trip-004",
     "contributorSlug": "ananya-mumbai",
     "destinationSlug": "kasol-india",
-    "destination": "Kasol → Tosh trek",
+    "destination": "Kasol \u2192 Tosh trek",
     "tripDates": {
       "start": "2026-04-02",
       "end": "2026-04-09"
     },
     "dayCount": 7,
-    "photoUrls": [
-      "/images/feed/trip-004-1.jpg",
-      "/images/feed/trip-004-2.jpg",
-      "/images/feed/trip-004-3.jpg"
-    ],
     "totalCostInr": 14600,
     "totalCostUsd": 172,
     "costBreakdown": {
@@ -117,7 +97,7 @@
       "misc": 600
     },
     "topNotes": [
-      "Volvo Delhi → Bhuntar overnight, then shared cab to Kasol. ₹1,800 total, beats flying.",
+      "Volvo Delhi \u2192 Bhuntar overnight, then shared cab to Kasol. \u20b91,800 total, beats flying.",
       "Stayhappy Hostel in Kasol has the only female-only dorm I trust in the valley.",
       "Tosh village hike is doable solo in May. Don't try in monsoon."
     ],
@@ -133,11 +113,6 @@
       "end": "2026-03-02"
     },
     "dayCount": 4,
-    "photoUrls": [
-      "/images/feed/trip-005-1.jpg",
-      "/images/feed/trip-005-2.jpg",
-      "/images/feed/trip-005-3.jpg"
-    ],
     "totalCostInr": 11200,
     "totalCostUsd": 132,
     "costBreakdown": {
@@ -149,7 +124,7 @@
     },
     "topNotes": [
       "Stay on the Hippie Island side (Virupapur Gaddi). Hampi Bazaar side is dry, no alcohol, by 9pm dead.",
-      "Rent a moped from Hampi Bazaar — boulders are too far apart to walk.",
+      "Rent a moped from Hampi Bazaar \u2014 boulders are too far apart to walk.",
       "Sunrise at Matanga Hill is worth the 5am climb. Sunset at Hemakuta is the easier alternative."
     ],
     "highlight": "Sitting alone in the Achyutaraya temple courtyard for 90 minutes. Not a soul. Late February is the secret."
@@ -164,11 +139,6 @@
       "end": "2026-03-25"
     },
     "dayCount": 6,
-    "photoUrls": [
-      "/images/feed/trip-006-1.jpg",
-      "/images/feed/trip-006-2.jpg",
-      "/images/feed/trip-006-3.jpg"
-    ],
     "totalCostInr": 13800,
     "totalCostUsd": 162,
     "costBreakdown": {
@@ -179,27 +149,22 @@
       "misc": 600
     },
     "topNotes": [
-      "₹4 government ferry between Fort Kochi and Ernakulam — 25 minutes, sunset view, unbeatable.",
-      "Skip the houseboat overnight scam. Day trip from Alleppey is enough and ₹4,000 cheaper.",
-      "Kashi Art Café is overhyped. Kayees Biryani is not."
+      "\u20b94 government ferry between Fort Kochi and Ernakulam \u2014 25 minutes, sunset view, unbeatable.",
+      "Skip the houseboat overnight scam. Day trip from Alleppey is enough and \u20b94,000 cheaper.",
+      "Kashi Art Caf\u00e9 is overhyped. Kayees Biryani is not."
     ],
-    "highlight": "A solo Kathakali show at Kerala Kathakali Centre. Front row, ₹350, makeup demo at 5pm."
+    "highlight": "A solo Kathakali show at Kerala Kathakali Centre. Front row, \u20b9350, makeup demo at 5pm."
   },
   {
     "id": "trip-007",
     "contributorSlug": "leila-delhi",
     "destinationSlug": "udaipur-india",
-    "destination": "Udaipur — lake circuit",
+    "destination": "Udaipur \u2014 lake circuit",
     "tripDates": {
       "start": "2026-01-15",
       "end": "2026-01-19"
     },
     "dayCount": 4,
-    "photoUrls": [
-      "/images/feed/trip-007-1.jpg",
-      "/images/feed/trip-007-2.jpg",
-      "/images/feed/trip-007-3.jpg"
-    ],
     "totalCostInr": 19800,
     "totalCostUsd": 233,
     "costBreakdown": {
@@ -211,8 +176,8 @@
     },
     "topNotes": [
       "Stay in Hanuman Ghat side, not Lal Ghat. Same view, half the price, zero touts.",
-      "Sadhna Collective HQ visit is a 30-minute auto from the city — and the heart of women-led Rajasthan.",
-      "Avoid the big-name lake palace boat ride. The ₹400 government ferry to Jagmandir does the job."
+      "Sadhna Collective HQ visit is a 30-minute auto from the city \u2014 and the heart of women-led Rajasthan.",
+      "Avoid the big-name lake palace boat ride. The \u20b9400 government ferry to Jagmandir does the job."
     ],
     "highlight": "Sunrise from the cliff above Bagore Ki Haveli. Bring chai. No one else is up there at 6am."
   },
@@ -226,11 +191,6 @@
       "end": "2026-03-08"
     },
     "dayCount": 4,
-    "photoUrls": [
-      "/images/feed/trip-008-1.jpg",
-      "/images/feed/trip-008-2.jpg",
-      "/images/feed/trip-008-3.jpg"
-    ],
     "totalCostInr": 15600,
     "totalCostUsd": 184,
     "costBreakdown": {
@@ -251,17 +211,12 @@
     "id": "trip-009",
     "contributorSlug": "priya-kochi",
     "destinationSlug": "rishikesh-india",
-    "destination": "Rishikesh — yoga teacher training prep",
+    "destination": "Rishikesh \u2014 yoga teacher training prep",
     "tripDates": {
       "start": "2026-02-04",
       "end": "2026-02-12"
     },
     "dayCount": 8,
-    "photoUrls": [
-      "/images/feed/trip-009-1.jpg",
-      "/images/feed/trip-009-2.jpg",
-      "/images/feed/trip-009-3.jpg"
-    ],
     "totalCostInr": 32400,
     "totalCostUsd": 381,
     "costBreakdown": {
@@ -273,7 +228,7 @@
     },
     "topNotes": [
       "Anand Prakash Yoga Ashram is the only TTC I'd send a beginner to. Avoid the Tapovan strip mills.",
-      "₹6/day Ganga ferry (not the tourist boat) is the secret crossing.",
+      "\u20b96/day Ganga ferry (not the tourist boat) is the secret crossing.",
       "Pre-book your YTT in October. By February the good ones are gone."
     ],
     "highlight": "First handstand in 11 years on a sandbank by Ram Jhula at sunrise. No witnesses."
@@ -282,17 +237,12 @@
     "id": "trip-010",
     "contributorSlug": "ananya-mumbai",
     "destinationSlug": "varanasi-india",
-    "destination": "Varanasi — three slow days",
+    "destination": "Varanasi \u2014 three slow days",
     "tripDates": {
       "start": "2026-03-25",
       "end": "2026-03-28"
     },
     "dayCount": 3,
-    "photoUrls": [
-      "/images/feed/trip-010-1.jpg",
-      "/images/feed/trip-010-2.jpg",
-      "/images/feed/trip-010-3.jpg"
-    ],
     "totalCostInr": 8900,
     "totalCostUsd": 105,
     "costBreakdown": {
@@ -303,7 +253,7 @@
       "misc": 500
     },
     "topNotes": [
-      "Stay at Hostel LaVie's female dorm — the only one I trust on the ghats.",
+      "Stay at Hostel LaVie's female dorm \u2014 the only one I trust on the ghats.",
       "Take the female-rowed sunrise boat (collective near Assi Ghat) instead of the tourist boatmen.",
       "Brown Bread Bakery is base camp. Set up your day from there with chai and WiFi."
     ],
@@ -319,11 +269,6 @@
       "end": "2026-04-14"
     },
     "dayCount": 2,
-    "photoUrls": [
-      "/images/feed/trip-011-1.jpg",
-      "/images/feed/trip-011-2.jpg",
-      "/images/feed/trip-011-3.jpg"
-    ],
     "totalCostInr": 4800,
     "totalCostUsd": 56,
     "costBreakdown": {
@@ -350,11 +295,6 @@
       "end": "2026-04-22"
     },
     "dayCount": 4,
-    "photoUrls": [
-      "/images/feed/trip-012-1.jpg",
-      "/images/feed/trip-012-2.jpg",
-      "/images/feed/trip-012-3.jpg"
-    ],
     "totalCostInr": 24600,
     "totalCostUsd": 290,
     "costBreakdown": {
@@ -365,10 +305,10 @@
       "misc": 800
     },
     "topNotes": [
-      "Hauz Khas Village > Paharganj for a returning foreigner. Pay the extra ₹1,500/night.",
-      "Metro is the cheat code. ₹70 for a day pass beats every Uber I've taken in Delhi.",
-      "Old Delhi food walk with a women-led tour (Storytrails or similar) is worth the ₹2,500."
+      "Hauz Khas Village > Paharganj for a returning foreigner. Pay the extra \u20b91,500/night.",
+      "Metro is the cheat code. \u20b970 for a day pass beats every Uber I've taken in Delhi.",
+      "Old Delhi food walk with a women-led tour (Storytrails or similar) is worth the \u20b92,500."
     ],
-    "highlight": "An afternoon at the Sunder Nursery in February — 90 acres, almost empty, ₹35 entry."
+    "highlight": "An afternoon at the Sunder Nursery in February \u2014 90 acres, almost empty, \u20b935 entry."
   }
 ]

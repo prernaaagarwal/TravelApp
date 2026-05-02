@@ -44,18 +44,17 @@ export default function FeedPage() {
               key={trip.id}
               className="border border-ww-border bg-sand"
             >
-              {/* photo collage */}
-              <div className="grid h-48 grid-cols-3 gap-0.5 overflow-hidden bg-ww-border">
-                {trip.photoUrls.slice(0, 3).map((url, i) => (
-                  <div key={i} className="relative overflow-hidden">
-                    <Image
-                      src={url}
-                      alt={`${trip.destination} photo ${i + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
+              {/* destination photo — derived from destinationSlug so every
+                  trip card uses the canonical hero image of its city. New
+                  trips automatically get an aligned photo without sourcing. */}
+              <div className="relative h-56 overflow-hidden bg-rust-light">
+                <Image
+                  src={`/images/intel/${trip.destinationSlug}.jpg`}
+                  alt={trip.destination}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
               </div>
 
               <div className="p-5">

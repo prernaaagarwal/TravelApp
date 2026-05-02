@@ -23,18 +23,9 @@ type IntelCard = {
   [k: string]: unknown;
 };
 
-type TripFeedItem = {
-  id: string;
-  destinationSlug: string;
-  photoUrls: string[];
-  [k: string]: unknown;
-};
-
 const ROOT = process.cwd();
 const INTEL_JSON = path.join(ROOT, "lib/mock-data/intel-cards.json");
-const FEED_JSON = path.join(ROOT, "lib/mock-data/trip-feed.json");
 const INTEL_DIR = path.join(ROOT, "public/images/intel");
-const FEED_DIR = path.join(ROOT, "public/images/feed");
 
 const BROWSER_HEADERS = {
   "User-Agent":
@@ -48,15 +39,10 @@ const BROWSER_HEADERS = {
 const MAX_RETRIES = 4;
 
 /**
- * Replacement URLs for photos that were deleted from Unsplash by their original
- * authors (404 on the URLs in the JSON). Keys identify the JSON entry so the
- * same broken URL appearing in multiple trip-feed slots can be replaced with
- * different city-appropriate photos.
- *
- * Format: "intel:<card-slug>" or "trip:<trip-id>#<1-indexed-photo-num>"
+ * Replacement URLs for hero photos whose original Unsplash IDs were deleted
+ * by the photographers. Keyed by intel-card slug.
  */
 const URL_OVERRIDES: Record<string, string> = {
-  // Intel card hero images
   "intel:jaipur-india":
     "https://images.unsplash.com/photo-1477586957327-847a0f3f4fe3?w=800&q=80",
   "intel:varanasi-india":
@@ -69,19 +55,6 @@ const URL_OVERRIDES: Record<string, string> = {
     "https://images.unsplash.com/photo-1568438350562-2cae6d394ad0?w=800&q=80",
   "intel:kochi-india":
     "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80",
-  // Trip feed photos
-  "trip:trip-001#2":
-    "https://images.unsplash.com/photo-1593693411515-c20261bcad6e?w=800&q=80",
-  "trip:trip-003#1":
-    "https://images.unsplash.com/photo-1524613032530-449a5d94c285?w=800&q=80",
-  "trip:trip-006#1":
-    "https://picsum.photos/seed/kochi-backwaters-1/800/600",
-  "trip:trip-006#2":
-    "https://picsum.photos/seed/kochi-backwaters-2/800/600",
-  "trip:trip-008#1":
-    "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&q=80",
-  "trip:trip-011#2":
-    "https://picsum.photos/seed/bangalore-weekend/800/600",
 };
 
 async function downloadOnce(url: string, destPath: string): Promise<void> {
@@ -149,52 +122,12 @@ async function processIntelCards(): Promise<{ ok: number; skipped: number; faile
   return { ok, skipped, failed };
 }
 
-async function processTripFeed(): Promise<{ ok: number; skipped: number; failed: string[] }> {
-  const raw = await fs.readFile(FEED_JSON, "utf-8");
-  const trips: TripFeedItem[] = JSON.parse(raw);
-  await fs.mkdir(FEED_DIR, { recursive: true });
-
-  let ok = 0;
-  let skipped = 0;
-  const failed: string[] = [];
-
-  for (const trip of trips) {
-    if (!Array.isArray(trip.photoUrls)) continue;
-    for (let i = 0; i < trip.photoUrls.length; i++) {
-      const url = trip.photoUrls[i];
-      if (!isRemote(url)) {
-        skipped++;
-        continue;
-      }
-      const localRel = `/images/feed/${trip.id}-${i + 1}.jpg`;
-      const dest = path.join(ROOT, "public", localRel);
-      const sourceUrl = URL_OVERRIDES[`trip:${trip.id}#${i + 1}`] ?? url;
-      try {
-        await downloadOnce(sourceUrl, dest);
-        trip.photoUrls[i] = localRel;
-        ok++;
-        console.log(`  ✓ ${trip.id.padEnd(20)} #${i + 1} → ${localRel}`);
-      } catch (err) {
-        failed.push(`${trip.id}#${i + 1}: ${(err as Error).message}`);
-        console.log(`  ✗ ${trip.id.padEnd(20)} #${i + 1} ${(err as Error).message}`);
-      }
-    }
-  }
-
-  await fs.writeFile(FEED_JSON, JSON.stringify(trips, null, 2) + "\n");
-  return { ok, skipped, failed };
-}
-
 async function main() {
   console.log("→ Downloading Intel Card hero images");
   const intel = await processIntelCards();
   console.log(`  ${intel.ok} downloaded, ${intel.skipped} already-local\n`);
 
-  console.log("→ Downloading Trip Feed photos");
-  const feed = await processTripFeed();
-  console.log(`  ${feed.ok} downloaded, ${feed.skipped} already-local\n`);
-
-  const failed = [...intel.failed, ...feed.failed];
+  const failed = intel.failed;
   if (failed.length) {
     console.log(`\n${failed.length} failure(s):`);
     failed.forEach((f) => console.log(`  - ${f}`));
