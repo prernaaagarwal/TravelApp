@@ -8,9 +8,10 @@ const nextConfig: NextConfig = {
   },
   images: {
     remotePatterns: [
+      // i.pravatar.cc — placeholder contributor avatars (mock data)
       { protocol: "https", hostname: "i.pravatar.cc" },
+      // *.supabase.co — user-uploaded photos (Beware Board, future user content)
       { protocol: "https", hostname: "*.supabase.co" },
-      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
 };
