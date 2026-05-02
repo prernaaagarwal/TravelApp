@@ -82,6 +82,8 @@ export function OnboardingWizard({ scope = "all" }: { scope?: "indian" | "foreig
       href = SUPPORTED_BEWARE_CITIES.has(destination)
         ? `/community/beware/${destination}`
         : "/community?tab=beware";
+    } else if (need === "budget") {
+      href = "/feed";
     }
     router.push(href);
   }
