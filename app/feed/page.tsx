@@ -4,7 +4,7 @@ import tripFeed from "@/lib/mock-data/trip-feed.json";
 import contributors from "@/lib/mock-data/contributors.json";
 
 export const metadata = {
-  title: "Trip Feed — Wander Women",
+  title: "Trip Receipts — Wander Women",
   description:
     "Real itineraries with rupee + USD costs. Receipts, not inspiration.",
 };

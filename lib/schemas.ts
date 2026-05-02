@@ -32,7 +32,7 @@ export const bewareCitiesDataSchema = z.record(z.string(), cityEntryJsonSchema);
 export const createPostSchema = z.object({
   title:       z.string().min(5, "Title too short (min 5 chars)").max(120, "Title too long (max 120 chars)"),
   content:     z.string().min(10, "Post too short (min 10 chars)").max(5000),
-  tab:         z.enum(["ask", "rant", "beware"]),
+  tab:         z.enum(["ask", "experiences", "beware"]),
   destination: z.string().max(100).optional().nullable(),
   image_urls:  z.array(z.string().url()).max(5).optional(),
 });

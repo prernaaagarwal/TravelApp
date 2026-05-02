@@ -60,13 +60,13 @@ const TAB_META = {
     blurb:
       "Get advice from women who've traveled where you're headed — including locals who actually live there. No judgment, no mansplaining.",
   },
-  rant: {
-    label: "Rant space",
-    short: "Rant",
-    placeholder: "Vent freely. We get it.",
-    cta: "Start a rant",
+  experiences: {
+    label: "Real experiences",
+    short: "Stories",
+    placeholder: "Tell it like it actually happened.",
+    cta: "Share your experience",
     blurb:
-      "Travel is hard. Solo female travel is harder. This is where you vent without a single 'well, actually'.",
+      "Travel is hard. Solo female travel is harder. Share what really happened on your trip — without a single 'well, actually'.",
   },
   beware: {
     label: "Beware Board",

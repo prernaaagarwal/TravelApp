@@ -3,7 +3,7 @@ import Link from "next/link";
 const COL_INTEL = [
   { href: "/explore", label: "Browse Trip Intel" },
   { href: "/community", label: "Community" },
-  { href: "/feed", label: "Trip Feed" },
+  { href: "/feed", label: "Trip Receipts" },
   { href: "/buddy", label: "Find a Buddy" },
 ];
 

@@ -7,7 +7,7 @@ import rawBeware from "@/lib/mock-data/beware-entries.json";
 export const metadata = {
   title: "Community — Wander Women",
   description:
-    "Ask questions, get answers from women who've been there. Verified scam reports, local sister advice, and a rant space — no judgment.",
+    "Ask questions, get answers from women who've been there. Verified scam reports, local sister advice, and real travel experiences — no judgment.",
 };
 
 type SearchParams = Promise<{
@@ -18,7 +18,7 @@ type SearchParams = Promise<{
   city?: string;
 }>;
 
-const VALID_TABS = new Set(["ask", "rant", "beware"]);
+const VALID_TABS = new Set(["ask", "experiences", "beware"]);
 const VALID_SORTS = new Set(["newest", "oldest", "popular"]);
 
 export default async function CommunityPage({ searchParams }: { searchParams: SearchParams }) {
