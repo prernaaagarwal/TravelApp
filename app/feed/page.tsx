@@ -3,41 +3,144 @@ import Image from "next/image";
 import tripFeed from "@/lib/mock-data/trip-feed.json";
 import contributors from "@/lib/mock-data/contributors.json";
 
-export const metadata = {
-  title: "Trip Receipts — Wander Women",
-  description:
-    "Real itineraries with rupee + USD costs. Receipts, not inspiration.",
-};
+type SearchParams = Promise<{ destination?: string }>;
 
-export default function FeedPage() {
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const { destination } = await searchParams;
+  const slug = destination?.trim() ?? "";
+  const hasFilter = slug.length > 0 && tripFeed.some((t) => t.destinationSlug === slug);
+
+  if (hasFilter) {
+    const city = cityFromSlug(slug);
+    return {
+      title: `${city} Trip Costs — Wander Women`,
+      description: `Real budgets from solo women's trips to ${city}. Every rupee tracked.`,
+    };
+  }
+
+  return {
+    title: "Trip Receipts — Wander Women",
+    description:
+      "Real itineraries with rupee + USD costs. Receipts, not inspiration.",
+  };
+}
+
+const COST_CATEGORIES = [
+  { key: "stay", label: "Stay", color: "bg-rust" },
+  { key: "food", label: "Food", color: "bg-gold" },
+  { key: "transport", label: "Transport", color: "bg-blue" },
+  { key: "activities", label: "Activities", color: "bg-sage" },
+  { key: "misc", label: "Misc", color: "bg-purple" },
+] as const;
+
+// Slug pattern is always `<city-words>-<country>`. Strip the country segment
+// and title-case the rest. New destinations need no extra mapping.
+function cityFromSlug(slug: string): string {
+  const parts = slug.split("-");
+  parts.pop();
+  return parts.map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
+}
+
+export default async function FeedPage({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const { destination } = await searchParams;
+
+  // Index trips by destination — drives the chip list. New trips auto-appear.
+  const destCounts = new Map<string, number>();
+  for (const t of tripFeed) {
+    destCounts.set(
+      t.destinationSlug,
+      (destCounts.get(t.destinationSlug) ?? 0) + 1,
+    );
+  }
+  const destinations = [...destCounts.entries()]
+    .map(([slug, count]) => ({ slug, name: cityFromSlug(slug), count }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  // Validate filter against actual data — invalid slugs degrade to "no filter".
+  // `requestedNoMatch` distinguishes "no filter" from "filter requested but
+  // empty" so the empty state can speak to that case directly.
+  const requestedSlug = destination?.trim() ?? "";
+  const activeSlug = destCounts.has(requestedSlug) ? requestedSlug : null;
+  const requestedNoMatch = requestedSlug.length > 0 && activeSlug === null;
+
+  const trips = activeSlug
+    ? tripFeed.filter((t) => t.destinationSlug === activeSlug)
+    : tripFeed;
+
+  const headerTitle = activeSlug
+    ? `What it cost in ${cityFromSlug(activeSlug)}.`
+    : requestedNoMatch
+      ? `Receipts for ${cityFromSlug(requestedSlug)} — coming soon.`
+      : "What it actually cost.";
+
+  const headerSub = activeSlug
+    ? `${trips.length} real ${trips.length === 1 ? "trip" : "trips"} to ${cityFromSlug(activeSlug)}, every rupee tracked.`
+    : requestedNoMatch
+      ? `No travellers have shared their ${cityFromSlug(requestedSlug)} budget yet. In the meantime, here's every other receipt we've got.`
+      : `${tripFeed.length} real solo trips, every rupee tracked. Receipts, not Pinterest aspirations.`;
+
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
-      <div className="mb-10">
+      <div className="mb-8">
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
           Trip receipts
         </p>
         <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
-          What it actually cost.
+          {headerTitle}
         </h1>
         <p className="font-mono text-sm leading-relaxed text-ww-muted">
-          Twelve real solo trips, every rupee tracked. Receipts, not Pinterest
-          aspirations.
+          {headerSub}
         </p>
       </div>
 
+      {/* Filter chips */}
+      <div className="mb-8 flex flex-wrap items-center gap-2">
+        <Link
+          href="/feed"
+          aria-current={!activeSlug ? "page" : undefined}
+          className={`border px-4 py-1.5 font-mono text-xs uppercase tracking-widest transition-colors ${
+            !activeSlug
+              ? "border-ink bg-ink text-warm-white"
+              : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
+          }`}
+        >
+          All
+        </Link>
+        {destinations.map((d) => (
+          <Link
+            key={d.slug}
+            href={`/feed?destination=${d.slug}`}
+            aria-current={activeSlug === d.slug ? "page" : undefined}
+            className={`border px-4 py-1.5 font-mono text-xs uppercase tracking-widest transition-colors ${
+              activeSlug === d.slug
+                ? "border-ink bg-ink text-warm-white"
+                : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
+            }`}
+          >
+            {d.name}
+            {d.count > 1 ? ` (${d.count})` : ""}
+          </Link>
+        ))}
+        <span className="ml-auto self-center font-mono text-[10px] text-ww-muted">
+          {trips.length} {trips.length === 1 ? "trip" : "trips"}
+        </span>
+      </div>
+
+      {/* Trip cards */}
       <div className="space-y-8">
-        {tripFeed.map((trip) => {
+        {trips.map((trip) => {
           const contrib = contributors.find(
-            (c) => c.slug === trip.contributorSlug
+            (c) => c.slug === trip.contributorSlug,
           );
           const total = trip.totalCostInr;
-          const cats = [
-            { key: "stay", label: "Stay", color: "bg-rust" },
-            { key: "food", label: "Food", color: "bg-gold" },
-            { key: "transport", label: "Transport", color: "bg-blue" },
-            { key: "activities", label: "Activities", color: "bg-sage" },
-            { key: "misc", label: "Misc", color: "bg-purple" },
-          ] as const;
 
           return (
             <article
@@ -63,7 +166,7 @@ export default function FeedPage() {
                   <div className="min-w-0">
                     <Link
                       href={`/intel/${trip.destinationSlug}`}
-                      className="font-serif text-2xl text-ink hover:text-rust transition-colors"
+                      className="font-serif text-2xl text-ink transition-colors hover:text-rust"
                     >
                       {trip.destination}
                     </Link>
@@ -78,7 +181,8 @@ export default function FeedPage() {
                     </p>
                     <p className="font-mono text-[10px] text-ww-muted">
                       ${trip.totalCostUsd} · ₹
-                      {Math.round(total / trip.dayCount).toLocaleString("en-IN")}/day
+                      {Math.round(total / trip.dayCount).toLocaleString("en-IN")}
+                      /day
                     </p>
                   </div>
                 </div>
@@ -86,7 +190,7 @@ export default function FeedPage() {
                 {/* cost breakdown bar */}
                 <div className="mb-3">
                   <div className="flex h-2 overflow-hidden">
-                    {cats.map((c) => {
+                    {COST_CATEGORIES.map((c) => {
                       const v =
                         trip.costBreakdown[
                           c.key as keyof typeof trip.costBreakdown
@@ -103,7 +207,7 @@ export default function FeedPage() {
                     })}
                   </div>
                   <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[10px] text-ww-muted">
-                    {cats.map((c) => {
+                    {COST_CATEGORIES.map((c) => {
                       const v =
                         trip.costBreakdown[
                           c.key as keyof typeof trip.costBreakdown
@@ -149,7 +253,7 @@ export default function FeedPage() {
                   )}
                   <Link
                     href={`/contributor/${trip.contributorSlug}`}
-                    className="font-mono text-[10px] text-ww-muted hover:text-rust transition-colors"
+                    className="font-mono text-[10px] text-ww-muted transition-colors hover:text-rust"
                   >
                     by {contrib?.name ?? "Wander Women"}
                   </Link>
@@ -159,6 +263,26 @@ export default function FeedPage() {
           );
         })}
       </div>
+
+      {/* Filter active but no matches — pure empty case (only happens if
+          destination is in destCounts but trips is empty, which can't happen
+          today; defensive for future when filters are layered). */}
+      {trips.length === 0 && (
+        <div className="border border-ww-border bg-sand p-10 text-center">
+          <p className="mb-2 font-serif text-xl text-ink">
+            No receipts here yet.
+          </p>
+          <p className="mb-5 font-mono text-xs text-ww-muted">
+            Be the first — share your trip costs and help future travellers.
+          </p>
+          <Link
+            href="/feed"
+            className="inline-block border border-ink bg-ink px-5 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-colors hover:bg-ink/80"
+          >
+            See all receipts →
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

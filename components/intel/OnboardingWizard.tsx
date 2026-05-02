@@ -83,7 +83,7 @@ export function OnboardingWizard({ scope = "all" }: { scope?: "indian" | "foreig
         ? `/community/beware/${destination}`
         : "/community?tab=beware";
     } else if (need === "budget") {
-      href = "/feed";
+      href = `/feed?destination=${encodeURIComponent(destination)}`;
     }
     router.push(href);
   }
