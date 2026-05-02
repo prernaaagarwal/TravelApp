@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit",
     "images:download": "tsx scripts/download-images.ts",
     "images:shop": "tsx scripts/download-shop-images.ts",
+    "images:refresh": "tsx scripts/refresh-intel-images.ts",
     "prepare": "husky"
   },
   "dependencies": {
