@@ -1,44 +1,17 @@
-import Link from "next/link";
-import Image from "next/image";
 import tripFeed from "@/lib/mock-data/trip-feed.json";
 import contributors from "@/lib/mock-data/contributors.json";
+import { ReceiptsClient } from "./ReceiptsClient";
 
 type SearchParams = Promise<{ destination?: string }>;
 
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: SearchParams;
-}) {
-  const { destination } = await searchParams;
-  const slug = destination?.trim() ?? "";
-  const hasFilter = slug.length > 0 && tripFeed.some((t) => t.destinationSlug === slug);
+export const metadata = {
+  title: "Trip Receipts — Wander Women",
+  description:
+    "Real itineraries with rupee + USD costs. Receipts, not inspiration.",
+};
 
-  if (hasFilter) {
-    const city = cityFromSlug(slug);
-    return {
-      title: `${city} Trip Costs — Wander Women`,
-      description: `Real budgets from solo women's trips to ${city}. Every rupee tracked.`,
-    };
-  }
-
-  return {
-    title: "Trip Receipts — Wander Women",
-    description:
-      "Real itineraries with rupee + USD costs. Receipts, not inspiration.",
-  };
-}
-
-const COST_CATEGORIES = [
-  { key: "stay", label: "Stay", color: "bg-rust" },
-  { key: "food", label: "Food", color: "bg-gold" },
-  { key: "transport", label: "Transport", color: "bg-blue" },
-  { key: "activities", label: "Activities", color: "bg-sage" },
-  { key: "misc", label: "Misc", color: "bg-purple" },
-] as const;
-
-// Slug pattern is always `<city-words>-<country>`. Strip the country segment
-// and title-case the rest. New destinations need no extra mapping.
+// Slug pattern: `<city-words>-<country>`. Strip the country segment and
+// title-case the rest. New destinations need no extra mapping.
 function cityFromSlug(slug: string): string {
   const parts = slug.split("-");
   parts.pop();
@@ -52,7 +25,6 @@ export default async function FeedPage({
 }) {
   const { destination } = await searchParams;
 
-  // Index trips by destination — drives the chip list. New trips auto-appear.
   const destCounts = new Map<string, number>();
   for (const t of tripFeed) {
     destCounts.set(
@@ -60,32 +32,16 @@ export default async function FeedPage({
       (destCounts.get(t.destinationSlug) ?? 0) + 1,
     );
   }
+
   const destinations = [...destCounts.entries()]
     .map(([slug, count]) => ({ slug, name: cityFromSlug(slug), count }))
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  // Validate filter against actual data — invalid slugs degrade to "no filter".
-  // `requestedNoMatch` distinguishes "no filter" from "filter requested but
-  // empty" so the empty state can speak to that case directly.
-  const requestedSlug = destination?.trim() ?? "";
-  const activeSlug = destCounts.has(requestedSlug) ? requestedSlug : null;
-  const requestedNoMatch = requestedSlug.length > 0 && activeSlug === null;
-
-  const trips = activeSlug
-    ? tripFeed.filter((t) => t.destinationSlug === activeSlug)
-    : tripFeed;
-
-  const headerTitle = activeSlug
-    ? `What it cost in ${cityFromSlug(activeSlug)}.`
-    : requestedNoMatch
-      ? `Receipts for ${cityFromSlug(requestedSlug)} — coming soon.`
-      : "What it actually cost.";
-
-  const headerSub = activeSlug
-    ? `${trips.length} real ${trips.length === 1 ? "trip" : "trips"} to ${cityFromSlug(activeSlug)}, every rupee tracked.`
-    : requestedNoMatch
-      ? `No travellers have shared their ${cityFromSlug(requestedSlug)} budget yet. In the meantime, here's every other receipt we've got.`
-      : `${tripFeed.length} real solo trips, every rupee tracked. Receipts, not Pinterest aspirations.`;
+  // Pre-select a destination when arriving from onboarding / budget CTA.
+  const initialDestination =
+    destination && destCounts.has(destination.trim())
+      ? destination.trim()
+      : undefined;
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -94,195 +50,22 @@ export default async function FeedPage({
           Trip receipts
         </p>
         <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
-          {headerTitle}
+          What it actually cost.
         </h1>
         <p className="font-mono text-sm leading-relaxed text-ww-muted">
-          {headerSub}
+          {tripFeed.length} real solo trips, every rupee tracked. Receipts, not
+          Pinterest aspirations.
         </p>
       </div>
 
-      {/* Filter chips */}
-      <div className="mb-8 flex flex-wrap items-center gap-2">
-        <Link
-          href="/feed"
-          aria-current={!activeSlug ? "page" : undefined}
-          className={`border px-4 py-1.5 font-mono text-xs uppercase tracking-widest transition-colors ${
-            !activeSlug
-              ? "border-ink bg-ink text-warm-white"
-              : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
-          }`}
-        >
-          All
-        </Link>
-        {destinations.map((d) => (
-          <Link
-            key={d.slug}
-            href={`/feed?destination=${d.slug}`}
-            aria-current={activeSlug === d.slug ? "page" : undefined}
-            className={`border px-4 py-1.5 font-mono text-xs uppercase tracking-widest transition-colors ${
-              activeSlug === d.slug
-                ? "border-ink bg-ink text-warm-white"
-                : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
-            }`}
-          >
-            {d.name}
-            {d.count > 1 ? ` (${d.count})` : ""}
-          </Link>
-        ))}
-        <span className="ml-auto self-center font-mono text-[10px] text-ww-muted">
-          {trips.length} {trips.length === 1 ? "trip" : "trips"}
-        </span>
-      </div>
-
-      {/* Trip cards */}
-      <div className="space-y-8">
-        {trips.map((trip) => {
-          const contrib = contributors.find(
-            (c) => c.slug === trip.contributorSlug,
-          );
-          const total = trip.totalCostInr;
-
-          return (
-            <article
-              key={trip.id}
-              className="border border-ww-border bg-sand"
-            >
-              {/* destination photo — derived from destinationSlug so every
-                  trip card uses the canonical hero image of its city. New
-                  trips automatically get an aligned photo without sourcing. */}
-              <div className="relative h-56 overflow-hidden bg-rust-light">
-                <Image
-                  src={`/images/intel/${trip.destinationSlug}.jpg`}
-                  alt={trip.destination}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
-              </div>
-
-              <div className="p-5">
-                {/* header */}
-                <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-                  <div className="min-w-0">
-                    <Link
-                      href={`/intel/${trip.destinationSlug}`}
-                      className="font-serif text-2xl text-ink transition-colors hover:text-rust"
-                    >
-                      {trip.destination}
-                    </Link>
-                    <p className="mt-1 font-mono text-[10px] text-ww-muted">
-                      {trip.tripDates.start} → {trip.tripDates.end} ·{" "}
-                      {trip.dayCount} days
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-serif text-2xl font-light text-ink">
-                      ₹{total.toLocaleString("en-IN")}
-                    </p>
-                    <p className="font-mono text-[10px] text-ww-muted">
-                      ${trip.totalCostUsd} · ₹
-                      {Math.round(total / trip.dayCount).toLocaleString("en-IN")}
-                      /day
-                    </p>
-                  </div>
-                </div>
-
-                {/* cost breakdown bar */}
-                <div className="mb-3">
-                  <div className="flex h-2 overflow-hidden">
-                    {COST_CATEGORIES.map((c) => {
-                      const v =
-                        trip.costBreakdown[
-                          c.key as keyof typeof trip.costBreakdown
-                        ];
-                      const pct = (v / total) * 100;
-                      return (
-                        <div
-                          key={c.key}
-                          className={c.color}
-                          style={{ width: `${pct}%` }}
-                          title={`${c.label}: ₹${v.toLocaleString("en-IN")}`}
-                        />
-                      );
-                    })}
-                  </div>
-                  <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[10px] text-ww-muted">
-                    {COST_CATEGORIES.map((c) => {
-                      const v =
-                        trip.costBreakdown[
-                          c.key as keyof typeof trip.costBreakdown
-                        ];
-                      return (
-                        <span key={c.key} className="flex items-center gap-1.5">
-                          <span className={`h-1.5 w-1.5 ${c.color}`} />
-                          {c.label} ₹{v.toLocaleString("en-IN")}
-                        </span>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* top notes */}
-                <ul className="my-4 space-y-2 border-t border-ww-border pt-4">
-                  {trip.topNotes.map((note, i) => (
-                    <li
-                      key={i}
-                      className="flex gap-2 text-xs leading-relaxed text-ink"
-                    >
-                      <span className="shrink-0 text-rust">→</span>
-                      {note}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* highlight quote */}
-                <blockquote className="border-l-2 border-gold bg-gold-light/30 p-3 font-serif text-sm italic text-ink">
-                  &ldquo;{trip.highlight}&rdquo;
-                </blockquote>
-
-                {/* contributor footer */}
-                <div className="mt-4 flex items-center gap-2 border-t border-ww-border pt-4">
-                  {contrib && (
-                    <Image
-                      src={contrib.photoUrl}
-                      alt={contrib.name}
-                      width={24}
-                      height={24}
-                      className="h-6 w-6 rounded-full object-cover"
-                    />
-                  )}
-                  <Link
-                    href={`/contributor/${trip.contributorSlug}`}
-                    className="font-mono text-[10px] text-ww-muted transition-colors hover:text-rust"
-                  >
-                    by {contrib?.name ?? "Wander Women"}
-                  </Link>
-                </div>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-
-      {/* Filter active but no matches — pure empty case (only happens if
-          destination is in destCounts but trips is empty, which can't happen
-          today; defensive for future when filters are layered). */}
-      {trips.length === 0 && (
-        <div className="border border-ww-border bg-sand p-10 text-center">
-          <p className="mb-2 font-serif text-xl text-ink">
-            No receipts here yet.
-          </p>
-          <p className="mb-5 font-mono text-xs text-ww-muted">
-            Be the first — share your trip costs and help future travellers.
-          </p>
-          <Link
-            href="/feed"
-            className="inline-block border border-ink bg-ink px-5 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-colors hover:bg-ink/80"
-          >
-            See all receipts →
-          </Link>
-        </div>
-      )}
+      <ReceiptsClient
+        trips={
+          tripFeed as Parameters<typeof ReceiptsClient>[0]["trips"]
+        }
+        contributors={contributors}
+        destinations={destinations}
+        initialDestination={initialDestination}
+      />
     </div>
   );
 }
