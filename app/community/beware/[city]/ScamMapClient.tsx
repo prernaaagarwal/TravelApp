@@ -3,9 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type * as LeafletNS from "leaflet";
-import type { Map as LeafletMap } from "leaflet";
+import type {
+  Map as LeafletMap,
+  Marker as LeafletMarker,
+  MarkerClusterGroup,
+  LayerGroup,
+  GeoJSON as LeafletGeoJSON,
+} from "leaflet";
+import "leaflet.markercluster";
+import "leaflet.heat";
+import type { Feature as GeoJSONFeature, Polygon as GeoJSONPolygon, GeoJsonObject } from "geojson";
 import type { MapReport, Neighbourhood } from "@/lib/beware-cities";
 import { toggleBewareHelpful, reportBeware } from "@/app/community/actions";
+
+// Heat layer type — leaflet.heat extends L with heatLayer() but @types
+// doesn't declare a return type. Minimal shape we use.
+type HeatLayer = LayerGroup & { setLatLngs: (data: [number, number, number][]) => void };
 
 // All map colours in one place — change here only.
 // Matches globals.css CSS variables where exact; map-specific shades named explicitly.
@@ -137,20 +150,13 @@ export function ScamMapClient({
 
   const mapDivRef     = useRef<HTMLDivElement>(null);
   const mapRef        = useRef<LeafletMap | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const leafletRef    = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const clusterRef    = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const heatLayerRef  = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const labelsLayerRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const boundaryRef   = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const markersRef    = useRef<{ marker: any; report: MapReport }[]>([]);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const selectedMarkerRef = useRef<any>(null);
+  const leafletRef    = useRef<typeof LeafletNS | null>(null);
+  const clusterRef    = useRef<MarkerClusterGroup | null>(null);
+  const heatLayerRef  = useRef<HeatLayer | null>(null);
+  const labelsLayerRef = useRef<LayerGroup | null>(null);
+  const boundaryRef   = useRef<LayerGroup | null>(null);
+  const markersRef    = useRef<{ marker: LeafletMarker; report: MapReport }[]>([]);
+  const selectedMarkerRef = useRef<LeafletMarker | null>(null);
   const activeTypesRef = useRef<Set<MapReport["type"]>>(new Set(TYPES));
 
   function buildHeatData(types: Set<MapReport["type"]>) {
@@ -223,10 +229,8 @@ export function ScamMapClient({
       await import("leaflet/dist/leaflet.css");
       await import("leaflet.markercluster/dist/MarkerCluster.css");
       await import("leaflet.markercluster/dist/MarkerCluster.Default.css");
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { MarkerClusterGroup } = await import("leaflet.markercluster") as any;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      await import("leaflet.heat") as any;
+      await import("leaflet.markercluster");
+      await import("leaflet.heat");
 
       if (cancelled || !mapDivRef.current) return;
 
@@ -247,8 +251,8 @@ export function ScamMapClient({
 
       L.control.zoom({ position: "bottomright" }).addTo(map);
 
-      // Build markers + cluster
-      const cluster = new MarkerClusterGroup({ maxClusterRadius: 50 });
+      // Build markers + cluster (factory function from @types/leaflet.markercluster)
+      const cluster = L.markerClusterGroup({ maxClusterRadius: 50 });
       markersRef.current = [];
       reports.forEach((r) => {
         const marker = L.marker([r.lat, r.lng], { icon: createIcon(L, r.type) });
@@ -258,14 +262,13 @@ export function ScamMapClient({
       });
       clusterRef.current = cluster;
 
-      // Build heat layer
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const heat = (L as any).heatLayer(buildHeatData(activeTypesRef.current), {
+      // Build heat layer (heatLayer added to L by leaflet.heat plugin)
+      const heat = L.heatLayer(buildHeatData(activeTypesRef.current), {
         radius: 70,
         blur: 50,
         maxZoom: ZOOM_BREAKPOINT,
         gradient: HEAT_GRADIENT,
-      });
+      }) as unknown as HeatLayer;
       heatLayerRef.current = heat;
 
       // Neighbourhood labels group
@@ -317,13 +320,12 @@ export function ScamMapClient({
         // that L.polygon produces when given a world-ring + hole approach.
         const worldRing: number[][] = [[-180, 85], [180, 85], [180, -85], [-180, -85], [-180, 85]];
         const cityGeoRings = extractGeoJSONOuterRings(json.geojson as { type: string; coordinates: unknown });
-        const maskFeature = {
-          type: "Feature" as const,
+        const maskFeature: GeoJSONFeature<GeoJSONPolygon> = {
+          type: "Feature",
           properties: {},
-          geometry: { type: "Polygon" as const, coordinates: [worldRing, ...cityGeoRings] },
+          geometry: { type: "Polygon", coordinates: [worldRing, ...cityGeoRings] as number[][][] },
         };
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const maskLayer = L.geoJSON(maskFeature as any, {
+        const maskLayer: LeafletGeoJSON = L.geoJSON(maskFeature, {
           style: {
             fillColor: "#ffffff",
             fillOpacity: 0.9,
@@ -334,8 +336,7 @@ export function ScamMapClient({
         }).addTo(map);
 
         // Prominent dashed boundary ring on top of the mask
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const boundaryLine = L.geoJSON(json.geojson as any, {
+        const boundaryLine: LeafletGeoJSON = L.geoJSON(json.geojson as GeoJsonObject, {
           style: {
             color: MAP_COLORS.rust,
             weight: 5,
