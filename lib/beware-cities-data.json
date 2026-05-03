@@ -1863,5 +1863,41 @@
         "reporter": "Sophie M."
       }
     ]
+  },
+  "rishikesh-india": {
+    "config": {
+      "slug": "rishikesh-india",
+      "name": "Rishikesh",
+      "center": [
+        30.0869,
+        78.2676
+      ],
+      "zoom": 13
+    },
+    "reports": []
+  },
+  "kasol-india": {
+    "config": {
+      "slug": "kasol-india",
+      "name": "Kasol",
+      "center": [
+        32.0095,
+        77.3148
+      ],
+      "zoom": 14
+    },
+    "reports": []
+  },
+  "hampi-india": {
+    "config": {
+      "slug": "hampi-india",
+      "name": "Hampi",
+      "center": [
+        15.335,
+        76.46
+      ],
+      "zoom": 13
+    },
+    "reports": []
   }
 }
