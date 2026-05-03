@@ -1,8 +1,61 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Shield, AlertTriangle, MapPin, Heart, Moon, Bus, ArrowRight, Star } from "lucide-react";
+import { Shield, AlertTriangle, MapPin, Heart, Moon, Bus, ArrowRight, Star, Check } from "lucide-react";
 import bewares from "@/lib/mock-data/beware-entries.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
+
+type PathDef = {
+  tag: string;
+  name: string;
+  who: string;
+  img: string;
+  headline: string;
+  bullets: string[];
+  sample: { q: string; a: string };
+  cta: string;
+  href: string;
+};
+
+const PATHS: PathDef[] = [
+  {
+    tag: "Path 01 · Indian women",
+    name: "Priya",
+    who: "26 · Bengaluru → wherever the long weekend takes her",
+    img: "/images/path-priya.jpg",
+    headline: "You know the country. You don't know the loopholes.",
+    bullets: [
+      "How to spot a landlord scam in Goa before you Venmo",
+      "Which sleeper coach berths are safe (and which to refuse)",
+      "Female-only PG networks in 14 cities, vetted monthly",
+      "Period-leave-friendly co-working stays under ₹900/night",
+    ],
+    sample: {
+      q: "Solo to Spiti in October — homestay or Airbnb?",
+      a: "Homestay. Airbnbs in Kaza shut by Nov, hosts ghost. Stay with Dolma in Langza — ₹1,200, dinner included, she'll WhatsApp your family every night.",
+    },
+    cta: "Start as Priya",
+    href: "/onboarding?path=indian",
+  },
+  {
+    tag: "Path 02 · Foreign women",
+    name: "Sara",
+    who: "29 · Berlin · first time in India, three weeks, no plan",
+    img: "/images/path-sara.jpg",
+    headline: "You've read every blog. None of them were written by a woman.",
+    bullets: [
+      "What to actually wear in Varanasi vs. Goa vs. Delhi metro",
+      "Female-run guesthouses with airport pickup (no negotiating at 2am)",
+      "The 7 phrases in Hindi that make men back off, instantly",
+      "Which trains foreigners can book, and the IRCTC workaround",
+    ],
+    sample: {
+      q: "Landing in Delhi at 11pm alone. What do I do?",
+      a: "Pre-paid taxi booth inside Terminal 3, never the kerb. Stay in Hauz Khas, not Paharganj. Text Anjali (host, +91 98...) — she leaves the gate unlocked till 1am.",
+    },
+    cta: "Start as Sara",
+    href: "/onboarding?path=foreign",
+  },
+];
 
 export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
 
@@ -265,6 +318,123 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── What's inside · 02 — Two paths ─────────────────────────── */}
+      <section id="paths" className="relative w-full overflow-hidden bg-ink py-24 text-warm-white md:py-32">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          {/* Header */}
+          <div className="mb-16 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-px w-10 bg-rust" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-warm-white/55">
+                  What&apos;s inside · 02
+                </span>
+              </div>
+              <h2 className="font-serif text-4xl leading-[0.95] text-warm-white text-balance md:text-6xl">
+                Two women.
+                <br />
+                <span className="italic text-rust">Two very different India&apos;s.</span>
+              </h2>
+            </div>
+            <p className="text-sm leading-relaxed text-warm-white/65 md:max-w-sm">
+              We don&apos;t pretend one guide fits everyone. Pick the path that
+              sounds like your life — the intel reshapes around you.
+            </p>
+          </div>
+
+          {/* Paths grid */}
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-10">
+            {PATHS.map((p, i) => (
+              <article
+                key={p.name}
+                className="group relative flex flex-col overflow-hidden border border-warm-white/10 bg-warm-white/[0.03] transition-colors hover:border-warm-white/25"
+              >
+                {/* Image */}
+                <div className="relative aspect-[5/4] overflow-hidden">
+                  <Image
+                    src={p.img}
+                    alt={`${p.name} — ${p.who}`}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+
+                  {/* Index */}
+                  <div className="absolute right-5 top-5 font-mono text-[10px] uppercase tracking-widest text-warm-white/60">
+                    0{i + 1} / 02
+                  </div>
+
+                  {/* Identity overlay */}
+                  <div className="absolute bottom-5 left-5 right-5">
+                    <div className="mb-2 font-mono text-[10px] uppercase tracking-widest text-rust">
+                      {p.tag}
+                    </div>
+                    <div className="flex flex-wrap items-baseline gap-3">
+                      <h3 className="font-serif text-5xl leading-none text-warm-white md:text-6xl">
+                        {p.name}
+                      </h3>
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-warm-white/60">
+                        {p.who}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Body */}
+                <div className="flex flex-1 flex-col p-7 md:p-9">
+                  <p className="mb-7 font-serif text-2xl leading-snug text-warm-white text-balance md:text-3xl">
+                    &ldquo;{p.headline}&rdquo;
+                  </p>
+
+                  <ul className="mb-8 space-y-3">
+                    {p.bullets.map((b) => (
+                      <li key={b} className="flex gap-3 text-sm leading-relaxed text-warm-white/80">
+                        <Check className="mt-1 h-4 w-4 shrink-0 text-rust" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Sample Q&A */}
+                  <div className="mb-8 border-t border-warm-white/10 pt-6">
+                    <div className="mb-3 font-mono text-[10px] uppercase tracking-widest text-warm-white/50">
+                      Real question · last week
+                    </div>
+                    <p className="mb-3 italic leading-relaxed text-warm-white/90">
+                      &ldquo;{p.sample.q}&rdquo;
+                    </p>
+                    <div className="flex gap-3">
+                      <span className="mt-1 shrink-0 font-mono text-[10px] uppercase tracking-widest text-rust">
+                        A ·
+                      </span>
+                      <p className="text-sm leading-relaxed text-warm-white/70">{p.sample.a}</p>
+                    </div>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="mt-auto">
+                    <Link
+                      href={p.href}
+                      className="inline-flex items-center gap-3 bg-rust px-6 py-3.5 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
+                    >
+                      {p.cta}
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Foot note */}
+          <p className="mt-12 text-center font-mono text-[10px] uppercase tracking-widest text-warm-white/45">
+            Not sure which? Most women start with the path closest to home, then unlock the other.
+          </p>
+        </div>
+      </section>
+
 
       {/* ── Beware Board scam ticker ──────────────────────────────────── */}
       <section id="ticker" className="overflow-hidden border-y border-ww-border bg-ink py-10">
