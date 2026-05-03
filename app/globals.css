@@ -122,6 +122,18 @@
   to   { transform: translateX(0); }
 }
 
+@keyframes ken-burns {
+  from { transform: scale(1.05) translate(0, 0); }
+  to   { transform: scale(1.15) translate(-1.5%, -1%); }
+}
+.animate-ken { animation: ken-burns 18s ease-in-out infinite alternate; }
+
+@keyframes word-rise {
+  from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+.animate-word { animation: word-rise 0.9s cubic-bezier(.2,.7,.2,1) both; }
+
 @layer base {
   * {
     border-color: var(--ww-border);

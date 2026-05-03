@@ -25,50 +25,91 @@ export default function HomePage() {
       <ExitIntentModal />
 
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section id="hero" className="relative overflow-hidden bg-warm-white px-6 pt-20 pb-16 md:pt-28 md:pb-24">
-        {/* decorative top rule */}
-        <div className="mx-auto mb-8 max-w-4xl">
-          <div className="h-px w-12 bg-rust" />
+      <section id="hero" className="relative flex min-h-screen overflow-hidden">
+        {/* Background image + Ken Burns */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-rishikesh.jpg"
+            alt="A woman watching dawn over the Ganges in Rishikesh"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center animate-ken"
+          />
+          {/* left-to-right: heavy dark on left fading right — keeps text legible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-ink/10" />
+          {/* top-to-bottom: anchors top + bottom */}
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/40" />
         </div>
 
-        <div className="mx-auto max-w-4xl">
+        {/* Content */}
+        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col justify-center px-6 py-32 md:px-10">
+          {/* decorative rule */}
+          <div className="mb-8 h-px w-12 bg-rust animate-word" style={{ animationDelay: "0s" }} />
+
           {/* eyebrow */}
-          <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
+          <p
+            className="mb-6 font-mono text-[10px] uppercase tracking-[0.22em] text-warm-white/65 animate-word"
+            style={{ animationDelay: "0.15s" }}
+          >
             Women-only · Solo travel intelligence · India
           </p>
 
-          {/* headline — Cormorant, ~64px on desktop */}
-          <h1 className="mb-6 font-serif text-5xl leading-[1.1] tracking-tight text-ink md:text-7xl">
-            Stress free travel. The guidebook that was never written for you,{" "}
-            <em className="not-italic text-rust">yet</em>
+          {/* headline */}
+          <h1 className="mb-6 font-serif leading-[1.08] tracking-tight text-warm-white">
+            <span
+              className="block text-5xl animate-word md:text-7xl"
+              style={{ animationDelay: "0.3s" }}
+            >
+              Stress free travel.
+            </span>
+            <span
+              className="block text-5xl animate-word md:text-7xl"
+              style={{ animationDelay: "0.45s" }}
+            >
+              The guidebook that was never written for you,
+            </span>
+            <em
+              className="not-italic text-rust block text-5xl animate-word md:text-7xl"
+              style={{ animationDelay: "0.6s" }}
+            >
+              yet
+            </em>
           </h1>
 
           {/* subline */}
-          <p className="mb-10 max-w-2xl text-base leading-relaxed text-ww-muted md:text-lg">
+          <p
+            className="mb-10 max-w-lg font-mono text-sm leading-relaxed text-warm-white/65 animate-word"
+            style={{ animationDelay: "0.75s" }}
+          >
             Safety intel, hidden gems, verified ground-truth tips — crowd-sourced
             from women who actually live these routes. Free to browse. No fluff.
           </p>
 
           {/* dual CTA */}
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div
+            className="flex flex-col gap-3 sm:flex-row sm:items-center animate-word"
+            style={{ animationDelay: "0.9s" }}
+          >
             <Link
               href="/onboarding?path=indian"
-              className="inline-flex items-center justify-center gap-2 rounded-none bg-rust px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center gap-2 bg-rust px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
             >
-              Travel India
-              <span aria-hidden>→</span>
+              Travel India <span aria-hidden>→</span>
             </Link>
             <Link
               href="/onboarding?path=foreign"
-              className="inline-flex items-center justify-center gap-2 rounded-none border border-ink px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-ink hover:text-warm-white"
+              className="inline-flex items-center justify-center gap-2 border border-warm-white/50 px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-colors hover:bg-warm-white/10"
             >
-              Travel Outside India
-              <span aria-hidden>→</span>
+              Travel Outside India <span aria-hidden>→</span>
             </Link>
           </div>
 
           {/* micro trust line */}
-          <p className="mt-8 font-mono text-xs text-ww-muted">
+          <p
+            className="mt-8 font-mono text-xs text-warm-white/45 animate-word"
+            style={{ animationDelay: "1.05s" }}
+          >
             Free to browse · Founding membership ₹499 · No spam, ever
           </p>
         </div>
