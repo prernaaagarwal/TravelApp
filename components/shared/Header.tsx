@@ -9,7 +9,10 @@ const NAV_ITEMS = [
   { href: "/feed", label: "Receipts" },
   { href: "/buddy", label: "Buddy" },
   { href: "/shop", label: "Shop" },
+  { href: "/verify-stay", label: "Verify Stay", authOnly: true },
 ];
+
+type NavItem = { href: string; label: string; authOnly?: boolean };
 
 export async function Header() {
   const supabase = await createClient();
@@ -39,7 +42,7 @@ export async function Header() {
         </Link>
 
         <nav className="hidden gap-6 md:flex">
-          {NAV_ITEMS.map((item) => (
+          {NAV_ITEMS.filter((item: NavItem) => !item.authOnly || user).map((item: NavItem) => (
             <Link
               key={item.href}
               href={item.href}
