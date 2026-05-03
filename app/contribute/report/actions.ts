@@ -149,5 +149,6 @@ export async function resubmitReport(reportId: string, formData: FormData) {
   if (error) return { error: error.message };
 
   revalidatePath(`/profile/${user.id}`);
+  revalidatePath("/admin");
   redirect(`/profile/${user.id}?tab=reports`);
 }
