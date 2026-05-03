@@ -49,6 +49,16 @@ export const submitBewareReportSchema = z.object({
   gps_lng:          z.number().min(-180).max(180).optional().nullable(),
 });
 
+export const verifyStaySchema = z.object({
+  booking_url: z
+    .string()
+    .url("Please enter a valid URL")
+    .refine(
+      (url) => url.startsWith("http://") || url.startsWith("https://"),
+      "URL must start with http:// or https://"
+    ),
+});
+
 export const updateProfileSchema = z.object({
   first_name: z.string().max(100).optional().nullable(),
   home_city:  z.string().max(100).optional().nullable(),

@@ -2,8 +2,11 @@ import Link from "next/link";
 import { Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
+
 import { NotificationBell } from "@/components/shared/NotificationBell";
 import { NAV_ITEMS } from "@/lib/nav";
+
+type NavItem = { href: string; label: string; authOnly?: boolean };
 
 export async function Header() {
   const supabase = await createClient();
@@ -52,7 +55,7 @@ export async function Header() {
         </Link>
 
         <nav className="hidden gap-6 md:flex">
-          {NAV_ITEMS.map((item) => (
+          {NAV_ITEMS.filter((item: NavItem) => !item.authOnly || user).map((item: NavItem) => (
             <Link
               key={item.href}
               href={item.href}
