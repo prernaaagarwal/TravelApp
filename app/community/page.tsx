@@ -17,6 +17,7 @@ type SearchParams = Promise<{
   country?: string;
   intlCountry?: string;
   city?: string;
+  submitted?: string;
 }>;
 
 const VALID_TABS = new Set(["ask", "experiences", "beware"]);
@@ -47,6 +48,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const country = sp.country === "international" ? "international" : "india";
   const intlCountry = sp.intlCountry ?? "all";
   const city = sp.city ?? "all";
+  const submitted = sp.submitted === "beware" ? "beware" : undefined;
 
   // Fetch approved user-submitted posts from Supabase and merge with mock data.
   // RLS policy "Anyone reads approved posts" lets unauthenticated reads work.
@@ -161,6 +163,12 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
           honest, no filters.
         </p>
       </div>
+
+      {submitted === "beware" && (
+        <div className="mb-4 rounded border border-sage/40 bg-sage-light px-4 py-3 font-mono text-sm text-sage">
+          ✓ Your report has been submitted for review. It will appear on the Beware Board once approved.
+        </div>
+      )}
 
       <CommunityTabs
         posts={posts}

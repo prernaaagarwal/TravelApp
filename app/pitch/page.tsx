@@ -21,9 +21,9 @@ const ROUTES = [
 ];
 
 const METRICS = [
-  { value: "15", label: "trip intel cards" },
+  { value: "21", label: "trip intel cards" },
   { value: "8", label: "founding contributors" },
-  { value: "40", label: "community posts seeded" },
+  { value: "180", label: "community posts seeded" },
   { value: "25", label: "verified scam reports" },
   { value: "12", label: "trip receipts" },
   { value: "10", label: "buddy profiles" },

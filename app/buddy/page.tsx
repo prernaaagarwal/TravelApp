@@ -4,6 +4,14 @@ import Image from "next/image";
 import { RegisterTripForm } from "@/components/intel/RegisterTripForm";
 import { ConnectButton } from "@/components/intel/ConnectButton";
 import buddyMatches from "@/lib/mock-data/buddy-matches.json";
+import { CITY_LABELS } from "@/lib/constants";
+
+function slugToCity(slug: string): string {
+  if (CITY_LABELS[slug]) return CITY_LABELS[slug];
+  const parts = slug.split("-");
+  parts.pop();
+  return parts.map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
+}
 
 export const metadata = {
   title: "Find a Travel Buddy — Wander Women",
@@ -60,7 +68,7 @@ export default async function BuddyPage() {
         myTrip ? (
           <div className="mb-8 border border-sage/30 bg-sage-light/30 px-4 py-3">
             <p className="font-mono text-xs text-sage">
-              ✓ Your trip: <strong>{myTrip.destination_slug.replace(/-india|-japan|-thailand|-vietnam/, "").replace(/-/g, " ")}</strong>
+              ✓ Your trip: <strong>{slugToCity(myTrip.destination_slug)}</strong>
               {myTrip.travel_start && ` · ${myTrip.travel_start}`}
               {myTrip.travel_end && ` → ${myTrip.travel_end}`}
             </p>
@@ -98,7 +106,7 @@ export default async function BuddyPage() {
                   <h3 className="font-serif text-2xl text-ink">{b.first_name}</h3>
                   <p className="font-mono text-xs text-ww-muted">
                     {b.age_range && `${b.age_range} · `}{b.home_city && `${b.home_city} · `}
-                    {b.destination_slug.replace(/-india|-japan|-thailand|-vietnam/, "").replace(/-/g, " ")}
+                    {slugToCity(b.destination_slug)}
                   </p>
                   {(b.travel_start || b.travel_end) && (
                     <p className="mt-1 font-mono text-[10px] text-ww-muted">
@@ -157,7 +165,7 @@ function MockBuddyCard({ buddy, isLoggedIn }: { buddy: typeof buddyMatches[0]; r
             {buddy.ageRange} · {buddy.homeCity} · {buddy.tripCount} solo trips
           </p>
           <p className="mt-1 font-mono text-[10px] text-ww-muted">
-            {buddy.travelDates.start} → {buddy.travelDates.end} · #{buddy.destinationSlug.replace("-india", "")}
+            {buddy.travelDates.start} → {buddy.travelDates.end} · #{slugToCity(buddy.destinationSlug).toLowerCase().replace(/\s+/g, "-")}
           </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {buddy.styleTags.map((tag) => (
