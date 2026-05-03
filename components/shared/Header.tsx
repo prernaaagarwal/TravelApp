@@ -106,7 +106,7 @@ export async function Header() {
             </>
           ) : (
             <>
-              <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+              <Button asChild variant="ghost" size="sm">
                 <Link href="/account/login">Sign in</Link>
               </Button>
               <Button
