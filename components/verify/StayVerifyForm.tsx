@@ -69,7 +69,7 @@ export function StayVerifyForm({ usedThisMonth }: { usedThisMonth: number }) {
           {isPending ? (
             <span className="flex items-center gap-2">
               <Loader2 className="h-4 w-4 animate-spin" />
-              Analysing listing — this takes ~15 seconds…
+              Researching the listing — this takes 20-40 seconds…
             </span>
           ) : (
             "Run Safety Analysis"

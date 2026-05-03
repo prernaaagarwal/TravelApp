@@ -4,7 +4,7 @@ import { ShieldCheck, AlertTriangle, RefreshCw } from "lucide-react";
 import { SafetyReport } from "@/components/verify/SafetyReport";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import type { AnalysisResult } from "@/lib/claude";
+import type { StayVerification } from "@/lib/agents/stay-verifier";
 
 export default async function VerifyStayResultPage({
   params,
@@ -67,7 +67,7 @@ export default async function VerifyStayResultPage({
       </div>
 
       <SafetyReport
-        analysis={row.analysis_json as AnalysisResult}
+        analysis={row.analysis_json as StayVerification}
         propertyName={row.property_name}
         platform={row.platform}
         bookingUrl={row.booking_url}
