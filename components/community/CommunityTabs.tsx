@@ -76,6 +76,13 @@ const TAB_META = {
     blurb:
       "Verified scam reports from solo women. Reviewed before going live.",
   },
+  search: {
+    label: "Search",
+    short: "Search",
+    placeholder: "Search posts and reports…",
+    cta: "",
+    blurb: "Search across all questions, stories, and beware reports by any word or phrase.",
+  },
 } as const;
 
 type TabKey = keyof typeof TAB_META;
@@ -257,60 +264,68 @@ export function CommunityTabs({
               {meta.blurb}
             </p>
 
-            {key === "beware" ? (
-              <Link
-                href={userEmail ? "/contribute/report" : "/account/login?next=/contribute/report"}
-                className="mb-6 flex items-center justify-between border border-dashed border-rust/40 bg-rust/5 px-4 py-3 hover:border-rust transition-colors"
-              >
-                <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
-                  {meta.cta} →
-                </span>
-              </Link>
-            ) : userEmail ? (
-              <ComposeForm tab={key} placeholder={meta.placeholder} cta={meta.cta} />
-            ) : (
-              <Link
-                href="/account/login?next=/community"
-                className="mb-6 flex items-center justify-between border border-dashed border-ww-border bg-sand px-4 py-3 hover:border-ink transition-colors"
-              >
-                <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
-                  Sign in to post →
-                </span>
-              </Link>
-            )}
-
-            {key === "beware" ? (
+            {key === "search" ? (
+              <SearchPane posts={posts} bewares={bewares} userEmail={userEmail} />
+            ) : key === "beware" ? (
               <>
+                <Link
+                  href={userEmail ? "/contribute/report" : "/account/login?next=/contribute/report"}
+                  className="mb-6 flex items-center justify-between border border-dashed border-rust/40 bg-rust/5 px-4 py-3 hover:border-rust transition-colors"
+                >
+                  <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
+                    {meta.cta} →
+                  </span>
+                </Link>
                 <BewareList bewares={visibleBewares} userEmail={userEmail} />
                 {visibleBewares.length === 0 && (
                   <p className="py-12 text-center font-mono text-xs text-ww-muted">
                     No reports match these filters.
                   </p>
                 )}
+                {bewares.length > visible && (
+                  <button
+                    onClick={() => setVisible((v) => v + 10)}
+                    className="mt-6 w-full border border-ww-border bg-sand py-3 font-mono text-xs uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors"
+                  >
+                    Load more reports
+                  </button>
+                )}
               </>
             ) : (
-              <div className="space-y-3">
-                {visiblePosts.map((post) => (
-                  <PostCard key={post.id} post={post} userEmail={userEmail} />
-                ))}
-                {visiblePosts.length === 0 && (
-                  <p className="py-12 text-center font-mono text-xs text-ww-muted">
-                    No posts match these filters.
-                  </p>
+              <>
+                {userEmail ? (
+                  <ComposeForm tab={key} placeholder={meta.placeholder} cta={meta.cta} />
+                ) : (
+                  <Link
+                    href="/account/login?next=/community"
+                    className="mb-6 flex items-center justify-between border border-dashed border-ww-border bg-sand px-4 py-3 hover:border-ink transition-colors"
+                  >
+                    <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
+                      Sign in to post →
+                    </span>
+                  </Link>
                 )}
-              </div>
-            )}
-
-            {((key === "beware" && bewares.length > visible) ||
-              (key !== "beware" && tabPosts.length > visible)) && (
-              <button
-                onClick={() => setVisible((v) => v + 10)}
-                className="mt-6 w-full border border-ww-border bg-sand py-3 font-mono text-xs uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors"
-              >
-                Load more posts
-              </button>
+                <div className="space-y-3">
+                  {visiblePosts.map((post) => (
+                    <PostCard key={post.id} post={post} userEmail={userEmail} />
+                  ))}
+                  {visiblePosts.length === 0 && (
+                    <p className="py-12 text-center font-mono text-xs text-ww-muted">
+                      No posts match these filters.
+                    </p>
+                  )}
+                </div>
+                {tabPosts.length > visible && (
+                  <button
+                    onClick={() => setVisible((v) => v + 10)}
+                    className="mt-6 w-full border border-ww-border bg-sand py-3 font-mono text-xs uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors"
+                  >
+                    Load more posts
+                  </button>
+                )}
+              </>
             )}
           </TabsContent>
         );
@@ -610,6 +625,117 @@ function ReportInline({
           {busy ? "Submitting…" : "Submit report"}
         </button>
       </div>
+    </div>
+  );
+}
+
+function SearchPane({
+  posts,
+  bewares,
+  userEmail,
+}: {
+  posts: Post[];
+  bewares: Beware[];
+  userEmail: string | null;
+}) {
+  const [query, setQuery] = useState("");
+  const q = query.trim().toLowerCase();
+  const active = q.length >= 2;
+
+  const matchedQuestions = active
+    ? posts.filter(
+        (p) =>
+          p.tab === "ask" &&
+          (p.title.toLowerCase().includes(q) ||
+            p.content.toLowerCase().includes(q) ||
+            p.author.toLowerCase().includes(q) ||
+            (p.destination ?? "").toLowerCase().includes(q)),
+      )
+    : [];
+
+  const matchedStories = active
+    ? posts.filter(
+        (p) =>
+          p.tab === "experiences" &&
+          (p.title.toLowerCase().includes(q) ||
+            p.content.toLowerCase().includes(q) ||
+            p.author.toLowerCase().includes(q) ||
+            (p.destination ?? "").toLowerCase().includes(q)),
+      )
+    : [];
+
+  const matchedBewares = active
+    ? bewares.filter(
+        (b) =>
+          b.title.toLowerCase().includes(q) ||
+          b.description.toLowerCase().includes(q) ||
+          b.city.toLowerCase().includes(q) ||
+          b.location.toLowerCase().includes(q) ||
+          b.category.toLowerCase().includes(q),
+      )
+    : [];
+
+  const total = matchedQuestions.length + matchedStories.length + matchedBewares.length;
+
+  return (
+    <div>
+      <div className="relative mb-2">
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="e.g. Goa scooter, Rishikesh safety, solo at night…"
+          autoFocus
+          className="w-full border border-ww-border bg-warm-white px-4 py-3 font-mono text-sm text-ink placeholder:text-ww-muted/60 focus:border-ink focus:outline-none"
+        />
+      </div>
+
+      <p className="mb-6 font-mono text-[10px] text-ww-muted">
+        {q.length === 0 && "Type at least 2 characters to search across all posts and scam reports."}
+        {q.length === 1 && "Keep typing…"}
+        {active && `${total} result${total !== 1 ? "s" : ""} for "${query}"`}
+      </p>
+
+      {active && total === 0 && (
+        <p className="py-12 text-center font-mono text-xs text-ww-muted">
+          No results found. Try different keywords.
+        </p>
+      )}
+
+      {matchedQuestions.length > 0 && (
+        <div className="mb-8">
+          <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+            Questions · {matchedQuestions.length}
+          </p>
+          <div className="space-y-3">
+            {matchedQuestions.map((post) => (
+              <PostCard key={post.id} post={post} userEmail={userEmail} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {matchedStories.length > 0 && (
+        <div className="mb-8">
+          <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+            Stories · {matchedStories.length}
+          </p>
+          <div className="space-y-3">
+            {matchedStories.map((post) => (
+              <PostCard key={post.id} post={post} userEmail={userEmail} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {matchedBewares.length > 0 && (
+        <div>
+          <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+            Beware reports · {matchedBewares.length}
+          </p>
+          <BewareList bewares={matchedBewares} userEmail={userEmail} />
+        </div>
+      )}
     </div>
   );
 }

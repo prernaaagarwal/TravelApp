@@ -19,7 +19,7 @@ type SearchParams = Promise<{
   city?: string;
 }>;
 
-const VALID_TABS = new Set(["ask", "experiences", "beware"]);
+const VALID_TABS = new Set(["ask", "experiences", "beware", "search"]);
 const VALID_SORTS = new Set(["newest", "oldest", "popular"]);
 
 export default async function CommunityPage({ searchParams }: { searchParams: SearchParams }) {
