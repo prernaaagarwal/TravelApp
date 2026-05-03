@@ -17,16 +17,16 @@ export default async function OnboardingPage({
 
   const heading =
     scope === "indian"
-      ? "Where in India next?"
+      ? "Where to next?"
       : scope === "foreign"
-      ? "Which part of India are you heading to?"
+      ? "Where are you heading?"
       : "Tell us about your trip.";
 
   const subtext =
     scope === "indian"
-      ? "Pick your destination — we pull the intel, scam warnings, and local tips built for Indian women."
+      ? "Pick your destination — we pull the intel, scam warnings, and local tips, written by Indian women who arrived last week."
       : scope === "foreign"
-      ? "Pick your destination — we pull the field report, safety score, and foreigner-specific warnings for it."
+      ? "Pick your destination — we pull the field report, safety score, and foreigner-specific warnings, written by women who navigated it for the first time."
       : "Pick your destination and what you need — we take you straight there.";
 
   return (
@@ -43,7 +43,7 @@ export default async function OnboardingPage({
         </p>
       </div>
 
-      <OnboardingWizard scope={scope} />
+      <OnboardingWizard />
 
       <p className="mt-6 text-center font-mono text-[10px] text-ww-muted">
         Your answers are stored locally on this device. No account needed for V0.

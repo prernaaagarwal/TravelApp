@@ -36,26 +36,21 @@ const NEED_OPTIONS = [
   { value: "budget",    label: "Plan my budget",           emoji: "💰" },
 ];
 
-export function OnboardingWizard({ scope = "all" }: { scope?: "indian" | "foreign" | "all" }) {
+export function OnboardingWizard() {
   const router = useRouter();
   const [step, setStep]               = useState(0);
   const [destination, setDestination] = useState("");
   const [query, setQuery]             = useState("");
   const [submitting, setSubmitting]   = useState(false);
 
-  const scopedDestinations =
-    scope === "foreign" ? ALL_DESTINATIONS.filter((d) => d.country === "India") :
-    scope === "indian"  ? ALL_DESTINATIONS.filter((d) => d.country === "India") :
-    ALL_DESTINATIONS;
-
   const filtered =
     query.length > 0
-      ? scopedDestinations.filter(
+      ? ALL_DESTINATIONS.filter(
           (d) =>
             d.label.toLowerCase().includes(query.toLowerCase()) ||
             d.country.toLowerCase().includes(query.toLowerCase())
         )
-      : scopedDestinations;
+      : ALL_DESTINATIONS;
 
   function selectDestination(slug: string) {
     const dest = ALL_DESTINATIONS.find((d) => d.slug === slug);
