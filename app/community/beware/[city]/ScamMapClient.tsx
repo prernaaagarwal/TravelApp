@@ -10,8 +10,6 @@ import type {
   LayerGroup,
   GeoJSON as LeafletGeoJSON,
 } from "leaflet";
-import "leaflet.markercluster";
-import "leaflet.heat";
 import type { Feature as GeoJSONFeature, Polygon as GeoJSONPolygon, GeoJsonObject } from "geojson";
 import type { MapReport, Neighbourhood } from "@/lib/beware-cities";
 import { toggleBewareHelpful, reportBeware } from "@/app/community/actions";
