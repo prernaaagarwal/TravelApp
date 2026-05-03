@@ -19,7 +19,21 @@ export default async function OnboardingPage({
     regionParam === "india" ? "india" : regionParam === "foreign" ? "foreign" : "all";
 
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+
+  // Fetch destinations from intel_cards (source of truth) and user state in parallel
+  const [{ data: cards }, { data: { user } }] = await Promise.all([
+    supabase
+      .from("intel_cards")
+      .select("slug, destination, country")
+      .order("destination"),
+    supabase.auth.getUser(),
+  ]);
+
+  const destinations = (cards ?? []).map((c) => ({
+    slug: c.slug,
+    label: c.destination,
+    country: c.country,
+  }));
 
   // Detect whether profile setup is needed (only for logged-in users)
   let needsProfileSetup = false;
@@ -66,7 +80,11 @@ export default async function OnboardingPage({
         </p>
       </div>
 
-      <OnboardingWizard needsProfileSetup={needsProfileSetup} region={region} />
+      <OnboardingWizard
+        needsProfileSetup={needsProfileSetup}
+        region={region}
+        destinations={destinations}
+      />
     </div>
   );
 }

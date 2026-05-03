@@ -5,29 +5,7 @@ import { useRouter } from "next/navigation";
 import { updateSegment, completeProfile } from "@/app/onboarding/actions";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 
-const ALL_DESTINATIONS = [
-  { slug: "goa-india",         label: "Goa",        country: "India" },
-  { slug: "delhi-india",       label: "Delhi",      country: "India" },
-  { slug: "mumbai-india",      label: "Mumbai",     country: "India" },
-  { slug: "jaipur-india",      label: "Jaipur",     country: "India" },
-  { slug: "manali-india",      label: "Manali",     country: "India" },
-  { slug: "rishikesh-india",   label: "Rishikesh",  country: "India" },
-  { slug: "varanasi-india",    label: "Varanasi",   country: "India" },
-  { slug: "udaipur-india",     label: "Udaipur",    country: "India" },
-  { slug: "agra-india",        label: "Agra",       country: "India" },
-  { slug: "bangalore-india",   label: "Bangalore",  country: "India" },
-  { slug: "kolkata-india",     label: "Kolkata",    country: "India" },
-  { slug: "chennai-india",     label: "Chennai",    country: "India" },
-  { slug: "kochi-india",       label: "Kochi",      country: "India" },
-  { slug: "kasol-india",       label: "Kasol",      country: "India" },
-  { slug: "hampi-india",       label: "Hampi",      country: "India" },
-  { slug: "tokyo-japan",       label: "Tokyo",      country: "Japan" },
-  { slug: "bangkok-thailand",  label: "Bangkok",    country: "Thailand" },
-  { slug: "hanoi-vietnam",     label: "Hanoi",      country: "Vietnam" },
-  { slug: "dubai-uae",         label: "Dubai",      country: "UAE" },
-  { slug: "seoul-south-korea", label: "Seoul",      country: "South Korea" },
-  { slug: "paris-france",      label: "Paris",      country: "France" },
-];
+type Destination = { slug: string; label: string; country: string };
 
 const NEED_OPTIONS = [
   { value: "research",  label: "Research a destination",   emoji: "🔍" },
@@ -46,9 +24,11 @@ const AGE_OPTIONS = [
 export function OnboardingWizard({
   needsProfileSetup = false,
   region = "all",
+  destinations,
 }: {
   needsProfileSetup?: boolean;
   region?: "india" | "foreign" | "all";
+  destinations: Destination[];
 }) {
   const router = useRouter();
   // Step indexing: if needsProfileSetup, step 0 = profile, step 1 = destination, step 2 = need
@@ -72,9 +52,9 @@ export function OnboardingWizard({
 
   // Filter by region (from hero CTAs); "all" = no filter (Priya/Sara cards)
   const regionScoped =
-    region === "india"   ? ALL_DESTINATIONS.filter((d) => d.country === "India") :
-    region === "foreign" ? ALL_DESTINATIONS.filter((d) => d.country !== "India") :
-    ALL_DESTINATIONS;
+    region === "india"   ? destinations.filter((d) => d.country === "India") :
+    region === "foreign" ? destinations.filter((d) => d.country !== "India") :
+    destinations;
 
   const filtered =
     query.length > 0
@@ -86,7 +66,7 @@ export function OnboardingWizard({
       : regionScoped;
 
   function selectDestination(slug: string) {
-    const dest = ALL_DESTINATIONS.find((d) => d.slug === slug);
+    const dest = destinations.find((d) => d.slug === slug);
     setDestination(slug);
     setQuery(dest?.label ?? "");
     setStep(needStepIdx);
