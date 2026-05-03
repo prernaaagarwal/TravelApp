@@ -22,6 +22,21 @@ type SearchParams = Promise<{
 const VALID_TABS = new Set(["ask", "experiences", "beware"]);
 const VALID_SORTS = new Set(["newest", "oldest", "popular"]);
 
+type RawPost = {
+  id: string;
+  tab: string;
+  title?: string;
+  author: string;
+  authorAgeRange?: string;
+  homeCity?: string;
+  postedAt: string;
+  content: string;
+  replyCount: number;
+  likeCount: number;
+  destination?: string | null;
+  imageUrls?: string[];
+};
+
 export default async function CommunityPage({ searchParams }: { searchParams: SearchParams }) {
   const sp = await searchParams;
   const supabase = await createClient();
@@ -33,8 +48,34 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const intlCountry = sp.intlCountry ?? "all";
   const city = sp.city ?? "all";
 
+  // Fetch approved user-submitted posts from Supabase and merge with mock data.
+  // RLS policy "Anyone reads approved posts" lets unauthenticated reads work.
+  const { data: dbPosts } = await supabase
+    .from("community_posts")
+    .select(
+      "id, tab, title, content, author_name, author_age_range, home_city, destination, image_urls, created_at, like_count, reply_count",
+    )
+    .eq("status", "approved");
+
+  const dbNormalized: RawPost[] = (dbPosts ?? []).map((p) => ({
+    id: p.id,
+    tab: p.tab,
+    title: p.title ?? "",
+    author: p.author_name ?? "Community member",
+    authorAgeRange: p.author_age_range ?? "",
+    homeCity: p.home_city ?? "",
+    postedAt: p.created_at,
+    content: p.content,
+    replyCount: p.reply_count ?? 0,
+    likeCount: p.like_count ?? 0,
+    destination: p.destination ?? undefined,
+    imageUrls: Array.isArray(p.image_urls) ? (p.image_urls as string[]) : [],
+  }));
+
+  const allPosts: RawPost[] = [...(rawPosts as unknown as RawPost[]), ...dbNormalized];
+
   // Filter posts by location
-  let filteredPosts = rawPosts.filter((p) => {
+  let filteredPosts = allPosts.filter((p) => {
     const dest = p.destination ?? "";
     if (country === "india") {
       return city !== "all" ? dest === city : (!dest || dest.endsWith("-india"));
@@ -72,7 +113,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const posts = filteredPosts.map((p) => ({
     id: p.id,
     tab: p.tab,
-    title: (p as { title?: string }).title ?? "",
+    title: p.title ?? "",
     author: p.author,
     authorAgeRange: p.authorAgeRange ?? "",
     homeCity: p.homeCity ?? "",
@@ -82,6 +123,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     likeCount: p.likeCount,
     destination: p.destination ?? undefined,
     isHelpfulByMe: false,
+    imageUrls: p.imageUrls,
   }));
 
   const bewares = filteredBewares.map((b) => ({
