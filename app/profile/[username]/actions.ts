@@ -35,6 +35,28 @@ export async function updateSegmentField(patch: Record<string, unknown>) {
   revalidatePath("/profile");
 }
 
+export async function reportUser(
+  reportedUserId: string,
+  reason: string,
+  details: string,
+) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { error: "Not logged in" };
+  if (user.id === reportedUserId) return { error: "Cannot report yourself." };
+
+  const { error } = await supabase.from("user_reports").insert({
+    reported_user_id: reportedUserId,
+    reported_by_id: user.id,
+    reason,
+    details: details.trim() || null,
+  });
+
+  if (error?.code === "23505") return { error: "You've already reported this user." };
+  if (error) return { error: error.message };
+  return { success: true };
+}
+
 export async function toggleSavedDestination(slug: string, currentlySaved: boolean) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();

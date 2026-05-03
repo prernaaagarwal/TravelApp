@@ -37,6 +37,46 @@ export async function promoteToModerator(targetUserId: string) {
   return;
 }
 
+export async function deactivateUser(targetUserId: string) {
+  const callerId = await requireAdmin();
+  if (targetUserId === callerId) return { error: "Cannot deactivate your own account." };
+
+  const supabase = await createClient();
+  const now = new Date().toISOString();
+
+  const { error } = await supabase
+    .from("profiles")
+    .update({ deleted_at: now })
+    .eq("id", targetUserId);
+
+  if (error) return { error: error.message };
+
+  // Mark all their pending flags as reviewed
+  await supabase
+    .from("user_reports")
+    .update({ status: "reviewed", reviewed_by: callerId, reviewed_at: now })
+    .eq("reported_user_id", targetUserId)
+    .eq("status", "pending");
+
+  revalidatePath("/admin");
+  return {};
+}
+
+export async function dismissUserFlags(targetUserId: string) {
+  await requireAdmin();
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  await supabase
+    .from("user_reports")
+    .update({ status: "dismissed", reviewed_by: user!.id, reviewed_at: new Date().toISOString() })
+    .eq("reported_user_id", targetUserId)
+    .eq("status", "pending");
+
+  revalidatePath("/admin");
+  return {};
+}
+
 export async function revokeRole(targetUserId: string) {
   const callerId = await requireAdmin();
 

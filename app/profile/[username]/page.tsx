@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ProfileEditClient } from "./ProfileEditClient";
 import { MyReports } from "@/components/profile/MyReports";
+import { ReportUserButton } from "@/components/profile/ReportUserButton";
 import { CITY_LABELS, WORRY_LABELS, BADGE_META, TRIP_LABELS } from "@/lib/constants";
 import type { Segment, Badge, SavedDestRow, IntelCardRow } from "@/types";
 
@@ -384,6 +385,16 @@ export default async function ProfilePage({
                 created_at: r.created_at,
                 reviewed_at: r.reviewed_at ?? null,
               }))}
+            />
+          </div>
+        )}
+
+        {/* ── Report user (non-owner, logged-in only) ──── */}
+        {!isOwner && viewer && (
+          <div className="flex justify-end px-1">
+            <ReportUserButton
+              reportedUserId={profile.id}
+              reportedName={displayName}
             />
           </div>
         )}
