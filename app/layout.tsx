@@ -3,7 +3,7 @@ import { Cormorant_Garamond, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/shared/Header";
 import { Footer } from "@/components/shared/Footer";
-import { MobileNav } from "@/components/shared/MobileNav";
+import { MobileNavWrapper } from "@/components/shared/MobileNavWrapper";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -48,7 +48,7 @@ export default function RootLayout({
         <Header />
         <div className="flex-1">{children}</div>
         <Footer />
-        <MobileNav />
+        <MobileNavWrapper />
         <script
           dangerouslySetInnerHTML={{
             __html: `if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}`,
