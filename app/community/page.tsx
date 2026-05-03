@@ -19,7 +19,7 @@ type SearchParams = Promise<{
   city?: string;
 }>;
 
-const VALID_TABS = new Set(["ask", "experiences", "beware", "search"]);
+const VALID_TABS = new Set(["ask", "experiences", "beware"]);
 const VALID_SORTS = new Set(["newest", "oldest", "popular"]);
 
 export default async function CommunityPage({ searchParams }: { searchParams: SearchParams }) {
@@ -114,8 +114,9 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
           but actually useful.
         </h1>
         <p className="font-mono text-sm leading-relaxed text-ww-muted">
-          1,200 solo women travelers. Real questions, real answers, zero
-          mansplaining.
+          Ask anything. Share what happened. Flag what others need to know.
+          A women-only space where real travelers answer real questions — fast,
+          honest, no filters.
         </p>
       </div>
 

@@ -317,11 +317,11 @@ export function ReceiptsClient({
 
                   <button
                     disabled
-                    className="flex cursor-not-allowed items-center gap-2 border border-ww-border/40 px-3 py-1.5 font-mono text-[10px] text-ww-muted/50"
+                    className="flex cursor-not-allowed items-center gap-2 border border-ww-border px-3 py-1.5 font-mono text-[10px] text-ww-muted"
                     title="Coming soon"
                   >
                     Help me plan my trip
-                    <span className="rounded bg-ww-border/30 px-1.5 py-0.5 text-[8px] uppercase tracking-widest">
+                    <span className="rounded bg-ww-border/60 px-1.5 py-0.5 text-[8px] uppercase tracking-widest text-ink/60">
                       Coming soon
                     </span>
                   </button>

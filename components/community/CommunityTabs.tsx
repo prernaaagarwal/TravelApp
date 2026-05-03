@@ -28,6 +28,7 @@ type Post = {
   likeCount: number;
   destination?: string;
   isHelpfulByMe: boolean;
+  imageUrls?: string[];
 };
 
 type Beware = {
@@ -57,31 +58,18 @@ const TAB_META = {
     short: "Ask",
     placeholder: "What do you want to know?",
     cta: "Ask a question",
-    blurb:
-      "Get advice from women who've traveled where you're headed — including locals who actually live there. No judgment, no mansplaining.",
   },
   experiences: {
     label: "Real experiences",
     short: "Stories",
     placeholder: "Tell it like it actually happened.",
     cta: "Share your experience",
-    blurb:
-      "Travel is hard. Solo female travel is harder. Share what really happened on your trip — without a single 'well, actually'.",
   },
   beware: {
     label: "Beware Board",
     short: "Beware",
     placeholder: "Report a scam or safety issue",
     cta: "Report a scam",
-    blurb:
-      "Verified scam reports from solo women. Reviewed before going live.",
-  },
-  search: {
-    label: "Search",
-    short: "Search",
-    placeholder: "Search posts and reports…",
-    cta: "",
-    blurb: "Search across all questions, stories, and beware reports by any word or phrase.",
   },
 } as const;
 
@@ -119,6 +107,7 @@ export function CommunityTabs({
   const params = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [visible, setVisible] = useState(10);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const updateQuery = useCallback(
     (patch: Record<string, string | null>) => {
@@ -136,6 +125,8 @@ export function CommunityTabs({
   );
 
   const active = (TAB_META as Record<string, unknown>)[activeTab] ? (activeTab as TabKey) : "ask";
+  const q = searchQuery.trim().toLowerCase();
+  const isSearching = q.length >= 2;
   const tabPosts = posts.filter((p) => p.tab === active);
   const visiblePosts = tabPosts.slice(0, visible);
   const visibleBewares = bewares.slice(0, visible);
@@ -148,7 +139,28 @@ export function CommunityTabs({
   const intlEntry = INTERNATIONAL_COUNTRIES.find((c) => c.slug === intlCountry);
 
   return (
-    <Tabs value={active} onValueChange={(v) => updateQuery({ tab: v })}>
+    <div>
+      {/* Persistent search bar */}
+      <div className="relative mb-4">
+        <input
+          type="search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search questions, stories, scam reports…"
+          className="w-full border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-sm text-ink placeholder:text-ww-muted/50 focus:border-ink focus:outline-none"
+        />
+        {searchQuery && (
+          <button
+            onClick={() => setSearchQuery("")}
+            className="absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs text-ww-muted hover:text-ink"
+            aria-label="Clear search"
+          >
+            ✕
+          </button>
+        )}
+      </div>
+
+    <Tabs value={active} onValueChange={(v) => { setSearchQuery(""); updateQuery({ tab: v }); }}>
       <TabsList className="mb-2 w-full justify-start gap-1 overflow-x-auto bg-transparent p-0">
         {(Object.keys(TAB_META) as TabKey[]).map((key) => (
           <TabsTrigger
@@ -256,81 +268,82 @@ export function CommunityTabs({
         )}
       </div>
 
-      {(Object.keys(TAB_META) as TabKey[]).map((key) => {
-        const meta = TAB_META[key];
-        return (
-          <TabsContent key={key} value={key} className="mt-6">
-            <p className="mb-6 max-w-2xl font-mono text-xs leading-relaxed text-ww-muted">
-              {meta.blurb}
-            </p>
-
-            {key === "search" ? (
-              <SearchPane posts={posts} bewares={bewares} userEmail={userEmail} />
-            ) : key === "beware" ? (
-              <>
-                <Link
-                  href={userEmail ? "/contribute/report" : "/account/login?next=/contribute/report"}
-                  className="mb-6 flex items-center justify-between border border-dashed border-rust/40 bg-rust/5 px-4 py-3 hover:border-rust transition-colors"
-                >
-                  <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
-                    {meta.cta} →
-                  </span>
-                </Link>
-                <BewareList bewares={visibleBewares} userEmail={userEmail} />
-                {visibleBewares.length === 0 && (
-                  <p className="py-12 text-center font-mono text-xs text-ww-muted">
-                    No reports match these filters.
-                  </p>
-                )}
-                {bewares.length > visible && (
-                  <button
-                    onClick={() => setVisible((v) => v + 10)}
-                    className="mt-6 w-full border border-ww-border bg-sand py-3 font-mono text-xs uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors"
-                  >
-                    Load more reports
-                  </button>
-                )}
-              </>
-            ) : (
-              <>
-                {userEmail ? (
-                  <ComposeForm tab={key} placeholder={meta.placeholder} cta={meta.cta} />
-                ) : (
+      {isSearching ? (
+        <div className="mt-6">
+          <SearchPane posts={posts} bewares={bewares} userEmail={userEmail} query={q} />
+        </div>
+      ) : (
+        (Object.keys(TAB_META) as TabKey[]).map((key) => {
+          const meta = TAB_META[key];
+          return (
+            <TabsContent key={key} value={key} className="mt-6">
+              {key === "beware" ? (
+                <>
                   <Link
-                    href="/account/login?next=/community"
-                    className="mb-6 flex items-center justify-between border border-dashed border-ww-border bg-sand px-4 py-3 hover:border-ink transition-colors"
+                    href={userEmail ? "/contribute/report" : "/account/login?next=/contribute/report"}
+                    className="mb-6 flex items-center justify-between border border-dashed border-rust/40 bg-rust/5 px-4 py-3 hover:border-rust transition-colors"
                   >
                     <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
-                      Sign in to post →
+                      {meta.cta} →
                     </span>
                   </Link>
-                )}
-                <div className="space-y-3">
-                  {visiblePosts.map((post) => (
-                    <PostCard key={post.id} post={post} userEmail={userEmail} />
-                  ))}
-                  {visiblePosts.length === 0 && (
+                  <BewareList bewares={visibleBewares} userEmail={userEmail} />
+                  {visibleBewares.length === 0 && (
                     <p className="py-12 text-center font-mono text-xs text-ww-muted">
-                      No posts match these filters.
+                      No reports match these filters.
                     </p>
                   )}
-                </div>
-                {tabPosts.length > visible && (
-                  <button
-                    onClick={() => setVisible((v) => v + 10)}
-                    className="mt-6 w-full border border-ww-border bg-sand py-3 font-mono text-xs uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors"
-                  >
-                    Load more posts
-                  </button>
-                )}
-              </>
-            )}
-          </TabsContent>
-        );
-      })}
+                  {bewares.length > visible && (
+                    <button
+                      onClick={() => setVisible((v) => v + 10)}
+                      className="mt-6 w-full border border-ww-border bg-sand py-3 font-mono text-xs uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors"
+                    >
+                      Load more reports
+                    </button>
+                  )}
+                </>
+              ) : (
+                <>
+                  {userEmail ? (
+                    <ComposeForm tab={key} placeholder={meta.placeholder} cta={meta.cta} />
+                  ) : (
+                    <Link
+                      href="/account/login?next=/community"
+                      className="mb-6 flex items-center justify-between border border-dashed border-ww-border bg-sand px-4 py-3 hover:border-ink transition-colors"
+                    >
+                      <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
+                      <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
+                        Sign in to post →
+                      </span>
+                    </Link>
+                  )}
+                  <div className="space-y-3">
+                    {visiblePosts.map((post) => (
+                      <PostCard key={post.id} post={post} userEmail={userEmail} />
+                    ))}
+                    {visiblePosts.length === 0 && (
+                      <p className="py-12 text-center font-mono text-xs text-ww-muted">
+                        No posts match these filters.
+                      </p>
+                    )}
+                  </div>
+                  {tabPosts.length > visible && (
+                    <button
+                      onClick={() => setVisible((v) => v + 10)}
+                      className="mt-6 w-full border border-ww-border bg-sand py-3 font-mono text-xs uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors"
+                    >
+                      Load more posts
+                    </button>
+                  )}
+                </>
+              )}
+            </TabsContent>
+          );
+        })
+      )}
     </Tabs>
+    </div>
   );
 }
 
@@ -521,6 +534,18 @@ function PostCard({ post, userEmail }: { post: Post; userEmail: string | null })
 
       <p className="mb-3 text-sm leading-relaxed text-ink">{post.content}</p>
 
+      {post.imageUrls && post.imageUrls.length > 0 && (
+        <div className="mb-3 grid grid-cols-3 gap-1.5">
+          {post.imageUrls.slice(0, 3).map((url, i) => (
+            <a key={i} href={url} target="_blank" rel="noopener noreferrer">
+              <div className="relative aspect-square overflow-hidden border border-ww-border">
+                <Image src={url} alt="" fill className="object-cover hover:opacity-90 transition-opacity" />
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+
       <div className="flex flex-wrap items-center gap-3 border-t border-ww-border pt-3">
         {post.destination && (
           <Link
@@ -633,107 +658,82 @@ function SearchPane({
   posts,
   bewares,
   userEmail,
+  query,
 }: {
   posts: Post[];
   bewares: Beware[];
   userEmail: string | null;
+  query: string;
 }) {
-  const [query, setQuery] = useState("");
-  const q = query.trim().toLowerCase();
-  const active = q.length >= 2;
+  const questions = posts.filter(
+    (p) =>
+      p.tab === "ask" &&
+      (p.title.toLowerCase().includes(query) ||
+        p.content.toLowerCase().includes(query) ||
+        p.author.toLowerCase().includes(query) ||
+        (p.destination ?? "").toLowerCase().includes(query)),
+  );
 
-  const matchedQuestions = active
-    ? posts.filter(
-        (p) =>
-          p.tab === "ask" &&
-          (p.title.toLowerCase().includes(q) ||
-            p.content.toLowerCase().includes(q) ||
-            p.author.toLowerCase().includes(q) ||
-            (p.destination ?? "").toLowerCase().includes(q)),
-      )
-    : [];
+  const stories = posts.filter(
+    (p) =>
+      p.tab === "experiences" &&
+      (p.title.toLowerCase().includes(query) ||
+        p.content.toLowerCase().includes(query) ||
+        p.author.toLowerCase().includes(query) ||
+        (p.destination ?? "").toLowerCase().includes(query)),
+  );
 
-  const matchedStories = active
-    ? posts.filter(
-        (p) =>
-          p.tab === "experiences" &&
-          (p.title.toLowerCase().includes(q) ||
-            p.content.toLowerCase().includes(q) ||
-            p.author.toLowerCase().includes(q) ||
-            (p.destination ?? "").toLowerCase().includes(q)),
-      )
-    : [];
+  const reports = bewares.filter(
+    (b) =>
+      b.title.toLowerCase().includes(query) ||
+      b.description.toLowerCase().includes(query) ||
+      b.city.toLowerCase().includes(query) ||
+      b.location.toLowerCase().includes(query) ||
+      b.category.toLowerCase().includes(query),
+  );
 
-  const matchedBewares = active
-    ? bewares.filter(
-        (b) =>
-          b.title.toLowerCase().includes(q) ||
-          b.description.toLowerCase().includes(q) ||
-          b.city.toLowerCase().includes(q) ||
-          b.location.toLowerCase().includes(q) ||
-          b.category.toLowerCase().includes(q),
-      )
-    : [];
+  const total = questions.length + stories.length + reports.length;
 
-  const total = matchedQuestions.length + matchedStories.length + matchedBewares.length;
+  if (total === 0) {
+    return (
+      <p className="py-12 text-center font-mono text-xs text-ww-muted">Nothing found.</p>
+    );
+  }
 
   return (
-    <div>
-      <div className="relative mb-2">
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="e.g. Goa scooter, Rishikesh safety, solo at night…"
-          autoFocus
-          className="w-full border border-ww-border bg-warm-white px-4 py-3 font-mono text-sm text-ink placeholder:text-ww-muted/60 focus:border-ink focus:outline-none"
-        />
-      </div>
-
-      <p className="mb-6 font-mono text-[10px] text-ww-muted">
-        {q.length === 0 && "Type at least 2 characters to search across all posts and scam reports."}
-        {q.length === 1 && "Keep typing…"}
-        {active && `${total} result${total !== 1 ? "s" : ""} for "${query}"`}
-      </p>
-
-      {active && total === 0 && (
-        <p className="py-12 text-center font-mono text-xs text-ww-muted">
-          No results found. Try different keywords.
-        </p>
-      )}
-
-      {matchedQuestions.length > 0 && (
-        <div className="mb-8">
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-            Questions · {matchedQuestions.length}
-          </p>
-          <div className="space-y-3">
-            {matchedQuestions.map((post) => (
-              <PostCard key={post.id} post={post} userEmail={userEmail} />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {matchedStories.length > 0 && (
-        <div className="mb-8">
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-            Stories · {matchedStories.length}
-          </p>
-          <div className="space-y-3">
-            {matchedStories.map((post) => (
-              <PostCard key={post.id} post={post} userEmail={userEmail} />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {matchedBewares.length > 0 && (
+    <div className="space-y-8">
+      {questions.length > 0 && (
         <div>
           <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-            Beware reports · {matchedBewares.length}
+            Questions · {questions.length}
           </p>
-          <BewareList bewares={matchedBewares} userEmail={userEmail} />
+          <div className="space-y-3">
+            {questions.map((post) => (
+              <PostCard key={post.id} post={post} userEmail={userEmail} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {stories.length > 0 && (
+        <div>
+          <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+            Stories · {stories.length}
+          </p>
+          <div className="space-y-3">
+            {stories.map((post) => (
+              <PostCard key={post.id} post={post} userEmail={userEmail} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {reports.length > 0 && (
+        <div>
+          <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+            Beware reports · {reports.length}
+          </p>
+          <BewareList bewares={reports} userEmail={userEmail} />
         </div>
       )}
     </div>
