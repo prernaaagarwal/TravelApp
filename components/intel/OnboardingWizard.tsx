@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { updateSegment, completeProfile } from "@/app/onboarding/actions";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
+import { AGE_OPTIONS } from "@/lib/constants";
 
 type Destination = { slug: string; label: string; country: string };
 
@@ -12,13 +13,6 @@ const NEED_OPTIONS = [
   { value: "buddy",     label: "Find a travel buddy",      emoji: "👯" },
   { value: "warnings",  label: "Report or read warnings",  emoji: "⚠️" },
   { value: "budget",    label: "Plan my budget",           emoji: "💰" },
-];
-
-const AGE_OPTIONS = [
-  { value: "18-24", label: "18–24" },
-  { value: "25-32", label: "25–32" },
-  { value: "33-40", label: "33–40" },
-  { value: "40+",   label: "40+" },
 ];
 
 export function OnboardingWizard({
