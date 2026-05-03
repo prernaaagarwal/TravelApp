@@ -43,7 +43,13 @@ const AGE_OPTIONS = [
   { value: "40+",   label: "40+" },
 ];
 
-export function OnboardingWizard({ needsProfileSetup = false }: { needsProfileSetup?: boolean }) {
+export function OnboardingWizard({
+  needsProfileSetup = false,
+  region = "all",
+}: {
+  needsProfileSetup?: boolean;
+  region?: "india" | "foreign" | "all";
+}) {
   const router = useRouter();
   // Step indexing: if needsProfileSetup, step 0 = profile, step 1 = destination, step 2 = need
   // Otherwise: step 0 = destination, step 1 = need
@@ -64,14 +70,20 @@ export function OnboardingWizard({ needsProfileSetup = false }: { needsProfileSe
   const [instagram, setInstagram] = useState("");
   const [profileError, setProfileError] = useState("");
 
+  // Filter by region (from hero CTAs); "all" = no filter (Priya/Sara cards)
+  const regionScoped =
+    region === "india"   ? ALL_DESTINATIONS.filter((d) => d.country === "India") :
+    region === "foreign" ? ALL_DESTINATIONS.filter((d) => d.country !== "India") :
+    ALL_DESTINATIONS;
+
   const filtered =
     query.length > 0
-      ? ALL_DESTINATIONS.filter(
+      ? regionScoped.filter(
           (d) =>
             d.label.toLowerCase().includes(query.toLowerCase()) ||
             d.country.toLowerCase().includes(query.toLowerCase())
         )
-      : ALL_DESTINATIONS;
+      : regionScoped;
 
   function selectDestination(slug: string) {
     const dest = ALL_DESTINATIONS.find((d) => d.slug === slug);

@@ -207,13 +207,13 @@ export default function HomePage() {
             style={{ animationDelay: "0.9s" }}
           >
             <Link
-              href="/onboarding?path=indian"
+              href="/onboarding?region=india"
               className="inline-flex items-center justify-center gap-2 bg-rust px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
             >
               Travel India <span aria-hidden>→</span>
             </Link>
             <Link
-              href="/onboarding?path=foreign"
+              href="/onboarding?region=foreign"
               className="inline-flex items-center justify-center gap-2 border border-warm-white/50 px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-colors hover:bg-warm-white/10"
             >
               Travel Outside India <span aria-hidden>→</span>

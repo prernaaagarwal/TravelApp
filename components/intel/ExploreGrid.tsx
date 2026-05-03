@@ -28,10 +28,9 @@ type Props = {
 };
 
 const FILTERS = [
-  { label: "All", value: "all" },
-  { label: "India", value: "india" },
-  { label: "International", value: "international" },
-  { label: "For Foreign Women", value: "foreign" },
+  { label: "All",            value: "all" },
+  { label: "India",          value: "india" },
+  { label: "Outside India",  value: "international" },
 ] as const;
 
 type Filter = (typeof FILTERS)[number]["value"];
@@ -40,10 +39,9 @@ export function ExploreGrid({ cards, contributors }: Props) {
   const [active, setActive] = useState<Filter>("all");
 
   const filtered = cards.filter((c) => {
-    if (active === "all") return true;
-    if (active === "india") return c.country === "India";
+    if (active === "all")           return true;
+    if (active === "india")         return c.country === "India";
     if (active === "international") return c.country !== "India";
-    if (active === "foreign") return c.audience === "foreign";
     return true;
   });
 
