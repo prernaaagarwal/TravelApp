@@ -1,24 +1,32 @@
 import Link from "next/link";
 import Image from "next/image";
-import intelCards from "@/lib/mock-data/intel-cards.json";
-import contributors from "@/lib/mock-data/contributors.json";
+import { Shield, AlertTriangle, MapPin, Heart, Moon, Bus, ArrowRight, Star } from "lucide-react";
 import bewares from "@/lib/mock-data/beware-entries.json";
-import communityPosts from "@/lib/mock-data/community-posts.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
-
-// Persona slugs for the "Priya path" and "Sara path" onboarding cards.
-// Change here if contributors are renamed — nowhere else.
-const PRIYA_SLUG = "ananya-mumbai";
-const SARA_SLUG  = "sara-berlin";
 
 export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
 
-export default function HomePage() {
-  // pre-select data each section needs
-  const previewCards = intelCards.filter((c) =>
-    ["goa-india", "rishikesh-india", "jaipur-india"].includes(c.slug)
+function IntelRow({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}) {
+  return (
+    <div className="grid grid-cols-12 gap-4 py-4">
+      <div className="col-span-12 flex items-center gap-2.5 text-ink/70 sm:col-span-4">
+        <span className="text-rust">{icon}</span>
+        <span className="font-mono text-[10px] uppercase tracking-widest">{label}</span>
+      </div>
+      <div className="col-span-12 text-sm leading-relaxed text-ink sm:col-span-8">{value}</div>
+    </div>
   );
-  const askPosts = communityPosts.filter((p) => p.tab === "ask").slice(0, 3);
+}
+
+export default function HomePage() {
 
   return (
     <main>
@@ -115,165 +123,145 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Feature bento (Intel + Path + Community) ─────────────────── */}
-      <section id="features" className="bg-warm-white px-6 py-16">
-        <div className="mx-auto max-w-4xl">
-
-          <div className="mb-8">
-            <p className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
-              What&apos;s inside
-            </p>
-            <h2 className="font-serif text-3xl text-ink md:text-4xl">
-              Real intel. Your path. Your people.
-            </h2>
-            <p className="mt-3 max-w-xl font-mono text-sm leading-relaxed text-ww-muted">
-              Built on 7 years of solo travel in India — written by women,
-              verified by women, for women only.
+      {/* ── What's inside · 01 — Intel field report ───────────────── */}
+      <section id="features" className="relative w-full overflow-hidden bg-warm-white py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          {/* Section header */}
+          <div className="mb-16 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-px w-10 bg-rust" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/60">
+                  What&apos;s inside · 01
+                </span>
+              </div>
+              <h2 className="font-serif text-4xl leading-[0.95] text-ink text-balance md:text-6xl">
+                Not a listicle.
+                <br />
+                <span className="italic text-rust">A field report.</span>
+              </h2>
+            </div>
+            <p className="text-sm leading-relaxed text-ink/70 md:max-w-sm">
+              Every destination is a living dossier — written, rated and updated
+              by women who arrived last week, not last decade.
             </p>
           </div>
 
-          <div className="grid gap-3 md:grid-cols-3">
+          {/* The card */}
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-10">
+            {/* Left: image + meta */}
+            <div className="relative lg:col-span-5">
+              <div className="relative aspect-[4/5] overflow-hidden bg-ink/10">
+                <Image
+                  src="/images/intel-rishikesh.jpg"
+                  alt="Open travel journal with map of Rishikesh"
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
 
-            {/* ── Intel Cards — wide cell ── */}
-            <div className="overflow-hidden border border-ww-border bg-sand md:col-span-2">
-              {/* 3-city image strip */}
-              <div className="flex h-40 divide-x divide-ww-border">
-                {previewCards.map((c) => (
-                  <div key={c.slug} className="relative flex-1 overflow-hidden">
-                    <Image
-                      src={c.heroImageUrl}
-                      alt={c.destination}
-                      fill
-                      className="object-cover transition-transform duration-500 hover:scale-105"
-                    />
+                {/* Floating safety score */}
+                <div className="absolute left-5 top-5 border border-ink/5 bg-warm-white/95 px-4 py-3 backdrop-blur-sm">
+                  <div className="mb-1 font-mono text-[10px] uppercase tracking-widest text-ink/55">
+                    Safety · solo F
                   </div>
-                ))}
-              </div>
-              <div className="p-5">
-                <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">
-                  Trip Intel Cards
-                </p>
-                <p className="mb-2 font-serif text-xl text-ink">
-                  15 destinations. Every scam, gem, and neighbourhood rated.
-                </p>
-                <p className="mb-4 font-mono text-xs leading-relaxed text-ww-muted">
-                  Ground-truth intel from women who&apos;ve done each route 3+ times. Safety
-                  ratings, women-only stays, what every travel article gets wrong.
-                </p>
-                <Link
-                  href="/explore"
-                  className="font-mono text-[10px] uppercase tracking-widest text-rust hover:underline"
-                >
-                  Browse all destinations →
-                </Link>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-serif text-3xl leading-none text-ink">8.4</span>
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                      /10
+                    </span>
+                  </div>
+                  <div className="mt-1.5 flex gap-0.5">
+                    {[1, 2, 3, 4].map((i) => (
+                      <Star key={i} className="h-2.5 w-2.5 fill-rust text-rust" />
+                    ))}
+                    <Star className="h-2.5 w-2.5 fill-rust/30 text-rust/30" />
+                  </div>
+                </div>
+
+                {/* Bottom location strip */}
+                <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-warm-white">
+                  <div>
+                    <div className="mb-1 font-mono text-[10px] uppercase tracking-widest text-warm-white/70">
+                      Dossier · IND-014
+                    </div>
+                    <div className="font-serif text-3xl leading-none">Rishikesh</div>
+                    <div className="mt-2 font-mono text-[10px] uppercase tracking-widest text-warm-white/70">
+                      Updated 3 days ago · by Ananya M.
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* ── Your path — narrow cell ── */}
-            <div className="flex flex-col border border-ww-border bg-ink p-5">
-              <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-gold">
-                Your path
-              </p>
-              <p className="mb-5 font-serif text-lg leading-snug text-warm-white">
-                The intel is different.<br />Choose yours.
-              </p>
-              <div className="mt-auto space-y-2">
-                <Link
-                  href="/onboarding?path=indian"
-                  className="flex items-center gap-3 border border-warm-white/10 bg-warm-white/5 p-3 transition-colors hover:bg-warm-white/10"
-                >
-                  <Image
-                    src={contributors.find((c) => c.slug === PRIYA_SLUG)?.photoUrl ?? ""}
-                    alt="Priya"
-                    width={28}
-                    height={28}
-                    className="h-7 w-7 shrink-0 rounded-full object-cover"
-                  />
-                  <div>
-                    <p className="font-mono text-[9px] uppercase tracking-widest text-warm-white/40">
-                      Indian women
-                    </p>
-                    <p className="font-serif text-sm text-warm-white">The Priya path</p>
-                  </div>
-                </Link>
-                <Link
-                  href="/onboarding?path=foreign"
-                  className="flex items-center gap-3 border border-warm-white/10 bg-warm-white/5 p-3 transition-colors hover:bg-warm-white/10"
-                >
-                  <Image
-                    src={contributors.find((c) => c.slug === SARA_SLUG)?.photoUrl ?? ""}
-                    alt="Sara"
-                    width={28}
-                    height={28}
-                    className="h-7 w-7 shrink-0 rounded-full object-cover"
-                  />
-                  <div>
-                    <p className="font-mono text-[9px] uppercase tracking-widest text-gold/60">
-                      Foreign women
-                    </p>
-                    <p className="font-serif text-sm text-warm-white">The Sara path</p>
-                  </div>
-                </Link>
+            {/* Right: intel content */}
+            <div className="lg:col-span-7 lg:pl-4">
+              {/* Tab pills */}
+              <div className="mb-8 flex flex-wrap gap-2 font-mono text-[10px] uppercase tracking-widest">
+                <span className="bg-ink px-3 py-1.5 text-warm-white">Safety</span>
+                <span className="border border-ink/15 px-3 py-1.5 text-ink/60">Stay</span>
+                <span className="border border-ink/15 px-3 py-1.5 text-ink/60">Eat</span>
+                <span className="border border-ink/15 px-3 py-1.5 text-ink/60">Move</span>
+                <span className="border border-ink/15 px-3 py-1.5 text-ink/60">Period kit</span>
               </div>
-            </div>
 
-            {/* ── Community — full-width bottom cell ── */}
-            <div className="border border-ww-border bg-sand p-5 md:col-span-3">
-              <div className="mb-4 flex items-center justify-between">
-                <div>
-                  <p className="mb-0.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-                    Community
-                  </p>
-                  <p className="font-serif text-lg text-ink">
-                    Women asking the real questions.
-                  </p>
+              {/* Warning callout */}
+              <div className="mb-8 border-l-2 border-rust py-1 pl-5">
+                <div className="mb-2 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-rust">
+                  <AlertTriangle className="h-3.5 w-3.5" />
+                  Real warning · flagged by 12 women
+                </div>
+                <p className="font-serif text-2xl leading-snug text-ink text-balance md:text-3xl">
+                  &ldquo;Avoid Lakshman Jhula bridge after 9pm.
+                  Groups of men, no police, zero lighting.
+                  Walk the Ram Jhula side instead.&rdquo;
+                </p>
+              </div>
+
+              {/* Intel rows */}
+              <div className="divide-y divide-ink/10 border-y border-ink/10">
+                <IntelRow
+                  icon={<Shield className="h-4 w-4" />}
+                  label="Solo arrival"
+                  value="Land before 4pm. Pre-book Ola from Dehradun airport — ₹1,800. Don&apos;t take touts."
+                />
+                <IntelRow
+                  icon={<Heart className="h-4 w-4" />}
+                  label="Period supplies"
+                  value="Whisper / Stayfree at More Megastore (Tapovan). Cups: only Apollo Pharmacy, Haridwar Rd."
+                />
+                <IntelRow
+                  icon={<MapPin className="h-4 w-4" />}
+                  label="Female-run stay"
+                  value="Zostel Plus (women dorm, ₹650) · Ganga Beach House (Anjali, host) ₹2,400"
+                />
+                <IntelRow
+                  icon={<Moon className="h-4 w-4" />}
+                  label="Night curfew"
+                  value="Most ashrams lock 10pm. Cafes shut 9:30pm. Plan dinner accordingly."
+                />
+                <IntelRow
+                  icon={<Bus className="h-4 w-4" />}
+                  label="Overnight train"
+                  value="Avoid sleeper. 3AC coach B2 berth 31-40 — closest to TTE, safest for solo F."
+                />
+              </div>
+
+              {/* Footer CTA */}
+              <div className="mt-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                <div className="font-mono text-[10px] uppercase tracking-widest text-ink/55">
+                  + 47 more intel points in this dossier
                 </div>
                 <Link
-                  href="/community"
-                  className="hidden font-mono text-[10px] uppercase tracking-widest text-rust hover:underline sm:block"
+                  href="/intel/rishikesh-india"
+                  className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-rust transition-colors hover:text-rust/80"
                 >
-                  Join the conversation →
-                </Link>
-              </div>
-              <div className="grid gap-2 sm:grid-cols-3">
-                {askPosts.map((post) => (
-                  <Link
-                    key={post.id}
-                    href="/community"
-                    className="border border-ww-border bg-warm-white p-4 transition-shadow hover:shadow-sm"
-                  >
-                    <div className="mb-2 flex items-center gap-2">
-                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-rust-light font-mono text-xs font-semibold text-rust">
-                        {post.author[0]}
-                      </div>
-                      <span className="font-mono text-[10px] font-semibold text-ink">
-                        {post.author}
-                      </span>
-                      {post.destination && (
-                        <span className="rounded-full bg-blue-light px-1.5 py-0.5 font-mono text-[8px] text-blue">
-                          {post.destination.replace("-india", "").replace("-", " ")}
-                        </span>
-                      )}
-                    </div>
-                    <p className="line-clamp-2 text-xs leading-relaxed text-ww-muted">
-                      {post.content}
-                    </p>
-                    <p className="mt-2 font-mono text-[9px] text-ww-muted">
-                      {post.replyCount} replies · {post.likeCount} found this helpful
-                    </p>
-                  </Link>
-                ))}
-              </div>
-              <div className="mt-4 sm:hidden">
-                <Link
-                  href="/community"
-                  className="font-mono text-[10px] uppercase tracking-widest text-rust hover:underline"
-                >
-                  Join the conversation →
+                  Open full Rishikesh dossier
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>
-
           </div>
         </div>
       </section>
