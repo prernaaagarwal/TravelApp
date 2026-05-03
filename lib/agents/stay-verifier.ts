@@ -1,4 +1,4 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { spawn } from "node:child_process";
 
 export type RiskColor = "green" | "yellow" | "red";
 
@@ -21,8 +21,8 @@ const SYSTEM_PROMPT = `You are a travel safety research agent for Wander Women, 
 Your job: research a specific booking listing and produce a concise, evidence-based safety verdict.
 
 Process:
-1. Use web_fetch on the booking URL itself to read the listing's title, host details, reviews, and policies (some platforms may block — that's fine, fall back to search).
-2. Use web_search to look for: "[property name] reviews scam", "[property name] [city] complaints", "[city] [platform] tourist scams", "[city] solo female traveller safety reddit".
+1. Use WebFetch on the booking URL itself to read the listing's title, host details, reviews, and policies (some platforms may block — that's fine, fall back to search).
+2. Use WebSearch to look for: "[property name] reviews scam", "[property name] [city] complaints", "[city] [platform] tourist scams", "[city] solo female traveller safety reddit".
 3. Look for hidden negative signals on Reddit, TripAdvisor, travel forums — places where unhappy guests complain when official reviews are filtered.
 4. Cross-reference the destination's known scam patterns for this platform.
 
@@ -33,7 +33,7 @@ Color scale:
 - yellow = some concerns or general destination risks; proceed with verification steps
 - red = significant scam reports, safety risks, fake-listing signals, or major host-related complaints
 
-Output ONLY a single JSON object with this exact shape (no markdown, no preamble, no closing remarks):
+Output ONLY a single JSON object with this exact shape (no markdown fences, no preamble, no closing remarks):
 
 {
   "color": "green" | "yellow" | "red",
@@ -69,22 +69,13 @@ function mockVerification(): StayVerification {
     color: "yellow",
     verdict: "Verify host before booking",
     reasons: [
-      "No major scam reports surfaced for this specific listing in initial research",
+      "Claude CLI was unavailable — research could not run",
       "Standard solo-traveller verification recommended for any new booking",
       "Confirm host identity via video call before transferring funds",
       "Cross-check the property address on Google Maps Street View",
     ],
     sources: [],
   };
-}
-
-type ContentBlock = Anthropic.Messages.ContentBlock;
-
-function extractFinalText(content: ContentBlock[]): string {
-  const textBlocks = content.filter(
-    (b): b is Anthropic.Messages.TextBlock => b.type === "text"
-  );
-  return textBlocks[textBlocks.length - 1]?.text?.trim() ?? "";
 }
 
 function parseAgentJson(text: string): StayVerification {
@@ -118,30 +109,70 @@ function parseAgentJson(text: string): StayVerification {
   };
 }
 
+const CLI_BINARY = process.env.CLAUDE_CLI_PATH ?? "claude";
+const CLI_TIMEOUT_MS = 120_000;
+
+type CliJsonResult = { result?: string; is_error?: boolean };
+
+async function runClaudeCli(system: string, user: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const proc = spawn(
+      CLI_BINARY,
+      [
+        "-p", user,
+        "--system-prompt", system,
+        "--allowed-tools", "WebSearch,WebFetch",
+        "--output-format", "json",
+      ],
+      { stdio: ["ignore", "pipe", "pipe"] }
+    );
+
+    let stdout = "";
+    let stderr = "";
+
+    const timeout = setTimeout(() => {
+      proc.kill("SIGKILL");
+      reject(new Error(`claude CLI timed out after ${CLI_TIMEOUT_MS / 1000}s`));
+    }, CLI_TIMEOUT_MS);
+
+    proc.stdout.on("data", (d: Buffer) => { stdout += d.toString(); });
+    proc.stderr.on("data", (d: Buffer) => { stderr += d.toString(); });
+
+    proc.on("error", (err) => {
+      clearTimeout(timeout);
+      reject(new Error(`claude CLI failed to start: ${err.message}`));
+    });
+
+    proc.on("close", (code) => {
+      clearTimeout(timeout);
+      if (code !== 0) {
+        reject(new Error(`claude CLI exited ${code}: ${stderr.slice(0, 500)}`));
+        return;
+      }
+      try {
+        const parsed: CliJsonResult = JSON.parse(stdout);
+        if (parsed.is_error) {
+          reject(new Error(`claude CLI returned error: ${stdout.slice(0, 500)}`));
+          return;
+        }
+        if (typeof parsed.result !== "string") {
+          reject(new Error("claude CLI output missing 'result' field"));
+          return;
+        }
+        resolve(parsed.result);
+      } catch {
+        reject(new Error(`claude CLI returned non-JSON: ${stdout.slice(0, 300)}`));
+      }
+    });
+  });
+}
+
 export async function verifyStay(input: VerifyStayInput): Promise<StayVerification> {
-  if (!process.env.ANTHROPIC_API_KEY) {
+  try {
+    const finalText = await runClaudeCli(SYSTEM_PROMPT, userPrompt(input));
+    return parseAgentJson(finalText);
+  } catch (err) {
+    console.error("[verifyStay] CLI agent failed, returning mock:", err);
     return mockVerification();
   }
-
-  const client = new Anthropic();
-
-  const response = await client.messages.create({
-    model: "claude-opus-4-7",
-    max_tokens: 4096,
-    system: [
-      {
-        type: "text",
-        text: SYSTEM_PROMPT,
-        cache_control: { type: "ephemeral" },
-      },
-    ],
-    tools: [
-      { type: "web_search_20260209", name: "web_search", max_uses: 5 },
-      { type: "web_fetch_20260209", name: "web_fetch", max_uses: 2 },
-    ],
-    messages: [{ role: "user", content: userPrompt(input) }],
-  });
-
-  const finalText = extractFinalText(response.content);
-  return parseAgentJson(finalText);
 }
