@@ -86,7 +86,68 @@ Focus on risks specific to solo women travellers: personal safety, scam patterns
 destination-specific hazards, and verification steps. Be direct and practical.
 `;
 
+function mockAnalysis(input: StayInput): AnalysisResult {
+  const platformScores: Record<string, number> = {
+    airbnb: 8, booking: 7, agoda: 7, makemytrip: 6,
+    hostelworld: 7, vrbo: 7, hotels: 7, expedia: 8, unknown: 5,
+  };
+  return {
+    risk_level: "medium",
+    risk_summary: `This ${input.platform} listing appears generally legitimate but warrants standard verification steps before booking — particularly around host identity and payment channel.`,
+    platform_trust_score: platformScores[input.platform] ?? 6,
+    sections: [
+      {
+        id: "authenticity",
+        label: "Listing Authenticity",
+        verdict: "Appears genuine",
+        detail: `${input.platform.charAt(0).toUpperCase() + input.platform.slice(1)} listings go through basic identity verification, but photo accuracy and location claims can vary. Cross-check the address on Google Maps Street View before booking. Look for consistent reviewer profiles and verified host badges.`,
+        flags: [],
+      },
+      {
+        id: "scam_patterns",
+        label: "Known Scam Patterns",
+        verdict: "Watch for off-platform contact",
+        detail: `Common scams on ${input.platform} include hosts requesting payment outside the platform, bait-and-switch listings where photos don't match the actual property, and fake "maintenance closed" messages redirecting you to wire transfers. Always pay through the platform — never via bank transfer or WhatsApp.`,
+        flags: ["Off-platform payment requests", "Bait-and-switch photos"],
+      },
+      {
+        id: "host_signals",
+        label: "Host & Property Signals",
+        verdict: "Verify before trusting",
+        detail: "Check when the host joined the platform and how many completed stays they have. New accounts with limited reviews are higher risk. Look for a response rate above 90% and a response time under 1 hour — hosts who ghost questions before booking often ghost problems after check-in too.",
+        flags: [],
+      },
+      {
+        id: "neighborhood",
+        label: "Neighbourhood Safety",
+        verdict: "Research the area",
+        detail: "Safety varies significantly by neighbourhood within the same city. Use Google Maps to check the exact address, look up the area on local expat forums, and verify the nearest well-lit transit stop. Solo women should prioritise central, walkable neighbourhoods with 24-hour reception options.",
+        flags: ["Verify exact address before booking"],
+      },
+      {
+        id: "action_checklist",
+        label: "Before You Book",
+        verdict: null,
+        detail: null,
+        flags: [
+          "Video call the host to confirm they have physical access to the property",
+          "Verify the street address exists on Google Maps Street View",
+          "Read all reviews under 3 stars — look for patterns",
+          "Confirm check-in method (keybox, in-person, 24h desk) before committing",
+          "Screenshot the listing in case it changes after booking",
+          "Check the cancellation policy matches your travel dates",
+          "Save the platform's customer support number before you travel",
+        ],
+      },
+    ],
+  };
+}
+
 export async function analyzeStay(input: StayInput): Promise<AnalysisResult> {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return mockAnalysis(input);
+  }
+
   const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
   const response = await client.messages.create({
