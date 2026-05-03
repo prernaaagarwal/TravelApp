@@ -114,7 +114,7 @@ export async function Header() {
                 size="sm"
                 className="bg-rust text-warm-white hover:bg-rust/90"
               >
-                <Link href="/account/membership">Join</Link>
+                <Link href="/account/signup">Join</Link>
               </Button>
             </>
           )}
