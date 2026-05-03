@@ -2,7 +2,13 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { verifyStaySchema } from "@/lib/schemas";
-import { analyzeStay } from "@/lib/claude";
+import { verifyStay, type RiskColor } from "@/lib/agents/stay-verifier";
+
+const COLOR_TO_RISK_LEVEL: Record<RiskColor, "low" | "medium" | "high"> = {
+  green: "low",
+  yellow: "medium",
+  red: "high",
+};
 
 const PLATFORM_MAP: Record<string, string> = {
   "airbnb.com": "airbnb",
@@ -116,30 +122,30 @@ export async function submitStayVerification(
 
   const id = row.id;
 
-  // Fetch page metadata (best-effort, 8s timeout)
-  const { propertyName, ogDescription } = await fetchPageMeta(booking_url);
+  // Fetch page metadata (best-effort, 8s timeout) — useful for the property name
+  // even if the agent's web_fetch is blocked by the booking site.
+  const { propertyName } = await fetchPageMeta(booking_url);
 
-  // Attempt AI analysis
   try {
-    const analysis = await analyzeStay({
+    const verification = await verifyStay({
       url: booking_url,
       platform,
       propertyName,
       city: null,
-      ogDescription,
     });
 
     await supabase
       .from("stay_verifications")
       .update({
         status: "complete",
-        risk_level: analysis.risk_level,
+        risk_level: COLOR_TO_RISK_LEVEL[verification.color],
         property_name: propertyName,
-        analysis_json: analysis,
+        analysis_json: verification,
         completed_at: new Date().toISOString(),
       })
       .eq("id", id);
-  } catch {
+  } catch (err) {
+    console.error("verifyStay agent failed:", err);
     await supabase
       .from("stay_verifications")
       .update({ status: "failed" })
