@@ -1,5 +1,5 @@
 -- Stay Verifications: AI-powered safety analysis of booking URLs
-create table stay_verifications (
+create table if not exists stay_verifications (
   id              uuid primary key default gen_random_uuid(),
   user_id         uuid not null references profiles(id) on delete cascade,
   booking_url     text not null,
