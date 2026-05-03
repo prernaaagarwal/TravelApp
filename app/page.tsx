@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Shield, AlertTriangle, MapPin, Heart, Moon, Bus, ArrowRight, Star, Check } from "lucide-react";
 import bewares from "@/lib/mock-data/beware-entries.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
+import { EmailCaptureForm } from "@/components/shared/EmailCaptureForm";
 
 type PathDef = {
   tag: string;
@@ -713,26 +714,13 @@ export default function HomePage() {
                 Price goes to ₹999 after founding 200 fill. No auto-renewal. No spam.
               </p>
 
-              <form
-                action="https://formspree.io/f/YOUR_FORM_ID"
-                method="POST"
-                className="mt-auto flex flex-col gap-2"
-              >
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="your@email.com"
-                  className="border border-ink/15 bg-ink/5 px-4 py-3 font-mono text-sm text-ink placeholder-ink/40 outline-none focus:border-rust"
+              <div className="mt-auto">
+                <EmailCaptureForm
+                  source="landing-founding"
+                  buttonText="Claim my spot →"
+                  variant="stacked-light"
                 />
-                <input type="hidden" name="source" value="landing-founding" />
-                <button
-                  type="submit"
-                  className="bg-rust px-7 py-3 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-                >
-                  Claim my spot →
-                </button>
-              </form>
+              </div>
             </div>
 
             {/* ── Contributor card ── */}

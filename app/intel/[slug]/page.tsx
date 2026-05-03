@@ -10,6 +10,7 @@ import {
 import { createClient as createBrowserClient } from "@/lib/supabase/client";
 import { createClient } from "@/lib/supabase/server";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
+import { EmailCaptureForm } from "@/components/shared/EmailCaptureForm";
 
 type Params = Promise<{ slug: string }>;
 
@@ -658,25 +659,11 @@ export default async function IntelPage({ params }: { params: Params }) {
           Founding contributors earn ₹2,000–₹4,000 / month from card revenue share.
           Apply with your email — we review within 48 hours.
         </p>
-        <form
-          action="https://formspree.io/f/YOUR_FORM_ID"
-          method="POST"
-          className="mx-auto flex max-w-sm gap-0"
-        >
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="your@email.com"
-            className="min-w-0 flex-1 border border-warm-white/20 bg-warm-white/10 px-4 py-2.5 font-mono text-base text-warm-white placeholder:text-warm-white/30 focus:outline-none focus:border-gold"
-          />
-          <button
-            type="submit"
-            className="shrink-0 border border-gold bg-gold px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-ink hover:bg-gold/90 transition-colors"
-          >
-            Apply →
-          </button>
-        </form>
+        <EmailCaptureForm
+          source="intel-contributor-apply"
+          buttonText="Apply →"
+          variant="inline-dark"
+        />
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
+import { EmailCaptureForm } from "@/components/shared/EmailCaptureForm";
 
 export const metadata = { title: "Coming soon — Wander Women" };
 
@@ -20,25 +19,14 @@ export default function ComingSoonPage() {
         invite link first.
       </p>
 
-      <form
-        className="mt-8 flex flex-col gap-3 sm:flex-row"
-        action="https://formspree.io/f/YOUR_FORM_ID"
-        method="POST"
-      >
-        <Input
-          name="email"
-          type="email"
-          required
+      <div className="mt-8">
+        <EmailCaptureForm
+          source="coming-soon"
+          buttonText="Notify me"
           placeholder="you@example.com"
-          className="flex-1 bg-warm-white"
+          variant="inline-light"
         />
-        <Button
-          type="submit"
-          className="bg-rust text-warm-white hover:bg-rust/90"
-        >
-          Notify me
-        </Button>
-      </form>
+      </div>
 
       <p className="mt-3 text-xs text-ww-muted">
         We&apos;ll only email you about the founding-200 launch. No newsletter, no
