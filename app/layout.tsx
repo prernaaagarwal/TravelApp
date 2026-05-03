@@ -19,8 +19,14 @@ const dmMono = DM_Mono({
   display: "swap",
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Wander Women",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Wander Women — Trip Intel for Solo Women Travellers",
+    template: "%s — Wander Women",
+  },
   description:
     "Trip intel built by women who actually travel solo. Real scams, neighborhoods, transport, hidden gems, and costs — sourced from named contributors.",
   manifest: "/manifest.json",
@@ -31,6 +37,33 @@ export const metadata: Metadata = {
   },
   icons: {
     apple: "/icons/icon-192.png",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Wander Women",
+    title: "Wander Women — Trip Intel for Solo Women Travellers",
+    description:
+      "The guidebook that was never written for you, yet. Real scams, female-run stays, transit safety — written by women who arrived last week.",
+    url: SITE_URL,
+    images: [
+      {
+        url: "/images/hero-rishikesh.jpg",
+        width: 1200,
+        height: 630,
+        alt: "A woman watching dawn over the Ganges in Rishikesh",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wander Women — Trip Intel for Solo Women Travellers",
+    description:
+      "Real scams, female-run stays, transit safety — written by women who arrived last week.",
+    images: ["/images/hero-rishikesh.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
