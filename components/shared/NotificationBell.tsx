@@ -17,6 +17,7 @@ interface Notification {
 interface Props {
   initialUnread: number;
   notifications: Notification[];
+  profileSlug: string;
 }
 
 function timeAgo(dateStr: string): string {
@@ -29,7 +30,7 @@ function timeAgo(dateStr: string): string {
   return `${Math.floor(hrs / 24)}d ago`;
 }
 
-export function NotificationBell({ initialUnread, notifications }: Props) {
+export function NotificationBell({ initialUnread, notifications, profileSlug }: Props) {
   const [open, setOpen] = useState(false);
   const [unread, setUnread] = useState(initialUnread);
   const [items, setItems] = useState(notifications);
@@ -97,9 +98,7 @@ export function NotificationBell({ initialUnread, notifications }: Props) {
             ) : (
               items.map((n) => {
                 const isApproved = n.type === "report_approved";
-                const href = n.related_report_id
-                  ? `/profile/me?tab=reports`
-                  : "/profile/me?tab=reports";
+                const href = `/profile/${profileSlug}?tab=reports`;
 
                 return (
                   <Link

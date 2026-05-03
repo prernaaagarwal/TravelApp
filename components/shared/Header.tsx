@@ -86,6 +86,7 @@ export async function Header() {
               <NotificationBell
                 initialUnread={unreadCount}
                 notifications={notifications}
+                profileSlug={profileSlug ?? user.id}
               />
               <Link
                 href="/settings"
