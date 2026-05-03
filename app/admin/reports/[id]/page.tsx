@@ -205,17 +205,63 @@ export default async function ReviewReportPage({
           <div className="grid gap-3 md:grid-cols-2">
             {/* Approve */}
             <form
-              action={async () => {
+              action={async (formData: FormData) => {
                 "use server";
-                await approveReport(id);
+                const latRaw = formData.get("gps_lat") as string;
+                const lngRaw = formData.get("gps_lng") as string;
+                const gpsLat = latRaw ? parseFloat(latRaw) : null;
+                const gpsLng = lngRaw ? parseFloat(lngRaw) : null;
+                await approveReport(id, gpsLat, gpsLng);
               }}
             >
-              <button
-                type="submit"
-                className="w-full bg-sage px-6 py-3 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-              >
-                Approve report
-              </button>
+              <div className="flex flex-col gap-2">
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="mb-1 block font-mono text-[9px] uppercase tracking-widest text-ww-muted">
+                      Latitude
+                    </label>
+                    <input
+                      name="gps_lat"
+                      type="number"
+                      step="any"
+                      defaultValue={report.gps_lat ?? ""}
+                      placeholder="e.g. 15.5736"
+                      className="w-full border border-ww-border bg-sand px-2 py-1.5 font-mono text-xs text-ink placeholder-ww-muted/50 outline-none focus:border-sage"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-1 block font-mono text-[9px] uppercase tracking-widest text-ww-muted">
+                      Longitude
+                    </label>
+                    <input
+                      name="gps_lng"
+                      type="number"
+                      step="any"
+                      defaultValue={report.gps_lng ?? ""}
+                      placeholder="e.g. 73.7382"
+                      className="w-full border border-ww-border bg-sand px-2 py-1.5 font-mono text-xs text-ink placeholder-ww-muted/50 outline-none focus:border-sage"
+                    />
+                  </div>
+                </div>
+                <p className="font-mono text-[9px] text-ww-muted/60">
+                  Right-click the spot on{" "}
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-ww-muted"
+                  >
+                    Google Maps
+                  </a>{" "}
+                  → &quot;What&apos;s here?&quot; to get coordinates. Leave blank to skip map pin.
+                </p>
+                <button
+                  type="submit"
+                  className="w-full bg-sage px-6 py-3 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
+                >
+                  Approve report
+                </button>
+              </div>
             </form>
 
             {/* Reject */}

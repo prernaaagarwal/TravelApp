@@ -24,18 +24,27 @@ async function getModeratorId(): Promise<string> {
   return user.id;
 }
 
-export async function approveReport(reportId: string) {
+export async function approveReport(
+  reportId: string,
+  gpsLat?: number | null,
+  gpsLng?: number | null,
+) {
   const moderatorId = await getModeratorId();
   const supabase = await createClient();
 
+  const update: Record<string, unknown> = {
+    status: "approved",
+    reviewed_by: moderatorId,
+    reviewed_at: new Date().toISOString(),
+    rejection_reason: null,
+  };
+
+  if (gpsLat != null && !isNaN(gpsLat)) update.gps_lat = gpsLat;
+  if (gpsLng != null && !isNaN(gpsLng)) update.gps_lng = gpsLng;
+
   const { error } = await supabase
     .from("beware_reports")
-    .update({
-      status: "approved",
-      reviewed_by: moderatorId,
-      reviewed_at: new Date().toISOString(),
-      rejection_reason: null,
-    })
+    .update(update)
     .eq("id", reportId)
     .eq("status", "pending");
 
