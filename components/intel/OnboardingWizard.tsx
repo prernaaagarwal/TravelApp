@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { updateSegment } from "@/app/onboarding/actions";
+import { updateSegment, completeProfile } from "@/app/onboarding/actions";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 
 const ALL_DESTINATIONS = [
@@ -36,12 +36,33 @@ const NEED_OPTIONS = [
   { value: "budget",    label: "Plan my budget",           emoji: "💰" },
 ];
 
-export function OnboardingWizard() {
+const AGE_OPTIONS = [
+  { value: "18-24", label: "18–24" },
+  { value: "25-32", label: "25–32" },
+  { value: "33-40", label: "33–40" },
+  { value: "40+",   label: "40+" },
+];
+
+export function OnboardingWizard({ needsProfileSetup = false }: { needsProfileSetup?: boolean }) {
   const router = useRouter();
+  // Step indexing: if needsProfileSetup, step 0 = profile, step 1 = destination, step 2 = need
+  // Otherwise: step 0 = destination, step 1 = need
+  const totalSteps = needsProfileSetup ? 3 : 2;
+  const profileStepIdx = needsProfileSetup ? 0 : -1;
+  const destStepIdx = needsProfileSetup ? 1 : 0;
+  const needStepIdx = needsProfileSetup ? 2 : 1;
+
   const [step, setStep]               = useState(0);
   const [destination, setDestination] = useState("");
   const [query, setQuery]             = useState("");
   const [submitting, setSubmitting]   = useState(false);
+
+  // Profile fields
+  const [firstName, setFirstName] = useState("");
+  const [homeCity, setHomeCity]   = useState("");
+  const [ageGroup, setAgeGroup]   = useState("");
+  const [instagram, setInstagram] = useState("");
+  const [profileError, setProfileError] = useState("");
 
   const filtered =
     query.length > 0
@@ -56,7 +77,21 @@ export function OnboardingWizard() {
     const dest = ALL_DESTINATIONS.find((d) => d.slug === slug);
     setDestination(slug);
     setQuery(dest?.label ?? "");
-    setStep(1);
+    setStep(needStepIdx);
+  }
+
+  async function submitProfile(e: React.FormEvent) {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    setProfileError("");
+    const result = await completeProfile({ firstName, homeCity, ageGroup, instagram });
+    setSubmitting(false);
+    if (result?.error) {
+      setProfileError(result.error);
+      return;
+    }
+    setStep(destStepIdx);
   }
 
   async function selectNeed(need: string) {
@@ -83,11 +118,13 @@ export function OnboardingWizard() {
     router.push(href);
   }
 
+  const profileValid = firstName.trim() && homeCity.trim() && ageGroup;
+
   return (
     <div className="border border-ww-border bg-sand p-6 md:p-8">
       {/* Progress */}
       <div className="mb-6 flex items-center gap-2">
-        {[0, 1].map((i) => (
+        {Array.from({ length: totalSteps }).map((_, i) => (
           <div
             key={i}
             className={`h-1 flex-1 rounded-full transition-colors ${
@@ -96,12 +133,97 @@ export function OnboardingWizard() {
           />
         ))}
         <span className="ml-3 shrink-0 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-          {step + 1} of 2
+          {step + 1} of {totalSteps}
         </span>
       </div>
 
-      {/* Step 1 — destination */}
-      {step === 0 && (
+      {/* Profile step (only when needed) */}
+      {step === profileStepIdx && (
+        <form onSubmit={submitProfile}>
+          <h2 className="mb-2 font-serif text-3xl text-ink">Tell us about you</h2>
+          <p className="mb-5 font-mono text-xs text-ww-muted">
+            Other women see this on your profile when they consider you as a buddy or read your reports.
+          </p>
+
+          <div className="space-y-4">
+            <div>
+              <label className="mb-1 block font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                First name <span className="text-rust">*</span>
+              </label>
+              <input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+                placeholder="Priya"
+                className="w-full border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm text-ink placeholder:text-ww-muted focus:border-ink focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="mb-1 block font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                Home city <span className="text-rust">*</span>
+              </label>
+              <input
+                type="text"
+                value={homeCity}
+                onChange={(e) => setHomeCity(e.target.value)}
+                required
+                placeholder="Mumbai"
+                className="w-full border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm text-ink placeholder:text-ww-muted focus:border-ink focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                Age range <span className="text-rust">*</span>
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {AGE_OPTIONS.map((o) => (
+                  <button
+                    type="button"
+                    key={o.value}
+                    onClick={() => setAgeGroup(o.value)}
+                    className={`border px-4 py-2 font-mono text-xs transition-colors ${
+                      ageGroup === o.value
+                        ? "border-rust bg-rust text-warm-white"
+                        : "border-ww-border bg-warm-white text-ink hover:border-ink"
+                    }`}
+                  >
+                    {o.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="mb-1 block font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                Instagram <span className="text-ww-muted/60 normal-case tracking-normal">(optional, helps verification)</span>
+              </label>
+              <input
+                type="text"
+                value={instagram}
+                onChange={(e) => setInstagram(e.target.value)}
+                placeholder="@yourhandle"
+                className="w-full border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm text-ink placeholder:text-ww-muted focus:border-ink focus:outline-none"
+              />
+            </div>
+          </div>
+
+          {profileError && <p className="mt-3 font-mono text-xs text-rust">{profileError}</p>}
+
+          <button
+            type="submit"
+            disabled={!profileValid || submitting}
+            className="mt-6 w-full bg-rust px-6 py-3 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-40"
+          >
+            {submitting ? "Saving…" : "Continue →"}
+          </button>
+        </form>
+      )}
+
+      {/* Destination step */}
+      {step === destStepIdx && (
         <div>
           <h2 className="mb-2 font-serif text-3xl text-ink">Where are you headed?</h2>
           <p className="mb-5 font-mono text-xs text-ww-muted">
@@ -143,8 +265,8 @@ export function OnboardingWizard() {
         </div>
       )}
 
-      {/* Step 2 — need */}
-      {step === 1 && (
+      {/* Need step */}
+      {step === needStepIdx && (
         <div>
           <h2 className="mb-2 font-serif text-3xl text-ink">
             What do you need most right now?
@@ -168,7 +290,7 @@ export function OnboardingWizard() {
 
           <button
             onClick={() => {
-              setStep(0);
+              setStep(destStepIdx);
               setDestination("");
               setQuery("");
             }}
