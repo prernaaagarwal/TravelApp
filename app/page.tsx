@@ -43,7 +43,7 @@ export default function HomePage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col justify-center px-6 py-32 md:px-10">
+        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col justify-center px-6 py-20 md:px-10 md:py-32">
           {/* decorative rule */}
           <div className="mb-8 h-px w-12 bg-rust animate-word" style={{ animationDelay: "0s" }} />
 
@@ -58,19 +58,19 @@ export default function HomePage() {
           {/* headline */}
           <h1 className="mb-6 font-serif leading-[1.08] tracking-tight text-warm-white">
             <span
-              className="block text-5xl animate-word md:text-7xl"
+              className="block text-4xl animate-word md:text-7xl"
               style={{ animationDelay: "0.3s" }}
             >
               Stress free travel.
             </span>
             <span
-              className="block text-5xl animate-word md:text-7xl"
+              className="block text-4xl animate-word md:text-7xl"
               style={{ animationDelay: "0.45s" }}
             >
               The guidebook that was never written for you,
             </span>
             <em
-              className="not-italic text-rust block text-5xl animate-word md:text-7xl"
+              className="not-italic text-rust block text-4xl animate-word md:text-7xl"
               style={{ animationDelay: "0.6s" }}
             >
               yet
