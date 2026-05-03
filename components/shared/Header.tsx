@@ -3,14 +3,7 @@ import { Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
 import { NotificationBell } from "@/components/shared/NotificationBell";
-
-const NAV_ITEMS = [
-  { href: "/explore", label: "Intel" },
-  { href: "/community", label: "Community" },
-  { href: "/feed", label: "Receipts" },
-  { href: "/buddy", label: "Buddy" },
-  { href: "/shop", label: "Shop" },
-];
+import { NAV_ITEMS } from "@/lib/nav";
 
 export async function Header() {
   const supabase = await createClient();

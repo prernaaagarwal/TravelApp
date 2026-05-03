@@ -2,17 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Compass, Users, Map, UserPlus, ShoppingBag } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-
-const NAV_ITEMS = [
-  { href: "/explore",    label: "Intel",     icon: Compass    },
-  { href: "/community",  label: "Community", icon: Users      },
-  { href: "/feed",       label: "Receipts",  icon: Map        },
-  { href: "/buddy",      label: "Buddy",     icon: UserPlus   },
-  { href: "/shop",       label: "Shop",      icon: ShoppingBag },
-];
+import { NAV_ITEMS } from "@/lib/nav";
 
 export function MobileNav({ unreadCount = 0 }: { unreadCount?: number }) {
   const pathname = usePathname();
