@@ -513,21 +513,21 @@ export default function HomePage() {
       </section>
 
       {/* ── Founding community (member + contributor combined) ───────── */}
-      <section id="membership" className="bg-ink px-6 py-20">
+      <section id="membership" className="bg-warm-white px-6 py-20">
         <div className="mx-auto max-w-5xl">
 
           {/* shared header */}
           <div className="mb-10 text-center">
-            <div className="mb-5 inline-flex items-center gap-2 border border-warm-white/10 px-4 py-2">
+            <div className="mb-5 inline-flex items-center gap-2 border border-ink/10 px-4 py-2">
               <span className="h-2 w-2 animate-pulse rounded-full bg-rust" />
-              <span className="font-mono text-xs text-warm-white/60">
-                <strong className="text-warm-white">17 of 200</strong> founding spots remaining
+              <span className="font-mono text-xs text-ink/60">
+                <strong className="text-ink">17 of 200</strong> founding spots remaining
               </span>
             </div>
-            <h2 className="font-serif text-4xl leading-tight text-warm-white md:text-5xl">
+            <h2 className="font-serif text-4xl leading-tight text-ink md:text-5xl">
               Be part of the founding community.
             </h2>
-            <p className="mx-auto mt-4 max-w-xl font-mono text-sm leading-relaxed text-warm-white/50">
+            <p className="mx-auto mt-4 max-w-xl font-mono text-sm leading-relaxed text-ink/55">
               Two ways in. One as a member who reads. One as a contributor who writes.
               Both get founding-tier access for life.
             </p>
@@ -537,14 +537,14 @@ export default function HomePage() {
           <div className="grid gap-4 md:grid-cols-2">
 
             {/* ── Member card ── */}
-            <div className="flex flex-col border border-warm-white/10 bg-warm-white/5 p-7">
+            <div className="flex flex-col border border-ink/10 bg-ink/5 p-7">
               <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
                 Join as a member
               </p>
-              <p className="mb-2 font-serif text-2xl text-warm-white">
+              <p className="mb-2 font-serif text-2xl text-ink">
                 ₹499 once.
               </p>
-              <p className="mb-6 font-mono text-xs leading-relaxed text-warm-white/50">
+              <p className="mb-6 font-mono text-xs leading-relaxed text-ink/55">
                 Lifetime access to all premium intel cards, founding badge, and
                 2× earnings if you later become a contributor.
               </p>
@@ -558,14 +558,14 @@ export default function HomePage() {
                   "2× contributor earnings for 12 months",
                   "Direct line to the founding team",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 font-mono text-xs text-warm-white/50">
+                  <li key={item} className="flex items-start gap-2 font-mono text-xs text-ink/55">
                     <span className="mt-0.5 shrink-0 text-gold">✓</span>
                     {item}
                   </li>
                 ))}
               </ul>
 
-              <p className="mb-4 font-mono text-[10px] text-warm-white/25">
+              <p className="mb-4 font-mono text-[10px] text-ink/45">
                 Price goes to ₹999 after founding 200 fill. No auto-renewal. No spam.
               </p>
 
@@ -579,7 +579,7 @@ export default function HomePage() {
                   name="email"
                   required
                   placeholder="your@email.com"
-                  className="border border-warm-white/20 bg-warm-white/5 px-4 py-3 font-mono text-sm text-warm-white placeholder-warm-white/30 outline-none focus:border-rust"
+                  className="border border-ink/15 bg-ink/5 px-4 py-3 font-mono text-sm text-ink placeholder-ink/40 outline-none focus:border-rust"
                 />
                 <input type="hidden" name="source" value="landing-founding" />
                 <button
@@ -592,14 +592,14 @@ export default function HomePage() {
             </div>
 
             {/* ── Contributor card ── */}
-            <div className="flex flex-col border border-warm-white/10 bg-warm-white/5 p-7">
+            <div className="flex flex-col border border-ink/10 bg-ink/5 p-7">
               <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
                 Join as a contributor
               </p>
-              <p className="mb-2 font-serif text-2xl text-warm-white">
+              <p className="mb-2 font-serif text-2xl text-ink">
                 Write what you know.
               </p>
-              <p className="mb-8 font-mono text-xs leading-relaxed text-warm-white/50">
+              <p className="mb-8 font-mono text-xs leading-relaxed text-ink/55">
                 Women who know one route or city deeply and want to share what
                 guidebooks miss. No journalism background required.
               </p>
@@ -613,20 +613,20 @@ export default function HomePage() {
                   <div key={n} className="flex gap-4">
                     <span className="shrink-0 font-mono text-[10px] text-rust">{n}</span>
                     <div>
-                      <p className="font-mono text-xs font-semibold text-warm-white">{title}</p>
-                      <p className="mt-1 font-mono text-xs leading-relaxed text-warm-white/50">{body}</p>
+                      <p className="font-mono text-xs font-semibold text-ink">{title}</p>
+                      <p className="mt-1 font-mono text-xs leading-relaxed text-ink/55">{body}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <p className="mb-5 font-mono text-[10px] leading-relaxed text-warm-white/25">
+              <p className="mb-5 font-mono text-[10px] leading-relaxed text-ink/45">
                 We&apos;re not promising a number until we&apos;ve paid one out.
               </p>
 
               <Link
                 href="/coming-soon"
-                className="mt-auto inline-block border border-warm-white/20 px-7 py-3 text-center font-mono text-sm uppercase tracking-widest text-warm-white/70 transition-colors hover:border-warm-white/50 hover:text-warm-white"
+                className="mt-auto inline-block border border-ink/15 px-7 py-3 text-center font-mono text-sm uppercase tracking-widest text-ink/70 transition-colors hover:border-warm-white/50 hover:text-ink"
               >
                 Apply to contribute →
               </Link>
