@@ -9,6 +9,7 @@ import { Suspense } from "react";
 
 function SignupForm() {
   const [email, setEmail] = useState("");
+  const [declared, setDeclared] = useState(false);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -76,12 +77,27 @@ function SignupForm() {
         />
       </div>
 
+      {/* Gender declaration — required gate */}
+      <label className="flex items-start gap-3 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={declared}
+          onChange={(e) => setDeclared(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 accent-rust"
+        />
+        <span className="text-xs leading-relaxed text-ink/70">
+          I identify as a woman. I understand Wander Women is a women-only
+          community and that accounts found to be misrepresenting will be
+          permanently removed.
+        </span>
+      </label>
+
       {error && <p className="text-rust text-sm">{error}</p>}
 
       <Button
         type="submit"
-        disabled={loading}
-        className="w-full bg-rust text-warm-white hover:bg-rust/90"
+        disabled={loading || !declared}
+        className="w-full bg-rust text-warm-white hover:bg-rust/90 disabled:opacity-40"
       >
         {loading ? "Sending…" : "Join with magic link"}
       </Button>
