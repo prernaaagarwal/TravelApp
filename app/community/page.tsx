@@ -72,10 +72,10 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const posts = filteredPosts.map((p) => ({
     id: p.id,
     tab: p.tab,
-    title: "",
+    title: (p as { title?: string }).title ?? "",
     author: p.author,
-    authorAgeRange: p.authorAgeRange,
-    homeCity: p.homeCity,
+    authorAgeRange: p.authorAgeRange ?? "",
+    homeCity: p.homeCity ?? "",
     postedAt: new Date(p.postedAt).toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
     content: p.content,
     replyCount: p.replyCount,
