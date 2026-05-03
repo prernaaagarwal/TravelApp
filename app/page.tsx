@@ -57,6 +57,50 @@ const PATHS: PathDef[] = [
   },
 ];
 
+type Thread = {
+  tag: string;
+  q: string;
+  a: string;
+  author: string;
+  initial: string;
+  city: string;
+  trips: number;
+  replyTime: string;
+};
+
+const THREADS: Thread[] = [
+  {
+    tag: "Stay",
+    q: "Solo F, 4 nights in Udaipur — Lake Palace area or old city?",
+    a: "Old city, Hanuman Ghat side. Stay at Krishna Niwas — Madhuri (host) does free pickups till 11pm and her terrace has the lake view that isn't ₹40k a night. Avoid Gangaur Ghat after 9pm — drum circles, men, no cops.",
+    author: "Sara Hofmann",
+    initial: "S",
+    city: "Berlin → Goa",
+    trips: 7,
+    replyTime: "8 min",
+  },
+  {
+    tag: "Move",
+    q: "Pune → Mumbai overnight — Volvo bus or train?",
+    a: "Train, every time. Neeta Volvo dropped me at Dadar at 4am, no Ola, felt awful. CST Express 2AC coach B1, ₹1,100, you arrive 7am in daylight. Book 3 weeks ahead, women's quota under \"Ladies\".",
+    author: "Ananya Iyer",
+    initial: "A",
+    city: "Mumbai",
+    trips: 9,
+    replyTime: "14 min",
+  },
+  {
+    tag: "Scam",
+    q: "Bangalore Junction auto wanted ₹400 for a 4km ride. Normal?",
+    a: "No. ₹120 on meter, max ₹160 with the night surcharge. Walk 80m to the pre-paid booth on Platform 1 exit — they print a slip with the auto's number. If he refuses to use it, photo the plate, log it on the Beware Board.",
+    author: "Riya Menon",
+    initial: "R",
+    city: "Bangalore",
+    trips: 6,
+    replyTime: "6 min",
+  },
+];
+
 export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
 
 function IntelRow({
@@ -75,6 +119,15 @@ function IntelRow({
         <span className="font-mono text-[10px] uppercase tracking-widest">{label}</span>
       </div>
       <div className="col-span-12 text-sm leading-relaxed text-ink sm:col-span-8">{value}</div>
+    </div>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="bg-warm-white p-6 md:p-7">
+      <div className="mb-2 font-serif text-3xl leading-none text-ink md:text-4xl">{value}</div>
+      <div className="font-mono text-[10px] uppercase tracking-widest text-ink/55">{label}</div>
     </div>
   );
 }
@@ -435,6 +488,97 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── What's inside · 03 — Community desk ────────────────────── */}
+      <section id="community" className="relative w-full overflow-hidden bg-warm-white py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          {/* Header */}
+          <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-px w-10 bg-rust" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/60">
+                  What&apos;s inside · 03
+                </span>
+              </div>
+              <h2 className="font-serif text-4xl leading-[0.95] text-ink text-balance md:text-6xl">
+                Not a chatroom.
+                <br />
+                <span className="italic text-rust">A trusted desk.</span>
+              </h2>
+            </div>
+            <p className="text-sm leading-relaxed text-ink/70 md:max-w-sm">
+              Every question gets answered by a woman who arrived in the
+              last 90 days. No anonymous bots. No outdated blogs dressed
+              up as advice.
+            </p>
+          </div>
+
+          {/* Stats strip */}
+          <div className="mb-12 grid grid-cols-2 gap-px border border-ink/10 bg-ink/10 md:mb-14 md:grid-cols-4">
+            <Stat value="183" label="Founding members" />
+            <Stat value="28 min" label="Median reply time" />
+            <Stat value="1,840+" label="Questions answered" />
+            <Stat value="47" label="Cities live" />
+          </div>
+
+          {/* Q&A grid */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-6">
+            {THREADS.map((t, i) => (
+              <article
+                key={i}
+                className="flex flex-col border border-ink/10 bg-warm-white p-7 transition-colors hover:border-ink/25 md:p-8"
+              >
+                {/* Tag + reply time */}
+                <div className="mb-5 flex items-center justify-between">
+                  <span className="bg-ink px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-warm-white">
+                    {t.tag}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                    {String(i + 1).padStart(2, "0")} / 03 · {t.replyTime}
+                  </span>
+                </div>
+
+                {/* Question */}
+                <p className="mb-6 font-serif text-xl leading-snug text-ink text-balance md:text-2xl">
+                  &ldquo;{t.q}&rdquo;
+                </p>
+
+                {/* Answer */}
+                <div className="mb-6 flex gap-3 border-l-2 border-rust pl-4">
+                  <p className="text-sm leading-relaxed text-ink/75">{t.a}</p>
+                </div>
+
+                {/* Author */}
+                <div className="mt-auto flex items-center gap-3 border-t border-ink/10 pt-5">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-rust/15 font-serif text-lg text-rust">
+                    {t.initial}
+                  </div>
+                  <div className="leading-tight">
+                    <div className="font-serif text-base text-ink">{t.author}</div>
+                    <div className="mt-0.5 font-mono text-[10px] uppercase tracking-widest text-ink/50">
+                      {t.city} · {t.trips} trips
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Footer CTA */}
+          <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-ink/10 pt-8 sm:flex-row sm:items-center">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-ink/55">
+              + 4,117 more questions answered this year
+            </p>
+            <Link
+              href="/community"
+              className="group inline-flex items-center gap-3 bg-ink px-6 py-3.5 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
+            >
+              Open the community desk
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* ── Beware Board scam ticker ──────────────────────────────────── */}
       <section id="ticker" className="overflow-hidden border-y border-ww-border bg-ink py-10">
