@@ -44,8 +44,8 @@ export function OnboardingWizard({ scope = "all" }: { scope?: "indian" | "foreig
   const [submitting, setSubmitting]   = useState(false);
 
   const scopedDestinations =
+    scope === "foreign" ? ALL_DESTINATIONS.filter((d) => d.country === "India") :
     scope === "indian"  ? ALL_DESTINATIONS.filter((d) => d.country === "India") :
-    scope === "foreign" ? ALL_DESTINATIONS.filter((d) => d.country !== "India") :
     ALL_DESTINATIONS;
 
   const filtered =
