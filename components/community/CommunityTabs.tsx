@@ -144,6 +144,7 @@ export function CommunityTabs({
       <div className="relative mb-4">
         <input
           type="search"
+          aria-label="Search community"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search questions, stories, scam reports…"
@@ -451,7 +452,7 @@ function ComposeForm({ tab, placeholder, cta }: { tab: string; placeholder: stri
         {uploadedUrls.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-2">
             {uploadedUrls.map((url) => (
-              <Image key={url} src={url} alt="" width={64} height={64} className="h-16 w-16 object-cover border border-ww-border" />
+              <Image key={url} src={url} alt="Uploaded photo preview" width={64} height={64} className="h-16 w-16 object-cover border border-ww-border" />
             ))}
           </div>
         )}
@@ -539,7 +540,7 @@ function PostCard({ post, userEmail }: { post: Post; userEmail: string | null })
           {post.imageUrls.slice(0, 3).map((url, i) => (
             <a key={i} href={url} target="_blank" rel="noopener noreferrer">
               <div className="relative aspect-square overflow-hidden border border-ww-border">
-                <Image src={url} alt="" fill className="object-cover hover:opacity-90 transition-opacity" />
+                <Image src={url} alt="Photo attached to community post" fill className="object-cover hover:opacity-90 transition-opacity" />
               </div>
             </a>
           ))}

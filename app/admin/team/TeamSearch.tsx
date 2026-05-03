@@ -55,6 +55,7 @@ export function TeamSearch({ promoteAction }: Props) {
       <div className="flex gap-2">
         <input
           type="text"
+          aria-label="Search users by username or email"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && search()}

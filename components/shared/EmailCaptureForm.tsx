@@ -79,6 +79,7 @@ export function EmailCaptureForm({
       <input
         type="email"
         name="email"
+        aria-label="Email address"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
