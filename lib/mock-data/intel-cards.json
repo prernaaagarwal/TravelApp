@@ -11,7 +11,7 @@
     "tldr": [
       "Goa taxi union blocks Uber/Ola in most areas — use GoaMiles app (govt-backed, fixed fares).",
       "Drug possession setups on beaches are not myths; NDPS Act means 1+ year jail, no bail.",
-      "Never give your passport as scooter-rental collateral — photograph every scratch before you ride.",
+      "Never give your passport as scooter-rental collateral — yellow number plate only (white = illegal), video the entire bike before you ride.",
       "North Goa for energy and nightlife; South Goa (Palolem, Agonda) for quiet and yoga.",
       "Book accommodation 3+ months ahead for Dec 20 – Jan 10; prices triple without notice."
     ],
@@ -57,15 +57,15 @@
         "title": "Scooter/bike rental damage scam",
         "severity": "high",
         "where": "Goa",
-        "what": "Fake scratches added; deposit/passport held hostage. Photo entire bike before+after; never give passport.",
-        "avoid": "Fake scratches added; deposit/passport held hostage. Photo entire bike before+after; never give passport."
+        "what": "Fake scratches added; deposit/passport held hostage. Yellow plate rentals only (white = illegal). Carry physical licence — digital copy gets you fined and impounded. Video the entire bike (all four sides, mirrors, tyres) before riding and send to yourself for timestamp.",
+        "avoid": "Fake scratches added; deposit/passport held hostage. Yellow plate rentals only (white = illegal). Carry physical licence — digital copy gets you fined and impounded. Video the entire bike (all four sides, mirrors, tyres) before riding and send to yourself for timestamp."
       },
       {
         "title": "Goa taxi mafia overcharge",
         "severity": "high",
         "where": "Goa",
-        "what": "No Uber/Ola in much of Goa due to taxi union resistance. Use GoaMiles app (govt-backed) or pre-fixed kadamba rates.",
-        "avoid": "No Uber/Ola in much of Goa due to taxi union resistance. Use GoaMiles app (govt-backed) or pre-fixed kadamba rates."
+        "what": "No Uber/Ola in much of Goa due to taxi union resistance. Drivers can't even pick up at hotel gates — walk 5–10 min to the main road before booking. Use GoaMiles app (govt-backed) or pre-fixed kadamba rates.",
+        "avoid": "No Uber/Ola in much of Goa due to taxi union resistance. Drivers can't even pick up at hotel gates — walk 5–10 min to the main road before booking. Use GoaMiles app (govt-backed) or pre-fixed kadamba rates."
       },
       {
         "title": "Beach shack 'tourist menu' overcharge",
@@ -99,12 +99,12 @@
     "transport": [
       {
         "mode": "GoaMiles app",
-        "tip": "Govt-backed fixed-fare taxi. Book before landing. Only reliable pre-paid option.",
+        "tip": "Govt-backed fixed-fare taxi. Book before landing. Match airport to your stay: Mopa (GOX) for North Goa, Dabolim (GOI) for South Goa — wrong choice = 2.5hr extra ride. Only reliable pre-paid option.",
         "approxCost": "₹800–1,200 airport → North Goa"
       },
       {
         "mode": "Scooter (Royal Brothers / Onn Bikes app)",
-        "tip": "App-based rental with GPS insurance. Saves ₹1,500+/day vs taxis.",
+        "tip": "App-based rental with GPS insurance. Yellow number plate only (white = illegal). Physical licence required — digital copy not accepted. Video the bike before riding. Saves ₹1,500+/day vs taxis.",
         "approxCost": "₹350–500/day"
       },
       {
@@ -185,7 +185,7 @@
       "do": [
         "Use only GoaMiles or pre-agreed fixed taxi fares — no street negotiations",
         "Photograph scooter 360° before and after every rental",
-        "Carry a door-stop alarm for hostel/guesthouse rooms",
+        "Test the secondary door latch on check-in — if it's broken, ask for a different room (not a repair promise). Carry a door-stop alarm as backup.",
         "Stick to South Goa beaches if it's your first solo India trip"
       ],
       "dont": [
