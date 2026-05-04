@@ -511,5 +511,146 @@ VALUES
 )
 ON CONFLICT (id) DO NOTHING;
 
--- ── Sub-part 3 of 4 complete (community posts par-cp-001 to par-cp-015). ─────
--- ── Sub-part 4 (par-cp-016 to par-cp-030) appends below. ─────────────────────
+-- ─── COMMUNITY POSTS (Sub-part 4: par-cp-016 to par-cp-030) ───────────────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- par-cp-016
+(
+  'par-cp-016', 'experiences',
+  'Solo traveller', '51-60',
+  $t$10 days solo Paris as a woman in my 50s — everything was fine$t$,
+  $c$I visited Paris seven times over 30 years, most recently in autumn 2025. I've been there in my 20s, 30s, and now 50s. Every time I travelled mostly solo. My experience: the city is safe for women who apply basic common sense. I've never been assaulted, seriously threatened, or truly in danger. I have been catcalled in Pigalle. I have had a pickpocket attempt that failed because my bag was secured. The fear is often worse than reality. Stay in tourist-adjacent residential areas (11th, 6th), blend in with local dress, keep valuables secured, and ignore anyone who approaches you unsolicited. Enjoy the city.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-017
+(
+  'par-cp-017', 'experiences',
+  'Solo traveller', '22-25',
+  $t$Fake ticket seller at the Eiffel Tower took €60 from my travel companion$t$,
+  $c$My travel companion was approached near the base of the tower by a man offering to sell her two skip-the-queue tickets at €30 each. She paid. The tickets were obvious fakes — wrong font, no QR code. The seller was gone within 60 seconds. All Eiffel Tower tickets are sold online at ticket.toureiffel.paris or at the official cashier booth inside the site perimeter. Anyone selling you tickets on the pavement outside is a scammer. Book online at least a week in advance for popular dates.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-018
+(
+  'par-cp-018', 'experiences',
+  'Solo traveller', '36-40',
+  $t$The Paris arrondissement you should stay in as a solo woman$t$,
+  $c$After 7 visits to Paris I've stayed everywhere from the 1st to the 20th. My recommendations for solo female travellers: the 6th (Saint-Germain) is safe, beautiful, has 24h cafés and a Metro stop nearby. The 11th (Bastille) is lively, local, genuinely safe at night and cheaper. The 7th is quiet, expensive, but extremely safe. Areas I'd avoid for solo female stays on a first trip: directly in Pigalle/18th near the clubs, and anywhere immediately around Gare du Nord. The 18th higher up (near Montmartre hill and the restaurants on Rue Lepic) is perfectly fine.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-019
+(
+  'par-cp-019', 'experiences',
+  'Solo traveller', '26-30',
+  $t$The Metro harassment alarm actually worked$t$,
+  $c$Late evening, Metro line 4 returning from a dinner. A man sat next to me despite empty seats and was uncomfortably close and making quiet comments. I stood up, moved to the middle of the carriage, and when he followed I activated the emergency contact button by the door. An announcement came through the speaker and he moved away immediately. The alarms are real and they work. Love and Paris guide specifically mentions these are on both carriage doors and on platforms — marked clearly. Don't be hesitant to use them if you feel unsafe.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-020
+(
+  'par-cp-020', 'experiences',
+  'Solo traveller', '41-50',
+  $t$I blended in and had zero problems — here's my approach$t$,
+  $c$I'm a frequent solo Paris visitor. My method: I dress like a Parisian woman — a scarf, fitted clothes, no sweatpants or yoga pants, no visible backpacker gear. I carry a small Longchamp tote (common in Paris) rather than a hiking backpack. I don't have a selfie stick. I'm regularly spoken to in French by locals. I have never been pickpocketed or targeted by a scammer in Paris. Am I just lucky? Maybe partly. But fitting in visually and not looking like a distracted tourist genuinely makes you a lower-priority target than the crowd around the Mona Lisa with their phones out and bags swinging.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-021
+(
+  'par-cp-021', 'experiences',
+  'Solo traveller', '31-35',
+  $t$The petition scam is more aggressive than you expect$t$,
+  $c$The online guides make it sound like you just say no and they leave. That wasn't my experience at Notre Dame. A group of four women with clipboards almost surrounded me and one grabbed my arm to stop me walking. I said 'non' firmly and loud enough to attract glances from other tourists, which caused them to back off. The key point from my experience: if you stop even for a second, they interpret it as engagement and it escalates. Never stop, never look at the clipboard, never acknowledge they exist. Walk at normal pace saying 'non' once without breaking stride.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-022
+(
+  'par-cp-022', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Street harassment in Pigalle at night — manageable but not fun$t$,
+  $c$I walked through Pigalle at about 11pm on my way back from Moulin Rouge area to my hotel. The catcalling was persistent from men standing outside certain establishments but none of them followed me or escalated when I ignored them completely. I didn't feel unsafe, but I was alert and I walked confidently and didn't look around or make eye contact. The advice to ignore completely and keep walking works in Paris for this kind of harassment — unlike some cities, aggressive engagement is not the norm here. That said, I took an Uber home the second night rather than walk through again.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-023
+(
+  'par-cp-023', 'experiences',
+  'Solo traveller', '22-25',
+  $t$Paris is genuinely dirty in parts — adjust expectations$t$,
+  $c$One thing that surprised me from real traveller reviews: parts of Paris smell of urine, some areas are visibly grimy, and you will see homeless encampments, particularly near some train stations. This is real and not Instagram's version of Paris. It doesn't make those areas dangerous per se, but it can be unsettling if you're expecting the postcard city. The beautiful arrondissements exist but so does the reality of a large European city. Go in with open eyes and it's still incredible — just not a fairytale everywhere.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-024
+(
+  'par-cp-024', 'experiences',
+  'Solo traveller', '36-40',
+  $t$For arrivals: how to get from CDG to Paris safely and cheaply$t$,
+  $c$Options from safest to cheapest: 1) Pre-booked Uber or G7 taxi: book before landing, driver meets you in arrivals, fixed price around €55. 2) Official Taxi Parisien from the designated rank (green/red roof light, meter must be running): roughly €56 flat rate to Right/Left Bank. 3) CDG Express train to Gare du Nord (€17, fast, reliable, less crowded than RER B). 4) RER B (cheap but KEEP BAGS SECURED, highest pickpocket risk especially with luggage). Never accept a private taxi offer from anyone approaching you inside the terminal.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-025
+(
+  'par-cp-025', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Long solo walk from Marais to Bastille at night — felt fine$t$,
+  $c$Walked about 45 minutes alone at night from the Marais through the 11th arrondissement to my hotel near Bastille. Stuck to well-lit main streets, had Google Maps running. Passed plenty of people out at restaurants and bars. Felt completely safe. Paris's central tourist arrondissements (1st, 3rd, 4th, 6th, 7th, 11th) are genuinely fine to walk at night as a woman if you stick to main roads and trust your instincts. It's the specific zones — Pigalle, Gare du Nord side streets, La Chapelle — that require more thought.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-026
+(
+  'par-cp-026', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Fake overpriced café near Eiffel Tower — simple lesson$t$,
+  $c$Ordered two café crèmes at a café directly across from the Eiffel Tower. €16. I paid without checking because I was tired. Later in the same day, an identical café crème two streets away in the 15th: €2.80. Nothing about the Eiffel Tower-facing café was illegal, but it's a tourist pricing trap that feels like a scam. Look at the menu before sitting. If it's in English, has photos, and faces directly onto a landmark — add 200% to the price you'd pay around the corner.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-027
+(
+  'par-cp-027', 'experiences',
+  'Solo traveller', '22-25',
+  $t$Hostel stay in Pigalle — loved the accommodation, cautious outside$t$,
+  $c$Stayed at a hostel near Pigalle (good reviews, mixed dorms with lockers, completely safe inside). The hostel itself was great. The area directly outside at night was a different matter — the red light elements and associated harassment on the immediate block. My approach: walked purposefully in and out without lingering, used Uber for getting home after 10pm rather than walking through. The hostel warden was helpful about which streets to use. It was fine — I'd just be aware of what Pigalle is and plan accordingly.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-028
+(
+  'par-cp-028', 'experiences',
+  'Solo traveller', '36-40',
+  $t$Emergency info every solo female should have before entering Paris$t$,
+  $c$Emergency (police, fire, ambulance): 112. Police (non-emergency): 17. Brigade des Touristes (tourist police in Paris, English speaking): located at 8 Boulevard du Palais, Île de la Cité, 1st arrondissement. For insurance claims after theft: you need a Commissariat de Police report. The nearest commissariat to your location can be found on police.fr. Your embassy is the critical contact if your passport is stolen. For Metro emergencies: red alarm handles are near every carriage door and on platforms.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-029
+(
+  'par-cp-029', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Group petition ambush at Sacré-Cœur steps$t$,
+  $c$Made the mistake of stopping to look at my map on the Sacré-Cœur steps. Within 10 seconds three women with clipboards were around me. One had a hand on my shoulder 'helpfully' looking at my map while another pushed a clipboard in my face. I felt a tug on my bag zip — caught the hand on it. I shouted 'stop' in English and French and the group scattered. My wallet and phone were still in front pockets (I'd been careful). This was the most direct and frightening scam encounter of my Paris trip. Never stop on those steps to look at your phone or map.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-030
+(
+  'par-cp-030', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Paris in summer as a solo woman — volume of tourists actually helps$t$,
+  $c$Counterintuitive opinion: the extreme summer crowds in Paris (July-August) actually made me feel safer as a solo woman. There were so many people at every tourist site that I was never isolated. The streets around major attractions were busy till late. The flip side is that those same crowds create perfect pickpocket conditions. My approach for summer Paris: go to the big sites first thing in the morning when crowds are manageable and pickpockets haven't deployed yet. Eiffel Tower at 9am is transformed compared to 2pm. You feel safer and it's actually enjoyable.$c$,
+  'paris-france', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── End of Paris seed (32 beware reports + 30 community posts). ──────────────
