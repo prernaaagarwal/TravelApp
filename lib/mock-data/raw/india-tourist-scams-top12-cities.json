@@ -1,0 +1,3281 @@
+{
+  "Overview": {
+    "titleRow": "India Travel Scam Intelligence Report",
+    "subtitleRow": "",
+    "headers": [
+      "India Travel Scam Intelligence Report",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Top 12 Most-Travelled Cities | Updated: April 2026 | Sources: Delhi Police, McAfee India Travel Research 2025, NCRB, Tourism Ministry data",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "How to use this workbook",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "1. The 'Master Scam List' tab contains every major scam mapped to all 12 cities with risk levels, financial impact, and prevention.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "2. Each city has its own tab with the most prevalent scams in that location plus city-specific hotspots.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "3. The 'Risk Heatmap' tab shows which scams are most active in which city at a glance.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "4. The 'Emergency Contacts' tab has all helplines, tourist police numbers, and reporting channels — keep this on your phone.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "5. The 'Pre-Travel Checklist' tab is a printable verification list before departure.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Risk Level Legend:",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CRITICAL — Reported financial loss > ₹40,000 OR safety risk (drugging, assault). Immediate vigilance required.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "HIGH — Common, organised, financial loss ₹5,000–₹40,000. Affects most tourists at least once.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "MEDIUM — Petty overcharging, commission rackets. Annoying but small money loss.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Key statistics for context (2025):",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• Delhi alone recorded 847 incidents involving foreign nationals (Delhi Police, 2025).",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• 47% of Indian travellers fell victim to a travel scam in 2024–25 (McAfee India Research, Apr 2025).",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• 53% of victims lost money; nearly 1 in 5 lost over ₹40,000.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• Fake hotel booking sites cost tourists an estimated ₹47 crore in 2025 (Cyber Crime units).",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• Counterfeit travel agents near major monuments affect ~1,200 visitors monthly nationally.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "City Ranking": {
+    "titleRow": "Top 12 Most-Travelled Cities of India",
+    "subtitleRow": "",
+    "headers": [
+      "Top 12 Most-Travelled Cities of India",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Ranked by combined domestic + foreign visitor volume (Tourism Ministry & State Tourism Boards, 2024–25 data)",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Rank",
+        "City",
+        "State",
+        "Annual Visitors (approx.)",
+        "Primary Tourist Profile",
+        "Overall Scam Risk"
+      ],
+      [
+        "1",
+        "Delhi",
+        "Delhi NCT",
+        "33+ million domestic / 2.7M foreign",
+        "International gateway, business, Golden Triangle start",
+        "CRITICAL"
+      ],
+      [
+        "2",
+        "Agra",
+        "Uttar Pradesh",
+        "12+ million (Taj Mahal)",
+        "Monument tourism (Taj Mahal, Agra Fort)",
+        "HIGH"
+      ],
+      [
+        "3",
+        "Jaipur",
+        "Rajasthan",
+        "9 million domestic / 0.68M foreign",
+        "Heritage, palaces, gem & textile shopping",
+        "HIGH"
+      ],
+      [
+        "4",
+        "Goa",
+        "Goa",
+        "11.4 million domestic / 0.15M foreign",
+        "Beaches, nightlife, water sports, party tourism",
+        "HIGH"
+      ],
+      [
+        "5",
+        "Mumbai",
+        "Maharashtra",
+        "10+ million",
+        "Business, Bollywood, gateway, cruise tourism",
+        "MEDIUM"
+      ],
+      [
+        "6",
+        "Varanasi",
+        "Uttar Pradesh",
+        "22 million domestic / 0.8M foreign",
+        "Spiritual / pilgrimage, ghats, ceremonies",
+        "HIGH"
+      ],
+      [
+        "7",
+        "Bangalore",
+        "Karnataka",
+        "12+ million",
+        "Business, tech, garden city, gateway to South",
+        "MEDIUM"
+      ],
+      [
+        "8",
+        "Kolkata",
+        "West Bengal",
+        "8+ million",
+        "Heritage, cultural, gateway to East/Northeast",
+        "MEDIUM"
+      ],
+      [
+        "9",
+        "Chennai",
+        "Tamil Nadu",
+        "7+ million",
+        "Heritage, beaches, gateway to South, medical tourism",
+        "MEDIUM"
+      ],
+      [
+        "10",
+        "Udaipur",
+        "Rajasthan",
+        "2.2 million",
+        "Lakes, palaces, luxury & honeymoon tourism",
+        "MEDIUM"
+      ],
+      [
+        "11",
+        "Manali",
+        "Himachal Pradesh",
+        "8+ million",
+        "Mountains, adventure, honeymoon",
+        "MEDIUM"
+      ],
+      [
+        "12",
+        "Kochi",
+        "Kerala",
+        "5+ million",
+        "Backwaters, heritage, cruise, foreign tourists rising",
+        "MEDIUM"
+      ]
+    ]
+  },
+  "Master Scam List": {
+    "titleRow": "Master Scam Catalogue — Top 12 Cities of India",
+    "subtitleRow": "Each scam includes: where it happens, who runs it, how it works, financial impact range, and verified prevention.",
+    "headers": [
+      "#",
+      "Scam Name",
+      "Category",
+      "Cities Most Active",
+      "How It Works (current 2025–26 method)",
+      "Financial Loss Range (₹)",
+      "Risk Level",
+      "How to Avoid"
+    ],
+    "rows": [
+      [
+        "1",
+        "Hotel Switch / 'Your hotel burned down'",
+        "Transport / Accommodation",
+        "Delhi, Agra, Jaipur, Mumbai, Varanasi",
+        "Taxi/auto driver claims your booked hotel is closed, burned, overbooked, or in a 'riot zone'. Drives you to a partner hotel paying 30–50% commission. Currently most active at IGI Airport T3 (after midnight arrivals) and New Delhi Railway Station.",
+        "₹3,000–₹25,000 (overcharge per night × stay)",
+        "CRITICAL",
+        "Call hotel directly before leaving terminal. Use only Uber/Ola or pre-paid taxi from the official airport counter. Never accept driver's verbal claim about your hotel — verify."
+      ],
+      [
+        "2",
+        "Fake Government Tourist Office",
+        "Booking Fraud",
+        "Delhi (Connaught Place, Paharganj), Agra, Jaipur",
+        "Fake offices with 'Govt. of India Tourism' signage sell inflated tour packages, fake train tickets, or non-existent hotel bookings. The real India Tourism office is at 88 Janpath Road, Delhi. Real IRCTC International Tourist Bureau is on the 1st floor of New Delhi Railway Station only.",
+        "₹10,000–₹1,00,000+",
+        "CRITICAL",
+        "Only book via incredibleindia.gov.in, irctc.co.in, or known platforms (MakeMyTrip, Booking.com). Never follow a 'helpful' stranger to an office. Verify location on Google Maps with reviews."
+      ],
+      [
+        "3",
+        "Fake Online Hotel Booking Site",
+        "Cyber Fraud",
+        "All cities (digital — affects bookings nationwide)",
+        "Lookalike URLs of Booking.com, MakeMyTrip, OYO; AI-generated logos and photos. Tourist pays advance via QR code, arrives to find hotel doesn't exist or has no booking. Cost tourists ₹47 crore in 2025 alone (Indian Cyber Crime data). Goa, Somnath, and Kashmir bookings most targeted.",
+        "₹5,000–₹2,00,000",
+        "CRITICAL",
+        "Check URL letter-by-letter. Use only HTTPS, verified apps. Never pay via WhatsApp/UPI to unknown numbers. Cross-check hotel phone number on Google."
+      ],
+      [
+        "4",
+        "Gem & Carpet Export Scam",
+        "Investment Fraud",
+        "Jaipur (primary), Agra, Delhi, Varanasi, Udaipur",
+        "Friendly local introduces you to a 'family jeweller'. You're told you can 'export' gems duty-free and resell abroad for huge profit; they ship to your country. Stones are worthless glass/synthetic. Variant: a fake government 'official' calls later demanding fines.",
+        "₹50,000–₹5,00,000+ (some lose savings)",
+        "CRITICAL",
+        "NEVER buy gems/carpets to export. NEVER let a stranger guide you to a shop. Walk away the moment 'export profit' is mentioned. This is the same scam since the 1980s."
+      ],
+      [
+        "5",
+        "Pre-paid Taxi Diversion / Fake Driver",
+        "Transport",
+        "Delhi (IGI), Mumbai (CST), Jaipur, Bangalore",
+        "After paying at the official prepaid counter, driver claims he doesn't know your address, the road is closed, or there's a strike. Detours to commission shops or drops you at wrong hotel. Variant: a tout at the airport claims to be your booked Uber/Ola driver.",
+        "₹500–₹5,000",
+        "HIGH",
+        "Match license plate against the app. Note driver name & phone. Share live location. Refuse all detours. At airports, walk to the official prepaid counter — don't engage anyone in the arrivals area."
+      ],
+      [
+        "6",
+        "Auto/Taxi Meter Refusal & Inflation",
+        "Transport",
+        "All 12 cities (worst: Delhi, Kolkata, Chennai, Varanasi)",
+        "Driver says meter is 'broken', quotes flat fare 3–10x normal. In Mumbai it's rarer because of strict meter culture. In Bangalore mostly auto drivers at airport/railway.",
+        "₹100–₹1,500 per ride",
+        "HIGH",
+        "Default to Uber/Ola/Rapido — they're cheap and GPS-tracked. If using auto, agree fare upfront after checking Uber price. In Mumbai insist on meter (it's the law)."
+      ],
+      [
+        "7",
+        "Train Ticket / IRCTC Scam",
+        "Booking Fraud",
+        "Delhi, Mumbai, Kolkata, Chennai, Varanasi",
+        "Near railway stations, agents sell 'confirmed tickets' that are fake or for slow local trains sold as fast express. Variant: tout claims 'your train is cancelled' and herds you to a fake ticket counter to sell flights/tours at 5x rates.",
+        "₹500–₹15,000",
+        "HIGH",
+        "Book ONLY via irctc.co.in, IRCTC Rail Connect app, MakeMyTrip, or RedBus. Verify train status on the official IRCTC app. Ignore anyone outside the station offering ticket help."
+      ],
+      [
+        "8",
+        "'Monument Closed Today' Scam",
+        "Tourism Site",
+        "Agra (Taj Mahal), Delhi (Red Fort, Qutub Minar), Jaipur (Amer Fort)",
+        "Driver/tout near monument claims it's closed for a religious festival, lunch, VIP visit, or maintenance. Offers an 'alternative' site = commission shop / overpriced fort.",
+        "₹2,000–₹15,000 (commission shop overcharge)",
+        "HIGH",
+        "Walk to the actual ticket counter and confirm. Most ASI monuments are open Tue–Sun (Taj Mahal closed Fridays). Buy tickets only at official counters or asi.payumoney.com."
+      ],
+      [
+        "9",
+        "Fake Priest / Tilak / Forced Blessing",
+        "Religious Site",
+        "Varanasi (ghats), Pushkar, Delhi (temples), Jaipur, Agra, Udaipur",
+        "A 'pandit' ties a thread (kalava) on your wrist or applies tilak before you can refuse, then chants a 'blessing' and demands ₹500–₹10,000 'donation'. Most aggressive at Manikarnika and Dashashwamedh ghats in Varanasi.",
+        "₹500–₹10,000",
+        "HIGH",
+        "Hands in pockets. Firm 'no, thank you' and walk away. Don't make eye contact. If thread is tied anyway, walk away — it costs nothing if you don't pay."
+      ],
+      [
+        "10",
+        "Fake Guide at Monuments",
+        "Tourism Site",
+        "Agra (Taj Mahal), Delhi, Jaipur, Udaipur, Varanasi",
+        "Offers 'free' or cheap guided tour, then demands ₹2,000–₹5,000 at the end. May provide false historical 'facts'. Real ASI-licensed guides wear photo ID badges with QR codes.",
+        "₹2,000–₹5,000",
+        "MEDIUM",
+        "Hire only licensed guides from the official ticket counter or via Incredible India app. Confirm price upfront in writing/screenshot."
+      ],
+      [
+        "11",
+        "Drugged Food / Drink on Trains & Buses",
+        "Safety / Theft",
+        "Delhi-Varanasi, Mumbai-Goa, all overnight long-distance routes",
+        "A friendly co-passenger offers tea, biscuits, samosa, or water. Sedative knocks you out for hours; bags, phone, cash, passport stolen. Reports increase Oct–March (peak tourist season).",
+        "₹20,000–₹2,00,000 (full bag loss + medical)",
+        "CRITICAL",
+        "Never accept ANY food/drink from strangers on trains or sleeper buses. Carry your own sealed water and snacks. Lock bags to the seat chain in sleeper class."
+      ],
+      [
+        "12",
+        "Bottled Water Tampering",
+        "Health / Petty Fraud",
+        "Delhi, Mumbai, Varanasi, Agra, Goa",
+        "Refilled tap water in a sealed-looking bottle. Sometimes lookalike brands (Bisferi instead of Bisleri). Health risk = stomach infection, hospital bill ₹5,000–₹50,000.",
+        "₹20 (the bottle) + medical risk",
+        "HIGH",
+        "Check the seal twists with a click. Inspect label spelling. Buy from sealed cases at chain stores (Reliance, More, 24Seven) when possible. Bisleri, Aquafina, Kinley, Himalayan are reliable brands."
+      ],
+      [
+        "13",
+        "Beach Shack & Water Sports Overcharge",
+        "Tourism Site",
+        "Goa (Calangute, Baga, Anjuna), Mumbai (Juhu), Kochi",
+        "Menus without prices, jet ski/parasail operators charging 5–10x and damaging equipment to demand 'damage' fees. Renting bikes/scooters with fake damage claims.",
+        "₹2,000–₹50,000 (rental damage scam)",
+        "HIGH",
+        "Confirm prices in writing/photo. Photograph rental bike from all angles before & after. Use only Goa Tourism-licensed operators (have govt. tag). Never hand over passport as deposit — only photocopy."
+      ],
+      [
+        "14",
+        "Bird Poop / Stained Shirt Distraction",
+        "Pickpocketing",
+        "Mumbai (Colaba, CST), Delhi (Connaught Place), Bangalore (MG Road)",
+        "Stranger points out 'something' on your shirt; accomplice 'helps clean' while picking your pocket of phone/wallet.",
+        "₹5,000–₹50,000 (phone + cards)",
+        "HIGH",
+        "Step back. Don't let anyone touch you. Walk to a clean spot and check yourself. Keep wallet in front pocket; phone in zipped bag."
+      ],
+      [
+        "15",
+        "ATM Skimming / Card Cloning",
+        "Cyber Fraud",
+        "All 12 cities — worst at standalone ATMs in tourist areas",
+        "Skimmer device on card slot + hidden camera or shoulder-surfer. Cards cloned, used internationally within hours.",
+        "₹10,000–₹2,00,000 (card limit)",
+        "HIGH",
+        "Use ATMs INSIDE bank branches (HDFC, ICICI, SBI, Axis). Cover PIN. Wiggle the card slot before inserting. Set low daily withdrawal limits while travelling. Enable SMS alerts."
+      ],
+      [
+        "16",
+        "Torn Note / Counterfeit Note Swap",
+        "Petty Fraud",
+        "Delhi, Mumbai, Varanasi, Jaipur, Agra",
+        "Shopkeeper/auto driver palms your ₹500/₹2000 note and returns a torn or fake one, claims you gave it. Common after a long bargaining session that distracts you.",
+        "₹500–₹2,000 per incident",
+        "MEDIUM",
+        "Inspect every note received as change. State the denomination loud and clear when handing over. Use UPI (PhonePe, GPay, Paytm) — most vendors now accept; eliminates this scam entirely."
+      ],
+      [
+        "17",
+        "WhatsApp / UPI Payment Scam",
+        "Cyber Fraud",
+        "All cities (digital)",
+        "Tour operator on Instagram/WhatsApp offers cheap Kashmir/Goa/Manali package, demands UPI advance, blocks you. Or fake customer care numbers on Google → screen-share → drains account. Surge in 2025 with 'digital arrest' variant impersonating police/CBI.",
+        "₹5,000–₹10,00,000+",
+        "CRITICAL",
+        "Never pay UPI to unverified numbers. Never share OTP, screen, or bank app with anyone. Real police/CBI never call demanding payment. Verify operators on registered.tourism.gov.in."
+      ],
+      [
+        "18",
+        "Begging Mafia (Mother & Baby Milk Scam)",
+        "Organised Begging",
+        "Mumbai, Delhi, Jaipur, Agra, Kolkata",
+        "Woman with baby asks not for money but 'milk powder' or 'baby food'. Leads you to a partnered shop where item is priced 5–10x. After you leave, the goods are returned to the shop and money split.",
+        "₹500–₹3,000",
+        "MEDIUM",
+        "Don't engage. If you want to help, donate to a registered NGO (Goonj, Smile Foundation, CRY)."
+      ],
+      [
+        "19",
+        "'Friendly Student / Practice English' Setup",
+        "Commission Scam",
+        "Delhi, Jaipur, Agra, Udaipur, Varanasi, Goa",
+        "Well-dressed young person strikes up a conversation, claims to be a student, offers to show you 'authentic local market' / 'cultural show' / 'family shop' = commission trap.",
+        "₹2,000–₹50,000 (gem/carpet upsell)",
+        "HIGH",
+        "Be politely unavailable. 'No thanks, I'm meeting someone.' Walk away. Real students don't trawl tourist areas looking for foreigners."
+      ],
+      [
+        "20",
+        "Fake Police / Plainclothes Officer",
+        "Extortion",
+        "Delhi (Paharganj, Main Bazaar), Mumbai (Colaba), Goa, Varanasi",
+        "Man flashes ID, claims he's checking for drugs/foreigners' permits. Demands to see passport, money, then 'fines' you on the spot.",
+        "₹2,000–₹50,000",
+        "HIGH",
+        "Real Indian police do not collect on-the-spot fines from tourists. Demand to go to the nearest police station. Call 112 (national helpline) immediately. Never hand over passport — only show."
+      ],
+      [
+        "21",
+        "Drug Possession Setup (Goa)",
+        "Extortion / Safety",
+        "Goa (Anjuna, Vagator, Morjim), Manali (Old Manali, Kasol), Rishikesh",
+        "Local offers drugs at a beach/party; once accepted/handed over, accomplice 'cop' arrives, demands large bribe to avoid arrest. Punishment for narcotics in India is severe — even small amounts = years in jail.",
+        "₹50,000–₹5,00,000+ (or jail)",
+        "CRITICAL",
+        "Refuse all drug offers. NDPS Act in India is harsh; 1 year minimum for personal possession. Walk away from anyone offering 'something to relax'."
+      ],
+      [
+        "22",
+        "Holi / Festival Colour Overcharge",
+        "Tourism Site",
+        "Varanasi, Jaipur, Mathura, Delhi",
+        "During festivals, vendors charge 5–10x for colours (gulal), flowers, garlands, sweets, ritual items. Sometimes they apply colour without consent then demand payment.",
+        "₹500–₹3,000",
+        "MEDIUM",
+        "Ask price BEFORE handing over anything. Carry small change. Decline non-consensual colour application firmly."
+      ],
+      [
+        "23",
+        "Forex / Currency Exchange Cheat",
+        "Petty Fraud",
+        "Delhi (Paharganj, CP), Mumbai (Colaba), Goa, Agra",
+        "Unauthorised forex changers offer slightly better rates than banks but short-count cash, give torn notes, or include fakes.",
+        "₹500–₹10,000 per transaction",
+        "MEDIUM",
+        "Use only RBI-licensed exchanges (look for FFMC license displayed) or bank ATMs. Count cash on the spot before leaving. Skip Paharganj/Colaba street changers."
+      ],
+      [
+        "24",
+        "Shoe / Slipper Theft at Temples",
+        "Petty Theft",
+        "Varanasi, Delhi, Jaipur, Udaipur, Kolkata",
+        "Mandatory shoe removal at temple entry. Some 'caretakers' charge inflated 'safekeeping fees' (₹50–₹500 instead of ₹10) or your good shoes are swapped with cheap ones.",
+        "₹500–₹5,000 (replacing decent shoes)",
+        "MEDIUM",
+        "Wear cheap flip-flops / sliders to temples. Use the official locker (₹10–₹20) where available. Note your shoe spot."
+      ],
+      [
+        "25",
+        "Cordelia / Cruise Booking Scam",
+        "Cyber Fraud",
+        "Mumbai, Goa, Kochi (cruise embarkation cities)",
+        "Fake Cordelia / Costa websites take advance for cruises that never sail. Surged in 2025 per Goa MP's statement in Rajya Sabha.",
+        "₹15,000–₹2,00,000",
+        "HIGH",
+        "Book only via cordeliacruises.com or authorised travel partners with verifiable office addresses. Never pay via random UPI."
+      ]
+    ]
+  },
+  "Risk Heatmap": {
+    "titleRow": "Scam × City Risk Heatmap",
+    "subtitleRow": "",
+    "headers": [
+      "Scam × City Risk Heatmap",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Y = highly active in city | M = present but less common | (blank) = not commonly reported",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam",
+        "Delhi",
+        "Agra",
+        "Jaipur",
+        "Goa",
+        "Mumbai",
+        "Varanasi",
+        "Bangalore",
+        "Kolkata",
+        "Chennai",
+        "Udaipur",
+        "Manali",
+        "Kochi",
+        ""
+      ],
+      [
+        "Hotel switch / closed",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "Y",
+        "M",
+        "M",
+        "M",
+        "M",
+        "M",
+        "M",
+        ""
+      ],
+      [
+        "Fake govt tourist office",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "M",
+        "Y",
+        "M",
+        "M",
+        "M",
+        "M",
+        "M",
+        "M",
+        ""
+      ],
+      [
+        "Fake online hotel booking",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        ""
+      ],
+      [
+        "Gem/carpet export scam",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "M",
+        "Y",
+        "",
+        "",
+        "",
+        "Y",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Pre-paid taxi diversion",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "M",
+        "Y",
+        "M",
+        "M",
+        "M",
+        "M",
+        "M",
+        ""
+      ],
+      [
+        "Auto/taxi meter inflation",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "M",
+        ""
+      ],
+      [
+        "Train ticket scam",
+        "Y",
+        "Y",
+        "M",
+        "M",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "Y",
+        "M",
+        "",
+        "",
+        ""
+      ],
+      [
+        "'Monument closed'",
+        "Y",
+        "Y",
+        "Y",
+        "",
+        "M",
+        "Y",
+        "",
+        "",
+        "",
+        "Y",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Fake priest / forced tilak",
+        "M",
+        "M",
+        "M",
+        "",
+        "",
+        "Y",
+        "",
+        "",
+        "",
+        "M",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Fake guide at monument",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "M",
+        "Y",
+        "",
+        "M",
+        "M",
+        "Y",
+        "M",
+        "M",
+        ""
+      ],
+      [
+        "Drugged food on transport",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "Y",
+        "M",
+        "M",
+        "M",
+        ""
+      ],
+      [
+        "Bottled water tampering",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "M",
+        "M",
+        "M",
+        "M",
+        "M",
+        ""
+      ],
+      [
+        "Beach/water sport overcharge",
+        "",
+        "",
+        "",
+        "Y",
+        "Y",
+        "",
+        "",
+        "",
+        "M",
+        "",
+        "",
+        "Y",
+        ""
+      ],
+      [
+        "Bird poop / pickpocket",
+        "Y",
+        "",
+        "M",
+        "",
+        "Y",
+        "",
+        "Y",
+        "M",
+        "M",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "ATM skimming",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        ""
+      ],
+      [
+        "Torn / fake note swap",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "M",
+        "M",
+        "M",
+        "M",
+        ""
+      ],
+      [
+        "WhatsApp/UPI scam",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        "Y",
+        ""
+      ],
+      [
+        "Begging mafia (milk scam)",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "M",
+        "M",
+        "Y",
+        "M",
+        "M",
+        "M",
+        "M",
+        ""
+      ],
+      [
+        "'Friendly student'",
+        "Y",
+        "Y",
+        "Y",
+        "M",
+        "M",
+        "Y",
+        "",
+        "",
+        "",
+        "Y",
+        "M",
+        "M",
+        ""
+      ],
+      [
+        "Fake police / extortion",
+        "Y",
+        "",
+        "M",
+        "Y",
+        "Y",
+        "Y",
+        "",
+        "",
+        "",
+        "",
+        "M",
+        "",
+        ""
+      ],
+      [
+        "Drug possession setup",
+        "M",
+        "",
+        "",
+        "Y",
+        "M",
+        "M",
+        "",
+        "",
+        "",
+        "",
+        "Y",
+        "M",
+        ""
+      ],
+      [
+        "Festival colour overcharge",
+        "Y",
+        "M",
+        "Y",
+        "",
+        "",
+        "Y",
+        "",
+        "",
+        "",
+        "M",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Forex cheat",
+        "Y",
+        "Y",
+        "M",
+        "Y",
+        "Y",
+        "M",
+        "M",
+        "M",
+        "M",
+        "M",
+        "",
+        "M",
+        ""
+      ],
+      [
+        "Shoe theft at temples",
+        "Y",
+        "M",
+        "Y",
+        "",
+        "M",
+        "Y",
+        "",
+        "Y",
+        "M",
+        "Y",
+        "M",
+        "M",
+        ""
+      ],
+      [
+        "Cruise booking scam",
+        "M",
+        "",
+        "",
+        "Y",
+        "Y",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Y",
+        ""
+      ],
+      [
+        "Total HIGH-risk scams (Y count)",
+        "21",
+        "17",
+        "16",
+        "11",
+        "15",
+        "18",
+        "6",
+        "9",
+        "6",
+        "8",
+        "5",
+        "5",
+        ""
+      ]
+    ]
+  },
+  "Delhi": {
+    "titleRow": "Delhi — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Delhi — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Maximum vigilance city — 847 incidents involving foreigners in 2025 (Delhi Police).",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "IGI Airport Terminal 3 — taxi touts, fake driver scam (especially after 11 PM arrivals)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "New Delhi Railway Station — fake tourist offices, train cancellation scam, hotel switch",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Paharganj / Main Bazaar — fake police, forex cheat, drug setup, fake travel agencies",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Connaught Place — fake government tourist offices, gem touts, pickpockets",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Chandni Chowk / Old Delhi — pickpocketing, aggressive touts, rickshaw overcharge",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Karol Bagh — fake travel agencies, fake hotel switch from airport drop",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "India Gate / Rajpath — photographers demanding inflated fees",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Hotel switch from IGI airport",
+        "CRITICAL",
+        "Driver claims hotel closed/full, takes you to commission hotel paying him 30–50%.",
+        ""
+      ],
+      [
+        "2",
+        "Fake 'Government Tourist Office' in CP/Paharganj",
+        "CRITICAL",
+        "Sells fake train tickets, overpriced tours. Real one is at 88 Janpath Road.",
+        ""
+      ],
+      [
+        "3",
+        "New Delhi Railway Station 'tourist office' upstairs",
+        "CRITICAL",
+        "Real IRCTC International Tourist Bureau is on 1st floor. Touts redirect you to fake one.",
+        ""
+      ],
+      [
+        "4",
+        "Fake police in Paharganj",
+        "HIGH",
+        "Plainclothes 'officers' demand passport check + on-spot fine. Real police don't fine on the spot.",
+        ""
+      ],
+      [
+        "5",
+        "Auto refusing meter / inflated fares",
+        "HIGH",
+        "Use Uber/Ola — they're 30–60% cheaper than tourist auto rates.",
+        ""
+      ],
+      [
+        "6",
+        "Pickpocketing in Chandni Chowk metro",
+        "HIGH",
+        "Yellow line during rush hour is hotspot. Front pocket only, zipped bag.",
+        ""
+      ],
+      [
+        "7",
+        "Bird poop / shirt stain distraction in CP",
+        "MEDIUM",
+        "Two-person team. Step back, don't let anyone touch you.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Delhi Metro (safest, cheapest, fastest for most routes)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Uber, Ola, Rapido (always; they show fare upfront)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Taking auto-rickshaws from outside hotels in tourist areas without app",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Anyone approaching you at IGI arrivals or NDLS station",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "EMERGENCY: Delhi Tourist Police 1800-11-1363 (24x7, multilingual)",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Agra": {
+    "titleRow": "Agra — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Agra — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Monument city, scams concentrated around Taj Mahal and Agra Fort.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Taj Mahal East/West Gate — fake guides, 'closed today' scam, ticket touts",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Agra Cantt Railway Station — taxi overcharge, hotel switch",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Sadar Bazaar — gem/marble inlay shop touts",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Fatehpur Sikri — aggressive 'guides' and child beggars",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "'Taj Mahal closed today' / fake holiday",
+        "HIGH",
+        "Touts near gates. Taj is closed only on FRIDAYS — verify yourself at the ticket counter.",
+        ""
+      ],
+      [
+        "2",
+        "Fake guides at Taj Mahal",
+        "HIGH",
+        "Demand ₹2,000–₹5,000 after free 'tour'. Hire only ASI-licensed guides with photo ID at the counter.",
+        ""
+      ],
+      [
+        "3",
+        "Marble inlay / gem export scam",
+        "CRITICAL",
+        "Drivers commission you to shops claiming 'family workshop'. Same scam as Jaipur — overpriced fakes.",
+        ""
+      ],
+      [
+        "4",
+        "Auto/taxi inflated fares from Cantt station",
+        "HIGH",
+        "Use prepaid taxi at station OR Uber/Ola. Quoted rates are 3–5x real.",
+        ""
+      ],
+      [
+        "5",
+        "Photographer at Taj demanding fees",
+        "MEDIUM",
+        "Approach you with 'free photo' offer, then demand ₹500–₹2,000 per print.",
+        ""
+      ],
+      [
+        "6",
+        "Shoe-cover fee scam",
+        "MEDIUM",
+        "Free shoe covers come with your Taj ticket. Don't pay anyone selling them.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: ASI website asi.payumoney.com for advance Taj tickets (skip queue)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Licensed guide booth at the East/West gate",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Anyone offering 'special' Taj entry, sunrise tickets via WhatsApp",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "TIMING: Taj closed Fridays. Open sunrise to sunset.",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Jaipur": {
+    "titleRow": "Jaipur — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Jaipur — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Heritage and shopping capital — gem & textile scams are decades-old institutions here.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Johari Bazaar / Bapu Bazaar — gem touts, fake 'family jeweller' setup",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Hawa Mahal & City Palace — commission tour drivers, fake guides",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Amer Fort — 'closed today' touts, photographers, elephant ride markup",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Jaipur Junction Station — taxi overcharge, hotel switch",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Sanganer/airport — fake driver pickup",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Gem export scam (the legendary one)",
+        "CRITICAL",
+        "Friendly local → 'family jeweller' → 'export gems for profit' → glass beads. Lose lakhs.",
+        ""
+      ],
+      [
+        "2",
+        "Textile / block print 'family workshop'",
+        "HIGH",
+        "Driver commissions you to specific shop. Prices 5–10x normal Bapu Bazaar rates.",
+        ""
+      ],
+      [
+        "3",
+        "'Friendly student' approaches at Hawa Mahal",
+        "HIGH",
+        "Sets up the gem scam. Walk away from anyone unprompted.",
+        ""
+      ],
+      [
+        "4",
+        "Amer Fort 'closed' / wrong gate",
+        "MEDIUM",
+        "Touts redirect you to a paid 'alternate viewing point' = commission shop.",
+        ""
+      ],
+      [
+        "5",
+        "Auto charging by 'tourist rate'",
+        "HIGH",
+        "Use Ola/Uber/Rapido. Auto from station to old city = ₹150 by app vs ₹500 quoted.",
+        ""
+      ],
+      [
+        "6",
+        "Fake palace tour packages",
+        "MEDIUM",
+        "WhatsApp groups offering ₹500 'all monuments tour' drop you at commission shops.",
+        ""
+      ],
+      [
+        "7",
+        "Elephant ride at Amer overcharge & welfare issue",
+        "MEDIUM",
+        "Govt rate is fixed (~₹1,100). Touts charge ₹3,000+. Also: ethical concerns documented by PETA India.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Composite ticket (₹400) covers Amer, Hawa Mahal, Jantar Mantar, City Palace — buy at first site",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Any shop a driver/guide 'recommends' — they get 30–50% commission",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "BARGAIN: Start at 25–30% of quoted price in Bapu/Johari Bazaar",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Goa": {
+    "titleRow": "Goa — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Goa — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Most relaxed safety profile but highest concentration of cyber & tourism fraud.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Calangute & Baga beaches — water sports overcharge, beach shack inflated bills",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Anjuna & Vagator — drug setup, party scams",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Old Goa & Panaji — taxi mafia (Goa has notorious taxi unions blocking Uber/Ola)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Dabolim airport & Mopa airport — pre-paid taxi inflation",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Online — fake hotel/villa bookings via Instagram & WhatsApp",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Fake hotel/villa booking online",
+        "CRITICAL",
+        "Goa MP raised this in Rajya Sabha 2025. Fake sites mimic real hotels, AI-generated photos. Lose ₹20K–₹2L.",
+        ""
+      ],
+      [
+        "2",
+        "Drug possession setup",
+        "CRITICAL",
+        "Beach offer → 'cop' demands bribe. NDPS Act = 1+ year jail minimum. Refuse all offers.",
+        ""
+      ],
+      [
+        "3",
+        "Scooter/bike rental damage scam",
+        "HIGH",
+        "Fake scratches added; deposit/passport held hostage. Photo entire bike before+after; never give passport.",
+        ""
+      ],
+      [
+        "4",
+        "Goa taxi mafia overcharge",
+        "HIGH",
+        "No Uber/Ola in much of Goa due to taxi union resistance. Use GoaMiles app (govt-backed) or pre-fixed kadamba rates.",
+        ""
+      ],
+      [
+        "5",
+        "Beach shack 'tourist menu' overcharge",
+        "HIGH",
+        "Different menu/pricing for foreigners. Always ask for printed menu with prices.",
+        ""
+      ],
+      [
+        "6",
+        "Water sports operator overcharge & 'damage'",
+        "HIGH",
+        "₹5,000 jet ski quoted as ₹2,000; demand 'damage' fees after. Use only Goa Tourism-licensed operators.",
+        ""
+      ],
+      [
+        "7",
+        "Cordelia / cruise fake booking",
+        "HIGH",
+        "Fake websites take advance for non-existent sailings.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: GoaMiles app (official govt taxi app, fixed rates)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Bookings via Booking.com, MakeMyTrip — verify hotel exists by direct call",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Buying drugs, ever (NDPS Act is harsh)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Renting bike from random shacks — use Royal Brothers, Onn Bikes, Vroom apps",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Mumbai": {
+    "titleRow": "Mumbai — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Mumbai — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Lower scam intensity than Delhi/Agra — meter culture is strong; pickpocketing is the main risk.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "CST / Chhatrapati Shivaji Terminus — pickpocketing, fake guides",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Colaba Causeway & Gateway of India — touts, fake police, gem scams",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Juhu / Versova beach — water sport overcharge, food cart hygiene",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Andheri / airport — pre-paid taxi diversion",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Local trains — pickpocketing especially during rush hour",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Pickpocketing on local trains & at CST",
+        "HIGH",
+        "Mumbai's #1 tourist crime. Front pocket, zipped bag, no phone in back pocket.",
+        ""
+      ],
+      [
+        "2",
+        "Fake police at Colaba / Gateway",
+        "HIGH",
+        "Demand 'foreigner check' + on-spot fine. Demand to go to police station instead.",
+        ""
+      ],
+      [
+        "3",
+        "Gem & carpet shops in Colaba",
+        "HIGH",
+        "Same export scam, slightly less aggressive than Jaipur.",
+        ""
+      ],
+      [
+        "4",
+        "Tourist boat overcharge to Elephanta",
+        "MEDIUM",
+        "Official Elephanta ferry is ₹220–270 from Gateway. Touts quote ₹500–800.",
+        ""
+      ],
+      [
+        "5",
+        "Photo + 'small donation' at Gateway",
+        "MEDIUM",
+        "Photographer gives 'free' photo, then asks for ₹500.",
+        ""
+      ],
+      [
+        "6",
+        "Hotel switch from airport",
+        "HIGH",
+        "Less common than Delhi but still happens at international arrivals after midnight.",
+        ""
+      ],
+      [
+        "7",
+        "Bottled water tampering near beaches",
+        "MEDIUM",
+        "Check seal, prefer chain stores.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Mumbai local trains (cheap, fast) — but be alert in rush hour",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Uber/Ola available citywide; meters in regular cabs are reliable here",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Official Elephanta ticket counter at Gateway",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "EMERGENCY: 100 (police), 112 (national emergency), 1800-22-1111 (Maharashtra Tourism)",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Varanasi": {
+    "titleRow": "Varanasi — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Varanasi — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Spiritual intensity = scam intensity. Highest concentration of religious-themed fraud.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Dashashwamedh Ghat & Manikarnika Ghat — fake priests, photo extortion",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Vishwanath Gali — pickpocketing, shoe theft, aggressive shop touts",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Varanasi Junction Station — taxi overcharge, hotel switch, fake guides",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Boat operators along the Ganga — overcharge for sunrise/Aarti rides",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Sarnath — fake guides, donation extortion",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Fake priest forced tilak/thread + 'donation'",
+        "HIGH",
+        "Ties thread before you can refuse, demands ₹500–₹10,000. Hands in pockets, firm 'no'.",
+        ""
+      ],
+      [
+        "2",
+        "Photography extortion at Manikarnika (cremation ghat)",
+        "CRITICAL",
+        "Photo strictly forbidden anyway, but fake 'caretakers' threaten heavy fines if you have a camera. Don't take photos there at all — out of respect & safety.",
+        ""
+      ],
+      [
+        "3",
+        "Boat overcharge for sunrise / Aarti",
+        "HIGH",
+        "Quoted ₹3,000–₹5,000; real rate is ₹500–₹800 for a shared boat, ₹1,500–₹2,500 private.",
+        ""
+      ],
+      [
+        "4",
+        "Fake guide claiming to be 'temple authority'",
+        "HIGH",
+        "At Kashi Vishwanath, asks for 'special darshan fee' = pocket money.",
+        ""
+      ],
+      [
+        "5",
+        "Drugged tea / lassi from random shops",
+        "CRITICAL",
+        "Bhang lassi shops sometimes much stronger than declared. Tourists hospitalised.",
+        ""
+      ],
+      [
+        "6",
+        "Hotel switch from station",
+        "HIGH",
+        "Cyclo/auto driver claims hotel closed → commission guesthouse.",
+        ""
+      ],
+      [
+        "7",
+        "Shoe theft at temples",
+        "MEDIUM",
+        "Wear cheap sliders. Use the official locker.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Pre-fix boat price BEFORE stepping in. Walk to next ghat if quoted high.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Authentic guides via incredibleindia.gov.in or your hotel concierge",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Photography at Manikarnika & Harishchandra ghats (cremations)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Bhang lassi unless you understand the dose",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "RESPECT: This is one of the holiest cities in Hinduism — modest dress essential",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Bangalore": {
+    "titleRow": "Bangalore — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Bangalore — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Tech & business hub — lower tourist scam volume; mostly transport overcharge & cyber.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Kempegowda International Airport — pre-paid taxi diversion, fake driver",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Majestic Bus Stand & KSR Railway — auto refusing meter, fake ticket counters",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Commercial Street & Brigade Road — pickpocketing, fake brand stores",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "MG Road & Church Street — bird-poop pickpocket scam reports",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Auto rickshaw refusing meter",
+        "HIGH",
+        "Most rampant scam in Bangalore. ALWAYS use Rapido/Uber/Namma Yatri (official BMTC-backed app).",
+        ""
+      ],
+      [
+        "2",
+        "Fake driver at airport claiming to be your Uber/Ola",
+        "HIGH",
+        "Verify license plate before getting in.",
+        ""
+      ],
+      [
+        "3",
+        "Fake brand stores in Commercial Street",
+        "MEDIUM",
+        "Counterfeit Apple/Samsung accessories. Buy electronics at authorised stores only.",
+        ""
+      ],
+      [
+        "4",
+        "ATM skimming in standalone street ATMs",
+        "HIGH",
+        "Use only HDFC/ICICI/SBI/Axis branch ATMs.",
+        ""
+      ],
+      [
+        "5",
+        "Pickpocketing at Majestic during festivals",
+        "MEDIUM",
+        "Especially during Dussehra, Diwali.",
+        ""
+      ],
+      [
+        "6",
+        "Fake job/visa scam targeting foreign workers",
+        "HIGH",
+        "Recent rise — affects African and SE Asian tourists.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Namma Yatri (Bangalore's official auto app, NO commission, fair fares)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Bangalore Metro (Purple & Green lines cover most tourist spots)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Cash transactions at street ATMs after dark",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Kolkata": {
+    "titleRow": "Kolkata — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Kolkata — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Lower scam intensity, but pickpocketing on Metro & at Howrah Station is significant.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Howrah Station & Sealdah Station — pickpocketing, fake porters, hotel switch",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "New Market / Hogg Market — aggressive touts, fake brand sales",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Kalighat Temple — fake priests, donation extortion",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Park Street — overcharge at bars/restaurants for foreigners",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Pickpocketing on Kolkata Metro & at Howrah",
+        "HIGH",
+        "Front pocket, zipped bag. Especially on Howrah-Dum Dum line during rush.",
+        ""
+      ],
+      [
+        "2",
+        "Fake porter overcharge at Howrah",
+        "HIGH",
+        "Real porters wear red shirt + metal armband with number. Pre-fix price: ₹50–₹100/bag.",
+        ""
+      ],
+      [
+        "3",
+        "Kalighat 'priest' demanding offering",
+        "HIGH",
+        "₹500–₹5,000 demanded. Same as Varanasi pattern. Walk away firmly.",
+        ""
+      ],
+      [
+        "4",
+        "Fake brand stores in New Market",
+        "MEDIUM",
+        "Counterfeit watches, perfumes, leather.",
+        ""
+      ],
+      [
+        "5",
+        "Auto/taxi refusing meter or quoting flat",
+        "HIGH",
+        "Use Uber/Ola. Yellow Ambassador taxis often refuse short distances.",
+        ""
+      ],
+      [
+        "6",
+        "Hotel switch scam",
+        "MEDIUM",
+        "Less common than Delhi but happens at Howrah.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Kolkata Metro (cheap, efficient, clean)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Yatri Sathi app (official Bengal govt taxi app)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Withdrawing large cash on the street",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Chennai": {
+    "titleRow": "Chennai — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Chennai — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Generally low scam intensity for tourists; transport & medical-tourism cyber fraud are main risks.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Chennai Central & Egmore Stations — auto overcharge, fake porter",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "T Nagar — pickpocketing in crowded markets",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Marina Beach — hawker overcharge, photographer fees",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Hospitals (Apollo, Fortis, MIOT) — medical tourism scams targeting foreign patients",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Auto rickshaw extreme overcharge",
+        "HIGH",
+        "Chennai autos are notorious. ALWAYS use Uber/Ola/Rapido.",
+        ""
+      ],
+      [
+        "2",
+        "Medical tourism middleman scam",
+        "CRITICAL",
+        "Fake 'patient coordinator' offers cheap surgery at top hospital, takes advance, disappears. Book directly with hospital international patient desk.",
+        ""
+      ],
+      [
+        "3",
+        "Marina Beach hawker overcharge",
+        "MEDIUM",
+        "₹100 corn for tourists vs ₹30 for locals. Fix price first.",
+        ""
+      ],
+      [
+        "4",
+        "Pickpocketing in T Nagar (Pondy Bazaar)",
+        "MEDIUM",
+        "Especially Saturdays. Crowded shopping district.",
+        ""
+      ],
+      [
+        "5",
+        "Fake gold/silver shops",
+        "HIGH",
+        "Especially Sowcarpet & Mint Street. Buy only from BIS-hallmarked retailers (Tanishq, GRT, Joyalukkas).",
+        ""
+      ],
+      [
+        "6",
+        "Airport pre-paid taxi diversion",
+        "MEDIUM",
+        "Less common than Delhi but happens.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Chennai Metro (Blue & Green lines)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Apollo/Fortis international patient desk directly for medical tourism",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Booking medical procedures via WhatsApp 'consultants'",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Udaipur": {
+    "titleRow": "Udaipur — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Udaipur — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Lower scam intensity than Jaipur but same Rajasthan-style gem & textile traps near Lake Pichola.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Lake Pichola boating ghats — overcharge, fake 'palace tours'",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "City Palace area — gem touts, commission tours",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Jagdish Temple — fake priests",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Hathi Pol & Bada Bazaar — textile/gem shops with commission tie-ups",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Boat ride overcharge on Lake Pichola",
+        "HIGH",
+        "Official rates posted at City Palace ticket counter. Ignore touts at the ghat.",
+        ""
+      ],
+      [
+        "2",
+        "Gem & miniature painting export scam",
+        "HIGH",
+        "Same as Jaipur. 'Family workshop' = commission. Walk away.",
+        ""
+      ],
+      [
+        "3",
+        "Fake heritage 'haveli' bookings",
+        "HIGH",
+        "Several scam websites in 2025 — book via Booking.com/MMT only.",
+        ""
+      ],
+      [
+        "4",
+        "Auto refusing meter from station",
+        "HIGH",
+        "Use Uber/Ola — Udaipur has good coverage now.",
+        ""
+      ],
+      [
+        "5",
+        "Fake guide at City Palace",
+        "MEDIUM",
+        "Hire only from official counter.",
+        ""
+      ],
+      [
+        "6",
+        "Sunset Point camel/horse ride overcharge",
+        "MEDIUM",
+        "Fix price before mounting.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Official City Palace boat ticket counter for Lake Pichola",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Pre-paid taxi at Udaipur airport",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "BARGAIN: Hard at Hathi Pol — start at 30% of quoted",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Manali": {
+    "titleRow": "Manali — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Manali — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Adventure & honeymoon hub — drug setup and rental damage scams are the big ones.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Old Manali — drug offers, party scams, café overcharge",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Mall Road / New Manali — taxi mafia, photographer overcharge",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Solang Valley — paragliding/skiing operator overcharge",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Rohtang Pass road — taxi cartels with fixed inflated rates",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Drug possession setup (Old Manali / Kasol nearby)",
+        "CRITICAL",
+        "Charas offered → 'cop' demands bribe. NDPS Act jail risk. Refuse all offers.",
+        ""
+      ],
+      [
+        "2",
+        "Bike/scooter rental damage scam",
+        "HIGH",
+        "Photo before+after, never leave passport, use known agencies.",
+        ""
+      ],
+      [
+        "3",
+        "Taxi cartel rates to Rohtang/Solang",
+        "HIGH",
+        "Fixed by union; high but unavoidable. Hotel can sometimes negotiate.",
+        ""
+      ],
+      [
+        "4",
+        "Paragliding operator overcharge / no insurance",
+        "HIGH",
+        "Use only HP Tourism-licensed operators. Verify pilot license.",
+        ""
+      ],
+      [
+        "5",
+        "Honeymoon package fraud online",
+        "HIGH",
+        "Fake Instagram/WhatsApp packages with advance UPI demand. Lose ₹20K–₹1L.",
+        ""
+      ],
+      [
+        "6",
+        "Photographer at Hidimba Temple / Mall Road",
+        "MEDIUM",
+        "'Free photo with traditional dress' → demands ₹500–₹2,000.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: HP Tourism-registered adventure operators",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Pre-paid taxi cooperatives near Mall Road",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Old Manali at night for solo travellers; drug offers are routine there",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "WEATHER: Rohtang Pass requires permit (Apr–Oct accessible). Book online via hpdolweb.gov.in",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Kochi": {
+    "titleRow": "Kochi — Scam Intelligence",
+    "subtitleRow": "",
+    "headers": [
+      "Kochi — Scam Intelligence",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Strong tourism infrastructure, low scam intensity. Cruise & backwater package fraud is the main online risk.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Scam Hotspots in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Fort Kochi — auto/tuk-tuk overcharge, fake guides at Chinese fishing nets",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Mattancherry / Jew Town — antique/spice shop overcharge",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Ernakulam Junction — taxi inflation",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "Online — fake houseboat & backwater bookings",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top Scams Active in This City",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Scam",
+        "Risk",
+        "How It Works & How to Avoid",
+        ""
+      ],
+      [
+        "1",
+        "Fake houseboat / backwater booking online",
+        "CRITICAL",
+        "Lookalike Kerala Tourism websites. Pay advance, no boat. Book via keralatourism.org or trusted operator (Spice Coast, Lakes & Lagoons).",
+        ""
+      ],
+      [
+        "2",
+        "Auto/tuk-tuk overcharge in Fort Kochi",
+        "HIGH",
+        "Use Uber/Ola/Rapido — strong coverage.",
+        ""
+      ],
+      [
+        "3",
+        "Fake antique / spice 'discount' shops in Jew Town",
+        "HIGH",
+        "Inflated prices for 'genuine' spices and 'antiques'. Bargain hard or buy from chain stores.",
+        ""
+      ],
+      [
+        "4",
+        "Chinese fishing net 'demonstration fee'",
+        "MEDIUM",
+        "Operators ask ₹500–₹1,000 to 'pull the net'. Fixed local rate is ₹100–₹200.",
+        ""
+      ],
+      [
+        "5",
+        "Cruise booking scam (Cordelia)",
+        "HIGH",
+        "Fake websites. Book only via cordeliacruises.com or authorised agents.",
+        ""
+      ],
+      [
+        "6",
+        "Fake Ayurveda spa packages",
+        "HIGH",
+        "Some 'Ayurvedic clinics' have no licensed doctors. Check NABH-accreditation.",
+        ""
+      ],
+      [
+        "City-Specific Essentials",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Kerala Tourism's official site keralatourism.org for houseboat bookings",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: Uber/Ola in Kochi (extensive coverage)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "USE: NABH-accredited Ayurveda centres only",
+        "",
+        "",
+        ""
+      ],
+      [
+        "•",
+        "AVOID: Buying 'antique' spices in Jew Town without comparison",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Emergency Contacts": {
+    "titleRow": "Emergency & Reporting Contacts (India, 2026)",
+    "subtitleRow": "",
+    "headers": [
+      "Emergency & Reporting Contacts (India, 2026)",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Save these on your phone before travel. All numbers verified for April 2026.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Service",
+        "Number",
+        "Coverage",
+        "Notes"
+      ],
+      [
+        "National Emergency",
+        "112",
+        "All India",
+        "Single emergency number — police, fire, medical. Works from any phone, any state."
+      ],
+      [
+        "Police",
+        "100",
+        "All India",
+        "Direct police line; in most cities also routed via 112."
+      ],
+      [
+        "Fire",
+        "101",
+        "All India",
+        "Fire & rescue."
+      ],
+      [
+        "Ambulance",
+        "102 / 108",
+        "All India",
+        "108 has GPS tracking and integrated emergency response in most states."
+      ],
+      [
+        "Tourist Helpline (multilingual)",
+        "1800-11-1363",
+        "All India",
+        "Ministry of Tourism. 24×7. Hindi, English + 6 regional languages."
+      ],
+      [
+        "Tourist Helpline SMS",
+        "1363",
+        "All India",
+        "SMS-based; useful where calls fail."
+      ],
+      [
+        "Women Helpline",
+        "1091",
+        "All India",
+        "Police-routed, 24×7."
+      ],
+      [
+        "Women in Distress (NCW)",
+        "7827170170",
+        "All India",
+        "WhatsApp-enabled."
+      ],
+      [
+        "Cyber Crime Helpline",
+        "1930",
+        "All India",
+        "Report online fraud (UPI, fake bookings, card cloning) within 24 hrs for highest recovery chance."
+      ],
+      [
+        "Cyber Crime Portal",
+        "cybercrime.gov.in",
+        "All India",
+        "File complaint with screenshots & transaction IDs."
+      ],
+      [
+        "Senior Citizen Helpline",
+        "14567",
+        "All India",
+        "Elder Line."
+      ],
+      [
+        "Anti-Trafficking",
+        "1098",
+        "All India",
+        "Childline."
+      ],
+      [
+        "Indian Railways Enquiry",
+        "139",
+        "All India",
+        "PNR status, train running, complaints."
+      ],
+      [
+        "Highway Helpline",
+        "1033",
+        "Highways",
+        "Accidents, vehicle breakdown, road conditions."
+      ],
+      [
+        "Delhi Tourist Police",
+        "011-23365358 / 1800-11-1363",
+        "Delhi NCT",
+        "At Connaught Place & airport."
+      ],
+      [
+        "Mumbai Tourist Police",
+        "022-22621855",
+        "Mumbai",
+        "Headquartered at Crawford Market."
+      ],
+      [
+        "Goa Tourist Police",
+        "0832-2428360",
+        "Goa",
+        "Headquartered at Panaji."
+      ],
+      [
+        "Rajasthan Tourist Police",
+        "0141-2202586",
+        "Jaipur, Udaipur, Jodhpur",
+        "Strong presence at heritage sites."
+      ],
+      [
+        "UP Tourist Police",
+        "0522-2238902",
+        "Agra, Varanasi",
+        "Dedicated team at Taj Mahal & Varanasi ghats."
+      ],
+      [
+        "Foreigners Regional Reg. Office (FRRO)",
+        "frro.gov.in / 011-26711443",
+        "Delhi-HQ + offices in 12+ cities",
+        "Visa extensions, lost-passport reporting."
+      ]
+    ]
+  },
+  "Pre-Travel Checklist": {
+    "titleRow": "Pre-Travel & On-Arrival Checklist",
+    "subtitleRow": "",
+    "headers": [
+      "Pre-Travel & On-Arrival Checklist",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Tick each item before departure. Print or save as PDF for offline access.",
+        "",
+        ""
+      ],
+      [
+        "✓",
+        "Item",
+        "Why It Matters"
+      ],
+      [
+        "BEFORE BOOKING",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Verify hotel exists by calling the hotel directly (not the listed agent)",
+        "Detects fake-booking scams (₹47 cr lost in 2025)"
+      ],
+      [
+        "",
+        "Cross-check booking site URL letter-by-letter (booking.com vs b00king.com)",
+        "Lookalike URLs are the #1 cyber-fraud vector in 2026"
+      ],
+      [
+        "",
+        "Verify travel agent is registered on tourism.gov.in",
+        "Avoids fake operator scams"
+      ],
+      [
+        "",
+        "Pay only via verified gateways (Razorpay, PayU, Stripe), never UPI to a stranger",
+        "Fake hotel bookings via QR are at all-time high"
+      ],
+      [
+        "",
+        "Save tour operator's office address; verify on Google Street View",
+        "Real operators have physical offices"
+      ],
+      [
+        "BEFORE FLYING OUT",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Notify your bank of travel dates & destinations",
+        "Prevents card freezes and fraud blocks"
+      ],
+      [
+        "",
+        "Carry 2 cards from different banks",
+        "If one is blocked or skimmed"
+      ],
+      [
+        "",
+        "Set low daily withdrawal/transaction limits",
+        "Caps potential skimming loss"
+      ],
+      [
+        "",
+        "Save Emergency Contacts tab as photo on phone",
+        "Works without internet"
+      ],
+      [
+        "",
+        "Photocopy passport + visa, store separately + cloud",
+        "Critical if original stolen"
+      ],
+      [
+        "",
+        "Buy travel insurance (covers theft, hospitalisation, evacuation)",
+        "Hospital bills can be ₹50K–₹5L for tourists"
+      ],
+      [
+        "",
+        "Download Uber, Ola, Rapido, Namma Yatri (Bangalore), GoaMiles (Goa) apps",
+        "Beats every taxi/auto scam"
+      ],
+      [
+        "",
+        "Download offline Google Maps for each city",
+        "Spot fake routes & detours"
+      ],
+      [
+        "",
+        "Set up UPI on PhonePe/GPay (UPI One World available for tourists from 40+ countries since 2026)",
+        "Eliminates cash-handling scams"
+      ],
+      [
+        "AT THE AIRPORT",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Walk past everyone offering taxi/help in the arrivals area",
+        "100% are touts"
+      ],
+      [
+        "",
+        "Use only official prepaid taxi counter OR the Uber/Ola pickup zone",
+        "Pre-fixed, GPS-tracked"
+      ],
+      [
+        "",
+        "Match Uber/Ola license plate against the app before getting in",
+        "Fake-driver scam is rising"
+      ],
+      [
+        "",
+        "Ignore claims that your hotel is closed/full — call hotel yourself",
+        "Hotel switch scam is the #1 airport fraud"
+      ],
+      [
+        "AT THE HOTEL",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Show passport for check-in but never hand it over for 'overnight scanning'",
+        "Use only for the duration of check-in"
+      ],
+      [
+        "",
+        "Check hotel safe works; store passport, extra cards, jewelry there",
+        "Theft from rooms is opportunistic, not violent"
+      ],
+      [
+        "",
+        "Get hotel business card with address in Hindi/local language",
+        "For taxi drivers who 'don't know' your hotel"
+      ],
+      [
+        "AT MONUMENTS & SITES",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Buy tickets ONLY at official counters or asi.payumoney.com",
+        "Fake ticket sellers operate at every major site"
+      ],
+      [
+        "",
+        "Hire only ASI-licensed guides (photo ID + QR)",
+        "Fake guides give wrong info + demand huge fees"
+      ],
+      [
+        "",
+        "Verify monument timings on incredibleindia.gov.in",
+        "'Closed today' is a scam line"
+      ],
+      [
+        "ON THE STREET",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Walk past anyone who initiates conversation with you",
+        "Real locals don't approach foreigners unprompted"
+      ],
+      [
+        "",
+        "Decline all 'free' anything (tilak, photo, blessing, ride)",
+        "Free in India is the setup, not the gift"
+      ],
+      [
+        "",
+        "Inspect all currency notes received as change",
+        "Torn/fake-note swap is common"
+      ],
+      [
+        "",
+        "Use UPI for all small purchases",
+        "Eliminates cash-fraud scams entirely"
+      ],
+      [
+        "",
+        "Keep wallet in front pocket; phone in zipped bag",
+        "Pickpocketing is the #1 petty crime"
+      ],
+      [
+        "IF SCAMMED",
+        "",
+        ""
+      ],
+      [
+        "",
+        "Cyber/UPI fraud → call 1930 within 24 hours",
+        "Highest recovery chance in first 24 hr"
+      ],
+      [
+        "",
+        "File complaint at cybercrime.gov.in with screenshots",
+        "Required for bank dispute & insurance"
+      ],
+      [
+        "",
+        "Physical theft → file FIR at nearest police station + Tourist Police",
+        "FIR is mandatory for travel insurance claim"
+      ],
+      [
+        "",
+        "Lost passport → contact your country's embassy + FRRO immediately",
+        "FRRO can issue exit permit while replacement is in process"
+      ],
+      [
+        "",
+        "Card skimmed → block card via bank app; dispute within 3 days",
+        "RBI rule: zero liability if reported within 3 days"
+      ]
+    ]
+  },
+  "Sources & Methodology": {
+    "titleRow": "Sources & Methodology",
+    "subtitleRow": "",
+    "headers": [
+      "Sources & Methodology",
+      ""
+    ],
+    "rows": [
+      [
+        "Data verified as of April 2026.",
+        ""
+      ],
+      [
+        "Source",
+        "Used For"
+      ],
+      [
+        "Delhi Police Annual Crime Report 2025 (847 incidents involving foreign nationals)",
+        "Delhi risk rating, foreigner-targeted crime statistics"
+      ],
+      [
+        "McAfee 'India Safer Summer Travel Research' (April 2025, 7,000+ respondents)",
+        "47% scam-victim rate, ₹40,000+ loss data"
+      ],
+      [
+        "Goa MP Sadanand Shet Tanavde — Rajya Sabha statement on online fraud (2025)",
+        "Fake hotel booking surge, ₹47 cr loss figure"
+      ],
+      [
+        "National Crime Records Bureau (NCRB) 2024 data",
+        "Pickpocketing, cyber fraud rankings"
+      ],
+      [
+        "Ministry of Tourism India — incredibleindia.gov.in",
+        "Visitor statistics, registered operator list"
+      ],
+      [
+        "Travel Warning Check (Travel Advisory India 2026)",
+        "Regional safety profiles, road accident risk"
+      ],
+      [
+        "MachuPicchu.org India Safety Tips 2026 (Feb 2026)",
+        "City-by-city safety profiles, solo female traveller guidance"
+      ],
+      [
+        "BHTP / Berkshire Hathaway Travel Protection — India 2026 Safety Report",
+        "Insurance & scam recovery"
+      ],
+      [
+        "Postbox India — Hidden Tourist Scams 2026 (Feb 2026)",
+        "Cordelia/cruise scam, AI-generated fake site detail"
+      ],
+      [
+        "Skyscanner Travel Trends Report 2026",
+        "Emerging destinations (Jorhat etc.)"
+      ],
+      [
+        "Booking.com Trending Destinations 2026",
+        "Kochi 30% YoY interest growth"
+      ],
+      [
+        "State Tourism Boards (Goa, Kerala, Rajasthan, HP, UP) — 2024–25 visitor data",
+        "City rankings"
+      ],
+      [
+        "Delhi Metro / Mumbai Local / Kolkata Metro safety advisories",
+        "Pickpocket hotspot mapping"
+      ],
+      [
+        "RBI Master Direction on Customer Protection — Limited Liability of Customers",
+        "3-day card-fraud reporting rule"
+      ],
+      [
+        "NDPS Act, 1985 (India)",
+        "Drug-possession penalty information for Goa/Manali"
+      ],
+      [
+        "Cybercrime.gov.in & helpline 1930 (Indian Cyber Crime Coordination Centre)",
+        "Reporting framework"
+      ]
+    ]
+  }
+}

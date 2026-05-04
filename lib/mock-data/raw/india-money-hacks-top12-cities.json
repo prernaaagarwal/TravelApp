@@ -1,0 +1,3420 @@
+{
+  "Start Here": {
+    "titleRow": "India Travel Money Hacks — Top 12 Cities",
+    "subtitleRow": "",
+    "headers": [
+      "India Travel Money Hacks — Top 12 Cities",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "All prices in ₹ (INR). Verified April 2026. Exchange ref: $1 ≈ ₹85, €1 ≈ ₹92, £1 ≈ ₹107",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Workbook structure",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "1. Daily Budget Templates — Backpacker, mid-range, luxury figures for each of the 12 cities.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "2. Master Cost Sheet — Single reference table of typical prices for transport, food, monuments, lodging by city.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "3. UPI & Digital Payments — How to set up UPI as a tourist (UPI One World 2026), apps to install, what to pay digitally.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "4. Transport Hacks — City-by-city cheapest legit transport, official apps, fare benchmarks.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "5. Overcharge Watch — Local price vs tourist price comparisons. The 'don't pay more than X' table.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "6. Food & Drink Hacks — Where to eat for ₹100, ₹300, ₹1,000 in each city.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "7. Shopping & Bargaining — Govt-fixed-price stores, bargain rules, when not to bargain.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "8. Free & Underrated — Free attractions, free entry days, hidden free experiences.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "9. City Sheets — One detailed money sheet per city (12 tabs).",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "10. Money Tools Glossary — Forex card vs UPI vs cash vs credit card; pros, cons, fees.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Brutally honest framing rules used throughout this workbook:",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• Foreigner price ≠ tourist trap price. Most monuments have officially higher foreigner rates — that's legal and not a scam.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• UPI is the single biggest money-saver for any traveller in India in 2026 — eliminates change scams, beats forex card fees on small purchases.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• Govt fixed-price emporiums (CCIE, Khadi, state emporiums) are typically 20-40% cheaper than tourist-area shops, with no haggling needed.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• Avoid hotel currency exchange. Worst rates in the country, often 5-8% below ATM/airport rates.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• Withdraw ₹10,000-₹15,000 max per ATM trip to minimize the ₹27.14 inter-bank fee impact (RBI rule, May 2025).",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "• The 'foreigner price' for autos/taxis is ALWAYS app-rate × 2.5-4x. Use Uber/Ola/Rapido/Namma Yatri/GoaMiles to eliminate this.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ]
+  },
+  "Daily Budget Templates": {
+    "titleRow": "Daily Budget Templates by City (₹ per person, per day)",
+    "subtitleRow": "Excludes flights, visas, insurance. Solo traveller assumed; couples can reduce per-person accommodation cost ~40%.",
+    "headers": [
+      "City",
+      "Backpacker (₹/day)",
+      "Mid-range (₹/day)",
+      "Luxury (₹/day)",
+      "Notes",
+      "Why prices differ"
+    ],
+    "rows": [
+      [
+        "Mumbai",
+        "2,500–3,500",
+        "5,000–9,000",
+        "15,000+",
+        "India's most expensive city.",
+        "Real estate driving accommodation; nightlife & dining premium."
+      ],
+      [
+        "Delhi",
+        "1,800–2,800",
+        "4,000–7,000",
+        "12,000+",
+        "Wide range; Paharganj cheaper, Aerocity/SP Marg costliest.",
+        "International gateway; metro covers most of the city cheaply."
+      ],
+      [
+        "Goa",
+        "2,000–3,500",
+        "4,000–8,000",
+        "15,000+ (S. Goa)",
+        "Peak Dec–Jan adds 30–50%. Monsoon (Jun–Sep) drops 50%.",
+        "Seasonal extremes; taxi mafia inflates transport."
+      ],
+      [
+        "Bangalore",
+        "1,800–2,500",
+        "3,500–6,500",
+        "10,000+",
+        "Tech-driven hospitality pricing; great mid-range value.",
+        "High demand for short stays from corporate travel."
+      ],
+      [
+        "Chennai",
+        "1,500–2,200",
+        "3,000–5,500",
+        "9,000+",
+        "Cheaper than Mumbai/Delhi for similar quality.",
+        "Lower hospitality real estate cost; conservative tipping culture."
+      ],
+      [
+        "Kolkata",
+        "1,400–2,200",
+        "3,000–5,500",
+        "9,000+",
+        "Cheapest of the metros for food & transport.",
+        "Strong street-food culture; lower restaurant markups."
+      ],
+      [
+        "Jaipur",
+        "1,500–2,500",
+        "3,500–7,000",
+        "12,000+ (heritage)",
+        "Heritage palace hotels skew luxury figures high.",
+        "Touristy old city = inflated rates; Bani Park cheaper."
+      ],
+      [
+        "Agra",
+        "1,400–2,200",
+        "3,000–6,000",
+        "10,000+",
+        "Cheaper than Delhi but Taj Mahal entry is ₹1,300 for foreigners.",
+        "Day-trippers from Delhi keep daytime prices keen."
+      ],
+      [
+        "Udaipur",
+        "1,500–2,500",
+        "3,500–7,500",
+        "20,000+ (lake-view)",
+        "Lake Pichola views command 2-3x premium.",
+        "Romantic-honeymoon market; haveli stays heavily marked up."
+      ],
+      [
+        "Kochi",
+        "1,400–2,200",
+        "3,000–6,500",
+        "11,000+",
+        "Fort Kochi heritage = mid-range premium.",
+        "Backwater day-trips an extra ₹1,500–₹3,500 separately."
+      ],
+      [
+        "Manali",
+        "1,300–2,200",
+        "3,000–5,500",
+        "10,000+",
+        "Peak Apr–Jun & Dec adds 40-60%. Off-season Sep is best value.",
+        "Heavy seasonal swing; honeymoon market spikes peak rates."
+      ],
+      [
+        "Varanasi",
+        "1,200–2,000",
+        "2,800–5,000",
+        "8,000+",
+        "India's cheapest top-12 city.",
+        "Spiritual tourism = abundance of budget guesthouses."
+      ],
+      [
+        "AVERAGE (across 12 cities)",
+        "≈ ₹1,700 / day",
+        "≈ ₹3,800 / day",
+        "≈ ₹11,500 / day",
+        "Use as starting benchmark; adjust by city.",
+        ""
+      ]
+    ]
+  },
+  "Master Cost Sheet": {
+    "titleRow": "Master Cost Sheet — Typical Prices by City (₹)",
+    "subtitleRow": "Verified April 2026. Use as benchmark — pay these prices, not what touts quote.",
+    "headers": [
+      "Item / Service",
+      "Delhi",
+      "Agra",
+      "Jaipur",
+      "Goa",
+      "Mumbai",
+      "Varanasi",
+      "Bangalore",
+      "Kolkata",
+      "Chennai",
+      "Udaipur",
+      "Manali",
+      "Kochi",
+      ""
+    ],
+    "rows": [
+      [
+        "LODGING (per night)",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Hostel dorm bed",
+        "600–900",
+        "500–700",
+        "500–800",
+        "600–1,200",
+        "800–1,200",
+        "400–600",
+        "700–1,000",
+        "500–700",
+        "600–900",
+        "700–1,000",
+        "500–900",
+        "700–1,000",
+        ""
+      ],
+      [
+        "Budget guesthouse (private)",
+        "800–1,500",
+        "800–1,400",
+        "900–1,600",
+        "1,000–2,000",
+        "1,500–2,800",
+        "600–1,200",
+        "1,200–2,000",
+        "800–1,400",
+        "1,000–1,800",
+        "1,200–2,200",
+        "800–1,600",
+        "1,200–2,200",
+        ""
+      ],
+      [
+        "3-star hotel",
+        "3,500–6,000",
+        "2,800–5,000",
+        "3,500–6,500",
+        "4,000–7,500",
+        "5,500–9,000",
+        "2,200–4,000",
+        "3,800–6,500",
+        "2,800–5,000",
+        "3,200–5,500",
+        "4,000–7,500",
+        "3,000–5,500",
+        "3,500–6,500",
+        ""
+      ],
+      [
+        "5-star / heritage",
+        "12,000+",
+        "9,000+",
+        "15,000+ (heritage)",
+        "15,000+",
+        "18,000+",
+        "8,000+",
+        "12,000+",
+        "9,000+",
+        "11,000+",
+        "20,000+",
+        "12,000+",
+        "12,000+",
+        ""
+      ],
+      [
+        "TRANSPORT",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Metro / local train (per ride)",
+        "10–60",
+        "N/A",
+        "N/A",
+        "N/A",
+        "5–50",
+        "N/A",
+        "10–60",
+        "5–25",
+        "10–50",
+        "N/A",
+        "N/A",
+        "10–60",
+        ""
+      ],
+      [
+        "Auto/Tuk-tuk min (3 km, app)",
+        "60–80",
+        "60–80",
+        "60–90",
+        "100–140",
+        "60–90 (app)",
+        "60–90",
+        "60–90",
+        "70–100",
+        "70–100",
+        "70–100",
+        "100–150",
+        "70–110",
+        ""
+      ],
+      [
+        "Uber/Ola/app-cab 5 km",
+        "120–180",
+        "120–180",
+        "130–200",
+        "250–400",
+        "160–250",
+        "120–180",
+        "140–220",
+        "140–200",
+        "140–200",
+        "140–220",
+        "250–400",
+        "140–220",
+        ""
+      ],
+      [
+        "Airport → city centre (app)",
+        "450–700",
+        "350–550",
+        "400–600",
+        "600–1,200",
+        "450–800",
+        "250–400",
+        "400–650",
+        "350–550",
+        "400–650",
+        "450–650",
+        "800–1,500 (Bhuntar/Chandigarh)",
+        "400–600",
+        ""
+      ],
+      [
+        "Day private cab (8hr/80km)",
+        "2,500–3,500",
+        "2,500–3,500",
+        "2,500–3,500",
+        "3,000–4,500",
+        "3,000–4,500",
+        "2,200–3,000",
+        "2,500–3,500",
+        "2,200–3,000",
+        "2,500–3,500",
+        "2,500–3,500",
+        "3,000–4,500",
+        "2,500–3,500",
+        ""
+      ],
+      [
+        "FOOD (per meal)",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Street food meal",
+        "60–150",
+        "60–150",
+        "60–150",
+        "100–200",
+        "80–200",
+        "40–120",
+        "80–180",
+        "50–150",
+        "60–150",
+        "60–150",
+        "80–180",
+        "60–180",
+        ""
+      ],
+      [
+        "Local thali / dhaba",
+        "120–250",
+        "120–250",
+        "120–250",
+        "150–300",
+        "150–350",
+        "100–200",
+        "150–280",
+        "120–220",
+        "120–250",
+        "150–280",
+        "150–300",
+        "150–280",
+        ""
+      ],
+      [
+        "Mid-range restaurant",
+        "400–800",
+        "350–700",
+        "400–800",
+        "500–1,200",
+        "500–1,200",
+        "300–600",
+        "450–900",
+        "350–700",
+        "400–800",
+        "450–900",
+        "450–900",
+        "450–900",
+        ""
+      ],
+      [
+        "Fine dining / 5-star",
+        "2,500+",
+        "1,800+",
+        "2,500+",
+        "2,500+",
+        "3,000+",
+        "1,500+",
+        "2,500+",
+        "1,800+",
+        "2,500+",
+        "2,500+",
+        "2,200+",
+        "2,200+",
+        ""
+      ],
+      [
+        "Beer (650ml)",
+        "200–350",
+        "180–300",
+        "220–350",
+        "100–200 (cheapest in India!)",
+        "250–400",
+        "150–250",
+        "250–400",
+        "180–300",
+        "220–350",
+        "250–400",
+        "200–350",
+        "250–400",
+        ""
+      ],
+      [
+        "Filter coffee / chai",
+        "10–40",
+        "10–30",
+        "10–30",
+        "20–60",
+        "20–80",
+        "10–30",
+        "20–80",
+        "10–30",
+        "10–40",
+        "20–50",
+        "20–60",
+        "20–60",
+        ""
+      ],
+      [
+        "MONUMENT ENTRY (foreigner / Indian)",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Top monument fee",
+        "Red Fort 600/35",
+        "Taj Mahal 1,300/250",
+        "Amer Fort 600/100",
+        "Basilica free",
+        "Elephanta 600/40",
+        "Sarnath 300/25",
+        "Lalbagh 25/25",
+        "Victoria Mem. 200/30",
+        "Mahabalipuram 600/40",
+        "City Palace 700/300",
+        "Hidimba free",
+        "Mattancherry 25/10",
+        ""
+      ],
+      [
+        "Guide (ASI-licensed)",
+        "1,500–2,500",
+        "1,500–2,500",
+        "1,500–2,500",
+        "1,200–2,000",
+        "1,500–2,500",
+        "1,200–2,000",
+        "1,200–2,000",
+        "1,200–2,000",
+        "1,200–2,000",
+        "1,500–2,500",
+        "1,000–1,800",
+        "1,200–2,000",
+        ""
+      ],
+      [
+        "CONNECTIVITY & MISC",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Tourist SIM (28 days, ~2GB/day)",
+        "999–1,499",
+        "999–1,499",
+        "999–1,499",
+        "999–1,499",
+        "999–1,499",
+        "999–1,499",
+        "999–1,499",
+        "999–1,499",
+        "999–1,499",
+        "999–1,499",
+        "999–1,499",
+        "999–1,499",
+        ""
+      ],
+      [
+        "1L bottled water",
+        "20",
+        "20",
+        "20",
+        "20",
+        "25",
+        "20",
+        "20",
+        "20",
+        "20",
+        "20",
+        "30",
+        "20",
+        ""
+      ],
+      [
+        "Coconut water (street)",
+        "50–80",
+        "40–60",
+        "40–60",
+        "60–100",
+        "50–80",
+        "40–60",
+        "50–80",
+        "40–60",
+        "40–60",
+        "40–60",
+        "60–100",
+        "40–60",
+        ""
+      ],
+      [
+        "Laundry (per kg)",
+        "80–150",
+        "60–100",
+        "60–120",
+        "80–150",
+        "100–200",
+        "50–100",
+        "80–150",
+        "60–120",
+        "80–120",
+        "80–150",
+        "100–200",
+        "80–150",
+        ""
+      ]
+    ]
+  },
+  "UPI & Digital Payments": {
+    "titleRow": "UPI & Digital Payments Hacks (Tourist Edition)",
+    "subtitleRow": "",
+    "headers": [
+      "UPI & Digital Payments Hacks (Tourist Edition)",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "UPI is THE single biggest money saver in India. Eliminates change scams, beats forex card fees on small purchases.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "How tourists get UPI in 2026",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Option",
+        "How to Set Up",
+        "Best For",
+        "Cost"
+      ],
+      [
+        "UPI One World (NPCI official)",
+        "G20 country passport + valid Indian visa. KYC at IGI Airport / authorized partner counters (e.g. Mony app, Pyypl). Get prepaid INR wallet linked to your international mobile number.",
+        "Most foreign tourists from G20 countries. The cleanest, most legal option.",
+        "₹0 onboarding. Loading fees ~1–3% via partner. Daily limit ₹1,00,000. Wallet can hold up to ₹50,000."
+      ],
+      [
+        "NRI UPI via NRE/NRO account",
+        "Link existing NRE/NRO bank account (HDFC, ICICI, SBI, Axis) to PhonePe/GPay/Paytm with international mobile number.",
+        "NRIs / OCI cardholders.",
+        "₹0. Same as Indian users."
+      ],
+      [
+        "Indian friend's UPI (informal)",
+        "Settle via Wise/Revolut/cash; friend pays for shared meals/auto rides via UPI. Use sparingly — not a scalable solution.",
+        "Short trips with local hosts.",
+        "₹0 + reimburse via Wise (₹0.5% fee approx)."
+      ],
+      [
+        "Cred / Paytm prepaid wallet (Indian SIM required)",
+        "Buy local SIM (₹500–₹1,500), do KYC at the SIM shop, then load via debit card.",
+        "Multi-month travelers willing to get a local SIM.",
+        "₹500–₹1,500 SIM + KYC effort."
+      ],
+      [
+        "No UPI — cash + card only",
+        "Skip the setup; rely on ATM withdrawals + Visa/MC card.",
+        "Trips under 7 days; not recommended otherwise.",
+        "ATM fees (₹27.14 + GST off-network) + 1–3% forex markup on cards."
+      ],
+      [
+        "What to Pay With What (2026 ground rules)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Situation",
+        "Best Method",
+        "Why",
+        "Watch Out"
+      ],
+      [
+        "Auto/taxi via app (Uber/Ola/Rapido/Namma Yatri/GoaMiles)",
+        "UPI in-app",
+        "No tipping pressure, exact amount, GPS-tracked",
+        "Always end ride in app — no off-app payment"
+      ],
+      [
+        "Street food, chai, tea stalls",
+        "UPI scan",
+        "₹10 chai with no change hassle; vendors prefer UPI now",
+        "Vendor may say 'machine not working' to force cash overcharge — walk away"
+      ],
+      [
+        "Restaurant bill",
+        "UPI or credit card",
+        "UPI = no FX markup. Card = points + fraud protection",
+        "Bill 'service charge' is NOT mandatory; you can refuse (CCPA 2022 ruling)"
+      ],
+      [
+        "Hotel (large amount)",
+        "Credit card",
+        "Fraud protection on big-ticket spends; card forex 1–3.5% beats hotel cash exchange",
+        "Hotels charging 'card fee' >2% are violating MDR caps — push back or pay UPI"
+      ],
+      [
+        "ATM withdrawal",
+        "Foreign debit card at HDFC/ICICI/SBI/Axis branch ATM",
+        "Lowest skimming risk; ~₹27.14 inter-bank fee per off-network withdrawal (May 2025 RBI rule)",
+        "Avoid standalone street ATMs; withdraw ₹10,000–₹15,000 max per trip"
+      ],
+      [
+        "Forex exchange",
+        "Authorised FFMC / bank, NOT hotel",
+        "Best rates: airport SBI/Thomas Cook > FFMC kiosks > hotels (worst by 5–8%)",
+        "Always count cash before leaving counter; check FFMC license sticker"
+      ],
+      [
+        "Online bookings (hotel/train/flight)",
+        "Credit card or Indian payment gateway (Razorpay/PayU)",
+        "Chargeback option if scammed; Visa/MC consumer protection",
+        "NEVER pay UPI to unknown WhatsApp 'agents' — #1 fraud in 2025–26"
+      ],
+      [
+        "Tips for staff",
+        "Cash (₹50–₹200)",
+        "Tipping culture is cash-based; UPI tips feel transactional",
+        "Hotel: 10% of bill at end. Restaurant: 5–10% if no service charge"
+      ],
+      [
+        "Markets (bargaining stalls)",
+        "UPI after price agreed",
+        "Eliminates fake-note swap. Vendors accept UPI even at flea markets now",
+        "Confirm price BEFORE scanning QR"
+      ],
+      [
+        "Religious donations",
+        "Cash (small notes)",
+        "Temples don't have UPI for offerings traditionally; some now do",
+        "₹10–₹100 per offering is fine — never feel pressured into 'minimum donation'"
+      ],
+      [
+        "Essential Apps to Install (Day 1)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "App",
+        "Use",
+        "Cities Where It Wins",
+        "Notes"
+      ],
+      [
+        "Uber",
+        "Cabs + autos",
+        "All 12 except Goa",
+        "Cleanest UI; auto option cheaper than car"
+      ],
+      [
+        "Ola",
+        "Cabs + autos + bikes",
+        "All 12 except Goa",
+        "Sometimes cheaper than Uber; switch between both"
+      ],
+      [
+        "Rapido",
+        "Bike taxis (cheapest), autos",
+        "All 12 except Goa",
+        "Bike taxi 30–50% cheaper than auto for short rides"
+      ],
+      [
+        "Namma Yatri",
+        "Auto-rickshaw at metered rate",
+        "Bangalore (mainly), expanding",
+        "Zero commission to driver = fairer fare; govt-blessed"
+      ],
+      [
+        "GoaMiles",
+        "Cabs",
+        "Goa only",
+        "Goa has no Uber/Ola due to taxi mafia. GoaMiles is the official govt app"
+      ],
+      [
+        "Yatri Sathi",
+        "Cabs",
+        "Kolkata",
+        "WB govt-backed alternative"
+      ],
+      [
+        "IRCTC Rail Connect",
+        "Train booking + PNR + live status",
+        "All India",
+        "MUST install; foreign tourist quota (FTQ) bookable here"
+      ],
+      [
+        "Indian Railways 139",
+        "Train enquiries",
+        "All India",
+        "Real-time train info; calls also work"
+      ],
+      [
+        "MakeMyTrip / Goibibo / Cleartrip",
+        "Hotels + flights + buses",
+        "All India",
+        "Compare prices; MMT often best for hotels"
+      ],
+      [
+        "Booking.com / Agoda",
+        "Hotels",
+        "All India",
+        "Best for English-language reviews from foreigners"
+      ],
+      [
+        "Zomato",
+        "Food delivery + restaurant menus",
+        "All metros + tier-2",
+        "Check menu prices BEFORE going in (anti-overcharge)"
+      ],
+      [
+        "Swiggy",
+        "Food delivery + Instamart groceries",
+        "All metros + tier-2",
+        "Instamart for water, snacks at standard prices"
+      ],
+      [
+        "BlueDart / Postal Service",
+        "International parcels",
+        "All India",
+        "Don't ship via random shop; use known couriers"
+      ],
+      [
+        "Google Maps (offline)",
+        "Navigation",
+        "All India",
+        "Download offline city maps before exploring"
+      ],
+      [
+        "Mony / Pyypl / Cheq",
+        "UPI One World wallet",
+        "All India",
+        "Foreign tourist UPI (G20 only)"
+      ],
+      [
+        "WhatsApp",
+        "Communication",
+        "All India",
+        "Most businesses use WhatsApp for bookings, support"
+      ],
+      [
+        "Splitwise",
+        "Group expense tracking",
+        "All India",
+        "Track shared costs in INR; settle via Wise"
+      ],
+      [
+        "Wise",
+        "Cheapest forex transfer",
+        "All India",
+        "Lowest international transfer fees; free virtual debit card"
+      ],
+      [
+        "Revolut",
+        "Travel debit card",
+        "All India",
+        "Free ATM withdrawals up to limit; live FX rate"
+      ],
+      [
+        "XE Currency",
+        "Live FX rates",
+        "All India",
+        "Verify exchange rates before currency exchange"
+      ]
+    ]
+  },
+  "Transport Hacks": {
+    "titleRow": "Transport Hacks by City (₹)",
+    "subtitleRow": "",
+    "headers": [
+      "Transport Hacks by City (₹)",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Cheapest legitimate transport, official apps, and fare benchmarks. Never accept driver's first quote.",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "City",
+        "Best Mass Transit",
+        "Best App",
+        "Smart Fare Benchmark",
+        "Avoid",
+        "Hack"
+      ],
+      [
+        "Delhi",
+        "Delhi Metro (₹10–₹60). Daily Tourist Card ₹250 (1-day) / ₹500 (3-day) — unlimited rides",
+        "Uber, Ola, Rapido",
+        "Auto 5km ≈ ₹130 (app) vs ₹500 (street); IGI→CP ≈ ₹450",
+        "Tourist autos at airport, station, monuments",
+        "Use Yellow & Violet Metro lines for 80% of tourist sites; Tourist Card pays for itself in 4+ rides"
+      ],
+      [
+        "Agra",
+        "No metro yet (under construction). Cycle-rickshaw is cheap & local",
+        "Uber, Ola, Rapido",
+        "Auto Cantt→Taj ≈ ₹100–₹150 (app); private day cab ₹2,500–₹3,500",
+        "Touristy cycle-rickshaws near Taj East Gate",
+        "Stay near Taj East Gate — walk to monument, save ₹400/day on transport"
+      ],
+      [
+        "Jaipur",
+        "Jaipur Metro (limited; Pink Line connects key spots ₹10–₹30)",
+        "Uber, Ola, Rapido",
+        "Composite Ticket ₹400 (Indian)/₹1,000 (foreigner) covers 8 monuments — buy at first site",
+        "Camel/horse 'palace tour' touts at Amer Fort",
+        "Hire a 4-hour rickshaw with a meter or app for ₹400–₹600 to cover City Palace, Hawa Mahal, Jantar Mantar"
+      ],
+      [
+        "Goa",
+        "KTC buses (₹15–₹50 between beaches); rented scooter ₹300–₹500/day",
+        "GoaMiles (govt app) — Uber/Ola don't work in Goa",
+        "Airport→North Goa ₹1,200–₹1,800; scooter rental from licensed shop ₹350",
+        "Pre-paid taxi mafia at airport, beach taxi unions",
+        "Scooter from Royal Brothers/Onn Bikes app (₹350–₹500/day) is the single biggest money saver in Goa — saves ₹2,000+/day vs taxis"
+      ],
+      [
+        "Mumbai",
+        "Mumbai Metro + Local Trains (₹5–₹50). 1-day tourist pass ₹200",
+        "Uber, Ola, Rapido",
+        "Local train Churchgate→Bandra ₹10 (general) / ₹100 (1st class AC); BEST bus ₹6–₹40",
+        "Black-yellow taxi without meter (rare; pickpockets in trains)",
+        "First-class AC local train pass ₹600/week beats every other transport for Mumbai"
+      ],
+      [
+        "Varanasi",
+        "Auto/E-rickshaw (₹15–₹50 short rides)",
+        "Uber, Ola, Rapido (limited)",
+        "Sunrise boat ride ₹500–₹800 (shared) / ₹1,500–₹2,500 (private). Auto from station to ghats ₹100",
+        "Fixed-rate boat operators at Dashashwamedh",
+        "Walk between ghats — main 7 ghats are connected by riverside path. Boat for sunrise/Aarti only."
+      ],
+      [
+        "Bangalore",
+        "Bangalore Metro (Purple/Green ₹10–₹60). BMTC AC bus ₹15–₹50",
+        "Namma Yatri (BEST), Uber, Ola, Rapido",
+        "Auto 5km ≈ ₹100–₹140 (Namma Yatri); Airport→MG Rd ≈ ₹600",
+        "Auto refusing meter (notorious here)",
+        "Namma Yatri = zero-commission auto app; saves driver from cuts so they accept fair fares"
+      ],
+      [
+        "Kolkata",
+        "Kolkata Metro (₹5–₹25). Trams (heritage, ₹6). Yellow Ambassador taxi (₹30 base)",
+        "Uber, Ola, Yatri Sathi (WB govt)",
+        "Howrah→Park Street ₹150 (yellow taxi metered); metro day pass ₹70",
+        "Yellow taxis refusing short distances",
+        "Take the heritage tram from Esplanade — ₹6 ride, beats any tour"
+      ],
+      [
+        "Chennai",
+        "Chennai Metro (Blue/Green ₹10–₹50). Suburban trains (₹5–₹30)",
+        "Uber, Ola, Rapido",
+        "Airport→Marina ≈ ₹500–₹650; auto 5km ₹140 (app)",
+        "Pre-paid airport taxi quoting fixed flat rate >₹800",
+        "MTC bus pass ₹70/day — unlimited rides on the entire bus network"
+      ],
+      [
+        "Udaipur",
+        "No metro. Auto/walking is the way",
+        "Uber, Ola",
+        "Boat ride Lake Pichola ₹400 (Indian)/₹700 (foreigner) for 1hr — buy at City Palace counter",
+        "Touts at Gangaur Ghat selling 'private boat'",
+        "Stay in old city near Lake Pichola — walk to all major sites; saves ₹500–₹1,000/day"
+      ],
+      [
+        "Manali",
+        "HRTC buses (₹20–₹80 within town); shared taxis to Solang/Rohtang",
+        "Uber/Ola limited; pre-paid taxi cooperatives",
+        "Bhuntar airport→Manali ₹2,500–₹3,500 (taxi mafia rate, fixed)",
+        "Random scooter rentals (insurance issues)",
+        "Book volvo bus from Delhi (₹1,200–₹1,800) instead of flight (₹4,000+) — overnight saves a hotel night"
+      ],
+      [
+        "Kochi",
+        "KMRL Metro (₹10–₹60). Ferry between islands ₹4!",
+        "Uber, Ola, Rapido",
+        "Ferry Ernakulam→Fort Kochi ₹4 (yes, four rupees) vs auto ₹250+",
+        "Tuk-tuk overcharge in Fort Kochi",
+        "The ₹4 ferry is the steal of the trip — covers most Kochi sightseeing for less than a coffee"
+      ]
+    ]
+  },
+  "Overcharge Watch": {
+    "titleRow": "Overcharge Watch — Local Price vs Tourist Price",
+    "subtitleRow": "",
+    "headers": [
+      "Overcharge Watch — Local Price vs Tourist Price",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Don't pay more than the 'Smart Price' for any item below. Verified across multiple sources.",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Item",
+        "Smart Price (what you should pay)",
+        "Tourist Trap Price (what you'll be quoted)",
+        "Where",
+        "How to Get the Smart Price"
+      ],
+      [
+        "Bottled water 1L",
+        "₹20",
+        "₹50–₹100",
+        "Tourist sites, hotels, airports",
+        "Buy from any kirana shop or D-Mart/Reliance store; check MRP printed on bottle"
+      ],
+      [
+        "Coconut water (street)",
+        "₹40–₹60",
+        "₹100–₹150",
+        "Beaches in Goa, Marina Chennai",
+        "Walk 200m from beach; price drops 50%"
+      ],
+      [
+        "Auto-rickshaw 5 km",
+        "₹120–₹180",
+        "₹400–₹600",
+        "All 12 cities",
+        "Use Uber/Ola/Rapido/Namma Yatri/GoaMiles"
+      ],
+      [
+        "Airport taxi (e.g. IGI→CP)",
+        "₹450–₹700",
+        "₹1,200–₹2,500",
+        "Delhi, Mumbai, Goa, Bangalore",
+        "Use app or official prepaid counter — never accept off-counter offers"
+      ],
+      [
+        "Beer (650ml at shop)",
+        "₹120–₹200",
+        "₹400–₹600",
+        "Hotel mini-bar",
+        "Buy at wine shop; carry to hotel (most allow); Goa cheapest in India"
+      ],
+      [
+        "Coffee (filter)",
+        "₹20–₹40",
+        "₹250–₹450",
+        "Hotel coffee shop, mall cafes",
+        "Indian Coffee House, local kapi stalls"
+      ],
+      [
+        "Saree (basic cotton)",
+        "₹500–₹1,500",
+        "₹3,000–₹8,000",
+        "Tourist markets",
+        "Govt emporiums (Khadi, state emporiums) at fixed prices"
+      ],
+      [
+        "Pashmina shawl (real)",
+        "₹4,000–₹15,000",
+        "₹500 (fake) or ₹50,000+ (overpriced)",
+        "Delhi, Jaipur, Manali",
+        "Kashmir Govt Emporium, J&K Handicrafts; ask for ring test (real pashmina passes through a wedding ring)"
+      ],
+      [
+        "Spice box (10 spices)",
+        "₹400–₹800",
+        "₹2,500–₹5,000",
+        "Jew Town Kochi, Crawford Mkt Mumbai",
+        "Local kirana shops or D-Mart; spices are commodity-priced"
+      ],
+      [
+        "Marble inlay piece (Agra)",
+        "₹500–₹3,000",
+        "₹10,000–₹50,000",
+        "Driver-recommended shops near Taj",
+        "UP State Emporium or Sadar Bazar (skip the 'family workshop' tour)"
+      ],
+      [
+        "Gem (uncut emerald, sample)",
+        "₹3,000–₹15,000 if real",
+        "₹50,000–₹3,00,000 (mostly glass)",
+        "Jaipur driver-recommended shops",
+        "Don't buy. Period. The only safe gem buy is from Bombay Bullion Association certified sellers."
+      ],
+      [
+        "Hotel-arranged car for day",
+        "₹2,500–₹3,500",
+        "₹6,000–₹10,000",
+        "All cities",
+        "Book directly via Savaari, Zoomcar, or local fleet; hotel adds 30–50% commission"
+      ],
+      [
+        "Boat ride Lake Pichola (1hr)",
+        "₹400/700 (Ind/Foreigner, official)",
+        "₹1,500–₹3,000",
+        "Udaipur ghats",
+        "Buy at City Palace ticket counter (official rate)"
+      ],
+      [
+        "Boat ride Varanasi (1hr shared)",
+        "₹500–₹800",
+        "₹2,000–₹3,000",
+        "Dashashwamedh Ghat",
+        "Walk to next ghat (Asi or Tulsi), ask 3+ boatmen, pre-fix price"
+      ],
+      [
+        "Camel ride Pushkar/Jaisalmer",
+        "₹500–₹1,500",
+        "₹3,000–₹6,000",
+        "Touristy desert points",
+        "Book through reputable operator (Trotters, Sahara Travels) the day before"
+      ],
+      [
+        "Henna (mehendi) hand",
+        "₹100–₹300",
+        "₹1,000–₹2,500",
+        "Rajasthan tourist spots",
+        "Local salons or street artists outside tourist zones; agree price before drawing"
+      ],
+      [
+        "Yoga class (drop-in)",
+        "₹200–₹500",
+        "₹1,500–₹3,000",
+        "Rishikesh, Goa tourist studios",
+        "Local ashram drop-ins; check Mysore-style schools for proper teaching"
+      ],
+      [
+        "Ayurvedic massage (1hr)",
+        "₹800–₹2,500",
+        "₹4,000–₹10,000",
+        "Hotels, beach resorts in Goa/Kerala",
+        "NABH-accredited centres; Kerala govt-approved 'Green Leaf' / 'Olive Leaf' rated"
+      ],
+      [
+        "Tailor stitched shirt",
+        "₹500–₹1,500",
+        "₹3,000–₹6,000",
+        "Tourist tailors near monuments",
+        "Local tailors in residential areas; ₹500 stitching + ₹1,000 fabric is enough"
+      ],
+      [
+        "Cricket match ticket (IPL)",
+        "₹500–₹5,000 (official BookMyShow)",
+        "₹10,000–₹50,000 (touts)",
+        "Stadium gates",
+        "Book on BookMyShow or BCCI when sales open; never from gate touts"
+      ],
+      [
+        "Holi colors / festival items",
+        "₹50–₹200",
+        "₹500–₹2,000",
+        "Mathura, Vrindavan, Jaipur during Holi",
+        "Buy 3 days before Holi from local shops"
+      ],
+      [
+        "Photo at monument (printed)",
+        "₹50–₹100",
+        "₹500–₹2,000",
+        "All major monuments",
+        "Bring your own phone; if you want a print, use Polaroid app + nearby printing"
+      ]
+    ]
+  },
+  "Food & Drink Hacks": {
+    "titleRow": "Food & Drink Hacks — Where to Eat for ₹100, ₹300, ₹1,000",
+    "subtitleRow": "Every city has cheap-eats institutions that feed locals every day at honest prices. These are them.",
+    "headers": [
+      "City",
+      "₹100 meal (where + what)",
+      "₹300 meal (where + what)",
+      "₹1,000 meal (where + what)",
+      "Local hack"
+    ],
+    "rows": [
+      [
+        "Delhi",
+        "Karim's lane chaat or Paranthe Wali Gali (Old Delhi) — chaat ₹40–₹80; aloo parantha ₹60–₹100",
+        "Saravana Bhavan Connaught Place — South Indian thali ₹250–₹350; or Karim's mutton korma ₹280",
+        "Bukhara at ITC Maurya (book ahead) ~₹3,500/person — but Indian Accent's lunch menu starts ₹2,500",
+        "Old Delhi food walk via Zomato Food Walks (₹1,500/person, 4 hr, 8 stops) — best price-to-experience ratio"
+      ],
+      [
+        "Agra",
+        "Sheroes Hangout cafe (acid-attack survivors run it; pay-as-you-wish, donation-based)",
+        "Pinch of Spice or Esphahan-style mughlai ~₹250–₹400 thali",
+        "Esphahan at Oberoi Amarvilas (book) ~₹2,500–₹4,000/person",
+        "Mughlai food is best in Old Agra near Jama Masjid (Mama Chicken: 800g chicken curry for 4 people = ₹650)"
+      ],
+      [
+        "Jaipur",
+        "Rawat Mishtan Bhandar — kachori + lassi ₹80–₹120; or Sodhani's pyaaz kachori ₹40",
+        "Laxmi Misthan Bhandar (LMB) — Rajasthani thali ₹350–₹450",
+        "Suvarna Mahal at Rambagh Palace (book) ~₹3,500–₹5,000",
+        "Chokhi Dhani village experience ₹1,300–₹1,800 (incl. unlimited Rajasthani thali + entertainment) — value beats fine dining"
+      ],
+      [
+        "Goa",
+        "Local fish thali in Panaji/Mapusa ₹120–₹180 (rice + curry + 2 fish)",
+        "Vinayak Family Restaurant (Assagao) or Britto's Baga — fish curry rice ₹250–₹350",
+        "Gunpowder (Assagao) or Thalassa (Vagator) — ₹1,500–₹2,500 for 2 with drinks",
+        "Wine shops (NOT bars) are cheapest for alcohol; beer ₹100–₹150 vs ₹400+ at shacks"
+      ],
+      [
+        "Mumbai",
+        "Vada pav from Ashok Vada Pav (Dadar) ₹15–₹25; pav bhaji on Marine Drive ₹100",
+        "Bademiya kebabs (Colaba, late-night) ~₹250–₹400; Britannia & Co. Parsi berry pulao ₹450",
+        "Trishna or Mahesh Lunch Home seafood ₹1,500–₹2,500/person",
+        "Mumbai's BEST cheap eat = the dabbawala thali (₹150) — track via Zomato; or Cafe Universal at Fort"
+      ],
+      [
+        "Varanasi",
+        "Kashi Chat Bhandar — chaat platter ₹80–₹120; tomato chaat is the local hero",
+        "Brown Bread Bakery (multi-cuisine, supports street kids) ~₹250–₹400",
+        "Pizzeria Vaatika (lassi ₹200, pizza ₹600); fine dining is rare here",
+        "Blue Lassi Shop — ~80 lassi varieties ₹70–₹150 — institution since 1925"
+      ],
+      [
+        "Bangalore",
+        "MTR (Lalbagh) — masala dosa ₹100; rava idli ₹80",
+        "CTR Malleswaram or Vidyarthi Bhavan — ₹250–₹400 full meal",
+        "Karavalli (The Gateway Hotel) coastal cuisine ₹2,500–₹3,500/person",
+        "Bangalore's secret: military hotels (Andhra-style cheap meat) — SGS, Shivaji, Hotel Empire ₹200–₹400 for full meal"
+      ],
+      [
+        "Kolkata",
+        "Kachori + alur dom (KC Das or any local sweet shop) ₹50–₹80; phuchka ₹30–₹60",
+        "Bhojohori Manna or 6 Ballygunge Place — Bengali thali ₹300–₹500",
+        "Peter Cat (mocktail + chelo kebab) ~₹1,500/person; Mocambo ₹1,500–₹2,500",
+        "Roll the city — Hot Kati Rolls or Nizam's chicken roll = ₹100–₹150, full meal"
+      ],
+      [
+        "Chennai",
+        "Saravana Bhavan / Murugan Idli Shop — masala dosa ₹100; idli set ₹60",
+        "Annalakshmi or Anjappar — ₹300–₹450 full meal",
+        "Dakshin (ITC Grand Chola) ~₹2,500–₹3,500; Junior Kuppanna ₹800–₹1,200",
+        "Mylapore food walk — Kapaleeshwarar Temple area has 50+ tiffin shops in 1km, all under ₹150"
+      ],
+      [
+        "Udaipur",
+        "Cafe Edelweiss (German bakery) breakfast ₹150–₹250; Gulab Bagh chaat ₹50",
+        "Natraj Dining Hall (unlimited thali) ₹250; Ambrai by-the-lake lunch ₹450",
+        "Ambrai or Upre Lake View ₹1,200–₹2,000/person",
+        "Sunset on Karni Mata Hill (free) + thali at Natraj = best ₹300 evening in town"
+      ],
+      [
+        "Manali",
+        "Renuka Restaurant or Mall Road dhabas — momo plate ₹80–₹120; rajma chawal ₹150",
+        "Cafe 1947 or Drifters' Inn — Israeli/Italian ₹350–₹600",
+        "Johnson's Cafe (continental) ₹1,500–₹2,500 for 2",
+        "Old Manali cafés (Lazy Dog, Dylan's) charge tourist rates; eat in New Manali for 30-40% off same dishes"
+      ],
+      [
+        "Kochi",
+        "Local fish meals at Kayikka's Biryani or Kashi Art Cafe — ₹150–₹250",
+        "Fort Kochi seafood at Fishermen's Wharf — ₹400–₹700 with fish curry meal",
+        "Brunton Boatyard or Old Harbour Hotel ₹1,500–₹3,000/person",
+        "Catch your fish at Chinese fishing nets (₹150–₹300) → walk it to nearby shacks who cook it for ₹300–₹400 = freshest meal"
+      ]
+    ]
+  },
+  "Shopping & Bargaining": {
+    "titleRow": "Shopping & Bargaining Rules",
+    "subtitleRow": "",
+    "headers": [
+      "Shopping & Bargaining Rules",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Where to bargain hard, where prices are fixed, and what's safe to buy.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Government Fixed-Price Stores (No Bargaining Needed)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Store",
+        "Cities",
+        "Best For",
+        "Why Use"
+      ],
+      [
+        "Central Cottage Industries Emporium (CCIE)",
+        "Delhi (Janpath), Mumbai, Bangalore, Kolkata, Chennai, Jaipur, Hyderabad",
+        "Handicrafts, textiles, art from across India",
+        "Govt of India fixed-price; quality assured; best 'safe' shopping for first-time visitors"
+      ],
+      [
+        "Khadi Bhavan / Khadi India",
+        "All metros",
+        "Khadi cotton, soap, honey, ayurveda",
+        "₹50–60% cheaper than tourist markets; supports local artisans"
+      ],
+      [
+        "State Emporiums (each state has one)",
+        "Most metros — Delhi has them all on Baba Kharak Singh Marg",
+        "State-specific crafts (Rajasthan, Gujarat, Kashmir, Kerala, etc.)",
+        "State-govt run; authentic regional crafts; fair prices"
+      ],
+      [
+        "Co-optex (Tamil Nadu)",
+        "Chennai, Bangalore, Kerala",
+        "Cotton & silk sarees",
+        "Govt-run weavers' cooperative; saree prices ₹500–₹15,000 fixed"
+      ],
+      [
+        "Dilli Haat (Delhi)",
+        "Delhi (INA, Pitampura)",
+        "Handicrafts from rotating artisans across India",
+        "₹100 entry; artisans rotate every 15 days; bargain politely"
+      ],
+      [
+        "Kashmir Govt Emporium",
+        "Delhi, Mumbai, Bangalore, Kolkata",
+        "Pashmina, Kashmiri carpets, papier-mâché",
+        "Authenticity-certified; rare guarantee for high-value items"
+      ],
+      [
+        "Lepakshi (Andhra) / Poompuhar (TN) / KSDL (Karnataka)",
+        "Respective states + Delhi",
+        "Bronze, sandalwood, regional handicrafts",
+        "Govt cooperatives; price tagged"
+      ],
+      [
+        "Aurobindo / Auroville stores (Pondicherry & online)",
+        "Chennai, Bangalore (online)",
+        "Incense, paper, leather, organic",
+        "Cooperative; ethical pricing"
+      ],
+      [
+        "Fabindia",
+        "All 12 cities",
+        "Cotton clothing, home textiles, food, organic",
+        "Listed company; consistent pricing pan-India"
+      ],
+      [
+        "BIS-Hallmarked jewellers (Tanishq, Kalyan, GRT, Joyalukkas)",
+        "All 12 cities",
+        "Gold & silver jewellery",
+        "BIS hallmark = certified purity; only safe way to buy gold"
+      ],
+      [
+        "Bargaining Rules (Markets & Bazaars)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Rule",
+        "Detail",
+        "Where it applies",
+        "Don't"
+      ],
+      [
+        "Start at 25–30% of quoted price",
+        "Tourist markets quote 3–5x; locals get 30%. Aim for 40–50% as final.",
+        "Bapu Bazaar Jaipur, Janpath Delhi, Colaba Causeway Mumbai",
+        "Don't accept the first counter — they're testing"
+      ],
+      [
+        "Walk away politely",
+        "Most powerful bargaining tool. Vendor often calls you back at the right price.",
+        "All markets",
+        "Don't walk away angry — keep tone friendly"
+      ],
+      [
+        "Bundle for discount",
+        "Buying 3+ items? Demand 20–30% bundle discount.",
+        "All markets",
+        "Don't bundle if you only want 1 thing"
+      ],
+      [
+        "Compare 3+ shops",
+        "Same item, 3 shops, lowest is your benchmark. Tells the vendor you've shopped around.",
+        "Spices, textiles, leather, brass",
+        "Don't compare prices in front of the vendor (rude)"
+      ],
+      [
+        "Pay UPI for the agreed price",
+        "Eliminates fake-note swap and 'no change' tactic.",
+        "All markets",
+        "Don't pay UPI before agreeing on final price"
+      ],
+      [
+        "Don't bargain at street food stalls",
+        "Prices are tight (₹10–₹100). Bargaining is rude.",
+        "All food stalls",
+        "Don't underpay; if it feels expensive, walk away silently"
+      ],
+      [
+        "Don't bargain at govt emporiums",
+        "Prices are fixed by mandate.",
+        "CCIE, Khadi, state emporiums",
+        "Don't try — staff are not authorised"
+      ],
+      [
+        "Don't bargain on books/medicine",
+        "MRP is printed; that's the legal max.",
+        "Pharmacies, bookshops",
+        "Verify printed MRP; if charged more, report under Consumer Protection Act"
+      ],
+      [
+        "Bargain hardest on textiles/leather/handicrafts",
+        "Markup here is highest (5–10x).",
+        "Janpath Delhi, Anjuna Flea Goa, Sarojini Delhi",
+        "Don't bargain timidly — vendors expect aggression here"
+      ],
+      [
+        "Use cash sometimes for leverage",
+        "'Cash discount' can be 5–10% extra off.",
+        "Markets",
+        "Inspect every note received as change"
+      ]
+    ]
+  },
+  "Free & Underrated": {
+    "titleRow": "Free & Underrated Experiences (₹0 or under ₹100)",
+    "subtitleRow": "",
+    "headers": [
+      "Free & Underrated Experiences (₹0 or under ₹100)",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Best things you can do in each city for next to nothing.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "City",
+        "Free / Cheap Experience",
+        "Cost",
+        "Why"
+      ],
+      [
+        "Delhi",
+        "Lodhi Garden walk + Lodhi Art District street art",
+        "Free",
+        "200+ acres of Mughal tombs in landscaped gardens; nearby Lodhi colony has India's biggest street art collection"
+      ],
+      [
+        "Delhi",
+        "Akshardham Temple (excluding ₹230 exhibition)",
+        "Free",
+        "Largest Hindu temple complex in the world; entry is free, only the inner exhibitions cost"
+      ],
+      [
+        "Delhi",
+        "Jama Masjid",
+        "Free (₹300 camera fee optional)",
+        "Largest mosque in India; climbing the minaret costs ₹100"
+      ],
+      [
+        "Delhi",
+        "Hauz Khas Village + lake walk",
+        "Free",
+        "Medieval ruins + hipster cafés; the ruins are what you came for"
+      ],
+      [
+        "Agra",
+        "Mehtab Bagh — Taj Mahal view from across the river",
+        "₹25 (Indian) / ₹300 (foreigner)",
+        "Free Taj Mahal sunset view from the back; less crowded than the main complex"
+      ],
+      [
+        "Agra",
+        "Walking around Old Agra (Jama Masjid area)",
+        "Free",
+        "Mughlai food stalls, narrow lanes, no tourist crowds"
+      ],
+      [
+        "Jaipur",
+        "Composite Ticket savings (₹400 covers 8 monuments)",
+        "₹400 (Indian) / ₹1,000 (foreigner)",
+        "Saves 60–70% vs individual tickets if you visit 4+ sites"
+      ],
+      [
+        "Jaipur",
+        "Sunrise at Nahargarh Fort",
+        "Free (₹50 by car)",
+        "Best city panorama; arrive 5:30 AM"
+      ],
+      [
+        "Goa",
+        "Saturday Night Market at Arpora (Nov–Apr)",
+        "Free entry",
+        "Live music, food, shopping; the original Goa hippie market"
+      ],
+      [
+        "Goa",
+        "Dudhsagar Falls public trek (monsoon)",
+        "₹400 by jeep tour",
+        "Massive 4-tiered waterfall; best in Jul–Oct"
+      ],
+      [
+        "Goa",
+        "Old Goa churches (Basilica of Bom Jesus + Se Cathedral)",
+        "Free",
+        "UNESCO World Heritage Sites; St. Francis Xavier's body is here"
+      ],
+      [
+        "Mumbai",
+        "Marine Drive + Chowpatty walk at sunset",
+        "Free",
+        "Mumbai's Queen's Necklace; chaat at sunset"
+      ],
+      [
+        "Mumbai",
+        "Elephanta Caves (ferry ₹220)",
+        "₹40 (Indian) / ₹600 (foreigner) + ₹220 ferry",
+        "UNESCO Hindu cave temples on island; full day for ₹260 incl. ferry"
+      ],
+      [
+        "Mumbai",
+        "Dharavi walking tour (Reality Tours)",
+        "₹950 (proceeds to local NGO)",
+        "Most respectful, ethical slum tour in India"
+      ],
+      [
+        "Varanasi",
+        "Ganga Aarti at Dashashwamedh Ghat",
+        "Free (₹500 boat seat optional)",
+        "7 PM nightly; one of the most powerful free experiences in India"
+      ],
+      [
+        "Varanasi",
+        "Walk along the ghats sunset to dawn",
+        "Free",
+        "Best done with a local — ask hotel for free walk recommendations"
+      ],
+      [
+        "Varanasi",
+        "Sarnath excursion (where Buddha gave 1st sermon)",
+        "₹25 (Indian) / ₹300 (foreigner) + ₹100 auto",
+        "10km from Varanasi; museum has the iconic Ashoka Lion Capital"
+      ],
+      [
+        "Bangalore",
+        "Cubbon Park morning walk + Vidhana Soudha exterior",
+        "Free",
+        "300-acre park in city centre; weekend road closures make it bike-friendly"
+      ],
+      [
+        "Bangalore",
+        "Lalbagh flower show (twice a year, Republic Day & Independence Day)",
+        "₹70",
+        "World-class horticulture event; 2-week period only"
+      ],
+      [
+        "Bangalore",
+        "Brewery hop in Indiranagar / Koramangala",
+        "₹500–₹1,500",
+        "Bangalore = craft beer capital of India; Toit, Arbor, Geist"
+      ],
+      [
+        "Kolkata",
+        "Tram ride + Howrah Bridge walk",
+        "₹6 + free",
+        "Heritage tram still runs Esplanade-Tollygunge; pedestrian-only Howrah Bridge view from Mullick Ghat"
+      ],
+      [
+        "Kolkata",
+        "Indian Coffee House College Street",
+        "₹40 coffee",
+        "Adda culture institution; 80-year-old tradition"
+      ],
+      [
+        "Kolkata",
+        "Kumartuli (idol-makers' neighbourhood)",
+        "Free",
+        "Watch Durga idols being made (best Sep–Oct before Durga Puja)"
+      ],
+      [
+        "Chennai",
+        "Marina Beach sunrise + Kapaleeshwarar Temple",
+        "Free + ₹0 entry",
+        "World's 2nd longest urban beach; temple has gopuram dating to 7th century"
+      ],
+      [
+        "Chennai",
+        "Mahabalipuram day trip",
+        "₹500 round-trip bus + ₹40 (Indian) / ₹600 (foreigner) entry",
+        "UNESCO 7th-century shore temples; 60km south of Chennai"
+      ],
+      [
+        "Udaipur",
+        "Walk Ambrai Ghat + sunset at Karni Mata Hill",
+        "Free + ₹130 ropeway",
+        "Best ₹130 spent in Udaipur; 360° lake view"
+      ],
+      [
+        "Udaipur",
+        "Saturday weekly hat at Bagore Ki Haveli (cultural show)",
+        "₹150–₹250",
+        "Folk music + dance + puppet show; supports local artists"
+      ],
+      [
+        "Manali",
+        "Solang Valley (entry free; activities optional)",
+        "Free + ₹500–₹3,000 for activities",
+        "Picnic, walk, photograph; only pay for paragliding/zorbing if you want them"
+      ],
+      [
+        "Manali",
+        "Hidimba Devi Temple + walking around Old Manali",
+        "Free",
+        "1553 wooden temple in cedar forest; magical at sunset"
+      ],
+      [
+        "Manali",
+        "Vashisht hot springs",
+        "Free",
+        "Natural hot springs in temple complex; bring change of clothes"
+      ],
+      [
+        "Kochi",
+        "Ferry hop (Vypin → Fort Kochi → Vembanad)",
+        "₹4 each",
+        "Kochi's BEST hidden cheap experience"
+      ],
+      [
+        "Kochi",
+        "Kathakali show at Kerala Kathakali Centre",
+        "₹400",
+        "1-hour show + makeup demo; cultural deep-dive"
+      ],
+      [
+        "Kochi",
+        "Walking the Spice Route (Mattancherry → Jew Town)",
+        "Free",
+        "Self-guided; Synagogue is ₹10"
+      ]
+    ]
+  },
+  "Money Tools Glossary": {
+    "titleRow": "Money Tools — When to Use What",
+    "subtitleRow": "",
+    "headers": [
+      "Money Tools — When to Use What",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "Comparison of all payment options for tourists in India 2026",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Tool",
+        "Best For",
+        "Pros",
+        "Cons",
+        "Typical Fee",
+        "Recommendation"
+      ],
+      [
+        "UPI One World (NPCI)",
+        "Daily small spends, food, transport, markets",
+        "Same UPI as locals use; no cash; works at 99% of merchants in cities",
+        "G20 nationals only; KYC required at landing; ₹50,000 wallet cap; merchant payments only (no P2P)",
+        "1–3% loading fee, no transaction fee",
+        "★★★★★ — get this on day 1 if eligible"
+      ],
+      [
+        "Wise multi-currency card",
+        "Mid-size purchases, withdrawals",
+        "Live FX rate; free ATM ₹35,000/month equivalent; very low fees",
+        "Some Indian POS terminals reject foreign cards",
+        "0.5% FX + ATM beyond limit",
+        "★★★★★ — best card for India"
+      ],
+      [
+        "Revolut card",
+        "Mid-size purchases, transit",
+        "Free ATM up to plan limit; instant conversion alerts",
+        "Free plan has low ATM cap; weekend 1% surcharge",
+        "0% in-network, 1% off-hours",
+        "★★★★ — solid backup card"
+      ],
+      [
+        "Visa/Mastercard credit card (home country)",
+        "Hotels, flights, fine dining, big-ticket",
+        "Fraud protection; chargeback if scammed; airline/hotel rewards",
+        "Foreign transaction fee 1–3.5%; some merchants reject",
+        "1–3.5% FX markup",
+        "★★★★ — keep for big spends only"
+      ],
+      [
+        "Indian forex card (Niyo Global / Federal Bank, etc.)",
+        "Long stays, students",
+        "Zero forex markup; UPI capability on top",
+        "Requires Indian bank/NRE; not for short tourist trips",
+        "₹0 markup, ATM ₹110/withdrawal",
+        "★★★ — only if you have NRI status"
+      ],
+      [
+        "Cash (USD/EUR/GBP) → exchange in India",
+        "Emergency backup, very small towns",
+        "Universal acceptance; no bank required",
+        "Risk of theft; worst rates at hotels; 5–8% loss",
+        "5–8% spread (hotel) vs 1–2% (FFMC kiosk)",
+        "★★ — keep $200–500 emergency only"
+      ],
+      [
+        "Cash (INR) withdrawn from ATM",
+        "Religious offerings, tips, very small towns",
+        "Universally accepted",
+        "ATM fee ₹27.14 + GST off-network (May 2025 RBI rule); skimming risk",
+        "~₹50 per withdrawal",
+        "★★★ — withdraw ₹10–₹15K at a time"
+      ],
+      [
+        "Hotel currency exchange",
+        "Last-resort emergency only",
+        "Convenient; in-hotel",
+        "Worst rates in India; 5–8% below ATM",
+        "5–8% loss vs market",
+        "★ — avoid"
+      ],
+      [
+        "Airport currency exchange",
+        "First-day cash arrival",
+        "Convenient; widely available",
+        "Mid-tier rates; not the worst, not the best",
+        "2–4% spread",
+        "★★★ — change ₹10,000 at airport, rest later"
+      ],
+      [
+        "Authorised FFMC kiosk (Thomas Cook, Centrum, etc.)",
+        "Larger cash exchange",
+        "Better rates than airport; legal & safe",
+        "Need passport; not always near tourist areas",
+        "1–2% spread",
+        "★★★★ — best rates for cash exchange"
+      ],
+      [
+        "Western Union / MoneyGram",
+        "Receive money from abroad in emergency",
+        "Same-day pickup; works in tier-2 cities",
+        "High fees; receiving end requires ID",
+        "5–10% fee depending on amount",
+        "★★ — emergency only"
+      ],
+      [
+        "Wise transfer to Indian account",
+        "Long stays, NRI accounts",
+        "Cheapest international transfer; live FX",
+        "Receiver needs Indian bank/UPI",
+        "0.5–1% total",
+        "★★★★★ — if you have a local contact"
+      ]
+    ]
+  },
+  "Delhi": {
+    "titleRow": "Delhi — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Delhi — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹2,500/day backpacker; ₹6,000/day mid-range. Metro is the cheat code.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area for value",
+        "Paharganj (₹500–₹1,500 hostels) > Karol Bagh (mid) > Aerocity (luxury)",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Pre-paid airport taxi mafia post-midnight; use Uber/Ola from app pickup zone (T3 Gate 4–6)",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "Delhi Metro Tourist Card: ₹250/day or ₹500/3-day = unlimited rides; covers 90% of tourist needs",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Old Delhi food walk via Zomato (₹1,500, 4hr, 8 stops)",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Lodhi Garden + Lodhi Art District street art (free, half-day)",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Connaught Place 'tourist offices' (real one is at 88 Janpath Road)",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "Any Old Delhi paratha shop — ₹80–₹120 paratha, vendors prefer UPI",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "Red Fort",
+        "Indian ₹35 / Foreign ₹600",
+        "Skip Mon. Audio guide ₹118 worth it",
+        ""
+      ],
+      [
+        "Qutub Minar",
+        "Indian ₹35 / Foreign ₹600",
+        "Open daily, sunrise–sunset",
+        ""
+      ],
+      [
+        "Humayun's Tomb",
+        "Indian ₹35 / Foreign ₹600",
+        "Less crowded than Red Fort; UNESCO",
+        ""
+      ],
+      [
+        "Akshardham",
+        "Free (₹230 exhibition optional)",
+        "Closed Mon. No phones inside",
+        ""
+      ],
+      [
+        "Jama Masjid",
+        "Free (₹300 camera; ₹100 minaret)",
+        "Cover head & shoulders",
+        ""
+      ],
+      [
+        "National Museum",
+        "Indian ₹50 / Foreign ₹650",
+        "Closed Mon. Indus Valley collection unmissable",
+        ""
+      ]
+    ]
+  },
+  "Agra": {
+    "titleRow": "Agra — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Agra — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹2,000/day backpacker; ₹4,500/day mid-range. Day-trip from Delhi is OK; overnight saves more.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "Taj Ganj (5-min walk to East Gate) — ₹800 guesthouse to ₹50,000 Oberoi Amarvilas",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Marble inlay 'family workshop' tours (driver commission scam)",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "Agra Cantt → Delhi via Gatimaan Express (₹750, 1h40m) is faster than flying",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Sheroes Hangout pay-as-you-wish café (run by acid-attack survivors)",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Mehtab Bagh sunset view of Taj Mahal across the river (₹25 Indian / ₹300 foreigner)",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Sunrise package tours from Delhi via Uber-style apps — most are ₹4,000+; do it yourself for ₹2,000",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "Mama Chicken in Old Agra — Mughlai feast for 4 = ₹650",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "Taj Mahal",
+        "Indian ₹250 (₹50 entry + ₹200 mausoleum) / Foreign ₹1,300",
+        "CLOSED FRIDAYS. Book online asi.payumoney.com — saves ₹50/foreigner",
+        ""
+      ],
+      [
+        "Agra Fort",
+        "Indian ₹50 / Foreign ₹650",
+        "Combo ticket with Taj saves ₹50",
+        ""
+      ],
+      [
+        "Itimad-ud-Daulah ('Baby Taj')",
+        "Indian ₹30 / Foreign ₹310",
+        "Skip Mon. Quieter than Taj",
+        ""
+      ],
+      [
+        "Fatehpur Sikri",
+        "Indian ₹40 / Foreign ₹610",
+        "40km from Agra; UNESCO; full day",
+        ""
+      ],
+      [
+        "Mehtab Bagh",
+        "Indian ₹25 / Foreign ₹300",
+        "Best for Taj sunset view",
+        ""
+      ]
+    ]
+  },
+  "Jaipur": {
+    "titleRow": "Jaipur — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Jaipur — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹2,200/day backpacker; ₹5,500/day mid-range. Composite Ticket is the #1 hack.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "Bani Park (mid-range, ₹2,500–₹4,500), Hathroi Fort area (heritage), Pink City (touristy & loud)",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Amer Fort elephant ride (welfare concerns + ₹3,000 tourist quote vs ₹1,100 govt rate); walk up instead",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "Composite Ticket ₹400 (Indian) / ₹1,000 (foreigner) covers Amer, Hawa Mahal, Jantar Mantar, City Palace + 4 more",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Chokhi Dhani village experience ₹1,300–₹1,800 = unlimited Rajasthani thali + cultural show",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Sunrise at Nahargarh Fort (free; reach by 5:30 AM)",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Driver-recommended gem/textile 'family workshops' (commission = 30–50%)",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "Rawat Mishtan Bhandar — kachori-lassi for ₹100",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "Amer Fort",
+        "Indian ₹100 / Foreign ₹600",
+        "Best at sunrise; Light & Sound show ₹200/₹300 evenings",
+        ""
+      ],
+      [
+        "Hawa Mahal",
+        "Indian ₹50 / Foreign ₹200",
+        "View from Wind View café across the road is FREE",
+        ""
+      ],
+      [
+        "City Palace",
+        "Indian ₹300 / Foreign ₹700",
+        "Royal Grandeur ticket ₹3,000 includes private apartments",
+        ""
+      ],
+      [
+        "Jantar Mantar",
+        "Indian ₹50 / Foreign ₹200",
+        "UNESCO; world's largest stone sundial",
+        ""
+      ],
+      [
+        "Nahargarh Fort",
+        "Indian ₹50 / Foreign ₹200",
+        "Best sunset/sunrise view in Jaipur",
+        ""
+      ],
+      [
+        "Composite Ticket",
+        "Indian ₹400 / Foreign ₹1,000",
+        "Covers 8 monuments; valid 2 days",
+        ""
+      ]
+    ]
+  },
+  "Goa": {
+    "titleRow": "Goa — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Goa — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹3,000/day backpacker; ₹6,500/day mid-range. Scooter rental is the single biggest hack.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "North Goa: Anjuna/Vagator (party), Assagao (boutique), Mandrem (chill). South Goa: Palolem (backpacker), Agonda (luxury budget)",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Pre-paid airport taxi (₹1,500–₹2,500) — use GoaMiles app for ₹800–₹1,200",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "Rent scooter ₹350–₹500/day from Royal Brothers/Onn Bikes app — saves ₹2,000+/day vs taxis",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Wine shops (legal off-license) for beer ₹100–₹150 vs ₹400 at shacks; carry to beach",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Saturday Night Market at Arpora (Nov–Apr); Old Goa churches",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Drug offers (NDPS Act = jail), water sport 'damage' fees (photo equipment first), beach shack 'tourist menu'",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "Local fish thali joint in Mapusa or Panaji — ₹150 fish curry rice",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "Basilica of Bom Jesus",
+        "Free",
+        "UNESCO; St. Francis Xavier's body",
+        ""
+      ],
+      [
+        "Se Cathedral",
+        "Free",
+        "Largest church in Asia",
+        ""
+      ],
+      [
+        "Aguada Fort",
+        "Free",
+        "Sunset spot; lighthouse ₹100 climb",
+        ""
+      ],
+      [
+        "Dudhsagar Falls",
+        "₹400 jeep tour (peak monsoon)",
+        "Best Jul–Oct; book in Mollem",
+        ""
+      ],
+      [
+        "Spice plantation tours",
+        "₹400–₹700",
+        "Sahakari, Tropical Spice — full lunch included",
+        ""
+      ]
+    ]
+  },
+  "Mumbai": {
+    "titleRow": "Mumbai — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Mumbai — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹3,500/day backpacker; ₹8,000/day mid-range. India's most expensive — train-pass it.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "Colaba/Fort (touristy but central), Bandra (nightlife), Andheri (airport-cheap)",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Black-yellow taxi without meter; tourist boat to Elephanta touts",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "1st-class AC local train weekly pass ₹600 — beats every other transport for Mumbai",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Vada pav at Ashok (Dadar) ₹15; Britannia & Co. Parsi berry pulao for the splurge ₹450",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Marine Drive sunset walk + Chowpatty chaat",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Tourist boat to Elephanta from Gateway touts (real ferry ₹220 from official counter)",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "Any vada pav stall — ₹15–₹25",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "Gateway of India",
+        "Free",
+        "Iconic; busy. Walk over to Taj Mahal Hotel afterwards",
+        ""
+      ],
+      [
+        "Elephanta Caves",
+        "Indian ₹40 / Foreign ₹600 + ₹220 ferry",
+        "UNESCO; full day. Closed Mon",
+        ""
+      ],
+      [
+        "Chhatrapati Shivaji Terminus",
+        "Free (exterior)",
+        "UNESCO; best photographed at night",
+        ""
+      ],
+      [
+        "Sanjay Gandhi National Park (Kanheri Caves)",
+        "Indian ₹50 + ₹100 / Foreign ₹600",
+        "2nd-century Buddhist caves; full day",
+        ""
+      ],
+      [
+        "Haji Ali Dargah",
+        "Free",
+        "Crowded Thu–Fri evenings; women allowed",
+        ""
+      ]
+    ]
+  },
+  "Varanasi": {
+    "titleRow": "Varanasi — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Varanasi — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹1,800/day backpacker; ₹4,200/day mid-range. Cheapest top-12 city; spiritual immersion is free.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "Assi Ghat or Dashashwamedh Ghat area (₹800–₹2,500 guesthouse with Ganga view)",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Sunrise boat at Dashashwamedh during peak season — overcrowded; go from Assi Ghat instead",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "Walk between ghats (5km riverside path) — free; boat only for sunrise/Aarti",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Blue Lassi Shop (since 1925) — 80 lassi varieties ₹70–₹150",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Ganga Aarti at Dashashwamedh, 7 PM nightly; one of India's most powerful free experiences",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Forced tilak/thread by 'priests'; bhang lassi unless you understand the dose",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "Kashi Chat Bhandar — chaat ₹80–₹120",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "Kashi Vishwanath Temple",
+        "Free (₹300 special darshan optional)",
+        "12 Jyotirlinga; massive crowds",
+        ""
+      ],
+      [
+        "Sarnath",
+        "Indian ₹25 / Foreign ₹300 + museum ₹5",
+        "Buddha's first sermon site; 10km from Varanasi",
+        ""
+      ],
+      [
+        "Banaras Hindu University",
+        "Free",
+        "1,300-acre campus; Bharat Kala Bhavan museum ₹40",
+        ""
+      ],
+      [
+        "Sunrise boat ride",
+        "₹500–₹800 shared / ₹1,500–₹2,500 private",
+        "Pre-fix price BEFORE stepping in",
+        ""
+      ],
+      [
+        "Ganga Aarti",
+        "Free (₹500 boat seat optional)",
+        "7 PM Dashashwamedh",
+        ""
+      ]
+    ]
+  },
+  "Bangalore": {
+    "titleRow": "Bangalore — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Bangalore — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹2,200/day backpacker; ₹5,500/day mid-range. Tech + breweries = the new Bangalore tourism.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "Indiranagar (breweries), Koramangala (food), MG Road (central touristy)",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Auto rickshaws refusing meter; standalone street ATMs",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "Namma Yatri app for autos (zero commission to driver = fairer fare); BMTC AC bus pass ₹70/day",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Military hotels (SGS, Shivaji, Hotel Empire) ₹200–₹400 full meal",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Cubbon Park morning walk (Sun + Sat road closures = pedestrian-only)",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Counterfeit electronics in Commercial Street; standalone street ATMs",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "MTR (Lalbagh) — masala dosa ₹100; rava idli ₹80",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "Lalbagh Botanical Garden",
+        "₹25",
+        "Flower show twice/year (Republic Day + Independence Day)",
+        ""
+      ],
+      [
+        "Cubbon Park + Vidhana Soudha (exterior)",
+        "Free",
+        "300-acre central park",
+        ""
+      ],
+      [
+        "Tipu Sultan's Summer Palace",
+        "Indian ₹15 / Foreign ₹200",
+        "1791 wooden palace",
+        ""
+      ],
+      [
+        "Bangalore Palace",
+        "Indian ₹250 / Foreign ₹450 (audio incl.)",
+        "Tudor-style; Wodeyar family residence",
+        ""
+      ],
+      [
+        "ISKCON Temple",
+        "Free",
+        "Modern marble; massive complex",
+        ""
+      ],
+      [
+        "Brewery hop in Indiranagar/Koramangala",
+        "₹500–₹1,500",
+        "Toit, Arbor, Geist — craft beer capital of India",
+        ""
+      ]
+    ]
+  },
+  "Kolkata": {
+    "titleRow": "Kolkata — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Kolkata — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹1,800/day backpacker; ₹4,500/day mid-range. Cheapest food + tram = retro money saver.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "Park Street (central, walkable), Sudder Street (backpacker), Salt Lake (modern)",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Yellow Ambassador taxis for short distances (refuse fares); fake brand stores at New Market",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "Kolkata Metro day pass ₹70 — unlimited rides; heritage tram ₹6",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Kati rolls (Hot Kati Rolls / Nizam's) — ₹100–₹150 = full meal",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Howrah Bridge walk at sunrise; tram ride from Esplanade to Tollygunge",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Kalighat Temple 'priests' demanding offering; pickpocket-prone Metro at peak",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "KC Das — kachori-alur dom + a rosogolla = ₹150",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "Victoria Memorial",
+        "Indian ₹30 / Foreign ₹200 (gardens ₹10)",
+        "Closed Mon. Light & Sound show ₹40 evenings",
+        ""
+      ],
+      [
+        "Indian Museum",
+        "Indian ₹50 / Foreign ₹500",
+        "Oldest museum in India (1814); closed Mon",
+        ""
+      ],
+      [
+        "Howrah Bridge",
+        "Free",
+        "Walk it at sunrise; no photography from bridge itself",
+        ""
+      ],
+      [
+        "Dakshineswar Kali Temple",
+        "Free",
+        "Paramahamsa lived here; combo with Belur Math",
+        ""
+      ],
+      [
+        "Marble Palace",
+        "Free (advance permission required from WB Tourism)",
+        "Private mansion, must apply 24h ahead",
+        ""
+      ],
+      [
+        "Kumartuli",
+        "Free",
+        "Watch Durga idols being made; best Sep–Oct",
+        ""
+      ]
+    ]
+  },
+  "Chennai": {
+    "titleRow": "Chennai — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Chennai — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹1,700/day backpacker; ₹4,200/day mid-range. Tiffin (light meal) culture = food for ₹100.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "Mylapore (cultural heart), T Nagar (shopping), ECR (beach)",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Auto rickshaw — Chennai autos are India's worst overchargers",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "MTC bus day pass ₹70 — unlimited rides; Chennai Metro Blue line ₹10–₹50",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Mylapore food walk — Kapaleeshwarar Temple area has 50+ tiffin shops within 1km, all under ₹150",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Marina Beach sunrise (5:30 AM) + Kapaleeshwarar Temple",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Pre-paid airport taxi (₹600–₹800 'flat'); use Uber/Ola/Rapido instead",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "Saravana Bhavan (any branch) — masala dosa ₹100",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "Kapaleeshwarar Temple",
+        "Free",
+        "7th-century gopuram; cultural heart of Chennai",
+        ""
+      ],
+      [
+        "Government Museum (Egmore)",
+        "Indian ₹15 / Foreign ₹250",
+        "South India's largest; bronze gallery is rare",
+        ""
+      ],
+      [
+        "Fort St. George",
+        "Indian ₹15 / Foreign ₹200",
+        "British India's first fort (1644)",
+        ""
+      ],
+      [
+        "Mahabalipuram (60km south)",
+        "Indian ₹40 / Foreign ₹600 + ₹500 bus",
+        "UNESCO 7th-century shore temples; full day",
+        ""
+      ],
+      [
+        "Marina Beach",
+        "Free",
+        "World's 2nd longest urban beach",
+        ""
+      ],
+      [
+        "Pondicherry day trip",
+        "₹600–₹800 bus return",
+        "150km south; French Quarter, Auroville",
+        ""
+      ]
+    ]
+  },
+  "Udaipur": {
+    "titleRow": "Udaipur — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Udaipur — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹2,000/day backpacker; ₹5,500/day mid-range. Walking the old city is free; lake views aren't.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "Old city (Lal Ghat) for walkability — ₹1,200–₹4,000 heritage hotels",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Tour-operator boat 'private packages' (touts at ghats); buy at City Palace counter",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "Stay in old city, walk everywhere; Karni Mata Hill ropeway ₹130 = best ₹130 in town",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Natraj Dining Hall — unlimited Rajasthani thali ₹250",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Sunset at Karni Mata Hill (₹130 ropeway); walk Ambrai Ghat & Gangaur Ghat",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Heritage haveli 'lake view' upgrades — many are ₹3,000 above standard for a partial view",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "Cafe Edelweiss German bakery — breakfast ₹150–₹250",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "City Palace",
+        "Indian ₹300 / Foreign ₹700",
+        "Royal apartments add ₹150–₹500",
+        ""
+      ],
+      [
+        "Lake Pichola boat ride",
+        "Indian ₹400 / Foreign ₹700 (1hr, official rate)",
+        "Buy at City Palace ticket counter",
+        ""
+      ],
+      [
+        "Jagdish Temple",
+        "Free",
+        "1651 marble Vishnu temple; 3-min walk from City Palace",
+        ""
+      ],
+      [
+        "Saheliyon Ki Bari",
+        "Indian ₹30 / Foreign ₹200",
+        "'Garden of the Maidens'; Mughal-style fountains",
+        ""
+      ],
+      [
+        "Bagore Ki Haveli cultural show",
+        "₹150–₹250",
+        "7 PM nightly; folk dance + puppet show",
+        ""
+      ],
+      [
+        "Karni Mata Ropeway + sunset",
+        "₹130 round-trip",
+        "Best 360° view of Udaipur",
+        ""
+      ]
+    ]
+  },
+  "Manali": {
+    "titleRow": "Manali — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Manali — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹2,000/day backpacker; ₹4,500/day mid-range. Volvo bus from Delhi saves a hotel night.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "Old Manali (chill, expensive), Vashisht (hot springs nearby), New Manali (cheaper, busier)",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Tourist taxi mafia for Rohtang/Solang — fixed inflated rates",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "Volvo overnight bus from Delhi (₹1,200–₹1,800) saves a hotel night vs flight + taxi",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Eat in New Manali — same dishes 30–40% cheaper than Old Manali tourist cafés",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Vashisht hot springs (free temple-attached pools); Hidimba Devi Temple in cedar forest",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Drug offers in Old Manali / Kasol (NDPS Act = jail); unlicensed paragliding",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "Renuka Restaurant or Mall Road dhaba — momo plate ₹80",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "Hidimba Devi Temple",
+        "Free",
+        "1553 wooden temple in cedar forest",
+        ""
+      ],
+      [
+        "Manu Temple",
+        "Free",
+        "Hindu sage's temple; uphill walk in Old Manali",
+        ""
+      ],
+      [
+        "Solang Valley (Apr–Jun, Sep–Nov)",
+        "Free entry (activities ₹500–₹3,000)",
+        "Paragliding ₹2,500; zorbing ₹500",
+        ""
+      ],
+      [
+        "Rohtang Pass",
+        "Free + permit ₹500 + taxi ₹3,000–₹4,500",
+        "Permit via hpdolweb.gov.in; 3,978m altitude; closed Tue",
+        ""
+      ],
+      [
+        "Vashisht hot springs",
+        "Free",
+        "2km from Manali; bring change of clothes",
+        ""
+      ],
+      [
+        "Kasol day trip",
+        "₹500–₹800 shared taxi",
+        "Israeli food + Parvati River; 1.5 hr from Manali",
+        ""
+      ]
+    ]
+  },
+  "Kochi": {
+    "titleRow": "Kochi — Money Hacks",
+    "subtitleRow": "",
+    "headers": [
+      "Kochi — Money Hacks",
+      "",
+      "",
+      ""
+    ],
+    "rows": [
+      [
+        "₹1,800/day backpacker; ₹4,500/day mid-range. The ₹4 ferry is the ultimate steal.",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Money Essentials",
+        "",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "Topic",
+        "Hack / Detail",
+        ""
+      ],
+      [
+        "1",
+        "Stay area",
+        "Fort Kochi (heritage, tourist-central), Mattancherry (Jew Town walks), Ernakulam (mainland, cheaper)",
+        ""
+      ],
+      [
+        "2",
+        "Skip",
+        "Tuk-tuk tourist rates in Fort Kochi (use Uber/Ola); Jew Town overpriced 'antique' shops",
+        ""
+      ],
+      [
+        "3",
+        "Transport hack",
+        "Ferry Ernakulam → Fort Kochi ₹4 (yes, ₹4) — covers most Kochi sightseeing for less than a coffee",
+        ""
+      ],
+      [
+        "4",
+        "Food hack",
+        "Buy fresh fish at Chinese Fishing Nets (₹150–₹300) → walk to nearby shacks who cook it for ₹300",
+        ""
+      ],
+      [
+        "5",
+        "Free experience",
+        "Walk Spice Route (Mattancherry → Jew Town); sunset at Fort Kochi promenade",
+        ""
+      ],
+      [
+        "6",
+        "Avoid",
+        "Fake houseboat bookings online (book via keralatourism.org or Spice Coast Cruises only)",
+        ""
+      ],
+      [
+        "7",
+        "Best UPI test merchant",
+        "Kayikka's Biryani — Malabar fish biryani ₹220",
+        ""
+      ],
+      [
+        "Monuments & Attractions (Entry Fees, ₹)",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Site",
+        "Indian / Foreigner Fee",
+        "Notes",
+        ""
+      ],
+      [
+        "St. Francis Church",
+        "Free",
+        "India's oldest European church (1503); Vasco da Gama originally buried here",
+        ""
+      ],
+      [
+        "Mattancherry Palace",
+        "Indian ₹10 / Foreign ₹25",
+        "Dutch Palace; Hindu murals on Ramayana",
+        ""
+      ],
+      [
+        "Paradesi Synagogue",
+        "₹10",
+        "1568; 4 Jewish residents left in 2026",
+        ""
+      ],
+      [
+        "Chinese Fishing Nets",
+        "Free (₹100–₹200 to pull the net)",
+        "Best at sunset",
+        ""
+      ],
+      [
+        "Kerala Kathakali Centre show",
+        "₹400 (1 hr show + makeup demo)",
+        "Cultural deep-dive; 6 PM nightly",
+        ""
+      ],
+      [
+        "Backwater day trip from Alleppey",
+        "₹1,500–₹3,500",
+        "Day houseboat or shikara (small boat); 1 hr drive south",
+        ""
+      ]
+    ]
+  },
+  "Sources": {
+    "titleRow": "Sources & Methodology",
+    "subtitleRow": "",
+    "headers": [
+      "Sources & Methodology",
+      ""
+    ],
+    "rows": [
+      [
+        "All data verified April 2026. Pricing benchmarks from multiple cross-referenced sources.",
+        ""
+      ],
+      [
+        "Source",
+        "Used For"
+      ],
+      [
+        "NPCI 'UPI One World' official rollout — Feb 2026 AI Impact Summit (40+ countries)",
+        "UPI tourist setup, eligibility, ₹50,000 wallet limits"
+      ],
+      [
+        "RBI Master Direction on ATM Inter-bank Fees (May 2025) — ₹27.14 + GST per off-network withdrawal",
+        "ATM fee guidance"
+      ],
+      [
+        "ASI Official Ticketing Portal — asi.payumoney.com (Apr 2026)",
+        "Taj Mahal ₹1,300, Red Fort ₹600, all ASI monument fees"
+      ],
+      [
+        "Tajmahal.gov.in — UP Tourism + ASI joint portal",
+        "Taj Mahal timings, Friday closure, online booking"
+      ],
+      [
+        "MachuPicchu.org India Budget Guide 2026 (Mar 2026)",
+        "Daily budget tiers, regional cost variation, mid-range benchmarks"
+      ],
+      [
+        "TopIndianHolidays Cost of Travel India 2026",
+        "City-by-city accommodation, food, transport ranges"
+      ],
+      [
+        "LaureWanders Travel Cost India 2026 (Dec 2025)",
+        "Backpacker ground reality, scam-aware pricing"
+      ],
+      [
+        "BudgetYourTrip India ($42/day average — Mar 2026)",
+        "Mid-range traveler benchmark"
+      ],
+      [
+        "Mony.com / Pyypl / Cheq UPI tourist wallet partners",
+        "UPI One World practical setup"
+      ],
+      [
+        "Namma Yatri (open-source Bangalore auto app)",
+        "Bangalore transport hack"
+      ],
+      [
+        "GoaMiles official Goa Govt taxi app",
+        "Goa transport hack"
+      ],
+      [
+        "Yatri Sathi (West Bengal Govt app)",
+        "Kolkata transport"
+      ],
+      [
+        "IRCTC Rail Connect + Indian Railways 139",
+        "Train booking, foreign tourist quota"
+      ],
+      [
+        "KMRL (Kochi Metro), DMRC (Delhi Metro), MMRDA (Mumbai Metro), BMRCL (Bangalore Metro), CMRL (Chennai Metro), KMRL (Kolkata Metro) official fare cards 2026",
+        "Metro pricing"
+      ],
+      [
+        "Ministry of Tourism, India — incredibleindia.gov.in",
+        "Composite ticket Jaipur, official guide listings"
+      ],
+      [
+        "Kerala Tourism — keralatourism.org",
+        "Houseboat pricing, NABH-rated Ayurveda"
+      ],
+      [
+        "State Tourism Boards — Goa, Rajasthan, HP, UP, MP, WB",
+        "Official rates for Govt sites"
+      ],
+      [
+        "McAfee India Safer Summer Travel Research (Apr 2025)",
+        "47% scam-victim rate; cyber fraud impact"
+      ],
+      [
+        "Wise / Revolut / Niyo Global card published fees (Apr 2026)",
+        "Forex card comparison"
+      ],
+      [
+        "FFMC license requirements — RBI database",
+        "Authorised forex exchange criteria"
+      ],
+      [
+        "Author cross-verification with 5+ independent travel cost guides published Q1 2026",
+        "Multi-source price benchmarking"
+      ]
+    ]
+  }
+}
