@@ -15,6 +15,8 @@ const eslintConfig = defineConfig([
     // Standalone Chrome extension — uses cross-file globals via manifest.json
     // load order, which ESLint can't model. Has its own runtime context.
     "chrome-extension/**",
+    // Vitest coverage HTML output — generated, not source.
+    "coverage/**",
   ]),
 ]);
 
