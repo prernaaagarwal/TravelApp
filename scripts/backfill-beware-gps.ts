@@ -2,11 +2,11 @@
  * Backfills gps_lat / gps_lng on beware_reports rows that have a text
  * `location` but no coordinates yet.
  *
- * Uses Nominatim (OpenStreetMap's free geocoding service). Respects the
- * Nominatim usage policy:
- *   - 1 request per second max (we sleep 1.1s between calls)
- *   - Custom User-Agent header (mandatory)
- *   - Suitable for our scale (a few hundred rows max)
+ * Geocoder selection (auto):
+ *   - GOOGLE_MAPS_API_KEY set in .env.local → Google Geocoding API
+ *     (recommended: better quality on fuzzy locations, $200/mo free credit
+ *     on every Google Cloud account = 40,000 free requests/month)
+ *   - Otherwise → Nominatim (OpenStreetMap, free, no signup, slower)
  *
  * Skips rows whose location is area-level ("city-wide", "online",
  * "all villages...") since those shouldn't appear as map pins anyway —
@@ -20,6 +20,10 @@
  *
  *   # Preview without writing to DB:
  *   npx tsx scripts/backfill-beware-gps.ts --dry-run
+ *
+ *   # Force a specific provider:
+ *   npx tsx scripts/backfill-beware-gps.ts --provider=nominatim
+ *   npx tsx scripts/backfill-beware-gps.ts --provider=google
  */
 
 import { config } from "dotenv";
@@ -40,6 +44,22 @@ if (!url || !key) {
 
 const dryRun = process.argv.includes("--dry-run");
 const supabase = createClient(url, key);
+
+// ─── Provider selection ───────────────────────────────────────────────────────
+type Provider = "google" | "nominatim";
+const providerFlag = process.argv.find((a) => a.startsWith("--provider="));
+const forcedProvider = providerFlag?.split("=")[1] as Provider | undefined;
+const googleKey = process.env.GOOGLE_MAPS_API_KEY;
+
+const provider: Provider =
+  forcedProvider ?? (googleKey ? "google" : "nominatim");
+
+if (provider === "google" && !googleKey) {
+  console.error(
+    "Provider 'google' was requested but GOOGLE_MAPS_API_KEY is not set in .env.local.",
+  );
+  process.exit(1);
+}
 
 // ─── Area-level patterns: skip these, never pin them ──────────────────────────
 // These describe regions/online/abstract scopes, not pinable points.
@@ -94,17 +114,26 @@ function isAreaLevel(location: string): boolean {
   return AREA_LEVEL_PATTERNS.some((p) => p.test(location));
 }
 
+// ─── Unified geocoder result ──────────────────────────────────────────────────
+interface GeocodeResult {
+  lat: number;
+  lng: number;
+  type: string; // for logging + coarseness check
+  confidence: number; // 0-1 normalised across providers
+  display: string; // human-readable formatted result
+}
+
+// ─── Nominatim provider ───────────────────────────────────────────────────────
 interface NominatimResult {
   lat: string;
   lon: string;
   importance?: number;
-  class?: string;
   type?: string;
   addresstype?: string;
   display_name?: string;
 }
 
-async function geocode(query: string): Promise<NominatimResult | null> {
+async function geocodeNominatim(query: string): Promise<GeocodeResult | null> {
   const u = new URL("https://nominatim.openstreetmap.org/search");
   u.searchParams.set("q", query);
   u.searchParams.set("format", "json");
@@ -126,12 +155,87 @@ async function geocode(query: string): Promise<NominatimResult | null> {
 
   const json = (await res.json()) as NominatimResult[];
   if (!Array.isArray(json) || json.length === 0) return null;
-  return json[0];
+
+  const r = json[0];
+  return {
+    lat: parseFloat(r.lat),
+    lng: parseFloat(r.lon),
+    type: r.type ?? r.addresstype ?? "",
+    confidence: r.importance ?? 0,
+    display: r.display_name ?? "",
+  };
+}
+
+// ─── Google provider ──────────────────────────────────────────────────────────
+interface GoogleResult {
+  geometry: {
+    location: { lat: number; lng: number };
+    location_type: string; // ROOFTOP | RANGE_INTERPOLATED | GEOMETRIC_CENTER | APPROXIMATE
+  };
+  formatted_address: string;
+  types: string[];
+  partial_match?: boolean;
+}
+
+interface GoogleResponse {
+  status: string; // OK | ZERO_RESULTS | OVER_QUERY_LIMIT | REQUEST_DENIED | INVALID_REQUEST
+  results: GoogleResult[];
+  error_message?: string;
+}
+
+// Map Google's location_type to a 0-1 confidence score
+const GOOGLE_LOCATION_TYPE_CONFIDENCE: Record<string, number> = {
+  ROOFTOP: 1.0,
+  RANGE_INTERPOLATED: 0.75,
+  GEOMETRIC_CENTER: 0.6,
+  APPROXIMATE: 0.4,
+};
+
+async function geocodeGoogle(query: string): Promise<GeocodeResult | null> {
+  const u = new URL("https://maps.googleapis.com/maps/api/geocode/json");
+  u.searchParams.set("address", query);
+  u.searchParams.set("key", googleKey!);
+
+  const res = await fetch(u);
+  if (!res.ok) {
+    console.warn(`  ⚠ Google ${res.status}: ${res.statusText}`);
+    return null;
+  }
+
+  const json = (await res.json()) as GoogleResponse;
+
+  if (json.status === "OVER_QUERY_LIMIT" || json.status === "REQUEST_DENIED") {
+    console.error(`  ⚠ Google API: ${json.status} — ${json.error_message ?? "(no message)"}`);
+    return null;
+  }
+  if (json.status !== "OK" || json.results.length === 0) return null;
+
+  const r = json.results[0];
+  let confidence = GOOGLE_LOCATION_TYPE_CONFIDENCE[r.geometry.location_type] ?? 0.4;
+  // Penalise partial matches (Google found something but it's a fuzzy guess)
+  if (r.partial_match) confidence *= 0.7;
+
+  // Pick the most specific type (first non-generic)
+  const generic = new Set(["political", "geocode"]);
+  const primaryType = r.types.find((t) => !generic.has(t)) ?? r.types[0] ?? "";
+
+  return {
+    lat: r.geometry.location.lat,
+    lng: r.geometry.location.lng,
+    type: primaryType,
+    confidence,
+    display: r.formatted_address,
+  };
+}
+
+async function geocode(query: string): Promise<GeocodeResult | null> {
+  return provider === "google" ? geocodeGoogle(query) : geocodeNominatim(query);
 }
 
 // Reject too-coarse results (countries, states, etc.) — these mean the
 // geocoder didn't find the specific landmark and fell back to a region.
 const COARSE_TYPES = new Set([
+  // Nominatim
   "country",
   "state",
   "province",
@@ -139,16 +243,21 @@ const COARSE_TYPES = new Set([
   "boundary",
   "continent",
   "country_code",
+  // Google (administrative area types)
+  "administrative_area_level_1",
+  "administrative_area_level_2",
+  "locality", // city-level — usually too coarse for our purpose
 ]);
 
-const MIN_IMPORTANCE = 0.3;
+const MIN_CONFIDENCE = 0.3;
 
 async function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms));
 }
 
 async function main(): Promise<void> {
-  console.log(`${dryRun ? "DRY RUN — " : ""}Backfilling beware_reports.gps_lat/gps_lng…\n`);
+  console.log(`${dryRun ? "DRY RUN — " : ""}Backfilling beware_reports.gps_lat/gps_lng…`);
+  console.log(`Provider: ${provider}${provider === "nominatim" ? " (set GOOGLE_MAPS_API_KEY for higher quality)" : ""}\n`);
 
   const { data: rows, error } = await supabase
     .from("beware_reports")
@@ -205,39 +314,31 @@ async function main(): Promise<void> {
       if (!result) {
         console.log(`  ✗ no result`);
         notFound++;
+      } else if (result.confidence < MIN_CONFIDENCE) {
+        console.log(`  ✗ low confidence (${result.confidence.toFixed(2)})`);
+        lowConfidence++;
+      } else if (COARSE_TYPES.has(result.type)) {
+        console.log(`  ✗ too coarse (type=${result.type})`);
+        lowConfidence++;
       } else {
-        const importance = result.importance ?? 0;
-        const type = result.type ?? "";
-        const addresstype = result.addresstype ?? "";
+        console.log(
+          `  ✓ ${result.lat.toFixed(5)},${result.lng.toFixed(5)} (${result.type}, conf=${result.confidence.toFixed(2)})`,
+        );
 
-        if (importance < MIN_IMPORTANCE) {
-          console.log(`  ✗ low confidence (importance=${importance.toFixed(2)})`);
-          lowConfidence++;
-        } else if (COARSE_TYPES.has(type) || COARSE_TYPES.has(addresstype)) {
-          console.log(`  ✗ too coarse (type=${type}, addresstype=${addresstype})`);
-          lowConfidence++;
-        } else {
-          const lat = parseFloat(result.lat);
-          const lng = parseFloat(result.lon);
-          console.log(
-            `  ✓ ${lat.toFixed(5)},${lng.toFixed(5)} (${type}, importance=${importance.toFixed(2)})`,
-          );
+        if (!dryRun) {
+          const { error: updateErr } = await supabase
+            .from("beware_reports")
+            .update({ gps_lat: result.lat, gps_lng: result.lng })
+            .eq("id", row.id);
 
-          if (!dryRun) {
-            const { error: updateErr } = await supabase
-              .from("beware_reports")
-              .update({ gps_lat: lat, gps_lng: lng })
-              .eq("id", row.id);
-
-            if (updateErr) {
-              console.warn(`  ⚠ DB update failed: ${updateErr.message}`);
-              errors++;
-            } else {
-              updated++;
-            }
+          if (updateErr) {
+            console.warn(`  ⚠ DB update failed: ${updateErr.message}`);
+            errors++;
           } else {
-            updated++; // count as would-be-updated for the dry-run summary
+            updated++;
           }
+        } else {
+          updated++; // count as would-be-updated for the dry-run summary
         }
       }
     } catch (e) {
@@ -245,8 +346,11 @@ async function main(): Promise<void> {
       errors++;
     }
 
-    // Nominatim policy: max 1 request/second. Sleep 1.1s between calls.
-    if (i < rows.length - 1) await sleep(1100);
+    // Nominatim policy is max 1 req/second. Google has no equivalent strict
+    // limit (just QPS quotas), so we throttle less aggressively there.
+    if (i < rows.length - 1) {
+      await sleep(provider === "nominatim" ? 1100 : 100);
+    }
   }
 
   console.log("\n─── Summary ───");
