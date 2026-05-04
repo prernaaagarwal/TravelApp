@@ -3,6 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { z } from "zod";
+import { checkRateLimit, LIMITS } from "@/lib/rate-limit";
 
 const schema = z.object({
   destination_slug: z.string().min(1, "Destination required"),
@@ -24,6 +25,9 @@ export async function submitTripFeed(
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: "You must be logged in to submit a trip." };
+
+  const limit = await checkRateLimit(supabase, user.id, LIMITS.TRIP_SUBMISSIONS);
+  if (!limit.allowed) return { error: limit.message };
 
   const result = schema.safeParse({
     destination_slug: formData.get("destination_slug"),

@@ -4,11 +4,15 @@ import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { createPostSchema } from "@/lib/schemas";
 import { getErrorMessage } from "@/lib/errors";
+import { checkRateLimit, LIMITS } from "@/lib/rate-limit";
 
 export async function createPost(formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: "Not logged in" };
+
+  const limit = await checkRateLimit(supabase, user.id, LIMITS.COMMUNITY_POSTS);
+  if (!limit.allowed) return { error: limit.message };
 
   const imageUrlsRaw = formData.get("image_urls") as string;
   let imageParsed: string[] = [];

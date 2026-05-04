@@ -48,7 +48,7 @@ export default async function FeedPage({
   const { destination, submitted } = await searchParams;
 
   const supabase = await createClient();
-  const [{ data: rows }, { data: contribs }] = await Promise.all([
+  const [{ data: rows }, { data: contribs }, { data: heroes }] = await Promise.all([
     supabase
       .from("trip_submissions")
       .select(
@@ -57,7 +57,12 @@ export default async function FeedPage({
       .eq("status", "approved")
       .order("created_at", { ascending: false }),
     supabase.from("contributors").select("slug,name,photo_url"),
+    supabase.from("intel_cards").select("slug,hero_image_url"),
   ]);
+
+  const heroBySlug = new Map(
+    (heroes ?? []).map((h) => [h.slug as string, (h.hero_image_url as string | null) ?? ""])
+  );
 
   const tripFeed = (rows ?? []).map((r) => ({
     id:              r.id as string,
@@ -188,12 +193,18 @@ export default async function FeedPage({
           return (
             <article key={trip.id} className="border border-ww-border bg-sand">
               <div className="relative h-56 overflow-hidden bg-rust-light">
-                <Image
-                  src={`/images/intel/${trip.destinationSlug}.jpg`}
-                  alt={trip.destination}
-                  fill
-                  className="object-cover"
-                />
+                {(() => {
+                  const hero = heroBySlug.get(trip.destinationSlug)
+                            || `/images/intel/${trip.destinationSlug}.jpg`;
+                  return (
+                    <Image
+                      src={hero}
+                      alt={trip.destination}
+                      fill
+                      className="object-cover"
+                    />
+                  );
+                })()}
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
               </div>
 

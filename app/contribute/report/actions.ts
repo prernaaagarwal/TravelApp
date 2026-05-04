@@ -3,11 +3,15 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { submitBewareReportSchema } from "@/lib/schemas";
+import { checkRateLimit, LIMITS } from "@/lib/rate-limit";
 
 export async function submitBewareReport(formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: "Not logged in" };
+
+  const limit = await checkRateLimit(supabase, user.id, LIMITS.BEWARE_REPORTS);
+  if (!limit.allowed) return { error: limit.message };
 
   const gpsLatRaw = formData.get("gps_lat");
   const gpsLngRaw = formData.get("gps_lng");
