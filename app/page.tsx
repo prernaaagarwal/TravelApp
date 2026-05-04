@@ -1,5 +1,4 @@
 import Link from "next/link";
-import contributors from "@/lib/mock-data/contributors.json";
 import bewares from "@/lib/mock-data/beware-entries.json";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 import HeroBackground from "@/components/shared/HeroBackground";
@@ -7,11 +6,6 @@ import WhatsInside from "@/components/landing/WhatsInside";
 import communityPosts from "@/lib/mock-data/community-posts.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
 import { createStaticClient } from "@/lib/supabase/server";
-
-// Persona slugs for the "Priya path" and "Sara path" onboarding cards.
-// Change here if contributors are renamed — nowhere else.
-const PRIYA_SLUG = "ananya-mumbai";
-const SARA_SLUG  = "sara-berlin";
 
 export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
 
@@ -105,10 +99,7 @@ export default async function HomePage() {
 
       {/* ── What's inside (Intel + Personas + Community combined) ────── */}
       <WhatsInside
-        contributors={contributors}
         askPosts={askPosts}
-        priyaSlug={PRIYA_SLUG}
-        saraSlug={SARA_SLUG}
         totalDestinations={totalDestinations}
       />
 
