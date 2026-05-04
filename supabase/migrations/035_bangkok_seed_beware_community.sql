@@ -286,5 +286,297 @@ VALUES
   '[]', 'approved'
 );
 
--- ── Part 1 of 3 for Bangkok beware reports complete (entries 1–25). ───────────
--- ── Part 2 (entries 26–51) and community posts append below. ──────────────────
+-- ─── BEWARE REPORTS (Part 2: entries 26–51) ───────────────────────────────────
+
+INSERT INTO beware_reports
+  (destination_slug, city, category, title, severity, description, reported_by_name, location, photo_urls, status)
+VALUES
+
+-- bkk-bw-026: Khao San overnight bus bag theft
+(
+  'bangkok-thailand', 'Bangkok', 'Transport / Theft',
+  $t$Khao San Road Overpriced Bus Ticketing + Bag Theft on Overnight Journeys$t$,
+  'medium',
+  $d$Overnight bus journeys booked through Khao San Road agencies have documented cases of bags rifled through while passengers sleep. In some cases, valuables placed in overhead storage or undercarriage compartments are missing on arrival. If you must take an overnight bus, keep your day bag (with passport, money, phone) on your person or under your seat.$d$,
+  'Web research',
+  'Overnight buses originating from Khao San Road agencies',
+  '[]', 'approved'
+),
+
+-- bkk-bw-027: Street food over-pricing on tourist roads
+(
+  'bangkok-thailand', 'Bangkok', 'Scam / Pricing',
+  $t$Street Food Vendor Over-Pricing on Main Tourist Roads$t$,
+  'low',
+  $d$Street food vendors on heavily touristed roads (particularly around Khao San Road and outside major temples) charge 2–4x standard Thai prices — e.g., 150 THB for Pad Thai that costs 40 THB a few blocks away. Eating at stalls popular with local workers or in residential side streets gives accurate local pricing. Do not pay before confirming the price on anything not clearly displayed.$d$,
+  'Web research',
+  'Khao San Road, temple approach roads, tourist market entrances',
+  '[]', 'approved'
+),
+
+-- bkk-bw-028: Fake ticketing websites
+(
+  'bangkok-thailand', 'Bangkok', 'Online Scam',
+  $t$Fake Ticketing Websites for Popular Tours and Experiences$t$,
+  'medium',
+  $d$Fake booking websites mirroring legitimate Bangkok tour operators and attraction ticketing sites collect payment for experiences that do not exist. These are especially common for Grand Palace entry, floating market tours, and luxury Chao Phraya river dinners. Only book through official attraction websites, GetYourGuide, Klook, or verified hotel concierges. Never pay via wire transfer or direct bank transfer.$d$,
+  'Web research',
+  'Online — affects arrivals across Bangkok',
+  '[]', 'approved'
+),
+
+-- bkk-bw-029: Inappropriate photography requests at temples
+(
+  'bangkok-thailand', 'Bangkok', 'Harassment / Cultural',
+  $t$Inappropriate Photography Requests at Temples$t$,
+  'low',
+  $d$Solo female tourists at temples like Wat Pho and the Grand Palace report being approached by men offering to 'take their photo' and then demanding payment, steering them into scam conversations, or becoming increasingly intrusive. This is most common near the main temple entrances. Politely decline and move on. Real temple photography does not require intermediaries.$d$,
+  'Web research',
+  'Wat Pho, Grand Palace, Wat Arun',
+  '[]', 'approved'
+),
+
+-- bkk-bw-030: Bird food scam near temples
+(
+  'bangkok-thailand', 'Bangkok', 'Scam',
+  $t$Bird Food Scam Near Temples$t$,
+  'low',
+  $d$Vendors near temples or parks approach tourists with bird food and encourage them to feed the birds as a 'merit-making' act. Once you accept the food and start feeding, they demand a large payment, sometimes becoming aggressive. Decline any unsolicited items handed to you in public spaces.$d$,
+  'Web research',
+  'Near Wat Benchamabophit, Lumphini Park, temple areas',
+  '[]', 'approved'
+),
+
+-- bkk-bw-031: Taxi GPS ignorance inflated fares
+(
+  'bangkok-thailand', 'Bangkok', 'Transport',
+  $t$Taxi Driver GPS Ignorance Causing Inflated Fares$t$,
+  'low',
+  $d$Many Bangkok taxi drivers do not know shorter routes and will take long, indirect paths — sometimes genuinely, sometimes deliberately. While metered, these rides cost more due to added time and distance. Keep your own Google Maps navigation running during every taxi ride. If a driver is consistently ignoring a shorter route, point it out calmly and firmly. Use Grab where possible for fixed-price routing.$d$,
+  'Web research',
+  'City-wide',
+  '[]', 'approved'
+),
+
+-- bkk-bw-032: Unhygienic cooking class scams
+(
+  'bangkok-thailand', 'Bangkok', 'Scam / Tourism',
+  $t$Unhygienic 'Cooking Class' Scams with No Actual Teaching$t$,
+  'low',
+  $d$Low-cost cooking class bookings made through street-level agencies sometimes deliver a brief, scripted demonstration with minimal hands-on cooking, and then redirect attendees to affiliated shops selling overpriced spice kits. Book cooking classes through operators with verified TripAdvisor reviews and minimum 4.5 star ratings, or through platforms like GetYourGuide.$d$,
+  'Web research',
+  'Street-level tour operators, especially near Silom',
+  '[]', 'approved'
+),
+
+-- bkk-bw-033: Nightclub ladies night overcharge
+(
+  'bangkok-thailand', 'Bangkok', 'Nightlife / Scam',
+  $t$Nightclub 'Ladies Night' Overcharge$t$,
+  'medium',
+  $d$Certain clubs on RCA (Royal City Avenue) and Sukhumvit advertise ladies-night promotions but apply a much higher price tier when the bill arrives — charging per drink at rates different from what was stated at entry. Some clubs also place women's drinks on an 'open tab' that runs without consent. Confirm drink prices explicitly before ordering and avoid handing over a bank card for an open tab.$d$,
+  'Web research',
+  'RCA (Royal City Avenue), Sukhumvit night venues',
+  '[]', 'approved'
+),
+
+-- bkk-bw-034: Tuk-tuk driver harassing lone women
+(
+  'bangkok-thailand', 'Bangkok', 'Safety / Harassment',
+  $t$Tuk-Tuk Driver Assaulting / Harassing Lone Women$t$,
+  'medium',
+  $d$A recurring, documented pattern involves solo female passengers in tuk-tuks — particularly those who sit in the front — reporting verbal harassment from drivers. Long-term Bangkok resident bloggers (e.g. Beach Bum Adventure) note that harassment from taxi and tuk-tuk drivers is among the most common 'unpleasant incidents' experienced by women in the city. Always sit in the back seat of taxis and tuk-tuks. If a driver makes you uncomfortable, do not wait until the destination — exit in a safe, public area and find alternative transport.$d$,
+  'Web research',
+  'City-wide, most common at night',
+  '[]', 'approved'
+),
+
+-- bkk-bw-035: Tourist police impersonation
+(
+  'bangkok-thailand', 'Bangkok', 'Crime / Intimidation',
+  $t$Tourist Police Impersonation for Wallet / Passport Inspection$t$,
+  'high',
+  $d$Documented and confirmed cases (TripAdvisor, Thiefhunters in Paradise) describe individuals claiming to be tourist police asking tourists to show their passports and wallets at tourist sites or near ATMs. Real tourist police do not ask for wallet inspections on the street. If someone requests this, firmly decline and ask for their badge number. Call Tourist Police 1155 from your own phone to verify any claim of authority. Never hand over your passport to anyone except at official checkpoints.$d$,
+  'Web research',
+  'Grand Palace area, Siam, near ATMs in tourist zones',
+  '[]', 'approved'
+),
+
+-- bkk-bw-036: Unregistered money exchange Chatuchak
+(
+  'bangkok-thailand', 'Bangkok', 'Financial',
+  $t$Unregistered Money Exchange Short-Change in Chatuchak$t$,
+  'medium',
+  $d$Market stalls in and around Chatuchak operate informal currency exchange without licences and use sleight-of-hand counting techniques to short-change tourists. Always exchange money at licensed SuperRich, Vasu, or bank counters. Count every note at the counter before stepping away from the window.$d$,
+  'Web research',
+  'Chatuchak Weekend Market area',
+  '[]', 'approved'
+),
+
+-- bkk-bw-037: Tainted/counterfeit alcohol nightlife
+(
+  'bangkok-thailand', 'Bangkok', 'Health / Safety',
+  $t$Tainted / Counterfeit Alcohol at Nightlife Districts$t$,
+  'high',
+  $d$Documented cases exist of alcohol at Bangkok nightlife venues — particularly unbranded spirits and 'bucket' cocktails — being mixed with methanol or dangerous industrial additives, which can cause blindness or death. In 2024, multiple tourist deaths in Thailand were attributed to methanol-tainted alcohol. Order drinks only from bottles opened in front of you at reputable, established venues. Avoid bucket cocktails with unbranded spirits. Real Girl Review (Dec 2025) and multiple safety guides list this as a serious and ongoing risk.$d$,
+  'Web research',
+  'Patpong bars, Nana Plaza, Soi Cowboy, Khao San Road',
+  '[]', 'approved'
+),
+
+-- bkk-bw-038: Dress code enforcement scam
+(
+  'bangkok-thailand', 'Bangkok', 'Scam',
+  $t$Dress Code Enforcement as Scam at Temple Entrances$t$,
+  'low',
+  $d$Near the Grand Palace and Wat Pho, unofficial vendors approach tourists claiming they cannot enter because of dress code violations (shorts, bare shoulders). They offer to 'lend' sarongs and shawls for an entrance fee of 50–200 THB. Temple rentals inside are free or available at minimal cost. Genuine temple dress code checks occur only at the actual entrance gate. Ignore anyone outside trying to sell or rent clothing.$d$,
+  'Web research',
+  'Grand Palace entrance road, Wat Pho approach',
+  '[]', 'approved'
+),
+
+-- bkk-bw-039: Street gambling rings
+(
+  'bangkok-thailand', 'Bangkok', 'Scam / Financial',
+  $t$Street Gambling Rings Targeting Curious Tourists$t$,
+  'medium',
+  $d$Street gambling setups (card games, shell games) on tourist-heavy roads create an illusion of winnable bets using shills posing as tourists winning. The game is rigged — real participants always lose. Once money is bet, operators and surrounding gang members become intimidating. Walk away from any street gambling game without engaging. This is illegal under Thai law and all participants — including tourists — can technically be arrested.$d$,
+  'Web research',
+  'Khao San Road area, tourist markets',
+  '[]', 'approved'
+),
+
+-- bkk-bw-040: Inflated SIM card pricing at airport
+(
+  'bangkok-thailand', 'Bangkok', 'Scam / Pricing',
+  $t$Inflated SIM Card Pricing at Airport Tourist Shops$t$,
+  'low',
+  $d$Tourist-facing shops in Suvarnabhumi arrivals sell tourist SIM cards at 300–600 THB for plans available for 100–200 THB at 7-Eleven or AIS/DTAC stores inside the airport terminal. Check the official carrier counters (AIS, DTAC, True Move) in the arrivals area before purchasing from any other vendor.$d$,
+  'Web research',
+  'Suvarnabhumi Airport arrivals shops',
+  '[]', 'approved'
+),
+
+-- bkk-bw-041: Unsolicited photo offer scam
+(
+  'bangkok-thailand', 'Bangkok', 'Scam',
+  $t$Unsolicited 'Photo Offer' Scam at Iconic Landmarks$t$,
+  'low',
+  $d$Strangers approach solo tourists at landmarks and offer to take their photograph. After taking the photo, they demand payment for the 'service' and may become persistent or aggressive. If you wish someone to photograph you, ask a fellow tourist directly.$d$,
+  'Web research',
+  'Wat Arun riverfront, Grand Palace, Lumphini Park',
+  '[]', 'approved'
+),
+
+-- bkk-bw-042: Overpriced Chao Phraya pier boat tickets
+(
+  'bangkok-thailand', 'Bangkok', 'Transport / Scam',
+  $t$Overpriced Boat Tickets at Chao Phraya Tourist Piers$t$,
+  'medium',
+  $d$At tourist piers along the Chao Phraya (especially Saphan Taksin and Chang Pier), unofficial sellers offer 'tourist boat' tickets at 200–600 THB for journeys easily made on the standard orange-flag express boat for 15–30 THB. Purchase from the official pier ticket booths only. The tourist blue-flag boat is legitimate but priced at 200 THB for an unlimited day pass — verify this price at the official booth.$d$,
+  'Web research',
+  'Chao Phraya tourist piers, especially Saphan Taksin (BTS Saphan Taksin)',
+  '[]', 'approved'
+),
+
+-- bkk-bw-043: Tuk-tuk noise and dust
+(
+  'bangkok-thailand', 'Bangkok', 'Safety',
+  $t$Noise and Dust Complaints from Tuk-Tuk Rides$t$,
+  'low',
+  $d$Tuk-tuks are open vehicles in Bangkok's heavy traffic and extreme heat, exposing passengers to exhaust fumes, street noise, and significant pollution. Not a safety scam but a practical concern: for longer distances in daytime heat, a metered taxi or BTS Skytrain is considerably safer and more comfortable. Tuk-tuks are best for short hops in cooler evening hours.$d$,
+  'Web research',
+  'City-wide',
+  '[]', 'approved'
+),
+
+-- bkk-bw-044: Hotel concierge commission steering
+(
+  'bangkok-thailand', 'Bangkok', 'Scam / Tourism',
+  $t$Hotel Concierge Commission-Based Tour Steering$t$,
+  'low',
+  $d$Some budget hotel front desk staff recommend specific tour operators or taxi services in exchange for referral commissions, sometimes steering guests to substandard or overpriced providers. Research tours independently on TripAdvisor or GetYourGuide. Mid-range and higher hotel concierges in Bangkok generally provide reliable, commission-free referrals.$d$,
+  'Web research',
+  'Budget guesthouses, Khao San Road accommodation',
+  '[]', 'approved'
+),
+
+-- bkk-bw-045: Elephant sanctuary fraud
+(
+  'bangkok-thailand', 'Bangkok / Day Trips', 'Tourism / Ethical',
+  $t$Elephant Sanctuary Fraud — Fake Ethical Claims$t$,
+  'medium',
+  $d$Day trip operators from Bangkok advertise 'ethical elephant sanctuaries' but deliver tourist camps where elephants are ridden, chained, and perform tricks — practices considered abusive. Multiple 2025 travel guides distinguish between genuine sanctuaries (Elephant Nature Park, Boon Lott's) and those using the 'sanctuary' label fraudulently. Research with World Animal Protection's travel animal cruelty guide before booking.$d$,
+  'Web research',
+  'Day trip agencies throughout Bangkok tourist areas',
+  '[]', 'approved'
+),
+
+-- bkk-bw-046: Late night walking poorly-lit sois
+(
+  'bangkok-thailand', 'Bangkok', 'Safety',
+  $t$Late Night Walking in Poorly-Lit Residential Sois$t$,
+  'medium',
+  $d$Sukhumvit's numbered sois (side streets) range from lively to completely deserted after midnight. Solo female travellers walking alone in poorly lit residential sois after midnight report feeling vulnerable and targeted for verbal harassment. Stick to the main Sukhumvit road or well-lit sois like Soi 11, 21 (Asok), and 31. After midnight, use Grab for any journey over 5 minutes on foot.$d$,
+  'Web research',
+  'Sukhumvit residential side streets, Silom side sois after midnight',
+  '[]', 'approved'
+),
+
+-- bkk-bw-047: Jet ski damage scam
+(
+  'bangkok-thailand', 'Bangkok / Pattaya / Phuket', 'Scam / Financial',
+  $t$Jet Ski Damage Scam (Day Trips)$t$,
+  'high',
+  $d$After enjoying a jet ski rental, operators point out minor pre-existing cosmetic damage and demand extortionate 'repair fees' of thousands of Baht. When the situation escalates, a 'police officer' conveniently appears — who is in on the scam. BackpackThailand.com rates this as a high-severity scam. Photograph every cm of the jet ski before riding, and record a video walking around it. Only rent from operators with clearly posted pricing and insurance.$d$,
+  'Web research',
+  'Pattaya Beach, Phuket, Koh Samui (applies to day trips from Bangkok)',
+  '[]', 'approved'
+),
+
+-- bkk-bw-048: Unsolicited where are you from approach
+(
+  'bangkok-thailand', 'Bangkok', 'Scam / Social Engineering',
+  $t$Unsolicited Strangers Asking 'Where Are You From?' on Tourist Sois$t$,
+  'medium',
+  $d$A well-documented pattern across Bangkok's tourist areas: friendly, English-speaking locals open with basic conversation (where are you from, how long are you here) — almost always leading to a tuk-tuk referral, gem shop pitch, or social engineering scam. As itsbetterinthailand.com notes, these cold approaches on busy tourist streets are 'almost definitely a scam.' Be polite but decline all invitations and offers from strangers who initiate contact on the street.$d$,
+  'Web research',
+  'Khao San Road, near Grand Palace, Siam, Sukhumvit Soi 11',
+  '[]', 'approved'
+),
+
+-- bkk-bw-049: Aggressive vendor harassment night markets
+(
+  'bangkok-thailand', 'Bangkok', 'Harassment',
+  $t$Aggressive Street Vendor Harassment at Night Markets$t$,
+  'low',
+  $d$Vendors at Asiatique, Khao San Road, and Chatuchak can become verbally aggressive when tourists decline to purchase, using guilt or mild intimidation. This is particularly reported by solo women browsing alone at night. It is not dangerous but can be distressing. Walk confidently and do not engage with aggressive vendors — eye contact and acknowledgement only encourages continued interaction.$d$,
+  'Web research',
+  'Asiatique The Riverfront, Chatuchak, Khao San Road night market',
+  '[]', 'approved'
+),
+
+-- bkk-bw-050: Songthaew overcharging tourists
+(
+  'bangkok-thailand', 'Bangkok', 'Transport',
+  $t$Unregulated Songthaew Overcharging of Tourists$t$,
+  'low',
+  $d$Songthaew (shared red pickup trucks) drivers in Bangkok's outer areas sometimes treat solo foreign tourists as private hires and demand tuk-tuk-level pricing instead of the shared 10–30 THB rate. Confirm 'shared' (รับ) status and the per-person fare before boarding. In central Bangkok, the BTS/MRT system is preferable for reliability and fixed pricing.$d$,
+  'Web research',
+  'Bangkok outskirts, On Nut, Bang Na',
+  '[]', 'approved'
+),
+
+-- bkk-bw-051: Visa-on-arrival queue jump fee scam
+(
+  'bangkok-thailand', 'Bangkok', 'Scam / Immigration',
+  $t$Visa-on-Arrival Queue Jump Fee Scam at Airport$t$,
+  'medium',
+  $d$Unofficial 'facilitators' at Suvarnabhumi's visa-on-arrival queue offer to help with paperwork for a fee, sometimes charging 500–1,500 THB for assistance that is entirely free at the official counter. The official Visa on Arrival process at Suvarnabhumi is free and straightforward. Never pay anyone who approaches you in the queue offering to 'speed up' the process.$d$,
+  'Web research',
+  'Suvarnabhumi Airport visa-on-arrival queue',
+  '[]', 'approved'
+);
+
+-- ── Part 2 of 3 for Bangkok beware reports complete (entries 26–51). ──────────
+-- ── Part 3 (community posts) appends below. ──────────────────────────────────
