@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Users } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const COST_CATEGORIES = [
   { key: "stay",       label: "Stay",       color: "bg-rust"   },
@@ -314,17 +314,6 @@ export function ReceiptsClient({
                       by {contrib?.name ?? "Wander Women"}
                     </Link>
                   </div>
-
-                  <button
-                    disabled
-                    className="flex cursor-not-allowed items-center gap-2 border border-ww-border px-3 py-1.5 font-mono text-[10px] text-ww-muted"
-                    title="Coming soon"
-                  >
-                    Help me plan my trip
-                    <span className="rounded bg-ww-border/60 px-1.5 py-0.5 text-[8px] uppercase tracking-widest text-ink/60">
-                      Coming soon
-                    </span>
-                  </button>
                 </div>
               </div>
             </article>
@@ -350,30 +339,6 @@ export function ReceiptsClient({
         </div>
       )}
 
-      {/* ── Group trip banner ── */}
-      <div className="mt-16 border border-ww-border bg-rust-light/20 p-8 text-center">
-        <div className="mb-3 flex justify-center">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-rust-light">
-            <Users className="h-5 w-5 text-rust" />
-          </span>
-        </div>
-        <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
-          Coming soon
-        </p>
-        <p className="font-serif text-2xl text-ink">
-          Join a women-only group trip
-        </p>
-        <p className="mx-auto mt-2 max-w-sm font-mono text-xs leading-relaxed text-ww-muted">
-          Curated routes. Vetted co-travellers. No solo anxiety. Register your
-          interest and we&apos;ll notify you first.
-        </p>
-        <button
-          disabled
-          className="mt-5 cursor-not-allowed border border-ww-border/50 px-6 py-2.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted/50"
-        >
-          Notify me →
-        </button>
-      </div>
     </>
   );
 }

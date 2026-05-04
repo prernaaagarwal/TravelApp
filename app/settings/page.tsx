@@ -211,13 +211,19 @@ export default async function SettingsPage() {
           />
         </div>
 
-        {/* ── WhatsApp vault ───────────────────────── */}
+        {/* ── Trip vault ───────────────────────────── */}
         <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
-            WhatsApp vault
+          <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
+            Trip vault
           </p>
+          {!vault && (
+            <p className="mb-3 font-mono text-xs leading-relaxed text-ww-muted">
+              Share your itinerary, photos & emergency contacts with someone
+              you trust — auto-WhatsApped if you go quiet.
+            </p>
+          )}
           <Link href="/vault" className="font-mono text-sm text-rust hover:underline">
-            {vault ? "Manage vault →" : "Set up trip vault ₹199/trip →"}
+            {vault ? "Manage vault →" : "Set up your trip vault →"}
           </Link>
         </div>
 

@@ -85,9 +85,6 @@ export default async function HomePage() {
       {/* ── Trust bar ────────────────────────────────────────────────── */}
       <section id="trust" className="border-y border-ww-border bg-sand px-6 py-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
-            V0 — Founding stage
-          </p>
           <p className="font-serif text-xl leading-relaxed text-ink md:text-2xl">
             Built by one founder with{" "}
             <span className="text-rust">7 years</span> of solo travel experience in India.
