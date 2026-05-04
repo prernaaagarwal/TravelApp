@@ -225,7 +225,7 @@ export function ProfileEditClient({ firstName, homeCity, instagram, username, se
 
       {/* Age group */}
       <Section title="Age group">
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
           {AGE_OPTIONS.map((o) => (
             <button
               key={o.value}
