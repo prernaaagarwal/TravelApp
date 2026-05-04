@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createStaticClient } from "@/lib/supabase/server";
 
 type Params = Promise<{ name: string }>;
 
 export async function generateStaticParams() {
-  const supabase = await createClient();
+  const supabase = createStaticClient();
   const { data } = await supabase.from("contributors").select("slug");
   return (data ?? []).map((c) => ({ name: c.slug as string }));
 }

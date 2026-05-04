@@ -38,3 +38,16 @@ export async function rejectBeware(id: string) {
   await supabase.from("beware_reports").update({ status: "rejected" }).eq("id", id);
   revalidatePath("/admin");
 }
+
+export async function approveTrip(id: string) {
+  const supabase = await assertAdmin();
+  await supabase.from("trip_submissions").update({ status: "approved" }).eq("id", id);
+  revalidatePath("/admin");
+  revalidatePath("/feed");
+}
+
+export async function rejectTrip(id: string) {
+  const supabase = await assertAdmin();
+  await supabase.from("trip_submissions").update({ status: "rejected" }).eq("id", id);
+  revalidatePath("/admin");
+}

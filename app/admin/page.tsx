@@ -17,22 +17,29 @@ export default async function AdminPage() {
     redirect("/account/login?next=/admin");
   }
 
-  const [{ data: pendingPosts }, { data: pendingBewares }] = await Promise.all([
-    supabase
-      .from("community_posts")
-      .select("id,tab,title,author_name,content,destination,created_at")
-      .eq("status", "pending")
-      .order("created_at", { ascending: true }),
-    supabase
-      .from("beware_reports")
-      .select("id,title,description,category,severity,city,reported_by_name,created_at")
-      .eq("status", "pending")
-      .order("created_at", { ascending: true }),
-  ]);
+  const [{ data: pendingPosts }, { data: pendingBewares }, { data: pendingTrips }] =
+    await Promise.all([
+      supabase
+        .from("community_posts")
+        .select("id,tab,title,author_name,content,destination,created_at")
+        .eq("status", "pending")
+        .order("created_at", { ascending: true }),
+      supabase
+        .from("beware_reports")
+        .select("id,title,description,category,severity,city,reported_by_name,created_at")
+        .eq("status", "pending")
+        .order("created_at", { ascending: true }),
+      supabase
+        .from("trip_submissions")
+        .select("id,destination,destination_slug,trip_start,trip_end,day_count,total_cost_inr,highlight,created_at")
+        .eq("status", "pending")
+        .order("created_at", { ascending: true }),
+    ]);
 
-  const posts = pendingPosts ?? [];
+  const posts  = pendingPosts  ?? [];
   const bewares = pendingBewares ?? [];
-  const total = posts.length + bewares.length;
+  const trips  = pendingTrips  ?? [];
+  const total  = posts.length + bewares.length + trips.length;
 
   return (
     <div className="mx-auto max-w-2xl px-6 py-12">
@@ -44,11 +51,11 @@ export default async function AdminPage() {
         <p className="font-mono text-xs text-ww-muted">
           {total === 0
             ? "Nothing pending."
-            : `${total} item${total === 1 ? "" : "s"} waiting for review — ${posts.length} post${posts.length === 1 ? "" : "s"}, ${bewares.length} beware report${bewares.length === 1 ? "" : "s"}.`}
+            : `${total} item${total === 1 ? "" : "s"} waiting — ${posts.length} post${posts.length === 1 ? "" : "s"}, ${bewares.length} beware report${bewares.length === 1 ? "" : "s"}, ${trips.length} trip receipt${trips.length === 1 ? "" : "s"}.`}
         </p>
       </div>
 
-      <ModerationQueue posts={posts} bewares={bewares} />
+      <ModerationQueue posts={posts} bewares={bewares} trips={trips} />
     </div>
   );
 }

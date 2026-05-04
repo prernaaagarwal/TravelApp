@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransition } from "react";
-import { approvePost, rejectPost, approveBeware, rejectBeware } from "@/app/admin/actions";
+import { approvePost, rejectPost, approveBeware, rejectBeware, approveTrip, rejectTrip } from "@/app/admin/actions";
 
 type PendingPost = {
   id: string;
@@ -21,6 +21,18 @@ type PendingBeware = {
   severity: string | null;
   city: string | null;
   reported_by_name: string | null;
+  created_at: string;
+};
+
+type PendingTrip = {
+  id: string;
+  destination: string;
+  destination_slug: string;
+  trip_start: string;
+  trip_end: string;
+  day_count: number;
+  total_cost_inr: number;
+  highlight: string;
   created_at: string;
 };
 
@@ -56,18 +68,20 @@ function ActionButtons({
 export function ModerationQueue({
   posts,
   bewares,
+  trips,
 }: {
   posts: PendingPost[];
   bewares: PendingBeware[];
+  trips: PendingTrip[];
 }) {
-  const totalPending = posts.length + bewares.length;
+  const totalPending = posts.length + bewares.length + trips.length;
 
   if (totalPending === 0) {
     return (
       <div className="border border-ww-border bg-sand p-10 text-center">
         <p className="font-serif text-xl text-ink">Queue is empty</p>
         <p className="mt-2 font-mono text-xs text-ww-muted">
-          No pending posts or beware reports.
+          No pending posts, beware reports, or trip receipts.
         </p>
       </div>
     );
@@ -75,6 +89,46 @@ export function ModerationQueue({
 
   return (
     <div className="space-y-10">
+      {/* Trip receipts */}
+      {trips.length > 0 && (
+        <section>
+          <h2 className="mb-4 font-mono text-xs uppercase tracking-widest text-ww-muted">
+            Trip receipts — {trips.length} pending
+          </h2>
+          <div className="space-y-4">
+            {trips.map((t) => (
+              <div key={t.id} className="border border-ww-border bg-warm-white p-4">
+                <div className="mb-1 flex flex-wrap items-center gap-3">
+                  <span className="border border-ww-border px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                    {t.destination}
+                  </span>
+                  <span className="font-mono text-[10px] text-ww-muted">
+                    {t.trip_start} → {t.trip_end} · {t.day_count}d
+                  </span>
+                  <span className="font-mono text-[10px] text-ww-muted">
+                    ₹{t.total_cost_inr.toLocaleString("en-IN")}
+                  </span>
+                  <span className="ml-auto font-mono text-[10px] text-ww-muted">
+                    {new Date(t.created_at).toLocaleDateString("en-IN", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </span>
+                </div>
+                <p className="mt-2 line-clamp-2 font-serif text-sm italic text-ink">
+                  &ldquo;{t.highlight}&rdquo;
+                </p>
+                <ActionButtons
+                  onApprove={() => approveTrip(t.id)}
+                  onReject={() => rejectTrip(t.id)}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Community posts */}
       {posts.length > 0 && (
         <section>
