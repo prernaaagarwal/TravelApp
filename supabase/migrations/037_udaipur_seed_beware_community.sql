@@ -435,5 +435,120 @@ VALUES
 )
 ON CONFLICT (id) DO NOTHING;
 
--- ── Sub-part 3 of 5 complete (community posts udaipur-cp-014 to 026). ────────
--- ── Sub-parts 4–5 (cp-027 to cp-050) append below. ───────────────────────────
+-- ─── COMMUNITY POSTS (Sub-part 4: udaipur-cp-027 to udaipur-cp-038) ──────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- udaipur-cp-027
+(
+  'udaipur-cp-027', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Temple priest demanded ₹2,000 for a puja — the real price is ₹50$t$,
+  $c$At a small Shiva temple near Lake Pichola a man dressed in saffron who claimed to be the head priest insisted I participate in a 'special blessing' and then demanded ₹2,000 at the end. The actual cost of a standard puja at this kind of temple is ₹30–100. When I offered ₹100 he became aggressive. I walked out. Authentic priests at well-maintained temples (like Jagdish) do not accost tourists at the entrance.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-028
+(
+  'udaipur-cp-028', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Sunrise rooftop tour — genuinely amazing, genuinely safe$t$,
+  $c$One of the best things I did in Udaipur was a sunrise rooftop tour arranged through Dreamyard Hostel. Started at 5:30am, walked through the waking old city, watched the sun rise over Lake Pichola. Because it was a small group with a known, hostel-vetted guide, there was zero stress about safety. If you're considering something like this independently, early morning Udaipur is actually very peaceful — chai stalls opening, temple bells, almost no tourist crowd. Just tell someone where you're going.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-029
+(
+  'udaipur-cp-029', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Share your daily itinerary — even just with a hostel receptionist$t$,
+  $c$Before every solo outing in Udaipur I told the hostel where I was going and roughly when I'd be back. This isn't paranoia — it's a 60-second habit that creates an accountability anchor. Most hostel staff take note genuinely. If you're in a private guesthouse, text your itinerary to someone at home. The city is safe, but that safety is partly maintained by the collective awareness that solo travellers are being looked out for.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-030
+(
+  'udaipur-cp-030', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Boat ride on Lake Pichola — insist on the official RTDC counter$t$,
+  $c$Three different men approached me within 100m of the ghat, each quoting different prices (₹500, ₹700, ₹800) for the same boat ride and all claiming to be 'official'. The actual government-run RTDC boat service from Rameshwar Ghat has fixed rates posted on a board — ₹400 per person for a shared ride including Jag Mandir landing, last time I went. It's a queue system. The boats are perfectly fine. Ignore all men who approach you on the path to the ghat.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-031
+(
+  'udaipur-cp-031', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Use UPI / digital payment wherever possible to avoid note-swap scams$t$,
+  $c$Google Pay and PhonePe are accepted at a surprisingly large number of Udaipur's smaller shops and even some street stalls. Using UPI completely eliminates the fake-note-swap and change-shortchanging scams. It also simplifies transactions in places where your language doesn't overlap. Set up an Indian UPI account linked to a forex-capable card, or carry mostly ₹100 notes rather than ₹500s to minimise exposure.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-032
+(
+  'udaipur-cp-032', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Went to Sajjangarh Fort solo at dusk — felt uncomfortable on the road back$t$,
+  $c$The fort itself is great — 360-degree view of Udaipur at golden hour is extraordinary. But the road back down after 6pm is poorly lit and very quiet, and I was the only tourist on it. Two men on a motorbike slowed down alongside me for about a minute before driving off. Nothing happened, but it was genuinely uncomfortable. Either arrange a return taxi to be waiting, or make sure you leave the fort in enough time to be back on the main road before dark.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-033
+(
+  'udaipur-cp-033', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Late evening walk near Ambrai Ghat — fine until it wasn't$t$,
+  $c$The stretch from Lal Ghat to Ambrai restaurant is beautiful at night, lit by the glow of the Lake Palace. I've walked it many times. The one time it felt off was at about 10:30pm when it had mostly emptied out and a group of young men were sitting along the wall and called out to me. Nothing escalated. But I walked back via the main road rather than continuing along the lake. The City Palace area is fine until about 9:30pm. The quieter stretches of the lake are best avoided solo after dark.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-034
+(
+  'udaipur-cp-034', 'experiences',
+  'Web research', '25-40',
+  $t$Know these emergency numbers before you arrive$t$,
+  $c$National emergency: 112. Women's helpline (India): 1091. Tourist police helpline Rajasthan: 1800-180-6127. Udaipur City police: 0294-2527101. Download the Himmat+ app (Delhi Police) or use 112 India app for an SOS button that sends your location to emergency services. Also save your country's Indian embassy number in your phone before you travel.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-035
+(
+  'udaipur-cp-035', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Udaipur for Holi — far better than I expected as a solo woman$t$,
+  $c$I had been told to avoid Holi in India entirely as a solo female traveller. Pushkar and Varanasi came with particularly bad warnings about groping under the cover of colour powder. Udaipur was recommended as one of the safer options. My experience confirmed this. The celebrations were joyful, family-dominated, and genuinely inclusive. I stayed in a hostel and joined a group of mixed travellers. At no point did I feel targeted. The city's calmer, romantic character seems to carry over even into its Holi energy.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-036
+(
+  'udaipur-cp-036', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Hotel added ₹800 of charges at checkout that weren't mentioned at check-in$t$,
+  $c$A smaller guesthouse near Gangaur Ghat added a 'mandatory tourism surcharge' and a 'Wi-Fi fee' at checkout — neither mentioned at check-in or on any posted board. Total came to ₹800 extra on a ₹1,200/night room. When I disputed it they produced a laminated sheet of charges I hadn't been shown. I eventually paid half after a standoff. Now I always photograph the checkout bill itemisation and confirm verbally at check-in that the room rate is fully inclusive. Get it in writing if you can.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-037
+(
+  'udaipur-cp-037', 'experiences',
+  'Web research', '25-40',
+  $t$Honest safety rating: 3.7/5 — here's what that means in practice$t$,
+  $c$TravelLadies.app ranks Udaipur #36 safest for solo female travellers in India with 3.7/5. That feels about right to me. It means: you can walk around comfortably during the day, rooftop dinners feel fine, the locals are genuinely hospitable, and you'll have a great time. It also means: don't walk quiet lanes alone after 10pm, use apps not street-hailed autos at night, and expect a handful of scam attempts and staring in any given day. Calibrate your expectations to that band and you'll leave with wonderful memories.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-038
+(
+  'udaipur-cp-038', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Best and worst times to visit for solo women — festival season tips$t$,
+  $c$Peak tourist season (October–March) means more tourists, which generally means more safety in numbers but also more scam activity since touts have a larger pool to target. Summer (April–June) is extremely hot but the tourist crowd thins dramatically — some solo women report feeling more exposed without the collective cover of crowds. Avoid visiting during large unstructured festivals if you're solo and new to India. Diwali in Udaipur is safe and beautiful. Holi is manageable with a hostel group.$c$,
+  'udaipur-india', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── Sub-part 4 of 5 complete (community posts udaipur-cp-027 to 038). ────────
+-- ── Sub-part 5 (cp-039 to cp-050) appends below. ─────────────────────────────
