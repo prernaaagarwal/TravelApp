@@ -17,6 +17,8 @@
     "images:download": "tsx scripts/download-images.ts",
     "images:shop": "tsx scripts/download-shop-images.ts",
     "images:refresh": "tsx scripts/refresh-intel-images.ts",
+    "beware:geocode": "tsx scripts/backfill-beware-gps.ts",
+    "beware:geocode:dry": "tsx scripts/backfill-beware-gps.ts --dry-run",
     "prepare": "husky"
   },
   "dependencies": {
