@@ -578,5 +578,281 @@ VALUES
   '[]', 'approved'
 );
 
--- ── Part 2 of 3 for Bangkok beware reports complete (entries 26–51). ──────────
--- ── Part 3 (community posts) appends below. ──────────────────────────────────
+-- ─── COMMUNITY POSTS (experiences tab) — 30 entries ──────────────────────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- bkk-cp-001
+(
+  'bkk-cp-001', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Solo female first-timer in Bangkok — what no one warns you about$t$,
+  $c$I was 29, solo, first time in Southeast Asia. Bangkok was far safer than I expected from the horror stories — Thai people were genuinely kind. But here's what got me: I fell for the Grand Palace scam on Day 1. A well-dressed man near the gate told me it was closed for a ceremony. I believed him. He put me in a tuk-tuk that spent 3 hours taking me to a tailor, a gem shop, and a 'lucky Buddha temple' I did not ask for. Nothing bad happened and I didn't buy anything, but I wasted half my day. Lesson: the Grand Palace is almost never closed during the day. Walk straight past anyone who says otherwise.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-002
+(
+  'bkk-cp-002', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Gem scam nearly cost me $2,000 — here's exactly how it happened$t$,
+  $c$I was approached near the Grand Palace by a very well-spoken Thai man who said there was a 'government gem export fair' happening that week only and that tourists could buy certified gems at wholesale prices to resell at home for profit. He had a printed brochure. I was taken to a legitimate-looking shop on Silom. I almost spent 60,000 THB on stones. Something felt wrong and I walked out. The US Embassy confirms: there is NO such government gem sale. There never has been. If anyone mentions a government gem fair, you are being scammed, period. Call Tourist Police 1155.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-003
+(
+  'bkk-cp-003', 'experiences',
+  'Solo traveller', '22-25',
+  $t$The tuk-tuk rule that saved my trip$t$,
+  $c$After reading all the scam warnings I was nervous about tuk-tuks. Here's what actually works: I only ever used them for direct A-to-B journeys with a price agreed upfront, never for tours or sightseeing. For any distance over 2km I used Grab (like Uber, works great in Bangkok). The tuk-tuks that are scams always start with an offer that seems too cheap — like 20 THB to 'tour the temples.' A real ride to a specific street should cost roughly what Grab quotes. If a driver says any attraction is closed: it's not. He's lying.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-004
+(
+  'bkk-cp-004', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Two weeks solo in Bangkok — the real picture for women$t$,
+  $c$I stayed in Sukhumvit soi 11 area, mostly Aree and Ari neighbourhood for day walks. The biggest surprise was how little street harassment there was — genuinely less catcalling than most European cities I've been to. Thai culture is non-confrontational and most people leave you alone. The issues I did have: one tuk-tuk driver who got verbally aggressive when I refused his gem detour (I just got out at a red light), and one bar on Sukhumvit that tried to add mystery charges to my bill. I used Grab for everything after 10pm and never felt unsafe. Stay away from the red-light zones if you're solo — Patpong especially.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-005
+(
+  'bkk-cp-005', 'experiences',
+  'Solo traveller', '22-25',
+  $t$Drink spiking is REAL on Khao San Road — this happened to my friend$t$,
+  $c$My friend ordered a cocktail 'bucket' at a Khao San Road bar in January 2025. She had two drinks. Within 45 minutes she could barely stand — she's a regular drinker and this was not normal intoxication. We got her back to the hostel in a Grab and she recovered, but it was frightening. We reported it but nothing came of it. The advice about sticking to bottled beers you see uncapped in front of you is real, not just internet paranoia. Avoid the cheapest, loudest bars on Khao San. Stick to well-reviewed venues on Phra Athit Road nearby — same vibes, much safer crowd.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-006
+(
+  'bkk-cp-006', 'experiences',
+  'Solo traveller', '31-35',
+  $t$The Grab app is non-negotiable in Bangkok$t$,
+  $c$I lived in Bangkok for 6 months. Every foreigner I know who got ripped off in a taxi or tuk-tuk had refused to use Grab because they wanted the 'authentic experience.' The authentic experience of being scammed is not worth it. Grab works exactly like Uber — fixed price shown before you confirm, GPS-tracked route, driver's details logged. A taxi from Asok to the airport should be around 250 THB on Grab. If a street taxi quotes 700, you know the score. Use Grab. Every time. It's also safer at night for solo women.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-007
+(
+  'bkk-cp-007', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Patpong upstairs bar tried to charge us 9,000 Baht$t$,
+  $c$I know, I know. We'd read the warnings. But we were curious and a tout with a laminated sheet showing '100 Baht drinks, no cover charge' seemed legit. After 10 minutes inside we wanted to leave. Bill: 1,500 for drinks, 1,500 for 'lady drinks' we never ordered, 6,000 'looking fee.' We refused to pay the last two items. Fifteen minutes of arguing at the door with a security guard before they agreed to just take the drinks charge. The bars in Patpong are genuine organised scams. Do not go upstairs in that market. Nana Plaza has upfront pricing posted outside — if you're curious that's safer.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-008
+(
+  'bkk-cp-008', 'experiences',
+  'Solo traveller', '31-35',
+  $t$My card got skimmed at a standalone ATM in Silom$t$,
+  $c$Used a standalone ATM near Patpong in 2024 and didn't notice anything unusual. Two days later my bank called: four transactions in a different part of Thailand totalling 18,000 THB. The bank reversed it (I had fraud protection) but it took weeks to resolve. Now I only use ATMs inside bank branches — Bangkok Bank and Kasikornbank inside 7-Eleven branches are everywhere. Also set up instant transaction alerts on your banking app before you travel. Take 5 seconds to wiggle the card slot before inserting your card.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-009
+(
+  'bkk-cp-009', 'experiences',
+  'Solo traveller', '22-25',
+  $t$A stranger claiming to be tourist police asked to check my passport$t$,
+  $c$Near Siam Square, a Thai man in plain clothes showed me what looked like a police badge and asked to 'check my documents' citing a recent drug bust in the area. I'd read about this scam so I calmly said I'd prefer to go to the nearest police station. He disappeared within 30 seconds. Real tourist police are identifiable by uniform and do not stop random tourists for passport checks on the street. The Tourist Police number is 1155 — call them if you're ever pressured by someone claiming to be police.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-010
+(
+  'bkk-cp-010', 'experiences',
+  'Solo traveller', '36-40',
+  $t$Solo female safety reality check — Bangkok is genuinely manageable$t$,
+  $c$I've done Bangkok alone four times, most recently in February 2025. The city ranks 2nd safest in Southeast Asia for tourists. The main risks are scams (which are avoidable once you know them), drink spiking (avoidable with sensible bar choices), and traffic accidents. Street harassment and sexual violence against tourists are genuinely rare. Stay in Sukhumvit or Silom, use Grab, eat at busy street food stalls, and don't let anyone put you in a tuk-tuk for a 'tour.' That's honestly most of it.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-011
+(
+  'bkk-cp-011', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Bag snatched from shoulder near Chatuchak — what I'd do differently$t$,
+  $c$Walking between the BTS and the market entrance on a Saturday morning, a motorbike came close to the pavement and my tote bag was pulled off my shoulder. I fell and cut my hand. Passport was in the hotel, thankfully. Lost my camera, 3,000 THB cash, and my phone. Police at the nearby station were helpful and gave me a report for the insurance. What I now do: crossbody bag worn with the clasp at the front, phone in a front jeans pocket or inside front of jacket. No camera outside unless I'm ready to use it. Carry only the cash I expect to need that day.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-012
+(
+  'bkk-cp-012', 'experiences',
+  'Solo traveller', '22-25',
+  $t$The temple clothing scam caught me before I even got inside$t$,
+  $c$Walking towards the Grand Palace, a woman in official-looking clothing stopped me and said my shorts were too short to enter and I'd need to rent a sarong for 150 THB from her. I paid. When I reached the actual entrance gate, free loaner sarongs were available from the official counter inside. That woman had no official role whatsoever. Do not pay for clothing outside the temple gate. All major Bangkok temples have free loaners for visitors at the entrance desk.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-013
+(
+  'bkk-cp-013', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Taxi refused meter, then tried to take a 20-minute detour$t$,
+  $c$From Suvarnabhumi Airport, the driver refused to turn on the meter and quoted 800 THB. I said 'meter please' twice, then got out and joined the official taxi queue. Metered ride to my Sukhumvit hotel: 290 THB + 50 THB expressway. I now always use the numbered ticket from the official queue inside arrivals or book Grab while still in the terminal. One thing Grab requires: you need Thai mobile data, so buy a SIM card at the AIS or DTAC counter in arrivals before you leave the terminal.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-014
+(
+  'bkk-cp-014', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Nice Thai man, long conversation — and then the gem shop appeared$t$,
+  $c$Spent 45 minutes chatting with someone who turned out to be one of the most charming people I'd met in Bangkok. Genuinely felt like a local sharing tips. Then, naturally, a tuk-tuk appeared, and naturally the 'government gem fair' came up. I've since read that these individuals are paid a daily salary to do exactly this — build rapport and deliver tourists to commission shops. The warmth is real but the intent is not. In the touristy areas, if a random local initiates contact and asks about your plans: be pleasant and walk on.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-015
+(
+  'bkk-cp-015', 'experiences',
+  'Solo traveller', '22-25',
+  $t$Night train Bangkok to Chiang Mai — solo women, it's fine$t$,
+  $c$Took the overnight train alone (second class sleeper) in March 2025. Booked top bunk as multiple guides recommend — harder to access from below. The train compartment had other solo travellers and a Thai family. I slept with my day pack (passport, phone, money) at the head of the bunk against the wall. Arrived safely, on time, no issues. Book direct on the State Railway of Thailand website (railway.co.th) — NOT through Khao San Road agencies. Train is genuinely safe and beautiful.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-016
+(
+  'bkk-cp-016', 'experiences',
+  'Solo traveller', '22-25',
+  $t$They got into my checked bag on an overnight bus$t$,
+  $c$Booked a night bus to Ko Tao through a Khao San Road agency. Arrived to find my camera missing from the main compartment of my checked bag, which had been in the undercarriage hold. The zip had clearly been opened and closed. Filed a police report but nothing came of it. If you take an overnight bus in Thailand: keep your valuables (passport, money, phone, anything electronic worth over $50) in your day bag on your person, not in your checked luggage.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-017
+(
+  'bkk-cp-017', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Khlong boat scam — 'closed route' meant gem shop detour$t$,
+  $c$Hired a long-tail boat at Chang Pier for a canal tour. After 10 minutes the driver said the main route was 'blocked for repairs' and we'd visit some 'special temples' instead. Two of the three stops were shops — one selling gold jewellery and one selling 'authentic' silk. I didn't buy anything but was gone for 4 hours instead of the agreed 90 minutes. Get the exact route written down before you board. The Chao Phraya Express orange-flag boats are a scam-free, scenic alternative for the main sights.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-018
+(
+  'bkk-cp-018', 'experiences',
+  'Solo traveller', '26-30',
+  $t$5 weeks solo female in Bangkok — the honest version$t$,
+  $c$I stayed in Ari (best neighbourhood — quiet, local, safe), ate mostly at street stalls on smaller side streets where prices were honest (40–60 THB per dish), used BTS and Grab exclusively after 8pm. I felt safer in Bangkok than in London or Barcelona. My one actual scary moment: walking back from a bar alone past Soi Cowboy at 11pm. The number of aggressive touts physically blocking my path — not dangerous, but genuinely unpleasant and relentless. I walked faster, didn't engage, and was fine. Just give the red-light zones a wide berth if you're alone.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-019
+(
+  'bkk-cp-019', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Don't stay directly on Khao San Road — Phra Athit is better$t$,
+  $c$First-time Bangkok visitors often stay on Khao San Road for the buzz but it concentrates every type of scam and tourist-trap business. Phra Athit Road is 5 minutes' walk away, significantly quieter, has good local and international restaurants, and the accommodation is cheaper. You can still access Khao San for its night market energy but return to a calmer, safer street. The walkable distance to the Grand Palace and Wat Pho is the same.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-020
+(
+  'bkk-cp-020', 'experiences',
+  'Solo traveller', '22-25',
+  $t$Currency scam — asked to 'see' my British pound at an ATM$t$,
+  $c$Just withdrawn cash at a Bangkok Bank ATM on Sukhumvit when a man approached and asked where I was from, then asked if he could 'see what a British note looks like.' It seemed so innocent. I'd read about exactly this scam so I said no and walked on. Friends at the same hostel hadn't read the warning — one of them lost several notes in an identical interaction at Chatuchak. Never take out your cash or let strangers handle your money, no matter how genuine the question seems.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-021
+(
+  'bkk-cp-021', 'experiences',
+  'Solo traveller', '22-25',
+  $t$Fake tour agency gave me non-existent ferry tickets$t$,
+  $c$Bought combo bus + ferry tickets to Koh Phangan from a shopfront on Khao San Road. The bus was fine; at the pier the ferry company had no record of my booking. The shopfront's phone was off and the address no longer matched anything. I had to purchase new tickets on the spot. Always book island-bound transport through 12GoAsia or the official ferry company websites (Seatran, Lomprayah). The few extra minutes of research are worth it.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-022
+(
+  'bkk-cp-022', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Sex tourism zones — as a solo female tourist you should know this$t$,
+  $c$I didn't come to Bangkok for the red light districts but I passed through Nana and Soi Cowboy for curiosity during an afternoon. In daylight it was manageable and I saw plenty of other female tourists. At night it's a different environment — the touting becomes aggressive, it's difficult to walk through without being grabbed at or followed. I wasn't in danger but I was uncomfortable. None of my Bangkok research prepared me for how intense the harassment from touts (not locals generally, specifically the touts) was. My advice: visit in daylight if curious, avoid solo at night.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-023
+(
+  'bkk-cp-023', 'experiences',
+  'Solo traveller', '36-40',
+  $t$What I keep in my bag vs hotel safe in Bangkok$t$,
+  $c$Hotel safe: passport (carry phone photo), large amounts of cash, extra credit/debit cards, laptop. On my person daily: one debit card (Wise, easy to freeze), one credit card (different bank, for emergencies), the cash I'll need that day, phone (never in back pocket), travel insurance card. This way if I'm pickpocketed I lose very little and can still access funds. I've done this in Bangkok four times without a single issue.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-024
+(
+  'bkk-cp-024', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Man on motorbike snatched phone from my hand near Asiatique$t$,
+  $c$I was texting while walking on the pavement near Asiatique river market when a motorbike rode close to the edge and my phone was yanked out of my hand. It happened in less than a second. I had a case with a wrist strap but it wasn't attached. Police were helpful and gave a report for insurance. My phone was wiped remotely via iCloud. What I do now: wrist strap always attached, phone always inside my bag or pocket when not actively in use, walking away from the road edge when using it.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-025
+(
+  'bkk-cp-025', 'experiences',
+  'Solo traveller', '31-35',
+  $t$The Floating Market day trip — tourist trap with beautiful moments$t$,
+  $c$Damnoen Saduak Floating Market: sold to me as an 'authentic experience' and it's genuinely impressive visually. But the boat costs are a trap. Touts quoted 2,000 THB for a private boat. The official shared rate is 400 THB per person for a 45-minute trip. The market itself is crowded with tourist-priced stalls selling the same goods as every Bangkok market for twice the price. Worth visiting once for the atmosphere but go in knowing it's a heavily commercialised tourist destination, not a local market. Get there early (before 9am) to beat the worst crowds.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-026
+(
+  'bkk-cp-026', 'experiences',
+  'Solo traveller', '22-25',
+  $t$Fake monk approached me asking for money$t$,
+  $c$Outside Wat Suthat, a monk in full robes approached and asked for a 'donation for the temple' while thrusting a clipboard in my face. Real monks in Thailand don't solicit tourist donations on the street — the practice would go against Buddhist monastic code. I smiled, said no, and walked away. He was persistent. I walked into a busy shop. Never give money to monks who approach you unsolicited on the street in Bangkok.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-027
+(
+  'bkk-cp-027', 'experiences',
+  'Solo traveller', '36-40',
+  $t$Save these numbers before you land in Bangkok$t$,
+  $c$Tourist Police: 1155 (English-speaking, available 24 hours, genuinely helpful for scam reports and assistance). Emergency: 191. Ambulance: 1669. Your hotel's number. Your country's embassy in Bangkok. I keep these saved in my phone and also written in my travel journal. The Tourist Police responded within 20 minutes when I called after my card was skimmed and helped me file the right paperwork for my bank dispute.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-028
+(
+  'bkk-cp-028', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Tuk-tuk harassment — getting out mid-journey worked$t$,
+  $c$My tuk-tuk driver started making comments about my appearance and asking if I had a boyfriend. I was clear, said stop, he didn't. At the next red light I handed the agreed fare and stepped off. He called after me but didn't follow. Thai culture's non-confrontational nature works both ways — they're generally less likely to escalate. Trust your gut and exit. You can always hail another Grab. Don't feel obligated to stay in an uncomfortable situation because you agreed on a price.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-029
+(
+  'bkk-cp-029', 'experiences',
+  'Solo traveller', '22-25',
+  $t$Bird-feeding scam at Lumphini Park$t$,
+  $c$A vendor at Lumphini Park handed me a bag of bird feed saying it was 'free to try.' I tossed a handful to the pigeons. She immediately demanded 200 THB. When I refused she became louder. I handed the bag back and walked away. She did not follow. This is a minor annoyance, not a safety issue, but it happens a lot near parks and temples. The rule is simple: never accept anything handed to you by a stranger.$c$,
+  'bangkok-thailand', '[]', 'approved'
+),
+
+-- bkk-cp-030
+(
+  'bkk-cp-030', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Bangkok airport customs shakedown — this is real and terrifying$t$,
+  $c$A friend of mine (not me personally) was pulled aside at Suvarnabhumi customs in 2024 and accused of attempting to smuggle undeclared duty-free alcohol. A 'customs official' had actually told her before baggage collection to put the bottles in her checked bag 'to avoid the queue.' She paid a large 'fine' before realising it was extortion. The BBC documented cases like this. If a customs officer at any point instructs you to put duty-free into your checked bag, refuse and ask for a written instruction. Know your legal right to contact your embassy before paying any fine.$c$,
+  'bangkok-thailand', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── End of Bangkok seed (51 beware reports + 30 community posts). ─────────────
