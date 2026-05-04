@@ -4,14 +4,7 @@ import Image from "next/image";
 import { RegisterTripForm } from "@/components/intel/RegisterTripForm";
 import { ConnectButton } from "@/components/intel/ConnectButton";
 import buddyMatches from "@/lib/mock-data/buddy-matches.json";
-import { CITY_LABELS } from "@/lib/constants";
-
-function slugToCity(slug: string): string {
-  if (CITY_LABELS[slug]) return CITY_LABELS[slug];
-  const parts = slug.split("-");
-  parts.pop();
-  return parts.map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
-}
+import { formatDestinationSlug } from "@/lib/utils";
 
 export const metadata = {
   title: "Find a Travel Buddy — Wander Women",
@@ -54,7 +47,7 @@ export default async function BuddyPage() {
           Travel buddy match
         </p>
         <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
-          Find friends
+          Solo, but not alone.
         </h1>
         <p className="font-mono text-sm leading-relaxed text-ww-muted">
           Match with women going where you&apos;re going on dates that actually
@@ -68,7 +61,7 @@ export default async function BuddyPage() {
         myTrip ? (
           <div className="mb-8 border border-sage/30 bg-sage-light/30 px-4 py-3">
             <p className="font-mono text-xs text-sage">
-              ✓ Your trip: <strong>{slugToCity(myTrip.destination_slug)}</strong>
+              ✓ Your trip: <strong>{formatDestinationSlug(myTrip.destination_slug)}</strong>
               {myTrip.travel_start && ` · ${myTrip.travel_start}`}
               {myTrip.travel_end && ` → ${myTrip.travel_end}`}
             </p>
@@ -93,7 +86,7 @@ export default async function BuddyPage() {
         {showMock ? (
           // mock matches
           buddyMatches.slice(0, 3).map((b, i) => (
-            <MockBuddyCard key={b.id} buddy={b} rank={i} isLoggedIn={!!user} />
+            <MockBuddyCard key={b.id} buddy={b} rank={i} />
           ))
         ) : (
           dbMatches!.slice(0, 5).map((b) => (
@@ -106,7 +99,7 @@ export default async function BuddyPage() {
                   <h3 className="font-serif text-2xl text-ink">{b.first_name}</h3>
                   <p className="font-mono text-xs text-ww-muted">
                     {b.age_range && `${b.age_range} · `}{b.home_city && `${b.home_city} · `}
-                    {slugToCity(b.destination_slug)}
+                    {formatDestinationSlug(b.destination_slug)}
                   </p>
                   {(b.travel_start || b.travel_end) && (
                     <p className="mt-1 font-mono text-[10px] text-ww-muted">
@@ -150,7 +143,7 @@ export default async function BuddyPage() {
   );
 }
 
-function MockBuddyCard({ buddy, isLoggedIn }: { buddy: typeof buddyMatches[0]; rank: number; isLoggedIn: boolean }) {
+function MockBuddyCard({ buddy }: { buddy: typeof buddyMatches[0]; rank: number }) {
   return (
     <article className="relative border border-ww-border bg-sand p-5">
       <span className="absolute right-4 top-4 rounded-full bg-sand border border-ww-border px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
@@ -165,7 +158,7 @@ function MockBuddyCard({ buddy, isLoggedIn }: { buddy: typeof buddyMatches[0]; r
             {buddy.ageRange} · {buddy.homeCity} · {buddy.tripCount} solo trips
           </p>
           <p className="mt-1 font-mono text-[10px] text-ww-muted">
-            {buddy.travelDates.start} → {buddy.travelDates.end} · #{slugToCity(buddy.destinationSlug).toLowerCase().replace(/\s+/g, "-")}
+            {buddy.travelDates.start} → {buddy.travelDates.end} · #{formatDestinationSlug(buddy.destinationSlug).toLowerCase().replace(/\s+/g, "")}
           </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {buddy.styleTags.map((tag) => (
@@ -175,18 +168,12 @@ function MockBuddyCard({ buddy, isLoggedIn }: { buddy: typeof buddyMatches[0]; r
         </div>
       </div>
       <div className="mt-5 flex flex-wrap gap-2 border-t border-ww-border pt-4">
-        {isLoggedIn ? (
-          <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-            Register your trip above to see real matches
-          </p>
-        ) : (
-          <Link
-            href="/account/signup"
-            className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
-          >
-            Join to connect →
-          </Link>
-        )}
+        <Link
+          href="/account/signup"
+          className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
+        >
+          Join to connect →
+        </Link>
       </div>
     </article>
   );

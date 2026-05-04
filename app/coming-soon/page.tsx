@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { EmailCaptureForm } from "@/components/shared/EmailCaptureForm";
+import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 
 export const metadata = { title: "Coming soon — Wander Women" };
 
@@ -20,11 +20,10 @@ export default function ComingSoonPage() {
       </p>
 
       <div className="mt-8">
-        <EmailCaptureForm
+        <EmailSignupForm
           source="coming-soon"
-          buttonText="Notify me"
           placeholder="you@example.com"
-          variant="inline-light"
+          buttonText="Notify me"
         />
       </div>
 

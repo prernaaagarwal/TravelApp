@@ -10,7 +10,7 @@ import {
 import { createClient as createBrowserClient } from "@/lib/supabase/client";
 import { createClient } from "@/lib/supabase/server";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
-import { EmailCaptureForm } from "@/components/shared/EmailCaptureForm";
+import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 
 type Params = Promise<{ slug: string }>;
 
@@ -377,28 +377,28 @@ export default async function IntelPage({ params }: { params: Params }) {
                 { label: "Mid-range", amount: b.midRange, desc: "Private room, sit-down meals, occasional Uber", color: "border-l-gold" },
                 { label: "Comfortable", amount: b.comfortable, desc: "Boutique hotel, restaurant dining, app taxis", color: "border-l-blue" },
               ];
-              const cols = isINR ? "grid-cols-[1fr_auto_auto]" : "grid-cols-[1fr_auto]";
               return (
                 <div className="divide-y divide-ww-border border border-ww-border bg-sand">
-                  <div className={`grid ${cols} gap-4 px-4 py-2`}>
+                  <div className="grid grid-cols-[1fr_auto] gap-4 px-4 py-2">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Tier</span>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">{cur} / day</span>
-                    {isINR && <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">USD / day</span>}
                   </div>
                   {tiers.map((tier) => (
-                    <div key={tier.label} className={`grid ${cols} items-center gap-4 border-l-4 px-4 py-3 ${tier.color}`}>
+                    <div key={tier.label} className={`grid grid-cols-[1fr_auto] items-center gap-4 border-l-4 px-4 py-3 ${tier.color}`}>
                       <div>
                         <p className="font-mono text-sm font-semibold text-ink">{tier.label}</p>
                         <p className="text-xs text-ww-muted">{tier.desc}</p>
                       </div>
-                      <span className="font-mono text-sm font-semibold text-ink">
-                        {sym}{tier.amount.toLocaleString(loc)}
-                      </span>
-                      {isINR && (
-                        <span className="font-mono text-sm text-ww-muted">
-                          ${Math.round(tier.amount / USD_RATE)}
-                        </span>
-                      )}
+                      <div className="text-right">
+                        <p className="font-mono text-sm font-semibold text-ink">
+                          {sym}{tier.amount.toLocaleString(loc)}
+                        </p>
+                        {isINR && (
+                          <p className="font-mono text-[10px] text-ww-muted">
+                            ≈ ${Math.round(tier.amount / USD_RATE)}
+                          </p>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -497,44 +497,44 @@ export default async function IntelPage({ params }: { params: Params }) {
 
           {/* ── Affiliate links ───────────────────────────────────────── */}
           {(card.affiliateLinks.booking || card.affiliateLinks.worldNomads) && (
-          <section className="grid gap-3 sm:grid-cols-2">
-            {card.affiliateLinks.booking && (
-            <a
-              href={card.affiliateLinks.booking}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border border-ww-border bg-blue-light px-4 py-3 hover:bg-blue/10 transition-colors"
-            >
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-blue">
-                  Booking.com
-                </p>
-                <p className="font-mono text-xs text-ink">
-                  Browse stays in {card.destination} →
-                </p>
-              </div>
-              <span className="shrink-0 text-blue">↗</span>
-            </a>
-            )}
-            {card.affiliateLinks.worldNomads && (
-            <a
-              href={card.affiliateLinks.worldNomads}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border border-ww-border bg-sage-light px-4 py-3 hover:bg-sage/10 transition-colors"
-            >
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-sage">
-                  World Nomads
-                </p>
-                <p className="font-mono text-xs text-ink">
-                  Travel insurance for {card.country} →
-                </p>
-              </div>
-              <span className="shrink-0 text-sage">↗</span>
-            </a>
-            )}
-          </section>
+            <section className="grid gap-3 sm:grid-cols-2">
+              {card.affiliateLinks.booking && (
+                <a
+                  href={card.affiliateLinks.booking}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between border border-ww-border bg-blue-light px-4 py-3 hover:bg-blue/10 transition-colors"
+                >
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-blue">
+                      Booking.com
+                    </p>
+                    <p className="font-mono text-xs text-ink">
+                      Browse stays in {card.destination} →
+                    </p>
+                  </div>
+                  <span className="shrink-0 text-blue">↗</span>
+                </a>
+              )}
+              {card.affiliateLinks.worldNomads && (
+                <a
+                  href={card.affiliateLinks.worldNomads}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between border border-ww-border bg-sage-light px-4 py-3 hover:bg-sage/10 transition-colors"
+                >
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-sage">
+                      World Nomads
+                    </p>
+                    <p className="font-mono text-xs text-ink">
+                      Travel insurance for {card.country} →
+                    </p>
+                  </div>
+                  <span className="shrink-0 text-sage">↗</span>
+                </a>
+              )}
+            </section>
           )}
 
           {/* ── Full contributor card ─────────────────────────────────── */}
@@ -665,11 +665,14 @@ export default async function IntelPage({ params }: { params: Params }) {
           Founding contributors earn ₹2,000–₹4,000 / month from card revenue share.
           Apply with your email — we review within 48 hours.
         </p>
-        <EmailCaptureForm
-          source="intel-contributor-apply"
-          buttonText="Apply →"
-          variant="inline-dark"
-        />
+        <div className="mx-auto max-w-sm">
+          <EmailSignupForm
+            source="contributor-apply"
+            placeholder="your@email.com"
+            buttonText="Apply →"
+            dark
+          />
+        </div>
       </div>
     </div>
   );

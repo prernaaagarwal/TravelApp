@@ -77,7 +77,7 @@ export function ExploreGrid({ cards, contributors }: Props) {
       )}
 
       {/* grid */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((card) => {
           const contrib = contributors.find((c) => c.slug === card.contributorSlug);
           return (

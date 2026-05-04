@@ -1,10 +1,16 @@
 import Link from "next/link";
-import { Settings, Shield } from "lucide-react";
+import { Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
 
-import { NotificationBell } from "@/components/shared/NotificationBell";
-import { NAV_ITEMS } from "@/lib/nav";
+const NAV_ITEMS = [
+  { href: "/explore", label: "Intel" },
+  { href: "/community", label: "Community" },
+  { href: "/feed", label: "Receipts" },
+  { href: "/buddy", label: "Buddy" },
+  { href: "/shop", label: "Shop" },
+  { href: "/verify-stay", label: "Verify Stay", authOnly: true },
+];
 
 type NavItem = { href: string; label: string; authOnly?: boolean };
 
@@ -14,34 +20,15 @@ export async function Header() {
 
   let profileSlug: string | null = null;
   let initial = "W";
-  let isModerator = false;
-  let unreadCount = 0;
-  let notifications: {
-    id: string; type: string; title: string; body: string;
-    read: boolean; related_report_id: string | null; created_at: string;
-  }[] = [];
-
   if (user) {
-    const [{ data: profile }, { data: notifs }] = await Promise.all([
-      supabase
-        .from("profiles")
-        .select("username, first_name, role")
-        .eq("id", user.id)
-        .single(),
-      supabase
-        .from("notifications")
-        .select("id, type, title, body, read, related_report_id, created_at")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false })
-        .limit(10),
-    ]);
-
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("username, first_name")
+      .eq("id", user.id)
+      .single();
     profileSlug = profile?.username ?? user.id;
     const name = profile?.first_name ?? user.email ?? "W";
     initial = name[0].toUpperCase();
-    isModerator = ["moderator", "admin"].includes(profile?.role ?? "");
-    notifications = notifs ?? [];
-    unreadCount = notifications.filter((n) => !n.read).length;
   }
 
   return (
@@ -69,40 +56,25 @@ export async function Header() {
         <div className="flex items-center gap-2">
           {user ? (
             <>
-              {isModerator && (
-                <Link
-                  href="/admin"
-                  aria-label="Admin panel"
-                  title="Admin panel"
-                  className="p-1 text-ww-muted transition-colors hover:text-rust"
-                >
-                  <Shield className="h-4 w-4" />
-                </Link>
-              )}
-              <NotificationBell
-                initialUnread={unreadCount}
-                notifications={notifications}
-                profileSlug={profileSlug ?? user.id}
-              />
               <Link
                 href="/settings"
                 aria-label="Settings"
                 title="Settings"
-                className="p-1 text-ww-muted hover:text-ink"
+                className="text-ww-muted hover:text-ink p-1"
               >
                 <Settings className="h-4 w-4" />
               </Link>
               <Link
                 href={`/profile/${profileSlug}`}
                 aria-label="My profile"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-rust/20 text-xs font-medium text-rust transition-colors hover:bg-rust/30"
+                className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium hover:bg-rust/30 transition-colors"
               >
                 {initial}
               </Link>
             </>
           ) : (
             <>
-              <Button asChild variant="ghost" size="sm">
+              <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
                 <Link href="/account/login">Sign in</Link>
               </Button>
               <Button
@@ -110,7 +82,7 @@ export async function Header() {
                 size="sm"
                 className="bg-rust text-warm-white hover:bg-rust/90"
               >
-                <Link href="/account/signup">Join</Link>
+                <Link href="/account/membership">Join</Link>
               </Button>
             </>
           )}

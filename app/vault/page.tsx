@@ -99,7 +99,7 @@ export default function VaultPage() {
           </div>
 
           {/* phone mockup */}
-          <div className="mx-auto w-full max-w-[300px]">
+          <div className="mx-auto w-full max-w-[280px] sm:max-w-[300px]">
             <div className="rounded-[2rem] border-8 border-ink bg-ink p-2 shadow-2xl">
               <div className="rounded-[1.5rem] bg-[#e5ddd5] p-3 font-mono text-[11px] leading-snug">
                 {/* header */}

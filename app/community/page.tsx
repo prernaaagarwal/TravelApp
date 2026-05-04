@@ -145,9 +145,23 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   }));
 
   const supportedBewareSlugs = Array.from(SUPPORTED_BEWARE_CITIES);
+  const justSubmitted = sp.submitted === "beware";
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
+      {justSubmitted && (
+        <div className="mb-6 flex items-start gap-3 rounded-lg border border-sage/30 bg-sage-light px-4 py-3">
+          <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage text-warm-white text-xs font-bold">✓</span>
+          <div className="flex-1">
+            <p className="font-mono text-sm font-medium text-ink">
+              Your Beware report has been submitted
+            </p>
+            <p className="mt-1 font-mono text-xs text-ww-muted">
+              Thanks for helping keep solo travellers safe. It&apos;ll appear in the Beware tab once a moderator reviews it.
+            </p>
+          </div>
+        </div>
+      )}
       <div className="mb-10">
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
           Community hub
