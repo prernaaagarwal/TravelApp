@@ -3,6 +3,7 @@
 import { useTransition, useState } from "react";
 import { updateProfileField, updateSegmentField } from "./actions";
 import { MultiSelect, MultiSelectOption } from "@/components/ui/MultiSelect";
+import { AGE_OPTIONS } from "@/lib/constants";
 
 const TRIP_OPTIONS = [
   { value: "0",   label: "First solo trip", emoji: "🌱" },
@@ -56,13 +57,6 @@ const WORRY_OPTIONS: MultiSelectOption[] = [
   { value: "health",      label: "Health & safety",          emoji: "🏥" },
   { value: "solo_nights", label: "Solo nights out",          emoji: "🌙" },
   { value: "language",    label: "Language barrier",         emoji: "💬" },
-];
-
-const AGE_OPTIONS = [
-  { value: "18-24", label: "18–24" },
-  { value: "25-32", label: "25–32" },
-  { value: "33-40", label: "33–40" },
-  { value: "40+",   label: "40+" },
 ];
 
 type Seg = {

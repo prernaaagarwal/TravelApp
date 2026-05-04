@@ -15,14 +15,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`,           lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${SITE_URL}/explore`,    lastModified: now, changeFrequency: "weekly",  priority: 0.9 },
-    { url: `${SITE_URL}/feed`,       lastModified: now, changeFrequency: "daily",   priority: 0.9 },
-    { url: `${SITE_URL}/community`,  lastModified: now, changeFrequency: "daily",   priority: 0.8 },
-    { url: `${SITE_URL}/buddy`,      lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
-    { url: `${SITE_URL}/shop`,       lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${SITE_URL}/vault`,      lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${SITE_URL}/onboarding`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+    { url: `${SITE_URL}/`,                  lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
+    { url: `${SITE_URL}/explore`,           lastModified: now, changeFrequency: "weekly",  priority: 0.9 },
+    { url: `${SITE_URL}/feed`,              lastModified: now, changeFrequency: "daily",   priority: 0.9 },
+    { url: `${SITE_URL}/community`,         lastModified: now, changeFrequency: "daily",   priority: 0.8 },
+    { url: `${SITE_URL}/buddy`,             lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
+    { url: `${SITE_URL}/shop`,              lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/vault`,             lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${SITE_URL}/onboarding`,        lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+    { url: `${SITE_URL}/account/login`,     lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+    { url: `${SITE_URL}/account/signup`,    lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+    { url: `${SITE_URL}/account/membership`,lastModified: now, changeFrequency: "monthly", priority: 0.4 },
   ];
 
   const intelRoutes: MetadataRoute.Sitemap = (cards ?? []).map((c) => ({
@@ -39,7 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  // Beware Board pages (one per unique destination slug from approved trips + intel cards)
+  // Beware Board pages: one per unique destination from approved trips + intel cards
   const bewareCities = new Set<string>();
   (cards ?? []).forEach((c) => c.slug && bewareCities.add(c.slug));
   (trips ?? []).forEach((t) => t.destination_slug && bewareCities.add(t.destination_slug));

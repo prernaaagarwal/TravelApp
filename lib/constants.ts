@@ -28,3 +28,10 @@ export const BADGE_META: Record<string, { icon: string; label: string }> = {
 export const TRIP_LABELS: Record<string, string> = {
   "0": "First solo trip", "1-2": "1–2 trips", "3-5": "3–5 trips", "6+": "6+ trips",
 };
+
+export const AGE_OPTIONS: { value: string; label: string }[] = [
+  { value: "18-24", label: "18–24" },
+  { value: "25-32", label: "25–32" },
+  { value: "33-40", label: "33–40" },
+  { value: "40+",   label: "40+" },
+];

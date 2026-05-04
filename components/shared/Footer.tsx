@@ -1,63 +1,55 @@
 import Link from "next/link";
 
-const COL_INTEL = [
-  { href: "/explore", label: "Browse Trip Intel" },
+const NAV_LINKS = [
+  { href: "/explore", label: "Trip Intel" },
   { href: "/community", label: "Community" },
   { href: "/feed", label: "Trip Receipts" },
   { href: "/buddy", label: "Find a Buddy" },
-];
-
-const COL_PRODUCT = [
   { href: "/vault", label: "WhatsApp Vault" },
   { href: "/shop", label: "Safety Shop" },
   { href: "/onboarding", label: "Get Started" },
-  { href: "/coming-soon", label: "Founding Membership" },
-];
-
-const COL_ABOUT = [
-  { href: "/coming-soon", label: "About" },
-  { href: "/coming-soon", label: "Contributors" },
-  { href: "/coming-soon", label: "Press" },
-  { href: "/coming-soon", label: "Contact" },
+  { href: "/coming-soon", label: "Membership" },
 ];
 
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-ww-border/60 bg-warm-white">
-      <div className="mx-auto max-w-6xl px-4 py-12 md:px-6">
-        <div className="grid gap-10 md:grid-cols-4">
-          <div>
+      <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-12">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-xs">
             <Link
               href="/"
               className="font-serif text-2xl tracking-tight text-ink"
             >
               Wander Women
             </Link>
-            <p className="mt-3 text-sm leading-relaxed text-ww-muted">
+            <p className="mt-2 font-mono text-xs leading-relaxed text-ww-muted">
               Trip intel built by women who actually travel solo.
             </p>
           </div>
 
-          <FooterColumn title="Intel" items={COL_INTEL} />
-          <FooterColumn title="Product" items={COL_PRODUCT} />
-          <FooterColumn title="Company" items={COL_ABOUT} />
+          <nav className="grid grid-cols-2 gap-x-10 gap-y-2 sm:grid-cols-3 md:gap-x-12">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="font-mono text-xs text-ww-muted transition-colors hover:text-ink"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
 
-        {/* Beware Board legal disclaimer (PRD Section 13) */}
-        <div className="mt-12 rounded-md border border-ww-border/50 bg-sand/50 p-4">
-          <p className="text-xs leading-relaxed text-ww-muted">
-            <span className="font-semibold text-ink">Beware Board notice:</span>{" "}
-            All Beware Board entries shown in this V0 demo are illustrative
-            mock data, seeded by the Wander Women team for product preview
-            purposes. They are not user-submitted reports and do not name real
-            individuals. References to establishments, neighborhoods, and
-            transport hubs are descriptive only and not allegations of
-            wrongdoing by any specific operator. In V1, all reports will be
-            user-submitted, moderated, and verified.
-          </p>
-        </div>
+        <p className="mt-10 border-t border-ww-border/60 pt-5 font-mono text-[10px] leading-relaxed text-ww-muted/80">
+          <span className="font-semibold text-ink/80">Beware Board notice:</span>{" "}
+          Entries in this V0 demo are illustrative mock data. References to
+          establishments, neighborhoods, and transport hubs are descriptive
+          only, not allegations against any specific operator. V1 reports will
+          be user-submitted, moderated, and verified.
+        </p>
 
-        <div className="mt-6 flex flex-col items-start justify-between gap-3 text-xs text-ww-muted md:flex-row md:items-center">
+        <div className="mt-5 flex flex-col items-start justify-between gap-3 font-mono text-[10px] text-ww-muted md:flex-row md:items-center">
           <span>© 2026 Wander Women — V0 demo build.</span>
           <div className="flex gap-4">
             <Link href="/coming-soon" className="hover:text-ink">
@@ -73,31 +65,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-function FooterColumn({
-  title,
-  items,
-}: {
-  title: string;
-  items: { href: string; label: string }[];
-}) {
-  return (
-    <div>
-      <p className="font-serif text-base text-ink">{title}</p>
-      <ul className="mt-3 space-y-2 text-sm">
-        {items.map((item) => (
-          <li key={item.label}>
-            <Link
-              href={item.href}
-              className="text-ww-muted transition-colors hover:text-ink"
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }

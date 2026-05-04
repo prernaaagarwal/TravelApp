@@ -23,6 +23,13 @@ export default function SignupPage() {
             next="/onboarding"
             primaryLabel="Join"
             postSendNote="After joining, we'll ask 3 quick questions to personalise your intel."
+            declaration={
+              <>
+                I identify as a woman. I understand Wander Women is a women-only
+                community and that accounts found to be misrepresenting will be
+                permanently removed.
+              </>
+            }
             bottomNote={
               <>
                 Already a member?{" "}

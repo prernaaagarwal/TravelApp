@@ -153,6 +153,13 @@ export default function MembershipPage() {
               No spam, ever.
             </p>
           </form>
+
+          <p className="mt-5 text-center text-xs text-ww-muted border-t border-ww-border pt-5">
+            Already have an account?{" "}
+            <Link href="/account/login" className="underline hover:text-ink">
+              Sign in
+            </Link>
+          </p>
         </div>
       </div>
     </main>

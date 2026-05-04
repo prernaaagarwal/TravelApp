@@ -2,6 +2,8 @@ import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ProfileEditClient } from "./ProfileEditClient";
+import { MyReports } from "@/components/profile/MyReports";
+import { ReportUserButton } from "@/components/profile/ReportUserButton";
 import { CITY_LABELS, WORRY_LABELS, BADGE_META, TRIP_LABELS } from "@/lib/constants";
 import type { Segment, Badge, SavedDestRow, IntelCardRow } from "@/types";
 
@@ -41,6 +43,7 @@ export default async function ProfilePage({
     { data: intelCards, count: intelCount },
     { count: bewareCount },
     { count: postCount },
+    { data: ownReports },
   ] = await Promise.all([
     supabase
       .from("contributor_badges")
@@ -68,6 +71,14 @@ export default async function ProfilePage({
       .select("id", { count: "exact", head: true })
       .eq("author_id", profile.id)
       .eq("status", "approved"),
+    // Own reports — all statuses — only fetched for profile owner
+    isOwner
+      ? supabase
+          .from("beware_reports")
+          .select("id, title, city, severity, status, rejection_reason, created_at, reviewed_at")
+          .eq("reported_by_id", profile.id)
+          .order("created_at", { ascending: false })
+      : Promise.resolve({ data: null }),
   ]);
 
   // Buddy CTA: show only if viewer (non-owner) and viewer's buddy_matches share a destination with profile owner's
@@ -359,6 +370,37 @@ export default async function ProfilePage({
                 {profile.instagram}
               </a>
             )}
+          </div>
+        )}
+
+        {/* ── Owner: my reports ────────────────────────── */}
+        {isOwner && (
+          <div className="rounded-xl border border-ww-border bg-warm-white p-5 shadow-sm">
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
+              My reports
+            </p>
+            <MyReports
+              reports={(ownReports ?? []).map((r) => ({
+                id: r.id,
+                title: r.title,
+                city: r.city,
+                severity: r.severity,
+                status: r.status,
+                rejection_reason: r.rejection_reason ?? null,
+                created_at: r.created_at,
+                reviewed_at: r.reviewed_at ?? null,
+              }))}
+            />
+          </div>
+        )}
+
+        {/* ── Report user (non-owner, logged-in only) ──── */}
+        {!isOwner && viewer && (
+          <div className="flex justify-end px-1">
+            <ReportUserButton
+              reportedUserId={profile.id}
+              reportedName={displayName}
+            />
           </div>
         )}
 

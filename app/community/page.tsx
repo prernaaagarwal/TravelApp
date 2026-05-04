@@ -2,6 +2,8 @@ import { CommunityTabs } from "@/components/community/CommunityTabs";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { INTERNATIONAL_CITY_SLUGS } from "@/lib/international-destinations";
 import { createClient } from "@/lib/supabase/server";
+import rawPosts from "@/lib/mock-data/community-posts.json";
+import rawBeware from "@/lib/mock-data/beware-entries.json";
 
 export const metadata = {
   title: "Community — Wander Women",
@@ -21,6 +23,21 @@ type SearchParams = Promise<{
 const VALID_TABS = new Set(["ask", "experiences", "beware"]);
 const VALID_SORTS = new Set(["newest", "oldest", "popular"]);
 
+type RawPost = {
+  id: string;
+  tab: string;
+  title?: string;
+  author: string;
+  authorAgeRange?: string;
+  homeCity?: string;
+  postedAt: string;
+  content: string;
+  replyCount: number;
+  likeCount: number;
+  destination?: string | null;
+  imageUrls?: string[];
+};
+
 export default async function CommunityPage({ searchParams }: { searchParams: SearchParams }) {
   const sp = await searchParams;
   const supabase = await createClient();
@@ -31,47 +48,77 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const country = sp.country === "international" ? "international" : "india";
   const intlCountry = sp.intlCountry ?? "all";
   const city = sp.city ?? "all";
+  const submitted = sp.submitted === "beware" ? "beware" : undefined;
 
-  const [{ data: dbPosts }, { data: dbBewares }] = await Promise.all([
-    supabase
-      .from("community_posts")
-      .select("id,tab,title,author_name,author_age_range,home_city,created_at,content,reply_count,like_count,destination")
-      .eq("status", "approved"),
-    supabase
-      .from("beware_reports")
-      .select("id,destination_slug,city,category,title,severity,description,reported_by_name,created_at,location,helpful_count")
-      .eq("status", "approved"),
-  ]);
+  // Fetch approved user-submitted posts from Supabase and merge with mock data.
+  // RLS policy "Anyone reads approved posts" lets unauthenticated reads work.
+  const { data: dbPosts } = await supabase
+    .from("community_posts")
+    .select(
+      "id, tab, title, content, author_name, author_age_range, home_city, destination, image_urls, created_at, like_count, reply_count",
+    )
+    .eq("status", "approved");
 
-  const rawPosts = (dbPosts ?? []).map((p) => ({
-    id: p.id as string,
-    tab: p.tab as string,
-    author: (p.author_name as string) ?? "",
-    authorAgeRange: (p.author_age_range as string) ?? "",
-    homeCity: (p.home_city as string) ?? "",
-    postedAt: p.created_at as string,
-    content: p.content as string,
-    replyCount: (p.reply_count as number) ?? 0,
-    likeCount: (p.like_count as number) ?? 0,
-    destination: (p.destination as string) ?? "",
+  const dbNormalized: RawPost[] = (dbPosts ?? []).map((p) => ({
+    id: p.id,
+    tab: p.tab,
+    title: p.title ?? "",
+    author: p.author_name ?? "Community member",
+    authorAgeRange: p.author_age_range ?? "",
+    homeCity: p.home_city ?? "",
+    postedAt: p.created_at,
+    content: p.content,
+    replyCount: p.reply_count ?? 0,
+    likeCount: p.like_count ?? 0,
+    destination: p.destination ?? undefined,
+    imageUrls: Array.isArray(p.image_urls) ? (p.image_urls as string[]) : [],
   }));
 
-  const rawBeware = (dbBewares ?? []).map((b) => ({
-    id: b.id as string,
-    destinationSlug: (b.destination_slug as string) ?? "",
-    city: (b.city as string) ?? "",
-    category: (b.category as string) ?? "",
-    title: b.title as string,
-    severity: (b.severity as string) ?? "medium",
-    description: b.description as string,
-    reportedBy: (b.reported_by_name as string) ?? "Anonymous",
-    reportedDate: b.created_at as string,
-    location: (b.location as string) ?? "",
-    helpfulCount: (b.helpful_count as number) ?? 0,
+  const allPosts: RawPost[] = [...(rawPosts as unknown as RawPost[]), ...dbNormalized];
+
+  // Same pattern for beware reports: mock + approved DB rows.
+  const { data: dbBewares } = await supabase
+    .from("beware_reports")
+    .select(
+      "id, destination_slug, city, category, title, severity, description, reported_by_name, created_at, location, helpful_count",
+    )
+    .eq("status", "approved");
+
+  type RawBeware = {
+    id: string;
+    destinationSlug: string;
+    city: string;
+    category: string;
+    title: string;
+    severity: string;
+    description: string;
+    reportedBy: string;
+    reportedDate: string;
+    location: string;
+    helpfulCount: number;
+  };
+
+  const dbBewareNormalized: RawBeware[] = (dbBewares ?? []).map((b) => ({
+    id:              b.id,
+    destinationSlug: b.destination_slug ?? "",
+    city:            b.city ?? "",
+    category:        b.category ?? "",
+    title:           b.title,
+    severity:        b.severity ?? "medium",
+    description:     b.description,
+    reportedBy:      b.reported_by_name ?? "Anonymous",
+    reportedDate:    b.created_at,
+    location:        b.location ?? "",
+    helpfulCount:    b.helpful_count ?? 0,
   }));
 
-  // Filter by location
-  let filteredPosts = rawPosts.filter((p) => {
+  const allBewares: RawBeware[] = [
+    ...(rawBeware as unknown as RawBeware[]),
+    ...dbBewareNormalized,
+  ];
+
+  // Filter posts by location
+  let filteredPosts = allPosts.filter((p) => {
     const dest = p.destination ?? "";
     if (country === "india") {
       return city !== "all" ? dest === city : (!dest || dest.endsWith("-india"));
@@ -82,7 +129,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     }
   });
 
-  let filteredBewares = rawBeware.filter((b) => {
+  let filteredBewares = allBewares.filter((b) => {
     const dest = b.destinationSlug ?? "";
     if (country === "india") {
       return city !== "all" ? dest === city : dest.endsWith("-india");
@@ -108,16 +155,17 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const posts = filteredPosts.map((p) => ({
     id: p.id,
     tab: p.tab,
-    title: "",
+    title: p.title ?? "",
     author: p.author,
-    authorAgeRange: p.authorAgeRange,
-    homeCity: p.homeCity,
+    authorAgeRange: p.authorAgeRange ?? "",
+    homeCity: p.homeCity ?? "",
     postedAt: new Date(p.postedAt).toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
     content: p.content,
     replyCount: p.replyCount,
     likeCount: p.likeCount,
     destination: p.destination || undefined,
     isHelpfulByMe: false,
+    imageUrls: p.imageUrls,
   }));
 
   const bewares = filteredBewares.map((b) => ({
@@ -164,10 +212,17 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
           but actually useful.
         </h1>
         <p className="font-mono text-sm leading-relaxed text-ww-muted">
-          1,200 solo women travelers. Real questions, real answers, zero
-          mansplaining.
+          Ask anything. Share what happened. Flag what others need to know.
+          A women-only space where real travelers answer real questions — fast,
+          honest, no filters.
         </p>
       </div>
+
+      {submitted === "beware" && (
+        <div className="mb-4 rounded border border-sage/40 bg-sage-light px-4 py-3 font-mono text-sm text-sage">
+          ✓ Your report has been submitted for review. It will appear on the Beware Board once approved.
+        </div>
+      )}
 
       <CommunityTabs
         posts={posts}

@@ -20,6 +20,11 @@ interface AuthFormProps {
   primaryLabel:   string;
   /** "send_code" lets the user fall back to the email link too. */
   emailVerb?:     "send_code" | "send_link";
+  /**
+   * Optional gating checkbox the user must tick before email/Google flows
+   * become available. Used on signup for the women-only declaration.
+   */
+  declaration?:   React.ReactNode;
 }
 
 export function AuthForm({
@@ -28,6 +33,7 @@ export function AuthForm({
   postSendNote,
   primaryLabel,
   emailVerb = "send_code",
+  declaration,
 }: AuthFormProps) {
   const router = useRouter();
   const [step,    setStep]    = useState<"email" | "code">("email");
@@ -36,6 +42,7 @@ export function AuthForm({
   const [loading, setLoading] = useState(false);
   const [error,   setError]   = useState("");
   const [resendIn, setResendIn] = useState(0);
+  const [declared, setDeclared] = useState(!declaration);
 
   function startResendCountdown() {
     setResendIn(RESEND_COOLDOWN_SEC);
@@ -195,11 +202,23 @@ export function AuthForm({
   // ─── Render: email-entry step ───────────────────────────────────────
   return (
     <div className="space-y-4">
+      {declaration && (
+        <label className="flex cursor-pointer items-start gap-3">
+          <input
+            type="checkbox"
+            checked={declared}
+            onChange={(e) => setDeclared(e.target.checked)}
+            className="mt-0.5 h-4 w-4 shrink-0 accent-rust"
+          />
+          <span className="text-xs leading-relaxed text-ink/70">{declaration}</span>
+        </label>
+      )}
+
       <button
         type="button"
         onClick={googleSignIn}
-        disabled={loading}
-        className="flex w-full items-center justify-center gap-2 border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-xs text-ink transition-colors hover:border-ink disabled:opacity-50"
+        disabled={loading || !declared}
+        className="flex w-full items-center justify-center gap-2 border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-xs text-ink transition-colors hover:border-ink disabled:opacity-40"
       >
         <GoogleGlyph />
         Continue with Google
@@ -232,8 +251,8 @@ export function AuthForm({
 
         <Button
           type="submit"
-          disabled={loading || !email}
-          className="w-full bg-rust text-warm-white hover:bg-rust/90"
+          disabled={loading || !email || !declared}
+          className="w-full bg-rust text-warm-white hover:bg-rust/90 disabled:opacity-40"
         >
           {loading
             ? "Sending…"
