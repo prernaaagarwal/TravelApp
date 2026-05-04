@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { createClient, createStaticClient } from "@/lib/supabase/server";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { contributorLd } from "@/lib/jsonld";
 
 type Params = Promise<{ name: string }>;
 
@@ -74,6 +76,16 @@ export default async function ContributorPage({ params }: { params: Params }) {
 
   return (
     <div className="bg-warm-white">
+      <JsonLd
+        data={contributorLd({
+          slug: contributor.slug,
+          name: contributor.name,
+          full_name: contributor.fullName,
+          bio: contributor.bio,
+          photo_url: contributor.photoUrl,
+          home_city: contributor.homeCity,
+        })}
+      />
       {/* ── Hero strip ─────────────────────────────────────────────── */}
       <div className="border-b border-ww-border bg-ink px-6 py-12">
         <div className="mx-auto flex max-w-3xl flex-col items-start gap-6 sm:flex-row sm:items-center">
