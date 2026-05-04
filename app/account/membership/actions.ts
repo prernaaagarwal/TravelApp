@@ -1,7 +1,6 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { sendFoundingMembershipConfirmation } from "@/lib/email";
 
 export async function joinWaitlist(formData: FormData) {
   const supabase = await createClient();
@@ -31,14 +30,10 @@ export async function joinWaitlist(formData: FormData) {
       .eq("id", user.id);
   }
 
-  // Fire the confirmation email — non-blocking. If RESEND_API_KEY is unset
-  // (dev / CI) the helper no-ops; if Resend errors we still return success
-  // because the waitlist row is the source of truth.
-  try {
-    await sendFoundingMembershipConfirmation(email);
-  } catch {
-    // swallow — the user is on the list either way
-  }
+  // No custom transactional email — Supabase Auth's magic-link confirmation
+  // (sent during signup) already proves the address works, and the actual
+  // human follow-up happens via WhatsApp per the success-state copy. We can
+  // wire Resend back in once we have a verified sending domain.
 
   return { success: true };
 }
