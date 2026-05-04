@@ -335,5 +335,65 @@ VALUES
 )
 ON CONFLICT (id) DO NOTHING;
 
--- ── Part 7 of 10 complete (community posts seoul-cp-014 to 019). ─────────────
--- ── Part 8 (seoul-cp-020 to 025) appends below. ──────────────────────────────
+-- ─── COMMUNITY POSTS (Part 8: seoul-cp-020 to seoul-cp-025) ──────────────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- seoul-cp-020
+(
+  'seoul-cp-020', 'experiences',
+  'Solo traveller', '26-32',
+  $t$Koreans asked for a selfie with me — a cultural note$t$,
+  $c$As a non-Asian solo female traveller, I was asked for selfies by Korean families at palaces 3–4 times. It's purely curiosity, never threatening, and always done politely with a question gesture. You can smile and say yes or shake your head and they immediately respect it. It's slightly jarring if you're not used to it but genuinely harmless. Actually ended up having lovely brief conversations with families at Gyeongbokgung Palace who spoke some English. Cultural curiosity goes both ways.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-021
+(
+  'seoul-cp-021', 'experiences',
+  'Solo traveller', '32-39',
+  $t$Fake tour package — shopping stops not in the itinerary$t$,
+  $c$Booked what seemed like a reasonable day tour of Bukchon and Insadong for ₩35,000. Three 'optional shopping stops' were added en route at ginseng, cosmetics, and ceramics stores — none of which were in the description. The guide was under pressure from operators to take us to these commission-earning shops. Spent 40 minutes of a 6-hour tour in shops I didn't want to visit. Book tours through official Korea Tourism Organization-registered operators. Seoul's Tourist Issue Assistance Centre will receive formal complaints about this practice (their number is in the Seoul city government website).$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-022
+(
+  'seoul-cp-022', 'experiences',
+  'Solo traveller', '29-36',
+  $t$Six months in Seoul — the molka issue is real and unsettling$t$,
+  $c$Lived in Seoul for 6 months (remote work). After the first month I stopped actively checking public bathrooms because it was too psychologically exhausting. But two of my Korean female colleagues described a constant low-level anxiety about being filmed in any private situation. One described the feeling: 'I can never fully relax in a public changing room or toilet.' The government has increased enforcement but the issue persists. For travellers: budget accommodation in less-regulated areas carries higher risk than established hotels. The palace and major tourist site bathrooms now have detection equipment installed.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-023
+(
+  'seoul-cp-023', 'experiences',
+  'Solo traveller', '27-34',
+  $t$Emergency safe spaces in Seoul — 24h convenience stores$t$,
+  $c$CU, GS25, 7-Eleven, and emart24 convenience stores are on virtually every street in Seoul and are open 24 hours, always staffed. If you feel followed, threatened, or just uneasy at night — walk into one. Staff cannot legally refuse you sanctuary. Korean police response time in central Seoul is fast. You can call 112 from inside the store. This is not a theoretical tip — Korean women themselves use convenience stores as safe spaces late at night. The density of stores in Seoul means you are rarely more than 60 seconds from one.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-024
+(
+  'seoul-cp-024', 'experiences',
+  'Solo traveller', '30-37',
+  $t$Insadong and Ikseon-dong at night — best solo walk in the city$t$,
+  $c$Spent two evenings just wandering through Insadong and the alleys of Ikseon-dong alone from about 8pm to 11pm. Both areas are filled with quirky decoration, music, cafes, and street performers. Felt completely safe. Ikseon-dong in particular has this incredible feeling of being in a preserved historical alleyway filled with candles and small wine bars. Zero unwanted attention. A 25-minute walk from Jongno 3-ga station. This is the best recommendation I have for solo women wanting a beautiful evening in Seoul without the nightlife pressure of Hongdae.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-025
+(
+  'seoul-cp-025', 'experiences',
+  'Solo traveller', '31-38',
+  $t$Political demonstrations — avoid but don't panic$t$,
+  $c$In late 2024 and early 2025, Seoul saw significant political protests following President Yoon's impeachment. For travellers: most protests are peaceful and concentrated near Gwanghwamun Plaza and the National Assembly. They are not dangerous in the typical sense but can cause major street closures and make transit difficult. If you're visiting during a period of political activity, download the Korean government's Emergency Ready app for alerts, stay informed via The Korea Herald (English), and plan alternate routes around Gwanghwamun on protest days.$c$,
+  'seoul-south-korea', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── End of Seoul seed (12 beware reports + 25 community posts). ──────────────
