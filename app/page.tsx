@@ -4,6 +4,7 @@ import intelCards from "@/lib/mock-data/intel-cards.json";
 import contributors from "@/lib/mock-data/contributors.json";
 import bewares from "@/lib/mock-data/beware-entries.json";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
+import HeroBackground from "@/components/shared/HeroBackground";
 import communityPosts from "@/lib/mock-data/community-posts.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
 
@@ -26,26 +27,28 @@ export default function HomePage() {
       <ExitIntentModal />
 
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section id="hero" className="relative overflow-hidden bg-warm-white px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+      <section id="hero" className="relative overflow-hidden bg-ink px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+        <HeroBackground />
+
         {/* decorative top rule */}
-        <div className="mx-auto mb-8 max-w-4xl">
+        <div className="relative z-20 mx-auto mb-8 max-w-4xl">
           <div className="h-px w-12 bg-rust" />
         </div>
 
-        <div className="mx-auto max-w-4xl">
+        <div className="relative z-20 mx-auto max-w-4xl">
           {/* eyebrow */}
-          <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
+          <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-warm-white/80">
             Women-only · Solo travel intelligence · India
           </p>
 
           {/* headline — Cormorant, ~64px on desktop */}
-          <h1 className="mb-6 font-serif text-4xl leading-[1.1] tracking-tight text-ink sm:text-5xl md:text-7xl">
+          <h1 className="mb-6 font-serif text-4xl leading-[1.1] tracking-tight text-warm-white sm:text-5xl md:text-7xl">
             Stress free travel. The guidebook that was never written for you,{" "}
             <em className="not-italic text-rust">yet</em>
           </h1>
 
           {/* subline */}
-          <p className="mb-10 max-w-2xl text-base leading-relaxed text-ww-muted md:text-lg">
+          <p className="mb-10 max-w-2xl text-base leading-relaxed text-warm-white/85 md:text-lg">
             Safety intel, hidden gems, verified ground-truth tips — crowd-sourced
             from women who actually live these routes. Free to browse. No fluff.
           </p>
@@ -61,7 +64,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/onboarding?path=foreign"
-              className="inline-flex items-center justify-center gap-2 rounded-none border border-ink px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-ink transition-colors hover:bg-ink hover:text-warm-white"
+              className="inline-flex items-center justify-center gap-2 rounded-none border border-warm-white/40 px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-colors hover:border-warm-white hover:bg-warm-white/5"
             >
               Travel Outside India
               <span aria-hidden>→</span>
@@ -69,7 +72,7 @@ export default function HomePage() {
           </div>
 
           {/* micro trust line */}
-          <p className="mt-8 font-mono text-xs text-ww-muted">
+          <p className="mt-8 font-mono text-xs text-warm-white/65">
             Free to browse · Founding membership ₹499 · No spam, ever
           </p>
         </div>
