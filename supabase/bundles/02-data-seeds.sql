@@ -1,3 +1,12 @@
+
+-- =====================================================================
+-- IDEMPOTENT BUNDLE -- safe to re-paste on a partially-applied database.
+-- Every CREATE TABLE / POLICY / TRIGGER below is preceded by a DROP guard
+-- (or uses IF NOT EXISTS) so duplicate-name errors never fire.
+-- INSERTs in this bundle either use ON CONFLICT DO NOTHING or are pure
+-- seed data -- duplicate-key errors on those are safe to ignore.
+-- =====================================================================
+
 -- ======================================================================
 -- Wander Women migration bundle: 02-data-seeds
 -- Run this in Supabase SQL Editor (project: vykbvnkpfqfmcilovzsw)
@@ -837,6 +846,7 @@ VALUES
 -- silently blocked, causing resubmitReport() to update 0 rows without error.
 -- ─────────────────────────────────────────────────────────────────────────────
 
+drop policy if exists "Users resubmit own rejected reports" on beware_reports;
 create policy "Users resubmit own rejected reports" on beware_reports
   for update
   using  (auth.uid() = reported_by_id and status = 'rejected')
@@ -953,16 +963,19 @@ create table if not exists user_reports (
 alter table user_reports enable row level security;
 
 -- Any logged-in user can file a report
+drop policy if exists "Users insert user reports" on user_reports;
 create policy "Users insert user reports" on user_reports
   for insert with check (auth.uid() = reported_by_id);
 
 -- Moderators/admins read all flags
+drop policy if exists "Moderators read user reports" on user_reports;
 create policy "Moderators read user reports" on user_reports
   for select using (
     exists (select 1 from profiles where id = auth.uid() and role in ('moderator', 'admin'))
   );
 
 -- Moderators/admins can update status (reviewed / dismissed)
+drop policy if exists "Moderators update user reports" on user_reports;
 create policy "Moderators update user reports" on user_reports
   for update using (
     exists (select 1 from profiles where id = auth.uid() and role in ('moderator', 'admin'))

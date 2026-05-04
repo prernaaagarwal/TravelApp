@@ -1,3 +1,12 @@
+
+-- =====================================================================
+-- IDEMPOTENT BUNDLE -- safe to re-paste on a partially-applied database.
+-- Every CREATE TABLE / POLICY / TRIGGER below is preceded by a DROP guard
+-- (or uses IF NOT EXISTS) so duplicate-name errors never fire.
+-- INSERTs in this bundle either use ON CONFLICT DO NOTHING or are pure
+-- seed data -- duplicate-key errors on those are safe to ignore.
+-- =====================================================================
+
 -- ======================================================================
 -- Wander Women migration bundle: 03-features-and-fixes
 -- Run this in Supabase SQL Editor (project: vykbvnkpfqfmcilovzsw)
@@ -8,7 +17,7 @@
 -- ---- 022_trip_feed.sql ----
 -- 014: trip_submissions table + seed 12 existing mock trips
 
-create table trip_submissions (
+create table if not exists trip_submissions (
   id              uuid primary key default gen_random_uuid(),
   user_id         uuid references auth.users on delete set null,
   contributor_slug text,
@@ -33,9 +42,11 @@ create table trip_submissions (
 
 alter table trip_submissions enable row level security;
 
+drop policy if exists "Anyone reads approved trips" on trip_submissions;
 create policy "Anyone reads approved trips" on trip_submissions
   for select using (status = 'approved');
 
+drop policy if exists "Users insert own trips" on trip_submissions;
 create policy "Users insert own trips" on trip_submissions
   for insert with check (auth.uid() = user_id);
 
@@ -78,38 +89,46 @@ VALUES (
 ) ON CONFLICT (id) DO NOTHING;
 
 -- Public read: anyone can view images via CDN URL
+drop policy if exists "Public read intel-images" on storage.objects;
 CREATE POLICY "Public read intel-images"
   ON storage.objects FOR SELECT
   USING (bucket_id = 'intel-images');
 
+drop policy if exists "Public read contributor-photos" on storage.objects;
 CREATE POLICY "Public read contributor-photos"
   ON storage.objects FOR SELECT
   USING (bucket_id = 'contributor-photos');
 
 -- Authenticated write: only logged-in users can upload
 -- Admin pages are separately auth-guarded at the app layer
+drop policy if exists "Authenticated upload intel-images" on storage.objects;
 CREATE POLICY "Authenticated upload intel-images"
   ON storage.objects FOR INSERT TO authenticated
   WITH CHECK (bucket_id = 'intel-images');
 
+drop policy if exists "Authenticated upload contributor-photos" on storage.objects;
 CREATE POLICY "Authenticated upload contributor-photos"
   ON storage.objects FOR INSERT TO authenticated
   WITH CHECK (bucket_id = 'contributor-photos');
 
 -- Authenticated update: allow replacing existing files
+drop policy if exists "Authenticated update intel-images" on storage.objects;
 CREATE POLICY "Authenticated update intel-images"
   ON storage.objects FOR UPDATE TO authenticated
   USING (bucket_id = 'intel-images');
 
+drop policy if exists "Authenticated update contributor-photos" on storage.objects;
 CREATE POLICY "Authenticated update contributor-photos"
   ON storage.objects FOR UPDATE TO authenticated
   USING (bucket_id = 'contributor-photos');
 
 -- Authenticated delete: allow removing stale files on replace
+drop policy if exists "Authenticated delete intel-images" on storage.objects;
 CREATE POLICY "Authenticated delete intel-images"
   ON storage.objects FOR DELETE TO authenticated
   USING (bucket_id = 'intel-images');
 
+drop policy if exists "Authenticated delete contributor-photos" on storage.objects;
 CREATE POLICY "Authenticated delete contributor-photos"
   ON storage.objects FOR DELETE TO authenticated
   USING (bucket_id = 'contributor-photos');
@@ -195,11 +214,13 @@ values (
 ) on conflict (id) do nothing;
 
 -- Public read
+drop policy if exists "Public read user-photos" on storage.objects;
 create policy "Public read user-photos"
   on storage.objects for select
   using (bucket_id = 'user-photos');
 
 -- Each user can only upload/update/delete inside their own folder (user_id/)
+drop policy if exists "Users upload own photo" on storage.objects;
 create policy "Users upload own photo"
   on storage.objects for insert to authenticated
   with check (
@@ -207,6 +228,7 @@ create policy "Users upload own photo"
     and (storage.foldername(name))[1] = auth.uid()::text
   );
 
+drop policy if exists "Users update own photo" on storage.objects;
 create policy "Users update own photo"
   on storage.objects for update to authenticated
   using (
@@ -214,6 +236,7 @@ create policy "Users update own photo"
     and (storage.foldername(name))[1] = auth.uid()::text
   );
 
+drop policy if exists "Users delete own photo" on storage.objects;
 create policy "Users delete own photo"
   on storage.objects for delete to authenticated
   using (
@@ -543,6 +566,7 @@ create table if not exists platform_settings (
 );
 
 alter table platform_settings enable row level security;
+drop policy if exists "Anyone reads platform settings" on platform_settings;
 create policy "Anyone reads platform settings"
   on platform_settings for select using (true);
 
@@ -697,13 +721,16 @@ create table if not exists stay_verifications (
 
 alter table stay_verifications enable row level security;
 
+drop policy if exists "Users read own verifications" on stay_verifications;
 create policy "Users read own verifications" on stay_verifications
   for select using (auth.uid() = user_id);
 
+drop policy if exists "Users insert verifications" on stay_verifications;
 create policy "Users insert verifications" on stay_verifications
   for insert with check (auth.uid() = user_id);
 
 -- Service role (used by server actions) can update verifications
+drop policy if exists "Service role updates verifications" on stay_verifications;
 create policy "Service role updates verifications" on stay_verifications
   for update using (auth.uid() = user_id);
 
