@@ -267,5 +267,119 @@ VALUES
 )
 ON CONFLICT (id) DO NOTHING;
 
--- ── Part 2 of 10 complete (community posts spiti-cp-001 to 013). ─────────────
--- ── Part 3 (spiti-cp-014 to 025) appends below. ──────────────────────────────
+-- ─── COMMUNITY POSTS (Part 3: spiti-cp-014 to spiti-cp-025) ──────────────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- spiti-cp-014
+(
+  'spiti-cp-014', 'experiences',
+  'Solo traveller', '24-29',
+  $t$Key Monastery to Kibber on foot — misleading distances$t$,
+  $c$Thought the walk from Key Monastery to Kibber village would be a pleasant 3km stroll based on a map. At altitude, on a rocky unpaved path, it took nearly 2 hours with a loaded day-pack. Nobody mentions that altitude adds a multiplier to walking time and effort. What looks like a 1-hour walk at sea level can be 2+ hours at 4,000m. Factor this in when planning village walks and always start early — afternoon light changes fast in the valley.$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-015
+(
+  'spiti-cp-015', 'experiences',
+  'Solo traveller', '30-38',
+  $t$Best safety investment: Airtel SIM for the Shimla–Kinnaur stretch$t$,
+  $c$BSNL is the go-to for deep Spiti, but on the Shimla–Kinnaur approach road (Rekong Peo, Kalpa) Airtel actually works better than BSNL. Multiple travellers in Spiti communities recommend carrying both: Airtel for the approach via Kinnaur, BSNL postpaid for Kaza and the valley interior. Keep both topped up before you enter the valley — there are no reliable recharge points beyond Rekong Peo. Also: power banks. Homestays have electricity but it can be intermittent.$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-016
+(
+  'spiti-cp-016', 'experiences',
+  'Solo traveller', '27-34',
+  $t$Stayed with Ammaji in Kaza — the most genuine hospitality I've experienced$t$,
+  $c$Found a simple homestay near the bus stand in Kaza on arrival — no prior booking, just walked in. Run by an elderly woman everyone called Ammaji who lived mostly alone. Charged ₹1,200/night with breakfast and dinner. She made incredible home food and in the evenings shared her life story over tea — her husband had been in the Army, passed away young, she raised her children alone. I cried. The homestay was basic (shared bathroom, cold water) but I felt more at home there than in any hotel. People like Ammaji are why you come to Spiti.$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-017
+(
+  'spiti-cp-017', 'experiences',
+  'Solo traveller', '26-31',
+  $t$Peak season (July–Aug): book accommodation before leaving Kaza$t$,
+  $c$Arrived in Kibber without a booking in late July and spent an anxious hour trying to find a room. Everything was full — there were more tourists than beds. Peak season in Spiti has grown dramatically in recent years. The same applies to Langza and Hikkim. In off-peak (May, September, October) you can walk in anywhere, but July–August requires advance booking, especially in the smaller villages. WhatsApp numbers for Kibber and Langza homestays are widely shared in Spiti community groups — use them.$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-018
+(
+  'spiti-cp-018', 'experiences',
+  'Solo traveller', '25-31',
+  $t$Motorbike rental — check brakes before you ride$t$,
+  $c$Rented a Royal Enfield Himalayan in Kaza for 2 days. The rental guy handed me the key without any safety briefing. When I tested the brakes on a flat road, the rear brake had almost no resistance. I refused the bike and asked for a replacement — after initial pushback, he gave me a different one which was fine. The roads in Spiti are not forgiving of mechanical failure. If you're renting a bike: test brakes on flat ground before you go anywhere, check tyre pressure, ask if the rental includes breakdown support (most don't).$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-019
+(
+  'spiti-cp-019', 'experiences',
+  'Solo traveller', '29-36',
+  $t$Rohtang Pass permit — don't get caught without it$t$,
+  $c$Travellers using the Manali route to enter Spiti need a Rohtang Pass permit. This is issued online (himachal.nic.in) and is free, but only a limited number are issued per day. If you haven't booked your permit in advance and miss the daily quota, you cannot legally cross. Some private jeep drivers claim they can arrange this 'on the day' — this is not reliable. Book your Rohtang permit online 3–4 days before you plan to cross. The Shimla route avoids Rohtang entirely, another reason to prefer it for first-timers.$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-020
+(
+  'spiti-cp-020', 'experiences',
+  'Solo traveller', '23-28',
+  $t$Hitchhiking tip from the petrol pump — it actually works$t$,
+  $c$Couldn't find space in the shared cab going to Key Monastery from Kaza. Someone suggested waiting at the petrol pump. Within 25 minutes a group of tourists in a rented SUV heading to Key offered me a seat for ₹50. This is a known local tip: the Kaza petrol pump is where all vehicles heading into the valley stop to refuel. You can often catch lifts to Key, Kibber, and even Chandratal from here, especially on peak-season mornings. Go early (8–9am) for the best chance.$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-021
+(
+  'spiti-cp-021', 'experiences',
+  'Solo traveller', '34-40',
+  $t$Photography of locals — ask first, always$t$,
+  $c$Saw a fellow tourist photographing an older Spitian woman in traditional dress without asking permission. The woman looked deeply uncomfortable but said nothing. There's a growing sensitivity in the community about being photographed as 'curiosities' by urban tourists. Always ask permission before pointing a camera at any local — a smile and a gesture toward your camera is usually understood. Many monks at monasteries will also ask you not to photograph certain prayer rooms or ceremonies. Respect is not optional here.$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-022
+(
+  'spiti-cp-022', 'experiences',
+  'Solo traveller', '26-32',
+  $t$Monsoon landslide held us at Chhatru for a full day$t$,
+  $c$Were driving from Manali toward Spiti in August 2024 and got stuck at Chhatru near Rohtang for an entire day due to record rainfall and a road blockage. Our driver was calm and helped arrange accommodation in a roadside camp. Other drivers were helping each other navigate — there's a real camaraderie among Spiti drivers in a crisis. But we lost a full day of our itinerary. If you're visiting in August, build extra buffer days. Rain can close the only road for 12–24 hours with no warning.$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-023
+(
+  'spiti-cp-023', 'experiences',
+  'Solo traveller', '31-38',
+  $t$Dress modestly — it's practical and respectful$t$,
+  $c$Spiti is a deeply Buddhist, conservative community. I'm not saying you must cover up everywhere, but wearing shorts and sleeveless tops through monastery courtyards and village celebrations is genuinely disrespectful and noticed. Light salwar kameez or full-length trousers work well for the climate (cold mornings anyway) and means you're dressed appropriately to enter any monastery. Carry a light scarf for head covering if entering temple inner sanctums. Beyond respect, modesty also means less attention from the occasional passing truck driver.$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-024
+(
+  'spiti-cp-024', 'experiences',
+  'Solo traveller', '29-35',
+  $t$Himachal Pradesh Tourist Police are genuinely helpful$t$,
+  $c$Had a minor issue with a driver dispute in Kaza. A local at the market pointed me to the tourist police office. The officer spoke decent English, helped mediate the dispute, and made it clear to the driver what was and wasn't acceptable. I was impressed. The emergency number (112) works wherever BSNL has signal. Tourist police in Kaza are more responsive than I expected for such a remote area. If you have a problem — overcharging, harassment, a driver dispute — report it; they take it seriously.$c$,
+  'spiti-valley-india', '[]', 'approved'
+),
+
+-- spiti-cp-025
+(
+  'spiti-cp-025', 'experiences',
+  'Solo traveller', '32-40',
+  $t$October visit — golden valley, far fewer tourists, perfect for solo women$t$,
+  $c$Chose October specifically to avoid the peak crowd. Spiti in October is extraordinary — the valley turns golden before winter sets in, the air is crisp, and villages are half-empty. Accommodation prices drop, homestay hosts have more time for you, and the roads (while slightly riskier due to early frost) are less congested. Met only a handful of other tourists in a week. The sense of having the entire valley to yourself is worth the slightly harder logistics. October is my unequivocal recommendation for solo women who want the safest, most authentic experience.$c$,
+  'spiti-valley-india', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── End of Spiti seed (12 beware reports + 25 community posts). ──────────────
