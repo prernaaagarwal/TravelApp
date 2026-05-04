@@ -143,5 +143,75 @@ VALUES
   '[]', 'approved'
 );
 
--- ── Part 4 of 10 complete (all 12 Seoul beware reports). ─────────────────────
--- ── Seoul community posts (parts 5–8) append below. ──────────────────────────
+-- ─── COMMUNITY POSTS (Part 5: seoul-cp-001 to seoul-cp-007) ──────────────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- seoul-cp-001
+(
+  'seoul-cp-001', 'experiences',
+  'Solo traveller', '27-33',
+  $t$10 days solo in Seoul — felt safer than walking home in London$t$,
+  $c$I was genuinely shocked. Seoul at 2am is brighter, safer feeling, and more populated than London at 10pm. The 75,000+ CCTV cameras everywhere are both reassuring and slightly Orwellian. Street food stalls open at midnight, convenience stores at every corner, people everywhere. I walked from Hongdae to Mapo at 1am and felt completely fine. The only moment of discomfort: a very drunk Western tourist in Itaewon who got too close. Not a Korean issue — it was someone from my own country. Download KakaoMap before you arrive — Google Maps is basically useless here.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-002
+(
+  'seoul-cp-002', 'experiences',
+  'Solo traveller', '28-34',
+  $t$The cult scam — I almost fell for it in Hongdae$t$,
+  $c$A cheerful couple in their 20s approached me asking about a clothing store in Hongdae (which is weird — Koreans almost never approach strangers). They eventually steered the conversation to wanting to introduce me to a 'traditional Korean spiritual ceremony' and said it was free, just a local cultural experience. Something felt off. I excused myself. I later read extensively about this — it's a known religious cult recruitment tactic and the 'ceremony' involves intense pressure for donations. The giveaway: Koreans genuinely don't approach strangers on the street. Any unprompted street approach in a tourist area is your cue to politely disengage and keep walking.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-003
+(
+  'seoul-cp-003', 'experiences',
+  'Solo traveller', '30-36',
+  $t$Molka check every single time — my protocol$t$,
+  $c$After reading about the spy camera problem before my trip, I developed a routine: in any public restroom I check under the toilet rim, behind the coat hook (common hiding spot), around the door gap. A flashlight on your phone helps — camera lenses reflect light differently. At my hotel on the first night I found a coat hook that looked slightly newer than the others — pulled it and it was just a spare hook, not a camera, but the fact that I was checking felt necessary and sad. Changgyeonggung Palace now has permanent detection devices in their bathrooms (installed April 2025), which is progress. Don't be paranoid, but do be aware.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-004
+(
+  'seoul-cp-004', 'experiences',
+  'Solo traveller', '24-30',
+  $t$Solo in Seoul for 2 weeks — highlights and the one night I felt uneasy$t$,
+  $c$Seoul was overwhelmingly positive. Everyone I asked for directions helped without any agenda. Subway is clean, efficient, English-signposted. Honbap culture (eating alone) is completely normal — no awkward solo diner stares. The one uncomfortable moment: 1:30am leaving a club in Hongdae, a group of drunk men (again, not Korean) outside was loud and blocking the pavement. I ducked into a 7-Eleven — the CU and 7-Eleven convenience stores are brilliant emergency safe spaces, open 24h, always staffed. Within 10 minutes the group had moved on and I KakaoT'd home.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-005
+(
+  'seoul-cp-005', 'experiences',
+  'Solo traveller', '26-32',
+  $t$Apps every solo woman needs before landing in Seoul$t$,
+  $c$KakaoMap (better than Google Maps for Korea, with exact subway car info), KakaoT (ride-hailing, fare shown upfront, no meter games), Papago (translation — better than Google Translate for Korean), Naver (local search). Save 112 (police), 119 (medical), and 1330 (tourist helpline in English, 24h) in your phone before you arrive. The 1330 helpline is genuinely excellent — they'll translate for you in a police situation, recommend hospitals, and help navigate any emergency.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-006
+(
+  'seoul-cp-006', 'experiences',
+  'Solo traveller', '29-35',
+  $t$Taxi tried to quote me a flat rate from Itaewon at midnight$t$,
+  $c$After a night out in Itaewon, a taxi driver at the rank quoted me a flat rate (₩15,000) for a journey that KakaoT was showing as ₩7,500–₩9,000 metered. When I said I'd use the app instead, he suddenly offered to use the meter. I walked 2 minutes away from the rank and called a KakaoT — no issues. Lesson: taxi touts at late-night bar district ranks are the only really scammy part of Seoul transport. Use the app from day one, or at minimum check the KakaoT price estimate before agreeing to any flat rate.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-007
+(
+  'seoul-cp-007', 'experiences',
+  'Solo traveller', '23-28',
+  $t$Subway groping during morning rush — use women-only cars$t$,
+  $c$Was groped on Line 2 during rush hour between Hongdae and Gangnam. It happened in a packed carriage and I couldn't identify who did it. I reported it at the next station and the officer was professional but said without CCTV confirmation it was hard to act on. Women-only subway cars are marked with pink signage on platforms — these operate on certain lines during late-night hours. During rush hour, they're not always available, but positioning yourself near the door of a car rather than the middle reduces proximity to others. I now always use KakaoT during rush hour.$c$,
+  'seoul-south-korea', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── Part 5 of 10 complete (community posts seoul-cp-001 to 007). ─────────────
+-- ── Parts 6–8 (seoul-cp-008 to 025) append below. ────────────────────────────
