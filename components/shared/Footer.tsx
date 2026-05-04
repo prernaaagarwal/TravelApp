@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: "/shop", label: "Safety Shop" },
   { href: "/onboarding", label: "Get Started" },
   { href: "/account/membership", label: "Membership" },
+  { href: "/feedback", label: "Feedback" },
 ];
 
 export function Footer() {
