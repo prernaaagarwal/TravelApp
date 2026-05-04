@@ -7,6 +7,7 @@ import { MobileNavWrapper } from "@/components/shared/MobileNavWrapper";
 import { PostHogProvider } from "@/components/shared/PostHogProvider";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { organizationLd, websiteLd } from "@/lib/jsonld";
+import { PWA } from "@/components/shared/PWA";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -63,11 +64,7 @@ export default function RootLayout({
           <Footer />
           <MobileNavWrapper />
         </PostHogProvider>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}`,
-          }}
-        />
+        <PWA />
       </body>
     </html>
   );

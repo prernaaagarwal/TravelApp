@@ -2,11 +2,15 @@
   "name": "Wander Women",
   "short_name": "Wander Women",
   "description": "Trip intel built by women who actually travel solo.",
-  "start_url": "/",
+  "start_url": "/?source=pwa",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#c4522a",
   "background_color": "#f5f0e6",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["travel", "lifestyle"],
   "icons": [
     {
       "src": "/icons/icon-192.png",
@@ -21,6 +25,44 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["travel", "lifestyle"],
-  "lang": "en"
+  "shortcuts": [
+    {
+      "name": "Explore destinations",
+      "short_name": "Explore",
+      "description": "Browse intel cards",
+      "url": "/explore?source=shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Trip receipts",
+      "short_name": "Receipts",
+      "description": "See real trip costs",
+      "url": "/feed?source=shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Community",
+      "short_name": "Community",
+      "description": "Beware Board and posts",
+      "url": "/community?source=shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Verify a stay",
+      "short_name": "Verify",
+      "description": "Check a booking link for scams",
+      "url": "/verify-stay?source=shortcut",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "share_target": {
+    "action": "/verify-stay",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text":  "url",
+      "url":   "url"
+    }
+  },
+  "prefer_related_applications": false
 }
