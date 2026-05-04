@@ -233,7 +233,7 @@ export default function WhatsInside({
                 "Women-only stays and female-founded spaces",
                 "How to navigate family pushback",
               ]}
-              ctaHref="/onboarding?path=indian"
+              ctaHref="/onboarding?region=india"
               ctaLabel="Start here →"
               meta="23 destinations"
               accent="rust"
@@ -255,7 +255,7 @@ export default function WhatsInside({
                 "Which cities are hardest and why",
                 "Pre-trip safety kit for India specifically",
               ]}
-              ctaHref="/onboarding?path=foreign"
+              ctaHref="/onboarding?region=foreign"
               ctaLabel="Start here →"
               meta="Written by Sara, Berlin → Goa"
               accent="gold"

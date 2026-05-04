@@ -52,14 +52,14 @@ export default function HomePage() {
           {/* dual CTA */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
-              href="/onboarding?path=indian"
+              href="/onboarding?region=india"
               className="inline-flex items-center justify-center gap-2 rounded-none bg-rust px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
             >
               Travel India
               <span aria-hidden>→</span>
             </Link>
             <Link
-              href="/onboarding?path=foreign"
+              href="/onboarding?region=foreign"
               className="inline-flex items-center justify-center gap-2 rounded-none border border-warm-white/40 px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-colors hover:border-warm-white hover:bg-warm-white/5"
             >
               Travel Outside India
