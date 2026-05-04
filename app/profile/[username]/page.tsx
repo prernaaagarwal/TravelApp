@@ -124,8 +124,13 @@ export default async function ProfilePage({
         <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="h-16 w-16 shrink-0 rounded-full bg-rust/20 flex items-center justify-center text-rust text-2xl font-medium">
-                {initial}
+              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-rust/20 flex items-center justify-center text-rust text-2xl font-medium">
+                {profile.photo_url ? (
+                  // eslint-disable-next-line @next/next/no-img-element -- CDN URL with cache-bust query param not compatible with next/image domains
+                  <img src={profile.photo_url} alt={displayName} className="h-full w-full object-cover" />
+                ) : (
+                  initial
+                )}
               </div>
               <div className="min-w-0">
                 <h1 className="font-serif text-2xl text-ink truncate">{displayName}</h1>

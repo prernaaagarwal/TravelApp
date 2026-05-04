@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { NotificationToggles } from "./NotificationToggles";
 import { DangerZoneButtons } from "./DangerZoneButtons";
 import { updateEmail } from "./actions";
+import { AvatarUploadWrapper } from "./AvatarUploadWrapper";
 
 export const metadata = {
   title: "Settings — Wander Women",
@@ -20,7 +21,7 @@ export default async function SettingsPage() {
   const [{ data: profile }, { data: rawPrefs }, { data: vault }] = await Promise.all([
     supabase
       .from("profiles")
-      .select("first_name, username, membership_tier, membership_expiry, phone")
+      .select("first_name, username, membership_tier, membership_expiry, phone, photo_url")
       .eq("id", user.id)
       .single(),
     supabase
@@ -64,6 +65,12 @@ export default async function SettingsPage() {
             ← Back to profile
           </Link>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">Settings</p>
+        </div>
+
+        {/* ── Profile photo ────────────────────────── */}
+        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
+          <p className="mb-4 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Profile photo</p>
+          <AvatarUploadWrapper userId={user.id} currentUrl={profile?.photo_url ?? null} />
         </div>
 
         {/* ── Account ──────────────────────────────── */}

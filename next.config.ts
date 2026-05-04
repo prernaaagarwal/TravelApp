@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   async redirects() {
@@ -24,4 +25,19 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withSentryConfig(nextConfig, {
+  // Suppress noisy source-map upload warnings when SENTRY_AUTH_TOKEN is absent
+  silent: true,
+
+  // Inline source maps into the bundle; safe to omit SENTRY_AUTH_TOKEN
+  sourcemaps: {
+    disable: !process.env.SENTRY_AUTH_TOKEN,
+  },
+
+  webpack: {
+    // Strip Sentry debug logs from production bundle
+    treeshake: {
+      removeDebugLogging: true,
+    },
+  },
+});
