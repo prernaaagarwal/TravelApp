@@ -550,5 +550,119 @@ VALUES
 )
 ON CONFLICT (id) DO NOTHING;
 
--- ── Sub-part 4 of 5 complete (community posts udaipur-cp-027 to 038). ────────
--- ── Sub-part 5 (cp-039 to cp-050) appends below. ─────────────────────────────
+-- ─── COMMUNITY POSTS (Sub-part 5: udaipur-cp-039 to udaipur-cp-050) ──────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- udaipur-cp-039
+(
+  'udaipur-cp-039', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Food scene is cheap, good, and generally safe — tips on eating safely$t$,
+  $c$I ate almost entirely at small local restaurants and street stalls in Udaipur and had no stomach issues. Key: eat where there is high turnover and where food is cooked fresh in front of you. The rooftop cafés near Lal Ghat are tourist-priced but completely safe. The dal baati churma near the clock tower and kachori from morning stalls near Sukhadia Circle are exceptional and cheap. Avoid raw salads. Drink only bottled or filtered water. Most places aimed at tourists are meticulous about water because they know their reviews depend on it.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-040
+(
+  'udaipur-cp-040', 'experiences',
+  'Solo traveller', '25-40',
+  $t$How to hire a genuine licensed guide at City Palace$t$,
+  $c$Do not accept guide offers from any person who approaches you outside the City Palace entrance — these are unlicensed touts. Once inside the ticket area, there is an official guide booth where licensed guides are registered and the price is fixed. Ask to see a guide's official Tourism Department of Rajasthan ID card before agreeing. A licensed guide for City Palace typically costs ₹300–500 for a 2-hour tour and provides excellent historical depth that unofficial guides simply cannot match.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-041
+(
+  'udaipur-cp-041', 'experiences',
+  'Solo traveller', '25-40',
+  $t$First visit, first day — everything felt overwhelming but I found my footing$t$,
+  $c$My first hour in Udaipur was chaos — arriving by bus, navigating to my guesthouse with no working SIM, being approached by three different touts before I'd walked 100 metres. I nearly cried. By day two, I had the local rhythm. Start slow: check in, sit somewhere quiet with a chai, observe how things work before venturing further. Udaipur rewards patience. The city is genuinely beautiful and the majority of interactions are kind. That first hour does not represent the place.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-042
+(
+  'udaipur-cp-042', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Saheliyon Ki Bari garden — peaceful, safe, recommended for solo women$t$,
+  $c$One of my favourite spots in Udaipur and consistently felt very safe. It's a garden, so it's open and visible. Families and local couples visit in large numbers, which creates a protective social environment. Entry is low cost (around ₹50 for foreigners). No touts inside the garden. A genuinely restorative place when the old city starts to feel overwhelming.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-043
+(
+  'udaipur-cp-043', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Fake reviews on booking platforms for Udaipur hotels — how to detect them$t$,
+  $c$TripAdvisor forum users have noted that fake review manipulation is common across Rajasthan, with hotel owners calling guests to pressure them into deleting negative reviews or writing positive ones. When selecting accommodation, weight recent 1- and 2-star reviews heavily — they are harder to suppress. Look for reviews from solo female travellers specifically, as they flag issues (safety, lighting, room locks) that other reviews skip. Cross-reference on both Booking.com and TripAdvisor rather than relying on one platform.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-044
+(
+  'udaipur-cp-044', 'experiences',
+  'Solo traveller', '25-40',
+  $t$The headphone trick for managing unwanted attention$t$,
+  $c$Wearing headphones — even without music playing — is a practical way to reduce the frequency of unsolicited conversation and touts. It signals you are unavailable for interaction without being rude. I used this heavily while walking through busy market areas in Udaipur. Combined with a purposeful walking pace and avoiding eye contact with men who are loitering, it significantly reduced the number of approaches I received.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-045
+(
+  'udaipur-cp-045', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Night travel in an Ola from dinner back to guesthouse — felt completely safe$t$,
+  $c$I ate dinner alone at a rooftop restaurant near City Palace several times at around 9–10pm and took Ola home each time. The app shows the driver's name, photo, and plate number in advance. You can share your trip live with a contact. The walk from my guesthouse to the Ola pickup point (30 seconds on a lit lane) was the only moment I ever felt mildly watchful at night. The actual ride always felt safe. App-based transport at night in Udaipur is a reliable, affordable tool for solo women.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-046
+(
+  'udaipur-cp-046', 'experiences',
+  'Local resident', '25-40',
+  $t$As a local woman: what worries me about tourism-driven harassment norms$t$,
+  $c$I've lived in Udaipur for years and one thing that concerns me is how the tourism economy has created a class of men who see foreign women purely as transaction targets. Most local men are not like this. But the concentrated tourist areas around Lal Ghat have attracted people whose income depends on tourists, and some of that interaction is uncomfortable. This is not Udaipur's character — it is a small minority operating around a valuable economic zone. The solution is to move even slightly away from the absolute tourist core and the dynamic changes completely.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-047
+(
+  'udaipur-cp-047', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Shilpgram artisan fair — genuinely good shopping with less pressure$t$,
+  $c$The Shilpgram crafts village on the outskirts of Udaipur, near Lake Badi, is one of the better places to buy textiles, ceramics, and folk crafts. The artisans are genuine — many are government-registered — and while bargaining still happens, the hard-sell pressure of the old city markets is significantly lower. It's a 20-minute Ola from Lal Ghat. Well worth the trip, and a beautiful area to catch sunset from the lake bank afterwards.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-048
+(
+  'udaipur-cp-048', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Spiritual side of Udaipur — visiting Ubeshwar Mahadev temple safely$t$,
+  $c$Ubeshwar Mahadev on the city's outskirts is one of the most peaceful places I visited in Udaipur — a Shiva temple in the hills with almost no commercial tourism pressure. It's a local pilgrimage site, so the presence of local families creates a respectful, calm atmosphere. I went by Ola in the morning, spent an hour walking, and returned. No touts, no overcharging priests. A welcome contrast to the heavier commercialisation of the old city temples.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-049
+(
+  'udaipur-cp-049', 'experiences',
+  'Web research', '25-40',
+  $t$What to do if you're in an uncomfortable situation — a clear action plan$t$,
+  $c$Step into any café, restaurant, or shop immediately — these are safe spaces. Ask staff directly: 'Can I wait here for a few minutes?' Most will say yes without question. If followed or surrounded outdoors, speak loudly and clearly in English — 'Please leave me alone' — which draws attention of nearby locals who will intervene. Do not run, as that can escalate. Dial 112 if you feel genuinely threatened. In tourist areas, police patrol is regular. Trust that the majority of bystanders will help if you make it clear you need it.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-050
+(
+  'udaipur-cp-050', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Four days in Udaipur as a solo woman — my complete honest take$t$,
+  $c$I arrived nervous and left transformed. Udaipur is absolutely worth visiting as a solo woman and is one of the more manageable Indian cities for a first India trip. The scams are real but mostly financial rather than physical — overpriced autos, pushy vendors, hotel tricks. The harassment exists but is mostly low-level: staring, selfie requests, touts. Violent crime is not a feature of daily tourist life here. What I'll remember: the sunset from a rooftop over Lake Pichola, the folk music echoing across the water at Bagore ki Haveli, the kindness of the family who ran my guesthouse, and the complete absurdity of a man trying to sell me a 'government-certified sapphire' from a plastic bag. Come prepared, come curious, and come with your instincts switched on.$c$,
+  'udaipur-india', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── End of Udaipur seed (16 beware reports + 50 community posts). ────────────
