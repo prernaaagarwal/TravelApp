@@ -213,5 +213,66 @@ VALUES
 )
 ON CONFLICT (id) DO NOTHING;
 
--- ── Part 5 of 10 complete (community posts seoul-cp-001 to 007). ─────────────
--- ── Parts 6–8 (seoul-cp-008 to 025) append below. ────────────────────────────
+-- ─── COMMUNITY POSTS (Part 6: seoul-cp-008 to seoul-cp-013) ──────────────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- seoul-cp-008
+(
+  'seoul-cp-008', 'experiences',
+  'Solo traveller', '31-38',
+  $t$The 'someone approaching you on the street' rule$t$,
+  $c$This is the most useful cultural context for safety in Seoul: Koreans culturally do not approach strangers in the street. It is not done. If a stranger — however friendly, however young and non-threatening looking — approaches you unprompted in a tourist area and starts a conversation, be cautious. This is almost always a scam or a cult recruitment approach. Friendly Korean people absolutely exist, but they're more likely to help you if you approach them (ask for directions, etc.) than to initiate. This rule has saved me from two separate 'ceremony' scam attempts.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-009
+(
+  'seoul-cp-009', 'experiences',
+  'Solo traveller', '26-33',
+  $t$Forgot my phone in a public restroom for an hour — it was still there$t$,
+  $c$Genuinely left my phone on the sink in a busy Myeongdong cafe bathroom and only noticed an hour later. It was still sitting on the sink. The staffer had set it to the side. In Seoul, lost items are routinely returned. Koreans told me the mindset is: 'Why would I take something that isn't mine?' It's backed by 75,000+ CCTVs everywhere but also genuine cultural values. This is a city where cafe-goers leave MacBooks on tables to hold their seats when they go to the bathroom. Genuinely remarkable safety culture.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-010
+(
+  'seoul-cp-010', 'experiences',
+  'Solo traveller', '22-27',
+  $t$My phone was stolen at a Hongdae nightclub — the exception that proves the rule$t$,
+  $c$Seoul is safe but NOT scam-proof or theft-proof. I had my phone stolen from my jacket pocket in a packed nightclub in Hongdae. It happened during a particularly crowded moment near the bar. This is unusual for Seoul (even locals were surprised when I told them) but it does happen. Lesson: in nightclubs specifically, keep valuables in a zipped front pocket or leave them at accommodation. The club had CCTV but it wasn't sufficient to identify the thief. Phone insurance and having backup cloud photos saved me.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-011
+(
+  'seoul-cp-011', 'experiences',
+  'Solo traveller', '33-40',
+  $t$Old Korean women ('harabeoji' scam) — quick identification$t$,
+  $c$The spiritual ceremony scam often starts with an older woman approaching you, asking about deceased relatives. If you say a family member has recently passed, the next line is usually about their soul not being at rest. Do not engage. The respectful but clear response is to shake your head, say '괜찮아요' (gwaenchanhayo = I'm fine / no thank you) and keep walking. They will not chase you. If a second person joins the conversation, leave immediately. The scam relies on emotional vulnerability and social pressure — cut it at the first contact.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-012
+(
+  'seoul-cp-012', 'experiences',
+  'Solo traveller', '25-31',
+  $t$Solo female — 3 days, walked everywhere alone, zero issues$t$,
+  $c$Arrived nervous after reading forums. Left wanting to move here. Took the AREX express from Incheon airport — clean, fast, cheap. Bought a T-Money card at the station. Ate alone at convenience stores, sat in cafes for hours, wandered through Bukchon at 10pm. Nobody bothered me. Some older Korean men gave slightly disapproving looks when I was eating alone ('honbap') but younger Koreans didn't bat an eye — honbap culture is completely normalised for women here. The subway English signage is genuinely excellent. Best city I've solo-travelled in Asia.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-013
+(
+  'seoul-cp-013', 'experiences',
+  'Solo traveller', '28-35',
+  $t$Checking your hotel room for molka — a practical guide$t$,
+  $c$Inspect on arrival: (1) Look for any items that seem newer, shinier, or slightly out of place on walls — coat hooks, smoke detectors, air fresheners, clocks. (2) Turn off the room lights and shine your phone torch slowly around the room — camera lenses reflect in a distinctive way. (3) Check the bathroom: behind the door hinge area, coat hook, any fixture above the toilet. (4) Use a free RF signal detector app on your phone (imperfect but useful). If anything seems wrong, ask to change rooms. Report to hotel management and police (112) if you find an actual device. Stay in higher-rated, reputable accommodation — budget guesthouses in less regulated areas carry higher risk.$c$,
+  'seoul-south-korea', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── Part 6 of 10 complete (community posts seoul-cp-008 to 013). ─────────────
+-- ── Parts 7–8 (seoul-cp-014 to 025) append below. ────────────────────────────
