@@ -187,5 +187,129 @@ VALUES
   '[]', 'approved'
 );
 
--- ── Sub-part 1 of 5 complete (all 16 Udaipur beware reports). ────────────────
--- ── Community posts (sub-parts 2–5) append below. ────────────────────────────
+-- ─── COMMUNITY POSTS (Sub-part 2: udaipur-cp-001 to udaipur-cp-013) ──────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- udaipur-cp-001
+(
+  'udaipur-cp-001', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Solo Holi in Udaipur — genuinely one of the best decisions I made$t$,
+  $c$I had been warned off celebrating Holi anywhere in India as a solo woman — Pushkar and Varanasi have reputations for serious groping during the chaos of colours. I chose Udaipur instead after reading around, and I had a very positive experience. The vibe is more family-oriented, less predatory. Stayed in a hostel, met other travellers, joined a group for the lake celebrations. No incidents. Would repeat.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-002
+(
+  'udaipur-cp-002', 'experiences',
+  'Solo traveller', '25-40',
+  $t$The 'art exhibition' man near Lake Pichola is a classic scam — still active$t$,
+  $c$Near the footbridge between the City Palace and Ambrai Ghat there's a charming, well-dressed man who approaches tourists and starts a friendly conversation. He says he's going to your country for an Indian cultural exhibition — he will name the city you're from — and asks if you'd like to see his elderly teacher's embroidery or pashmina work. We followed him, bought two scarves for a shocking amount. They were synthetic, not cashmere at all. Multiple people on TripAdvisor have reported the exact same setup over several years. The script changes (Birmingham, Amsterdam, Melbourne) but the scam is identical.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-003
+(
+  'udaipur-cp-003', 'experiences',
+  'Solo traveller', '25-40',
+  $t$What I wore determined what prices I was quoted — tested in Udaipur$t$,
+  $c$On day one in Udaipur I was in torn backpacker elephant trousers and a sweaty t-shirt. On day two I wore a nice dress (last clean item). The prices I was quoted in the market were frequently double on the dress day. It's not a coincidence. Indian vendors adjust their opening price based on how wealthy you appear to be. If you're planning a serious shopping day in Hathi Pole Bazaar, wear your most beaten-up backpacker clothes.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-004
+(
+  'udaipur-cp-004', 'experiences',
+  'Local resident', '25-40',
+  $t$7 years living in Udaipur — here's the honest picture for solo women$t$,
+  $c$I have lived here for 7 years and driven home alone at 2 am without worrying. There are crimes here, but not the kind that would make me feel unsafe as a woman. The local people of the Mewar region are genuinely helpful and kind. That said, don't be complacent — keep belongings secure, don't flash expensive items in crowded markets, and avoid dark isolated streets late at night. The tourist areas are well lit and police presence is visible.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-005
+(
+  'udaipur-cp-005', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Auto meter was 'broken' — and GPS showed we were going the wrong way$t$,
+  $c$Took an auto from the railway station to Lal Ghat. Driver said his meter wasn't working and quoted ₹200 for what should have been ₹60–80. When I followed on Google Maps, he was taking a longer route. I've had this multiple times in Udaipur. The fix: always agree the price before you get in, or use Ola. I now ask my guesthouse for a fair fare estimate before every trip so I know what I should be negotiating toward.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-006
+(
+  'udaipur-cp-006', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Fake lake view room — what I booked vs what I got$t$,
+  $c$Booked a guesthouse near Gangaur Ghat that was marketed online as having a lake view. Arrived to find the 'lake view room' overlooked a narrow alley with a partial sliver of water if you leaned out dangerously. When I complained they said 'all rooms are lake view' and refused any adjustment. At checkout there was an added 'mandatory cleaning charge' not mentioned at check-in. Always confirm the exact room and any additional charges in writing before paying a deposit.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-007
+(
+  'udaipur-cp-007', 'experiences',
+  'Solo traveller', '25-40',
+  $t$I stared back — and then I realised most staring is just curiosity$t$,
+  $c$I have never been stared at more in my life than I was in India, including in Udaipur. At first it felt overwhelming. Then I realised it wasn't always negative — elderly people, children, families all stared. Once I started smiling or waving, most people smiled back. The intensity of staring that feels hostile in a Western context is often just curiosity. The staring that actually needs addressing is a man lingering near you after you've moved away — that is different and worth trusting your gut about.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-008
+(
+  'udaipur-cp-008', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Selfie requests — say no from the start or it snowballs fast$t$,
+  $c$As a foreign woman in Udaipur you will be asked for photos. If you agree to one person, it is a signal to everyone around that you're open to it. On a train in India I had a queue form. My approach: politely shake your head and keep walking. For groups of men specifically I always decline — it can become an excuse for physical closeness. If you do stop, keep a tight grip on your bag. The photo itself is usually harmless; the bag-touching that can accompany it sometimes isn't.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-009
+(
+  'udaipur-cp-009', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Reached the ghat and felt a strange unease — took 15 minutes to figure out why$t$,
+  $c$I stood at Ambrai Ghat and was suddenly hit by a deep unease — almost like a panic attack building. It took about 15 minutes to understand what was wrong: it was the silence. In a country as relentlessly loud as India, stumbling into a stretch where you could hear nothing at all was disorienting. Not unsafe at all — but deeply unfamiliar. Worth knowing: Udaipur has pockets of genuine quiet, especially around the ghats in the early morning, that can feel strange if you're used to Indian city noise.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-010
+(
+  'udaipur-cp-010', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Dress code reality check — covering up genuinely changes how your day goes$t$,
+  $c$I cover my shoulders and knees in Rajasthan, not because I think the world should work this way, but because it makes my days more comfortable. In India, legs attract significantly more attention than shoulders. As a feminist, I wish this were different. But when I'm solo, I prioritise practical safety over my frustration with the system. Wear loose-fitting kurtas over leggings. Carry a scarf. Reserve your own clothing choices for the rooftop café where you're among other travellers.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-011
+(
+  'udaipur-cp-011', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Rickshaw driver wanted to add a passenger mid-journey — I said no$t$,
+  $c$I'd read about this before arriving and it still almost caught me off guard. My rickshaw driver asked if he could 'quickly pick up his cousin' on the way. I declined firmly. This is a known tactic where an additional person enters the vehicle, creating a distraction, after which the driver takes a longer route or the fare is inflated. Once you decline, most drivers immediately back down. Saying 'no, go directly please' works.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-012
+(
+  'udaipur-cp-012', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Had a safe trip overall — except for the casual racism about my appearance$t$,
+  $c$Udaipur was one of my favourite stops in Rajasthan and I felt safe throughout. The one thing I wasn't prepared for was people calling me 'Chinese' or 'Korean' without asking — sometimes mockingly. I'm Southeast Asian. It wasn't threatening, but it was exhausting and happened multiple times daily. Worth being mentally prepared for if you're an Asian-presenting traveller. The city itself is genuinely welcoming and beautiful.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-013
+(
+  'udaipur-cp-013', 'experiences',
+  'Solo traveller', '25-40',
+  $t$How I used transport safely as a solo woman in Udaipur$t$,
+  $c$I used Ola and Uber for every longer journey in Udaipur. Both apps allow trip-sharing with contacts and have SOS alerts. For short hops where I took an auto, I always asked my guesthouse what a fair fare was before stepping out. I never hailed a vehicle at night — I always booked via app or asked my accommodation to call a trusted driver. The difference in stress levels between app travel and street-hailed autos is enormous.$c$,
+  'udaipur-india', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── Sub-part 2 of 5 complete (community posts udaipur-cp-001 to 013). ────────
+-- ── Sub-parts 3–5 (cp-014 to cp-050) append below. ───────────────────────────
