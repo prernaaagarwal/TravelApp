@@ -2,8 +2,6 @@ import { CommunityTabs } from "@/components/community/CommunityTabs";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { INTERNATIONAL_CITY_SLUGS } from "@/lib/international-destinations";
 import { createClient } from "@/lib/supabase/server";
-import rawPosts from "@/lib/mock-data/community-posts.json";
-import rawBeware from "@/lib/mock-data/beware-entries.json";
 
 export const metadata = {
   title: "Community — Wander Women",
@@ -34,7 +32,45 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const intlCountry = sp.intlCountry ?? "all";
   const city = sp.city ?? "all";
 
-  // Filter posts by location
+  const [{ data: dbPosts }, { data: dbBewares }] = await Promise.all([
+    supabase
+      .from("community_posts")
+      .select("id,tab,title,author_name,author_age_range,home_city,created_at,content,reply_count,like_count,destination")
+      .eq("status", "approved"),
+    supabase
+      .from("beware_reports")
+      .select("id,destination_slug,city,category,title,severity,description,reported_by_name,created_at,location,helpful_count")
+      .eq("status", "approved"),
+  ]);
+
+  const rawPosts = (dbPosts ?? []).map((p) => ({
+    id: p.id as string,
+    tab: p.tab as string,
+    author: (p.author_name as string) ?? "",
+    authorAgeRange: (p.author_age_range as string) ?? "",
+    homeCity: (p.home_city as string) ?? "",
+    postedAt: p.created_at as string,
+    content: p.content as string,
+    replyCount: (p.reply_count as number) ?? 0,
+    likeCount: (p.like_count as number) ?? 0,
+    destination: (p.destination as string) ?? "",
+  }));
+
+  const rawBeware = (dbBewares ?? []).map((b) => ({
+    id: b.id as string,
+    destinationSlug: (b.destination_slug as string) ?? "",
+    city: (b.city as string) ?? "",
+    category: (b.category as string) ?? "",
+    title: b.title as string,
+    severity: (b.severity as string) ?? "medium",
+    description: b.description as string,
+    reportedBy: (b.reported_by_name as string) ?? "Anonymous",
+    reportedDate: b.created_at as string,
+    location: (b.location as string) ?? "",
+    helpfulCount: (b.helpful_count as number) ?? 0,
+  }));
+
+  // Filter by location
   let filteredPosts = rawPosts.filter((p) => {
     const dest = p.destination ?? "";
     if (country === "india") {
@@ -46,7 +82,6 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     }
   });
 
-  // Filter bewares by location
   let filteredBewares = rawBeware.filter((b) => {
     const dest = b.destinationSlug ?? "";
     if (country === "india") {
@@ -81,7 +116,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     content: p.content,
     replyCount: p.replyCount,
     likeCount: p.likeCount,
-    destination: p.destination ?? undefined,
+    destination: p.destination || undefined,
     isHelpfulByMe: false,
   }));
 

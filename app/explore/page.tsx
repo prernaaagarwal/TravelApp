@@ -1,34 +1,45 @@
 import { ExploreGrid } from "@/components/intel/ExploreGrid";
-import intelCardsData from "@/lib/mock-data/intel-cards.json";
-import contributorsData from "@/lib/mock-data/contributors.json";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
   title: "Explore Trip Intel — Wander Women",
   description:
-    "Browse 15 solo travel intel cards curated by women who've been there.",
+    "Browse solo travel intel cards curated by women who've been there.",
 };
 
-export default function ExplorePage() {
-  const cards = intelCardsData.map((c) => ({
-    slug: c.slug,
-    destination: c.destination,
-    country: c.country,
-    audience: c.audience,
-    contributorSlug: c.contributorSlug,
-    heroImageUrl: c.heroImageUrl,
+export default async function ExplorePage() {
+  const supabase = await createClient();
+
+  const [{ data: dbCards }, { data: dbContribs }] = await Promise.all([
+    supabase
+      .from("intel_cards")
+      .select("slug,destination,country,audience,contributor_slug,hero_image_url,tldr,is_premium,estimated_daily_budget")
+      .order("destination"),
+    supabase
+      .from("contributors")
+      .select("slug,name,photo_url"),
+  ]);
+
+  const cards = (dbCards ?? []).map((c) => ({
+    slug: c.slug as string,
+    destination: c.destination as string,
+    country: c.country as string,
+    audience: c.audience as string,
+    contributorSlug: (c.contributor_slug as string) ?? null,
+    heroImageUrl: (c.hero_image_url as string) ?? null,
     tldr: c.tldr as string[] | { summary: string },
-    isPremium: c.isPremium,
-    estimatedDailyBudget: c.estimatedDailyBudget as {
+    isPremium: (c.is_premium as boolean) ?? false,
+    estimatedDailyBudget: c.estimated_daily_budget as {
       backpacker: number;
       comfortable: number;
       currency: string;
     } | null,
   }));
 
-  const contributors = contributorsData.map((c) => ({
-    slug: c.slug,
-    name: c.name,
-    photoUrl: c.photoUrl,
+  const contributors = (dbContribs ?? []).map((c) => ({
+    slug: c.slug as string,
+    name: (c.name as string) ?? "",
+    photoUrl: (c.photo_url as string) ?? "",
   }));
 
   return (
