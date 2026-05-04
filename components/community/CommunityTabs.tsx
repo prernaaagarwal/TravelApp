@@ -155,12 +155,12 @@ export function CommunityTabs({
         ))}
       </TabsList>
 
-      <div className="mt-4 mb-2 flex flex-wrap items-center gap-2 border-b border-ww-border pb-3">
+      <div className="mt-4 mb-2 grid grid-cols-2 gap-2 border-b border-ww-border pb-3 sm:flex sm:flex-wrap sm:items-center">
         <select
           value={sort}
           onChange={(e) => updateQuery({ sort: e.target.value })}
           disabled={isPending}
-          className="border border-ww-border bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+          className="h-9 border border-ww-border bg-sand px-3 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
           aria-label="Sort"
         >
           <option value="newest">Newest first</option>
@@ -172,7 +172,7 @@ export function CommunityTabs({
           value={country}
           onChange={(e) => updateQuery({ country: e.target.value, city: null, intlCountry: null })}
           disabled={isPending}
-          className="border border-ww-border bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+          className="h-9 border border-ww-border bg-sand px-3 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
           aria-label="Country"
         >
           <option value="india">India</option>
@@ -184,7 +184,7 @@ export function CommunityTabs({
             value={city}
             onChange={(e) => updateQuery({ city: e.target.value === "all" ? null : e.target.value })}
             disabled={isPending}
-            className="border border-ww-border bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+            className="h-9 border border-ww-border bg-sand px-3 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
             aria-label="City"
           >
             <option value="all">All cities</option>
@@ -207,7 +207,7 @@ export function CommunityTabs({
                 })
               }
               disabled={isPending}
-              className="border border-ww-border bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+              className="h-9 border border-ww-border bg-sand px-3 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
               aria-label="International country"
             >
               <option value="all">All countries</option>
@@ -225,7 +225,7 @@ export function CommunityTabs({
                   updateQuery({ city: e.target.value === "all" ? null : e.target.value })
                 }
                 disabled={isPending}
-                className="border border-ww-border bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+                className="h-9 border border-ww-border bg-sand px-3 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
                 aria-label="City"
               >
                 <option value="all">All cities</option>
@@ -242,7 +242,7 @@ export function CommunityTabs({
         {country === "india" && city !== "all" && supportedSet.has(city) && (
           <Link
             href={`/community/beware/${city}`}
-            className="ml-auto border border-rust/40 bg-rust/5 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-rust hover:bg-rust/10 transition-colors"
+            className="col-span-2 h-9 flex items-center justify-center sm:col-auto sm:ml-auto border border-rust/40 bg-rust/5 px-3 font-mono text-[10px] uppercase tracking-widest text-rust hover:bg-rust/10 transition-colors"
           >
             📍 See {cityName} scam map →
           </Link>

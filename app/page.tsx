@@ -38,7 +38,7 @@ export default function HomePage() {
           </p>
 
           {/* headline — Cormorant, ~64px on desktop */}
-          <h1 className="mb-6 font-serif text-5xl leading-[1.1] tracking-tight text-ink md:text-7xl">
+          <h1 className="mb-6 font-serif text-4xl leading-[1.1] tracking-tight text-ink sm:text-5xl md:text-7xl">
             Stress free travel. The guidebook that was never written for you,{" "}
             <em className="not-italic text-rust">yet</em>
           </h1>
@@ -476,7 +476,7 @@ export default function HomePage() {
             </span>
           </div>
 
-          <h2 className="mb-4 font-serif text-4xl leading-tight text-warm-white md:text-5xl">
+          <h2 className="mb-4 font-serif text-3xl leading-tight text-warm-white sm:text-4xl md:text-5xl">
             Join as a founding member.
           </h2>
           <p className="mb-3 text-base leading-relaxed text-warm-white/60">

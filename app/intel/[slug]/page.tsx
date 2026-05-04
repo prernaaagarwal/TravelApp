@@ -376,28 +376,28 @@ export default async function IntelPage({ params }: { params: Params }) {
                 { label: "Mid-range", amount: b.midRange, desc: "Private room, sit-down meals, occasional Uber", color: "border-l-gold" },
                 { label: "Comfortable", amount: b.comfortable, desc: "Boutique hotel, restaurant dining, app taxis", color: "border-l-blue" },
               ];
-              const cols = isINR ? "grid-cols-[1fr_auto_auto]" : "grid-cols-[1fr_auto]";
               return (
                 <div className="divide-y divide-ww-border border border-ww-border bg-sand">
-                  <div className={`grid ${cols} gap-4 px-4 py-2`}>
+                  <div className="grid grid-cols-[1fr_auto] gap-4 px-4 py-2">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Tier</span>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">{cur} / day</span>
-                    {isINR && <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">USD / day</span>}
                   </div>
                   {tiers.map((tier) => (
-                    <div key={tier.label} className={`grid ${cols} items-center gap-4 border-l-4 px-4 py-3 ${tier.color}`}>
+                    <div key={tier.label} className={`grid grid-cols-[1fr_auto] items-center gap-4 border-l-4 px-4 py-3 ${tier.color}`}>
                       <div>
                         <p className="font-mono text-sm font-semibold text-ink">{tier.label}</p>
                         <p className="text-xs text-ww-muted">{tier.desc}</p>
                       </div>
-                      <span className="font-mono text-sm font-semibold text-ink">
-                        {sym}{tier.amount.toLocaleString(loc)}
-                      </span>
-                      {isINR && (
-                        <span className="font-mono text-sm text-ww-muted">
-                          ${Math.round(tier.amount / USD_RATE)}
-                        </span>
-                      )}
+                      <div className="text-right">
+                        <p className="font-mono text-sm font-semibold text-ink">
+                          {sym}{tier.amount.toLocaleString(loc)}
+                        </p>
+                        {isINR && (
+                          <p className="font-mono text-[10px] text-ww-muted">
+                            ≈ ${Math.round(tier.amount / USD_RATE)}
+                          </p>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
