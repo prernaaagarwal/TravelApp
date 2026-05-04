@@ -311,5 +311,129 @@ VALUES
 )
 ON CONFLICT (id) DO NOTHING;
 
--- ── Sub-part 2 of 5 complete (community posts udaipur-cp-001 to 013). ────────
--- ── Sub-parts 3–5 (cp-014 to cp-050) append below. ───────────────────────────
+-- ─── COMMUNITY POSTS (Sub-part 3: udaipur-cp-014 to udaipur-cp-026) ──────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- udaipur-cp-014
+(
+  'udaipur-cp-014', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Official-looking train booking office near the station is NOT official$t$,
+  $c$There are several travel agencies near Udaipur City railway station that display government-style signage and claim to be 'authorised IRCTC agents'. One quoted me prices with a ₹500 'processing fee' per ticket. Book only at the actual IRCTC counter inside the station (foreign tourist quota at window 1) or via the IRCTC Rail Connect app. If you genuinely need help from a local agent, get a recommendation from your guesthouse and check Google reviews first.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-015
+(
+  'udaipur-cp-015', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Hathi Pole Bazaar shopping — what to know before you go$t$,
+  $c$Loved this bazaar for block-printed fabrics and mojris (Rajasthani leather shoes). Key things: start with a very low counter-offer — vendors expect it. Do not show enthusiasm for an item before asking the price. The first price given to a foreign-looking tourist will often be 3–5x what a local pays. Walk away if they don't come down — they usually will. Bought beautiful things for fair prices once I got the rhythm. Also keep your bag zipped; it gets crowded.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-016
+(
+  'udaipur-cp-016', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Trust your instinct — if something feels off in Udaipur, act on it$t$,
+  $c$The most important piece of advice I can give for Udaipur or anywhere in India: trust your gut completely. If a situation, person, or place feels wrong, leave without explaining yourself. You do not owe anyone your time. The few genuinely uncomfortable moments I had in Udaipur were ones where I ignored an early instinct and stayed too long. The city is mostly safe and people are genuinely kind, but that makes it easier to second-guess your instincts. Don't.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-017
+(
+  'udaipur-cp-017', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Bagore Ki Haveli cultural show — buy at the counter, not from touts$t$,
+  $c$The evening cultural performance at Bagore ki Haveli is genuinely good — folk dance, puppetry, traditional music. Entry is around ₹90–120 at the official counter. I was approached by two different touts near Gangaur Ghat selling 'exclusive' tickets at ₹400 claiming the show was nearly sold out. Walked to the counter, bought directly, got in fine. There is almost never a sellout situation — the tout's 'urgency' is entirely manufactured.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-018
+(
+  'udaipur-cp-018', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Staying near Lal Ghat as a solo woman — honest review$t$,
+  $c$The Lal Ghat area is the most popular base for solo travellers and I'd recommend it for exactly that reason — it's busy, well-lit, and full of guesthouses and cafés that are used to solo women. The area around Jagdish Temple a short walk away is extremely busy until around 9pm. After 10pm the narrower lanes do quiet down significantly. I didn't walk alone through the old city lanes after 10pm and felt fine staying in. Dreamyard Hostel came up repeatedly in recommendations from other female travellers.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-019
+(
+  'udaipur-cp-019', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Gem and jewellery commission trap — the driver took us there 'for free'$t$,
+  $c$Our rickshaw driver offered to show us a 'government gem emporium' on the way back from City Palace, insisting it was on the route. It wasn't. The shop interior was polished and professional-looking with certificates framed on the wall — but everything was wildly overpriced and the 'gemstones' were suspect. The driver gets a commission for every tourist he delivers regardless of whether you buy. Always refuse shop diversions mid-journey, no matter how polished the pitch.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-020
+(
+  'udaipur-cp-020', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Get a local SIM on day one — it changes everything for solo safety$t$,
+  $c$I cannot overstate how much having a working data SIM improves safety as a solo woman in Udaipur. It lets you track your rickshaw route in real time, call Ola/Uber instead of flagging street vehicles, and quickly verify if a 'closed' attraction is actually open. Airtel has the best coverage in Udaipur. You can get a SIM at the airport in Jaipur or at any authorised Airtel/Jio shop in Udaipur with your passport. Takes about 30 minutes to activate.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-021
+(
+  'udaipur-cp-021', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Friendly local 'artist' — sweet, harmless, but clearly commission-based$t$,
+  $c$Outside a hostel near Lal Ghat I met a local artist who specialised in Rajasthani folk miniature paintings. He was genuinely lovely and knowledgeable, showed me his collection and explained the history. I bought one small piece I genuinely liked at what seemed a fair price. I later found out the price could have been lower, and that artists near hostels are sometimes part of a soft commission network with accommodation staff. Not a scam — but go in with eyes open. Enjoy the art; negotiate on price.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-022
+(
+  'udaipur-cp-022', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Men who insist they have to walk you everywhere — how I handled it$t$,
+  $c$A few times in Udaipur, men positioned themselves between me and a monument entrance, or started walking alongside me saying they were 'keeping me safe'. The approach that works: stop completely, face them, say 'Thank you, I'm fine' clearly and firmly, then wait — don't keep walking with them beside you. If they continue, step into a shop or café. These encounters rarely escalate; most men who do this are testing a social boundary rather than posing a genuine threat, but that doesn't mean you have to tolerate it.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-023
+(
+  'udaipur-cp-023', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Rajasthan was the friendliest region I visited — Udaipur was a highlight$t$,
+  $c$I spent 3 weeks solo in Rajasthan and Udaipur was without question the most relaxed I felt anywhere. The tourist circuit is well-worn, which means people are used to solo women and there's safety in numbers of travellers. Compared to Delhi or Agra, the level of unsolicited approach and aggressive tout behaviour is considerably lower. This is not a 'perfectly safe' destination — no destination is — but it is genuinely one of the better ones in India for solo women.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-024
+(
+  'udaipur-cp-024', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Donate smart — skip the baby milk request near Jagdish Temple$t$,
+  $c$At Jagdish Temple and on the roads approaching City Palace, women carrying infants regularly approach solo female tourists asking for money to buy milk. If you follow them to buy the milk, the shop charges an extraordinary markup and a portion of the profit goes back to the woman, with the goods returned after you leave. I understand the impulse to help — the babies are real. If you genuinely want to contribute, research NGOs working in Udaipur and donate through them.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-025
+(
+  'udaipur-cp-025', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Udaipur is one of the best places in India to meet other solo travellers$t$,
+  $c$If you're solo and want to find community, Udaipur consistently delivers. I met other solo women at rooftop cafés overlooking Lake Pichola, at the evening performance at Bagore ki Haveli, and at the hostel common areas. The city attracts a slower-travel crowd — people staying 4–7 days rather than passing through in one — so friendships have time to form. Walking in a loose group of travellers also substantially reduces the frequency of touts and unwanted attention.$c$,
+  'udaipur-india', '[]', 'approved'
+),
+
+-- udaipur-cp-026
+(
+  'udaipur-cp-026', 'experiences',
+  'Solo traveller', '25-40',
+  $t$Always check Google Maps during your auto/rickshaw ride$t$,
+  $c$This is non-negotiable for me in Udaipur. Not because I feared the driver, but for peace of mind. Twice my driver took a slightly longer route and I was able to point it out and ask them to correct. Most did so without any fuss. The presence of your phone showing a map also signals to the driver that you are aware and paying attention — which on its own often keeps the route honest.$c$,
+  'udaipur-india', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── Sub-part 3 of 5 complete (community posts udaipur-cp-014 to 026). ────────
+-- ── Sub-parts 4–5 (cp-027 to cp-050) append below. ───────────────────────────
