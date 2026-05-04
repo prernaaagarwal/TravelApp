@@ -29,7 +29,6 @@ export async function submitVaultSignup(formData: FormData) {
   });
 
   if (error) {
-    console.error("vault_signups insert:", error);
     return { error: "Something went wrong. Please try again." };
   }
 

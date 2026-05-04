@@ -19,10 +19,17 @@ const dmMono = DM_Mono({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Wander Women",
   description:
     "Trip intel built by women who actually travel solo. Real scams, neighborhoods, transport, hidden gems, and costs — sourced from named contributors.",
+  openGraph: {
+    siteName: "Wander Women",
+    type: "website",
+  },
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,

@@ -171,8 +171,7 @@ export async function verifyStay(input: VerifyStayInput): Promise<StayVerificati
   try {
     const finalText = await runClaudeCli(SYSTEM_PROMPT, userPrompt(input));
     return parseAgentJson(finalText);
-  } catch (err) {
-    console.error("[verifyStay] CLI agent failed, returning mock:", err);
+  } catch {
     return mockVerification();
   }
 }

@@ -78,13 +78,13 @@ export default async function FeedPage({
   const headerTitle = activeSlug
     ? `What it cost in ${cityFromSlug(activeSlug)}.`
     : requestedNoMatch
-      ? `Receipts for ${cityFromSlug(requestedSlug)} — coming soon.`
+      ? `No receipts for ${cityFromSlug(requestedSlug)} yet.`
       : "What it actually cost.";
 
   const headerSub = activeSlug
     ? `${trips.length} real ${trips.length === 1 ? "trip" : "trips"} to ${cityFromSlug(activeSlug)}, every rupee tracked.`
     : requestedNoMatch
-      ? `No travellers have shared their ${cityFromSlug(requestedSlug)} budget yet. In the meantime, here's every other receipt we've got.`
+      ? `No one has logged a ${cityFromSlug(requestedSlug)} trip yet — showing all receipts below. Be the first to submit yours.`
       : `${tripFeed.length} real solo trips, every rupee tracked. Receipts, not Pinterest aspirations.`;
 
   return (
