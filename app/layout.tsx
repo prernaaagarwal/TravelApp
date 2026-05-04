@@ -4,6 +4,10 @@ import "./globals.css";
 import { Header } from "@/components/shared/Header";
 import { Footer } from "@/components/shared/Footer";
 import { MobileNavWrapper } from "@/components/shared/MobileNavWrapper";
+import { PostHogProvider } from "@/components/shared/PostHogProvider";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { organizationLd, websiteLd } from "@/lib/jsonld";
+import { PWA } from "@/components/shared/PWA";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -19,7 +23,7 @@ const dmMono = DM_Mono({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -78,15 +82,15 @@ export default function RootLayout({
       className={`${cormorant.variable} ${dmMono.variable} antialiased`}
     >
       <body className="flex min-h-screen flex-col pb-16 md:pb-0">
-        <Header />
-        <div className="flex-1">{children}</div>
-        <Footer />
-        <MobileNavWrapper />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}`,
-          }}
-        />
+        <JsonLd data={organizationLd()} />
+        <JsonLd data={websiteLd()} />
+        <PostHogProvider>
+          <Header />
+          <div className="flex-1">{children}</div>
+          <Footer />
+          <MobileNavWrapper />
+        </PostHogProvider>
+        <PWA />
       </body>
     </html>
   );

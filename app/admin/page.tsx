@@ -1,14 +1,14 @@
-import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
-import { AlertTriangle, Clock, CheckCircle, XCircle, ChevronRight, Flag } from "lucide-react";
+import { createClient } from "@/lib/supabase/server";
+import { ModerationQueue } from "@/components/admin/ModerationQueue";
+import { Clock, CheckCircle, XCircle, Flag } from "lucide-react";
 import { deactivateUser, dismissUserFlags } from "@/app/admin/team/actions";
 
-const SEVERITY_META: Record<string, { label: string; className: string }> = {
-  critical: { label: "Critical", className: "bg-rust/20 text-rust border-rust/30" },
-  high:     { label: "High",     className: "bg-gold/20 text-gold border-gold/30" },
-  medium:   { label: "Medium",   className: "bg-blue/20 text-blue border-blue/30" },
-  low:      { label: "Low",      className: "bg-sage/20 text-sage border-sage/30" },
+export const metadata = {
+  title: "Moderation Queue — Wander Women Admin",
 };
+
+export const dynamic = "force-dynamic";
 
 function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
@@ -19,35 +19,49 @@ function timeAgo(dateStr: string): string {
   return `${Math.floor(hrs / 24)}d ago`;
 }
 
-export default async function AdminQueuePage() {
+type FlagProfile = { id: string; first_name: string | null; username: string | null; email: string | null };
+type FlagRow = { reported_user_id: string; reason: string; created_at: string; profiles: FlagProfile[] };
+
+export default async function AdminPage() {
   const supabase = await createClient();
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+  const todayIso = today.toISOString();
 
   const [
-    { data: pending, count: pendingCount },
+    { data: pendingPosts },
+    { data: pendingBewares },
+    { data: pendingTrips },
     { count: approvedToday },
     { count: rejectedToday },
     { data: flaggedRaw },
   ] = await Promise.all([
     supabase
+      .from("community_posts")
+      .select("id,tab,title,author_id,author_name,content,destination,created_at")
+      .eq("status", "pending")
+      .order("created_at", { ascending: true }),
+    supabase
       .from("beware_reports")
-      .select("id, title, city, severity, reported_by_name, created_at, photo_urls", {
-        count: "exact",
-      })
+      .select("id,title,description,category,severity,city,reported_by_id,reported_by_name,created_at")
+      .eq("status", "pending")
+      .order("created_at", { ascending: true }),
+    supabase
+      .from("trip_submissions")
+      .select("id,user_id,destination,destination_slug,trip_start,trip_end,day_count,total_cost_inr,highlight,created_at")
       .eq("status", "pending")
       .order("created_at", { ascending: true }),
     supabase
       .from("beware_reports")
       .select("id", { count: "exact", head: true })
       .eq("status", "approved")
-      .gte("reviewed_at", today.toISOString()),
+      .gte("moderated_at", todayIso),
     supabase
       .from("beware_reports")
       .select("id", { count: "exact", head: true })
       .eq("status", "rejected")
-      .gte("reviewed_at", today.toISOString()),
+      .gte("moderated_at", todayIso),
     supabase
       .from("user_reports")
       .select("reported_user_id, reason, created_at, profiles!user_reports_reported_user_id_fkey(id, first_name, username, email)")
@@ -55,26 +69,40 @@ export default async function AdminQueuePage() {
       .order("created_at", { ascending: true }),
   ]);
 
+  const posts   = pendingPosts   ?? [];
+  const bewares = pendingBewares ?? [];
+  const trips   = pendingTrips   ?? [];
+  const total   = posts.length + bewares.length + trips.length;
+
   // Group flags by reported user
-  type FlagProfile = { id: string; first_name: string | null; username: string | null; email: string | null };
-  type FlagRow = { reported_user_id: string; reason: string; created_at: string; profiles: FlagProfile[] };
-  const flagsByUser = ((flaggedRaw as unknown as FlagRow[]) ?? []).reduce<Record<string, { profile: FlagProfile | null; reasons: string[]; latest: string }>>((acc, row) => {
+  const flagsByUser = ((flaggedRaw as unknown as FlagRow[]) ?? []).reduce<
+    Record<string, { profile: FlagProfile | null; reasons: string[]; latest: string }>
+  >((acc, row) => {
     if (!acc[row.reported_user_id]) {
       acc[row.reported_user_id] = { profile: row.profiles?.[0] ?? null, reasons: [], latest: row.created_at };
     }
     acc[row.reported_user_id].reasons.push(row.reason);
-    if (row.created_at > acc[row.reported_user_id].latest) acc[row.reported_user_id].latest = row.created_at;
+    if (row.created_at > acc[row.reported_user_id].latest) {
+      acc[row.reported_user_id].latest = row.created_at;
+    }
     return acc;
   }, {});
-  const flaggedUsers = Object.entries(flagsByUser).sort((a, b) => b[1].reasons.length - a[1].reasons.length);
+  const flaggedUsers = Object.entries(flagsByUser).sort(
+    (a, b) => b[1].reasons.length - a[1].reasons.length,
+  );
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
       <div className="mb-8">
         <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-          Moderation queue
+          Moderation
         </p>
-        <h1 className="font-serif text-3xl text-ink">Pending reports</h1>
+        <h1 className="font-serif text-3xl text-ink">Queue</h1>
+        <p className="mt-1 font-mono text-xs text-ww-muted">
+          {total === 0
+            ? "Nothing pending."
+            : `${total} item${total === 1 ? "" : "s"} waiting — ${posts.length} post${posts.length === 1 ? "" : "s"}, ${bewares.length} beware report${bewares.length === 1 ? "" : "s"}, ${trips.length} trip receipt${trips.length === 1 ? "" : "s"}.`}
+        </p>
       </div>
 
       {/* Stats bar */}
@@ -82,7 +110,7 @@ export default async function AdminQueuePage() {
         {[
           {
             icon: <Clock className="h-4 w-4 text-gold" />,
-            value: pendingCount ?? 0,
+            value: total,
             label: "Awaiting review",
             bg: "bg-gold/10",
           },
@@ -114,63 +142,30 @@ export default async function AdminQueuePage() {
         ))}
       </div>
 
-      {/* Queue */}
-      {(!pending || pending.length === 0) ? (
-        <div className="border border-ww-border bg-warm-white p-12 text-center">
-          <CheckCircle className="mx-auto mb-3 h-8 w-8 text-sage" />
-          <p className="font-serif text-xl text-ink">All caught up.</p>
-          <p className="mt-1 font-mono text-xs text-ww-muted">
-            No pending reports to review.
-          </p>
-        </div>
-      ) : (
-        <div className="space-y-2">
-          {pending.map((report) => {
-            const sev = SEVERITY_META[report.severity ?? "medium"] ??
-              SEVERITY_META.medium;
-            const photos = Array.isArray(report.photo_urls)
-              ? (report.photo_urls as string[])
-              : [];
+      {/* CMS shortcuts */}
+      <div className="mb-10 grid grid-cols-2 gap-3">
+        <Link
+          href="/admin/intel"
+          className="border border-ww-border bg-warm-white p-4 transition-colors hover:border-ink"
+        >
+          <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Manage</p>
+          <p className="mt-1 font-serif text-lg text-ink">Intel cards</p>
+          <p className="mt-1 font-mono text-[10px] text-ww-muted">Create, edit, delete city guides →</p>
+        </Link>
+        <Link
+          href="/admin/contributors"
+          className="border border-ww-border bg-warm-white p-4 transition-colors hover:border-ink"
+        >
+          <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Manage</p>
+          <p className="mt-1 font-serif text-lg text-ink">Contributors</p>
+          <p className="mt-1 font-mono text-[10px] text-ww-muted">Add, edit contributor profiles →</p>
+        </Link>
+      </div>
 
-            return (
-              <Link
-                key={report.id}
-                href={`/admin/reports/${report.id}`}
-                className="flex items-center gap-4 border border-ww-border bg-warm-white p-4 transition-shadow hover:shadow-sm"
-              >
-                <AlertTriangle className="h-4 w-4 shrink-0 text-gold" />
+      {/* Unified moderation queue */}
+      <ModerationQueue posts={posts} bewares={bewares} trips={trips} />
 
-                <div className="min-w-0 flex-1">
-                  <div className="mb-1 flex flex-wrap items-center gap-2">
-                    <span
-                      className={`border px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-widest ${sev.className}`}
-                    >
-                      {sev.label}
-                    </span>
-                    {report.city && (
-                      <span className="font-mono text-[10px] text-ww-muted">
-                        {report.city}
-                      </span>
-                    )}
-                  </div>
-                  <p className="truncate font-mono text-sm font-semibold text-ink">
-                    {report.title}
-                  </p>
-                  <p className="font-mono text-[10px] text-ww-muted">
-                    by {report.reported_by_name ?? "Anonymous"} ·{" "}
-                    {timeAgo(report.created_at)}
-                    {photos.length > 0 && ` · ${photos.length} photo${photos.length > 1 ? "s" : ""}`}
-                  </p>
-                </div>
-
-                <ChevronRight className="h-4 w-4 shrink-0 text-ww-muted" />
-              </Link>
-            );
-          })}
-        </div>
-      )}
-
-      {/* ── Flagged users ───────────────────────────────────────────── */}
+      {/* Flagged users */}
       {flaggedUsers.length > 0 && (
         <div className="mt-12">
           <div className="mb-5 flex items-center gap-3">
@@ -183,7 +178,11 @@ export default async function AdminQueuePage() {
 
           <div className="space-y-3">
             {flaggedUsers.map(([userId, { profile, reasons, latest }]) => {
-              const name = profile?.first_name ?? profile?.username ?? profile?.email?.split("@")[0] ?? "Unknown";
+              const name =
+                profile?.first_name ??
+                profile?.username ??
+                profile?.email?.split("@")[0] ??
+                "Unknown";
               const username = profile?.username;
               return (
                 <div key={userId} className="border border-ww-border bg-warm-white p-4">
@@ -206,7 +205,10 @@ export default async function AdminQueuePage() {
                       </p>
                       <div className="mt-2 flex flex-wrap gap-1.5">
                         {[...new Set(reasons)].map((r) => (
-                          <span key={r} className="border border-rust/30 bg-rust/10 px-2 py-0.5 font-mono text-[10px] text-rust">
+                          <span
+                            key={r}
+                            className="border border-rust/30 bg-rust/10 px-2 py-0.5 font-mono text-[10px] text-rust"
+                          >
                             {r}
                           </span>
                         ))}

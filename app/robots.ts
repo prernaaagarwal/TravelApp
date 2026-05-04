@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.app";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -10,13 +10,19 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: [
           "/admin",
-          "/admin/*",
+          "/admin/",
+          "/api/",
           "/account/profile",
           "/account/settings",
-          "/api/",
+          "/auth/",
+          "/onboarding",
+          "/profile/",
+          "/verify-stay/",
+          "/settings",
         ],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

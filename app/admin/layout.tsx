@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import { Shield, ClipboardList, Users, ArrowLeft } from "lucide-react";
+import { Shield, ClipboardList, FileText, Users, UserCog, ArrowLeft } from "lucide-react";
 
 export const metadata = { title: "Admin — Wander Women" };
 
@@ -15,7 +15,7 @@ export default async function AdminLayout({
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) redirect("/account/login");
+  if (!user) redirect("/account/login?next=/admin");
 
   const { data: profile } = await supabase
     .from("profiles")
@@ -51,7 +51,21 @@ export default async function AdminLayout({
             className="flex items-center gap-2 px-3 py-2 font-mono text-xs text-ww-muted transition-colors hover:bg-sand hover:text-ink"
           >
             <ClipboardList className="h-3.5 w-3.5" />
-            Reports queue
+            Queue
+          </Link>
+          <Link
+            href="/admin/intel"
+            className="flex items-center gap-2 px-3 py-2 font-mono text-xs text-ww-muted transition-colors hover:bg-sand hover:text-ink"
+          >
+            <FileText className="h-3.5 w-3.5" />
+            Intel cards
+          </Link>
+          <Link
+            href="/admin/contributors"
+            className="flex items-center gap-2 px-3 py-2 font-mono text-xs text-ww-muted transition-colors hover:bg-sand hover:text-ink"
+          >
+            <UserCog className="h-3.5 w-3.5" />
+            Contributors
           </Link>
           {isAdmin && (
             <Link

@@ -76,6 +76,47 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
 
   const allPosts: RawPost[] = [...(rawPosts as unknown as RawPost[]), ...dbNormalized];
 
+  // Same pattern for beware reports: mock + approved DB rows.
+  const { data: dbBewares } = await supabase
+    .from("beware_reports")
+    .select(
+      "id, destination_slug, city, category, title, severity, description, reported_by_name, created_at, location, helpful_count",
+    )
+    .eq("status", "approved");
+
+  type RawBeware = {
+    id: string;
+    destinationSlug: string;
+    city: string;
+    category: string;
+    title: string;
+    severity: string;
+    description: string;
+    reportedBy: string;
+    reportedDate: string;
+    location: string;
+    helpfulCount: number;
+  };
+
+  const dbBewareNormalized: RawBeware[] = (dbBewares ?? []).map((b) => ({
+    id:              b.id,
+    destinationSlug: b.destination_slug ?? "",
+    city:            b.city ?? "",
+    category:        b.category ?? "",
+    title:           b.title,
+    severity:        b.severity ?? "medium",
+    description:     b.description,
+    reportedBy:      b.reported_by_name ?? "Anonymous",
+    reportedDate:    b.created_at,
+    location:        b.location ?? "",
+    helpfulCount:    b.helpful_count ?? 0,
+  }));
+
+  const allBewares: RawBeware[] = [
+    ...(rawBeware as unknown as RawBeware[]),
+    ...dbBewareNormalized,
+  ];
+
   // Filter posts by location
   let filteredPosts = allPosts.filter((p) => {
     const dest = p.destination ?? "";
@@ -88,8 +129,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     }
   });
 
-  // Filter bewares by location
-  let filteredBewares = rawBeware.filter((b) => {
+  let filteredBewares = allBewares.filter((b) => {
     const dest = b.destinationSlug ?? "";
     if (country === "india") {
       return city !== "all" ? dest === city : dest.endsWith("-india");
@@ -123,7 +163,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     content: p.content,
     replyCount: p.replyCount,
     likeCount: p.likeCount,
-    destination: p.destination ?? undefined,
+    destination: p.destination || undefined,
     isHelpfulByMe: false,
     imageUrls: p.imageUrls,
   }));

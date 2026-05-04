@@ -11,6 +11,11 @@ import { createClient as createBrowserClient } from "@/lib/supabase/client";
 import { createClient } from "@/lib/supabase/server";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { intelCardLd, breadcrumbLd } from "@/lib/jsonld";
+import { ViewTracker } from "@/components/intel/ViewTracker";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.app";
 
 type Params = Promise<{ slug: string }>;
 
@@ -103,6 +108,24 @@ export default async function IntelPage({ params }: { params: Params }) {
 
   return (
     <div className="bg-warm-white">
+      <ViewTracker slug={raw.slug} />
+      <JsonLd
+        data={intelCardLd({
+          slug: raw.slug,
+          destination: raw.destination,
+          country: raw.country,
+          hero_image_url: raw.hero_image_url,
+          last_updated: raw.last_updated,
+          contributor_name: contributor?.fullName ?? contributor?.name ?? null,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbLd([
+          { name: "Home",     url: SITE_URL },
+          { name: "Explore",  url: `${SITE_URL}/explore` },
+          { name: card.destination, url: `${SITE_URL}/intel/${card.slug}` },
+        ])}
+      />
       {/* ── Hero image ───────────────────────────────────────────────── */}
       <div className="relative h-64 w-full overflow-hidden bg-rust-light md:h-80">
         <Image

@@ -4,11 +4,19 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { submitBewareReportSchema } from "@/lib/schemas";
 import { revalidatePath } from "next/cache";
+import { checkRateLimit, LIMITS } from "@/lib/rate-limit";
+import { checkBanned } from "@/lib/ban-check";
 
 export async function submitBewareReport(formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: "Not logged in" };
+
+  const ban = await checkBanned(supabase, user.id);
+  if (ban.banned) return { error: ban.message };
+
+  const limit = await checkRateLimit(supabase, user.id, LIMITS.BEWARE_REPORTS);
+  if (!limit.allowed) return { error: limit.message };
 
   const gpsLatRaw = formData.get("gps_lat");
   const gpsLngRaw = formData.get("gps_lng");

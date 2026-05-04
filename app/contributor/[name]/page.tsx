@@ -1,13 +1,16 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import contributors from "@/lib/mock-data/contributors.json";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createStaticClient } from "@/lib/supabase/server";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { contributorLd } from "@/lib/jsonld";
 
 type Params = Promise<{ name: string }>;
 
 export async function generateStaticParams() {
-  return contributors.map((c) => ({ name: c.slug }));
+  const supabase = createStaticClient();
+  const { data } = await supabase.from("contributors").select("slug");
+  return (data ?? []).map((c) => ({ name: c.slug as string }));
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
@@ -45,10 +48,23 @@ export default async function ContributorPage({ params }: { params: Params }) {
     earningsThisMonth: raw.earnings_this_month,
   };
 
-  const [{ data: rawCards }, { data: rawPosts }] = await Promise.all([
+  const [{ data: rawCards }, { data: rawPosts }, { data: stats }] = await Promise.all([
     supabase.from("intel_cards").select("slug,destination,country,hero_image_url,tldr").eq("contributor_slug", name),
     supabase.from("community_posts").select("id,content,destination,like_count,created_at").eq("author_name", contributor.name).eq("tab", "ask").eq("status", "approved").limit(4),
+    supabase.from("contributor_stats").select("*").eq("slug", name).maybeSingle(),
   ]);
+
+  // Real, live stats from the view. Falls back to seed values if the view
+  // isn't available (e.g. legacy contributors with all zeros).
+  const liveStats = {
+    intelCardCount:        (stats?.intel_card_count        as number | undefined) ?? 0,
+    intelTotalViews:       (stats?.intel_total_views       as number | undefined) ?? 0,
+    intelVerifications:    (stats?.intel_verifications     as number | undefined) ?? 0,
+    bewareCount:           (stats?.beware_count            as number | undefined) ?? 0,
+    bewareTotalHelpful:    (stats?.beware_total_helpful    as number | undefined) ?? 0,
+    postCount:             (stats?.post_count              as number | undefined) ?? 0,
+    postTotalHelpful:      (stats?.post_total_helpful      as number | undefined) ?? 0,
+  };
 
   const herCards = (rawCards ?? []).map((c) => ({
     slug: c.slug,
@@ -73,6 +89,16 @@ export default async function ContributorPage({ params }: { params: Params }) {
 
   return (
     <div className="bg-warm-white">
+      <JsonLd
+        data={contributorLd({
+          slug: contributor.slug,
+          name: contributor.name,
+          full_name: contributor.fullName,
+          bio: contributor.bio,
+          photo_url: contributor.photoUrl,
+          home_city: contributor.homeCity,
+        })}
+      />
       {/* ── Hero strip ─────────────────────────────────────────────── */}
       <div className="border-b border-ww-border bg-ink px-6 py-12">
         <div className="mx-auto flex max-w-3xl flex-col items-start gap-6 sm:flex-row sm:items-center">
@@ -111,9 +137,9 @@ export default async function ContributorPage({ params }: { params: Params }) {
       <div className="border-b border-ww-border bg-sand">
         <div className="mx-auto grid max-w-3xl grid-cols-3 divide-x divide-ww-border">
           {[
-            { value: contributor.tripCount, label: "solo trips" },
-            { value: contributor.totalContributions, label: "cards written" },
-            { value: contributor.answersInCommunity, label: "community answers" },
+            { value: liveStats.intelCardCount,                                     label: "intel cards"  },
+            { value: liveStats.intelTotalViews.toLocaleString("en-IN"),            label: "card views"   },
+            { value: liveStats.bewareCount + liveStats.postCount,                  label: "contributions" },
           ].map((stat) => (
             <div key={stat.label} className="px-6 py-5 text-center">
               <p className="font-serif text-2xl font-light text-ink">
