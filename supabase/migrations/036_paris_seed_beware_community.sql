@@ -369,5 +369,147 @@ VALUES
   '[]', 'approved'
 );
 
--- ── Sub-part 2 of 4 for Paris beware reports complete (entries 17–32). ───────
--- ── Community posts (sub-parts 3 & 4) append below. ──────────────────────────
+-- ─── COMMUNITY POSTS (Sub-part 3: par-cp-001 to par-cp-015) ───────────────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- par-cp-001
+(
+  'par-cp-001', 'experiences',
+  'Solo traveller', '22-25',
+  $t$First solo trip to Paris — the bracelet scam caught me at Sacré-Cœur$t$,
+  $c$I'd read about the bracelet scam and still fell for it. A man on the steps to Sacré-Cœur grabbed my wrist so quickly I didn't even register it was happening. Bracelet tied in under 5 seconds. He immediately demanded €20. I said I didn't have cash. He said he'd walk me to an ATM. I started getting louder and saying 'please stop, I don't want this' — he backed off. The best advice I can give: protect your wrists like you protect your wallet up there. Walk with your hands in your pockets or holding a bag strap. The moment you stop and look up at the view you're a target.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-002
+(
+  'par-cp-002', 'experiences',
+  'Solo traveller', '26-30',
+  $t$My phone was snatched from my hand at a Paris Metro door$t$,
+  $c$I'd heard about the Metro door phone snatch but genuinely did not think it would happen to me. I was on line 4, near the door, texting. As the doors opened at Les Halles, a man grabbed my phone and stepped off. Doors closed before I could react. It was 4pm on a Wednesday afternoon. Not at night, not in a sketchy area — in the middle of the day on a tourist line. I've since learned the American expat community in Paris is full of this story. Now: phone in my bag, wrist strap attached, never at the door of the Metro, ever.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-003
+(
+  'par-cp-003', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Petition scam at the Louvre entrance almost cost me my wallet$t$,
+  $c$A group of about four young women approached me at the Louvre entrance with clipboards, speaking rapid French. One thrust a clipboard at me and pointed at the sign-here line. I was distracted and reaching for my bag to find a pen when I felt a tug — someone's hand in my bag. I jerked away and shouted. They scattered immediately. I still had my wallet because it was in my front crossbody pocket. This is a coordinated team operation. The clipboard person is purely a distraction. Walk away from anyone with a clipboard near any Paris tourist site.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-004
+(
+  'par-cp-004', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Two weeks solo in Paris — the honest safety picture$t$,
+  $c$I'm a well-travelled woman in my 30s and Paris was genuinely manageable solo. Street harassment was less common than Rome or Barcelona and violent crime against tourists is very rare. The issues are almost entirely scams and pickpockets concentrated at tourist sites. I stayed in the 11th arrondissement (Bastille area) — safe, local feeling, great restaurants, easy Metro access. What worked: crossbody bag always, phone in bag not hand, pre-booked Uber for late nights, avoided Pigalle at night, completely ignored petition clipboards and bracelet sellers. Had a great trip.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-005
+(
+  'par-cp-005', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Pickpocketed on the RER B from CDG — what I wish I'd known$t$,
+  $c$First hour in Paris and I was pickpocketed on the RER B from Charles de Gaulle. I had my rolling suitcase in the overhead rack and my day bag between my feet. My day bag was unzipped from below while I was distracted looking out the window — passport, phone, and 200 euros gone. A fellow traveller helped me report it at Gare du Nord. Lesson: on the RER B, luggage on your lap or between your legs (not the overhead), bag zipped and held, never the overhead for anything with valuables. Next time I'll pay the €55 for an official taxi from CDG.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-006
+(
+  'par-cp-006', 'experiences',
+  'Solo traveller', '26-30',
+  $t$Gare du Nord at midnight — solo female, not my finest hour$t$,
+  $c$Arrived by Eurostar from London at 11:30pm. The area immediately outside Gare du Nord at midnight is a different world from the busy daytime station. Groups of men, unsolicited approaches, one man who followed me for half a block before I went into a convenience store. I was not in danger and nothing happened, but I was genuinely uncomfortable. I now always book a Uber from inside the station on arrival rather than walking to the taxi rank. Cost me an extra €5 vs the cab rank but I'm inside a vehicle within 90 seconds of leaving the station.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-007
+(
+  'par-cp-007', 'experiences',
+  'Solo traveller', '36-40',
+  $t$Pickpocket got my wallet at the Eiffel Tower lift queue$t$,
+  $c$Standing in the queue for the second level lift at the Eiffel Tower. It was packed — typical summer crowd. My crossbody bag was at my side (not in front, my mistake). I felt nothing. Reached for my wallet to pay for something twenty minutes later and it was gone. Reported to police — got a reference number for the insurance claim. The police officer said the Eiffel Tower base accounts for a significant proportion of tourist theft in Paris. The bag needs to be in FRONT, clasp facing forward. Not at your side, not on your back.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-008
+(
+  'par-cp-008', 'experiences',
+  'Solo traveller', '36-40',
+  $t$How I did two weeks in Paris without being pickpocketed$t$,
+  $c$I've been to Paris 6 times. Pickpocketed once (early 2022, before I got serious about it). Since then: crossbody Pacsafe anti-theft bag (wire mesh inside the strap, lockable zipper, fixed to the seat carabiner at cafés), phone on a wrist strap always, money split between front jeans pocket and bag interior, only €50 cash on my person at any time with the rest locked in the hotel safe. I left my passport in the hotel and carried only a photo of it. I walked past every petition clipboard without making eye contact. Zero incidents in three subsequent trips.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-009
+(
+  'par-cp-009', 'experiences',
+  'Solo traveller', '22-25',
+  $t$The gold ring scam — simpler than you'd think$t$,
+  $c$Walking near the Trocadéro and a man in front of me 'found' a gold ring on the pavement and turned to me asking if I'd dropped it. When I said no, he examined it and said it looked like real gold and I should take it as I seemed to need luck. I started to take it (I know), then remembered the scam guide I'd read. He wanted a 'small donation' for giving me his lucky find. I handed it back and walked on. He followed for about 20 seconds calling out. Just keep walking and don't accept anything from strangers. It's not a dramatic scam — it's just a petty nuisance.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-010
+(
+  'par-cp-010', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Shell game at Trocadéro — watched a tourist lose €50 in 2 minutes$t$,
+  $c$I stood back and watched the shell game setup from a distance at Place du Trocadéro. The 'crowd' around the operator were clearly all in on it — they won repeatedly and loudly to draw genuine bystanders in. A tourist couple stepped forward and bet €50. Lost immediately. They bet again, twice, losing each time. The whole setup disappeared when a police officer appeared in the distance — entirely illegal. These are organised criminal groups, not street entertainers. Don't stop, don't watch, and especially don't bet.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-011
+(
+  'par-cp-011', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Street artist forced a portrait on me in Montmartre$t$,
+  $c$I was looking at the square artists near Place du Tertre when one made eye contact and began sketching my face before I could say anything. Within 30 seconds he had a recognisable likeness and showed it to me demanding €80. When I said I hadn't asked for it and wouldn't pay, he got louder and stepped closer. I firmly said 'no' and walked towards a nearby group of tourists. He didn't follow. You do not have to pay for anything you didn't request. These artists rely on the social pressure of a created obligation. Walk away without engaging.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-012
+(
+  'par-cp-012', 'experiences',
+  'Solo traveller', '41-50',
+  $t$Christmas Day pickpocket on the Champs-Élysées$t$,
+  $c$Even experienced travellers get caught. I was walking near the Tuileries on a Christmas Day when my wallet disappeared from my inner jacket pocket. The technique was an exceptionally skilled bump-and-extract — I felt nothing. The passport was back at the hotel (always leave it there). Immediately went to the police substation literally across the street from where it happened. The policewoman was efficient, gave me a full police report document in French and English within 30 minutes. Lesson: on the Champs-Élysées and any crowded Paris boulevard, keep nothing of value in any coat pocket — only money belt or front body-facing bag.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-013
+(
+  'par-cp-013', 'experiences',
+  'Solo traveller', '26-30',
+  $t$The Metro line you should worry about most in Paris$t$,
+  $c$Line 1 and Line 4 are the highest-risk for pickpockets because they serve the most tourist sites. The absolute worst moment is boarding/alighting at Châtelet — one of the world's busiest interchanges and a known hotspot. My tactic: stay near the middle of the carriage away from doors, bag in front always, phone inside bag. If I have to use Châtelet, I wait for a less crowded train rather than squeezing on. The airport RER B is also high risk — overhead rack is never for anything valuable.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-014
+(
+  'par-cp-014', 'experiences',
+  'Solo traveller', '31-35',
+  $t$Unlicensed taxi from CDG charged me €180 — how to avoid this$t$,
+  $c$First visit to Paris, arrived late, very tired. A man inside CDG arrivals held a sign and offered a taxi. He seemed professional. The ride to my hotel in the 7th arrondissement cost €180 on his 'fixed tourist rate.' The official metered flat rate from CDG to the Right or Left Bank is around €56. I paid 3x the legitimate rate. Now I only use the official Taxis Parisiens rank (vehicles with green/red illuminated roof signs) or I pre-book a G7 cab through the app before landing. Never accept a taxi offered by anyone approaching you inside the terminal.$c$,
+  'paris-france', '[]', 'approved'
+),
+
+-- par-cp-015
+(
+  'par-cp-015', 'experiences',
+  'Solo traveller', '26-30',
+  $t$The ketchup jacket scam — textbook execution on me near Notre Dame$t$,
+  $c$Walking near Notre Dame, a splash of something red landed on my jacket sleeve. A young woman appeared immediately offering to help clean it and pulling out tissues. I started to thank her and take my bag off to find my own tissue — and then stopped because I'd literally just read about this exact scam. I said thank you, I'm fine, and walked away holding my bag. The 'ketchup woman' didn't follow. If anything lands on you in Paris: grip your bag with both hands and move quickly to a public space before doing anything else.$c$,
+  'paris-france', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── Sub-part 3 of 4 complete (community posts par-cp-001 to par-cp-015). ─────
+-- ── Sub-part 4 (par-cp-016 to par-cp-030) appends below. ─────────────────────
