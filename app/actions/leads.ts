@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 
 export async function submitLead(
   email: string,
-  source: "landing-founding" | "coming-soon" | "contributor-apply"
+  source: "landing-founding" | "contributor-apply"
 ): Promise<{ error?: string }> {
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { error: "Please enter a valid email address." };

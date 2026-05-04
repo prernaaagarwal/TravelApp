@@ -43,6 +43,21 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   const userEmail = user?.email ?? null;
+
+  // Pre-fetch the viewer's "helpful" marks so the heart toggle survives a
+  // refresh. Without this, isHelpfulByMe is always false and a logged-in user
+  // sees their like reset to "not liked" every time the page reloads.
+  let helpfulPostIds = new Set<string>();
+  let helpfulBewareIds = new Set<string>();
+  if (user) {
+    const [{ data: hp }, { data: hb }] = await Promise.all([
+      supabase.from("community_post_helpful").select("post_id").eq("user_id", user.id),
+      supabase.from("beware_helpful").select("report_id").eq("user_id", user.id),
+    ]);
+    helpfulPostIds   = new Set((hp ?? []).map((r) => String(r.post_id)));
+    helpfulBewareIds = new Set((hb ?? []).map((r) => String(r.report_id)));
+  }
+
   const tab = VALID_TABS.has(sp.tab ?? "") ? (sp.tab as string) : "ask";
   const sort = VALID_SORTS.has(sp.sort ?? "") ? (sp.sort as string) : "newest";
   const country = sp.country === "international" ? "international" : "india";
@@ -164,7 +179,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     replyCount: p.replyCount,
     likeCount: p.likeCount,
     destination: p.destination || undefined,
-    isHelpfulByMe: false,
+    isHelpfulByMe: helpfulPostIds.has(p.id),
     imageUrls: p.imageUrls,
   }));
 
@@ -180,7 +195,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     reportedDate: new Date(b.reportedDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" }),
     location: b.location,
     helpfulCount: b.helpfulCount,
-    isHelpfulByMe: false,
+    isHelpfulByMe: helpfulBewareIds.has(b.id),
     hasScamMap: SUPPORTED_BEWARE_CITIES.has(b.destinationSlug),
   }));
 

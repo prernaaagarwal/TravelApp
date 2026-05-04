@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import { submitLead } from "@/app/actions/leads";
 
-type Source = "landing-founding" | "coming-soon" | "contributor-apply";
+type Source = "landing-founding" | "contributor-apply";
 
 export function EmailSignupForm({
   source,
