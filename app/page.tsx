@@ -6,6 +6,7 @@ import HeroBackground from "@/components/shared/HeroBackground";
 import WhatsInside from "@/components/landing/WhatsInside";
 import communityPosts from "@/lib/mock-data/community-posts.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
+import { createStaticClient } from "@/lib/supabase/server";
 
 // Persona slugs for the "Priya path" and "Sara path" onboarding cards.
 // Change here if contributors are renamed — nowhere else.
@@ -14,7 +15,19 @@ const SARA_SLUG  = "sara-berlin";
 
 export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
 
-export default function HomePage() {
+// Refresh the intel-cards count at most once a minute. Means the
+// "Browse all N destinations" CTA auto-updates whenever the admin
+// publishes a new card, without rebuilding the site.
+export const revalidate = 60;
+
+export default async function HomePage() {
+  // Live count of published intel cards (auto-updates as new ones land)
+  const supabase = createStaticClient();
+  const { count } = await supabase
+    .from("intel_cards")
+    .select("*", { count: "exact", head: true });
+  const totalDestinations = count ?? 21;
+
   // pre-select data each section needs
   const askPosts = communityPosts.filter((p) => p.tab === "ask").slice(0, 3);
 
@@ -96,6 +109,7 @@ export default function HomePage() {
         askPosts={askPosts}
         priyaSlug={PRIYA_SLUG}
         saraSlug={SARA_SLUG}
+        totalDestinations={totalDestinations}
       />
 
       {/* ── Beware Board scam ticker ──────────────────────────────────── */}

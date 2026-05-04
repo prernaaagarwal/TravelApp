@@ -43,6 +43,7 @@ type Props = {
   askPosts: AskPost[];
   priyaSlug: string;
   saraSlug: string;
+  totalDestinations: number;
 };
 
 export default function WhatsInside({
@@ -50,6 +51,7 @@ export default function WhatsInside({
   askPosts,
   priyaSlug,
   saraSlug,
+  totalDestinations,
 }: Props) {
   const priya = contributors.find((c) => c.slug === priyaSlug);
   const sara  = contributors.find((c) => c.slug === saraSlug);
@@ -199,7 +201,7 @@ export default function WhatsInside({
               href="/explore"
               className="font-mono text-xs uppercase tracking-widest text-rust hover:underline"
             >
-              Browse all 15 destinations →
+              Browse all {totalDestinations} destinations →
             </Link>
           </div>
         </div>
