@@ -1,3 +1,12 @@
+
+-- =====================================================================
+-- IDEMPOTENT BUNDLE -- safe to re-paste on a partially-applied database.
+-- Every CREATE TABLE / POLICY / TRIGGER below is preceded by a DROP guard
+-- (or uses IF NOT EXISTS) so duplicate-name errors never fire.
+-- INSERTs in this bundle either use ON CONFLICT DO NOTHING or are pure
+-- seed data -- duplicate-key errors on those are safe to ignore.
+-- =====================================================================
+
 -- ======================================================================
 -- Wander Women migration bundle: 01-schema-base
 -- Run this in Supabase SQL Editor (project: vykbvnkpfqfmcilovzsw)
@@ -21,8 +30,10 @@ create table if not exists profiles (
   created_at timestamptz not null default now()
 );
 alter table profiles enable row level security;
+drop policy if exists "Users read own profile" on profiles;
 create policy "Users read own profile" on profiles
   for select using (auth.uid() = id);
+drop policy if exists "Users update own profile" on profiles;
 create policy "Users update own profile" on profiles
   for update using (auth.uid() = id);
 
@@ -66,6 +77,7 @@ create table if not exists intel_cards (
   created_at timestamptz not null default now()
 );
 alter table intel_cards enable row level security;
+drop policy if exists "Anyone reads intel cards" on intel_cards;
 create policy "Anyone reads intel cards" on intel_cards
   for select using (true);
 
@@ -90,6 +102,7 @@ create table if not exists contributors (
   created_at timestamptz not null default now()
 );
 alter table contributors enable row level security;
+drop policy if exists "Anyone reads contributors" on contributors;
 create policy "Anyone reads contributors" on contributors
   for select using (true);
 
@@ -110,8 +123,10 @@ create table if not exists community_posts (
   created_at timestamptz not null default now()
 );
 alter table community_posts enable row level security;
+drop policy if exists "Anyone reads approved posts" on community_posts;
 create policy "Anyone reads approved posts" on community_posts
   for select using (status = 'approved');
+drop policy if exists "Users insert own posts" on community_posts;
 create policy "Users insert own posts" on community_posts
   for insert with check (auth.uid() = author_id);
 
@@ -136,8 +151,10 @@ create table if not exists beware_reports (
   created_at timestamptz not null default now()
 );
 alter table beware_reports enable row level security;
+drop policy if exists "Anyone reads approved reports" on beware_reports;
 create policy "Anyone reads approved reports" on beware_reports
   for select using (status = 'approved');
+drop policy if exists "Users insert reports" on beware_reports;
 create policy "Users insert reports" on beware_reports
   for insert with check (auth.uid() = reported_by_id);
 
@@ -159,8 +176,10 @@ create table if not exists buddy_matches (
   created_at timestamptz not null default now()
 );
 alter table buddy_matches enable row level security;
+drop policy if exists "Anyone reads buddy matches" on buddy_matches;
 create policy "Anyone reads buddy matches" on buddy_matches
   for select using (true);
+drop policy if exists "Users insert own match" on buddy_matches;
 create policy "Users insert own match" on buddy_matches
   for insert with check (auth.uid() = user_id);
 
@@ -174,8 +193,10 @@ create table if not exists buddy_connections (
   unique (from_user_id, to_match_id)
 );
 alter table buddy_connections enable row level security;
+drop policy if exists "Users read own connections" on buddy_connections;
 create policy "Users read own connections" on buddy_connections
   for select using (auth.uid() = from_user_id);
+drop policy if exists "Users insert connections" on buddy_connections;
 create policy "Users insert connections" on buddy_connections
   for insert with check (auth.uid() = from_user_id);
 
@@ -189,6 +210,7 @@ create table if not exists founding_membership_waitlist (
   created_at timestamptz not null default now()
 );
 alter table founding_membership_waitlist enable row level security;
+drop policy if exists "Anyone inserts waitlist" on founding_membership_waitlist;
 create policy "Anyone inserts waitlist" on founding_membership_waitlist
   for insert with check (true);
 
@@ -205,6 +227,7 @@ create table if not exists safety_products (
   created_at timestamptz not null default now()
 );
 alter table safety_products enable row level security;
+drop policy if exists "Anyone reads products" on safety_products;
 create policy "Anyone reads products" on safety_products
   for select using (true);
 
@@ -216,6 +239,7 @@ create table if not exists affiliate_clicks (
   created_at timestamptz not null default now()
 );
 alter table affiliate_clicks enable row level security;
+drop policy if exists "Anyone inserts clicks" on affiliate_clicks;
 create policy "Anyone inserts clicks" on affiliate_clicks
   for insert with check (true);
 
@@ -371,6 +395,7 @@ create table if not exists email_captures (
 
 alter table email_captures enable row level security;
 
+drop policy if exists "Anyone can insert email captures" on email_captures;
 create policy "Anyone can insert email captures" on email_captures
   for insert with check (true);
 
@@ -408,10 +433,13 @@ create table if not exists community_post_helpful (
   primary key (post_id, user_id)
 );
 alter table community_post_helpful enable row level security;
+drop policy if exists "Users read own helpful marks" on community_post_helpful;
 create policy "Users read own helpful marks" on community_post_helpful
   for select using (auth.uid() = user_id);
+drop policy if exists "Users insert own helpful" on community_post_helpful;
 create policy "Users insert own helpful" on community_post_helpful
   for insert with check (auth.uid() = user_id);
+drop policy if exists "Users delete own helpful" on community_post_helpful;
 create policy "Users delete own helpful" on community_post_helpful
   for delete using (auth.uid() = user_id);
 
@@ -424,6 +452,7 @@ create table if not exists community_post_reports (
   created_at timestamptz not null default now()
 );
 alter table community_post_reports enable row level security;
+drop policy if exists "Users insert reports" on community_post_reports;
 create policy "Users insert reports" on community_post_reports
   for insert with check (auth.uid() = reporter_id);
 
@@ -435,10 +464,13 @@ create table if not exists beware_helpful (
   primary key (report_id, user_id)
 );
 alter table beware_helpful enable row level security;
+drop policy if exists "Users read own beware helpful" on beware_helpful;
 create policy "Users read own beware helpful" on beware_helpful
   for select using (auth.uid() = user_id);
+drop policy if exists "Users insert own beware helpful" on beware_helpful;
 create policy "Users insert own beware helpful" on beware_helpful
   for insert with check (auth.uid() = user_id);
+drop policy if exists "Users delete own beware helpful" on beware_helpful;
 create policy "Users delete own beware helpful" on beware_helpful
   for delete using (auth.uid() = user_id);
 
@@ -451,6 +483,7 @@ create table if not exists beware_report_flags (
   created_at timestamptz not null default now()
 );
 alter table beware_report_flags enable row level security;
+drop policy if exists "Users insert beware flags" on beware_report_flags;
 create policy "Users insert beware flags" on beware_report_flags
   for insert with check (auth.uid() = reporter_id);
 
@@ -503,8 +536,10 @@ create table if not exists contributor_badges (
   unique (user_id, badge_type, destination_slug)
 );
 alter table contributor_badges enable row level security;
+drop policy if exists "Public read badges" on contributor_badges;
 create policy "Public read badges" on contributor_badges
   for select using (true);
+drop policy if exists "Users read own badges" on contributor_badges;
 create policy "Users read own badges" on contributor_badges
   for select using (auth.uid() = user_id);
 
@@ -517,6 +552,7 @@ create table if not exists saved_destinations (
   unique (user_id, destination_slug)
 );
 alter table saved_destinations enable row level security;
+drop policy if exists "Users manage own saves" on saved_destinations;
 create policy "Users manage own saves" on saved_destinations
   for all using (auth.uid() = user_id)
   with check (auth.uid() = user_id);
@@ -534,6 +570,7 @@ create table if not exists notification_preferences (
   updated_at timestamptz not null default now()
 );
 alter table notification_preferences enable row level security;
+drop policy if exists "Users manage own notifications" on notification_preferences;
 create policy "Users manage own notifications" on notification_preferences
   for all using (auth.uid() = user_id)
   with check (auth.uid() = user_id);
@@ -672,6 +709,7 @@ create table if not exists vault_signups (
 alter table vault_signups enable row level security;
 
 -- No auth required — anyone can sign up for the vault waitlist
+drop policy if exists "Anyone can insert vault signup" on vault_signups;
 create policy "Anyone can insert vault signup" on vault_signups
   for insert with check (true);
 
@@ -709,10 +747,12 @@ create table if not exists notifications (
 
 alter table notifications enable row level security;
 
+drop policy if exists "Users read own notifications" on notifications;
 create policy "Users read own notifications" on notifications
   for select using (auth.uid() = user_id);
 
 -- Users can only mark their own notifications as read (update read column)
+drop policy if exists "Users update own notifications" on notifications;
 create policy "Users update own notifications" on notifications
   for update using (auth.uid() = user_id)
   with check (auth.uid() = user_id);
@@ -720,6 +760,7 @@ create policy "Users update own notifications" on notifications
 -- ── 4. New RLS policies on beware_reports (additive — existing ones stay) ────
 
 -- Moderators and admins can read ALL reports regardless of status
+drop policy if exists "Moderators read all reports" on beware_reports;
 create policy "Moderators read all reports" on beware_reports
   for select using (
     exists (
@@ -730,10 +771,12 @@ create policy "Moderators read all reports" on beware_reports
   );
 
 -- Users can always read their OWN reports (pending, approved, rejected)
+drop policy if exists "Users read own reports" on beware_reports;
 create policy "Users read own reports" on beware_reports
   for select using (auth.uid() = reported_by_id);
 
 -- Moderators and admins can update reports (approve / reject)
+drop policy if exists "Moderators update reports" on beware_reports;
 create policy "Moderators update reports" on beware_reports
   for update using (
     exists (
@@ -746,6 +789,7 @@ create policy "Moderators update reports" on beware_reports
 -- ── 5. RLS on profiles — admin can update any profile's role ─────────────────
 -- Existing "Users update own profile" policy is unchanged.
 -- We add a separate admin-scoped update policy.
+drop policy if exists "Admins update user roles" on profiles;
 create policy "Admins update user roles" on profiles
   for update using (
     exists (
