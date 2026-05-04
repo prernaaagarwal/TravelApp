@@ -47,13 +47,26 @@ test.describe("trip submission flow", () => {
       "First solo morning at Project Cafe in Aldona, three other women already there. Felt like the universe organising itself.",
     );
 
-    // Submit and follow the server-action redirect.
-    // Timeout is 30s (not 15s) because the first run after `npm start` has
-    // cold-cache latency: server warmup + first Supabase round-trip.
-    await Promise.all([
-      page.waitForURL(/\/feed(\?.*)?$/, { timeout: 30_000 }),
-      page.click('button[type="submit"]'),
+    // Submit. The action either redirects to /feed?submitted=trip on success,
+    // or returns { error } and rerenders the form with an inline error message
+    // (rendered as <p class="text-rust">). Race the two outcomes so a server
+    // action error gives us a useful diagnostic instead of a 30s timeout.
+    await page.click('button[type="submit"]');
+
+    const errorLocator = page.locator('p.text-rust').first();
+    const result = await Promise.race([
+      page.waitForURL(/\/feed(\?.*)?$/, { timeout: 30_000 })
+        .then(() => ({ kind: "redirected" as const })),
+      errorLocator.waitFor({ state: "visible", timeout: 30_000 })
+        .then(async () => ({
+          kind: "errored" as const,
+          message: (await errorLocator.textContent())?.trim() ?? "(empty)",
+        })),
     ]);
+
+    if (result.kind === "errored") {
+      throw new Error(`Submit failed with inline error: "${result.message}"`);
+    }
 
     expect(page.url(), "should land on /feed after successful submit").toMatch(/\/feed(\?.*)?$/);
 
