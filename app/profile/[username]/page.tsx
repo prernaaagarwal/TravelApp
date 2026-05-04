@@ -373,6 +373,31 @@ export default async function ProfilePage({
           </div>
         )}
 
+        {/* ── Owner: beta feedback CTA ──────────────────── */}
+        {isOwner && (
+          <div className="rounded-xl border border-rust/30 bg-rust/[0.04] p-5 shadow-sm">
+            <p className="mb-1 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-rust">
+              <span className="h-1.5 w-1.5 rounded-full bg-rust" />
+              Beta · We need your view
+            </p>
+            <h2 className="mb-2 font-serif text-lg leading-snug text-ink">
+              Tell us what&apos;s working and what isn&apos;t.
+            </h2>
+            <p className="mb-3 font-mono text-xs leading-relaxed text-ww-muted">
+              Eight short questions. Every field is optional. Real feedback from
+              real users is the difference between this becoming a guidebook for
+              women and yet another travel app.
+            </p>
+            <Link
+              href="/feedback"
+              className="inline-flex items-center gap-2 bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
+            >
+              Share feedback
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+        )}
+
         {/* ── Owner: my reports ────────────────────────── */}
         {isOwner && (
           <div className="rounded-xl border border-ww-border bg-warm-white p-5 shadow-sm">
