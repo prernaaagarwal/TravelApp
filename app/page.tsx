@@ -3,6 +3,7 @@ import Image from "next/image";
 import intelCards from "@/lib/mock-data/intel-cards.json";
 import contributors from "@/lib/mock-data/contributors.json";
 import bewares from "@/lib/mock-data/beware-entries.json";
+import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 import communityPosts from "@/lib/mock-data/community-posts.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
 
@@ -487,27 +488,12 @@ export default function HomePage() {
             Price goes to ₹999 after founding 200 fill. No auto-renewal. No spam.
           </p>
 
-          {/* Formspree form */}
-          <form
-            action="https://formspree.io/f/YOUR_FORM_ID"
-            method="POST"
-            className="flex flex-col gap-3 sm:flex-row"
-          >
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="your@email.com"
-              className="flex-1 border border-warm-white/20 bg-warm-white/5 px-4 py-3 font-mono text-base text-warm-white placeholder-warm-white/30 outline-none focus:border-rust"
-            />
-            <input type="hidden" name="source" value="landing-founding" />
-            <button
-              type="submit"
-              className="shrink-0 bg-rust px-7 py-3 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-            >
-              Claim my spot →
-            </button>
-          </form>
+          <EmailSignupForm
+            source="landing-founding"
+            placeholder="your@email.com"
+            buttonText="Claim my spot →"
+            dark
+          />
 
           {/* what you get */}
           <ul className="mt-10 grid gap-2 text-left sm:grid-cols-2">
