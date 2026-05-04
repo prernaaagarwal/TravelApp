@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { href: "/vault", label: "WhatsApp Vault" },
   { href: "/shop", label: "Safety Shop" },
   { href: "/onboarding", label: "Get Started" },
-  { href: "/coming-soon", label: "Membership" },
+  { href: "/account/membership", label: "Membership" },
 ];
 
 export function Footer() {
@@ -51,16 +51,11 @@ export function Footer() {
 
         <div className="mt-5 flex flex-col items-start justify-between gap-3 font-mono text-[10px] text-ww-muted md:flex-row md:items-center">
           <span>© 2026 Wander Women — V0 demo build.</span>
+          {/* Legal pages not yet built — placeholders kept visible for V1. */}
           <div className="flex gap-4">
-            <Link href="/coming-soon" className="hover:text-ink">
-              Privacy
-            </Link>
-            <Link href="/coming-soon" className="hover:text-ink">
-              Terms
-            </Link>
-            <Link href="/coming-soon" className="hover:text-ink">
-              Code of Conduct
-            </Link>
+            <span className="cursor-not-allowed text-ww-muted/60">Privacy</span>
+            <span className="cursor-not-allowed text-ww-muted/60">Terms</span>
+            <span className="cursor-not-allowed text-ww-muted/60">Code of Conduct</span>
           </div>
         </div>
       </div>

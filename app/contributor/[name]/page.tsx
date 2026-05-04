@@ -257,7 +257,7 @@ export default async function ContributorPage({ params }: { params: Params }) {
             reviewing the first 20 contributors now.
           </p>
           <Link
-            href="/coming-soon"
+            href="/account/membership"
             className="inline-block border border-ink bg-ink px-5 py-2 font-mono text-xs uppercase tracking-widest text-warm-white hover:bg-ink/80 transition-colors"
           >
             Apply to contribute →

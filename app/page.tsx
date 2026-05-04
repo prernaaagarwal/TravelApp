@@ -234,7 +234,7 @@ export default async function HomePage() {
           <p className="mt-6 font-mono text-xs leading-relaxed text-ww-muted">
             We&apos;re not promising a number until we&apos;ve paid one out.
             Founding contributors get 2× the standard share for life.{" "}
-            <Link href="/coming-soon" className="text-rust underline underline-offset-2">
+            <Link href="/account/membership" className="text-rust underline underline-offset-2">
               Apply to be a founding contributor →
             </Link>
           </p>
