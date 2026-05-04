@@ -1,4 +1,4 @@
-import { spawn } from "node:child_process";
+import Anthropic from "@anthropic-ai/sdk";
 
 export type RiskColor = "green" | "yellow" | "red";
 
@@ -16,28 +16,27 @@ export type VerifyStayInput = {
   city: string | null;
 };
 
-const SYSTEM_PROMPT = `You are a travel safety research agent for Wander Women, a platform built for solo women travellers.
+const SYSTEM_PROMPT = `You are a travel safety analyst for Wander Women, a platform built for solo women travellers.
 
-Your job: research a specific booking listing and produce a concise, evidence-based safety verdict.
+Your job: analyse a booking listing URL and produce a concise, evidence-based safety verdict using your knowledge of booking platforms, known scam patterns, and destination risks.
 
-Process:
-1. Use WebFetch on the booking URL itself to read the listing's title, host details, reviews, and policies (some platforms may block — that's fine, fall back to search).
-2. Use WebSearch to look for: "[property name] reviews scam", "[property name] [city] complaints", "[city] [platform] tourist scams", "[city] solo female traveller safety reddit".
-3. Look for hidden negative signals on Reddit, TripAdvisor, travel forums — places where unhappy guests complain when official reviews are filtered.
-4. Cross-reference the destination's known scam patterns for this platform.
-
-Then synthesise everything into a clear verdict.
+What to assess:
+1. Platform trust level — is this a reputable platform (Airbnb, Booking.com, Agoda, etc.) or unknown?
+2. URL legitimacy signals — does the URL structure match the real platform? Any suspicious domains, redirects, or typosquatting?
+3. Known scam patterns for this platform — off-platform payment requests, too-good pricing, no cancellation policy, new hosts with no history.
+4. Destination risk level — what are the known safety considerations for solo women travellers in this city/region?
+5. Property-level signals from the URL or property name — vague address, sub-let signals, mismatched city.
 
 Color scale:
-- green = no significant red flags found, listing appears legitimate, normal precautions sufficient
-- yellow = some concerns or general destination risks; proceed with verification steps
-- red = significant scam reports, safety risks, fake-listing signals, or major host-related complaints
+- green = reputable platform, no red flags in URL or destination, standard precautions sufficient
+- yellow = some concerns (destination risks, platform-specific scam patterns to watch for, or URL signals worth noting); proceed with standard verification steps
+- red = significant risk signals — suspicious URL, known high-scam destination/platform combination, fake-listing patterns, or strong off-platform signals
 
 Output ONLY a single JSON object with this exact shape (no markdown fences, no preamble, no closing remarks):
 
 {
   "color": "green" | "yellow" | "red",
-  "verdict": "<5-8 words: clear, scannable verdict like 'Safe to book' or 'Avoid: scam reports found' or 'Verify host before paying'>",
+  "verdict": "<5-8 words: clear, scannable verdict like 'Safe platform, standard precautions' or 'Verify host before paying' or 'Suspicious URL — do not book'>",
   "reasons": [
     "<short, specific finding 1 — one sentence>",
     "<short, specific finding 2>",
@@ -45,23 +44,23 @@ Output ONLY a single JSON object with this exact shape (no markdown fences, no p
     "<short, specific finding 4>"
   ],
   "sources": [
-    "<URL of most relevant source consulted>",
-    "<URL of second source>",
-    "<URL of third source>"
+    "<description of the knowledge basis, e.g. 'Airbnb official domain verified' or 'Known scam pattern: off-platform payment'>",
+    "<second knowledge basis>",
+    "<third knowledge basis>"
   ]
 }
 
-Aim for 3-5 reasons and 2-5 sources. Each reason must be evidence-based — reference what you actually found in research, not generic safety advice. If web research returns no findings about the specific property, say so honestly in the reasons (e.g. "No reviews or scam reports surfaced for this specific listing").`;
+Aim for 3-5 reasons and 2-4 sources. Each reason must reference something specific about this URL, platform, or destination — not generic advice. Be honest if the URL looks completely legitimate.`;
 
 function userPrompt(input: VerifyStayInput): string {
-  return `Research this booking listing and return your verdict as JSON only.
+  return `Analyse this booking listing and return your safety verdict as JSON only.
 
 URL: ${input.url}
 Platform: ${input.platform}
-Property name: ${input.propertyName ?? "(not extracted — fetch the URL to find out)"}
-City/destination: ${input.city ?? "(unknown — try to determine from the URL or listing)"}
+Property name: ${input.propertyName ?? "(not provided)"}
+City/destination: ${input.city ?? "(unknown — try to determine from the URL)"}
 
-Begin research now.`;
+Return your verdict now.`;
 }
 
 function mockVerification(): StayVerification {
@@ -69,7 +68,7 @@ function mockVerification(): StayVerification {
     color: "yellow",
     verdict: "Verify host before booking",
     reasons: [
-      "Claude CLI was unavailable — research could not run",
+      "Analysis service was temporarily unavailable — this is a fallback response",
       "Standard solo-traveller verification recommended for any new booking",
       "Confirm host identity via video call before transferring funds",
       "Cross-check the property address on Google Maps Street View",
@@ -109,68 +108,34 @@ function parseAgentJson(text: string): StayVerification {
   };
 }
 
-const CLI_BINARY = process.env.CLAUDE_CLI_PATH ?? "claude";
-const CLI_TIMEOUT_MS = 120_000;
-
-type CliJsonResult = { result?: string; is_error?: boolean };
-
-async function runClaudeCli(system: string, user: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const proc = spawn(
-      CLI_BINARY,
-      [
-        "-p", user,
-        "--system-prompt", system,
-        "--allowed-tools", "WebSearch,WebFetch",
-        "--output-format", "json",
-      ],
-      { stdio: ["ignore", "pipe", "pipe"] }
-    );
-
-    let stdout = "";
-    let stderr = "";
-
-    const timeout = setTimeout(() => {
-      proc.kill("SIGKILL");
-      reject(new Error(`claude CLI timed out after ${CLI_TIMEOUT_MS / 1000}s`));
-    }, CLI_TIMEOUT_MS);
-
-    proc.stdout.on("data", (d: Buffer) => { stdout += d.toString(); });
-    proc.stderr.on("data", (d: Buffer) => { stderr += d.toString(); });
-
-    proc.on("error", (err) => {
-      clearTimeout(timeout);
-      reject(new Error(`claude CLI failed to start: ${err.message}`));
-    });
-
-    proc.on("close", (code) => {
-      clearTimeout(timeout);
-      if (code !== 0) {
-        reject(new Error(`claude CLI exited ${code}: ${stderr.slice(0, 500)}`));
-        return;
-      }
-      try {
-        const parsed: CliJsonResult = JSON.parse(stdout);
-        if (parsed.is_error) {
-          reject(new Error(`claude CLI returned error: ${stdout.slice(0, 500)}`));
-          return;
-        }
-        if (typeof parsed.result !== "string") {
-          reject(new Error("claude CLI output missing 'result' field"));
-          return;
-        }
-        resolve(parsed.result);
-      } catch {
-        reject(new Error(`claude CLI returned non-JSON: ${stdout.slice(0, 300)}`));
-      }
-    });
-  });
-}
-
 export async function verifyStay(input: VerifyStayInput): Promise<StayVerification> {
   try {
-    const finalText = await runClaudeCli(SYSTEM_PROMPT, userPrompt(input));
-    return parseAgentJson(finalText);
+    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+    const response = await client.messages.create({
+      model: "claude-sonnet-4-6",
+      max_tokens: 1024,
+      system: [
+        {
+          type: "text",
+          text: SYSTEM_PROMPT,
+          cache_control: { type: "ephemeral" },
+        },
+      ],
+      messages: [
+        {
+          role: "user",
+          content: userPrompt(input),
+        },
+      ],
+    });
+
+    const textBlock = response.content.find((b) => b.type === "text");
+    if (!textBlock || textBlock.type !== "text") {
+      throw new Error("No text block in response");
+    }
+
+    return parseAgentJson(textBlock.text);
   } catch {
     return mockVerification();
   }
