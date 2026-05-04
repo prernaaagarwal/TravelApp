@@ -79,7 +79,7 @@ export default async function IntelPage({ params }: { params: Params }) {
       : Object.entries((raw.emergency_numbers ?? {}) as Record<string, string>).map(([label, number]) => ({ label, number })),
     isPremium: raw.is_premium,
     premiumPreview: raw.premium_preview,
-    affiliateLinks: raw.affiliate_links as { booking?: string; worldNomads?: string },
+    affiliateLinks: (raw.affiliate_links ?? {}) as { booking?: string; worldNomads?: string },
   };
 
   const { data: rawContributor } = raw.contributor_slug
@@ -464,7 +464,7 @@ export default async function IntelPage({ params }: { params: Params }) {
                   Unlock the bonus chapter
                 </p>
                 <a
-                  href="/coming-soon"
+                  href="/account/membership"
                   className="border border-gold bg-transparent px-6 py-2.5 font-mono text-xs uppercase tracking-widest text-gold hover:bg-gold hover:text-ink transition-colors"
                 >
                   Join for ₹499 / year →
@@ -495,40 +495,46 @@ export default async function IntelPage({ params }: { params: Params }) {
           </section>
 
           {/* ── Affiliate links ───────────────────────────────────────── */}
-          <section className="grid gap-3 sm:grid-cols-2">
-            <a
-              href={card.affiliateLinks.booking}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border border-ww-border bg-blue-light px-4 py-3 hover:bg-blue/10 transition-colors"
-            >
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-blue">
-                  Booking.com
-                </p>
-                <p className="font-mono text-xs text-ink">
-                  Browse stays in {card.destination} →
-                </p>
-              </div>
-              <span className="shrink-0 text-blue">↗</span>
-            </a>
-            <a
-              href={card.affiliateLinks.worldNomads}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border border-ww-border bg-sage-light px-4 py-3 hover:bg-sage/10 transition-colors"
-            >
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-sage">
-                  World Nomads
-                </p>
-                <p className="font-mono text-xs text-ink">
-                  Travel insurance for {card.country} →
-                </p>
-              </div>
-              <span className="shrink-0 text-sage">↗</span>
-            </a>
-          </section>
+          {(card.affiliateLinks.booking || card.affiliateLinks.worldNomads) && (
+            <section className="grid gap-3 sm:grid-cols-2">
+              {card.affiliateLinks.booking && (
+                <a
+                  href={card.affiliateLinks.booking}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between border border-ww-border bg-blue-light px-4 py-3 hover:bg-blue/10 transition-colors"
+                >
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-blue">
+                      Booking.com
+                    </p>
+                    <p className="font-mono text-xs text-ink">
+                      Browse stays in {card.destination} →
+                    </p>
+                  </div>
+                  <span className="shrink-0 text-blue">↗</span>
+                </a>
+              )}
+              {card.affiliateLinks.worldNomads && (
+                <a
+                  href={card.affiliateLinks.worldNomads}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between border border-ww-border bg-sage-light px-4 py-3 hover:bg-sage/10 transition-colors"
+                >
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-sage">
+                      World Nomads
+                    </p>
+                    <p className="font-mono text-xs text-ink">
+                      Travel insurance for {card.country} →
+                    </p>
+                  </div>
+                  <span className="shrink-0 text-sage">↗</span>
+                </a>
+              )}
+            </section>
+          )}
 
           {/* ── Full contributor card ─────────────────────────────────── */}
           {contributor && (
