@@ -13,6 +13,7 @@ import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { intelCardLd, breadcrumbLd } from "@/lib/jsonld";
+import { ViewTracker } from "@/components/intel/ViewTracker";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.app";
 
@@ -107,6 +108,7 @@ export default async function IntelPage({ params }: { params: Params }) {
 
   return (
     <div className="bg-warm-white">
+      <ViewTracker slug={raw.slug} />
       <JsonLd
         data={intelCardLd({
           slug: raw.slug,

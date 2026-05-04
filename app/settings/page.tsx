@@ -18,7 +18,7 @@ export default async function SettingsPage() {
 
   if (!user) redirect("/account/login?next=/settings");
 
-  const [{ data: profile }, { data: rawPrefs }, { data: vault }] = await Promise.all([
+  const [{ data: profile }, { data: rawPrefs }, { data: vault }, { data: contributorRow }] = await Promise.all([
     supabase
       .from("profiles")
       .select("first_name, username, membership_tier, membership_expiry, phone, photo_url")
@@ -35,6 +35,11 @@ export default async function SettingsPage() {
       .eq("user_id", user.id)
       .eq("status", "active")
       .limit(1)
+      .maybeSingle(),
+    supabase
+      .from("contributors")
+      .select("slug")
+      .eq("user_id", user.id)
       .maybeSingle(),
   ]);
 
@@ -151,6 +156,18 @@ export default async function SettingsPage() {
             </div>
           )}
         </div>
+
+        {/* ── Contributor dashboard ────────────────── */}
+        {contributorRow && (
+          <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
+            <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
+              Contributor
+            </p>
+            <Link href="/contributor/dashboard" className="font-mono text-sm text-rust hover:underline">
+              View attribution + earnings dashboard →
+            </Link>
+          </div>
+        )}
 
         {/* ── Notifications ────────────────────────── */}
         <div className="bg-warm-white border border-ww-border rounded-xl px-6 py-5 shadow-sm">
