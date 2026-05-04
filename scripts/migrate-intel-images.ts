@@ -62,7 +62,6 @@ async function main() {
   );
 
   let uploaded = 0;
-  let skipped  = 0;
   let updated  = 0;
   let missing  = 0;
 
@@ -76,12 +75,12 @@ async function main() {
       continue;
     }
 
-    // Skip cards already pointing at Supabase Storage
-    if (card.hero_image_url?.includes("/storage/v1/object/public/intel-images/")) {
-      console.log(`  ✓ ${slug} already migrated`);
-      skipped++;
-      continue;
-    }
+    // Always upload + update. Earlier versions skipped when hero_image_url
+    // already contained /storage/v1/object/public/intel-images/ but that's
+    // a false positive: the URL can match the pattern while the file itself
+    // is missing from storage (the case for any card whose original local
+    // upload silently failed). Upsert is safe -- duplicate uploads return
+    // 200 and overwrite -- so re-uploading every card on every run is fine.
 
     const localPath = join(localDir, file);
     const bytes = readFileSync(localPath);
@@ -122,7 +121,6 @@ async function main() {
   console.log("Done.");
   console.log(`  uploaded: ${uploaded}`);
   console.log(`  updated:  ${updated}`);
-  console.log(`  skipped:  ${skipped} (already migrated)`);
   console.log(`  missing:  ${missing} (no DB row)`);
   console.log("");
   console.log("After verifying the site renders correctly, you can delete");
