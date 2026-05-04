@@ -99,3 +99,18 @@ export async function sendBewareRejected(to: string, reason?: string) {
     ),
   });
 }
+
+export async function sendFoundingMembershipConfirmation(to: string) {
+  const resend = getResend();
+  if (!resend) return;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "You're on the Founding 200 list — Wander Women",
+    html: buildBody(
+      "You're on the list.",
+      "Thanks for putting your name down for the Founding 200. We'll WhatsApp you within 48 hours with your founding-member link, locked-in price, and the next steps. No spam between now and then — just one human message from us.",
+      { cta: { label: "Back to Wander Women →", href: SITE_URL } }
+    ),
+  });
+}
