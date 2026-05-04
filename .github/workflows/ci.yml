@@ -79,3 +79,40 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+
+  e2e:
+    name: E2E (Playwright)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [build]
+    # Gate the job on a repo variable so it only runs once secrets are
+    # provisioned. Set vars.E2E_ENABLED='true' in repo settings to opt in.
+    if: ${{ vars.E2E_ENABLED == 'true' }}
+    env:
+      # Override the placeholders in the workflow-level env block. The E2E
+      # job needs to talk to a real Supabase project (TravelApp) for setup
+      # (createUser via service role) and the build itself
+      # (generateStaticParams reads intel_cards).
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.E2E_SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.E2E_SUPABASE_ANON_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.E2E_SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
