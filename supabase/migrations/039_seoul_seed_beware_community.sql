@@ -274,5 +274,66 @@ VALUES
 )
 ON CONFLICT (id) DO NOTHING;
 
--- ── Part 6 of 10 complete (community posts seoul-cp-008 to 013). ─────────────
--- ── Parts 7–8 (seoul-cp-014 to 025) append below. ────────────────────────────
+-- ─── COMMUNITY POSTS (Part 7: seoul-cp-014 to seoul-cp-019) ──────────────────
+
+INSERT INTO community_posts
+  (id, tab, author_name, author_age_range, title, content, destination, image_urls, status)
+VALUES
+
+-- seoul-cp-014
+(
+  'seoul-cp-014', 'experiences',
+  'Solo traveller', '24-30',
+  $t$Myeongdong picked pocket — real experience$t$,
+  $c$Was walking the main pedestrian strip in Myeongdong around 7pm, peak tourist hour. Someone handed me a flyer — I automatically reached out to take it. By the time I'd declined and turned back, my crossbody bag zip was open. My wallet was gone. I had roughly ₩50,000 in it plus a travel card. I made a police report at the Myeongdong police box — the officer was efficient and gave me a formal report number for insurance. Seoul's lost item recovery rate is high for items left behind, but pickpocketing cases are hard to resolve without footage. Keep your bag zip facing forward in Myeongdong.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-015
+(
+  'seoul-cp-015', 'experiences',
+  'Solo traveller', '27-33',
+  $t$Cover your shoulders at some venues — dress code awareness$t$,
+  $c$Seoul fashion leans conservative for tops despite being liberal about skirt length. I got turned away from a rooftop bar in Itaewon because I was wearing a strapless top — they lent me a cover-up to enter. A few traditional restaurants and some hanok guesthouses have similar informal policies. Short skirts are fine everywhere. But bare shoulders or low-cut tops draw stares from older Koreans and may restrict entry at certain venues. A light cardigan in your bag solves this entirely.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-016
+(
+  'seoul-cp-016', 'experiences',
+  'Solo traveller', '29-36',
+  $t$The 1330 hotline saved my trip — got sick, didn't speak Korean$t$,
+  $c$Had a bad stomach reaction on day 3 and needed to find a pharmacy open at 11pm. Called 1330 (Korea Tourism Hotline). The English-speaking operator found me the nearest 24h pharmacy (two streets from my accommodation), told me what Korean words to show the pharmacist for my symptoms, and stayed on the line while I confirmed the right medication. They can also connect you to 112 or 119 in an emergency with interpretation. Save this number before you fly.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-017
+(
+  'seoul-cp-017', 'experiences',
+  'Solo traveller', '22-28',
+  $t$Don't use Google Maps in Seoul — it genuinely doesn't work$t$,
+  $c$Spent my first afternoon completely lost because I was relying on Google Maps. South Korean law restricts mapping data sharing with foreign companies, so Google Maps has no detailed routing data for Korea. It showed me streets but couldn't give accurate walking directions or subway routes. Download KakaoMap before you arrive — it gives you exact subway lines, which car to board for the best exit position, and accurate walking times. Game-changer for Seoul navigation.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-018
+(
+  'seoul-cp-018', 'experiences',
+  'Solo traveller', '28-35',
+  $t$Itaewon at night — better than I expected, one thing to watch$t$,
+  $c$Itaewon has a rougher reputation but I found it fine at 11pm on a Tuesday. The issues are concentrated on weekends past midnight when the bars empty. The thing to watch: unofficial taxis that cluster near the main Itaewon station exit after midnight. They'll call out fares to you — always ignore these and use KakaoT. Also: some international foods and drinks in Itaewon are dramatically overpriced at tourist-focused venues — check prices before ordering.$c$,
+  'seoul-south-korea', '[]', 'approved'
+),
+
+-- seoul-cp-019
+(
+  'seoul-cp-019', 'experiences',
+  'Solo traveller', '24-30',
+  $t$Women-only dorm hostels in Seoul — genuinely good$t$,
+  $c$Stayed at a women-only floor at a Hongdae hostel. Secure keycard access to the floor, lockers in the room, clean shared bathrooms. Met other solo female travellers from Europe, Southeast Asia, and the US — made friends for the rest of my Seoul week. The female-only hostel environment in Seoul is significantly better than equivalent options in South/Southeast Asia. Prices from ₩25,000–₩40,000/night for a dorm bed in a women-only setup. Miss Hongdae Guesthouse and several others specifically offer female-only configurations. Book early — they fill up in spring cherry blossom season.$c$,
+  'seoul-south-korea', '[]', 'approved'
+)
+ON CONFLICT (id) DO NOTHING;
+
+-- ── Part 7 of 10 complete (community posts seoul-cp-014 to 019). ─────────────
+-- ── Part 8 (seoul-cp-020 to 025) appends below. ──────────────────────────────
