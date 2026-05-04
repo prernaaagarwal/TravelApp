@@ -1,5 +1,4 @@
 import Link from "next/link";
-import contributors from "@/lib/mock-data/contributors.json";
 import bewares from "@/lib/mock-data/beware-entries.json";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 import HeroBackground from "@/components/shared/HeroBackground";
@@ -7,11 +6,6 @@ import WhatsInside from "@/components/landing/WhatsInside";
 import communityPosts from "@/lib/mock-data/community-posts.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
 import { createStaticClient } from "@/lib/supabase/server";
-
-// Persona slugs for the "Priya path" and "Sara path" onboarding cards.
-// Change here if contributors are renamed — nowhere else.
-const PRIYA_SLUG = "ananya-mumbai";
-const SARA_SLUG  = "sara-berlin";
 
 export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
 
@@ -105,10 +99,7 @@ export default async function HomePage() {
 
       {/* ── What's inside (Intel + Personas + Community combined) ────── */}
       <WhatsInside
-        contributors={contributors}
         askPosts={askPosts}
-        priyaSlug={PRIYA_SLUG}
-        saraSlug={SARA_SLUG}
         totalDestinations={totalDestinations}
       />
 
@@ -241,51 +232,61 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── Founding membership email capture ────────────────────────── */}
-      <section id="membership" className="bg-ink px-6 py-20">
-        <div className="mx-auto max-w-2xl text-center">
-          {/* spots counter */}
-          <div className="mb-6 inline-flex items-center gap-2 border border-warm-white/10 px-4 py-2">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-rust" />
-            <span className="font-mono text-xs text-warm-white/60">
-              <strong className="text-warm-white">17 of 200</strong> founding spots remaining
+      {/* ── Final CTA · 05 — The invitation ────────────────────────────── */}
+      <section id="join" className="relative w-full overflow-hidden bg-warm-white py-28 md:py-40">
+        {/* faint terracotta + sage washes for depth */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-40 -top-40 h-[40rem] w-[40rem] rounded-full bg-rust/10 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-40 -left-40 h-[40rem] w-[40rem] rounded-full bg-sage/10 blur-3xl"
+        />
+
+        <div className="relative mx-auto max-w-4xl px-6 text-center md:px-10">
+          {/* Eyebrow with rules on both sides */}
+          <div className="mb-8 flex items-center justify-center gap-3">
+            <span className="h-px w-10 bg-rust" />
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-ww-muted">
+              The invitation · 05
             </span>
+            <span className="h-px w-10 bg-rust" />
           </div>
 
-          <h2 className="mb-4 font-serif text-3xl leading-tight text-warm-white sm:text-4xl md:text-5xl">
-            Join as a founding member.
+          {/* Headline */}
+          <h2 className="mb-8 font-serif text-5xl leading-[0.95] text-ink md:text-7xl lg:text-8xl">
+            Travel like she&apos;s
+            <br />
+            <span className="italic text-rust">already been there.</span>
           </h2>
-          <p className="mb-3 text-base leading-relaxed text-warm-white/60">
-            ₹499 once. Lifetime access to all premium intel cards, founding badge,
-            and 2× earnings if you become a contributor.
-          </p>
-          <p className="mb-10 font-mono text-xs text-warm-white/30">
-            Price goes to ₹999 after founding 200 fill. No auto-renewal. No spam.
+
+          {/* Subline */}
+          <p className="mx-auto mb-12 max-w-2xl text-base leading-relaxed text-ww-muted md:text-xl">
+            We&apos;re opening 500 spots this month. No referrals, no waitlist
+            theatre — just the women who want in first.
           </p>
 
-          <EmailSignupForm
-            source="landing-founding"
-            placeholder="your@email.com"
-            buttonText="Claim my spot →"
-            dark
-          />
+          {/* Email signup — keeps existing Supabase leads wiring */}
+          <div className="mx-auto max-w-xl">
+            <EmailSignupForm
+              source="landing-founding"
+              placeholder="your@email.com"
+              buttonText="Request access →"
+            />
+            <p className="mt-5 font-mono text-[10px] uppercase tracking-widest text-ww-muted/70">
+              Women only · we verify · no spam, ever
+            </p>
+          </div>
 
-          {/* what you get */}
-          <ul className="mt-10 grid gap-2 text-left sm:grid-cols-2">
-            {[
-              "All 15 premium intel cards unlocked",
-              "Founding member badge on your profile",
-              "Early access to buddy matching",
-              "Vote on which destinations we cover next",
-              "2× contributor earnings for 12 months",
-              "Direct line to the founding team",
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-2 font-mono text-xs text-warm-white/50">
-                <span className="mt-0.5 text-gold">✓</span>
-                {item}
-              </li>
-            ))}
-          </ul>
+          {/* Manifesto */}
+          <p className="mx-auto mt-20 max-w-2xl font-serif text-xl italic leading-snug text-ww-muted md:text-2xl">
+            &ldquo;The internet was built for the average traveller.
+            We&apos;re building for the rest of us.&rdquo;
+          </p>
+          <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-ww-muted/60">
+            — the founding 12
+          </p>
         </div>
       </section>
     </main>
