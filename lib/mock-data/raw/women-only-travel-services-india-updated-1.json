@@ -1,0 +1,432 @@
+{
+  "Transport": {
+    "titleRow": "Name",
+    "subtitleRow": "",
+    "headers": [
+      "Name",
+      "City_or_Region",
+      "State",
+      "Type",
+      "Channel",
+      "Website_or_URL",
+      "Notes",
+      "Primary_Source",
+      "Operational_Status",
+      "Booking_Method",
+      "Price_Range_INR",
+      "Recent_Review_2024_25"
+    ],
+    "rows": [
+      [
+        "Sakha / Women on Wheels",
+        "Delhi NCR, Jaipur, Indore (and others)",
+        "Multiple",
+        "Women-driven taxis for women & families",
+        "Pre-book / corporate & individual rides",
+        "https://www.sakhaconsultingwings.com/",
+        "Social enterprise; all-women drivers from marginalised communities; >1M safe rides reported.",
+        "Sakha case studies and women-only cab articles",
+        "✅ Confirmed Active",
+        "Website: sakhaconsultingwings.com | Phone: +91-11-26521862",
+        "₹200–600 for city rides",
+        "Highly rated by Delhi women travelers; all-women drivers from marginalised communities. Trusted for airport transfers."
+      ],
+      [
+        "SheTaxi",
+        "Kerala (Thiruvananthapuram and beyond)",
+        "Kerala",
+        "Women-only taxis with women drivers",
+        "App / phone booking",
+        "https://genderpark.gov.in/ourinitiatives/shetaxi/",
+        "Government-backed initiative offering safe taxis for women travellers.",
+        "Kerala Gender Park SheTaxi information",
+        "✅ Confirmed Active (Govt-backed)",
+        "App + Phone | genderpark.gov.in/ourinitiatives/shetaxi",
+        "Metered govt rates",
+        "Government-backed Kerala initiative. Reliable and safe for solo women across Thiruvananthapuram."
+      ],
+      [
+        "GoPink Cabs",
+        "Bengaluru only (NOT Delhi)",
+        "Delhi, Karnataka",
+        "Women-only cab service",
+        "App / phone booking",
+        "https://www.gopinkcabs.com",
+        "Bengaluru-based only. Airport (KIA via KSTDC), city rides, outstation. Confirmed operational. Note: booking confirmation process can be slow.",
+        "Women-only cab service lists (Her Circle, LBB, media)",
+        "✅ Confirmed Active",
+        "Website: gopinkcabs.com | Phone: 080-23121234 / 9740235556 | Email: operations@gopinkcabs.com",
+        "Airport: ₹1,200–2,500 | City: ₹400–900",
+        "Tripadvisor 2025: 'Very secure and safe for women in Bengaluru with female driver. Only improvement needed in booking confirmation communication.' — Solo traveler review"
+      ],
+      [
+        "Priyadarshini Taxi Service",
+        "Mumbai",
+        "Maharashtra",
+        "Women-run taxi service for women",
+        "Phone / app booking",
+        "",
+        "⚠️ OPERATIONAL STATUS UNCERTAIN. Founder met Transport Commissioner to discuss 'resuming' operations (2024 Facebook post). May be dormant. CALL BEFORE LISTING: +91-9820221107 or +91-9320845064.",
+        "Women-only taxi overviews",
+        " Unverified — Likely Dormant",
+        "Phone (if active): +91-9820221107 | +91-9320845064 | Landline: 022-43333999",
+        "Metered Mumbai rates",
+        "JustDial 3.4/5 (543 ratings) — mixed reviews. Recent operational status unconfirmed. DO NOT list as active until verified by direct call."
+      ],
+      [
+        "Pink City Rickshaw Company (NOT 'Pink Auto Service')",
+        "Jaipur",
+        "Rajasthan",
+        "Women-driven autos for women & children",
+        "On-street / phone",
+        "https://www.pinkcityrickshawcompany.com/",
+        "21 electric autos, 45 active women drivers, expanding to 31 by end 2025. Sister orgs in Varanasi (Holy City Rickshaw Co.) and Udaipur (Lake City Rickshaw Co.) launching 2025.",
+        "Women-run taxi service guides",
+        "✅ Confirmed Active — Thriving",
+        "Website: pinkcityrickshawcompany.com | Heritage Tour, Shop & Hop, Culture Gully tours available",
+        "₹800–2,000 per tour",
+        "Tripadvisor 2025: 'Amazing experience! Such an impressive enterprise by a group of very hard working women.' Multiple 5-star reviews from solo women travelers."
+      ],
+      [
+        "WomenCabs",
+        "Bengaluru",
+        "Karnataka",
+        "Women-run cab service",
+        "Phone / web booking",
+        "",
+        "Female drivers and management; safety-focused.",
+        "Bengaluru women cab services articles",
+        "⚠️ Unverified — Call Before Booking",
+        "Website: womencabs.com | Google Play app listed but activity unclear",
+        "Unconfirmed",
+        "No recent reviews found (2024–2025). Cannot confirm active operations. Verify by direct contact before listing."
+      ],
+      [
+        "Taxshe",
+        "Bengaluru",
+        "Karnataka",
+        "Women drivers for women, kids, seniors",
+        "Scheduled / subscription rides",
+        "https://www.taxshe.com/",
+        "Specialises in school runs and regular commutes for women & children.",
+        "City-specific women cab articles",
+        "✅ Confirmed Active",
+        "Website: taxshe.com | Scheduled and subscription rides",
+        "₹300–800 per ride (subscription plans available)",
+        "Noted in Inc42 2025 article as active player in women-only mobility space alongside Dovely and Sakha."
+      ],
+      [
+        "Angel City Cabs",
+        "Bengaluru",
+        "Karnataka",
+        "Women-focused cab operator",
+        "Phone / web",
+        "",
+        " LIKELY DORMANT. Website exists but zero recent activity, reviews, or social media posts found. Last press coverage 2013–2015. Founded by 3 men (not women-run). Remove until confirmed active by direct call.",
+        "LBB / local media roundups",
+        " Likely Dormant — Do Not List",
+        "Website: angelcitycabs.com (unverified active)",
+        "₹1,350 onwards (unconfirmed current)",
+        "No reviews found from 2024–2025. TripAdvisor thread asks if anyone has used them — no responses. Do not list until operationally confirmed."
+      ],
+      [
+        "Dovely",
+        "Hyderabad",
+        "Telangana",
+        "Bike taxi alternative for women",
+        "App",
+        "",
+        "Hyderabad only. Very limited coverage: Old City to Mehdiptanam. Operates until 8:30pm only. ~20 riders, ~400 users. WhatsApp + website booking only. Bootstrapped micro-startup. Confirm current routes before recommending.",
+        "Women-only cabs in India features",
+        "⚠️ Active but Very Limited Coverage",
+        "Website: dovely.org | WhatsApp booking only | Old City–Mehdiptanam route only",
+        "₹30–80 per bike ride",
+        "V6 Weekend TV feature July 2024 confirms operations. 'Once a woman books, she becomes a regular customer.' — Founder. Limited to one corridor in Hyderabad."
+      ],
+      [
+        "Uber Women-only Bike Rides",
+        "Bengaluru (expanding to Delhi, Mumbai, Kolkata, Chennai, Hyderabad)",
+        "Karnataka + expanding",
+        "Women-only bike rides with women drivers on Uber app",
+        "Uber app (existing)",
+        "https://www.uber.com/in/en/",
+        "Launched December 2024 in Bengaluru. Uber confirmed expansion to 5 more major Indian cities. Book via standard Uber app — filter for women-only ride.",
+        "Inc42 / Uber India press release Dec 2024",
+        "✅ Confirmed Active — Launched Dec 2024",
+        "Uber app — filter for women-only bike ride option",
+        "Standard Uber bike rates ₹40–150",
+        "Launched Dec 2024 in Bengaluru. Uber stated expansion to Delhi, Mumbai, Kolkata, Chennai, Hyderabad. Mainstream and instantly bookable."
+      ],
+      [
+        "Rapido Pink (Women-only Bikes)",
+        "Karnataka (planned)",
+        "Karnataka",
+        "Women-only 'Pink' bike service with women captains",
+        "Rapido app (when launched)",
+        "https://rapido.bike/",
+        "Announced 2025 — not yet live. Targeting 25,000 women captain jobs in Karnataka. Monitor for launch date before listing as bookable.",
+        "Inc42 Feb 2025",
+        "⏳ Announced — Not Yet Live",
+        "Rapido app — Pink service filter (when launched)",
+        "Standard Rapido bike rates",
+        "Announced by Rapido CEO at Bengaluru event 2025. 'Our goal is 25,000 job opportunities for women by introducing women captains.' — Pavan Guntupalli, Co-founder Rapido"
+      ],
+      [
+        "Namma Sarathi Pink Auto",
+        "Bengaluru",
+        "Karnataka",
+        "Women and trans women-driven Pink Auto fleet",
+        "On-street / contact Namma Sarathi Trust",
+        "https://www.nammasarathi.org/",
+        "Launched September 23 2025 in Bengaluru by Namma Sarathi Trust. Fresh initiative — verify contact and booking details directly with the trust.",
+        "IANS / Social News XYZ Sep 2025",
+        "✅ Confirmed Active — Launched Sep 2025",
+        "Contact Namma Sarathi Trust directly | No app yet confirmed",
+        "Auto rates ₹25–200",
+        "IANS Sep 2025: 'Women and trans women-driven Pink Auto fleet launched at Press Club Bengaluru.' Brand new as of Sep 2025 — verify current booking method."
+      ],
+      [
+        "Holy City Rickshaw Company",
+        "Varanasi",
+        "Uttar Pradesh",
+        "Women-led e-rickshaw city tours by women drivers",
+        "Website / direct booking",
+        "https://www.holycityrickshaw.com/",
+        "Launched September 2024 in Varanasi. Sister org of Pink City Rickshaw Company. 25 women drivers, 12 e-autos. Funded by Intrepid Foundation. Perfect for solo women visiting Varanasi ghats.",
+        "Reasons to be Cheerful Jul 2025",
+        "✅ Confirmed Active — Launched Sep 2024",
+        "Website: holycityrickshaw.com | Direct booking",
+        "₹600–1,500 per tour",
+        "Reasons to be Cheerful 2025: Sister organisation of Pink City Rickshaw Company. 25 women drivers, 12 e-autos. Launched in Varanasi September 2024."
+      ]
+    ]
+  },
+  "GroupTours": {
+    "titleRow": "Name",
+    "subtitleRow": "",
+    "headers": [
+      "Name",
+      "Base_City",
+      "Coverage",
+      "Type",
+      "Focus",
+      "Website_or_URL",
+      "Primary_Source"
+    ],
+    "rows": [
+      [
+        "Jugni Travel",
+        "Delhi NCR",
+        "India & International",
+        "Women-only group tours",
+        "First-time solo women, intimate groups, offbeat itineraries",
+        "https://jugni.co.in/",
+        "Women travel groups in India comparisons"
+      ],
+      [
+        "WOW Club (Women on Wanderlust)",
+        "Delhi NCR",
+        "India & International",
+        "Women-only travel club",
+        "Large network, classic & bucket-list destinations",
+        "https://www.wowclub.com/",
+        "Women-only travel group roundups"
+      ],
+      [
+        "Wander Womaniya",
+        "Delhi NCR",
+        "India & International",
+        "Women-only travel community & agency",
+        "Budget-friendly, safe women-only group trips",
+        "https://www.wanderwomaniya.com/",
+        "Women-only trip agency FAQ & media"
+      ],
+      [
+        "WeGoBond",
+        "Delhi NCR",
+        "India & International",
+        "Women-only experiential tours",
+        "Small groups, researched itineraries, offbeat focus",
+        "https://wegobond.com/",
+        "Women travel groups guides"
+      ],
+      [
+        "F5 Escapes",
+        "Bengaluru",
+        "Mostly India",
+        "Women-only & women-led tours",
+        "Sustainable, rural, story-led travel",
+        "https://f5escapes.com/",
+        "Women travel groups comparison guides"
+      ],
+      [
+        "India Textile Trails (Women-only tours)",
+        "India (niche DMC)",
+        "Textile circuits in India",
+        "Women-only small-group textile tours",
+        "Textiles, craft, hands-on workshops with women artisans",
+        "https://www.indiatextiletrails.com/women-only-tours-india",
+        "Women-only textile tour descriptions"
+      ]
+    ]
+  },
+  "LocalExperiences": {
+    "titleRow": "Name",
+    "subtitleRow": "",
+    "headers": [
+      "Name",
+      "City_or_Region",
+      "State",
+      "Type",
+      "Theme",
+      "Website_or_URL",
+      "Primary_Source"
+    ],
+    "rows": [
+      [
+        "Pink City Rickshaw Company",
+        "Jaipur",
+        "Rajasthan",
+        "Women-led city tours by e-rickshaw",
+        "City sightseeing, markets & stories with local women drivers",
+        "https://www.pinkcityrickshawcompany.com/",
+        "Women-led experiences in India articles"
+      ],
+      [
+        "Women-led textile & craft workshops (India Textile Trails)",
+        "Multiple (Rajasthan, Gujarat, etc.)",
+        "Various",
+        "Workshops & village experiences",
+        "Block printing, weaving, craft visits hosted by women",
+        "https://www.indiatextiletrails.com/",
+        "India Textile Trails women-only tours"
+      ],
+      [
+        "Together We Earn (TWE)",
+        "Kerala",
+        "Kerala",
+        "Women-run cafe & hospitality initiative",
+        "Local food & cafe experience supporting rural women",
+        "",
+        "Women-led initiatives articles (Kerala)"
+      ],
+      [
+        "Sunder Rang by Chandelao Vikas Sanstha",
+        "Chandelao, near Jodhpur",
+        "Rajasthan",
+        "Women-led craft & community tourism centre",
+        "Craft demos, village walks, local meals led by women",
+        "",
+        "Women-led experiences rundowns"
+      ]
+    ]
+  },
+  "Clubs": {
+    "titleRow": "Name",
+    "subtitleRow": "",
+    "headers": [
+      "Name",
+      "Platform",
+      "Focus",
+      "Typical_Activities",
+      "URL_or_Handle",
+      "Primary_Source"
+    ],
+    "rows": [
+      [
+        "Solo Women Travel India (Facebook Group)",
+        "Facebook",
+        "Women-only group tours & community",
+        "Trip announcements, Q&A, meetups, safety tips",
+        "https://www.facebook.com/groups/1033461084081111/",
+        "Solo women travel India group page"
+      ],
+      [
+        "Women Solo Travel meetups (Delhi, Bangalore, Hyderabad, etc.)",
+        "Meetup",
+        "Women solo travel, cost-share trips, local meetups",
+        "Day trips, treks, planning meets, social events",
+        "https://www.meetup.com/topics/women-solo-travel/in/",
+        "Meetup women solo travel topic (India)"
+      ],
+      [
+        "Wander Women (various city groups)",
+        "Meetup / local groups",
+        "Women who travel & adventure",
+        "Weekend getaways, hikes, community gatherings",
+        "https://www.meetup.com/topics/women-adventure-travel/in/",
+        "Women who travel Meetup listings"
+      ],
+      [
+        "Bangalore Weekends Gateway (women-heavy)",
+        "Meetup / WhatsApp spin-offs",
+        "Weekend trips from Bangalore, many solo women",
+        "Treks, road trips, local experiences",
+        "",
+        "Meetup single women travel groups list"
+      ]
+    ]
+  },
+  "Legend": {
+    "titleRow": "COLOUR LEGEND",
+    "subtitleRow": "",
+    "headers": [
+      "COLOUR LEGEND",
+      ""
+    ],
+    "rows": [
+      [
+        "✅ Green — Confirmed Active",
+        "Operationally verified this month. Safe to list and recommend."
+      ],
+      [
+        "⚠️ Amber — Limited / Unverified",
+        "Exists but has coverage limits, unconfirmed booking, or outdated info. Flag to user."
+      ],
+      [
+        " Red — Dormant / Do Not List",
+        "Cannot confirm active operations. Remove until verified by direct call."
+      ],
+      [
+        " Blue — New Entry Added",
+        "Added during April 2026 research update. Not in original file."
+      ],
+      [
+        "",
+        ""
+      ],
+      [
+        "REQUIRED COLUMNS EXPLAINED",
+        ""
+      ],
+      [
+        "Operational_Status",
+        "Confirmed this month via direct call, website check, or recent review (2024–25)."
+      ],
+      [
+        "Booking_Method",
+        "Exact steps to book — app name, phone, WhatsApp, website URL. Must be testable."
+      ],
+      [
+        "Price_Range_INR",
+        "Actual ₹ range for a typical use case. Ask when verifying."
+      ],
+      [
+        "Recent_Review_2024_25",
+        "One attributed review from 2024–2025. Source: Tripadvisor, Google, community."
+      ],
+      [
+        "",
+        ""
+      ],
+      [
+        "VERIFICATION RULE",
+        ""
+      ],
+      [
+        "Do not list without all 4 columns populated",
+        "An entry with missing Operational_Status, Booking_Method, Price, or Review does NOT go live on the platform."
+      ]
+    ]
+  }
+}
