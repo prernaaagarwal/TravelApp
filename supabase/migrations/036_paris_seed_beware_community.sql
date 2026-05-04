@@ -187,5 +187,187 @@ VALUES
   '[]', 'approved'
 );
 
--- ── Sub-part 1 of 4 for Paris beware reports complete (entries 1–16). ────────
--- ── Remaining entries (17–32) and community posts append below. ──────────────
+-- ─── BEWARE REPORTS (Sub-part 2: entries 17–32) ───────────────────────────────
+
+INSERT INTO beware_reports
+  (destination_slug, city, category, title, severity, description, reported_by_name, location, photo_urls, status)
+VALUES
+
+-- par-bw-017: Pickpocketing at Place du Tertre
+(
+  'paris-france', 'Paris', 'Theft',
+  $t$Pickpocketing at Place du Tertre$t$,
+  'medium',
+  $d$Place du Tertre in Montmartre — the famous artists' square — is listed by Paris Safety 2026 as a 'congested tourist area where organised groups work together.' The combination of crowd density, distraction from artists, and the squeeze up the steps from Sacré-Cœur creates excellent conditions for pickpockets. Wear your bag in front, zip everything, and be particularly alert when artists or vendors approach you.$d$,
+  'Web research',
+  'Place du Tertre, Montmartre, Sacré-Cœur steps',
+  '[]', 'approved'
+),
+
+-- par-bw-018: Taxi meter rigging and overcharging
+(
+  'paris-france', 'Paris', 'Transport',
+  $t$Taxi Meter Rigging and Overcharging$t$,
+  'medium',
+  $d$Private (unlicensed) taxis — distinct from official Taxis Parisiens — have documented cases of rigged meters, unnecessarily long routes, and charging tourist 'premiums.' Paris local guide Vadim Hedonist advises never hailing taxis on the street. Use the official G7 app, Uber, or Bolt for transparent pricing. If in a taxi, ensure the meter is running immediately after departure. The legitimate flat rate from CDG to anywhere on the Right Bank is currently around €56 (verify current official rates).$d$,
+  'Web research',
+  'City-wide, particularly at airports and major stations',
+  '[]', 'approved'
+),
+
+-- par-bw-019: Pickpockets on crowded buses
+(
+  'paris-france', 'Paris', 'Theft',
+  $t$Pickpockets on Crowded Buses$t$,
+  'medium',
+  $d$Crowded bus routes — particularly those passing through tourist zones — are secondary pickpocket environments. The compression of boarding and alighting provides the same cover as the Metro. The advice to use buses instead of the Metro at night (recommended by some safety guides for being less underground and more visible) does not eliminate pickpocket risk. Apply the same precautions: bag in front, zipped, phone inside bag.$d$,
+  'Web research',
+  'Major bus lines through tourist areas',
+  '[]', 'approved'
+),
+
+-- par-bw-020: La Chapelle / Château d'Eau at night
+(
+  'paris-france', 'Paris', 'Safety / Harassment',
+  $t$La Chapelle and Château d'Eau Areas at Night$t$,
+  'medium',
+  $d$La Chapelle (18th arrondissement) and the area around Château d'Eau Metro station are described by Love and Paris as having 'lower evening foot traffic that attracts more petty thieves' with concentrated groups of men outside the station particularly at night. These are not typical tourist zones but solo female travellers sometimes pass through. Walk confidently and stick to the main Boulevard streets; do not linger.$d$,
+  'Web research',
+  $l$La Chapelle (18th), Château d'Eau Metro station area$l$,
+  '[]', 'approved'
+),
+
+-- par-bw-021: Overpriced café/restaurant bills near tourist sites
+(
+  'paris-france', 'Paris', 'Scam / Pricing',
+  $t$Overpriced Café and Restaurant Bills Near Tourist Sites$t$,
+  'low',
+  $d$Cafés and restaurants directly facing major tourist sites (Eiffel Tower, Notre Dame, Champs-Élysées) consistently charge 2–4x the price of identical items a few streets away. A café crème near the Eiffel Tower may cost €8 vs €2.50 in a local café 200 metres away. This is not illegal, but it is widespread. Walk two blocks away from any major landmark before sitting down. A good rule: if the menu is in English only and displayed at the entrance with photos, prices will be inflated.$d$,
+  'Web research',
+  'All major tourist landmark areas',
+  '[]', 'approved'
+),
+
+-- par-bw-022: Street vendor selling counterfeit products
+(
+  'paris-france', 'Paris', 'Scam / Legal',
+  $t$Street Vendor Selling Counterfeit Products$t$,
+  'low',
+  $d$Vendors near the Eiffel Tower sell miniature Eiffel Tower models and other merchandise at highly inflated prices, often pursuing tourists aggressively. Additionally, counterfeit 'designer' goods sold on street blankets near luxury shopping areas are illegal to purchase in France. Note that vendors will fold up their goods and disappear within seconds when police approach, indicating the illegality of their operation.$d$,
+  'Web research',
+  'Eiffel Tower Champ de Mars, Champs-Élysées, Marais area',
+  '[]', 'approved'
+),
+
+-- par-bw-023: Fake charity collection with bucket pressure
+(
+  'paris-france', 'Paris', 'Scam',
+  $t$Fake Charity Collection with Aggressive Donation Pressure$t$,
+  'medium',
+  $d$Individuals holding plastic buckets approach tourists claiming to collect for charities (cancer research, homelessness). These are not registered charities. Dayin Guided Tours analysed a recovered fake petition and found printed prices on both sides of the clipboard — hidden with the hand — showing different amounts depending on the apparent origin country of the tourist. Ignore any clipboard or bucket collection from strangers near tourist sites.$d$,
+  'Web research',
+  'Major tourist attractions city-wide',
+  '[]', 'approved'
+),
+
+-- par-bw-024: North peripheral areas — Porte de la Chapelle / Clichy
+(
+  'paris-france', 'Paris', 'Safety',
+  $t$North Peripheral Areas — Porte de la Chapelle, Porte de Clichy$t$,
+  'medium',
+  $d$Paris Safety Guide 2026 notes these northern peripheral areas are not tourist zones and require standard big-city caution. They are not areas travellers would normally visit intentionally but can be accidentally accessed via Metro or on foot when arriving from CDG. Avoid wandering in these areas, particularly at night, without a specific destination.$d$,
+  'Web research',
+  'Porte de la Chapelle, Porte de Clichy, northern peripherique',
+  '[]', 'approved'
+),
+
+-- par-bw-025: Champs-Élysées 'hug' / friendly approach pickpocket
+(
+  'paris-france', 'Paris', 'Theft',
+  $t$Pickpocket 'Hug' or 'Friendly' Approach on Champs-Élysées$t$,
+  'medium',
+  $d$Thieves on the Champs-Élysées approach tourists with apparent warmth — talking about 'friendship between nations,' offering a handshake or brief embrace — while slipping a hand inside jacket or coat pockets. Paris local guide specifically documents this: 'someone will approach you pretending to be friendly, giving you a hug or talking about friendship between nations, all while slipping your wallet or phone from your inner coat pocket.' Never allow a stranger to embrace you or come into close physical contact.$d$,
+  'Web research',
+  'Champs-Élysées, Arc de Triomphe area',
+  '[]', 'approved'
+),
+
+-- par-bw-026: Ketchup / dirt thrown on clothing distraction
+(
+  'paris-france', 'Paris', 'Scam / Theft',
+  $t$Dirt or Ketchup Thrown on Clothing as Distraction$t$,
+  'medium',
+  $d$A substance (ketchup, bird dropping, paint) is 'accidentally' thrown on your clothing. A 'helpful' stranger offers to clean it for you. While you focus on the stain and the cleaner, an accomplice picks your pockets or bag. This scam operates in groups. If anything is thrown or dropped on you, hold your bag firmly and move quickly to a public area. Decline all help from strangers and check your belongings before doing anything else.$d$,
+  'Web research',
+  'Near major tourist sites, Metro entrances',
+  '[]', 'approved'
+),
+
+-- par-bw-027: Overnight street harassment in arrondissements
+(
+  'paris-france', 'Paris', 'Harassment',
+  $t$Overnight Street Harassment in Some Arrondissements$t$,
+  'medium',
+  $d$Solo female travellers report street harassment — persistent following, unwanted comments, blocking of path — in certain areas at night, primarily Pigalle, La Chapelle, and around some Gare du Nord side streets. Travels On Point and Love and Paris both note that while violent crime against tourists is very rare, verbal harassment occurs in these specific zones after dark. The advice is consistent: walk confidently on main streets, ignore without engaging, enter a café or shop if followed, and use Uber/Grab rather than walking through these areas at night.$d$,
+  'Web research',
+  'Pigalle (18th), La Chapelle, Gare du Nord side streets at night',
+  '[]', 'approved'
+),
+
+-- par-bw-028: Pickpockets at markets
+(
+  'paris-france', 'Paris', 'Theft',
+  $t$Pickpockets Targeting Market Crowds$t$,
+  'medium',
+  $d$Popular open-air markets — Marché d'Aligre, Marché des Enfants Rouges, and street markets in the Marais — attract pickpockets on busy weekend mornings. The combination of crowds, browsing distraction, and open bags makes these ideal conditions. Secure your bag before entering any market and be aware of people who press unusually close while you examine merchandise.$d$,
+  'Web research',
+  'Major Parisian open-air markets, Marais street markets',
+  '[]', 'approved'
+),
+
+-- par-bw-029: Fake Eiffel Tower ticket sellers
+(
+  'paris-france', 'Paris', 'Scam / Financial',
+  $t$Fake Eiffel Tower Ticket Sellers$t$,
+  'medium',
+  $d$Near the Eiffel Tower entrance, unofficial sellers approach tourists offering to 'skip the queue' by selling tickets at inflated prices. Some tickets are fake and unusable at the turnstile. The only official Eiffel Tower tickets are sold through the official website (ticket.toureiffel.paris) or at the official kiosk on site. Always pre-book online for skip-the-line access.$d$,
+  'Web research',
+  'Eiffel Tower entrance approaches, Trocadéro area',
+  '[]', 'approved'
+),
+
+-- par-bw-030: Currency exchange hidden fees
+(
+  'paris-france', 'Paris', 'Financial',
+  $t$Currency Exchange Hidden Fees at Tourist Exchange Booths$t$,
+  'low',
+  $d$Many currency exchange booths near tourist sites advertise zero commission but apply an unfavourable exchange rate, effectively hiding the fee in the spread. The best rates in Paris are obtained from ATMs using a bank card with no foreign transaction fees (e.g. Wise, Revolut, or a fee-free travel card), not from exchange booths. Always check the effective rate, not just whether commission is advertised as zero.$d$,
+  'Web research',
+  'Currency exchange booths near Champs-Élysées, major tourist zones',
+  '[]', 'approved'
+),
+
+-- par-bw-031: Fake police ID check near tourist sites
+(
+  'paris-france', 'Paris', 'Scam / Crime',
+  $t$Fake Police ID Check Near Tourist Sites$t$,
+  'medium',
+  $d$Rare but documented: individuals in plain clothes show a fake police credential and ask tourists to display their passport and wallet for a 'routine check.' Real French police conducting such checks will be in uniform or show official Gendarmerie or Police Nationale ID. If asked, request to see official credentials clearly, state you will contact your embassy, and offer only to walk with them to the nearest police commissariat.$d$,
+  'Web research',
+  'Near major tourist sites, Louvre area, Eiffel Tower',
+  '[]', 'approved'
+),
+
+-- par-bw-032: Street music performer pickpocket cover
+(
+  'paris-france', 'Paris', 'Theft',
+  $t$Street Music Performer Pickpocket Cover$t$,
+  'medium',
+  $d$Gathering crowds around street musicians, particularly in Metro corridors and outside popular sites, provide cover for pickpockets who use the natural compression of audience formation to reach into bags and pockets. Paris local guide Vadim specifically warns: 'pickpockets also work in crowds and busy spots, like when people gather to listen to street musicians.' If stopping to listen to street music, hold your bag at your front and check it before and after.$d$,
+  'Web research',
+  'Metro corridors, Montmartre street musicians, Champs-Élysées pedestrian areas',
+  '[]', 'approved'
+);
+
+-- ── Sub-part 2 of 4 for Paris beware reports complete (entries 17–32). ───────
+-- ── Community posts (sub-parts 3 & 4) append below. ──────────────────────────
