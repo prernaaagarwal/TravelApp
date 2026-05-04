@@ -2,26 +2,35 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Compass, Users, Map, UserPlus, ShoppingBag } from "lucide-react";
+import { Compass, Users, Map, UserPlus, ShoppingBag, ShieldCheck } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-const NAV_ITEMS = [
-  { href: "/explore", label: "Intel", icon: Compass },
-  { href: "/community", label: "Community", icon: Users },
-  { href: "/feed", label: "Receipts", icon: Map },
-  { href: "/buddy", label: "Buddy", icon: UserPlus },
-  { href: "/shop", label: "Shop", icon: ShoppingBag },
+const BASE_NAV = [
+  { href: "/explore",    label: "Intel",     icon: Compass },
+  { href: "/community",  label: "Community", icon: Users },
+  { href: "/feed",       label: "Receipts",  icon: Map },
+  { href: "/buddy",      label: "Buddy",     icon: UserPlus },
+  { href: "/shop",       label: "Shop",      icon: ShoppingBag },
 ];
 
-export function MobileNav() {
+const AUTH_NAV = [
+  { href: "/explore",      label: "Intel",     icon: Compass },
+  { href: "/community",    label: "Community", icon: Users },
+  { href: "/feed",         label: "Receipts",  icon: Map },
+  { href: "/verify-stay",  label: "Verify",    icon: ShieldCheck },
+  { href: "/buddy",        label: "Buddy",     icon: UserPlus },
+];
+
+export function MobileNav({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
   const pathname = usePathname();
+  const items = isLoggedIn ? AUTH_NAV : BASE_NAV;
+
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-ww-border/60 bg-sand/95 backdrop-blur md:hidden">
       <ul className="mx-auto flex max-w-md items-stretch justify-around">
-        {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
-          const active =
-            pathname === href || pathname.startsWith(href + "/");
+        {items.map(({ href, label, icon: Icon }) => {
+          const active = pathname === href || pathname.startsWith(href + "/");
           return (
             <li key={href} className="flex-1">
               <Link
