@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { ModerationQueue } from "@/components/admin/ModerationQueue";
 
@@ -10,12 +10,6 @@ export const dynamic = "force-dynamic";
 
 export default async function AdminPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  const adminEmail = process.env.ADMIN_EMAIL;
-  if (!user || !adminEmail || user.email !== adminEmail) {
-    redirect("/account/login?next=/admin");
-  }
 
   const [{ data: pendingPosts }, { data: pendingBewares }, { data: pendingTrips }] =
     await Promise.all([
@@ -36,18 +30,40 @@ export default async function AdminPage() {
         .order("created_at", { ascending: true }),
     ]);
 
-  const posts  = pendingPosts  ?? [];
+  const posts   = pendingPosts   ?? [];
   const bewares = pendingBewares ?? [];
-  const trips  = pendingTrips  ?? [];
-  const total  = posts.length + bewares.length + trips.length;
+  const trips   = pendingTrips   ?? [];
+  const total   = posts.length + bewares.length + trips.length;
 
   return (
     <div className="mx-auto max-w-2xl px-6 py-12">
+
+      {/* CMS shortcuts */}
+      <div className="mb-10 grid grid-cols-2 gap-3">
+        <Link
+          href="/admin/intel"
+          className="border border-ww-border bg-warm-white p-4 transition-colors hover:border-ink"
+        >
+          <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Manage</p>
+          <p className="mt-1 font-serif text-lg text-ink">Intel cards</p>
+          <p className="mt-1 font-mono text-[10px] text-ww-muted">Create, edit, delete city guides →</p>
+        </Link>
+        <Link
+          href="/admin/contributors"
+          className="border border-ww-border bg-warm-white p-4 transition-colors hover:border-ink"
+        >
+          <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Manage</p>
+          <p className="mt-1 font-serif text-lg text-ink">Contributors</p>
+          <p className="mt-1 font-mono text-[10px] text-ww-muted">Add, edit contributor profiles →</p>
+        </Link>
+      </div>
+
+      {/* Moderation queue */}
       <div className="mb-8">
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-          Admin
+          Moderation
         </p>
-        <h1 className="mb-1 font-serif text-3xl text-ink">Moderation queue</h1>
+        <h1 className="mb-1 font-serif text-3xl text-ink">Queue</h1>
         <p className="font-mono text-xs text-ww-muted">
           {total === 0
             ? "Nothing pending."
