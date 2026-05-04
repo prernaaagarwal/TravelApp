@@ -19,12 +19,20 @@ export default async function AdminIntelPage() {
           <h1 className="font-serif text-3xl text-ink">Intel cards</h1>
           <p className="mt-1 font-mono text-xs text-ww-muted">{cards?.length ?? 0} destinations</p>
         </div>
-        <Link
-          href="/admin/intel/new"
-          className="border border-ink bg-ink px-5 py-2.5 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-colors hover:bg-ink/80"
-        >
-          + New card
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/admin/intel/import"
+            className="border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted transition-colors hover:border-ink hover:text-ink"
+          >
+            Bulk import / export
+          </Link>
+          <Link
+            href="/admin/intel/new"
+            className="border border-ink bg-ink px-5 py-2.5 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-colors hover:bg-ink/80"
+          >
+            + New card
+          </Link>
+        </div>
       </div>
 
       <div className="space-y-2">
