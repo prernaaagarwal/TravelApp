@@ -1,5 +1,4 @@
 import Link from "next/link";
-import intelCards from "@/lib/mock-data/intel-cards.json";
 import contributors from "@/lib/mock-data/contributors.json";
 import bewares from "@/lib/mock-data/beware-entries.json";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
@@ -17,9 +16,6 @@ export const metadata = { title: "Wander Women — Trip Intel for Solo Women Tra
 
 export default function HomePage() {
   // pre-select data each section needs
-  const previewCards = intelCards.filter((c) =>
-    ["goa-india", "rishikesh-india", "jaipur-india"].includes(c.slug)
-  );
   const askPosts = communityPosts.filter((p) => p.tab === "ask").slice(0, 3);
 
   return (
@@ -96,7 +92,6 @@ export default function HomePage() {
 
       {/* ── What's inside (Intel + Personas + Community combined) ────── */}
       <WhatsInside
-        previewCards={previewCards}
         contributors={contributors}
         askPosts={askPosts}
         priyaSlug={PRIYA_SLUG}
