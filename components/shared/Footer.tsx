@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const NAV_LINKS = [
+  { href: "/about", label: "About" },
   { href: "/explore", label: "Trip Intel" },
   { href: "/community", label: "Community" },
   { href: "/feed", label: "Trip Receipts" },
