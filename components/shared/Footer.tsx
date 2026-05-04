@@ -85,7 +85,7 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h4 className="font-serif text-base text-ink">{title}</h4>
+      <p className="font-serif text-base text-ink">{title}</p>
       <ul className="mt-3 space-y-2 text-sm">
         {items.map((item) => (
           <li key={item.label}>

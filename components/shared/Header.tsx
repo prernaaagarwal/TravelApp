@@ -80,7 +80,7 @@ export async function Header() {
               <Button
                 asChild
                 size="sm"
-                className="bg-rust text-warm-white hover:bg-rust/90"
+                className="bg-[#b54727] text-white hover:bg-[#a03f22]"
               >
                 <Link href="/account/membership">Join</Link>
               </Button>
