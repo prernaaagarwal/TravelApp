@@ -47,9 +47,11 @@ test.describe("trip submission flow", () => {
       "First solo morning at Project Cafe in Aldona, three other women already there. Felt like the universe organising itself.",
     );
 
-    // Submit and follow the server-action redirect
+    // Submit and follow the server-action redirect.
+    // Timeout is 30s (not 15s) because the first run after `npm start` has
+    // cold-cache latency: server warmup + first Supabase round-trip.
     await Promise.all([
-      page.waitForURL(/\/feed(\?.*)?$/, { timeout: 15_000 }),
+      page.waitForURL(/\/feed(\?.*)?$/, { timeout: 30_000 }),
       page.click('button[type="submit"]'),
     ]);
 
