@@ -175,7 +175,7 @@ export function CommunityTabs({
         ))}
       </TabsList>
 
-      <div className="mt-4 mb-2 grid grid-cols-2 gap-2 border-b border-ww-border pb-3 sm:flex sm:flex-wrap sm:items-center">
+      <div className="mt-4 mb-2 grid grid-cols-1 gap-2 border-b border-ww-border pb-3 sm:flex sm:flex-wrap sm:items-center">
         <select
           value={sort}
           onChange={(e) => updateQuery({ sort: e.target.value })}

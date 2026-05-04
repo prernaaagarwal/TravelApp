@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AuthForm } from "@/components/account/AuthForm";
 
 export const metadata = {
-  title: "Join — Wander Women",
+  title: "Join Wander Women",
 };
 
 // Only allow same-origin redirect targets. Reject absolute URLs and anything

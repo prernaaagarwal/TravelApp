@@ -314,17 +314,6 @@ export function ReceiptsClient({
                       by {contrib?.name ?? "Wander Women"}
                     </Link>
                   </div>
-
-                  <button
-                    disabled
-                    className="flex cursor-not-allowed items-center gap-2 border border-ww-border px-3 py-1.5 font-mono text-[10px] text-ww-muted"
-                    title="Coming soon"
-                  >
-                    Help me plan my trip
-                    <span className="rounded bg-ww-border/60 px-1.5 py-0.5 text-[8px] uppercase tracking-widest text-ink/60">
-                      Coming soon
-                    </span>
-                  </button>
                 </div>
               </div>
             </article>

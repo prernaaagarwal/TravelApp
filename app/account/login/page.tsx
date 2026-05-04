@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { LoginInner } from "./LoginInner";
 
 export const metadata = {
-  title: "Sign in — Wander Women",
+  title: "Sign in to Wander Women",
 };
 
 export default function LoginPage() {
