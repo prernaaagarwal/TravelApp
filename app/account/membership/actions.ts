@@ -11,6 +11,7 @@ export async function joinWaitlist(formData: FormData) {
   if (!email) return { error: "Email is required" };
 
   const { error } = await supabase.from("founding_membership_waitlist").insert({
+    user_id: user?.id ?? null,
     email,
     phone: (formData.get("phone") as string) || null,
     city: (formData.get("city") as string) || null,
