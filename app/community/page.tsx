@@ -221,7 +221,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
           Community hub
         </p>
-        <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
+        <h1 className="mb-3 font-serif text-3xl text-ink sm:text-4xl md:text-5xl">
           The group chat,
           <br />
           but actually useful.

@@ -45,15 +45,16 @@ export default async function HomePage() {
           </p>
 
           {/* headline — Cormorant, ~64px on desktop */}
-          <h1 className="mb-6 font-serif text-4xl leading-[1.1] tracking-tight text-warm-white sm:text-5xl md:text-7xl">
+          <h1 className="mb-6 font-serif text-3xl leading-[1.1] tracking-tight text-warm-white sm:text-5xl md:text-7xl">
             Stress free travel. The guidebook that was never written for you,{" "}
             <em className="not-italic text-rust">yet</em>
           </h1>
 
-          {/* subline */}
+          {/* subline — single concrete promise (safety) up front */}
           <p className="mb-10 max-w-2xl text-base leading-relaxed text-warm-white/85 md:text-lg">
-            Safety intel, hidden gems, verified ground-truth tips — crowd-sourced
-            from women who actually live these routes. Free to browse. No fluff.
+            Find out if a place is actually safe — before you go. Honest scam
+            reports and ground-truth tips from women who&apos;ve been there.
+            Free to browse.
           </p>
 
           {/* dual CTA */}
@@ -69,14 +70,14 @@ export default async function HomePage() {
               href="/onboarding?region=foreign"
               className="inline-flex items-center justify-center gap-2 rounded-none border border-warm-white/40 px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-colors hover:border-warm-white hover:bg-warm-white/5"
             >
-              Travel Outside India
+              <span className="hidden sm:inline">Travel </span>Outside India
               <span aria-hidden>→</span>
             </Link>
           </div>
 
           {/* micro trust line */}
           <p className="mt-8 font-mono text-xs text-warm-white/65">
-            Free to browse · Founding membership ₹499 · No spam, ever
+            Free to browse · Founding membership free in beta · No spam, ever
           </p>
         </div>
       </section>

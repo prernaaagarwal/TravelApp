@@ -28,10 +28,10 @@ export default function MembershipForm({ defaultEmail }: { defaultEmail?: string
     return (
       <div className="w-full max-w-sm text-center mx-auto py-12">
         <div className="mb-4 text-4xl">🎉</div>
-        <h2 className="font-serif text-3xl text-ink mb-2">You&apos;re on the list.</h2>
+        <h2 className="font-serif text-3xl text-ink mb-2">Your spot is locked in.</h2>
         <p className="text-sm text-ww-muted mb-6">
-          We&apos;ll WhatsApp you within 48 hours with your founding member link.
-          Only 200 spots — you&apos;re in early.
+          We&apos;ll WhatsApp you within 48 hours to confirm — no payment now or
+          ever for the first 200. Welcome to the founding circle.
         </p>
         <Button asChild variant="ghost" size="sm" className="text-ww-muted hover:text-ink">
           <Link href="/">← Back to home</Link>
@@ -106,8 +106,8 @@ export default function MembershipForm({ defaultEmail }: { defaultEmail?: string
         </Button>
 
         <p className="text-center text-xs text-ww-muted pt-1">
-          We&apos;ll WhatsApp you within 48 hours with your payment link.
-          No spam, ever.
+          We&apos;ll WhatsApp you within 48 hours to confirm your spot.
+          No payment, no spam, ever.
         </p>
       </form>
     </div>

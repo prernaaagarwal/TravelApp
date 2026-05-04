@@ -214,22 +214,6 @@ export function AuthForm({
         </label>
       )}
 
-      <button
-        type="button"
-        onClick={googleSignIn}
-        disabled={loading || !declared}
-        className="flex w-full items-center justify-center gap-2 border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-xs text-ink transition-colors hover:border-ink disabled:opacity-40"
-      >
-        <GoogleGlyph />
-        Continue with Google
-      </button>
-
-      <div className="relative my-2 flex items-center">
-        <span className="flex-1 border-t border-ww-border" />
-        <span className="px-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">or</span>
-        <span className="flex-1 border-t border-ww-border" />
-      </div>
-
       <form onSubmit={sendCode} className="space-y-4">
         <div>
           <label htmlFor="email" className="mb-1 block font-mono text-[10px] uppercase tracking-widest text-ww-muted">
@@ -245,6 +229,9 @@ export function AuthForm({
             className="bg-warm-white border-ww-border"
             autoComplete="email"
           />
+          <p className="mt-1.5 font-mono text-[10px] leading-relaxed text-ww-muted">
+            We&apos;ll email you a 6-digit code. No password needed.
+          </p>
         </div>
 
         {error && <p className="font-mono text-xs text-rust">{error}</p>}
@@ -267,6 +254,22 @@ export function AuthForm({
           </p>
         )}
       </form>
+
+      <div className="relative my-2 flex items-center">
+        <span className="flex-1 border-t border-ww-border" />
+        <span className="px-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">or</span>
+        <span className="flex-1 border-t border-ww-border" />
+      </div>
+
+      <button
+        type="button"
+        onClick={googleSignIn}
+        disabled={loading || !declared}
+        className="flex w-full items-center justify-center gap-2 border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-xs text-ink transition-colors hover:border-ink disabled:opacity-40"
+      >
+        <GoogleGlyph />
+        Continue with Google
+      </button>
 
       {bottomNote && (
         <div className="border-t border-ww-border pt-3 text-center font-mono text-[11px] text-ww-muted">

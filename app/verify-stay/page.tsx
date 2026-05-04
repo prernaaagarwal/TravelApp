@@ -48,7 +48,7 @@ export default async function VerifyStayPage() {
           {!isAiEnabled && <span className="ml-1 font-mono text-[10px] uppercase tracking-widest">· Beta · Offline</span>}
         </div>
         <h1
-          className={`font-serif text-3xl md:text-4xl mb-3 ${
+          className={`font-serif text-2xl sm:text-3xl md:text-4xl mb-3 ${
             isAiEnabled ? "text-ink" : "text-ww-muted/80"
           }`}
         >
