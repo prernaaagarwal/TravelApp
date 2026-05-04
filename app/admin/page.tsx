@@ -15,17 +15,17 @@ export default async function AdminPage() {
     await Promise.all([
       supabase
         .from("community_posts")
-        .select("id,tab,title,author_name,content,destination,created_at")
+        .select("id,tab,title,author_id,author_name,content,destination,created_at")
         .eq("status", "pending")
         .order("created_at", { ascending: true }),
       supabase
         .from("beware_reports")
-        .select("id,title,description,category,severity,city,reported_by_name,created_at")
+        .select("id,title,description,category,severity,city,reported_by_id,reported_by_name,created_at")
         .eq("status", "pending")
         .order("created_at", { ascending: true }),
       supabase
         .from("trip_submissions")
-        .select("id,destination,destination_slug,trip_start,trip_end,day_count,total_cost_inr,highlight,created_at")
+        .select("id,user_id,destination,destination_slug,trip_start,trip_end,day_count,total_cost_inr,highlight,created_at")
         .eq("status", "pending")
         .order("created_at", { ascending: true }),
     ]);

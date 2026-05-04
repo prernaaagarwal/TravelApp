@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
+import { CommandPalette } from "@/components/shared/CommandPalette";
 
 const NAV_ITEMS = [
   { href: "/explore", label: "Intel" },
@@ -54,6 +55,7 @@ export async function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <CommandPalette />
           {user ? (
             <>
               <Link

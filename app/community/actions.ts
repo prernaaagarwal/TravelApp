@@ -5,11 +5,15 @@ import { revalidatePath } from "next/cache";
 import { createPostSchema } from "@/lib/schemas";
 import { getErrorMessage } from "@/lib/errors";
 import { checkRateLimit, LIMITS } from "@/lib/rate-limit";
+import { checkBanned } from "@/lib/ban-check";
 
 export async function createPost(formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: "Not logged in" };
+
+  const ban = await checkBanned(supabase, user.id);
+  if (ban.banned) return { error: ban.message };
 
   const limit = await checkRateLimit(supabase, user.id, LIMITS.COMMUNITY_POSTS);
   if (!limit.allowed) return { error: limit.message };
