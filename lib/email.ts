@@ -168,6 +168,35 @@ export async function sendBuddyReportResolved(
   });
 }
 
+// Sunday-morning digest. Bundles medium-severity bewares + new intel cards
+// in saved destinations + (optionally) platform-wide new intel cards into
+// one calm email. Critical/high beware reports keep their per-approval
+// path in lib/notify-saved-destinations.ts.
+//
+// `htmlBody` is built by lib/digest.ts:formatDigestEmail (already includes
+// the unsubscribe link in the footer). We also set RFC 8058 List-Unsubscribe
+// headers so Gmail / Apple Mail render their inline native "Unsubscribe"
+// button at the top of the email.
+export async function sendWeeklyDigest(
+  to: string,
+  htmlBody: string,
+  unsubscribeUrl: string,
+) {
+  const resend = getResend();
+  if (!resend) return;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "This week in your saved destinations — Wander Women",
+    html: htmlBody,
+    headers: {
+      // RFC 2369 + RFC 8058: client-rendered native unsubscribe button.
+      "List-Unsubscribe": `<${unsubscribeUrl}>`,
+      "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+    },
+  });
+}
+
 // Sent to a user who saved a destination when a new beware report is approved
 // for that destination. The retention loop: dossier read → save → return when
 // something changes. Sender is responsible for batching / rate-limiting.

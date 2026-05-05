@@ -58,6 +58,7 @@ export default async function SettingsPage() {
     platform_updates: false,
     whatsapp_enabled: false,
     email_enabled: true,
+    weekly_digest_enabled: true,
   };
 
   const tier = profile?.membership_tier ?? "free";
@@ -206,6 +207,7 @@ export default async function SettingsPage() {
               platform_updates: prefs.platform_updates ?? false,
               whatsapp_enabled: prefs.whatsapp_enabled ?? false,
               email_enabled: prefs.email_enabled ?? true,
+              weekly_digest_enabled: prefs.weekly_digest_enabled ?? true,
             }}
             hasPhone={!!profile?.phone}
             hasEmail={!!user.email}

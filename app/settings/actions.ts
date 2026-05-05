@@ -16,6 +16,7 @@ export async function updateNotificationPref(key: string, value: boolean) {
     "platform_updates",
     "whatsapp_enabled",
     "email_enabled",
+    "weekly_digest_enabled",
   ];
   if (!allowed.includes(key)) return;
 
