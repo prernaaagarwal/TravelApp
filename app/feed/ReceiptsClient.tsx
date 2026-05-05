@@ -183,7 +183,7 @@ export function ReceiptsClient({
           <div className="lg:col-span-7">
             <p className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ww-muted">
               <span className="h-px w-8 bg-ink/40" />
-              Issue 04 · The Honest Budget Issue
+              Solo female travel reports · The Honest Budget Issue
             </p>
             <h1 className="font-serif text-5xl leading-[1.02] tracking-tight text-ink md:text-6xl lg:text-7xl">
               Trips, told{" "}

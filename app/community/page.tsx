@@ -4,11 +4,13 @@ import { INTERNATIONAL_CITY_SLUGS } from "@/lib/international-destinations";
 import { createClient } from "@/lib/supabase/server";
 import rawPosts from "@/lib/mock-data/community-posts.json";
 import rawBeware from "@/lib/mock-data/beware-entries.json";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { faqPageLd } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Community — Wander Women",
+  title: "Solo Female Travel Community — Q&A, Scam Reports, Local Tips",
   description:
-    "Ask questions, get answers from women who've been there. Verified scam reports, local sister advice, and real travel experiences — no judgment.",
+    "Ask solo female travel questions. Get answers from women who've been there. Verified scam reports, local sister advice, real experiences — no judgment.",
 };
 
 type SearchParams = Promise<{
@@ -202,8 +204,23 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const supportedBewareSlugs = Array.from(SUPPORTED_BEWARE_CITIES);
   const justSubmitted = sp.submitted === "beware";
 
+  // FAQPage rich snippets — Google surfaces these on solo-female-travel
+  // searches. Build the entries from the top Ask-tab posts that have a
+  // title (the title IS the question) plus content (the answer body).
+  // Cap at 12 entries; longer schemas get diminishing returns from Google.
+  const faqEntries = filteredPosts
+    .filter((p) => p.tab === "ask" && (p.title ?? "").trim().length >= 10)
+    .sort((a, b) => b.likeCount - a.likeCount)
+    .slice(0, 12)
+    .map((p) => ({
+      question: (p.title ?? "").trim(),
+      answer:   p.content.replace(/\s+/g, " ").trim().slice(0, 800),
+    }))
+    .filter((e) => e.answer.length >= 20);
+
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
+      {faqEntries.length > 0 && <JsonLd data={faqPageLd(faqEntries)} />}
       {justSubmitted && (
         <div className="mb-6 flex items-start gap-3 rounded-lg border border-sage/30 bg-sage-light px-4 py-3">
           <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage text-warm-white text-xs font-bold">✓</span>
@@ -219,7 +236,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
       )}
       <div className="mb-10">
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-          Community hub
+          Solo female travel community
         </p>
         <h1 className="mb-3 font-serif text-3xl text-ink sm:text-4xl md:text-5xl">
           The group chat,
@@ -228,7 +245,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
         </h1>
         <p className="font-mono text-sm leading-relaxed text-ww-muted">
           Ask anything. Share what happened. Flag what others need to know.
-          A women-only space where real travelers answer real questions — fast,
+          A women-only space where real travellers answer real questions — fast,
           honest, no filters.
         </p>
       </div>
