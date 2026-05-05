@@ -38,6 +38,8 @@
   --gold-light: #f5e8c0;
   --purple: #6b3a7a;
   --purple-light: #ead8f0;
+  --teal: #1f5258;        /* reference --secondary, hsl(188 45% 22%) */
+  --teal-light: #d6e6e7;
   --ww-muted: #8a7d72;
   --ww-border: #e0d8cc;
   --warm-white: #faf8f4;
@@ -81,6 +83,8 @@
   --color-gold-light: var(--gold-light);
   --color-purple: var(--purple);
   --color-purple-light: var(--purple-light);
+  --color-teal: var(--teal);
+  --color-teal-light: var(--teal-light);
   --color-warm-white: var(--warm-white);
   --color-ww-muted: var(--ww-muted);
   --color-ww-border: var(--ww-border);
