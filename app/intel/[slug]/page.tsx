@@ -480,18 +480,30 @@ export default async function IntelPage({ params }: { params: Params }) {
           </section>
 
           {/* ── Premium locked section ────────────────────────────────── */}
+          {/*
+            Paywall principle: SAFETY intel is always free. The premium
+            "Bonus chapter" only adds itineraries, off-season hacks, day-trip
+            routes, and contributor-curated planning content — never warnings,
+            scam reports, or vetted-for-safety lists. Those live in the free
+            sections above (TLDR, Scams, Don't, Neighborhoods, Emergency).
+          */}
           {card.isPremium && (
             <section className="relative overflow-hidden border border-ww-border">
               <div className="border-b border-ww-border bg-sand/50 px-4 py-2">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-                  Bonus chapter — founding members
+                <p className="flex items-center justify-between gap-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                  <span>Bonus chapter — founding members</span>
+                  <span className="text-sage">Safety intel always free ✓</span>
                 </p>
               </div>
               {/* blurred preview content */}
               <div className="select-none blur-sm pointer-events-none p-6 space-y-3 bg-sand">
                 <p className="font-mono text-sm text-ink">{card.premiumPreview}</p>
                 <div className="space-y-2">
-                  {["Best women-only hostels with verified reviews", "Local women's WhatsApp groups to join before you arrive", "Insider safety hacks from 12 contributors"].map((line, i) => (
+                  {[
+                    "Curated multi-day itinerary, contributor-tested",
+                    "Off-season hacks that cut accommodation costs by 30–40%",
+                    "Day-trip add-on routes most guidebooks skip",
+                  ].map((line, i) => (
                     <p key={i} className="flex gap-2 text-xs text-ww-muted">
                       <span className="text-gold">✦</span>{line}
                     </p>
@@ -502,10 +514,14 @@ export default async function IntelPage({ params }: { params: Params }) {
               {/* lock overlay */}
               <div className="absolute inset-0 top-9 flex flex-col items-center justify-center bg-ink/60 px-6 text-center">
                 <span className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-                  Founding members only
+                  Founding members only · planning content
                 </span>
-                <p className="mb-4 font-serif text-xl text-warm-white">
-                  Unlock the bonus chapter
+                <p className="mb-1 font-serif text-xl text-warm-white">
+                  Unlock the planning chapter
+                </p>
+                <p className="mb-4 max-w-md font-mono text-[11px] leading-relaxed text-warm-white/70">
+                  Itineraries, off-season hacks, and day-trip routes — not safety
+                  warnings. All safety intel above is free, forever.
                 </p>
                 <a
                   href="/account/membership"
