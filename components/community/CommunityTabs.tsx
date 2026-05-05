@@ -575,7 +575,7 @@ function PostCard({ post, userEmail }: { post: Post; userEmail: string | null })
           {reported ? "Reported ✓" : "Report"}
         </button>
         <Link
-          href="/account/membership"
+          href={`/community/post/${post.id}`}
           className="ml-auto font-mono text-[10px] uppercase tracking-widest text-blue hover:underline"
         >
           Reply →

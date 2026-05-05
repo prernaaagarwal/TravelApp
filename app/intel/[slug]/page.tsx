@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { Phone } from "lucide-react";
 import { PreBookChecklist } from "@/components/intel/PreBookChecklist";
 import {
   Accordion,
@@ -11,6 +12,7 @@ import { createClient as createBrowserClient } from "@/lib/supabase/client";
 import { createClient } from "@/lib/supabase/server";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
+import { ShareIntelButton } from "@/components/shared/ShareIntelButton";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { intelCardLd, breadcrumbLd } from "@/lib/jsonld";
 import { ViewTracker } from "@/components/intel/ViewTracker";
@@ -187,6 +189,19 @@ export default async function IntelPage({ params }: { params: Params }) {
                 </span>
               );
             })()}
+          </div>
+
+          {/* ── Share row ─────────────────────────────────────────────── */}
+          <div className="flex flex-col gap-3 border border-dashed border-ww-border bg-warm-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-ww-muted">
+              Send this to whoever you&apos;re travelling with →
+            </p>
+            <ShareIntelButton
+              path={`/intel/${card.slug}`}
+              title={`${card.destination} — solo women's travel intel`}
+              blurb={`Real safety, transit, and stay intel for solo women in ${card.destination}, ${card.country}. From Wander Women.`}
+              variant="primary"
+            />
           </div>
 
           {/* ── TLDR ──────────────────────────────────────────────────── */}
@@ -504,20 +519,36 @@ export default async function IntelPage({ params }: { params: Params }) {
           <section>
             <h2 className="mb-1 font-serif text-2xl text-ink">Emergency contacts</h2>
             <p className="mb-4 font-mono text-xs text-ww-muted">
-              Save these before you travel. Screenshot this section.
+              Tap any number to call. Screenshot this section before you travel.
             </p>
             <div className="grid gap-2 sm:grid-cols-2">
               {card.emergencyNumbers.map((e, i) => (
-                <div key={i} className="flex items-center justify-between border border-ww-border bg-sand px-4 py-3">
-                  <span className="font-mono text-xs text-ww-muted">{e.label}</span>
-                  <a
-                    href={`tel:${e.number}`}
-                    className="font-mono text-sm font-semibold text-rust hover:underline"
-                  >
+                <a
+                  key={i}
+                  href={`tel:${e.number}`}
+                  aria-label={`Call ${e.label} at ${e.number}`}
+                  className="group flex items-center justify-between gap-3 border border-ww-border bg-sand px-4 py-3 transition-colors hover:border-rust hover:bg-rust-light/40"
+                >
+                  <span className="font-mono text-xs text-ww-muted group-hover:text-ink">
+                    {e.label}
+                  </span>
+                  <span className="inline-flex items-center gap-2 font-mono text-sm font-semibold text-rust">
+                    <Phone className="h-3.5 w-3.5" aria-hidden />
                     {e.number}
-                  </a>
-                </div>
+                  </span>
+                </a>
               ))}
+            </div>
+            <div className="mt-4 flex flex-col gap-2 border-t border-ww-border pt-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="font-mono text-[11px] text-ww-muted">
+                Forward this to mum, your partner, or whoever&apos;s tracking you.
+              </p>
+              <ShareIntelButton
+                path={`/intel/${card.slug}`}
+                title={`Emergency contacts: ${card.destination}`}
+                blurb={`Saving these in case I need them — emergency numbers and safety intel for ${card.destination}.`}
+                variant="ghost"
+              />
             </div>
           </section>
 
