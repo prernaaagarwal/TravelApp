@@ -96,3 +96,22 @@ export function breadcrumbLd(items: { name: string; url: string }[]) {
     })),
   };
 }
+
+// Google surfaces FAQPage schema as featured snippets in search results.
+// Pass an array of {question, answer} pairs and we emit valid FAQPage JSON-LD.
+// Caller is responsible for selecting the questions worth surfacing — pages
+// with > ~10 entries get diminishing returns, so cap at the most relevant ones.
+export function faqPageLd(items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}

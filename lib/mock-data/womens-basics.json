@@ -1,0 +1,106 @@
+{
+  "intro": {
+    "headline": "Where to find what no travel guide tells you.",
+    "blurb": "Pads, tampons, cups, period pain meds, intimate hygiene — by city, by chemist, by neighbourhood. Sourced from contributors who've actually been on their period in these places."
+  },
+  "general": [
+    {
+      "title": "Pads (Whisper, Stayfree, Sofy)",
+      "summary": "Available at every chemist and most kirana stores nationwide. ₹50–₹150 per pack. Ultra-thin, overnight, and panty-liner variants stocked everywhere except remote villages."
+    },
+    {
+      "title": "Tampons (OB, Tampax, Stayfree)",
+      "summary": "Metro cities only — Delhi, Mumbai, Bangalore, Chennai, Pune, Hyderabad, Goa. Apollo Pharmacy, Health & Glow, and Nature's Basket are the most reliable. Outside metros, bring a 1-month supply."
+    },
+    {
+      "title": "Menstrual cups & discs",
+      "summary": "SheCup, Sirona, Pee Safe Imbue and Boondh are the easiest to find. Stocked at Apollo Pharmacy, Wellness Forever, and online via Amazon / Nykaa with same-day delivery in metros. Cup users — boil before and after each cycle."
+    },
+    {
+      "title": "Pee Safe & intimate hygiene",
+      "summary": "Pee Safe (toilet seat sanitiser spray) is sold at every chemist and most petrol-pump convenience stores. Sirona intimate wash, V-Wash, and Clean & Dry stocked at any Health & Glow or Apollo."
+    },
+    {
+      "title": "Period pain (Meftal Spas, Combiflam)",
+      "summary": "Over the counter at any chemist. Carry a prescription for stronger NSAIDs if you have severe cramps. Heat patches (Sofy Antibac, EvaTouch) widely available in metro cities."
+    }
+  ],
+  "byCity": [
+    {
+      "city": "Rishikesh",
+      "neighbourhood": "Tapovan / Laxman Jhula",
+      "pads": "More Megastore, Tapovan main road",
+      "tampons": "Apollo Pharmacy, Haridwar Road only",
+      "cups": "Apollo Pharmacy only — ask at counter, often kept behind",
+      "notes": "Yoga ashrams generally stock pads at reception in emergencies. Tampons are scarce — bring your own if you'll be here more than a week."
+    },
+    {
+      "city": "Goa (North)",
+      "neighbourhood": "Anjuna / Vagator / Arambol",
+      "pads": "Magsons, Newton's, Delfino's supermarkets",
+      "tampons": "MedPlus and Wellness Forever pharmacies",
+      "cups": "Wellness Forever (Mapusa, Vagator) — full SheCup + Sirona range",
+      "notes": "Tourist areas fully stocked. Ask for the women's section — sometimes shelved away from the main aisle."
+    },
+    {
+      "city": "Jaipur",
+      "neighbourhood": "C-Scheme / Vaishali Nagar",
+      "pads": "Reliance Smart, Big Bazaar, every chemist",
+      "tampons": "Apollo Pharmacy, MedPlus (C-Scheme branch most reliable)",
+      "cups": "Apollo Pharmacy C-Scheme; online order via Amazon for same-day",
+      "notes": "Old City chemists are hit-or-miss for tampons. Stay near C-Scheme or Vaishali Nagar if supply matters."
+    },
+    {
+      "city": "Hampi",
+      "neighbourhood": "Hampi Bazaar / Hospet",
+      "pads": "Local kirana shops (Whisper / Stayfree only)",
+      "tampons": "Not available — go to Hospet (13km) for Apollo Pharmacy",
+      "cups": "Not available locally — order online before you arrive",
+      "notes": "Remote site. Pack a full cycle's worth before coming. Hospet town has one Apollo with limited stock."
+    },
+    {
+      "city": "Varanasi",
+      "neighbourhood": "Assi Ghat / Lanka",
+      "pads": "Every chemist along Lanka Road",
+      "tampons": "Apollo Pharmacy, Lanka — usually in stock",
+      "cups": "Online only (Amazon, Nykaa) — no local stockists",
+      "notes": "Older parts of the city have fewer options. Lanka and Sigra are your reliable zones."
+    },
+    {
+      "city": "Bangalore",
+      "neighbourhood": "Indiranagar / Koramangala / HSR",
+      "pads": "Every supermarket and chemist",
+      "tampons": "Apollo, MedPlus, Wellness Forever — fully stocked",
+      "cups": "Wellness Forever Indiranagar; SheCup HQ ships same-day",
+      "notes": "Best-stocked city in India for women's products. Cubbon Park area also reliable."
+    },
+    {
+      "city": "Manali",
+      "neighbourhood": "Old Manali / Mall Road",
+      "pads": "Mall Road chemists (Whisper / Stayfree)",
+      "tampons": "Mall Road Apollo Pharmacy — not always in stock",
+      "cups": "Not available locally — order online before arrival",
+      "notes": "Off-season (Nov–Feb) supply gets thin. Bring extra. Higher altitude = heavier flow for some, plan accordingly."
+    },
+    {
+      "city": "Kochi",
+      "neighbourhood": "Fort Kochi / Ernakulam",
+      "pads": "Every chemist, also stocked at Lulu Mall",
+      "tampons": "Apollo Pharmacy MG Road; Lulu Mall Hypermarket",
+      "cups": "Wellness Forever (Marine Drive); online same-day",
+      "notes": "Kerala chemists are well-stocked. Backwater stays — pack supplies, no shops nearby once you're on a houseboat."
+    }
+  ],
+  "packing": [
+    "1 month supply of your preferred period product (especially tampons / cups outside metros).",
+    "A small zip pouch with 2–3 emergency pads in your day bag — chemists close early in many small towns.",
+    "Heating pad or self-heating patches if you have cramps. Indian chemists carry generic versions.",
+    "Period underwear (Saathi, Sirona, Bella) is Indian-made and great for trains / long bus rides — bring 2 pairs.",
+    "Reusable cloth pouch for used products when you're hiking or in remote stays without bins."
+  ],
+  "communityLink": {
+    "label": "Read: Managing your period while travelling solo in India",
+    "href": "/community?tab=ask",
+    "blurb": "21 replies, 69 helpful marks — contributor stories on cup management in low-bathroom places, pain meds that work, and what to do when you're caught out."
+  }
+}

@@ -11,9 +11,9 @@ import buddyMatches from "@/lib/mock-data/buddy-matches.json";
 import { formatDestinationSlug } from "@/lib/utils";
 
 export const metadata = {
-  title: "Find a Travel Buddy — Wander Women",
+  title: "Find a Solo Female Travel Buddy — Verified Matches by Destination",
   description:
-    "Match with women going to the same destination on overlapping dates. Buddy profiles are phone + ID verified by our team.",
+    "Solo female travel buddy matching: find women going where you're going on overlapping dates. Buddy profiles are phone + ID verified by our team.",
 };
 
 export default async function BuddyPage() {
@@ -72,7 +72,7 @@ export default async function BuddyPage() {
     <div className="mx-auto max-w-2xl px-6 py-12">
       <div className="mb-6">
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-          Travel buddy match
+          Solo female travel buddy match
         </p>
         <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
           Solo, but not alone.

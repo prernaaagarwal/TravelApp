@@ -8,7 +8,7 @@ import { test, expect } from "@playwright/test";
 
 const ROUTES: Array<{ path: string; expectText: string | RegExp }> = [
   { path: "/",                       expectText: /Wander Women|solo travel|trip intel/i },
-  { path: "/explore",                expectText: /Browse all destinations/i },
+  { path: "/explore",                expectText: /solo female travel intel|trip intel library/i },
   { path: "/intel/goa-india",        expectText: /Goa/ },
   { path: "/feed",                   expectText: /receipts to prove it|every rupee tracked|honest budget/i },
   { path: "/community",              expectText: /Community hub|group chat/i },
