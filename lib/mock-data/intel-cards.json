@@ -4855,5 +4855,219 @@
       "booking": "https://www.booking.com/searchresults.html?ss=Bali&aid=PLACEHOLDER",
       "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
     }
+  },
+  {
+    "slug": "chiang-mai-thailand",
+    "destination": "Chiang Mai",
+    "country": "Thailand",
+    "audience": "both",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 6,
+    "heroImageUrl": "/images/intel/chiang-mai-thailand.jpg",
+    "tldr": [
+      "Burning season Feb–April: AQI regularly hits 200+, schools close, the haze is brutal. Plan visits May–Oct, or bring P95/N95 masks if you must come Feb–April.",
+      "Songthaews (red shared trucks) are flat-rate inside the Old City — 30 THB per person. Anything more is overcharging; say ‘30 baht?’ before getting in and walk if they refuse.",
+      "Use Grab for cars and Bolt for motorbike-taxis. Tuk-tuks will quote 200 THB for a 60 THB ride. Songthaew + Grab is the no-haggle combo.",
+      "The Old City (inside the moat) is the safest first base — every temple is walkable, hostels are everywhere, well-lit at night.",
+      "Sunday Walking Street (Ratchadamnoen Rd) is one of the safest large markets in SE Asia for solo women — go after 5pm, easy to navigate alone."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Old City (inside the moat)",
+        "safetyRating": 5,
+        "vibe": "Temples, hostels, walkable, gentle traveller energy",
+        "stayHere": true,
+        "notes": "Best first base. Tha Pae Gate side is liveliest; Suan Dok Gate side quieter. Stick to inside the moat after 9pm and you’re fine."
+      },
+      {
+        "name": "Nimman / Suthep",
+        "safetyRating": 4,
+        "vibe": "Cafés, digital nomads, co-working, modern",
+        "stayHere": true,
+        "notes": "Soi 1–7 has the best café cluster. Maya Mall is a navigation landmark. A 10-min songthaew ride to the Old City."
+      },
+      {
+        "name": "Santitham / Chang Phueak",
+        "safetyRating": 4,
+        "vibe": "Local life, cheap street food, residential",
+        "stayHere": true,
+        "notes": "Where Thais actually live. North gate (Chang Phueak) night market for fewer tourists, real prices. Good if you’re on a budget."
+      },
+      {
+        "name": "Riverside (Ping River) / Loi Kroh",
+        "safetyRating": 3,
+        "vibe": "Upscale hotels + nightlife strip",
+        "stayHere": false,
+        "notes": "Loi Kroh Road has go-go bars and the most-reported drink-spiking density in Chiang Mai. Stay across the river or in the Old City instead."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Tuk-tuk gem-shop / tailor scam",
+        "severity": "high",
+        "where": "Chiang Mai — around Tha Pae Gate, Wat Phra Singh, Night Bazaar",
+        "what": "Tuk-tuk driver offers ‘cheap city tour, 100 THB’; route detours to a ‘government tax-free gem store’ or tailor where you’re pressured to buy. Smaller and less aggressive than Bangkok’s version, but the same play.",
+        "avoid": "Skip any ‘100 THB tour’ offered on the street. Walk to temples or use Grab. If you want a tuk-tuk ride, fix the price and the destination — no detours."
+      },
+      {
+        "title": "Songthaew tourist overcharge",
+        "severity": "medium",
+        "where": "Chiang Mai — pickups outside Tha Pae Gate, Night Bazaar, Maya Mall",
+        "what": "Driver quotes 100–200 THB for the standard 30 THB Old-City ride, especially with bags or after dark. Refuses to share with other passengers (the whole point of songthaew).",
+        "avoid": "State ‘30 baht?’ before getting in. If it’s further (Nimman → Old City: 40–50 THB; longer: agree first). Walk to the next songthaew if they hold out — the next one says yes."
+      },
+      {
+        "title": "Scooter rental damage + passport hostage",
+        "severity": "critical",
+        "where": "Chiang Mai — Old City rentals, Doi Suthep approach road, Pai-bound shops",
+        "what": "Shop demands passport as deposit. On return, claims pre-existing scratches or ‘engine damage’; refuses to release passport unless you pay 5,000–30,000 THB.",
+        "avoid": "Cash deposit only (1,000–3,000 THB). Photograph and video the bike from every side BEFORE riding off. Use Mr Mechanic, Tony’s Big Bikes, Cat Motors — well-reviewed, written contracts, no passport."
+      },
+      {
+        "title": "Fake monk bracelet shake-down",
+        "severity": "medium",
+        "where": "Chiang Mai — outside Wat Phra Singh, Wat Chedi Luang, Tha Pae Gate",
+        "what": "Costumed ‘monk’ ties an orange thread / bracelet on you ‘for blessings’ then demands 100–500 THB. Real Thai monks do not solicit on the street and do not touch women.",
+        "avoid": "Real monks: shaven head, plain saffron robes, no jewellery, walk silently early-morning alms route. If approached: hands together (‘wai’), polite ‘mai pen rai’, walk past."
+      },
+      {
+        "title": "Unethical ‘elephant sanctuary’",
+        "severity": "high",
+        "where": "Chiang Mai — Mae Taeng valley, Mae Wang, day-tour bookings",
+        "what": "Operators advertising ‘elephant sanctuary’ or ‘ethical interaction’ that secretly include riding, washing chained elephants, or chained training (phajaan). Bull-hooks on site = unethical.",
+        "avoid": "Only Elephant Nature Park (Lek Chailert) and BLES (Boon Lott’s Elephant Sanctuary) are independently verified — observation-only, no riding, no washing. Avoid any operator listing ‘elephant ride / bath’ in the same package."
+      },
+      {
+        "title": "Trekking operator without insurance",
+        "severity": "high",
+        "where": "Chiang Mai — Mae Hong Son loop, Doi Inthanon, Pai jungle treks",
+        "what": "Cheap trekking operators (under 800 THB / day) cut corners on guides, helmets, first aid; multiple deaths from cliff falls and motorbike crashes through 2024–2025 reported by the Chiang Mai Mail.",
+        "avoid": "Use Pooh Eco-Trekking, Chai Lai Sisters, or Trekking Collective — TAT-licensed, insured, posted safety briefings. Confirm insurance coverage and emergency contact in writing before paying."
+      },
+      {
+        "title": "ATM skimming",
+        "severity": "high",
+        "where": "Chiang Mai — standalone ATMs at Tha Pae Gate, Night Bazaar, Nimman corners",
+        "what": "Skimmer + pinhole camera; account drained 1–8 hours after withdrawal. Bangkok Bank and Krungsri standalone kiosks are most-reported.",
+        "avoid": "Use ATMs INSIDE bank branches only — Siam Commercial Bank, Bangkok Bank, Kasikorn lobbies. Cover PIN entry. Set a low daily withdrawal cap with your home bank."
+      },
+      {
+        "title": "‘Real silver’ / ‘antique’ counterfeit at Sunday Walking Street",
+        "severity": "medium",
+        "where": "Chiang Mai — Sunday Walking Street, Saturday Walking Street, Night Bazaar",
+        "what": "Mass-produced trinkets sold as ‘authentic Lanna antique’ for 2,000–8,000 THB. Often German silver (zinc alloy) sold as 925 sterling.",
+        "avoid": "Treat the markets as fun craft shopping, not investment. Real Lanna antiques only at certified dealers (Suriwong Book Centre area). 925 stamp + magnet test (real silver = non-magnetic)."
+      },
+      {
+        "title": "Cooking class double-booking / no-show",
+        "severity": "medium",
+        "where": "Chiang Mai — Old City booking touts, Instagram DMs",
+        "what": "Tout in the Old City sells you a ‘half-day cooking class, 800 THB’; the operator never picks you up, or the same class is double-booked and the second group is left at the rendezvous.",
+        "avoid": "Book directly with operators: Thai Farm Cooking School, Asia Scenic, Mama Noi’s — TripAdvisor 4.5+ stars. Pay deposit only via the operator’s own website, not via a tout."
+      },
+      {
+        "title": "Drug-bust setup at nightlife strips",
+        "severity": "critical",
+        "where": "Chiang Mai — Loi Kroh Road, Zoe in Yellow / Tha Pae Gate cluster",
+        "what": "‘Friendly’ stranger offers a small bag of weed or pills; minutes later a plainclothes ‘cop’ appears, demands 30,000–80,000 THB to avoid arrest. Thai narcotics laws are harsh — even small amounts can mean weeks in detention.",
+        "avoid": "Refuse every offer regardless of how casual. If approached by an alleged officer, ask for ID and station name; insist on going to the actual police station — the scammer will vanish."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Grab + Bolt apps",
+        "tip": "Grab for cars, Bolt for motorbike-taxis (about 30% cheaper than Grab here). Both more transparent than tuk-tuks. Save your hostel’s Thai-script address in the app for driver clarity.",
+        "approxCost": "60–150 THB ($2–4) most rides; 200–280 THB airport → Old City"
+      },
+      {
+        "mode": "Songthaew (red shared trucks)",
+        "tip": "Flat 30 THB anywhere inside / next-to the Old City. Hail one heading roughly your direction, tell driver the destination, hop in the back. The single best-value transport in northern Thailand.",
+        "approxCost": "30 THB / person flat-rate; 40–50 THB to outer neighbourhoods"
+      },
+      {
+        "mode": "Scooter self-drive",
+        "tip": "Easiest for Doi Suthep, Mae Sa, San Kamphaeng. International Driving Permit REQUIRED (police checkpoints near Doi Suthep). Always wear a helmet — non-negotiable, 2,000 THB fine. Do NOT ride into Pai unless you’re an experienced rider; the road kills people every year.",
+        "approxCost": "200–350 THB / day; helmet included"
+      },
+      {
+        "mode": "Long-distance bus / minivan to Pai, Chiang Rai, Mae Hong Son",
+        "tip": "Aya Service and Prempracha run Pai (3 hr), Sombat Tour to Chiang Rai (3 hr), Prempracha to Mae Hong Son. Buy tickets at the operator’s real office (Arcade Bus Station) — never from a Walking Street tout.",
+        "approxCost": "150–300 THB Pai; 200–350 THB Chiang Rai"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Wat Pha Lat (the hidden monastery)",
+        "type": "Forest temple, halfway up Doi Suthep",
+        "angle": "Solo-female specific",
+        "why": "Skipped by every tour bus. Walk the Monk’s Trail (1.5 km, 30 min) up from the foot of Doi Suthep through the forest — you’ll arrive at a moss-covered, near-empty temple before the main one. Best done 7–9am.",
+        "approxCost": "Free; songthaew to trailhead 50 THB"
+      },
+      {
+        "name": "Mae Sa Valley women’s craft villages",
+        "type": "Day trip — weaving + textile cooperatives",
+        "angle": "Combined (FO + FM)",
+        "why": "Female-run weaving co-ops in Ban Pa Pong (Mae Rim) and Bo Sang. Buy directly from the makers, see the looms, no tour-guide markup. Pair with the orchid farm or Mon Cham viewpoint.",
+        "approxCost": "Songthaew round-trip 400 THB or scooter; scarves 200–800 THB direct"
+      },
+      {
+        "name": "Mon Cham / Pong Yang viewpoint",
+        "type": "Hill-station sunset",
+        "angle": "FO+FM",
+        "why": "1 hr north of Chiang Mai. Open-air restaurants on a ridge with terraced strawberry farms below; sunset is theatrical. Way quieter than Doi Suthep at sunset, no tour buses, ample solo seating.",
+        "approxCost": "Scooter / Grab ~600 THB; meals 150–400 THB"
+      },
+      {
+        "name": "The Sustainable Studio (Sunday market alternative)",
+        "type": "Woman-run zero-waste design space",
+        "angle": "Solo-female",
+        "why": "Founded by Phichit and her partner. Workshops (natural dye, batik, plant-based papermaking), curated local-maker shop, café. The opposite vibe to the Walking Street tourist crush.",
+        "approxCost": "Free entry; workshops 1,200–2,500 THB"
+      },
+      {
+        "name": "Pai (3-day side trip)",
+        "type": "Mountain town, hot springs, slow days",
+        "angle": "FO+FM",
+        "why": "3 hours and 762 curves north of Chiang Mai by minivan. Solo-female-friendly hostels (Spicy Pai Backpackers, Pai Country Hut), waterfalls, hot springs, the Pai Canyon at sunset. Travel in a group on the minivan; the road is brutal.",
+        "approxCost": "Minivan 150–200 THB each way; hostels 200–600 THB / night"
+      }
+    ],
+    "preBookChecklist": [
+      "International Driving Permit if you plan to scooter (Thai police run checkpoints; no IDP = 1,000 THB fine + bike impound)",
+      "Travel insurance covering scooters and treks in Thailand (most policies exclude scooters by default — World Nomads or SafetyWing add it)",
+      "Verify cooking class / trekking operator on TripAdvisor (4.5+ stars, 100+ reviews) before paying any deposit",
+      "Burning-season check (aqicn.org / Chiang Mai) — if AQI > 150 forecast for 3+ days, consider rescheduling Feb–April",
+      "Pre-book first 2 nights inside the Old City; don’t arrive in Chiang Mai without a confirmed bed"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Walk inside the Old City after dark — it’s safer than most home cities",
+        "Do the Monk’s Trail to Wat Pha Lat at sunrise — alone, on foot, before the songthaews fire up",
+        "Use the moat road as your bearings — it’s a perfect 1.5 × 1.5 km square",
+        "Tip cooking-class teachers + multi-hour guides 100–200 THB; not standard but appreciated"
+      ],
+      "dont": [
+        "Touch a monk or hand anything directly to one — women, observe and pass via cloth or via a male intermediary",
+        "Wear shorts above the knee or sleeveless tops to temples — Doi Suthep enforces strictly, sarongs available at the gate",
+        "Photograph monks, especially women novices, without explicit permission",
+        "Ride elephants or book any ‘sanctuary’ that includes riding or chain-washing — every reputable list dropped these by 2023"
+      ]
+    },
+    "estimatedDailyBudget": { "currency": "USD", "backpacker": 25, "midRange": 60, "comfortable": 140 },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "191" },
+      { "label": "Tourist Police", "number": "1155" },
+      { "label": "Ambulance", "number": "1669" },
+      { "label": "Fire", "number": "199" },
+      { "label": "Chiang Mai Tourism", "number": "053-248604" },
+      { "label": "Women's Helpline (MoSDHS)", "number": "1300" }
+    ],
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Chiang+Mai&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
   }
 ]
