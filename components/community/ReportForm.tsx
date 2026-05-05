@@ -40,6 +40,10 @@ export function ReportForm() {
   const [photos, setPhotos] = useState<File[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+
+  // Defamation guardrail — must be ticked before submit. Tracked client-side
+  // and ALSO checked in handleSubmit to prevent button-disabled bypass.
+  const [acknowledged, setAcknowledged] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const filePickerRef = useRef<HTMLInputElement>(null);
   const cameraRef = useRef<HTMLInputElement>(null);
@@ -97,6 +101,12 @@ export function ReportForm() {
     e.preventDefault();
     setError("");
 
+    // Defamation guardrail — every submission must affirm the Code of Conduct.
+    if (!acknowledged) {
+      setError("Please confirm the moderation acknowledgement at the bottom before submitting.");
+      return;
+    }
+
     // Client-side guard: must have either a selected place OR area-level mode
     // with at least a city. Prevents empty-location submissions which would
     // be useless on both the map and the feed.
@@ -125,6 +135,43 @@ export function ReportForm() {
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+
+      {/* Moderation + defamation notice — first thing the reporter reads */}
+      <div className="border border-rust/30 bg-rust-light/40 px-4 py-3">
+        <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
+          Before you submit
+        </p>
+        <ul className="space-y-1.5 font-mono text-xs leading-relaxed text-ink">
+          <li>
+            <strong>A moderator reviews every report within 24 hours.</strong>{" "}
+            Nothing is published before review.
+          </li>
+          <li>
+            Describe a <strong>pattern</strong>, not a one-off grievance. We
+            reject reports that read as personal disputes.
+          </li>
+          <li>
+            Naming a specific business or person?{" "}
+            <strong>Attach evidence</strong> — photo, screenshot, GPS, or a
+            police FIR reference. Our{" "}
+            <a
+              href="/code-of-conduct"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-rust"
+            >
+              Code of Conduct
+            </a>{" "}
+            explains the bar.
+          </li>
+          <li>
+            Stick to <strong>observable facts</strong>: what happened, when,
+            where. Avoid characterisations
+            (&ldquo;creepy&rdquo;, &ldquo;dishonest&rdquo;) — write the
+            underlying behaviour.
+          </li>
+        </ul>
+      </div>
 
       {/* title */}
       <div>
@@ -346,18 +393,46 @@ export function ReportForm() {
         </p>
       </div>
 
+      {/* Defamation acknowledgement — gates submit. No submission goes through
+          without this affirmed. */}
+      <label className="flex items-start gap-3 border border-ww-border bg-warm-white p-4 cursor-pointer hover:border-rust transition-colors">
+        <input
+          type="checkbox"
+          required
+          checked={acknowledged}
+          onChange={(e) => setAcknowledged(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 accent-rust"
+        />
+        <span className="font-mono text-[11px] leading-relaxed text-ink">
+          I confirm this report is accurate to the best of my knowledge,
+          describes a pattern I personally observed (or heard from a named,
+          contactable witness), and that I have read the{" "}
+          <a
+            href="/code-of-conduct"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-rust underline underline-offset-2"
+          >
+            Code of Conduct
+          </a>
+          . I understand a moderator may edit, reject, or contact me for
+          additional evidence before publication.
+        </span>
+      </label>
+
       {error && <p className="text-sm text-rust">{error}</p>}
 
       <Button
         type="submit"
-        disabled={submitting}
-        className="w-full bg-rust text-warm-white hover:bg-rust/90"
+        disabled={submitting || !acknowledged}
+        className="w-full bg-rust text-warm-white hover:bg-rust/90 disabled:opacity-50"
       >
         {submitting ? "Submitting report…" : "Submit beware report →"}
       </Button>
 
       <p className="text-center text-xs text-ww-muted">
-        All reports are reviewed before going live. Usually within 24 hours.
+        Reviewed by a human moderator within 24 hours · published only after
+        approval · you&apos;ll get an email with the outcome.
       </p>
     </form>
   );

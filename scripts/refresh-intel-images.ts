@@ -44,7 +44,7 @@ const SLUG_TO_WIKI: Record<string, string> = {
   "kochi-india":      "Kochi",
   "kasol-india":      "Kasol",
   "hampi-india":      "Hampi",
-  "spiti-india":      "Spiti Valley",
+  "spiti-valley-india": "Spiti Valley",
   // International
   "tokyo-japan":       "Tokyo",
   "bangkok-thailand":  "Bangkok",
