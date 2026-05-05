@@ -14,6 +14,25 @@ const SEVERITIES = [
   { value: "medium", label: "Medium", desc: "Overcharging / misleading", color: "border-sage text-sage" },
 ];
 
+// Washroom-specific lists. State maps server-side to severity (usable→medium,
+// poor→high, unsafe→critical) so map pins + list cards reuse existing colour
+// logic without forking the renderers.
+const WASHROOM_TYPES = [
+  { value: "public-toilet", label: "Public toilet" },
+  { value: "mall",          label: "Mall / department store" },
+  { value: "cafe",          label: "Cafe / restaurant" },
+  { value: "petrol-pump",   label: "Petrol pump" },
+  { value: "metro-station", label: "Metro / railway station" },
+  { value: "sulabh",        label: "Sulabh complex" },
+  { value: "hotel-lobby",   label: "Hotel lobby" },
+  { value: "other",         label: "Other" },
+];
+const WASHROOM_STATES = [
+  { value: "usable", label: "Usable",  desc: "Clean enough, would use again",     color: "border-sage text-sage" },
+  { value: "poor",   label: "Poor",    desc: "Dirty / smelly but functional",      color: "border-gold text-gold" },
+  { value: "unsafe", label: "Unsafe",  desc: "Locked, broken, or unsafe to enter", color: "border-rust text-rust" },
+];
+
 const MAX_PHOTOS = 3;
 
 export function ReportForm() {
@@ -40,6 +59,13 @@ export function ReportForm() {
   const [photos, setPhotos] = useState<File[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+
+  // Report-type discriminator. "scam" is the legacy default; "washroom" swaps
+  // the severity field for a state field, hides category, and adds the
+  // washroom_type select. The same map / moderation queue handles both.
+  const [reportType, setReportType] = useState<"scam" | "washroom">("scam");
+  const [washroomType, setWashroomType] = useState("public-toilet");
+  const [washroomState, setWashroomState] = useState("usable");
 
   // Defamation guardrail — must be ticked before submit. Tracked client-side
   // and ALSO checked in handleSubmit to prevent button-disabled bypass.
@@ -176,12 +202,14 @@ export function ReportForm() {
       {/* title */}
       <div>
         <label className="block text-xs text-ww-muted mb-1">
-          Title <span className="text-rust">*</span>
+          {reportType === "washroom" ? "Place / landmark name" : "Title"} <span className="text-rust">*</span>
         </label>
         <Input
           name="title"
           required
-          placeholder="e.g. Fake taxi rank outside airport"
+          placeholder={reportType === "washroom"
+            ? "e.g. Indira Gandhi Metro toilet near gate 4"
+            : "e.g. Fake taxi rank outside airport"}
           className="bg-warm-white border-ww-border"
         />
       </div>
@@ -189,14 +217,16 @@ export function ReportForm() {
       {/* description */}
       <div>
         <label className="block text-xs text-ww-muted mb-1">
-          What happened? <span className="text-rust">*</span>
+          {reportType === "washroom" ? "Current condition" : "What happened?"} <span className="text-rust">*</span>
         </label>
         <textarea
           name="description"
           required
           minLength={20}
           rows={5}
-          placeholder="Describe exactly what happened, where, when, and what to watch out for. The more detail, the more useful."
+          placeholder={reportType === "washroom"
+            ? "Cleanliness, fee, accessibility, hand-wash + soap, female attendant, sanitary disposal — describe what you observed today."
+            : "Describe exactly what happened, where, when, and what to watch out for. The more detail, the more useful."}
           className="w-full resize-none border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm text-ink placeholder:text-ww-muted focus:outline-none focus:border-ink"
         />
       </div>
@@ -261,6 +291,44 @@ export function ReportForm() {
       <input type="hidden" name="gps_lng" value={finalLng} />
       <input type="hidden" name="place_id" value={selectedPlace?.placeId ?? ""} />
       <input type="hidden" name="formatted_address" value={selectedPlace?.formattedAddress ?? ""} />
+      <input type="hidden" name="report_type" value={reportType} />
+      {reportType === "washroom" && (
+        <>
+          <input type="hidden" name="washroom_type"  value={washroomType} />
+          <input type="hidden" name="washroom_state" value={washroomState} />
+        </>
+      )}
+
+      {/* report-type toggle — top of the form */}
+      <div>
+        <label className="block text-xs text-ww-muted mb-2">What are you reporting? <span className="text-rust">*</span></label>
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            type="button"
+            onClick={() => setReportType("scam")}
+            className={`border px-3 py-3 text-left transition-colors ${
+              reportType === "scam"
+                ? "border-ink bg-ink text-warm-white"
+                : "border-ww-border bg-sand text-ink hover:border-ink"
+            }`}
+          >
+            <span className="block font-mono text-[10px] uppercase tracking-widest">Scam / safety</span>
+            <span className="mt-1 block font-mono text-[11px] opacity-80">Cab, hostel, harassment, online fraud</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setReportType("washroom")}
+            className={`border px-3 py-3 text-left transition-colors ${
+              reportType === "washroom"
+                ? "border-ink bg-ink text-warm-white"
+                : "border-ww-border bg-sand text-ink hover:border-ink"
+            }`}
+          >
+            <span className="block font-mono text-[10px] uppercase tracking-widest">🚻 Washroom</span>
+            <span className="mt-1 block font-mono text-[11px] opacity-80">Pin a usable, poor, or unsafe public washroom</span>
+          </button>
+        </div>
+      </div>
 
       {/* destination slug */}
       <div>
@@ -269,36 +337,81 @@ export function ReportForm() {
         <p className="mt-1 text-[10px] text-ww-muted">Links your report to the intel card for that destination.</p>
       </div>
 
-      {/* category */}
-      <div>
-        <label className="block text-xs text-ww-muted mb-2">Category</label>
-        <div className="flex flex-wrap gap-2">
-          {CATEGORIES.map((cat) => (
-            <label key={cat} className="cursor-pointer">
-              <input type="radio" name="category" value={cat} className="sr-only peer" />
-              <span className="inline-block border border-ww-border bg-sand px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted peer-checked:border-ink peer-checked:bg-ink peer-checked:text-warm-white transition-colors">
-                {cat}
-              </span>
-            </label>
-          ))}
+      {/* category — scam only. Washrooms use washroom_type below. */}
+      {reportType === "scam" && (
+        <div>
+          <label className="block text-xs text-ww-muted mb-2">Category</label>
+          <div className="flex flex-wrap gap-2">
+            {CATEGORIES.map((cat) => (
+              <label key={cat} className="cursor-pointer">
+                <input type="radio" name="category" value={cat} className="sr-only peer" />
+                <span className="inline-block border border-ww-border bg-sand px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted peer-checked:border-ink peer-checked:bg-ink peer-checked:text-warm-white transition-colors">
+                  {cat}
+                </span>
+              </label>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* severity */}
-      <div>
-        <label className="block text-xs text-ww-muted mb-2">Severity <span className="text-rust">*</span></label>
-        <div className="space-y-2">
-          {SEVERITIES.map((s) => (
-            <label key={s.value} className="flex cursor-pointer items-start gap-3">
-              <input type="radio" name="severity" value={s.value} required className="mt-1 shrink-0" />
-              <div>
-                <span className={`font-mono text-xs font-semibold ${s.color.split(" ")[1]}`}>{s.label}</span>
-                <span className="ml-2 font-mono text-[10px] text-ww-muted">{s.desc}</span>
-              </div>
-            </label>
-          ))}
+      {/* washroom type — washroom only */}
+      {reportType === "washroom" && (
+        <div>
+          <label className="block text-xs text-ww-muted mb-2">Washroom type <span className="text-rust">*</span></label>
+          <select
+            value={washroomType}
+            onChange={(e) => setWashroomType(e.target.value)}
+            className="w-full border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm text-ink focus:border-rust outline-none"
+          >
+            {WASHROOM_TYPES.map((t) => (
+              <option key={t.value} value={t.value}>{t.label}</option>
+            ))}
+          </select>
         </div>
-      </div>
+      )}
+
+      {/* severity — scam only. Washrooms use state below. */}
+      {reportType === "scam" && (
+        <div>
+          <label className="block text-xs text-ww-muted mb-2">Severity <span className="text-rust">*</span></label>
+          <div className="space-y-2">
+            {SEVERITIES.map((s) => (
+              <label key={s.value} className="flex cursor-pointer items-start gap-3">
+                <input type="radio" name="severity" value={s.value} required className="mt-1 shrink-0" />
+                <div>
+                  <span className={`font-mono text-xs font-semibold ${s.color.split(" ")[1]}`}>{s.label}</span>
+                  <span className="ml-2 font-mono text-[10px] text-ww-muted">{s.desc}</span>
+                </div>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* state — washroom only */}
+      {reportType === "washroom" && (
+        <div>
+          <label className="block text-xs text-ww-muted mb-2">Current state <span className="text-rust">*</span></label>
+          <div className="space-y-2">
+            {WASHROOM_STATES.map((s) => (
+              <label key={s.value} className="flex cursor-pointer items-start gap-3">
+                <input
+                  type="radio"
+                  name="washroom_state_radio"
+                  value={s.value}
+                  checked={washroomState === s.value}
+                  onChange={() => setWashroomState(s.value)}
+                  className="mt-1 shrink-0"
+                />
+                <div>
+                  <span className={`font-mono text-xs font-semibold ${s.color.split(" ")[1]}`}>{s.label}</span>
+                  <span className="ml-2 font-mono text-[10px] text-ww-muted">{s.desc}</span>
+                </div>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* GPS — for photo-capture authentication. Doesn't override
           autocomplete coords, just enables in-the-moment camera capture. */}
@@ -427,7 +540,11 @@ export function ReportForm() {
         disabled={submitting || !acknowledged}
         className="w-full bg-rust text-warm-white hover:bg-rust/90 disabled:opacity-50"
       >
-        {submitting ? "Submitting report…" : "Submit beware report →"}
+        {submitting
+          ? "Submitting report…"
+          : reportType === "washroom"
+          ? "Submit washroom report →"
+          : "Submit beware report →"}
       </Button>
 
       <p className="text-center text-xs text-ww-muted">
