@@ -50,12 +50,23 @@ export default async function MembershipPage() {
             building this, it&apos;s free — and your honest feedback shapes it.
           </p>
 
+          <div className="mb-4 border border-sage/40 bg-sage-light/40 px-3 py-2">
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-sage">
+              Safety intel is always free
+            </p>
+            <p className="mt-1 font-mono text-[11px] leading-relaxed text-ink">
+              Scam reports, emergency numbers, female-run-stay flags, neighbourhood
+              safety ratings, Beware Board, transit warnings — never paywalled,
+              for anyone, ever. Membership only adds planning + discovery.
+            </p>
+          </div>
+
           <ul className="space-y-2 mb-6">
             {[
-              "Full access to every premium intel card",
+              "Itineraries, off-season hacks, and day-trip routes on every premium card",
               "Priority replies in Ask a Local Sister",
               "Buddy matching with verified profiles",
-              "Early access to every new feature",
+              "Saved dossiers + WhatsApp Vault access",
               "Your name in the founding member credits",
             ].map((perk) => (
               <li key={perk} className="flex items-start gap-2 text-sm text-ink">
