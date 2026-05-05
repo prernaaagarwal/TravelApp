@@ -2,9 +2,9 @@ import Link from "next/link";
 import { VaultSignupForm } from "./VaultSignupForm";
 
 export const metadata = {
-  title: "WhatsApp Trip Vault — Wander Women",
+  title: "WhatsApp Trip Vault — Solo Female Travel Doc Storage",
   description:
-    "Your trip docs, bookings, and emergency contacts — accessible by WhatsApp message. ₹199 per trip.",
+    "Your bookings, insurance, emergency contacts and passport scans on demand by WhatsApp. Built for solo female travel — no app, no login. ₹199 per trip.",
 };
 
 const messages = [
