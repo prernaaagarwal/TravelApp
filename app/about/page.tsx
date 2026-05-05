@@ -47,28 +47,94 @@ export default function AboutPage() {
               <span className="italic text-rust">for the rest of us.</span>
             </h1>
             <div className="space-y-6 text-base leading-relaxed text-ww-muted">
+              {/* ── 1. The bus to Rishikesh ─────────────────────── */}
+              <p>In 2017, I did something that felt a little unhinged.</p>
               <p>
-                I started travelling solo in India in 2019. Goa, Spiti, Manali,
-                Varanasi, Rishikesh, Hampi — by myself, on a budget, mostly on
-                rented Royal Enfields and overnight trains. Seven years of trips
-                later I have notebooks full of intel that nobody had ever
-                written down: which auto stand at Varanasi Junction is safe
-                after 11pm, which homestay in Kaza will WhatsApp your family
-                every night, which Goa rentals are scams.
+                I had moved from Kolkata to Delhi with a plan. For six months I
+                tried to find someone to travel with. Friends were busy.
+                Schedules never aligned. So one evening, tired of waiting, I
+                walked to the bus stop and bought a ticket to Rishikesh. Alone.
+                With no plan. I had never done anything like that in my life.
               </p>
               <p>
-                None of that intel was online. Travel blogs were written by men
-                or by writers on press trips. Instagram itineraries missed the
-                safety reality entirely. The actual life-saving information
-                lived in screenshotted WhatsApp threads between women who had
-                been there.
+                I grew up shy, introverted, quietly terrified of doing most
+                things by myself. That first trip cracked something open. So I
+                kept going — 20 countries, most of India, alone every time. The
+                one that changed everything was a 30-day DIY backpacking trip
+                across Europe on a shoestring.
               </p>
               <p>
-                Wander Women is the platform we should have had ten years ago —
-                a proper, verified, women-only intel layer for solo travel in
-                India and now beyond. Built by a solo founder with a content
-                background, no engineering degree, and seven years of receipts.
+                I stepped off the plane in Paris genuinely nervous. On the last
+                day, I sat in Rome and cried — not because I was scared or
+                lonely, but because I was so full. Because I had done something
+                I once thought was only for other kinds of women.
               </p>
+
+              <hr className="mx-auto my-10 h-px w-12 border-0 bg-rust/40" aria-hidden />
+
+              {/* ── 2. What I noticed ────────────────────────────── */}
+              <p>
+                Here&apos;s what I noticed travelling through all those
+                countries: women elsewhere move through the world differently.
+                Not because it&apos;s safer — but because they were taught the
+                world was theirs.
+              </p>
+              <p>Indian women were not taught that.</p>
+              <p>
+                And yet, whenever I came home, younger women would hear my
+                stories and lean forward. &ldquo;How did you manage alone?&rdquo;
+                &ldquo;What did your parents say?&rdquo; &ldquo;Can I actually
+                do that?&rdquo; The answer was always yes. But I also knew the
+                real landscape — which streets of Paris you leave before a
+                certain hour, the taxi traps at Goa&apos;s airport, the hostel
+                with the broken lock in Kasol. Seven years of hard-won
+                knowledge, living only in my head or in DMs passed hand to
+                hand.
+              </p>
+              <p>That knowledge was going nowhere useful.</p>
+
+              <hr className="mx-auto my-10 h-px w-12 border-0 bg-rust/40" aria-hidden />
+
+              {/* ── 3. What it became ────────────────────────────── */}
+              <p>
+                Solo travel by women has grown 153% in recent years. The woman
+                who wants to go is already here. She just doesn&apos;t have
+                what she needs to go — or to go without spending the first
+                three days in low-level survival mode.
+              </p>
+              <p>
+                Wander Women is the trip intelligence layer solo women have
+                always deserved. Real intel from real women who were just
+                there. A Beware Board. Honest spend breakdowns. A community
+                built for her specific situation — not the Western backpacker,
+                not the package tourist. Her.
+              </p>
+              <p>
+                I built this because I was once the girl who waited six months
+                for someone to go with her — and then went anyway and never
+                looked back.
+              </p>
+              <p className="font-serif text-xl italic text-ink md:text-2xl">
+                I know how many women are still waiting.
+              </p>
+            </div>
+
+            {/* ── Signature ───────────────────────────────────────── */}
+            <div className="mt-10 border-t border-ww-border/60 pt-6">
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink">
+                Prerna Agarwal — Founder, Wander Women
+              </p>
+              <p className="mt-1 font-mono text-xs italic text-ww-muted">
+                Solo traveller. 20 countries. 9 years. Still going.
+              </p>
+              <a
+                href="https://www.instagram.com/prernaatravels/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-block font-mono text-xs text-rust underline-offset-2 hover:underline"
+              >
+                @prernaatravels →
+              </a>
             </div>
 
             <p className="mt-10 border-l-2 border-rust py-2 pl-6 font-serif text-2xl italic leading-snug text-ink md:text-3xl">
