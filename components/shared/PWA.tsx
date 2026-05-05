@@ -21,7 +21,21 @@ export function PWA() {
 function ServiceWorkerRegister() {
   useEffect(() => {
     if (!("serviceWorker" in navigator)) return;
-    if (process.env.NODE_ENV !== "production") return; // skip SW in dev to avoid stale caches
+
+    // In dev: actively kill any service worker left behind by a previous
+    // production build on this origin and clear its caches. Without this,
+    // Turbopack chunks can ghost across edits and break HMR.
+    if (process.env.NODE_ENV !== "production") {
+      navigator.serviceWorker.getRegistrations().then((regs) => {
+        regs.forEach((r) => r.unregister().catch(() => {}));
+      });
+      if ("caches" in window) {
+        caches.keys().then((keys) => {
+          keys.forEach((k) => caches.delete(k).catch(() => {}));
+        });
+      }
+      return;
+    }
 
     const onLoad = () => {
       navigator.serviceWorker
