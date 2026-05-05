@@ -3,9 +3,9 @@ import { ShieldCheck, ShoppingBag, MessageCircle, MapPin, BadgeCheck, Heart } fr
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
-  title: "Safety — Wander Women",
+  title: "Solo Female Travel Safety Toolkit — Kit, Vault, Scam Map",
   description:
-    "The safety toolkit for solo women travellers: curated kit, WhatsApp trip vault, scam map, and stay verification.",
+    "Solo female travel safety toolkit: curated 15-product kit, WhatsApp trip vault, live scam map, stay verification — built by women who travel solo.",
 };
 
 type HubCard = {
@@ -30,8 +30,8 @@ const PUBLIC_CARDS: HubCard[] = [
   {
     href: "/vault",
     eyebrow: "WhatsApp Vault",
-    title: "Your trip docs, one WhatsApp away.",
-    body: "Bookings, insurance, emergency numbers, passport scans — message ‘vault’ and the bot replies. No app, no login, works on a borrowed phone.",
+    title: "Your trip docs by WhatsApp.",
+    body: "Bookings, insurance, emergency numbers, passport scans — on demand by WhatsApp message. No app to download, no login, works on a borrowed phone if yours dies.",
     cta: "See how the Vault works",
     icon: MessageCircle,
   },
@@ -88,7 +88,7 @@ export default async function SafetyPage() {
       <div className="mb-10">
         <p className="mb-2 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
           <ShieldCheck className="h-3.5 w-3.5" />
-          Safety toolkit
+          Solo female travel safety toolkit
         </p>
         <h1 className="mb-3 font-serif text-4xl leading-tight text-ink md:text-5xl">
           Four tools, one place.
