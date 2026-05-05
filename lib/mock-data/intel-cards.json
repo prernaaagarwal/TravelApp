@@ -4643,5 +4643,217 @@
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
+  },
+  {
+    "slug": "bali-indonesia",
+    "destination": "Bali",
+    "country": "Indonesia",
+    "audience": "both",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 7,
+    "heroImageUrl": "/images/intel/bali-indonesia.jpg",
+    "tldr": [
+      "Money-changer short-counts cost women $50–$300 per swap on Kuta and Legian high streets — only use Central Kuta Money Exchange, BMC, or Dirgahayu (4.5+ stars on Maps). Count notes yourself before walking away.",
+      "Scooter rental: NEVER hand over your passport. Cash deposit only ($100–$200). Photograph + video the bike from every side before riding off. Yellow plate = legal; white plate = illegal and impoundable.",
+      "International Driving Permit is required by law and Bali police run tourist checkpoints. No IDP = on-the-spot 1,000,000 IDR (~$65) fine, sometimes more. Bring it from home — you cannot get one in Bali.",
+      "Bali Belly hits ~30% of first-timers. Sealed bottled water only (even for brushing teeth in cheap rooms), hot food, peel fruit yourself. Stock Imodium + Hydralyte before you fly.",
+      "Use Grab and Gojek apps; the local taxi mafia bans them inside Ubud town centre — walk 5 min to a side lane (off Monkey Forest Road) before booking."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Ubud",
+        "safetyRating": 4,
+        "vibe": "Yoga, jungle, retreats, vegan cafés, slow",
+        "stayHere": true,
+        "notes": "Best base for first-time solo women. Penestanan and Nyuh Kuning are quieter walkable lanes. Avoid Monkey Forest Road after dark."
+      },
+      {
+        "name": "Canggu",
+        "safetyRating": 3,
+        "vibe": "Surf, digital nomads, beach clubs, scooters everywhere",
+        "stayHere": true,
+        "notes": "Berawa is calmer than Batu Bolong. Watch for scooter snatch-thefts on Echo Beach Road. Co-working stays (Tropical Nomad, Outpost) are great for solo women."
+      },
+      {
+        "name": "Seminyak / Kuta",
+        "safetyRating": 2,
+        "vibe": "Nightlife, malls, mass tourism",
+        "stayHere": false,
+        "notes": "Highest scam + drink-spiking density on the island. Day-trip for shopping and sunset; sleep elsewhere. Avoid Kuta nightclubs solo."
+      },
+      {
+        "name": "Sanur",
+        "safetyRating": 5,
+        "vibe": "Quiet beach, retiree pace, family-friendly",
+        "stayHere": true,
+        "notes": "Safest beach town. Cycle the boardwalk. Fast boats to Nusa Lembongan and Penida leave from here every morning."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Money-changer short-count",
+        "severity": "critical",
+        "where": "Bali — Kuta, Legian, Seminyak high streets",
+        "what": "Storefronts advertising ‘0% commission, best rate’ short the count by 50,000–500,000 IDR ($3–35) in the bundle. Operators distract with calculator, snap a few notes back during the count.",
+        "avoid": "Only use Central Kuta Money Exchange, BMC, or Dirgahayu — listed on Google Maps with 4.5+ stars and a glass-cage front. Count notes yourself before stepping away. Refuse any place with hand-painted ‘0% commission’ signage."
+      },
+      {
+        "title": "Scooter rental damage + passport hostage",
+        "severity": "critical",
+        "where": "Bali — every tourist hub, especially Canggu, Kuta, Ubud",
+        "what": "Rental shop demands passport as deposit. On return, they claim pre-existing scratches or ‘engine damage’ and refuse to release the passport unless you pay $200–$2,000.",
+        "avoid": "Cash deposit only ($100–$200). Photograph and video the entire bike (all sides, mirrors, tyres, engine) before riding off. Use shops your hostel or villa explicitly recommends. Yellow plate only."
+      },
+      {
+        "title": "ATM skimming",
+        "severity": "high",
+        "where": "Bali — standalone ATMs at Kuta beach road, Ubud Monkey Forest Road, Canggu corners",
+        "what": "Skimming device + pinhole camera. Account drained 1–8 hours after the transaction. BNI and BCA standalone kiosks are most-reported.",
+        "avoid": "Use ATMs INSIDE bank branches only — BCA, Mandiri, BNI lobbies. Cover PIN entry. Set a low daily withdrawal cap with your home bank before the trip."
+      },
+      {
+        "title": "DPS airport ‘official taxi’ upcharge",
+        "severity": "high",
+        "where": "Bali — Ngurah Rai (DPS) airport arrivals",
+        "what": "‘Official airport taxi’ counters charge 350,000–600,000 IDR for a ride that costs 100,000 IDR on Grab. Some take you to a kickback-paying hotel claiming yours ‘closed’.",
+        "avoid": "Walk past the taxi counter, exit the terminal, cross the parking lot to the public road, then book Grab or Gojek there. Or pre-book a private transfer through your hotel before arrival."
+      },
+      {
+        "title": "Drink spiking + arak methanol (Kuta / Legian)",
+        "severity": "critical",
+        "where": "Bali — Sky Garden, Bounty, La Favela, Kuta beachfront bars",
+        "what": "GHB / rohypnol in drinks; victim wakes up missing money, phone, sometimes assaulted. Local arak (moonshine) has been mixed with methanol — multiple tourist deaths through 2024–2025.",
+        "avoid": "Avoid Kuta nightclubs solo. Sealed branded beer or sealed bottles only. Watch the bartender pour. Never accept drinks from strangers. ‘Free arak shot’ = walk out."
+      },
+      {
+        "title": "Ubud taxi mafia overcharge",
+        "severity": "medium",
+        "where": "Bali — Ubud Monkey Forest Road, Hanoman Street",
+        "what": "Painted ‘Taxi?’ signs on every corner. Locals refuse the meter, quote 200,000 IDR for a 30,000 IDR ride. Local mafia blocks Grab / Gojek pickups inside Ubud town centre.",
+        "avoid": "Walk 5–10 min to a side lane off Monkey Forest Road and book Grab there. Or take a Bluebird (Bali Taxi) blue cab — they run the meter without arguing."
+      },
+      {
+        "title": "Monkey theft at Sacred Monkey Forest",
+        "severity": "medium",
+        "where": "Bali — Ubud Sacred Monkey Forest, Uluwatu Temple",
+        "what": "Macaques snatch sunglasses, phones, water bottles, hats. Some are trained by handlers who then ‘help’ retrieve the item for a 50,000–200,000 IDR ‘tip’.",
+        "avoid": "No sunglasses, no loose accessories. Phone in a zipped pocket, not in hand. If snatched, do NOT chase — flag down a uniformed ranger; staff retrieve items for free."
+      },
+      {
+        "title": "‘Free’ temple sarong / friendship bracelet",
+        "severity": "medium",
+        "where": "Bali — temple entrances at Tanah Lot, Uluwatu, Ubud Saraswati",
+        "what": "Hawker ties a sarong or bracelet on you ‘free as a gift’ then aggressively demands 50,000–200,000 IDR. Refusal escalates to a scene.",
+        "avoid": "Refuse all unsolicited offers. Most temples already include sarong rental in the entry ticket. Walk past with hands together, polite ‘no thank you.’"
+      },
+      {
+        "title": "Black-market visa-extension scam",
+        "severity": "high",
+        "where": "Bali — ‘visa agents’ on Jalan Legian, Instagram DMs targeting nomads",
+        "what": "‘Agent’ takes $200 + your passport for a B211 extension or KITAS application; either disappears or files a fake stamp that gets you fined or banned at exit.",
+        "avoid": "Use only verified agents (Bali Visa Service, Emerhub, Cekindo) with a physical office, registered tax number, and Google reviews. Or extend yourself through the official imigrasi.go.id e-Visa portal."
+      },
+      {
+        "title": "Beach-towel / massage upsell on Kuta sand",
+        "severity": "medium",
+        "where": "Bali — Kuta Beach, Legian Beach, Seminyak Beach",
+        "what": "Beach hawker offers ‘free’ massage or ‘free’ towel use, then charges 200,000–500,000 IDR after, blocking access to your bag while ‘helping’ you up.",
+        "avoid": "Polite firm decline. Book massage at a registered spa with posted prices (Karma, Bodyworks, Putri Bali Spa). Never leave your bag with a hawker."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Grab + Gojek apps",
+        "tip": "Both run cars and motorbike-taxis. Cheaper than the airport meter. Banned by the local mafia in Ubud town centre — walk 5 min outside before booking. Save the Bahasa name of your destination in the app to skip language friction.",
+        "approxCost": "30,000–80,000 IDR ($2–5) most rides; 100,000–150,000 IDR ($6–10) airport → Seminyak"
+      },
+      {
+        "mode": "Bluebird (Bali Taxi) blue metered cabs",
+        "tip": "The only taxi brand that runs the meter without arguing. Look for the literal blue colour + Bluebird logo on the door (other ‘blue’ cabs are imitators). Available at airport, malls, hotel ranks.",
+        "approxCost": "Meter starts at 7,000 IDR + 7,000 IDR/km"
+      },
+      {
+        "mode": "Scooter self-drive",
+        "tip": "Easiest way around. International Driving Permit REQUIRED — police run tourist checkpoints. Yellow plate only. Always wear a helmet. Confirm your travel insurance covers scooters in Indonesia (most don’t by default).",
+        "approxCost": "70,000–120,000 IDR/day ($4–8); helmet usually included"
+      },
+      {
+        "mode": "Perama Tours shuttle bus",
+        "tip": "Reliable shared van between Ubud, Kuta, Sanur, Padang Bai (Lombok ferry), Lovina. Book at any Perama office or guesthouse. Slow but the safest non-driving option for solo women.",
+        "approxCost": "60,000–125,000 IDR per leg"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Tirta Empul Holy Spring (early morning)",
+        "type": "Active Hindu temple + ritual bathing",
+        "angle": "Solo-female specific",
+        "why": "Active Balinese Hindu purification temple. Arrive 7am before tour buses; you’ll have the spring almost to yourself. Sarong included; women on period are asked not to enter the spring (sit by the side, observe).",
+        "approxCost": "75,000 IDR entry + 10,000 IDR locker"
+      },
+      {
+        "name": "Sidemen Valley homestays",
+        "type": "Quiet rural alternative to Ubud",
+        "angle": "Combined (FO + FM)",
+        "why": "1.5 hrs east of Ubud. Rice terraces, no scooter horns, family-run homestays under $25/night. The escape-Ubud move. Try Subak Tabola Villa or Samanvaya.",
+        "approxCost": "$15–$50/night"
+      },
+      {
+        "name": "Munduk waterfalls + lake-rim cafés",
+        "type": "Cool-climate hill town",
+        "angle": "FO+FM",
+        "why": "Mountain village 2.5 hrs north of Ubud. Cool air, three waterfalls walkable from town, sunrise at Lake Tamblingan. Low-tourist, female-run guesthouses.",
+        "approxCost": "$25–$70/night"
+      },
+      {
+        "name": "Nusa Lembongan via Sanur fast boat",
+        "type": "Day trip / 2-night escape",
+        "angle": "FO+FM",
+        "why": "30-min boat from Sanur. Way quieter than Penida. Snorkel with manta rays at Manta Point, cycle the island, sunset at Devil’s Tear. Solo-female-friendly homestays at Mushroom Bay.",
+        "approxCost": "Boat round-trip 250,000 IDR; rooms from $20"
+      },
+      {
+        "name": "Pranoto’s Art Gallery drop-in life-drawing class (Ubud)",
+        "type": "Drop-in life-drawing class",
+        "angle": "Solo-female",
+        "why": "Run by Pranoto and his wife Kerry; $10 drop-in life-drawing class twice a week. Easiest place in Ubud to meet other solo travellers without a yoga-studio price tag.",
+        "approxCost": "≈ $10 / 150,000 IDR per class"
+      }
+    ],
+    "preBookChecklist": [
+      "Photocopy + photograph passport, credit cards, insurance — store on cloud + a backup phone",
+      "Get an International Driving Permit BEFORE you fly if you plan to scooter (Indonesian police will fine you 1M+ IDR without it)",
+      "Buy World Nomads or SafetyWing insurance covering scooter accidents in Indonesia (most insurers exclude scooters by default)",
+      "Pre-book first 2 nights of stay; don’t arrive in Bali without a confirmed bed",
+      "Download Grab + Gojek apps and verify they work on your home SIM before flying"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Stay in Sanur or Ubud for your first 2 nights — easier landing than Kuta or Canggu",
+        "Carry small cash (10,000 / 20,000 / 50,000 IDR notes) — many places refuse 100k notes for small purchases",
+        "Wear a sarong covering knees and shoulders at every temple, including Uluwatu and Tanah Lot",
+        "Drink only sealed bottled water, even for brushing teeth in cheap rooms"
+      ],
+      "dont": [
+        "Hand over your passport for any rental (scooter, surfboard, motorbike) — cash deposit only",
+        "Drink the local arak / moonshine — multiple methanol-poisoning deaths through 2024–2025",
+        "Eat ice or unpeeled salads in cheap warungs — Bali Belly hits 30%+ of first-time visitors",
+        "Trust ‘visa agents’ on Jalan Legian or Instagram DMs — extend at imigrasi.go.id directly"
+      ]
+    },
+    "estimatedDailyBudget": { "currency": "USD", "backpacker": 30, "midRange": 80, "comfortable": 200 },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "110" },
+      { "label": "Ambulance", "number": "118" },
+      { "label": "Tourist Police (Bali)", "number": "0361-754599" },
+      { "label": "Bali Tourism Helpline", "number": "0361-222387" }
+    ],
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Bali&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
   }
 ]
