@@ -69,7 +69,7 @@ const TAB_META = {
     label: "Beware Board",
     short: "Beware",
     placeholder: "Report a scam or safety issue",
-    cta: "Report a scam",
+    cta: "Submit a report",
   },
 } as const;
 

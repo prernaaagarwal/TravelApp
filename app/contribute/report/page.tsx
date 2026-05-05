@@ -29,7 +29,7 @@ export default async function ReportPage() {
           <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
             Beware Board
           </p>
-          <h1 className="font-serif text-4xl text-ink mb-3">Report a scam</h1>
+          <h1 className="font-serif text-4xl text-ink mb-3">Submit a report</h1>
           <p className="text-sm text-ww-muted leading-relaxed">
             Your report helps women traveling after you. Be specific — the more
             detail, the more useful it is. All reports are anonymous (first name
