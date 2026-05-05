@@ -81,9 +81,8 @@ export default async function VerifyStayPage() {
               Beta · Temporarily offline
             </p>
             <p className="font-mono text-xs leading-relaxed text-ink">
-              The AI safety check is paused while we wait on the Anthropic API
-              key for production. We&apos;ll switch this back on shortly. In
-              the meantime, browse <Link href="/community" className="text-rust underline underline-offset-2">scam reports</Link> on the
+              The AI safety check is paused. We&apos;ll switch this back on
+              shortly. In the meantime, browse <Link href="/community" className="text-rust underline underline-offset-2">scam reports</Link> on the
               Beware Board or read a destination&apos;s <Link href="/explore" className="text-rust underline underline-offset-2">trip intel card</Link>{" "}
               — they cover the same ground without the AI layer.
             </p>
