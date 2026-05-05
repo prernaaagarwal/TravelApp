@@ -2,9 +2,9 @@ import Image from "next/image";
 import rawProducts from "@/lib/mock-data/shop-products.json";
 
 export const metadata = {
-  title: "Safety Shop — Wander Women",
+  title: "Solo Female Travel Safety Kit — 15 Products We Actually Pack",
   description:
-    "15 products every solo woman traveller should pack. Curated by our contributors. Real Amazon affiliate links.",
+    "The safety kit every solo woman traveller should pack — door wedges, RFID wallets, personal alarms, eSIMs, plus women's basics. Curated by contributors who actually use them.",
 };
 
 type Product = {
@@ -23,6 +23,7 @@ const CATEGORY_ORDER = [
   "Tech & Connectivity",
   "Packing & Organisation",
   "Health & Hygiene",
+  "Women's Basics",
 ];
 
 const sorted = [...(rawProducts as Product[])].sort(
@@ -39,13 +40,13 @@ export default function ShopPage() {
       {/* header */}
       <div className="mb-10">
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-          Affiliate picks
+          Solo female travel safety kit · affiliate picks
         </p>
         <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
           The safety kit.
         </h1>
         <p className="mb-4 font-mono text-sm leading-relaxed text-ww-muted">
-          15 products our contributors actually carry. Every link is an Amazon
+          The kit our contributors actually carry. Every link is an Amazon
           affiliate — you pay nothing extra, we earn a small commission that
           funds more intel cards.
         </p>

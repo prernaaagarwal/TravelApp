@@ -7,11 +7,28 @@ export const dynamic = "force-dynamic";
 
 type SearchParams = Promise<{ destination?: string; submitted?: string }>;
 
-export const metadata = {
-  title: "Trip Reports — Wander Women",
-  description:
-    "Real itineraries from solo women travellers — costs, notes, and what actually happened.",
-};
+// Filtered views like `/feed?destination=jaipur-india` would otherwise compete
+// with `/intel/jaipur-india` for the destination keyword in Google's index.
+// Canonicalise every filtered URL back to `/feed`, and noindex the filter
+// variants so the destination keyword crown stays uncontested with the
+// curated intel cards. Plain `/feed` stays indexable.
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const { destination } = await searchParams;
+  const filtered = !!destination;
+  return {
+    title: "Solo Female Travel Trip Reports — Real Itineraries & Costs",
+    description:
+      "Real solo female travel itineraries with rupee + USD cost breakdowns. What women actually spent, where they stayed, what they wish they'd known.",
+    alternates: { canonical: "/feed" },
+    robots: filtered
+      ? { index: false, follow: true }
+      : { index: true, follow: true },
+  };
+}
 
 type Trip = Parameters<typeof ReceiptsClient>[0]["trips"][number];
 
@@ -68,7 +85,7 @@ export default async function FeedPage({
     contributorSlug: t.contributor_slug ?? "",
     destinationSlug: t.destination_slug,
     destination:     t.destination,
-    category:        "Dossier",
+    category:        "Trip",
     region:          regionFromSlug(t.destination_slug),
     tripDates:       { start: t.trip_start, end: t.trip_end },
     dayCount:        t.day_count,

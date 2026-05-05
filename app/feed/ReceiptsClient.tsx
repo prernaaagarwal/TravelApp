@@ -166,11 +166,11 @@ export function ReceiptsClient({
   }, [allTrips, contributors, selectedSlug, query, budget, soloOnly, month, safetyByDestination]);
 
   const contribStats = useMemo(() => {
-    const m = new Map<string, { dossiers: number; receipts: number }>();
+    const m = new Map<string, { trips: number; notes: number }>();
     for (const t of allTrips) {
-      const cur = m.get(t.contributorSlug) ?? { dossiers: 0, receipts: 0 };
-      cur.dossiers += 1;
-      cur.receipts += t.topNotes.length;
+      const cur = m.get(t.contributorSlug) ?? { trips: 0, notes: 0 };
+      cur.trips += 1;
+      cur.notes += t.topNotes.length;
       m.set(t.contributorSlug, cur);
     }
     return m;
@@ -185,7 +185,7 @@ export function ReceiptsClient({
     [contributors],
   );
 
-  const totalReceipts = useMemo(
+  const totalNotes = useMemo(
     () => allTrips.reduce((a, t) => a + t.topNotes.length, 0),
     [allTrips],
   );
@@ -198,7 +198,7 @@ export function ReceiptsClient({
           <div className="lg:col-span-7">
             <p className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ww-muted">
               <span className="h-px w-8 bg-ink/40" />
-              Issue 04 · The Honest Budget Issue
+              Solo female travel reports · The Honest Budget Issue
             </p>
             <h1 className="font-serif text-5xl leading-[1.02] tracking-tight text-ink md:text-6xl lg:text-7xl">
               Trips, told{" "}
@@ -233,7 +233,7 @@ export function ReceiptsClient({
                 <span className="font-medium tabular-nums text-ink">
                   {allTrips.length.toLocaleString("en-IN")}
                 </span>{" "}
-                verified dossiers · {totalReceipts} receipts logged
+                trips logged · {totalNotes} notes from contributors
               </span>
             </div>
           </div>
@@ -253,7 +253,7 @@ export function ReceiptsClient({
                 />
               </div>
               <figcaption className="mt-3 flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-ww-muted">
-                <span>Cover · From the dossiers</span>
+                <span>Cover · Latest from contributors</span>
                 <span>{contributors[0]?.name ?? ""}</span>
               </figcaption>
               {/* Floating stat card — only on lg+ to avoid cramping mobile */}
@@ -352,7 +352,7 @@ export function ReceiptsClient({
             </p>
             <h2 className="font-serif text-3xl tracking-tight md:text-4xl">
               <span className="tabular-nums">{filteredTrips.length}</span>{" "}
-              {filteredTrips.length === 1 ? "dossier matches" : "dossiers match"}{" "}
+              {filteredTrips.length === 1 ? "trip matches" : "trips match"}{" "}
               your filters
             </h2>
           </div>
@@ -438,8 +438,8 @@ export function ReceiptsClient({
                 )}
                 stats={
                   contribStats.get(trip.contributorSlug) ?? {
-                    dossiers: 1,
-                    receipts: trip.topNotes.length,
+                    trips: 1,
+                    notes: trip.topNotes.length,
                   }
                 }
                 safety={safetyByDestination[trip.destinationSlug] ?? null}
@@ -491,7 +491,7 @@ function TripCard({
   trip: Trip;
   index: number;
   contributor: Contributor | undefined;
-  stats: { dossiers: number; receipts: number };
+  stats: { trips: number; notes: number };
   // Per-destination safety. Null when no intel card exists for the slug;
   // also rendered as "Not enough data yet" when count < SAFETY_MIN_HOODS.
   safety: { avg: number; count: number } | null;
@@ -564,9 +564,9 @@ function TripCard({
               <span className="font-medium text-ink transition-colors group-hover/author:text-rust">
                 {contributor?.name ?? "Wander Women"}
               </span>{" "}
-              · {stats.dossiers}{" "}
-              {stats.dossiers === 1 ? "dossier" : "dossiers"} · {stats.receipts}{" "}
-              receipts
+              · {stats.trips}{" "}
+              {stats.trips === 1 ? "trip" : "trips"} · {stats.notes}{" "}
+              notes
             </span>
           </Link>
         </div>
@@ -634,7 +634,7 @@ function TripCard({
               href={`/intel/${trip.destinationSlug}`}
               className="inline-flex h-8 items-center gap-1.5 rounded-full bg-teal px-4 font-mono text-xs text-warm-white transition-colors hover:bg-ink"
             >
-              Read dossier
+              See destination guide
               <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -649,7 +649,7 @@ function EmptyState({ onReset }: { onReset: () => void }) {
     <div className="rounded-sm border border-ink/10 bg-warm-white px-8 py-20 text-center">
       <Sparkles className="mx-auto mb-3 h-6 w-6 text-ww-muted" />
       <p className="mb-2 font-serif text-2xl text-ink">
-        No dossiers in this slice.
+        No trips in this slice.
       </p>
       <p className="mb-6 font-mono text-xs text-ww-muted">
         Loosen the budget or try another month.
