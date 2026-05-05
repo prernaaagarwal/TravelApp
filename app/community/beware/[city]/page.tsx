@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { ScamMapClient } from "./ScamMapClient";
 import { BEWARE_CITIES, normaliseCategory, type MapReport } from "@/lib/beware-cities";
+import { BewareModerationBanner } from "@/components/community/BewareModerationBanner";
 
 export async function generateStaticParams() {
   return Object.keys(BEWARE_CITIES).map((city) => ({ city }));
@@ -64,18 +65,23 @@ export default async function CityScamMapPage({ params }: { params: Promise<{ ci
   }));
 
   return (
-    <ScamMapClient
-      citySlug={entry.config.slug}
-      cityName={entry.config.name}
-      center={entry.config.center}
-      zoom={entry.config.zoom}
-      country={entry.config.country}
-      boundaryQuery={entry.config.boundaryQuery}
-      boundaryOsmId={entry.config.boundaryOsmId}
-      neighbourhoods={entry.config.neighbourhoods}
-      demoReports={demoReports}
-      dbReports={dbReports}
-      isLoggedIn={!!user}
-    />
+    <>
+      <div className="mx-auto max-w-3xl px-4 pt-6">
+        <BewareModerationBanner />
+      </div>
+      <ScamMapClient
+        citySlug={entry.config.slug}
+        cityName={entry.config.name}
+        center={entry.config.center}
+        zoom={entry.config.zoom}
+        country={entry.config.country}
+        boundaryQuery={entry.config.boundaryQuery}
+        boundaryOsmId={entry.config.boundaryOsmId}
+        neighbourhoods={entry.config.neighbourhoods}
+        demoReports={demoReports}
+        dbReports={dbReports}
+        isLoggedIn={!!user}
+      />
+    </>
   );
 }

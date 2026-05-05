@@ -209,10 +209,17 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
           <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage text-warm-white text-xs font-bold">✓</span>
           <div className="flex-1">
             <p className="font-mono text-sm font-medium text-ink">
-              Your Beware report has been submitted
+              Your Beware report has been submitted for review
             </p>
-            <p className="mt-1 font-mono text-xs text-ww-muted">
-              Thanks for helping keep solo travellers safe. It&apos;ll appear in the Beware tab once a moderator reviews it.
+            <p className="mt-1 font-mono text-xs leading-relaxed text-ww-muted">
+              Thanks for helping keep solo travellers safe. A human moderator
+              will review it within <strong>24 hours</strong> against our{" "}
+              <a href="/code-of-conduct" className="underline hover:text-ink">
+                Code of Conduct
+              </a>
+              . You&apos;ll get an email with the outcome — approved (with or
+              without edits), or rejected with a written reason. Nothing is
+              published before review.
             </p>
           </div>
         </div>
