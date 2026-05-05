@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { DestinationWaitlistForm } from "@/components/shared/DestinationWaitlistForm";
 
 type Card = {
   slug: string;
@@ -67,12 +68,19 @@ export function ExploreGrid({ cards, contributors }: Props) {
         </span>
       </div>
 
-      {/* empty state */}
+      {/* empty state — turns the dead end into a waitlist signal */}
       {filtered.length === 0 && (
-        <div className="py-20 text-center">
-          <p className="font-mono text-sm text-ww-muted">
-            No cards for this filter yet — we&apos;re expanding soon.
+        <div className="border border-dashed border-ww-border bg-warm-white px-6 py-12 text-center">
+          <p className="mx-auto mb-1 max-w-md font-mono text-sm text-ink">
+            No cards for this filter yet.
           </p>
+          <p className="mx-auto mb-5 max-w-md font-mono text-xs text-ww-muted">
+            Tell us where you&apos;re headed — we&apos;ll email when intel for
+            that destination goes live.
+          </p>
+          <div className="mx-auto max-w-sm">
+            <DestinationWaitlistForm destination={active === "all" ? undefined : active} />
+          </div>
         </div>
       )}
 

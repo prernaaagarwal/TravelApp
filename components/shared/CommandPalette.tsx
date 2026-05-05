@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Search, X, FileText, Compass, ShieldAlert, MessagesSquare } from "lucide-react";
 import type { SearchResult, SearchResultType } from "@/lib/search";
+import { DestinationWaitlistForm } from "@/components/shared/DestinationWaitlistForm";
 
 const TYPE_META: Record<SearchResultType, { label: string; Icon: typeof FileText; tone: string }> = {
   intel:  { label: "Intel",   Icon: Compass,         tone: "border-rust  text-rust"  },
@@ -179,7 +180,7 @@ function PaletteBody({ onClose }: { onClose: () => void }) {
         ) : loading && visibleResults.length === 0 ? (
           <EmptyState message="Searching…" />
         ) : visibleResults.length === 0 ? (
-          <EmptyState message={`No results for "${query.trim()}".`} />
+          <NoResultsWaitlist query={query.trim()} />
         ) : (
           <ul role="listbox" className="divide-y divide-ww-border">
             {visibleResults.map((r, i) => {
@@ -235,6 +236,22 @@ function EmptyState({ message }: { message: string }) {
   return (
     <div className="px-4 py-12 text-center font-mono text-xs text-ww-muted">
       {message}
+    </div>
+  );
+}
+
+function NoResultsWaitlist({ query }: { query: string }) {
+  return (
+    <div className="px-4 py-8">
+      <p className="mb-1 text-center font-mono text-xs text-ww-muted">
+        No intel for <span className="text-ink">&ldquo;{query}&rdquo;</span> yet.
+      </p>
+      <p className="mb-4 text-center font-mono text-[11px] text-ww-muted">
+        Want an email when we add it?
+      </p>
+      <div className="mx-auto max-w-sm">
+        <DestinationWaitlistForm destination={query} compact />
+      </div>
     </div>
   );
 }
