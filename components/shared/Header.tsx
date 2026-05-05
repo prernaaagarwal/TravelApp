@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Settings } from "lucide-react";
+import { Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
 import { CommandPalette } from "@/components/shared/CommandPalette";
@@ -21,15 +21,17 @@ export async function Header() {
 
   let profileSlug: string | null = null;
   let initial = "W";
+  let isStaff = false;
   if (user) {
     const { data: profile } = await supabase
       .from("profiles")
-      .select("username, first_name")
+      .select("username, first_name, role")
       .eq("id", user.id)
       .single();
     profileSlug = profile?.username ?? user.id;
     const name = profile?.first_name ?? user.email ?? "W";
     initial = name[0].toUpperCase();
+    isStaff = profile?.role === "admin" || profile?.role === "moderator";
   }
 
   return (
@@ -58,6 +60,16 @@ export async function Header() {
           <CommandPalette />
           {user ? (
             <>
+              {isStaff && (
+                <Link
+                  href="/admin"
+                  aria-label="Admin"
+                  title="Admin"
+                  className="p-1 text-ww-muted transition-colors hover:text-rust"
+                >
+                  <Shield className="h-4 w-4" />
+                </Link>
+              )}
               <Link
                 href="/settings"
                 aria-label="Settings"
