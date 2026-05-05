@@ -3707,12 +3707,12 @@
       "midRange": 130,
       "comfortable": 280
     },
-    "emergencyNumbers": {
-      "Police": "110",
-      "Ambulance": "119",
-      "Tourist Helpline": "03-3201-3331",
-      "JNTO Hotline": "050-3816-2787"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "110" },
+      { "label": "Ambulance", "number": "119" },
+      { "label": "Tourist Helpline", "number": "03-3201-3331" },
+      { "label": "JNTO Hotline", "number": "050-3816-2787" }
+    ],
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
@@ -3902,12 +3902,12 @@
       "midRange": 60,
       "comfortable": 150
     },
-    "emergencyNumbers": {
-      "Police": "191",
-      "Ambulance": "1669",
-      "Tourist Police": "1155",
-      "Bangkok Helpline": "02-356-0700"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "191" },
+      { "label": "Ambulance", "number": "1669" },
+      { "label": "Tourist Police", "number": "1155" },
+      { "label": "Bangkok Helpline", "number": "02-356-0700" }
+    ],
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
@@ -4097,12 +4097,12 @@
       "midRange": 60,
       "comfortable": 120
     },
-    "emergencyNumbers": {
-      "Police": "113",
-      "Ambulance": "115",
-      "Fire": "114",
-      "Tourist Helpline": "1800-599-920"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "113" },
+      { "label": "Ambulance", "number": "115" },
+      { "label": "Fire", "number": "114" },
+      { "label": "Tourist Helpline", "number": "1800-599-920" }
+    ],
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
@@ -4306,12 +4306,12 @@
       "midRange": 150,
       "comfortable": 350
     },
-    "emergencyNumbers": {
-      "Police": "999",
-      "Ambulance": "998",
-      "Dubai Tourism": "800-9999",
-      "Women's Helpline": "800-HOPE (4673)"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "999" },
+      { "label": "Ambulance", "number": "998" },
+      { "label": "Dubai Tourism", "number": "800-9999" },
+      { "label": "Women's Helpline", "number": "800-HOPE (4673)" }
+    ],
     "isPremium": true,
     "premiumPreview": "Premium covers: the 4 women-only beach clubs and spas (with day-pass pricing), the 6 RTA-licensed female taxi-driver routes, modesty-compliant outfit guides for the 3 main mosques, and the Indian-passport visa loophole that gets you 30 days instead of 14.",
     "affiliateLinks": {}
@@ -4501,12 +4501,12 @@
       "midRange": 120,
       "comfortable": 250
     },
-    "emergencyNumbers": {
-      "Police": "112",
-      "Ambulance": "119",
-      "Foreign Helpline": "1330",
-      "Seoul Hotline": "02-120"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "112" },
+      { "label": "Ambulance", "number": "119" },
+      { "label": "Foreign Helpline", "number": "1330" },
+      { "label": "Seoul Hotline", "number": "02-120" }
+    ],
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
@@ -4696,13 +4696,13 @@
       "midRange": 150,
       "comfortable": 300
     },
-    "emergencyNumbers": {
-      "Police": "17",
-      "Ambulance": "15",
-      "Fire": "18",
-      "EU Emergency": "112",
-      "Tourist Police Paris": "+33-1-53-71-53-71"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "17" },
+      { "label": "Ambulance", "number": "15" },
+      { "label": "Fire", "number": "18" },
+      { "label": "EU Emergency", "number": "112" },
+      { "label": "Tourist Police Paris", "number": "+33-1-53-71-53-71" }
+    ],
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
