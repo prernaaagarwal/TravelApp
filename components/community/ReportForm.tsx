@@ -3,6 +3,8 @@
 import { useState, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { PlaceAutocomplete } from "@/components/ui/place-autocomplete";
+import { type SelectedPlace } from "@/lib/google-places";
 import { submitBewareReport } from "@/app/contribute/report/actions";
 
 const CATEGORIES = ["Transport", "Accommodation", "Food & drink", "Street / market", "Temple / attraction", "Online", "Other"];
@@ -15,10 +17,26 @@ const SEVERITIES = [
 const MAX_PHOTOS = 3;
 
 export function ReportForm() {
+  // ── Location state ────────────────────────────────────────────────────────
+  // Two mutually-exclusive paths:
+  //   1. "Pinpoint" mode (default): user picks a real place via autocomplete.
+  //      We store place_id + formatted_address + lat/lng + derived city.
+  //      Pin shows on the map automatically once moderated.
+  //   2. "Area-wide" mode: user toggles on for legitimate area scams
+  //      ("city-wide", "online", "all auto-rickshaws"). Plain text fields,
+  //      no coords stored. Surfaces in the Beware Board feed only.
+  const [selectedPlace, setSelectedPlace] = useState<SelectedPlace | null>(null);
+  const [areaLevel, setAreaLevel] = useState(false);
+  const [areaCity, setAreaCity] = useState("");
+  const [areaLocation, setAreaLocation] = useState("");
+
+  // ── GPS button state (separate from autocomplete — used for photo capture
+  // authentication so users can't fake a report from another city).
   const [gpsLoading, setGpsLoading] = useState(false);
   const [gpsStatus, setGpsStatus] = useState<"idle" | "got" | "denied">("idle");
-  const [lat, setLat] = useState("");
-  const [lng, setLng] = useState("");
+  const [gpsLat, setGpsLat] = useState("");
+  const [gpsLng, setGpsLng] = useState("");
+
   const [photos, setPhotos] = useState<File[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -31,8 +49,8 @@ export function ReportForm() {
     setGpsLoading(true);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        setLat(pos.coords.latitude.toFixed(6));
-        setLng(pos.coords.longitude.toFixed(6));
+        setGpsLat(pos.coords.latitude.toFixed(6));
+        setGpsLng(pos.coords.longitude.toFixed(6));
         setGpsStatus("got");
         setGpsLoading(false);
       },
@@ -55,10 +73,43 @@ export function ReportForm() {
     cameraRef.current?.click();
   }
 
+  function toggleAreaLevel(next: boolean) {
+    setAreaLevel(next);
+    // Switching modes clears the OTHER mode's data so we never submit a
+    // mix of stale autocomplete coords + manual area text.
+    if (next) {
+      setSelectedPlace(null);
+    } else {
+      setAreaCity("");
+      setAreaLocation("");
+    }
+  }
+
+  // ── Coords reconciliation: autocomplete-selected coords are authoritative.
+  // GPS button coords only count if no place is selected (legacy behaviour
+  // for users without place selection — e.g. photo-only reports).
+  const finalLat = selectedPlace ? String(selectedPlace.lat) : gpsLat;
+  const finalLng = selectedPlace ? String(selectedPlace.lng) : gpsLng;
+  const finalCity = selectedPlace ? selectedPlace.city : areaCity;
+  const finalLocation = selectedPlace ? selectedPlace.formattedAddress : areaLocation;
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
     setError("");
+
+    // Client-side guard: must have either a selected place OR area-level mode
+    // with at least a city. Prevents empty-location submissions which would
+    // be useless on both the map and the feed.
+    if (!selectedPlace && !areaLevel) {
+      setError("Please pick a place from the dropdown, or toggle 'This happens across an area'.");
+      return;
+    }
+    if (areaLevel && !areaCity.trim()) {
+      setError("Area-wide reports still need a city.");
+      return;
+    }
+
+    setSubmitting(true);
     const fd = new FormData(e.currentTarget);
     fd.delete("photos");
     photos.forEach((f) => fd.append("photos", f));
@@ -103,17 +154,66 @@ export function ReportForm() {
         />
       </div>
 
-      {/* city + location */}
-      <div className="grid grid-cols-2 gap-3">
-        <div>
-          <label className="block text-xs text-ww-muted mb-1">City</label>
-          <Input name="city" placeholder="Goa" className="bg-warm-white border-ww-border" />
-        </div>
-        <div>
-          <label className="block text-xs text-ww-muted mb-1">Specific location</label>
-          <Input name="location" placeholder="Airport / market name" className="bg-warm-white border-ww-border" />
-        </div>
+      {/* ── Where did this happen? ─────────────────────────────────────── */}
+      <div>
+        <label htmlFor="place-input" className="block text-xs text-ww-muted mb-1">
+          Where did this happen? <span className="text-rust">*</span>
+        </label>
+
+        {!areaLevel ? (
+          <>
+            <PlaceAutocomplete
+              inputId="place-input"
+              onSelect={setSelectedPlace}
+              placeholder="Search for a place — e.g. 'Lake Pichola' or 'Sarjapur Road'"
+            />
+            {selectedPlace && (
+              <p className="mt-1 font-mono text-[10px] text-sage">
+                ✓ Pinned: {selectedPlace.formattedAddress}
+              </p>
+            )}
+          </>
+        ) : (
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-[10px] text-ww-muted mb-1">City *</label>
+              <Input
+                value={areaCity}
+                onChange={(e) => setAreaCity(e.target.value)}
+                placeholder="Goa"
+                className="bg-warm-white border-ww-border"
+              />
+            </div>
+            <div>
+              <label className="block text-[10px] text-ww-muted mb-1">Description of area</label>
+              <Input
+                value={areaLocation}
+                onChange={(e) => setAreaLocation(e.target.value)}
+                placeholder="e.g. all auto-rickshaws, city-wide"
+                className="bg-warm-white border-ww-border"
+              />
+            </div>
+          </div>
+        )}
+
+        <label className="mt-2 flex cursor-pointer items-center gap-2 text-xs text-ww-muted">
+          <input
+            type="checkbox"
+            checked={areaLevel}
+            onChange={(e) => toggleAreaLevel(e.target.checked)}
+            className="h-3.5 w-3.5"
+          />
+          This happens across an area, not at one specific spot
+        </label>
       </div>
+
+      {/* hidden inputs that actually go into formData */}
+      <input type="hidden" name="city" value={finalCity} />
+      <input type="hidden" name="location" value={finalLocation} />
+      <input type="hidden" name="gps_lat" value={finalLat} />
+      <input type="hidden" name="gps_lng" value={finalLng} />
+      <input type="hidden" name="place_id" value={selectedPlace?.placeId ?? ""} />
+      <input type="hidden" name="formatted_address" value={selectedPlace?.formattedAddress ?? ""} />
 
       {/* destination slug */}
       <div>
@@ -153,22 +253,24 @@ export function ReportForm() {
         </div>
       </div>
 
-      {/* GPS */}
+      {/* GPS — for photo-capture authentication. Doesn't override
+          autocomplete coords, just enables in-the-moment camera capture. */}
       <div>
-        <label className="block text-xs text-ww-muted mb-2">Location pin (optional)</label>
-        <input type="hidden" name="gps_lat" value={lat} />
-        <input type="hidden" name="gps_lng" value={lng} />
+        <label className="block text-xs text-ww-muted mb-2">My current location (optional, for live photo)</label>
         <button
           type="button"
           onClick={getGps}
           disabled={gpsLoading || gpsStatus === "got"}
           className="border border-ww-border bg-sand px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors disabled:opacity-60"
         >
-          {gpsLoading ? "Getting location…" : gpsStatus === "got" ? `✓ Got GPS (${lat}, ${lng})` : "📍 Use my current location"}
+          {gpsLoading ? "Getting location…" : gpsStatus === "got" ? `✓ Got GPS (${gpsLat}, ${gpsLng})` : "📍 Use my current location"}
         </button>
         {gpsStatus === "denied" && (
           <p className="mt-1 text-[10px] text-rust">Location permission denied — skipping GPS.</p>
         )}
+        <p className="mt-1 text-[10px] text-ww-muted">
+          Required to use the Capture button below — every captured photo is geo-tagged so reports can&apos;t be faked from another city.
+        </p>
       </div>
 
       {/* photos */}
@@ -215,12 +317,6 @@ export function ReportForm() {
             📷 Capture
           </button>
         </div>
-
-        {gpsStatus !== "got" && (
-          <p className="mt-2 text-[10px] text-ww-muted">
-            Turn on <span className="text-ink">location</span> above to use Capture — every captured photo is geo-tagged so reports can&apos;t be faked from another city.
-          </p>
-        )}
 
         {photos.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-2">

@@ -3,6 +3,8 @@
 import { useState, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { PlaceAutocomplete } from "@/components/ui/place-autocomplete";
+import { type SelectedPlace } from "@/lib/google-places";
 import { resubmitReport } from "@/app/contribute/report/actions";
 
 const CATEGORIES = [
@@ -25,6 +27,10 @@ interface DefaultValues {
   destination_slug: string | null;
   category: string | null;
   severity: string | null;
+  gps_lat: number | null;
+  gps_lng: number | null;
+  place_id: string | null;
+  formatted_address: string | null;
 }
 
 interface Props {
@@ -33,6 +39,27 @@ interface Props {
 }
 
 export function EditReportForm({ reportId, defaults }: Props) {
+  // ── Location state ────────────────────────────────────────────────────────
+  // Pre-seed from defaults: if the row had a place_id, treat it as a
+  // pinpoint. Otherwise, treat as area-level (manual text fields).
+  const hadPin = !!(defaults.place_id || (defaults.gps_lat && defaults.gps_lng));
+  const [selectedPlace, setSelectedPlace] = useState<SelectedPlace | null>(
+    hadPin && defaults.place_id && defaults.formatted_address && defaults.gps_lat != null && defaults.gps_lng != null
+      ? {
+          placeId: defaults.place_id,
+          formattedAddress: defaults.formatted_address,
+          lat: defaults.gps_lat,
+          lng: defaults.gps_lng,
+          city: defaults.city ?? "",
+          country: "",
+          displayName: defaults.formatted_address,
+        }
+      : null,
+  );
+  const [areaLevel, setAreaLevel] = useState(!hadPin);
+  const [areaCity, setAreaCity] = useState(defaults.city ?? "");
+  const [areaLocation, setAreaLocation] = useState(defaults.location ?? "");
+
   const [photos, setPhotos] = useState<File[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -47,10 +74,35 @@ export function EditReportForm({ reportId, defaults }: Props) {
     setPhotos((prev) => prev.filter((_, i) => i !== idx));
   }
 
+  function toggleAreaLevel(next: boolean) {
+    setAreaLevel(next);
+    if (next) {
+      setSelectedPlace(null);
+    } else {
+      setAreaCity("");
+      setAreaLocation("");
+    }
+  }
+
+  const finalLat = selectedPlace ? String(selectedPlace.lat) : "";
+  const finalLng = selectedPlace ? String(selectedPlace.lng) : "";
+  const finalCity = selectedPlace ? selectedPlace.city : areaCity;
+  const finalLocation = selectedPlace ? selectedPlace.formattedAddress : areaLocation;
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
     setError("");
+
+    if (!selectedPlace && !areaLevel) {
+      setError("Please pick a place from the dropdown, or toggle 'This happens across an area'.");
+      return;
+    }
+    if (areaLevel && !areaCity.trim()) {
+      setError("Area-wide reports still need a city.");
+      return;
+    }
+
+    setSubmitting(true);
     const fd = new FormData(e.currentTarget);
     fd.delete("photos");
     photos.forEach((f) => fd.append("photos", f));
@@ -92,26 +144,67 @@ export function EditReportForm({ reportId, defaults }: Props) {
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
-        <div>
-          <label className="mb-1 block text-xs text-ww-muted">City</label>
-          <Input
-            name="city"
-            defaultValue={defaults.city ?? ""}
-            placeholder="Goa"
-            className="border-ww-border bg-warm-white"
+      {/* ── Where did this happen? ───────────────────────────────────────── */}
+      <div>
+        <label htmlFor="edit-place-input" className="mb-1 block text-xs text-ww-muted">
+          Where did this happen? <span className="text-rust">*</span>
+        </label>
+
+        {!areaLevel ? (
+          <>
+            <PlaceAutocomplete
+              inputId="edit-place-input"
+              defaultValue={defaults.formatted_address ?? ""}
+              onSelect={setSelectedPlace}
+              placeholder="Search for a place — e.g. 'Lake Pichola' or 'Sarjapur Road'"
+            />
+            {selectedPlace && (
+              <p className="mt-1 font-mono text-[10px] text-sage">
+                ✓ Pinned: {selectedPlace.formattedAddress}
+              </p>
+            )}
+          </>
+        ) : (
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="mb-1 block text-[10px] text-ww-muted">City *</label>
+              <Input
+                value={areaCity}
+                onChange={(e) => setAreaCity(e.target.value)}
+                placeholder="Goa"
+                className="border-ww-border bg-warm-white"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-[10px] text-ww-muted">Description of area</label>
+              <Input
+                value={areaLocation}
+                onChange={(e) => setAreaLocation(e.target.value)}
+                placeholder="e.g. all auto-rickshaws, city-wide"
+                className="border-ww-border bg-warm-white"
+              />
+            </div>
+          </div>
+        )}
+
+        <label className="mt-2 flex cursor-pointer items-center gap-2 text-xs text-ww-muted">
+          <input
+            type="checkbox"
+            checked={areaLevel}
+            onChange={(e) => toggleAreaLevel(e.target.checked)}
+            className="h-3.5 w-3.5"
           />
-        </div>
-        <div>
-          <label className="mb-1 block text-xs text-ww-muted">Specific location</label>
-          <Input
-            name="location"
-            defaultValue={defaults.location ?? ""}
-            placeholder="Airport / market name"
-            className="border-ww-border bg-warm-white"
-          />
-        </div>
+          This happens across an area, not at one specific spot
+        </label>
       </div>
+
+      {/* hidden inputs for formData */}
+      <input type="hidden" name="city" value={finalCity} />
+      <input type="hidden" name="location" value={finalLocation} />
+      <input type="hidden" name="gps_lat" value={finalLat} />
+      <input type="hidden" name="gps_lng" value={finalLng} />
+      <input type="hidden" name="place_id" value={selectedPlace?.placeId ?? ""} />
+      <input type="hidden" name="formatted_address" value={selectedPlace?.formattedAddress ?? ""} />
 
       <div>
         <label className="mb-1 block text-xs text-ww-muted">Destination (optional)</label>

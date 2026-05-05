@@ -22,19 +22,21 @@ export async function submitBewareReport(formData: FormData) {
   const gpsLngRaw = formData.get("gps_lng");
 
   const result = submitBewareReportSchema.safeParse({
-    title:            (formData.get("title") as string)?.trim(),
-    description:      (formData.get("description") as string)?.trim(),
-    category:         (formData.get("category") as string) || null,
-    severity:         (formData.get("severity") as string) || "medium",
-    city:             (formData.get("city") as string) || null,
-    location:         (formData.get("location") as string) || null,
-    destination_slug: (formData.get("destination_slug") as string) || null,
-    gps_lat:          gpsLatRaw ? parseFloat(gpsLatRaw as string) : null,
-    gps_lng:          gpsLngRaw ? parseFloat(gpsLngRaw as string) : null,
+    title:              (formData.get("title") as string)?.trim(),
+    description:        (formData.get("description") as string)?.trim(),
+    category:           (formData.get("category") as string) || null,
+    severity:           (formData.get("severity") as string) || "medium",
+    city:               (formData.get("city") as string) || null,
+    location:           (formData.get("location") as string) || null,
+    destination_slug:   (formData.get("destination_slug") as string) || null,
+    gps_lat:            gpsLatRaw ? parseFloat(gpsLatRaw as string) : null,
+    gps_lng:            gpsLngRaw ? parseFloat(gpsLngRaw as string) : null,
+    place_id:           (formData.get("place_id") as string) || null,
+    formatted_address:  (formData.get("formatted_address") as string) || null,
   });
   if (!result.success) return { error: result.error.issues[0].message };
 
-  const { title, description, category, severity, city, location, destination_slug, gps_lat, gps_lng } = result.data;
+  const { title, description, category, severity, city, location, destination_slug, gps_lat, gps_lng, place_id, formatted_address } = result.data;
 
   // upload photos to storage if bucket exists
   const photoFiles = formData.getAll("photos") as File[];
@@ -66,6 +68,8 @@ export async function submitBewareReport(formData: FormData) {
     reported_by_name: user.email?.split("@")[0] ?? "Anonymous",
     gps_lat,
     gps_lng,
+    place_id,
+    formatted_address,
     photo_urls: photoUrls,
     status: "pending",
   });
@@ -96,19 +100,21 @@ export async function resubmitReport(reportId: string, formData: FormData) {
   const gpsLngRaw = formData.get("gps_lng");
 
   const result = submitBewareReportSchema.safeParse({
-    title:            (formData.get("title") as string)?.trim(),
-    description:      (formData.get("description") as string)?.trim(),
-    category:         (formData.get("category") as string) || null,
-    severity:         (formData.get("severity") as string) || "medium",
-    city:             (formData.get("city") as string) || null,
-    location:         (formData.get("location") as string) || null,
-    destination_slug: (formData.get("destination_slug") as string) || null,
-    gps_lat:          gpsLatRaw ? parseFloat(gpsLatRaw as string) : null,
-    gps_lng:          gpsLngRaw ? parseFloat(gpsLngRaw as string) : null,
+    title:              (formData.get("title") as string)?.trim(),
+    description:        (formData.get("description") as string)?.trim(),
+    category:           (formData.get("category") as string) || null,
+    severity:           (formData.get("severity") as string) || "medium",
+    city:               (formData.get("city") as string) || null,
+    location:           (formData.get("location") as string) || null,
+    destination_slug:   (formData.get("destination_slug") as string) || null,
+    gps_lat:            gpsLatRaw ? parseFloat(gpsLatRaw as string) : null,
+    gps_lng:            gpsLngRaw ? parseFloat(gpsLngRaw as string) : null,
+    place_id:           (formData.get("place_id") as string) || null,
+    formatted_address:  (formData.get("formatted_address") as string) || null,
   });
   if (!result.success) return { error: result.error.issues[0].message };
 
-  const { title, description, category, severity, city, location, destination_slug, gps_lat, gps_lng } = result.data;
+  const { title, description, category, severity, city, location, destination_slug, gps_lat, gps_lng, place_id, formatted_address } = result.data;
 
   // Upload any new photos
   const photoFiles = formData.getAll("photos") as File[];
@@ -138,6 +144,8 @@ export async function resubmitReport(reportId: string, formData: FormData) {
     destination_slug,
     gps_lat,
     gps_lng,
+    place_id,
+    formatted_address,
     status: "pending",
     rejection_reason: null,
     reviewed_by: null,

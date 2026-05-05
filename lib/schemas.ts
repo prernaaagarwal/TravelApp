@@ -38,15 +38,17 @@ export const createPostSchema = z.object({
 });
 
 export const submitBewareReportSchema = z.object({
-  title:            z.string().min(3, "Title required").max(200),
-  description:      z.string().min(10, "Description too short").max(2000),
-  category:         z.string().max(50).optional().nullable(),
-  severity:         z.enum(["low", "medium", "high"]).optional().default("medium"),
-  city:             z.string().max(100).optional().nullable(),
-  location:         z.string().max(200).optional().nullable(),
-  destination_slug: z.string().max(100).optional().nullable(),
-  gps_lat:          z.number().min(-90).max(90).optional().nullable(),
-  gps_lng:          z.number().min(-180).max(180).optional().nullable(),
+  title:              z.string().min(3, "Title required").max(200),
+  description:        z.string().min(10, "Description too short").max(2000),
+  category:           z.string().max(50).optional().nullable(),
+  severity:           z.enum(["low", "medium", "high"]).optional().default("medium"),
+  city:               z.string().max(100).optional().nullable(),
+  location:           z.string().max(200).optional().nullable(),
+  destination_slug:   z.string().max(100).optional().nullable(),
+  gps_lat:            z.number().min(-90).max(90).optional().nullable(),
+  gps_lng:            z.number().min(-180).max(180).optional().nullable(),
+  place_id:           z.string().max(300).optional().nullable(),
+  formatted_address:  z.string().max(500).optional().nullable(),
 });
 
 export const verifyStaySchema = z.object({
