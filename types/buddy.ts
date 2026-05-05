@@ -9,6 +9,6 @@ export type Buddy = {
   budgetRange: string;
   travelStyle: string[];
   styleTags: string[];
-  instagramVerified: boolean;
+  idVerified: boolean;
   photoUrl: string;
 };
