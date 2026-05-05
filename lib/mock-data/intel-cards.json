@@ -5281,5 +5281,218 @@
       "booking": "https://www.booking.com/searchresults.html?ss=Lisbon&aid=PLACEHOLDER",
       "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
     }
+  },
+  {
+    "slug": "spiti-valley-india",
+    "destination": "Spiti Valley",
+    "country": "India",
+    "audience": "indian",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 11,
+    "heroImageUrl": "/images/intel/spiti-valley-india.jpg",
+    "tldr": [
+      "AMS (acute mountain sickness) is the #1 risk in Spiti, not theft. Kaza sits at 3,800m. Spend a night in Kalpa, Nako, or Tabo (2,500–3,300m) before going higher. Diamox starts the day BEFORE you climb, not after symptoms.",
+      "There is no mobile signal beyond Kaza for most networks. BSNL works at Kaza, Kibber, Tabo intermittently; Jio and Airtel die at Reckong Peo. Tell someone your itinerary BEFORE you leave Manali / Shimla.",
+      "ATMs in Kaza often run dry by week 2 of high season. Carry ₹10,000+ in cash from Manali, Reckong Peo, or Shimla. SBI Kaza is the only working ATM most days; Axis sometimes.",
+      "Manali → Kaza road closes Oct–May (Rohtang + Kunzum La snow). Shimla → Kaza via Reckong Peo + Nako stays open year-round but takes 2 days and needs Inner Line Permits.",
+      "Inner Line Permit is required for the restricted Kinnaur stretch (Reckong Peo → Sumdo). Get it free at the Reckong Peo or Kaza SDM office in 30 min — never via a tour-operator middleman charging ₹300–₹1,000."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Kaza",
+        "safetyRating": 4,
+        "vibe": "Central hub, hostels, civil hospital, mid-altitude administrative town (3,800m)",
+        "stayHere": true,
+        "notes": "Best base for first 1–2 nights of acclimatising. Sakya Abode and Zostel Spiti are solo-female-friendly. Civil Hospital + SBI ATM + bus stand all walkable."
+      },
+      {
+        "name": "Tabo",
+        "safetyRating": 5,
+        "vibe": "Lowest point of Spiti (3,300m), 1,000-year-old monastery, quiet",
+        "stayHere": true,
+        "notes": "Best first night after Reckong Peo — easier acclimatisation than going straight to Kaza. Tabo Monastery is the oldest continuously-functioning Buddhist monastery in India. Homestays under ₹1,500."
+      },
+      {
+        "name": "Kibber / Komic",
+        "safetyRating": 5,
+        "vibe": "Among the highest motorable villages in the world (~4,400–4,500m)",
+        "stayHere": true,
+        "notes": "Snow Leopard Trust homestays here. Komic claims ‘world’s highest village with a motorable road’. Sleep at Kaza first; visit these as day trips OR a single overnight only after 2 days of acclimatisation."
+      },
+      {
+        "name": "Langza / Hikkim cluster",
+        "safetyRating": 4,
+        "vibe": "Highest-altitude fossil village + world’s highest post office at Hikkim (4,440m)",
+        "stayHere": false,
+        "notes": "Day trip from Kaza — 25 km loop. Buddha statue at Langza, post a card from Hikkim. Don’t sleep here on your first 3 days; oxygen is genuinely thin."
+      }
+    ],
+    "scams": [
+      {
+        "title": "AMS / altitude sickness ignored",
+        "severity": "critical",
+        "where": "Spiti — Kaza (3,800m), Kibber, Komic, Langza, Chandra Taal (4,300m)",
+        "what": "Solo travellers ignore early symptoms (headache, nausea, breathlessness) and push higher; HACE / HAPE can develop in hours. Multiple solo-trekker evacuations from Kaza Civil Hospital each season.",
+        "avoid": "Spend a night at 2,500–3,300m before Kaza. Diamox 125mg twice daily starting 24 hrs before climb (consult a doctor). No alcohol, no aspirin, no overexertion the first 48 hrs. Symptoms NOT improving = descend immediately."
+      },
+      {
+        "title": "Manali tour operator overpromising the itinerary",
+        "severity": "high",
+        "where": "Spiti — bookings made in Manali (Mall Road, Old Manali), social-media DMs",
+        "what": "Operators advertise ‘Spiti circuit in 4 days’ — Manali → Kaza → Chandra Taal → Manali. Realistically 4 days isn’t enough acclimatisation; ~30% of those itineraries result in AMS. Some operators also skip Inner Line Permit guidance.",
+        "avoid": "Minimum 6–7 days for the full Spiti circuit. Manali → Kalpa (2 nights) → Tabo → Kaza (2 nights) → Chandra Taal → Manali. Use Spiti Ecosphere or Hidden Heaven Adventure (TURA-registered, woman-friendly, written safety briefings)."
+      },
+      {
+        "title": "Cash shortage / ATM out at Kaza",
+        "severity": "high",
+        "where": "Spiti — Kaza market (SBI, Axis ATM)",
+        "what": "ATMs run dry by mid-July through September peak. Most homestays + petrol pumps + tea shops are cash-only beyond Kaza. Card readers don’t work without signal.",
+        "avoid": "Carry ₹10,000–₹20,000 in cash from Manali, Reckong Peo, Shimla, or Chandigarh BEFORE entering Spiti. ₹100, ₹200, ₹500 mix — many homestays can’t break ₹2,000 notes."
+      },
+      {
+        "title": "No mobile signal beyond Kaza — solo safety risk",
+        "severity": "critical",
+        "where": "Spiti — Kibber, Komic, Langza, Hikkim, Pin Valley, Chandra Taal road",
+        "what": "Jio and Airtel die at Reckong Peo. BSNL works at Kaza intermittently and rarely beyond. Solo women have been stranded with no way to call out after vehicle breakdowns or weather changes.",
+        "avoid": "Tell ONE person your day-by-day itinerary BEFORE you leave Manali / Shimla. Buy a BSNL prepaid SIM in Manali / Reckong Peo. Carry a Garmin inReach mini or rented SAT phone (₹500/day at Old Manali shops) for solo treks. Never set off without telling your homestay your return time."
+      },
+      {
+        "title": "Road closure / landslide stranding",
+        "severity": "high",
+        "where": "Spiti — Manali → Kaza route (Rohtang, Kunzum, Chhota Dhara), Reckong Peo → Kaza (Powari, Khab)",
+        "what": "Sudden snowfall (Sep–Nov, May–Jun) or landslides (monsoon) close passes for 12 hrs to 3 weeks. Stranded travellers stuck without funds, communications, or warm clothing.",
+        "avoid": "Check BRO Border Roads twitter (@BROindia) before any leg. Carry 2 days’ extra cash + 1 fleece + 1 woollen layer + 1 emergency blanket. Build buffer days into the itinerary; do NOT plan a flight out of Bhuntar / Chandigarh on the same day you exit Spiti."
+      },
+      {
+        "title": "Inner Line Permit middleman fee scam",
+        "severity": "medium",
+        "where": "Spiti — Reckong Peo (Kinnaur SDM office), Kaza SDM office",
+        "what": "Tour operators / hotel ‘helpers’ offer to ‘arrange the Inner Line Permit’ for ₹300–₹1,000. The permit is FREE at the SDM office and takes 30 minutes with passport-size photo + ID copy.",
+        "avoid": "Walk into the Reckong Peo SDM office (open Mon–Sat 10am–4pm) yourself. Bring 2 passport photos, photocopy of Aadhaar / passport, ₹0. They issue same-day. Foreigners must present passport + visa."
+      },
+      {
+        "title": "Drunk-driving locals on narrow mountain roads after dark",
+        "severity": "critical",
+        "where": "Spiti — Manali → Kaza road (NH-505 between Gramphu and Losar), Kaza market",
+        "what": "Local drivers and visiting Royal Enfield groups drink and drive on roads with no shoulders, no railings, and 1,000m drops. Worst between 7pm and 11pm. Multiple fatal accidents through 2024–2025.",
+        "avoid": "Never travel between Manali and Kaza after 5pm. Insist daytime departures. If you’re booking a shared cab, vet the driver — sober, no whiff of alcohol, refuses if you mention safety. Never accept a lift from a stranger after dark."
+      },
+      {
+        "title": "Underqualified trek guide on Kanamo / Pin-Parvati / Chandra Taal",
+        "severity": "high",
+        "where": "Spiti — Kanamo Peak (5,975m), Pin-Parvati Pass, Chandra Taal day trek",
+        "what": "Cheap ‘guides’ (under ₹1,500/day) often have no high-altitude rescue training, no satellite communicator, no first-aid kit. Pin-Parvati especially is technical — three deaths through 2023–2024.",
+        "avoid": "Use Spiti Ecosphere, Trans-Himalayan Sojourns, or Snow Leopard Trail — IMF or AIMRA certified guides, written safety briefings, Garmin inReach carried, kit list provided. Never solo on Kanamo / Pin-Parvati on first attempt."
+      },
+      {
+        "title": "Shared-cab overcharge from Manali / Reckong Peo",
+        "severity": "medium",
+        "where": "Spiti — Manali Mall Road taxi stand, Reckong Peo bus stand",
+        "what": "Shared cabs to Kaza quote ₹3,500–₹5,000 per seat (the actual fair rate is ₹1,500 from Reckong Peo, ₹2,000–₹2,500 from Manali in the open season). Drivers refuse to share with ‘too many tourists’.",
+        "avoid": "HRTC government bus from Manali (Jul–Oct, ₹650, 14 hrs) or Reckong Peo (year-round, ₹450, 9 hrs) is the safest, cheapest option. Book at the bus stand counter. Spiti Ecosphere shares vetted shared-cab leads at fair rates."
+      },
+      {
+        "title": "Homestay confirmed only via WhatsApp without a written backup",
+        "severity": "medium",
+        "where": "Spiti — Kaza, Kibber, Komic, Tabo, Langza homestays",
+        "what": "WhatsApp-only confirmations get lost when network drops. Travellers arrive at Komic to find the homestay double-booked or didn’t hold the room. With no signal, you can’t call backup.",
+        "avoid": "Ask for a written booking confirmation (email or PDF) AND a host-name + phone number you can show another villager. Pre-book through Spiti Ecosphere, Booking.com, or homestay collectives like Spiti Holiday Adventure for written backups."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "HRTC bus Manali → Kaza (Jul–mid-Oct only)",
+        "tip": "Government Himachal Roadways bus. Departs Manali ISBT 5am daily in season; reaches Kaza ~7pm same day via Rohtang + Kunzum. Slow, hard seats, but the safest single-vehicle option. Book the night before at the counter.",
+        "approxCost": "₹600–₹700 per seat"
+      },
+      {
+        "mode": "HRTC bus Reckong Peo → Kaza (year-round)",
+        "tip": "The all-weather route via Nako and Sumdo. Departs Reckong Peo bus stand ~7am daily; reaches Kaza ~4pm. Inner Line Permit checkpoint at Sumdo — keep permits and ID ready.",
+        "approxCost": "₹400–₹500 per seat"
+      },
+      {
+        "mode": "Shared / private taxi from Manali or Peo",
+        "tip": "Faster than the bus but at least 3x the cost. Vet the driver — sober, daytime departures only, agreed-price written down. Spiti Ecosphere shares fair-rate leads.",
+        "approxCost": "₹1,500 (Peo→Kaza shared) / ₹2,500 (Manali→Kaza shared) / ₹15,000–₹22,000 private one-way"
+      },
+      {
+        "mode": "Self-drive (4WD recommended)",
+        "tip": "Manali side needs a 4WD with high clearance (Toyota Fortuner, Mahindra Thar, Maruti Gypsy). Shimla side a Sedan can do it. Carry a spare tyre + jerry can of petrol — only fuel pumps are at Reckong Peo, Tabo, Kaza. Royal Enfield only if you have real mountain-riding experience.",
+        "approxCost": "Hired 4WD ₹6,000–₹9,000/day; self-drive Royal Enfield ₹1,500–₹2,000/day from Manali"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Key Monastery at sunrise",
+        "type": "1,000-year-old monastery on a hillock",
+        "angle": "Solo-female specific",
+        "why": "The iconic photo-spot of Spiti, but at 6:30am you’ll have it alone. Stay overnight at the monastery guesthouse (₹600 inc. dinner + breakfast with monks) — the morning prayer at 6am is open to women, observed quietly from the back.",
+        "approxCost": "Free entry; guesthouse ₹600/night; cab Kaza → Key 12 km, ₹600 round-trip"
+      },
+      {
+        "name": "Chandra Taal (Moon Lake) day-trip from Kaza",
+        "type": "Crescent-shaped high-altitude lake (4,300m)",
+        "angle": "Combined (FO + FM)",
+        "why": "Day trip via Kunzum La pass (Jul–Oct only). Tents at the lake side close at 4pm — go early. Don’t camp here on your first 3 days in Spiti — the altitude is too high without acclimatisation.",
+        "approxCost": "Shared cab ₹1,500–₹2,000/seat round-trip from Kaza"
+      },
+      {
+        "name": "Hikkim post office (highest in the world, 4,440m)",
+        "type": "Working India Post branch",
+        "angle": "Solo-female specific",
+        "why": "Send a postcard home from the highest post office on Earth. Postman is the same one who walks down to Kaza twice a week with the mailbag. Pair with Komic and Langza on a single half-day loop from Kaza.",
+        "approxCost": "Postcard + stamp ₹50; cab loop Kaza → Hikkim → Komic → Langza ₹1,500 round-trip"
+      },
+      {
+        "name": "Komic homestay nights",
+        "type": "Village stay at ‘world’s highest village with a motorable road’",
+        "angle": "FO+FM",
+        "why": "Sleep at the Snow Leopard Trust homestays (run by local families, vetted by the trust). Cold but warm-blanketed; dinner is dal-rice-thukpa with the family. Best for women travelling alone — communal dining means you’re never eating alone.",
+        "approxCost": "₹1,200–₹1,800/night including dinner + breakfast"
+      },
+      {
+        "name": "Pin Valley National Park",
+        "type": "High-altitude desert national park, snow-leopard habitat",
+        "angle": "Combined (FO + FM)",
+        "why": "Day trip from Kaza (3 hrs each way). Mudh village is the gateway. Snow leopard sightings are rare in summer; the Snow Leopard Trail expedition (Feb–Mar) has the best chance. Buddhist nuns at Sangnam temple welcome women visitors quietly.",
+        "approxCost": "Cab Kaza → Mudh round-trip ₹3,500; park entry ₹100 Indians / ₹350 foreigners"
+      }
+    ],
+    "preBookChecklist": [
+      "Inner Line Permit: collect at Reckong Peo or Kaza SDM office (free, 30 min, bring 2 passport photos + ID copy). Foreigners need passport + visa.",
+      "Diamox prescription from your home doctor; start 24 hrs BEFORE climbing to Kaza, continue 48 hrs",
+      "₹10,000–₹20,000 in cash withdrawn from Manali, Reckong Peo, Shimla or Chandigarh BEFORE entering Spiti",
+      "Pre-book Kaza homestay 2+ weeks ahead in Jul–Sep (high season); written email confirmation, not WhatsApp-only",
+      "Travel insurance covering altitude sickness, helicopter rescue, and high-altitude trekking (most basic policies exclude these)"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Acclimatise — at least 1 night below 3,500m (Kalpa, Nako, or Tabo) before sleeping at Kaza",
+        "Carry your own water bottle + filter — village taps freeze in winter, plastic litters Spiti, refill at homestays",
+        "Hire a local guide for Pin-Parvati / Kanamo / Pin Valley treks — never solo on a first attempt",
+        "Buy from Spiti Ecosphere / Kaza Women’s Co-op for souvenirs — money goes direct to village artisans"
+      ],
+      "dont": [
+        "Drink alcohol your first 24 hrs at Kaza — exacerbates AMS and can trigger HAPE",
+        "Ride a Royal Enfield to Spiti unless you’re an experienced mountain rider — every season has fatalities",
+        "Leave Kaza without a full tank of petrol + jerry can — fuel pumps are Kaza, then nothing till Tabo (60 km), then nothing till Reckong Peo",
+        "Photograph monks, locals, or village interiors without explicit permission — especially at Tabo and Key monasteries"
+      ]
+    },
+    "estimatedDailyBudget": { "currency": "INR", "backpacker": 1200, "midRange": 2800, "comfortable": 6000 },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "100" },
+      { "label": "Women's Helpline", "number": "1091" },
+      { "label": "Ambulance", "number": "108" },
+      { "label": "Kaza Civil Hospital", "number": "01906-222227" },
+      { "label": "Spiti Tourism (HPTDC)", "number": "01906-222504" }
+    ],
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Spiti+Valley&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
   }
 ]
