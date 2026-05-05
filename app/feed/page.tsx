@@ -7,11 +7,28 @@ export const dynamic = "force-dynamic";
 
 type SearchParams = Promise<{ destination?: string; submitted?: string }>;
 
-export const metadata = {
-  title: "Solo Female Travel Trip Reports — Real Itineraries & Costs",
-  description:
-    "Real solo female travel itineraries with rupee + USD cost breakdowns. What women actually spent, where they stayed, what they wish they'd known.",
-};
+// Filtered views like `/feed?destination=jaipur-india` would otherwise compete
+// with `/intel/jaipur-india` for the destination keyword in Google's index.
+// Canonicalise every filtered URL back to `/feed`, and noindex the filter
+// variants so the destination keyword crown stays uncontested with the
+// curated intel cards. Plain `/feed` stays indexable.
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const { destination } = await searchParams;
+  const filtered = !!destination;
+  return {
+    title: "Solo Female Travel Trip Reports — Real Itineraries & Costs",
+    description:
+      "Real solo female travel itineraries with rupee + USD cost breakdowns. What women actually spent, where they stayed, what they wish they'd known.",
+    alternates: { canonical: "/feed" },
+    robots: filtered
+      ? { index: false, follow: true }
+      : { index: true, follow: true },
+  };
+}
 
 type Trip = Parameters<typeof ReceiptsClient>[0]["trips"][number];
 
@@ -68,7 +85,7 @@ export default async function FeedPage({
     contributorSlug: t.contributor_slug ?? "",
     destinationSlug: t.destination_slug,
     destination:     t.destination,
-    category:        "Dossier",
+    category:        "Trip",
     region:          regionFromSlug(t.destination_slug),
     tripDates:       { start: t.trip_start, end: t.trip_end },
     dayCount:        t.day_count,
@@ -108,12 +125,38 @@ export default async function FeedPage({
       ? destination.trim()
       : undefined;
 
+  // ── Per-destination solo-female safety rating ───────────────────────────
+  // Fetch every intel card's neighborhoods array, compute avg + count of
+  // safetyRating values per slug. The ReceiptsClient renders this as
+  // "Solo-female safety: 4.2/5 · 4 hoods rated" — one number per
+  // destination, not per trip. Replaces the previous pseudo-random
+  // soloScoreFor(trip.id) hack which produced inconsistent 8.4–9.6
+  // values for the same destination across cards.
+  type Hood = { safetyRating?: number };
+  const { data: rawCards } = await supabase
+    .from("intel_cards")
+    .select("slug, neighborhoods");
+  const safetyByDestination: Record<string, { avg: number; count: number }> = {};
+  for (const card of rawCards ?? []) {
+    const hoods = (card.neighborhoods as Hood[] | null) ?? [];
+    const ratings = hoods
+      .map((h) => h.safetyRating)
+      .filter((r): r is number => typeof r === "number");
+    if (ratings.length === 0) continue;
+    const avg = ratings.reduce((a, b) => a + b, 0) / ratings.length;
+    safetyByDestination[card.slug as string] = {
+      avg:   Math.round(avg * 10) / 10,
+      count: ratings.length,
+    };
+  }
+
   return (
     <ReceiptsClient
       trips={allTrips}
       contributors={contributors}
       destinations={destinations}
       initialDestination={initialDestination}
+      safetyByDestination={safetyByDestination}
     />
   );
 }

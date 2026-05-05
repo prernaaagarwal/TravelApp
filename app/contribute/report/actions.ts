@@ -7,6 +7,26 @@ import { revalidatePath } from "next/cache";
 import { checkRateLimit, LIMITS } from "@/lib/rate-limit";
 import { checkBanned } from "@/lib/ban-check";
 
+// Washroom state → severity mapping. Lets washroom rows reuse the existing
+// severity-coloured map pins and list cards without forking the renderers:
+// usable = sage (medium), poor = gold (high), unsafe = rust (critical).
+const WASHROOM_STATE_TO_SEVERITY: Record<string, "critical" | "high" | "medium"> = {
+  usable: "medium",
+  poor:   "high",
+  unsafe: "critical",
+};
+
+const VALID_WASHROOM_TYPES = new Set([
+  "public-toilet",
+  "mall",
+  "cafe",
+  "petrol-pump",
+  "metro-station",
+  "sulabh",
+  "hotel-lobby",
+  "other",
+]);
+
 export async function submitBewareReport(formData: FormData) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
@@ -21,11 +41,34 @@ export async function submitBewareReport(formData: FormData) {
   const gpsLatRaw = formData.get("gps_lat");
   const gpsLngRaw = formData.get("gps_lng");
 
+  // Report type discriminator. Washroom reports take their state field
+  // ("usable" | "poor" | "unsafe") and map it to the existing severity
+  // values so downstream renderers (map pins, list cards) work unchanged.
+  const reportType = (formData.get("report_type") as string) === "washroom"
+    ? "washroom"
+    : "scam";
+
+  let washroomType: string | null = null;
+  let washroomState: string | null = null;
+  let derivedSeverity: string | null = null;
+
+  if (reportType === "washroom") {
+    washroomType = (formData.get("washroom_type") as string) || null;
+    washroomState = (formData.get("washroom_state") as string) || null;
+    if (!washroomType || !VALID_WASHROOM_TYPES.has(washroomType)) {
+      return { error: "Pick a washroom type before submitting." };
+    }
+    if (!washroomState || !(washroomState in WASHROOM_STATE_TO_SEVERITY)) {
+      return { error: "Pick a state (usable / poor / unsafe) before submitting." };
+    }
+    derivedSeverity = WASHROOM_STATE_TO_SEVERITY[washroomState];
+  }
+
   const result = submitBewareReportSchema.safeParse({
     title:              (formData.get("title") as string)?.trim(),
     description:        (formData.get("description") as string)?.trim(),
-    category:           (formData.get("category") as string) || null,
-    severity:           (formData.get("severity") as string) || "medium",
+    category:           reportType === "washroom" ? "washroom" : ((formData.get("category") as string) || null),
+    severity:           derivedSeverity ?? (formData.get("severity") as string) ?? "medium",
     city:               (formData.get("city") as string) || null,
     location:           (formData.get("location") as string) || null,
     destination_slug:   (formData.get("destination_slug") as string) || null,
@@ -72,6 +115,9 @@ export async function submitBewareReport(formData: FormData) {
     formatted_address,
     photo_urls: photoUrls,
     status: "pending",
+    report_type: reportType,
+    washroom_type:  washroomType,
+    washroom_state: washroomState,
   });
 
   if (error) return { error: error.message };

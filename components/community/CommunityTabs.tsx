@@ -15,6 +15,7 @@ import { createClient } from "@/lib/supabase/client";
 import { BEWARE_CITIES } from "@/lib/beware-cities";
 import { INTERNATIONAL_COUNTRIES } from "@/lib/international-destinations";
 import { CollapsibleText } from "./CollapsibleText";
+import { BewareModerationBanner } from "@/components/community/BewareModerationBanner";
 
 type Post = {
   id: string;
@@ -745,6 +746,7 @@ function SearchPane({
 function BewareList({ bewares, userEmail }: { bewares: Beware[]; userEmail: string | null }) {
   return (
     <div className="space-y-3">
+      <BewareModerationBanner />
       {bewares.map((b) => (
         <BewareCard key={b.id} b={b} userEmail={userEmail} />
       ))}
@@ -848,6 +850,22 @@ function BewareCard({ b, userEmail }: { b: Beware; userEmail: string | null }) {
             }
           }}
         />
+      )}
+
+      {reported && (
+        <p className="mt-3 border border-sage/40 bg-sage-light/40 px-3 py-2 font-mono text-[11px] leading-relaxed text-sage">
+          ✓ Flag received. A moderator reviews flagged reports within{" "}
+          <strong>4 hours during the day, 24 hours overnight</strong>. If the
+          report is taken down or edited you&apos;ll see the change here. Need
+          to escalate? Email{" "}
+          <a
+            href="mailto:trust@wanderwomen.in"
+            className="underline hover:text-ink"
+          >
+            trust@wanderwomen.in
+          </a>
+          .
+        </p>
       )}
     </article>
   );

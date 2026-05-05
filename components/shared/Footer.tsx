@@ -43,19 +43,35 @@ export function Footer() {
 
         <p className="mt-10 border-t border-ww-border/60 pt-5 font-mono text-[10px] leading-relaxed text-ww-muted/80">
           <span className="font-semibold text-ink/80">Beware Board notice:</span>{" "}
-          Entries in this V0 demo are illustrative mock data. References to
-          establishments, neighborhoods, and transport hubs are descriptive
-          only, not allegations against any specific operator. V1 reports will
-          be user-submitted, moderated, and verified.
+          Entries in this V0 demo are illustrative mock data. V1 reports will
+          be user-submitted, reviewed by a human moderator within 24 hours
+          against our{" "}
+          <Link href="/code-of-conduct" className="underline hover:text-ink">
+            Code of Conduct
+          </Link>
+          , and may be edited or rejected if they don&apos;t meet our evidence
+          and defamation standards. Take-down requests:{" "}
+          <a
+            href="mailto:trust@wanderwomen.in"
+            className="underline hover:text-ink"
+          >
+            trust@wanderwomen.in
+          </a>
+          .
         </p>
 
         <div className="mt-5 flex flex-col items-start justify-between gap-3 font-mono text-[10px] text-ww-muted md:flex-row md:items-center">
           <span>© 2026 Wander Women — V0 demo build.</span>
-          {/* Legal pages not yet built — placeholders kept visible for V1. */}
           <div className="flex flex-wrap gap-4">
-            <span className="cursor-not-allowed text-ww-muted/60">Privacy</span>
-            <span className="cursor-not-allowed text-ww-muted/60">Terms</span>
-            <span className="cursor-not-allowed text-ww-muted/60">Code of Conduct</span>
+            <Link href="/privacy" className="hover:text-ink">
+              Privacy
+            </Link>
+            <Link href="/terms" className="hover:text-ink">
+              Terms
+            </Link>
+            <Link href="/code-of-conduct" className="hover:text-ink">
+              Code of Conduct
+            </Link>
             <CookiePreferencesLink />
           </div>
         </div>

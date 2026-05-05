@@ -4,7 +4,7 @@ import rawProducts from "@/lib/mock-data/shop-products.json";
 export const metadata = {
   title: "Solo Female Travel Safety Kit — 15 Products We Actually Pack",
   description:
-    "The 15-product safety kit every solo woman traveller should pack — door wedges, RFID wallets, personal alarms, eSIMs. Curated by contributors who use them.",
+    "The safety kit every solo woman traveller should pack — door wedges, RFID wallets, personal alarms, eSIMs, plus women's basics. Curated by contributors who actually use them.",
 };
 
 type Product = {
@@ -23,6 +23,7 @@ const CATEGORY_ORDER = [
   "Tech & Connectivity",
   "Packing & Organisation",
   "Health & Hygiene",
+  "Women's Basics",
 ];
 
 const sorted = [...(rawProducts as Product[])].sort(
@@ -45,7 +46,7 @@ export default function ShopPage() {
           The safety kit.
         </h1>
         <p className="mb-4 font-mono text-sm leading-relaxed text-ww-muted">
-          15 products our contributors actually carry. Every link is an Amazon
+          The kit our contributors actually carry. Every link is an Amazon
           affiliate — you pay nothing extra, we earn a small commission that
           funds more intel cards.
         </p>
