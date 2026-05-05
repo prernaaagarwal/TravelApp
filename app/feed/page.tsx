@@ -23,6 +23,29 @@ function cityFromSlug(slug: string): string {
   return parts.map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
 }
 
+// Region fallback for DB-submitted trips that don't ship with a `region` tag.
+// Covers the 9 cities currently in the seed feed; everything else falls back
+// to the country word from the slug.
+const REGION_FALLBACK: Record<string, string> = {
+  "goa-india":       "Goa",
+  "rishikesh-india": "Uttarakhand",
+  "jaipur-india":    "Rajasthan",
+  "kasol-india":     "Himachal",
+  "hampi-india":     "Karnataka",
+  "kochi-india":     "Kerala",
+  "udaipur-india":   "Rajasthan",
+  "varanasi-india":  "Uttar Pradesh",
+  "bangalore-india": "Karnataka",
+  "delhi-india":     "Delhi",
+};
+
+function regionFromSlug(slug: string): string {
+  if (REGION_FALLBACK[slug]) return REGION_FALLBACK[slug];
+  const parts = slug.split("-");
+  const country = parts[parts.length - 1] ?? "";
+  return country.charAt(0).toUpperCase() + country.slice(1);
+}
+
 export default async function FeedPage({
   searchParams,
 }: {
@@ -45,6 +68,8 @@ export default async function FeedPage({
     contributorSlug: t.contributor_slug ?? "",
     destinationSlug: t.destination_slug,
     destination:     t.destination,
+    category:        "Dossier",
+    region:          regionFromSlug(t.destination_slug),
     tripDates:       { start: t.trip_start, end: t.trip_end },
     dayCount:        t.day_count,
     totalCostInr:    t.total_cost_inr,
@@ -84,26 +109,11 @@ export default async function FeedPage({
       : undefined;
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-12">
-      <div className="mb-8">
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-          Trip receipts
-        </p>
-        <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
-          What it actually cost.
-        </h1>
-        <p className="font-mono text-sm leading-relaxed text-ww-muted">
-          {allTrips.length} real solo trips, every rupee tracked. Receipts, not
-          Pinterest aspirations.
-        </p>
-      </div>
-
-      <ReceiptsClient
-        trips={allTrips}
-        contributors={contributors}
-        destinations={destinations}
-        initialDestination={initialDestination}
-      />
-    </div>
+    <ReceiptsClient
+      trips={allTrips}
+      contributors={contributors}
+      destinations={destinations}
+      initialDestination={initialDestination}
+    />
   );
 }
