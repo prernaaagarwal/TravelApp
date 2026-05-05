@@ -10,7 +10,7 @@ const ROUTES: Array<{ path: string; expectText: string | RegExp }> = [
   { path: "/",                       expectText: /Wander Women|solo travel|trip intel/i },
   { path: "/explore",                expectText: /Browse all destinations/i },
   { path: "/intel/goa-india",        expectText: /Goa/ },
-  { path: "/feed",                   expectText: /What it actually cost/i },
+  { path: "/feed",                   expectText: /receipts to prove it|every rupee tracked|honest budget/i },
   { path: "/community",              expectText: /Community hub|group chat/i },
   { path: "/buddy",                  expectText: /Solo, but not alone/i },
   { path: "/pitch",                  expectText: /./ }, // any non-error content
