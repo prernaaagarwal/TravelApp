@@ -99,3 +99,47 @@ export async function sendBewareRejected(to: string, reason?: string) {
     ),
   });
 }
+
+// Sent to a user who saved a destination when a new beware report is approved
+// for that destination. The retention loop: dossier read → save → return when
+// something changes. Sender is responsible for batching / rate-limiting.
+export async function sendBewareAlertToSaver(
+  to: string,
+  args: {
+    destinationLabel: string;
+    destinationSlug: string;
+    reportTitle: string;
+    reportSeverity: string;
+    reportLocation: string | null;
+  },
+) {
+  const resend = getResend();
+  if (!resend) return;
+
+  const severityLine = args.reportSeverity
+    ? `Severity: ${args.reportSeverity}.`
+    : "";
+  const locationLine = args.reportLocation
+    ? ` Reported at ${args.reportLocation}.`
+    : "";
+
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: `New safety report in ${args.destinationLabel} — ${args.reportTitle}`,
+    html: buildBody(
+      `New safety report in ${args.destinationLabel}.`,
+      `${args.reportTitle}. ${severityLine}${locationLine} You're getting this because you saved ${args.destinationLabel} on Wander Women.`,
+      {
+        cta: {
+          label: `View the Beware Board →`,
+          href: `${SITE_URL}/community?tab=beware&country=india&city=${args.destinationSlug}`,
+        },
+        footer: {
+          label: "Manage these alerts",
+          href:  `${SITE_URL}/settings#notifications`,
+        },
+      },
+    ),
+  });
+}

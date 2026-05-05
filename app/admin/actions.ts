@@ -8,6 +8,7 @@ import {
   sendPostApproved, sendPostRejected,
   sendBewareApproved, sendBewareRejected,
 } from "@/lib/email";
+import { notifySaversOfBewareReport } from "@/lib/notify-saved-destinations";
 
 // ─── Types ──────────────────────────────────────────────────────────────
 type ContentType = "post" | "beware" | "trip";
@@ -104,6 +105,30 @@ async function approveOne(type: ContentType, id: string) {
   if (userId) {
     const email = await getEmail(userId);
     if (email) await approvedNotifier(type)(email);
+  }
+
+  // Retention loop — if a beware report was just approved for, say, Goa,
+  // email everyone who saved Goa. Reporter is excluded. Failures are
+  // intentionally swallowed so a flaky email send can never block approval.
+  if (type === "beware") {
+    try {
+      const { data: beware } = await supabase
+        .from("beware_reports")
+        .select("destination_slug, title, severity, location, reported_by_id")
+        .eq("id", id)
+        .single();
+      if (beware?.destination_slug) {
+        await notifySaversOfBewareReport({
+          destinationSlug: beware.destination_slug,
+          reportTitle:     beware.title ?? "New safety report",
+          reportSeverity:  beware.severity ?? null,
+          reportLocation:  beware.location ?? null,
+          excludeUserId:   beware.reported_by_id ?? null,
+        });
+      }
+    } catch {
+      // Swallow — savers-notify must not block the approval flow.
+    }
   }
 }
 
