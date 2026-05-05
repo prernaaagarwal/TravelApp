@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Search, X, FileText, Compass, ShieldAlert, MessagesSquare } from "lucide-react";
@@ -16,8 +16,17 @@ const TYPE_META: Record<SearchResultType, { label: string; Icon: typeof FileText
 const DEBOUNCE_MS      = 180;
 const MIN_QUERY_LENGTH = 2;
 
+// useSyncExternalStore lets us read a browser-only value (the platform string)
+// without setState-in-effect or hydration mismatches. Server always returns
+// "⌘K"; client returns the platform-correct shortcut on first render.
+const subscribe = () => () => {};
+const getServerShortcut = () => "⌘K";
+const getClientShortcut = () =>
+  /Mac|iPhone|iPad|iPod/i.test(navigator.userAgent) ? "⌘K" : "Ctrl K";
+
 export function CommandPalette() {
   const [open, setOpen] = useState(false);
+  const shortcutKey = useSyncExternalStore(subscribe, getClientShortcut, getServerShortcut);
 
   // Cmd+K / Ctrl+K to toggle
   useEffect(() => {
@@ -33,6 +42,7 @@ export function CommandPalette() {
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
+      {/* Desktop: pill with label + platform-correct shortcut hint */}
       <Dialog.Trigger asChild>
         <button
           type="button"
@@ -42,8 +52,19 @@ export function CommandPalette() {
           <Search className="h-3.5 w-3.5" />
           <span>Search</span>
           <kbd className="ml-2 border border-ww-border bg-sand px-1.5 py-0.5 text-[9px] uppercase tracking-widest text-ww-muted">
-            ⌘K
+            {shortcutKey}
           </kbd>
+        </button>
+      </Dialog.Trigger>
+
+      {/* Mobile: icon-only tap target — no kbd shortcut shown */}
+      <Dialog.Trigger asChild>
+        <button
+          type="button"
+          aria-label="Search"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full text-ww-muted transition-colors hover:bg-warm-white/60 hover:text-ink md:hidden"
+        >
+          <Search className="h-4 w-4" />
         </button>
       </Dialog.Trigger>
 
