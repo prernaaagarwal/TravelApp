@@ -506,8 +506,11 @@ export default async function IntelPage({ params }: { params: Params }) {
                   href="/account/membership"
                   className="border border-gold bg-transparent px-6 py-2.5 font-mono text-xs uppercase tracking-widest text-gold hover:bg-gold hover:text-ink transition-colors"
                 >
-                  Join for ₹499 / year →
+                  Free in beta — unlock now →
                 </a>
+                <span className="mt-3 font-mono text-[10px] tracking-widest text-warm-white/40">
+                  V1: <span className="line-through">₹499 / year</span>
+                </span>
               </div>
             </section>
           )}

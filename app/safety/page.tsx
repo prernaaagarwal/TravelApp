@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldCheck, ShoppingBag, MessageCircle, MapPin, BadgeCheck } from "lucide-react";
+import { ShieldCheck, ShoppingBag, MessageCircle, MapPin, BadgeCheck, Heart } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
@@ -42,6 +42,14 @@ const PUBLIC_CARDS: HubCard[] = [
     body: "Verified reports of scams, harassment hotspots, and dodgy stays — pinned to a city map so you spot the pattern before you book the cab.",
     cta: "Open the Beware Board",
     icon: MapPin,
+  },
+  {
+    href: "/safety/womens-basics",
+    eyebrow: "Women's Basics",
+    title: "Where to find pads, tampons, cups — by city.",
+    body: "Period products, intimate hygiene, pain meds — by chemist, by neighbourhood. The intel no travel guide actually writes.",
+    cta: "Open Women's Basics",
+    icon: Heart,
   },
 ];
 

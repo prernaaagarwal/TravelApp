@@ -8,9 +8,9 @@ export const dynamic = "force-dynamic";
 type SearchParams = Promise<{ destination?: string; submitted?: string }>;
 
 export const metadata = {
-  title: "Trip Receipts — Wander Women",
+  title: "Trip Reports — Wander Women",
   description:
-    "Real itineraries with rupee + USD costs. Receipts, not inspiration.",
+    "Real itineraries from solo women travellers — costs, notes, and what actually happened.",
 };
 
 type Trip = Parameters<typeof ReceiptsClient>[0]["trips"][number];
