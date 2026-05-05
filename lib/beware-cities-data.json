@@ -1899,5 +1899,17 @@
       "zoom": 13
     },
     "reports": []
+  },
+  "spiti-valley-india": {
+    "config": {
+      "slug": "spiti-valley-india",
+      "name": "Spiti Valley",
+      "center": [
+        32.225,
+        78.071
+      ],
+      "zoom": 10
+    },
+    "reports": []
   }
 }

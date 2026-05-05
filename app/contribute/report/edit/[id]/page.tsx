@@ -24,7 +24,7 @@ export default async function EditReportPage({
   const { data: report } = await supabase
     .from("beware_reports")
     .select(
-      "id, title, description, city, location, destination_slug, category, severity, status, reported_by_id",
+      "id, title, description, city, location, destination_slug, category, severity, status, reported_by_id, gps_lat, gps_lng, place_id, formatted_address",
     )
     .eq("id", id)
     .single();
@@ -73,6 +73,10 @@ export default async function EditReportPage({
               destination_slug: report.destination_slug,
               category: report.category,
               severity: report.severity,
+              gps_lat: report.gps_lat,
+              gps_lng: report.gps_lng,
+              place_id: report.place_id,
+              formatted_address: report.formatted_address,
             }}
           />
         </div>
