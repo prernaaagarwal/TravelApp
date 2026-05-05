@@ -148,5 +148,65 @@
     "imageUrl": "https://m.media-amazon.com/images/I/51MOdiEBk6L._AC_UL640_FMwebp_QL65_.jpg",
     "amazonUrl": "https://amzn.to/4t928WI",
     "displayOrder": 15
+  },
+  {
+    "id": "product-016",
+    "name": "Sirona Reusable Menstrual Cup",
+    "category": "Women's Basics",
+    "whyItMatters": "Up to 12 hours of leak-free wear. One cup replaces ~250 pads. Genuinely life-changing on overnight trains, multi-day treks, and remote stays where pads are scarce. Boil before and after each cycle.",
+    "priceRange": "\u20b9449 \u2013 \u20b9699",
+    "imageUrl": "https://m.media-amazon.com/images/I/611MdU5YkYL._SX679_.jpg",
+    "amazonUrl": "https://www.amazon.in/s?k=sirona+menstrual+cup&tag=PLACEHOLDER",
+    "displayOrder": 16
+  },
+  {
+    "id": "product-017",
+    "name": "Saathi Period Underwear (3-pack)",
+    "category": "Women's Basics",
+    "whyItMatters": "Indian-made, leak-proof underwear that absorbs the equivalent of 2\u20133 tampons. The single best item to pack for sleeper-train and bus journeys where changing isn't an option. Wash with cold water at the next stop.",
+    "priceRange": "\u20b91,299 \u2013 \u20b91,899",
+    "imageUrl": "https://m.media-amazon.com/images/I/51FvPhASLeL._SX679_.jpg",
+    "amazonUrl": "https://www.amazon.in/s?k=saathi+period+underwear&tag=PLACEHOLDER",
+    "displayOrder": 17
+  },
+  {
+    "id": "product-018",
+    "name": "OB Tampons (Pack of 16, Regular + Super)",
+    "category": "Women's Basics",
+    "whyItMatters": "Tampons aren't reliably stocked outside Indian metros. A 16-pack is enough for one full cycle plus an emergency one. Applicator-free design saves luggage space.",
+    "priceRange": "\u20b9399 \u2013 \u20b9599",
+    "imageUrl": "https://m.media-amazon.com/images/I/71XOIa4FX-L._SX679_.jpg",
+    "amazonUrl": "https://www.amazon.in/s?k=OB+tampons&tag=PLACEHOLDER",
+    "displayOrder": 18
+  },
+  {
+    "id": "product-019",
+    "name": "Sofy Antibacteria Heat Patches (Pack of 5)",
+    "category": "Women's Basics",
+    "whyItMatters": "Self-heating period-cramp patches that stay warm for 8 hours. Slip one inside your pant waistband on a long bus day; far better than carrying a hot-water bottle. Disposable.",
+    "priceRange": "\u20b9199 \u2013 \u20b9299",
+    "imageUrl": "https://m.media-amazon.com/images/I/61WjOX-zJ7L._SX679_.jpg",
+    "amazonUrl": "https://www.amazon.in/s?k=sofy+antibac+heat+patch&tag=PLACEHOLDER",
+    "displayOrder": 19
+  },
+  {
+    "id": "product-020",
+    "name": "Pee Safe Intimate Wash + Wipes Combo",
+    "category": "Women's Basics",
+    "whyItMatters": "pH-balanced intimate wash plus 10 alcohol-free wipes for travel days when a shower isn't possible. Especially useful in summer or on long-haul transit. Aloe + tea tree, dermatologically tested.",
+    "priceRange": "\u20b9349 \u2013 \u20b9599",
+    "imageUrl": "https://m.media-amazon.com/images/I/61cw0K81FlL._SX679_.jpg",
+    "amazonUrl": "https://www.amazon.in/s?k=pee+safe+intimate+wash&tag=PLACEHOLDER",
+    "displayOrder": 20
+  },
+  {
+    "id": "product-021",
+    "name": "Whisper Ultra-Thin Pads \u2014 Overnight (Pack of 30)",
+    "category": "Women's Basics",
+    "whyItMatters": "The most-stocked Indian pad brand, but the overnight variant runs out in smaller towns. A 30-pack covers a full month with backup. Air-flow channels, leak-proof for sleeper-train berth nights.",
+    "priceRange": "\u20b9299 \u2013 \u20b9449",
+    "imageUrl": "https://m.media-amazon.com/images/I/71qC9zP6lqL._SX679_.jpg",
+    "amazonUrl": "https://www.amazon.in/s?k=whisper+ultra+overnight&tag=PLACEHOLDER",
+    "displayOrder": 21
   }
 ]

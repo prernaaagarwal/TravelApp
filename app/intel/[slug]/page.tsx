@@ -82,9 +82,7 @@ export default async function IntelPage({ params }: { params: Params }) {
     preBookChecklist: (raw.pre_book_checklist as string[]) ?? [],
     dosAndDonts: (raw.dos_and_donts as { do: string[]; dont: string[] }) ?? { do: [], dont: [] },
     estimatedDailyBudget: raw.estimated_daily_budget as { backpacker: number; midRange: number; comfortable: number; currency?: string } | null,
-    emergencyNumbers: Array.isArray(raw.emergency_numbers)
-      ? (raw.emergency_numbers as { label: string; number: string }[])
-      : Object.entries((raw.emergency_numbers ?? {}) as Record<string, string>).map(([label, number]) => ({ label, number })),
+    emergencyNumbers: (raw.emergency_numbers as { label: string; number: string }[] | null) ?? [],
     isPremium: raw.is_premium,
     premiumPreview: raw.premium_preview,
     affiliateLinks: (raw.affiliate_links ?? {}) as { booking?: string; worldNomads?: string },
@@ -142,10 +140,17 @@ export default async function IntelPage({ params }: { params: Params }) {
         {/* hero text overlay */}
         <div className="absolute bottom-0 left-0 px-6 pb-6">
           <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-warm-white/60">
-            {card.country} · {card.audience === "foreign" ? "For foreign women" : card.audience === "indian" ? "For Indian women" : "All solo women"}
+            {card.audience === "foreign" ? "For foreign women" : card.audience === "indian" ? "For Indian women" : "All solo women"}
           </p>
-          <h1 className="font-serif text-4xl leading-tight text-warm-white md:text-5xl">
-            {card.destination}
+          {/* H1 carries the city + the search phrase a solo woman googles
+              ("solo female travel safety guide"). The destination is visually
+              dominant; the keyword line sits underneath in the same heading
+              so Google sees one keyword-rich H1. */}
+          <h1 className="font-serif leading-tight text-warm-white">
+            <span className="block text-4xl md:text-5xl">{card.destination}</span>
+            <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.18em] text-warm-white/70 md:text-xs">
+              Solo Female Travel Safety Guide · {card.country}
+            </span>
           </h1>
           {card.isPremium && (
             <span className="mt-2 inline-block bg-gold/90 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-ink">
@@ -475,18 +480,30 @@ export default async function IntelPage({ params }: { params: Params }) {
           </section>
 
           {/* ── Premium locked section ────────────────────────────────── */}
+          {/*
+            Paywall principle: SAFETY intel is always free. The premium
+            "Bonus chapter" only adds itineraries, off-season hacks, day-trip
+            routes, and contributor-curated planning content — never warnings,
+            scam reports, or vetted-for-safety lists. Those live in the free
+            sections above (TLDR, Scams, Don't, Neighborhoods, Emergency).
+          */}
           {card.isPremium && (
             <section className="relative overflow-hidden border border-ww-border">
               <div className="border-b border-ww-border bg-sand/50 px-4 py-2">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-                  Bonus chapter — founding members
+                <p className="flex items-center justify-between gap-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                  <span>Bonus chapter — founding members</span>
+                  <span className="text-sage">Safety intel always free ✓</span>
                 </p>
               </div>
               {/* blurred preview content */}
               <div className="select-none blur-sm pointer-events-none p-6 space-y-3 bg-sand">
                 <p className="font-mono text-sm text-ink">{card.premiumPreview}</p>
                 <div className="space-y-2">
-                  {["Best women-only hostels with verified reviews", "Local women's WhatsApp groups to join before you arrive", "Insider safety hacks from 12 contributors"].map((line, i) => (
+                  {[
+                    "Curated multi-day itinerary, contributor-tested",
+                    "Off-season hacks that cut accommodation costs by 30–40%",
+                    "Day-trip add-on routes most guidebooks skip",
+                  ].map((line, i) => (
                     <p key={i} className="flex gap-2 text-xs text-ww-muted">
                       <span className="text-gold">✦</span>{line}
                     </p>
@@ -497,10 +514,14 @@ export default async function IntelPage({ params }: { params: Params }) {
               {/* lock overlay */}
               <div className="absolute inset-0 top-9 flex flex-col items-center justify-center bg-ink/60 px-6 text-center">
                 <span className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
-                  Founding members only
+                  Founding members only · planning content
                 </span>
-                <p className="mb-4 font-serif text-xl text-warm-white">
-                  Unlock the bonus chapter
+                <p className="mb-1 font-serif text-xl text-warm-white">
+                  Unlock the planning chapter
+                </p>
+                <p className="mb-4 max-w-md font-mono text-[11px] leading-relaxed text-warm-white/70">
+                  Itineraries, off-season hacks, and day-trip routes — not safety
+                  warnings. All safety intel above is free, forever.
                 </p>
                 <a
                   href="/account/membership"
