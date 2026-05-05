@@ -13,7 +13,7 @@ const ROUTES = [
   { label: "Explore", href: "/explore", desc: "15-card filterable library" },
   { label: "Community", href: "/community", desc: "3 tabs: Ask, Real Experiences, Beware Board" },
   { label: "Trip Receipts", href: "/feed", desc: "12 real itineraries with cost breakdowns" },
-  { label: "Find a Buddy", href: "/buddy", desc: "Buddy matching with overlap tags" },
+  { label: "Buddy", href: "/buddy", desc: "Buddy matching with overlap tags" },
   { label: "Vault", href: "/vault", desc: "WhatsApp document vault upsell" },
   { label: "Contributor profile", href: `/contributor/${contributors[0].slug}`, desc: "Public profile — bio, badges, cards written" },
   { label: "Onboarding", href: "/onboarding", desc: "3-question flow → personalised intel card" },

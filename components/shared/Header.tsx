@@ -3,17 +3,7 @@ import { Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
 import { CommandPalette } from "@/components/shared/CommandPalette";
-
-const NAV_ITEMS = [
-  { href: "/explore", label: "Intel" },
-  { href: "/community", label: "Community" },
-  { href: "/feed", label: "Receipts" },
-  { href: "/buddy", label: "Buddy" },
-  { href: "/shop", label: "Shop" },
-  { href: "/verify-stay", label: "Verify Stay", authOnly: true },
-];
-
-type NavItem = { href: string; label: string; authOnly?: boolean };
+import { PRIMARY_NAV } from "@/lib/nav";
 
 export async function Header() {
   const supabase = await createClient();
@@ -45,11 +35,11 @@ export async function Header() {
         </Link>
 
         <nav className="hidden gap-6 md:flex">
-          {NAV_ITEMS.filter((item: NavItem) => !item.authOnly || user).map((item: NavItem) => (
+          {PRIMARY_NAV.map((item) => (
             <Link
-              key={item.href}
+              key={item.key}
               href={item.href}
-              className="text-sm uppercase tracking-wider text-ww-muted transition-colors hover:text-ink"
+              className="whitespace-nowrap text-sm uppercase tracking-wider text-ww-muted transition-colors hover:text-ink"
             >
               {item.label}
             </Link>
