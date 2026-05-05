@@ -28,11 +28,11 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Wander Women — Trip Intel for Solo Women Travellers",
+    default: "Wander Women — Solo Female Travel Safety Intel for India & Beyond",
     template: "%s — Wander Women",
   },
   description:
-    "Trip intel built by women who actually travel solo. Real scams, neighborhoods, transport, hidden gems, and costs — sourced from named contributors.",
+    "Solo female travel safety intel — real scams, neighborhoods, transport, costs, and hidden gems by city. Written by women who actually travel solo.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Wander Women",
-    title: "Wander Women — Trip Intel for Solo Women Travellers",
+    title: "Wander Women — Solo Female Travel Safety Intel",
     description:
-      "The guidebook that was never written for you, yet. Real scams, female-run stays, transit safety — written by women who arrived last week.",
+      "Solo female travel safety, scams, female-run stays, transit, costs — written by women who arrived last week.",
     url: SITE_URL,
     images: [
       {
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wander Women — Trip Intel for Solo Women Travellers",
+    title: "Wander Women — Solo Female Travel Safety Intel",
     description:
-      "Real scams, female-run stays, transit safety — written by women who arrived last week.",
+      "Solo female travel safety, scams, female-run stays, transit, costs — written by women who arrived last week.",
     images: ["/images/hero-rishikesh.jpg"],
   },
   robots: {
