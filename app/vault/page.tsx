@@ -73,14 +73,15 @@ export default function VaultPage() {
               The WhatsApp Trip Vault
             </p>
             <h1 className="mb-4 font-serif text-4xl leading-tight text-ink md:text-5xl">
-              Your trip docs,
-              <br />
-              one WhatsApp away.
+              Your trip docs by WhatsApp.
             </h1>
+            <p className="mb-2 font-mono text-base leading-relaxed text-ink">
+              Bookings, insurance, emergency numbers — on demand.
+            </p>
             <p className="mb-6 font-mono text-sm leading-relaxed text-ww-muted">
-              Bookings, scans, emergency contacts, insurance — all stored in a
-              vault you reach by sending a single WhatsApp message. No app, no
-              login. ₹199 per trip.
+              Stored in a vault you reach by sending a single WhatsApp message.
+              No app to download, no login, works on a borrowed phone if yours
+              dies. ₹199 per trip.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link

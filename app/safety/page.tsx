@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldCheck, ShoppingBag, MessageCircle, MapPin, BadgeCheck } from "lucide-react";
+import { ShieldCheck, ShoppingBag, MessageCircle, MapPin, BadgeCheck, Heart } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
@@ -30,8 +30,8 @@ const PUBLIC_CARDS: HubCard[] = [
   {
     href: "/vault",
     eyebrow: "WhatsApp Vault",
-    title: "Your trip docs, one WhatsApp away.",
-    body: "Bookings, insurance, emergency numbers, passport scans — message ‘vault’ and the bot replies. No app, no login, works on a borrowed phone.",
+    title: "Your trip docs by WhatsApp.",
+    body: "Bookings, insurance, emergency numbers, passport scans — on demand by WhatsApp message. No app to download, no login, works on a borrowed phone if yours dies.",
     cta: "See how the Vault works",
     icon: MessageCircle,
   },
@@ -42,6 +42,14 @@ const PUBLIC_CARDS: HubCard[] = [
     body: "Verified reports of scams, harassment hotspots, and dodgy stays — pinned to a city map so you spot the pattern before you book the cab.",
     cta: "Open the Beware Board",
     icon: MapPin,
+  },
+  {
+    href: "/safety/womens-basics",
+    eyebrow: "Women's Basics",
+    title: "Where to find pads, tampons, cups — by city.",
+    body: "Period products, intimate hygiene, pain meds — by chemist, by neighbourhood. The intel no travel guide actually writes.",
+    cta: "Open Women's Basics",
+    icon: Heart,
   },
 ];
 

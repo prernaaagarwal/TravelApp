@@ -261,7 +261,7 @@ export default async function HomePage() {
 
           {/* Subline */}
           <p className="mx-auto mb-12 max-w-2xl text-base leading-relaxed text-ww-muted md:text-xl">
-            We&apos;re opening 500 spots this month. No referrals, no waitlist
+            We&apos;re opening 200 spots this month. No referrals, no waitlist
             theatre — just the women who want in first.
           </p>
 
