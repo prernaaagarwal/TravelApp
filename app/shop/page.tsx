@@ -2,9 +2,9 @@ import Image from "next/image";
 import rawProducts from "@/lib/mock-data/shop-products.json";
 
 export const metadata = {
-  title: "Safety Shop — Wander Women",
+  title: "Solo Female Travel Safety Kit — 15 Products We Actually Pack",
   description:
-    "15 products every solo woman traveller should pack. Curated by our contributors. Real Amazon affiliate links.",
+    "The 15-product safety kit every solo woman traveller should pack — door wedges, RFID wallets, personal alarms, eSIMs. Curated by contributors who use them.",
 };
 
 type Product = {
@@ -39,7 +39,7 @@ export default function ShopPage() {
       {/* header */}
       <div className="mb-10">
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-          Affiliate picks
+          Solo female travel safety kit · affiliate picks
         </p>
         <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
           The safety kit.

@@ -2,9 +2,9 @@ import { ExploreGrid } from "@/components/intel/ExploreGrid";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata = {
-  title: "Explore Trip Intel — Wander Women",
+  title: "Solo Female Travel Destinations — India & Beyond",
   description:
-    "Browse solo travel intel cards curated by women who've been there.",
+    "Browse 25+ solo female travel safety guides — scams, neighbourhoods, transport, costs. Real intel from women who've been there.",
 };
 
 export default async function ExplorePage() {
@@ -49,7 +49,7 @@ export default async function ExplorePage() {
           Trip intel library
         </p>
         <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
-          Browse all destinations
+          Solo female travel intel — every destination.
         </h1>
         <p className="font-mono text-sm leading-relaxed text-ww-muted">
           Every card written by a woman who has actually been there. Verified,

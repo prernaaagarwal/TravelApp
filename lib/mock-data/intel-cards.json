@@ -220,7 +220,7 @@
       }
     ],
     "isPremium": true,
-    "premiumPreview": "Premium covers: the 3 hostels that actively vet solo female guests, full GoaMiles booking walkthrough with screenshots, a complete Palolem vs Agonda vs Patnem comparison, and the November shoulder-season hack that cuts mid-range accommodation costs by 40%.",
+    "premiumPreview": "Premium covers: full GoaMiles booking walkthrough with screenshots, a complete Palolem vs Agonda vs Patnem itinerary comparison, the November shoulder-season hack that cuts mid-range accommodation costs by 40%, and a 7-day North + South Goa loop curated by 12 contributors.",
     "affiliateLinks": {
       "booking": "https://www.booking.com/searchresults.html?ss=Goa&aid=PLACEHOLDER",
       "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
@@ -480,7 +480,7 @@
       }
     ],
     "isPremium": true,
-    "premiumPreview": "Premium covers: exact Hawa Mahal early-access hack (saves 90 min queuing), two heritage hotels with women-only floors, 8-day Rajasthan circuit itinerary (Jaipur \u2192 Jodhpur \u2192 Udaipur), and female artisan workshop visits where the money goes directly to the maker.",
+    "premiumPreview": "Premium covers: the exact Hawa Mahal early-access hack (saves 90 min queuing), an 8-day Rajasthan circuit itinerary (Jaipur \u2192 Jodhpur \u2192 Udaipur), female artisan workshop visits where the money goes directly to the maker, and the off-monsoon Amer Fort photography route most tour groups miss.",
     "affiliateLinks": {
       "booking": "https://www.booking.com/searchresults.html?ss=Jaipur&aid=PLACEHOLDER"
     }
@@ -731,7 +731,7 @@
       }
     ],
     "isPremium": true,
-    "premiumPreview": "Premium covers: the 4 guesthouses with women-only floors on Assi Ghat, exact guide to navigating Manikarnika ethically, a Varanasi \u2192 Sarnath day-trip itinerary with female-led guide contact, and the Benares Hindu University campus walk (secretly one of the safest and most beautiful morning walks in the city).",
+    "premiumPreview": "Premium covers: the exact ghat-by-ghat morning ritual schedule (5am\u20137am), a Varanasi \u2192 Sarnath day-trip itinerary with female-led guide contact, the Benares Hindu University campus walk most tourists miss, and a 3-day classical music + boat-ride curated route.",
     "affiliateLinks": {
       "booking": "https://www.booking.com/searchresults.html?ss=Varanasi&aid=PLACEHOLDER",
       "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
@@ -951,7 +951,7 @@
       }
     ],
     "isPremium": true,
-    "premiumPreview": "Premium covers: the 5 guesthouses in Old Manali rated safest by solo female travellers, exact Spiti Valley extension itinerary (Manali \u2192 Kaza \u2192 Chandratal, 7 days), monsoon-season alternatives when Rohtang is closed, and winter (Dec\u2013Feb) Manali survival guide.",
+    "premiumPreview": "Premium covers: the exact Spiti Valley extension itinerary (Manali \u2192 Kaza \u2192 Chandra Taal, 7 days), monsoon-season alternatives when Rohtang Pass is closed, a winter (Dec\u2013Feb) Manali planning guide with snow-day caf\u00e9s and homestays, and the Hampta Pass trek operator shortlist with current-season prices.",
     "affiliateLinks": {
       "booking": "https://www.booking.com/searchresults.html?ss=Manali&aid=PLACEHOLDER",
       "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
@@ -998,11 +998,74 @@
     ],
     "scams": [
       {
-        "title": "Drug Possession Setup (Goa)",
+        "title": "Drug-possession + fake-cop setup",
         "severity": "critical",
-        "where": "Goa (Anjuna, Vagator, Morjim), Manali (Old Manali, Kasol), Rishikesh",
-        "what": "Local offers drugs at a beach/party; once accepted/handed over, accomplice 'cop' arrives, demands large bribe to avoid arrest. Punishment for narcotics in India is severe \u2014 even small amounts = years in jail.",
-        "avoid": "Refuse all drug offers. NDPS Act in India is harsh; 1 year minimum for personal possession. Walk away from anyone offering 'something to relax'."
+        "where": "Riverside cafes in Tapovan and around Lakshman Jhula bridge, especially after dark.",
+        "what": "Stranger offers charas / weed / acid 'to relax'; minutes later an 'undercover cop' appears and demands \u20b920K\u2013\u20b91L to avoid arrest. The NDPS Act carries a 1-year minimum sentence for personal possession.",
+        "avoid": "Refuse every offer, no matter how casual. If stopped, ask for ID and station name; insist on going to the police station yourself \u2014 the scammer will vanish."
+      },
+      {
+        "title": "Unaccredited Yoga Teacher Training (YTT)",
+        "severity": "high",
+        "where": "Tapovan, Lakshman Jhula, social-media ads targeting solo women three months out.",
+        "what": "Operators take \u20b950K\u2013\u20b91.2L upfront for a '200-hour Yoga Alliance certification' that turns out to be unaccredited or vanishes mid-course. Refunds are near-impossible.",
+        "avoid": "Verify the school on yogaalliance.org/Schools before paying. Pay 30% deposit, balance on arrival \u2014 never the full amount. Sivananda, Parmarth Niketan and Anand Prakash are widely vetted."
+      },
+      {
+        "title": "Sadhu tilak shake-down",
+        "severity": "medium",
+        "where": "Triveni Ghat, approaches to Ram Jhula and Lakshman Jhula bridges.",
+        "what": "A sadhu insists on putting a tilak on your forehead 'for blessings' or ties a red thread on your wrist, then demands \u20b9500\u2013\u20b92,000.",
+        "avoid": "Hands together in namaste, polite firm refusal: 'Nahi chahiye, dhanyavaad.' Don't break stride, don't give the first \u20b910 \u2014 it escalates."
+      },
+      {
+        "title": "Ashram commission tout",
+        "severity": "medium",
+        "where": "Rishikesh railway station, ISBT bus stand, Dehradun (Jolly Grant) airport arrivals.",
+        "what": "Driver / 'helpful local' steers solo women to 'the only safe ashram for foreign women' \u2014 which pays them a 30\u201340% kickback. The room is overpriced and sometimes lockless.",
+        "avoid": "Pre-book direct (Booking.com, Google reviews \u2265 4.3, \u2265 50 reviews) and screenshot the confirmation. Ignore mid-route 'recommendations'."
+      },
+      {
+        "title": "Spiked chai / lassi at remote cafes",
+        "severity": "critical",
+        "where": "Cafes uphill of Lakshman Jhula and on the Neelkanth road, especially after 8pm.",
+        "what": "Drinks spiked with sedatives at quieter cafes; multiple solo-woman reports through 2024\u20132025. Memory loss the next day; phones / cash missing.",
+        "avoid": "Watch your drink being poured. Refuse anything left unattended. Sit near the entrance, share live location with one person, leave before sunset if you can."
+      },
+      {
+        "title": "Rafting operator skipping the safety briefing",
+        "severity": "high",
+        "where": "Tapovan Tiraha put-in point, Shivpuri starts.",
+        "what": "Unlicensed operators skip the helmet / PFD check and the dry-run, overload the raft, and don't carry a throw-bag. The Ganga current is fast; drownings happen every season.",
+        "avoid": "Book only TURA-registered operators (their guides wear orange wristbands). Walk away from any operator who can't show a TURA card. Pay \u20b9200 more, not \u20b92,000 less."
+      },
+      {
+        "title": "'Private one-on-one meditation' invitation",
+        "severity": "high",
+        "where": "Around the bridges, in cafes near the ashram strip, and via Instagram DMs from 'visiting gurus'.",
+        "what": "Unaccredited 'gurus' invite solo women to a private room for 'energy work' or 'kundalini awakening'. Pattern of inappropriate touching reported on multiple Reddit / Facebook solo-female threads.",
+        "avoid": "Refuse all private-session invitations. Group classes only. Established ashrams (Sivananda, Parmarth Niketan, Anand Prakash) and registered teachers only."
+      },
+      {
+        "title": "Triveni Ghat 'photography permit' fee",
+        "severity": "medium",
+        "where": "Triveni Ghat steps and approach lanes; sometimes Parmarth Ganga Aarti viewing area.",
+        "what": "Men in saffron approach with 'mandatory \u20b9100\u2013\u20b9300 photography permit'. There is no such permit \u2014 the ghat is a public temple.",
+        "avoid": "Polite firm 'no thank you', keep walking. If pressed, point to other tourists photographing freely."
+      },
+      {
+        "title": "Auto-rickshaw refuses meter at the railway station",
+        "severity": "medium",
+        "where": "Rishikesh railway station and Yatra bus stand exits.",
+        "what": "Autos quote \u20b9400\u2013\u20b9600 for the \u20b9120\u2013\u20b9150 ride to Tapovan / Lakshman Jhula. Meter is law but never used.",
+        "avoid": "Pre-book Ola or Uber from inside the station. If autos only, name the price first ('Tapovan, \u20b9150, chaliye'); walk if they refuse \u2014 the next one says yes."
+      },
+      {
+        "title": "Pirate currency exchange + short-count cash",
+        "severity": "medium",
+        "where": "Small 'no commission' forex shops on the Lakshman Jhula side and along Tapovan main road.",
+        "what": "Shops advertise 'best USD/EUR rate, no commission' then short the count by \u20b9500\u2013\u20b92,000 in the bundle, or hand over old / torn notes.",
+        "avoid": "Use SBI / HDFC / Axis ATMs, or count cash twice in front of the cashier before stepping away. Carry small denominations \u2014 \u20b9100 / \u20b9200 \u2014 not \u20b92,000."
       }
     ],
     "transport": [
@@ -1102,7 +1165,7 @@
       }
     ],
     "isPremium": true,
-    "premiumPreview": "Premium covers: vetted list of 6 yoga retreats safe for solo foreign women (with red flags to watch for), the Rishikesh\u2013Chopta\u2013Tungnath trek guide (3 days, beginner-friendly), best riverside guesthouses with women-only floors, and a Haridwar day-trip add-on guide.",
+    "premiumPreview": "Premium covers: the Rishikesh\u2013Chopta\u2013Tungnath trek itinerary (3 days, beginner-friendly), a Haridwar day-trip add-on with morning Ganga aarti routing, the off-season silent-meditation retreat shortlist with current pricing, and a curated 7-day yoga-and-rafting plan.",
     "affiliateLinks": {
       "booking": "https://www.booking.com/searchresults.html?ss=Rishikesh&aid=PLACEHOLDER",
       "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
@@ -3644,12 +3707,12 @@
       "midRange": 130,
       "comfortable": 280
     },
-    "emergencyNumbers": {
-      "Police": "110",
-      "Ambulance": "119",
-      "Tourist Helpline": "03-3201-3331",
-      "JNTO Hotline": "050-3816-2787"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "110" },
+      { "label": "Ambulance", "number": "119" },
+      { "label": "Tourist Helpline", "number": "03-3201-3331" },
+      { "label": "JNTO Hotline", "number": "050-3816-2787" }
+    ],
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
@@ -3839,12 +3902,12 @@
       "midRange": 60,
       "comfortable": 150
     },
-    "emergencyNumbers": {
-      "Police": "191",
-      "Ambulance": "1669",
-      "Tourist Police": "1155",
-      "Bangkok Helpline": "02-356-0700"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "191" },
+      { "label": "Ambulance", "number": "1669" },
+      { "label": "Tourist Police", "number": "1155" },
+      { "label": "Bangkok Helpline", "number": "02-356-0700" }
+    ],
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
@@ -4034,12 +4097,12 @@
       "midRange": 60,
       "comfortable": 120
     },
-    "emergencyNumbers": {
-      "Police": "113",
-      "Ambulance": "115",
-      "Fire": "114",
-      "Tourist Helpline": "1800-599-920"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "113" },
+      { "label": "Ambulance", "number": "115" },
+      { "label": "Fire", "number": "114" },
+      { "label": "Tourist Helpline", "number": "1800-599-920" }
+    ],
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
@@ -4243,14 +4306,14 @@
       "midRange": 150,
       "comfortable": 350
     },
-    "emergencyNumbers": {
-      "Police": "999",
-      "Ambulance": "998",
-      "Dubai Tourism": "800-9999",
-      "Women's Helpline": "800-HOPE (4673)"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "999" },
+      { "label": "Ambulance", "number": "998" },
+      { "label": "Dubai Tourism", "number": "800-9999" },
+      { "label": "Women's Helpline", "number": "800-HOPE (4673)" }
+    ],
     "isPremium": true,
-    "premiumPreview": "Premium covers: the 4 women-only beach clubs and spas (with day-pass pricing), the 6 RTA-licensed female taxi-driver routes, modesty-compliant outfit guides for the 3 main mosques, and the Indian-passport visa loophole that gets you 30 days instead of 14.",
+    "premiumPreview": "Premium covers: a Dubai weekend itinerary (Friday–Sunday) with day-pass pricing for 4 spa + beach clubs, the Indian-passport visa loophole that gets you 30 days instead of 14, modesty-compliant outfit + photography guides for the 3 main mosques, and the off-peak Burj Khalifa booking trick that halves entry queues.",
     "affiliateLinks": {}
   },
   {
@@ -4438,12 +4501,12 @@
       "midRange": 120,
       "comfortable": 250
     },
-    "emergencyNumbers": {
-      "Police": "112",
-      "Ambulance": "119",
-      "Foreign Helpline": "1330",
-      "Seoul Hotline": "02-120"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "112" },
+      { "label": "Ambulance", "number": "119" },
+      { "label": "Foreign Helpline", "number": "1330" },
+      { "label": "Seoul Hotline", "number": "02-120" }
+    ],
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
@@ -4633,15 +4696,866 @@
       "midRange": 150,
       "comfortable": 300
     },
-    "emergencyNumbers": {
-      "Police": "17",
-      "Ambulance": "15",
-      "Fire": "18",
-      "EU Emergency": "112",
-      "Tourist Police Paris": "+33-1-53-71-53-71"
-    },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "17" },
+      { "label": "Ambulance", "number": "15" },
+      { "label": "Fire", "number": "18" },
+      { "label": "EU Emergency", "number": "112" },
+      { "label": "Tourist Police Paris", "number": "+33-1-53-71-53-71" }
+    ],
     "isPremium": false,
     "premiumPreview": null,
     "affiliateLinks": {}
+  },
+  {
+    "slug": "bali-indonesia",
+    "destination": "Bali",
+    "country": "Indonesia",
+    "audience": "both",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 7,
+    "heroImageUrl": "/images/intel/bali-indonesia.jpg",
+    "tldr": [
+      "Money-changer short-counts cost women $50–$300 per swap on Kuta and Legian high streets — only use Central Kuta Money Exchange, BMC, or Dirgahayu (4.5+ stars on Maps). Count notes yourself before walking away.",
+      "Scooter rental: NEVER hand over your passport. Cash deposit only ($100–$200). Photograph + video the bike from every side before riding off. Yellow plate = legal; white plate = illegal and impoundable.",
+      "International Driving Permit is required by law and Bali police run tourist checkpoints. No IDP = on-the-spot 1,000,000 IDR (~$65) fine, sometimes more. Bring it from home — you cannot get one in Bali.",
+      "Bali Belly hits ~30% of first-timers. Sealed bottled water only (even for brushing teeth in cheap rooms), hot food, peel fruit yourself. Stock Imodium + Hydralyte before you fly.",
+      "Use Grab and Gojek apps; the local taxi mafia bans them inside Ubud town centre — walk 5 min to a side lane (off Monkey Forest Road) before booking."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Ubud",
+        "safetyRating": 4,
+        "vibe": "Yoga, jungle, retreats, vegan cafés, slow",
+        "stayHere": true,
+        "notes": "Best base for first-time solo women. Penestanan and Nyuh Kuning are quieter walkable lanes. Avoid Monkey Forest Road after dark."
+      },
+      {
+        "name": "Canggu",
+        "safetyRating": 3,
+        "vibe": "Surf, digital nomads, beach clubs, scooters everywhere",
+        "stayHere": true,
+        "notes": "Berawa is calmer than Batu Bolong. Watch for scooter snatch-thefts on Echo Beach Road. Co-working stays (Tropical Nomad, Outpost) are great for solo women."
+      },
+      {
+        "name": "Seminyak / Kuta",
+        "safetyRating": 2,
+        "vibe": "Nightlife, malls, mass tourism",
+        "stayHere": false,
+        "notes": "Highest scam + drink-spiking density on the island. Day-trip for shopping and sunset; sleep elsewhere. Avoid Kuta nightclubs solo."
+      },
+      {
+        "name": "Sanur",
+        "safetyRating": 5,
+        "vibe": "Quiet beach, retiree pace, family-friendly",
+        "stayHere": true,
+        "notes": "Safest beach town. Cycle the boardwalk. Fast boats to Nusa Lembongan and Penida leave from here every morning."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Money-changer short-count",
+        "severity": "critical",
+        "where": "Bali — Kuta, Legian, Seminyak high streets",
+        "what": "Storefronts advertising ‘0% commission, best rate’ short the count by 50,000–500,000 IDR ($3–35) in the bundle. Operators distract with calculator, snap a few notes back during the count.",
+        "avoid": "Only use Central Kuta Money Exchange, BMC, or Dirgahayu — listed on Google Maps with 4.5+ stars and a glass-cage front. Count notes yourself before stepping away. Refuse any place with hand-painted ‘0% commission’ signage."
+      },
+      {
+        "title": "Scooter rental damage + passport hostage",
+        "severity": "critical",
+        "where": "Bali — every tourist hub, especially Canggu, Kuta, Ubud",
+        "what": "Rental shop demands passport as deposit. On return, they claim pre-existing scratches or ‘engine damage’ and refuse to release the passport unless you pay $200–$2,000.",
+        "avoid": "Cash deposit only ($100–$200). Photograph and video the entire bike (all sides, mirrors, tyres, engine) before riding off. Use shops your hostel or villa explicitly recommends. Yellow plate only."
+      },
+      {
+        "title": "ATM skimming",
+        "severity": "high",
+        "where": "Bali — standalone ATMs at Kuta beach road, Ubud Monkey Forest Road, Canggu corners",
+        "what": "Skimming device + pinhole camera. Account drained 1–8 hours after the transaction. BNI and BCA standalone kiosks are most-reported.",
+        "avoid": "Use ATMs INSIDE bank branches only — BCA, Mandiri, BNI lobbies. Cover PIN entry. Set a low daily withdrawal cap with your home bank before the trip."
+      },
+      {
+        "title": "DPS airport ‘official taxi’ upcharge",
+        "severity": "high",
+        "where": "Bali — Ngurah Rai (DPS) airport arrivals",
+        "what": "‘Official airport taxi’ counters charge 350,000–600,000 IDR for a ride that costs 100,000 IDR on Grab. Some take you to a kickback-paying hotel claiming yours ‘closed’.",
+        "avoid": "Walk past the taxi counter, exit the terminal, cross the parking lot to the public road, then book Grab or Gojek there. Or pre-book a private transfer through your hotel before arrival."
+      },
+      {
+        "title": "Drink spiking + arak methanol (Kuta / Legian)",
+        "severity": "critical",
+        "where": "Bali — Sky Garden, Bounty, La Favela, Kuta beachfront bars",
+        "what": "GHB / rohypnol in drinks; victim wakes up missing money, phone, sometimes assaulted. Local arak (moonshine) has been mixed with methanol — multiple tourist deaths through 2024–2025.",
+        "avoid": "Avoid Kuta nightclubs solo. Sealed branded beer or sealed bottles only. Watch the bartender pour. Never accept drinks from strangers. ‘Free arak shot’ = walk out."
+      },
+      {
+        "title": "Ubud taxi mafia overcharge",
+        "severity": "medium",
+        "where": "Bali — Ubud Monkey Forest Road, Hanoman Street",
+        "what": "Painted ‘Taxi?’ signs on every corner. Locals refuse the meter, quote 200,000 IDR for a 30,000 IDR ride. Local mafia blocks Grab / Gojek pickups inside Ubud town centre.",
+        "avoid": "Walk 5–10 min to a side lane off Monkey Forest Road and book Grab there. Or take a Bluebird (Bali Taxi) blue cab — they run the meter without arguing."
+      },
+      {
+        "title": "Monkey theft at Sacred Monkey Forest",
+        "severity": "medium",
+        "where": "Bali — Ubud Sacred Monkey Forest, Uluwatu Temple",
+        "what": "Macaques snatch sunglasses, phones, water bottles, hats. Some are trained by handlers who then ‘help’ retrieve the item for a 50,000–200,000 IDR ‘tip’.",
+        "avoid": "No sunglasses, no loose accessories. Phone in a zipped pocket, not in hand. If snatched, do NOT chase — flag down a uniformed ranger; staff retrieve items for free."
+      },
+      {
+        "title": "‘Free’ temple sarong / friendship bracelet",
+        "severity": "medium",
+        "where": "Bali — temple entrances at Tanah Lot, Uluwatu, Ubud Saraswati",
+        "what": "Hawker ties a sarong or bracelet on you ‘free as a gift’ then aggressively demands 50,000–200,000 IDR. Refusal escalates to a scene.",
+        "avoid": "Refuse all unsolicited offers. Most temples already include sarong rental in the entry ticket. Walk past with hands together, polite ‘no thank you.’"
+      },
+      {
+        "title": "Black-market visa-extension scam",
+        "severity": "high",
+        "where": "Bali — ‘visa agents’ on Jalan Legian, Instagram DMs targeting nomads",
+        "what": "‘Agent’ takes $200 + your passport for a B211 extension or KITAS application; either disappears or files a fake stamp that gets you fined or banned at exit.",
+        "avoid": "Use only verified agents (Bali Visa Service, Emerhub, Cekindo) with a physical office, registered tax number, and Google reviews. Or extend yourself through the official imigrasi.go.id e-Visa portal."
+      },
+      {
+        "title": "Beach-towel / massage upsell on Kuta sand",
+        "severity": "medium",
+        "where": "Bali — Kuta Beach, Legian Beach, Seminyak Beach",
+        "what": "Beach hawker offers ‘free’ massage or ‘free’ towel use, then charges 200,000–500,000 IDR after, blocking access to your bag while ‘helping’ you up.",
+        "avoid": "Polite firm decline. Book massage at a registered spa with posted prices (Karma, Bodyworks, Putri Bali Spa). Never leave your bag with a hawker."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Grab + Gojek apps",
+        "tip": "Both run cars and motorbike-taxis. Cheaper than the airport meter. Banned by the local mafia in Ubud town centre — walk 5 min outside before booking. Save the Bahasa name of your destination in the app to skip language friction.",
+        "approxCost": "30,000–80,000 IDR ($2–5) most rides; 100,000–150,000 IDR ($6–10) airport → Seminyak"
+      },
+      {
+        "mode": "Bluebird (Bali Taxi) blue metered cabs",
+        "tip": "The only taxi brand that runs the meter without arguing. Look for the literal blue colour + Bluebird logo on the door (other ‘blue’ cabs are imitators). Available at airport, malls, hotel ranks.",
+        "approxCost": "Meter starts at 7,000 IDR + 7,000 IDR/km"
+      },
+      {
+        "mode": "Scooter self-drive",
+        "tip": "Easiest way around. International Driving Permit REQUIRED — police run tourist checkpoints. Yellow plate only. Always wear a helmet. Confirm your travel insurance covers scooters in Indonesia (most don’t by default).",
+        "approxCost": "70,000–120,000 IDR/day ($4–8); helmet usually included"
+      },
+      {
+        "mode": "Perama Tours shuttle bus",
+        "tip": "Reliable shared van between Ubud, Kuta, Sanur, Padang Bai (Lombok ferry), Lovina. Book at any Perama office or guesthouse. Slow but the safest non-driving option for solo women.",
+        "approxCost": "60,000–125,000 IDR per leg"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Tirta Empul Holy Spring (early morning)",
+        "type": "Active Hindu temple + ritual bathing",
+        "angle": "Solo-female specific",
+        "why": "Active Balinese Hindu purification temple. Arrive 7am before tour buses; you’ll have the spring almost to yourself. Sarong included; women on period are asked not to enter the spring (sit by the side, observe).",
+        "approxCost": "75,000 IDR entry + 10,000 IDR locker"
+      },
+      {
+        "name": "Sidemen Valley homestays",
+        "type": "Quiet rural alternative to Ubud",
+        "angle": "Combined (FO + FM)",
+        "why": "1.5 hrs east of Ubud. Rice terraces, no scooter horns, family-run homestays under $25/night. The escape-Ubud move. Try Subak Tabola Villa or Samanvaya.",
+        "approxCost": "$15–$50/night"
+      },
+      {
+        "name": "Munduk waterfalls + lake-rim cafés",
+        "type": "Cool-climate hill town",
+        "angle": "FO+FM",
+        "why": "Mountain village 2.5 hrs north of Ubud. Cool air, three waterfalls walkable from town, sunrise at Lake Tamblingan. Low-tourist, female-run guesthouses.",
+        "approxCost": "$25–$70/night"
+      },
+      {
+        "name": "Nusa Lembongan via Sanur fast boat",
+        "type": "Day trip / 2-night escape",
+        "angle": "FO+FM",
+        "why": "30-min boat from Sanur. Way quieter than Penida. Snorkel with manta rays at Manta Point, cycle the island, sunset at Devil’s Tear. Solo-female-friendly homestays at Mushroom Bay.",
+        "approxCost": "Boat round-trip 250,000 IDR; rooms from $20"
+      },
+      {
+        "name": "Pranoto’s Art Gallery drop-in life-drawing class (Ubud)",
+        "type": "Drop-in life-drawing class",
+        "angle": "Solo-female",
+        "why": "Run by Pranoto and his wife Kerry; $10 drop-in life-drawing class twice a week. Easiest place in Ubud to meet other solo travellers without a yoga-studio price tag.",
+        "approxCost": "≈ $10 / 150,000 IDR per class"
+      }
+    ],
+    "preBookChecklist": [
+      "Photocopy + photograph passport, credit cards, insurance — store on cloud + a backup phone",
+      "Get an International Driving Permit BEFORE you fly if you plan to scooter (Indonesian police will fine you 1M+ IDR without it)",
+      "Buy World Nomads or SafetyWing insurance covering scooter accidents in Indonesia (most insurers exclude scooters by default)",
+      "Pre-book first 2 nights of stay; don’t arrive in Bali without a confirmed bed",
+      "Download Grab + Gojek apps and verify they work on your home SIM before flying"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Stay in Sanur or Ubud for your first 2 nights — easier landing than Kuta or Canggu",
+        "Carry small cash (10,000 / 20,000 / 50,000 IDR notes) — many places refuse 100k notes for small purchases",
+        "Wear a sarong covering knees and shoulders at every temple, including Uluwatu and Tanah Lot",
+        "Drink only sealed bottled water, even for brushing teeth in cheap rooms"
+      ],
+      "dont": [
+        "Hand over your passport for any rental (scooter, surfboard, motorbike) — cash deposit only",
+        "Drink the local arak / moonshine — multiple methanol-poisoning deaths through 2024–2025",
+        "Eat ice or unpeeled salads in cheap warungs — Bali Belly hits 30%+ of first-time visitors",
+        "Trust ‘visa agents’ on Jalan Legian or Instagram DMs — extend at imigrasi.go.id directly"
+      ]
+    },
+    "estimatedDailyBudget": { "currency": "USD", "backpacker": 30, "midRange": 80, "comfortable": 200 },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "110" },
+      { "label": "Ambulance", "number": "118" },
+      { "label": "Tourist Police (Bali)", "number": "0361-754599" },
+      { "label": "Bali Tourism Helpline", "number": "0361-222387" }
+    ],
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Bali&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "chiang-mai-thailand",
+    "destination": "Chiang Mai",
+    "country": "Thailand",
+    "audience": "both",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 6,
+    "heroImageUrl": "/images/intel/chiang-mai-thailand.jpg",
+    "tldr": [
+      "Burning season Feb–April: AQI regularly hits 200+, schools close, the haze is brutal. Plan visits May–Oct, or bring P95/N95 masks if you must come Feb–April.",
+      "Songthaews (red shared trucks) are flat-rate inside the Old City — 30 THB per person. Anything more is overcharging; say ‘30 baht?’ before getting in and walk if they refuse.",
+      "Use Grab for cars and Bolt for motorbike-taxis. Tuk-tuks will quote 200 THB for a 60 THB ride. Songthaew + Grab is the no-haggle combo.",
+      "The Old City (inside the moat) is the safest first base — every temple is walkable, hostels are everywhere, well-lit at night.",
+      "Sunday Walking Street (Ratchadamnoen Rd) is one of the safest large markets in SE Asia for solo women — go after 5pm, easy to navigate alone."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Old City (inside the moat)",
+        "safetyRating": 5,
+        "vibe": "Temples, hostels, walkable, gentle traveller energy",
+        "stayHere": true,
+        "notes": "Best first base. Tha Pae Gate side is liveliest; Suan Dok Gate side quieter. Stick to inside the moat after 9pm and you’re fine."
+      },
+      {
+        "name": "Nimman / Suthep",
+        "safetyRating": 4,
+        "vibe": "Cafés, digital nomads, co-working, modern",
+        "stayHere": true,
+        "notes": "Soi 1–7 has the best café cluster. Maya Mall is a navigation landmark. A 10-min songthaew ride to the Old City."
+      },
+      {
+        "name": "Santitham / Chang Phueak",
+        "safetyRating": 4,
+        "vibe": "Local life, cheap street food, residential",
+        "stayHere": true,
+        "notes": "Where Thais actually live. North gate (Chang Phueak) night market for fewer tourists, real prices. Good if you’re on a budget."
+      },
+      {
+        "name": "Riverside (Ping River) / Loi Kroh",
+        "safetyRating": 3,
+        "vibe": "Upscale hotels + nightlife strip",
+        "stayHere": false,
+        "notes": "Loi Kroh Road has go-go bars and the most-reported drink-spiking density in Chiang Mai. Stay across the river or in the Old City instead."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Tuk-tuk gem-shop / tailor scam",
+        "severity": "high",
+        "where": "Chiang Mai — around Tha Pae Gate, Wat Phra Singh, Night Bazaar",
+        "what": "Tuk-tuk driver offers ‘cheap city tour, 100 THB’; route detours to a ‘government tax-free gem store’ or tailor where you’re pressured to buy. Smaller and less aggressive than Bangkok’s version, but the same play.",
+        "avoid": "Skip any ‘100 THB tour’ offered on the street. Walk to temples or use Grab. If you want a tuk-tuk ride, fix the price and the destination — no detours."
+      },
+      {
+        "title": "Songthaew tourist overcharge",
+        "severity": "medium",
+        "where": "Chiang Mai — pickups outside Tha Pae Gate, Night Bazaar, Maya Mall",
+        "what": "Driver quotes 100–200 THB for the standard 30 THB Old-City ride, especially with bags or after dark. Refuses to share with other passengers (the whole point of songthaew).",
+        "avoid": "State ‘30 baht?’ before getting in. If it’s further (Nimman → Old City: 40–50 THB; longer: agree first). Walk to the next songthaew if they hold out — the next one says yes."
+      },
+      {
+        "title": "Scooter rental damage + passport hostage",
+        "severity": "critical",
+        "where": "Chiang Mai — Old City rentals, Doi Suthep approach road, Pai-bound shops",
+        "what": "Shop demands passport as deposit. On return, claims pre-existing scratches or ‘engine damage’; refuses to release passport unless you pay 5,000–30,000 THB.",
+        "avoid": "Cash deposit only (1,000–3,000 THB). Photograph and video the bike from every side BEFORE riding off. Use Mr Mechanic, Tony’s Big Bikes, Cat Motors — well-reviewed, written contracts, no passport."
+      },
+      {
+        "title": "Fake monk bracelet shake-down",
+        "severity": "medium",
+        "where": "Chiang Mai — outside Wat Phra Singh, Wat Chedi Luang, Tha Pae Gate",
+        "what": "Costumed ‘monk’ ties an orange thread / bracelet on you ‘for blessings’ then demands 100–500 THB. Real Thai monks do not solicit on the street and do not touch women.",
+        "avoid": "Real monks: shaven head, plain saffron robes, no jewellery, walk silently early-morning alms route. If approached: hands together (‘wai’), polite ‘mai pen rai’, walk past."
+      },
+      {
+        "title": "Unethical ‘elephant sanctuary’",
+        "severity": "high",
+        "where": "Chiang Mai — Mae Taeng valley, Mae Wang, day-tour bookings",
+        "what": "Operators advertising ‘elephant sanctuary’ or ‘ethical interaction’ that secretly include riding, washing chained elephants, or chained training (phajaan). Bull-hooks on site = unethical.",
+        "avoid": "Only Elephant Nature Park (Lek Chailert) and BLES (Boon Lott’s Elephant Sanctuary) are independently verified — observation-only, no riding, no washing. Avoid any operator listing ‘elephant ride / bath’ in the same package."
+      },
+      {
+        "title": "Trekking operator without insurance",
+        "severity": "high",
+        "where": "Chiang Mai — Mae Hong Son loop, Doi Inthanon, Pai jungle treks",
+        "what": "Cheap trekking operators (under 800 THB / day) cut corners on guides, helmets, first aid; multiple deaths from cliff falls and motorbike crashes through 2024–2025 reported by the Chiang Mai Mail.",
+        "avoid": "Use Pooh Eco-Trekking, Chai Lai Sisters, or Trekking Collective — TAT-licensed, insured, posted safety briefings. Confirm insurance coverage and emergency contact in writing before paying."
+      },
+      {
+        "title": "ATM skimming",
+        "severity": "high",
+        "where": "Chiang Mai — standalone ATMs at Tha Pae Gate, Night Bazaar, Nimman corners",
+        "what": "Skimmer + pinhole camera; account drained 1–8 hours after withdrawal. Bangkok Bank and Krungsri standalone kiosks are most-reported.",
+        "avoid": "Use ATMs INSIDE bank branches only — Siam Commercial Bank, Bangkok Bank, Kasikorn lobbies. Cover PIN entry. Set a low daily withdrawal cap with your home bank."
+      },
+      {
+        "title": "‘Real silver’ / ‘antique’ counterfeit at Sunday Walking Street",
+        "severity": "medium",
+        "where": "Chiang Mai — Sunday Walking Street, Saturday Walking Street, Night Bazaar",
+        "what": "Mass-produced trinkets sold as ‘authentic Lanna antique’ for 2,000–8,000 THB. Often German silver (zinc alloy) sold as 925 sterling.",
+        "avoid": "Treat the markets as fun craft shopping, not investment. Real Lanna antiques only at certified dealers (Suriwong Book Centre area). 925 stamp + magnet test (real silver = non-magnetic)."
+      },
+      {
+        "title": "Cooking class double-booking / no-show",
+        "severity": "medium",
+        "where": "Chiang Mai — Old City booking touts, Instagram DMs",
+        "what": "Tout in the Old City sells you a ‘half-day cooking class, 800 THB’; the operator never picks you up, or the same class is double-booked and the second group is left at the rendezvous.",
+        "avoid": "Book directly with operators: Thai Farm Cooking School, Asia Scenic, Mama Noi’s — TripAdvisor 4.5+ stars. Pay deposit only via the operator’s own website, not via a tout."
+      },
+      {
+        "title": "Drug-bust setup at nightlife strips",
+        "severity": "critical",
+        "where": "Chiang Mai — Loi Kroh Road, Zoe in Yellow / Tha Pae Gate cluster",
+        "what": "‘Friendly’ stranger offers a small bag of weed or pills; minutes later a plainclothes ‘cop’ appears, demands 30,000–80,000 THB to avoid arrest. Thai narcotics laws are harsh — even small amounts can mean weeks in detention.",
+        "avoid": "Refuse every offer regardless of how casual. If approached by an alleged officer, ask for ID and station name; insist on going to the actual police station — the scammer will vanish."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Grab + Bolt apps",
+        "tip": "Grab for cars, Bolt for motorbike-taxis (about 30% cheaper than Grab here). Both more transparent than tuk-tuks. Save your hostel’s Thai-script address in the app for driver clarity.",
+        "approxCost": "60–150 THB ($2–4) most rides; 200–280 THB airport → Old City"
+      },
+      {
+        "mode": "Songthaew (red shared trucks)",
+        "tip": "Flat 30 THB anywhere inside / next-to the Old City. Hail one heading roughly your direction, tell driver the destination, hop in the back. The single best-value transport in northern Thailand.",
+        "approxCost": "30 THB / person flat-rate; 40–50 THB to outer neighbourhoods"
+      },
+      {
+        "mode": "Scooter self-drive",
+        "tip": "Easiest for Doi Suthep, Mae Sa, San Kamphaeng. International Driving Permit REQUIRED (police checkpoints near Doi Suthep). Always wear a helmet — non-negotiable, 2,000 THB fine. Do NOT ride into Pai unless you’re an experienced rider; the road kills people every year.",
+        "approxCost": "200–350 THB / day; helmet included"
+      },
+      {
+        "mode": "Long-distance bus / minivan to Pai, Chiang Rai, Mae Hong Son",
+        "tip": "Aya Service and Prempracha run Pai (3 hr), Sombat Tour to Chiang Rai (3 hr), Prempracha to Mae Hong Son. Buy tickets at the operator’s real office (Arcade Bus Station) — never from a Walking Street tout.",
+        "approxCost": "150–300 THB Pai; 200–350 THB Chiang Rai"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Wat Pha Lat (the hidden monastery)",
+        "type": "Forest temple, halfway up Doi Suthep",
+        "angle": "Solo-female specific",
+        "why": "Skipped by every tour bus. Walk the Monk’s Trail (1.5 km, 30 min) up from the foot of Doi Suthep through the forest — you’ll arrive at a moss-covered, near-empty temple before the main one. Best done 7–9am.",
+        "approxCost": "Free; songthaew to trailhead 50 THB"
+      },
+      {
+        "name": "Mae Sa Valley women’s craft villages",
+        "type": "Day trip — weaving + textile cooperatives",
+        "angle": "Combined (FO + FM)",
+        "why": "Female-run weaving co-ops in Ban Pa Pong (Mae Rim) and Bo Sang. Buy directly from the makers, see the looms, no tour-guide markup. Pair with the orchid farm or Mon Cham viewpoint.",
+        "approxCost": "Songthaew round-trip 400 THB or scooter; scarves 200–800 THB direct"
+      },
+      {
+        "name": "Mon Cham / Pong Yang viewpoint",
+        "type": "Hill-station sunset",
+        "angle": "FO+FM",
+        "why": "1 hr north of Chiang Mai. Open-air restaurants on a ridge with terraced strawberry farms below; sunset is theatrical. Way quieter than Doi Suthep at sunset, no tour buses, ample solo seating.",
+        "approxCost": "Scooter / Grab ~600 THB; meals 150–400 THB"
+      },
+      {
+        "name": "The Sustainable Studio (Sunday market alternative)",
+        "type": "Woman-run zero-waste design space",
+        "angle": "Solo-female",
+        "why": "Founded by Phichit and her partner. Workshops (natural dye, batik, plant-based papermaking), curated local-maker shop, café. The opposite vibe to the Walking Street tourist crush.",
+        "approxCost": "Free entry; workshops 1,200–2,500 THB"
+      },
+      {
+        "name": "Pai (3-day side trip)",
+        "type": "Mountain town, hot springs, slow days",
+        "angle": "FO+FM",
+        "why": "3 hours and 762 curves north of Chiang Mai by minivan. Solo-female-friendly hostels (Spicy Pai Backpackers, Pai Country Hut), waterfalls, hot springs, the Pai Canyon at sunset. Travel in a group on the minivan; the road is brutal.",
+        "approxCost": "Minivan 150–200 THB each way; hostels 200–600 THB / night"
+      }
+    ],
+    "preBookChecklist": [
+      "International Driving Permit if you plan to scooter (Thai police run checkpoints; no IDP = 1,000 THB fine + bike impound)",
+      "Travel insurance covering scooters and treks in Thailand (most policies exclude scooters by default — World Nomads or SafetyWing add it)",
+      "Verify cooking class / trekking operator on TripAdvisor (4.5+ stars, 100+ reviews) before paying any deposit",
+      "Burning-season check (aqicn.org / Chiang Mai) — if AQI > 150 forecast for 3+ days, consider rescheduling Feb–April",
+      "Pre-book first 2 nights inside the Old City; don’t arrive in Chiang Mai without a confirmed bed"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Walk inside the Old City after dark — it’s safer than most home cities",
+        "Do the Monk’s Trail to Wat Pha Lat at sunrise — alone, on foot, before the songthaews fire up",
+        "Use the moat road as your bearings — it’s a perfect 1.5 × 1.5 km square",
+        "Tip cooking-class teachers + multi-hour guides 100–200 THB; not standard but appreciated"
+      ],
+      "dont": [
+        "Touch a monk or hand anything directly to one — women, observe and pass via cloth or via a male intermediary",
+        "Wear shorts above the knee or sleeveless tops to temples — Doi Suthep enforces strictly, sarongs available at the gate",
+        "Photograph monks, especially women novices, without explicit permission",
+        "Ride elephants or book any ‘sanctuary’ that includes riding or chain-washing — every reputable list dropped these by 2023"
+      ]
+    },
+    "estimatedDailyBudget": { "currency": "USD", "backpacker": 25, "midRange": 60, "comfortable": 140 },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "191" },
+      { "label": "Tourist Police", "number": "1155" },
+      { "label": "Ambulance", "number": "1669" },
+      { "label": "Fire", "number": "199" },
+      { "label": "Chiang Mai Tourism", "number": "053-248604" },
+      { "label": "Women's Helpline (MoSDHS)", "number": "1300" }
+    ],
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Chiang+Mai&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "lisbon-portugal",
+    "destination": "Lisbon",
+    "country": "Portugal",
+    "audience": "both",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 6,
+    "heroImageUrl": "/images/intel/lisbon-portugal.jpg",
+    "tldr": [
+      "Tram 28 is one of Europe’s most-pickpocketed routes — Lisbon police estimate 70% of pickpocket victims are women. Crossbody bag in front, phone in a zipped pocket, hands on the bag at every stop.",
+      "Use Bolt, FreeNow, or Uber from the airport — they’re ~€8 cheaper than the ‘official’ taxi rank (which charges €18–25 for the €10–14 ride into the city).",
+      "The ‘couvert’ on your table (bread, olives, cheese, sardine paste) is NEVER free — €3–15 per plate. Push it back to the waiter if you don’t want it; you only pay for what you eat.",
+      "Drug pushers in Bairro Alto, Chiado, and Praça do Comércio offer ‘cocaine / hash’ on the street — almost always oregano sold at €40 a gram. Refuse all; in some cases plainclothes officers run entrapment stings.",
+      "Lisbon’s calçada (mosaic cobblestone) is gorgeous and lethal in the rain. Grippy soles (not your nice flats), and plan flat days (Baixa, Belém by tram) vs hill days (Alfama, Graça)."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Príncipe Real / Avenida",
+        "safetyRating": 5,
+        "vibe": "Leafy, upscale, design shops, quiet residential",
+        "stayHere": true,
+        "notes": "Safest base for first-time solo women. Walk to Bairro Alto for nightlife, Chiado for shopping, Liberdade Metro 5 min away. Embaixada concept-store + Sunday biological market (Príncipe Real Garden)."
+      },
+      {
+        "name": "Alfama",
+        "safetyRating": 4,
+        "vibe": "Oldest quarter, fado bars, narrow lanes, photogenic",
+        "stayHere": true,
+        "notes": "Atmospheric and walkable. Watch your bag in Largo do Chafariz de Dentro and along the tram-28 route. Avoid the steep south-side lanes alone after midnight."
+      },
+      {
+        "name": "Baixa / Chiado",
+        "safetyRating": 4,
+        "vibe": "Central grid, walkable, shops, restaurants",
+        "stayHere": true,
+        "notes": "Great first base if you want to be in the middle of everything. Praça do Comércio gets shell-game scammers; Rua Augusta has the worst restaurant tourist traps. Stay one street off the main axis."
+      },
+      {
+        "name": "Bairro Alto",
+        "safetyRating": 3,
+        "vibe": "Nightlife, cocktail bars, drug pushers after midnight",
+        "stayHere": false,
+        "notes": "Daytime is empty and lovely; from 11pm it’s street-drinking, drug-pusher density and noise. Visit, don’t sleep here. If you stay anyway, pick a building with a lift and door buzzer."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Tram 28 organised pickpocket gangs",
+        "severity": "critical",
+        "where": "Lisbon — Tram 28 (and Tram 12, 24) full route, peak at Sé Cathedral, Miradouro de Santa Luzia, Graça",
+        "what": "Coordinated teams (often 3–4 people, sometimes children) crowd you at the door, distract by ‘falling’ or asking the time, and lift wallet / phone in seconds. Lisbon police: women are 70% of victims, phones the most-stolen item.",
+        "avoid": "Crossbody bag IN FRONT, hand on it. Phone in a zipped inside pocket — never back pocket, never in hand near a stop. Stand AWAY from the doors at every stop. Pre-book the Sé / Castelo direction in a Bolt instead if you’re carrying valuables."
+      },
+      {
+        "title": "Fake-police ‘wallet check’",
+        "severity": "high",
+        "where": "Lisbon — Baixa, Rossio, near Praça do Comércio, Belém",
+        "what": "Plainclothes ‘officers’ flash a fake badge, claim ‘checking for counterfeit notes’, ask to see your wallet — pocket cash and cards while ‘inspecting’.",
+        "avoid": "Real Portuguese police never demand your wallet on the street. Politely say ‘I’ll come to the police station with you’ — the scammer will leave. Call 112 if pressured."
+      },
+      {
+        "title": "Three-card monte / shell game",
+        "severity": "medium",
+        "where": "Lisbon — Praça do Comércio, Rossio Square, Rua Augusta",
+        "what": "Crew of 3–5 working together; first ‘player’ wins big to draw you in; you’re fleeced for €50–500 in three rounds. Always rigged.",
+        "avoid": "Walk past. Never engage, never ‘just one round’. If you see one going, the pickpockets are working the crowd around it — keep moving and check your bag."
+      },
+      {
+        "title": "Restaurant couvert / no-price surprise charge",
+        "severity": "high",
+        "where": "Lisbon — Rua Augusta, near Sé Cathedral, Belém around the Pastéis line",
+        "what": "Bread, olives, cheese, sardine paste appear on the table without being ordered — €3–15 each plate, added to the bill. ‘Specials of the day’ verbally pitched without prices = €40+ a plate.",
+        "avoid": "Anything you didn’t order, push back to the waiter — you don’t pay for what you didn’t accept. Read menu prices for every item before agreeing. Avoid restaurants with hawkers outside; Time Out Market and side-street tascas are honest-priced."
+      },
+      {
+        "title": "Bird poop / mustard distraction theft",
+        "severity": "medium",
+        "where": "Lisbon — Praça do Comércio, Belém Tower / Jerónimos line, Miradouros",
+        "what": "Substance lands on your shoulder; ‘kind stranger’ offers to clean while accomplice picks pocket. Identical to the Rome / Barcelona pattern.",
+        "avoid": "Politely refuse help. Move into a café or shop before cleaning. Never put your bag down."
+      },
+      {
+        "title": "Airport ‘official taxi’ overcharge",
+        "severity": "high",
+        "where": "Lisbon — Humberto Delgado (LIS) airport taxi rank",
+        "what": "Official meter cabs charge €18–25 for a €10–14 ride into the city. Some quote ‘flat €40’ for the same trip and refuse the meter. ‘Luggage fees’ added at €1.60 per bag without warning.",
+        "avoid": "Walk to Departures (one floor up) — Bolt / Uber / FreeNow pickups there avoid the rank fee, run €10–14 to anywhere central. Or take the Metro Linha Vermelha (red line) — €1.85 to Saldanha / Alameda."
+      },
+      {
+        "title": "ATM skimming",
+        "severity": "high",
+        "where": "Lisbon — standalone ATMs in Baixa, Bairro Alto, Belém near tourist sites",
+        "what": "Skimmer + pinhole camera. Account drained 1–8 hours after withdrawal. Multibanco machines OUTSIDE bank lobbies are most-reported.",
+        "avoid": "Use ATMs INSIDE bank branches only — Caixa Geral, Millennium BCP, Santander, Novo Banco lobbies. Cover PIN entry. Choose ‘charge in EUR’ if asked (DCC ‘home currency’ option = 5–8% worse rate)."
+      },
+      {
+        "title": "‘Cocaine / hashish?’ oregano-pusher",
+        "severity": "medium",
+        "where": "Lisbon — Bairro Alto, Chiado, Praça do Comércio, Rossio after dark",
+        "what": "Street pusher offers ‘cocaine, hashish’ at €40 a gram — overwhelmingly it’s oregano, talc, or paracetamol. Some are paired with plainclothes-officer entrapment stings; either way, you walk away poorer or with a record.",
+        "avoid": "Polite firm ‘no thank you’, keep walking. They’re looking for hesitation; if you stop, they pivot to harder pitches. Don’t make eye contact."
+      },
+      {
+        "title": "Online apartment rental fraud",
+        "severity": "critical",
+        "where": "Lisbon — direct WhatsApp / Facebook Marketplace / Instagram DMs, especially Alfama and Bairro Alto listings",
+        "what": "‘Owner’ messages with a too-good price, asks for a wire transfer or Western Union deposit; the apartment doesn’t exist or the keys never arrive. Increasingly common as Lisbon’s rental crisis pushes scammers up-market.",
+        "avoid": "Book ONLY through Booking.com, Airbnb’s official app, or VRBO. Pay via the platform, never wire-transfer or PayPal F&F. Verify the building exists on Google Street View before paying."
+      },
+      {
+        "title": "‘Free’ rose / friendship bracelet near tourist sites",
+        "severity": "medium",
+        "where": "Lisbon — Belém Tower / Jerónimos approach, Sé Cathedral steps, Castelo de São Jorge gates",
+        "what": "Hawker presses a rose into your hand or ties a bracelet on your wrist ‘a gift’, then aggressively demands €5–20. Refusal escalates to a scene.",
+        "avoid": "Hands in pockets when approached. Polite firm ‘no’, walk past. If tied: take it off, drop it, walk on — don’t pay."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Bolt + Uber + FreeNow apps",
+        "tip": "Bolt is usually cheapest in Lisbon. FreeNow is best for booked-ahead. Uber for English-only drivers. Airport pickups are at Departures (one level up), not the official taxi rank.",
+        "approxCost": "€5–10 most central rides; €10–14 airport → city centre"
+      },
+      {
+        "mode": "Lisbon Metro (Viva Viagem card)",
+        "tip": "Buy a Viva Viagem card from any Metro vending machine (€0.50 once) and load €1.85 per ride OR a 24-hr pass (€6.80). Verde (green) and Azul (blue) lines cover most tourist needs. Verify your destination has step-free access if mobility-limited.",
+        "approxCost": "€1.85 per ride; €6.80 / 24-hr unlimited"
+      },
+      {
+        "mode": "Tram 28 (with pickpocket caution)",
+        "tip": "Iconic but the most-targeted pickpocket route in the city. If you ride: stand AWAY from doors at every stop, crossbody bag in front, no phone in hand. Better still — ride at 7:30am before the crowds, you’ll have a seat and clean photos.",
+        "approxCost": "€3 single ride (cash) or €1.85 with Viva Viagem"
+      },
+      {
+        "mode": "Aerobus / Metro Linha Vermelha (airport)",
+        "tip": "Linha Vermelha (red Metro line) connects LIS airport to Saldanha and Alameda in 20 min for €1.85. Aerobus runs 7am–11pm, €4 to most central drops. Both are cheaper and more honest than the airport taxi rank.",
+        "approxCost": "€1.85 Metro / €4 Aerobus"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "LX Factory Sunday market + women-led studios",
+        "type": "Repurposed industrial complex with maker shops + Sunday market",
+        "angle": "Combined (FO + FM)",
+        "why": "Old print factory turned co-working / shop / studio cluster under the 25 de Abril Bridge. Sunday market 11am–7pm has women-led ceramics, leather, illustration, vintage. Way calmer than Time Out Market for solo browsing.",
+        "approxCost": "Free entry; coffee €2.50, lunch €10–18"
+      },
+      {
+        "name": "Costa da Caparica (beach by ferry)",
+        "type": "Day-trip Atlantic beach",
+        "angle": "Solo-female specific",
+        "why": "30 min from Lisbon (ferry to Cacilhas + bus 124, or Metro Sul do Tejo). 30 km of dunes; stop 8 (Praia da Saúde) and stop 14 (Praia do Castelo) are the safest, most family-friendly stretches. Lifeguards in summer.",
+        "approxCost": "Ferry + bus combo €5 round-trip"
+      },
+      {
+        "name": "Sintra at sunrise (Pena Palace, 8am opening)",
+        "type": "UNESCO palace day trip",
+        "angle": "FO+FM",
+        "why": "By 11am Sintra is a tour-bus zoo. Take the 6:42am train from Rossio (€2.30), be at Pena Palace gates for the 8:00 opening, you’ll have the terraces almost alone for an hour. Pre-book timed entry online — 6 weeks ahead in summer.",
+        "approxCost": "Train €4.60 round-trip; Pena entry €14"
+      },
+      {
+        "name": "Time Out Market counter seating (solo-friendly)",
+        "type": "Curated food hall, solo-comfortable",
+        "angle": "Solo-female",
+        "why": "Yes, it’s touristy. But the counter seats at Henrique Sá Pessoa, Manteigaria, and Marlene Vieira are designed for solo eaters and the staff are used to women dining alone. Best low-stress first dinner in Lisbon.",
+        "approxCost": "Mains €10–22; pastel de nata €1.30"
+      },
+      {
+        "name": "Miradouro de Santa Catarina (sunset)",
+        "type": "Free local viewpoint, no entry fee",
+        "angle": "FO+FM",
+        "why": "Locals call it ‘Miradouro do Adamastor’. Free, no fence, no ticket queue. River + bridge sunset view, kiosk café for €4 sangria, eclectic crowd of Lisbon students. Skip Miradouro de São Pedro de Alcântara unless you want the tour bus."
+      }
+    ],
+    "preBookChecklist": [
+      "Buy a Viva Viagem card on arrival at the Metro vending machine (€0.50 once, then load each ride)",
+      "Pre-book Sintra Pena Palace timed entry — 6 weeks ahead in summer; 2 weeks off-season",
+      "Travel insurance covering pickpocketing + medical (Lisbon hospitals charge non-EU visitors directly)",
+      "Confirm any apartment booking ONLY via Booking.com / Airbnb / VRBO official apps — never wire-transfer to a WhatsApp ‘owner’",
+      "Pack grippy-soled shoes — Lisbon’s calçada cobblestones are slippery in rain"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Eat pastéis de nata at Manteigaria (Chiado or Time Out) — fresher than the Belém line and a tenth of the wait",
+        "Use the Metro for distance, walk for atmosphere — Verde (green) line connects most you’ll need",
+        "Carry €5 / €10 notes — many cafés and tascas can’t break a €50",
+        "Keep your passport in the hotel safe; carry a photocopy + photo on your phone"
+      ],
+      "dont": [
+        "Accept the couvert (bread / olives / cheese on the table) without checking the price",
+        "Buy ‘cocaine’ in Bairro Alto — it’s oregano at best, an entrapment sting at worst",
+        "Photograph people in Alfama windows or doorways without permission — locals push back",
+        "Ride Tram 28 with valuables in a back pocket or open bag — pickpockets work this route every day"
+      ]
+    },
+    "estimatedDailyBudget": { "currency": "EUR", "backpacker": 70, "midRange": 150, "comfortable": 300 },
+    "emergencyNumbers": [
+      { "label": "EU Emergency", "number": "112" },
+      { "label": "Police (PSP Tourism)", "number": "+351-213-421-634" },
+      { "label": "Ambulance (INEM)", "number": "112" },
+      { "label": "Fire", "number": "117" },
+      { "label": "APAV Women's Helpline", "number": "116-006" }
+    ],
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Lisbon&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
+  },
+  {
+    "slug": "spiti-valley-india",
+    "destination": "Spiti Valley",
+    "country": "India",
+    "audience": "indian",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 11,
+    "heroImageUrl": "/images/intel/spiti-valley-india.jpg",
+    "tldr": [
+      "AMS (acute mountain sickness) is the #1 risk in Spiti, not theft. Kaza sits at 3,800m. Spend a night in Kalpa, Nako, or Tabo (2,500–3,300m) before going higher. Diamox starts the day BEFORE you climb, not after symptoms.",
+      "There is no mobile signal beyond Kaza for most networks. BSNL works at Kaza, Kibber, Tabo intermittently; Jio and Airtel die at Reckong Peo. Tell someone your itinerary BEFORE you leave Manali / Shimla.",
+      "ATMs in Kaza often run dry by week 2 of high season. Carry ₹10,000+ in cash from Manali, Reckong Peo, or Shimla. SBI Kaza is the only working ATM most days; Axis sometimes.",
+      "Manali → Kaza road closes Oct–May (Rohtang + Kunzum La snow). Shimla → Kaza via Reckong Peo + Nako stays open year-round but takes 2 days and needs Inner Line Permits.",
+      "Inner Line Permit is required for the restricted Kinnaur stretch (Reckong Peo → Sumdo). Get it free at the Reckong Peo or Kaza SDM office in 30 min — never via a tour-operator middleman charging ₹300–₹1,000."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Kaza",
+        "safetyRating": 4,
+        "vibe": "Central hub, hostels, civil hospital, mid-altitude administrative town (3,800m)",
+        "stayHere": true,
+        "notes": "Best base for first 1–2 nights of acclimatising. Sakya Abode and Zostel Spiti are solo-female-friendly. Civil Hospital + SBI ATM + bus stand all walkable."
+      },
+      {
+        "name": "Tabo",
+        "safetyRating": 5,
+        "vibe": "Lowest point of Spiti (3,300m), 1,000-year-old monastery, quiet",
+        "stayHere": true,
+        "notes": "Best first night after Reckong Peo — easier acclimatisation than going straight to Kaza. Tabo Monastery is the oldest continuously-functioning Buddhist monastery in India. Homestays under ₹1,500."
+      },
+      {
+        "name": "Kibber / Komic",
+        "safetyRating": 5,
+        "vibe": "Among the highest motorable villages in the world (~4,400–4,500m)",
+        "stayHere": true,
+        "notes": "Snow Leopard Trust homestays here. Komic claims ‘world’s highest village with a motorable road’. Sleep at Kaza first; visit these as day trips OR a single overnight only after 2 days of acclimatisation."
+      },
+      {
+        "name": "Langza / Hikkim cluster",
+        "safetyRating": 4,
+        "vibe": "Highest-altitude fossil village + world’s highest post office at Hikkim (4,440m)",
+        "stayHere": false,
+        "notes": "Day trip from Kaza — 25 km loop. Buddha statue at Langza, post a card from Hikkim. Don’t sleep here on your first 3 days; oxygen is genuinely thin."
+      }
+    ],
+    "scams": [
+      {
+        "title": "AMS / altitude sickness ignored",
+        "severity": "critical",
+        "where": "Spiti — Kaza (3,800m), Kibber, Komic, Langza, Chandra Taal (4,300m)",
+        "what": "Solo travellers ignore early symptoms (headache, nausea, breathlessness) and push higher; HACE / HAPE can develop in hours. Multiple solo-trekker evacuations from Kaza Civil Hospital each season.",
+        "avoid": "Spend a night at 2,500–3,300m before Kaza. Diamox 125mg twice daily starting 24 hrs before climb (consult a doctor). No alcohol, no aspirin, no overexertion the first 48 hrs. Symptoms NOT improving = descend immediately."
+      },
+      {
+        "title": "Manali tour operator overpromising the itinerary",
+        "severity": "high",
+        "where": "Spiti — bookings made in Manali (Mall Road, Old Manali), social-media DMs",
+        "what": "Operators advertise ‘Spiti circuit in 4 days’ — Manali → Kaza → Chandra Taal → Manali. Realistically 4 days isn’t enough acclimatisation; ~30% of those itineraries result in AMS. Some operators also skip Inner Line Permit guidance.",
+        "avoid": "Minimum 6–7 days for the full Spiti circuit. Manali → Kalpa (2 nights) → Tabo → Kaza (2 nights) → Chandra Taal → Manali. Use Spiti Ecosphere or Hidden Heaven Adventure (TURA-registered, woman-friendly, written safety briefings)."
+      },
+      {
+        "title": "Cash shortage / ATM out at Kaza",
+        "severity": "high",
+        "where": "Spiti — Kaza market (SBI, Axis ATM)",
+        "what": "ATMs run dry by mid-July through September peak. Most homestays + petrol pumps + tea shops are cash-only beyond Kaza. Card readers don’t work without signal.",
+        "avoid": "Carry ₹10,000–₹20,000 in cash from Manali, Reckong Peo, Shimla, or Chandigarh BEFORE entering Spiti. ₹100, ₹200, ₹500 mix — many homestays can’t break ₹2,000 notes."
+      },
+      {
+        "title": "No mobile signal beyond Kaza — solo safety risk",
+        "severity": "critical",
+        "where": "Spiti — Kibber, Komic, Langza, Hikkim, Pin Valley, Chandra Taal road",
+        "what": "Jio and Airtel die at Reckong Peo. BSNL works at Kaza intermittently and rarely beyond. Solo women have been stranded with no way to call out after vehicle breakdowns or weather changes.",
+        "avoid": "Tell ONE person your day-by-day itinerary BEFORE you leave Manali / Shimla. Buy a BSNL prepaid SIM in Manali / Reckong Peo. Carry a Garmin inReach mini or rented SAT phone (₹500/day at Old Manali shops) for solo treks. Never set off without telling your homestay your return time."
+      },
+      {
+        "title": "Road closure / landslide stranding",
+        "severity": "high",
+        "where": "Spiti — Manali → Kaza route (Rohtang, Kunzum, Chhota Dhara), Reckong Peo → Kaza (Powari, Khab)",
+        "what": "Sudden snowfall (Sep–Nov, May–Jun) or landslides (monsoon) close passes for 12 hrs to 3 weeks. Stranded travellers stuck without funds, communications, or warm clothing.",
+        "avoid": "Check BRO Border Roads twitter (@BROindia) before any leg. Carry 2 days’ extra cash + 1 fleece + 1 woollen layer + 1 emergency blanket. Build buffer days into the itinerary; do NOT plan a flight out of Bhuntar / Chandigarh on the same day you exit Spiti."
+      },
+      {
+        "title": "Inner Line Permit middleman fee scam",
+        "severity": "medium",
+        "where": "Spiti — Reckong Peo (Kinnaur SDM office), Kaza SDM office",
+        "what": "Tour operators / hotel ‘helpers’ offer to ‘arrange the Inner Line Permit’ for ₹300–₹1,000. The permit is FREE at the SDM office and takes 30 minutes with passport-size photo + ID copy.",
+        "avoid": "Walk into the Reckong Peo SDM office (open Mon–Sat 10am–4pm) yourself. Bring 2 passport photos, photocopy of Aadhaar / passport, ₹0. They issue same-day. Foreigners must present passport + visa."
+      },
+      {
+        "title": "Drunk-driving locals on narrow mountain roads after dark",
+        "severity": "critical",
+        "where": "Spiti — Manali → Kaza road (NH-505 between Gramphu and Losar), Kaza market",
+        "what": "Local drivers and visiting Royal Enfield groups drink and drive on roads with no shoulders, no railings, and 1,000m drops. Worst between 7pm and 11pm. Multiple fatal accidents through 2024–2025.",
+        "avoid": "Never travel between Manali and Kaza after 5pm. Insist daytime departures. If you’re booking a shared cab, vet the driver — sober, no whiff of alcohol, refuses if you mention safety. Never accept a lift from a stranger after dark."
+      },
+      {
+        "title": "Underqualified trek guide on Kanamo / Pin-Parvati / Chandra Taal",
+        "severity": "high",
+        "where": "Spiti — Kanamo Peak (5,975m), Pin-Parvati Pass, Chandra Taal day trek",
+        "what": "Cheap ‘guides’ (under ₹1,500/day) often have no high-altitude rescue training, no satellite communicator, no first-aid kit. Pin-Parvati especially is technical — three deaths through 2023–2024.",
+        "avoid": "Use Spiti Ecosphere, Trans-Himalayan Sojourns, or Snow Leopard Trail — IMF or AIMRA certified guides, written safety briefings, Garmin inReach carried, kit list provided. Never solo on Kanamo / Pin-Parvati on first attempt."
+      },
+      {
+        "title": "Shared-cab overcharge from Manali / Reckong Peo",
+        "severity": "medium",
+        "where": "Spiti — Manali Mall Road taxi stand, Reckong Peo bus stand",
+        "what": "Shared cabs to Kaza quote ₹3,500–₹5,000 per seat (the actual fair rate is ₹1,500 from Reckong Peo, ₹2,000–₹2,500 from Manali in the open season). Drivers refuse to share with ‘too many tourists’.",
+        "avoid": "HRTC government bus from Manali (Jul–Oct, ₹650, 14 hrs) or Reckong Peo (year-round, ₹450, 9 hrs) is the safest, cheapest option. Book at the bus stand counter. Spiti Ecosphere shares vetted shared-cab leads at fair rates."
+      },
+      {
+        "title": "Homestay confirmed only via WhatsApp without a written backup",
+        "severity": "medium",
+        "where": "Spiti — Kaza, Kibber, Komic, Tabo, Langza homestays",
+        "what": "WhatsApp-only confirmations get lost when network drops. Travellers arrive at Komic to find the homestay double-booked or didn’t hold the room. With no signal, you can’t call backup.",
+        "avoid": "Ask for a written booking confirmation (email or PDF) AND a host-name + phone number you can show another villager. Pre-book through Spiti Ecosphere, Booking.com, or homestay collectives like Spiti Holiday Adventure for written backups."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "HRTC bus Manali → Kaza (Jul–mid-Oct only)",
+        "tip": "Government Himachal Roadways bus. Departs Manali ISBT 5am daily in season; reaches Kaza ~7pm same day via Rohtang + Kunzum. Slow, hard seats, but the safest single-vehicle option. Book the night before at the counter.",
+        "approxCost": "₹600–₹700 per seat"
+      },
+      {
+        "mode": "HRTC bus Reckong Peo → Kaza (year-round)",
+        "tip": "The all-weather route via Nako and Sumdo. Departs Reckong Peo bus stand ~7am daily; reaches Kaza ~4pm. Inner Line Permit checkpoint at Sumdo — keep permits and ID ready.",
+        "approxCost": "₹400–₹500 per seat"
+      },
+      {
+        "mode": "Shared / private taxi from Manali or Peo",
+        "tip": "Faster than the bus but at least 3x the cost. Vet the driver — sober, daytime departures only, agreed-price written down. Spiti Ecosphere shares fair-rate leads.",
+        "approxCost": "₹1,500 (Peo→Kaza shared) / ₹2,500 (Manali→Kaza shared) / ₹15,000–₹22,000 private one-way"
+      },
+      {
+        "mode": "Self-drive (4WD recommended)",
+        "tip": "Manali side needs a 4WD with high clearance (Toyota Fortuner, Mahindra Thar, Maruti Gypsy). Shimla side a Sedan can do it. Carry a spare tyre + jerry can of petrol — only fuel pumps are at Reckong Peo, Tabo, Kaza. Royal Enfield only if you have real mountain-riding experience.",
+        "approxCost": "Hired 4WD ₹6,000–₹9,000/day; self-drive Royal Enfield ₹1,500–₹2,000/day from Manali"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "Key Monastery at sunrise",
+        "type": "1,000-year-old monastery on a hillock",
+        "angle": "Solo-female specific",
+        "why": "The iconic photo-spot of Spiti, but at 6:30am you’ll have it alone. Stay overnight at the monastery guesthouse (₹600 inc. dinner + breakfast with monks) — the morning prayer at 6am is open to women, observed quietly from the back.",
+        "approxCost": "Free entry; guesthouse ₹600/night; cab Kaza → Key 12 km, ₹600 round-trip"
+      },
+      {
+        "name": "Chandra Taal (Moon Lake) day-trip from Kaza",
+        "type": "Crescent-shaped high-altitude lake (4,300m)",
+        "angle": "Combined (FO + FM)",
+        "why": "Day trip via Kunzum La pass (Jul–Oct only). Tents at the lake side close at 4pm — go early. Don’t camp here on your first 3 days in Spiti — the altitude is too high without acclimatisation.",
+        "approxCost": "Shared cab ₹1,500–₹2,000/seat round-trip from Kaza"
+      },
+      {
+        "name": "Hikkim post office (highest in the world, 4,440m)",
+        "type": "Working India Post branch",
+        "angle": "Solo-female specific",
+        "why": "Send a postcard home from the highest post office on Earth. Postman is the same one who walks down to Kaza twice a week with the mailbag. Pair with Komic and Langza on a single half-day loop from Kaza.",
+        "approxCost": "Postcard + stamp ₹50; cab loop Kaza → Hikkim → Komic → Langza ₹1,500 round-trip"
+      },
+      {
+        "name": "Komic homestay nights",
+        "type": "Village stay at ‘world’s highest village with a motorable road’",
+        "angle": "FO+FM",
+        "why": "Sleep at the Snow Leopard Trust homestays (run by local families, vetted by the trust). Cold but warm-blanketed; dinner is dal-rice-thukpa with the family. Best for women travelling alone — communal dining means you’re never eating alone.",
+        "approxCost": "₹1,200–₹1,800/night including dinner + breakfast"
+      },
+      {
+        "name": "Pin Valley National Park",
+        "type": "High-altitude desert national park, snow-leopard habitat",
+        "angle": "Combined (FO + FM)",
+        "why": "Day trip from Kaza (3 hrs each way). Mudh village is the gateway. Snow leopard sightings are rare in summer; the Snow Leopard Trail expedition (Feb–Mar) has the best chance. Buddhist nuns at Sangnam temple welcome women visitors quietly.",
+        "approxCost": "Cab Kaza → Mudh round-trip ₹3,500; park entry ₹100 Indians / ₹350 foreigners"
+      }
+    ],
+    "preBookChecklist": [
+      "Inner Line Permit: collect at Reckong Peo or Kaza SDM office (free, 30 min, bring 2 passport photos + ID copy). Foreigners need passport + visa.",
+      "Diamox prescription from your home doctor; start 24 hrs BEFORE climbing to Kaza, continue 48 hrs",
+      "₹10,000–₹20,000 in cash withdrawn from Manali, Reckong Peo, Shimla or Chandigarh BEFORE entering Spiti",
+      "Pre-book Kaza homestay 2+ weeks ahead in Jul–Sep (high season); written email confirmation, not WhatsApp-only",
+      "Travel insurance covering altitude sickness, helicopter rescue, and high-altitude trekking (most basic policies exclude these)"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Acclimatise — at least 1 night below 3,500m (Kalpa, Nako, or Tabo) before sleeping at Kaza",
+        "Carry your own water bottle + filter — village taps freeze in winter, plastic litters Spiti, refill at homestays",
+        "Hire a local guide for Pin-Parvati / Kanamo / Pin Valley treks — never solo on a first attempt",
+        "Buy from Spiti Ecosphere / Kaza Women’s Co-op for souvenirs — money goes direct to village artisans"
+      ],
+      "dont": [
+        "Drink alcohol your first 24 hrs at Kaza — exacerbates AMS and can trigger HAPE",
+        "Ride a Royal Enfield to Spiti unless you’re an experienced mountain rider — every season has fatalities",
+        "Leave Kaza without a full tank of petrol + jerry can — fuel pumps are Kaza, then nothing till Tabo (60 km), then nothing till Reckong Peo",
+        "Photograph monks, locals, or village interiors without explicit permission — especially at Tabo and Key monasteries"
+      ]
+    },
+    "estimatedDailyBudget": { "currency": "INR", "backpacker": 1200, "midRange": 2800, "comfortable": 6000 },
+    "emergencyNumbers": [
+      { "label": "Police", "number": "100" },
+      { "label": "Women's Helpline", "number": "1091" },
+      { "label": "Ambulance", "number": "108" },
+      { "label": "Kaza Civil Hospital", "number": "01906-222227" },
+      { "label": "Spiti Tourism (HPTDC)", "number": "01906-222504" }
+    ],
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Spiti+Valley&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
   }
 ]
