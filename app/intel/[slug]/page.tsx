@@ -82,9 +82,7 @@ export default async function IntelPage({ params }: { params: Params }) {
     preBookChecklist: (raw.pre_book_checklist as string[]) ?? [],
     dosAndDonts: (raw.dos_and_donts as { do: string[]; dont: string[] }) ?? { do: [], dont: [] },
     estimatedDailyBudget: raw.estimated_daily_budget as { backpacker: number; midRange: number; comfortable: number; currency?: string } | null,
-    emergencyNumbers: Array.isArray(raw.emergency_numbers)
-      ? (raw.emergency_numbers as { label: string; number: string }[])
-      : Object.entries((raw.emergency_numbers ?? {}) as Record<string, string>).map(([label, number]) => ({ label, number })),
+    emergencyNumbers: (raw.emergency_numbers as { label: string; number: string }[] | null) ?? [],
     isPremium: raw.is_premium,
     premiumPreview: raw.premium_preview,
     affiliateLinks: (raw.affiliate_links ?? {}) as { booking?: string; worldNomads?: string },
