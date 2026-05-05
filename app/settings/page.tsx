@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { NotificationToggles } from "./NotificationToggles";
 import { DangerZoneButtons } from "./DangerZoneButtons";
+import { PrivacyDataSection } from "./PrivacyDataSection";
 import { updateEmail } from "./actions";
 import { AvatarUploadWrapper } from "./AvatarUploadWrapper";
 
@@ -226,6 +227,9 @@ export default async function SettingsPage() {
             {vault ? "Manage vault →" : "Set up your trip vault →"}
           </Link>
         </div>
+
+        {/* ── Privacy & data ──────────────────────────── */}
+        <PrivacyDataSection />
 
         {/* ── Danger zone ──────────────────────────── */}
         <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm space-y-3">
