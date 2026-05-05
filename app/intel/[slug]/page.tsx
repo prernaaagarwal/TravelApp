@@ -142,10 +142,17 @@ export default async function IntelPage({ params }: { params: Params }) {
         {/* hero text overlay */}
         <div className="absolute bottom-0 left-0 px-6 pb-6">
           <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-warm-white/60">
-            {card.country} · {card.audience === "foreign" ? "For foreign women" : card.audience === "indian" ? "For Indian women" : "All solo women"}
+            {card.audience === "foreign" ? "For foreign women" : card.audience === "indian" ? "For Indian women" : "All solo women"}
           </p>
-          <h1 className="font-serif text-4xl leading-tight text-warm-white md:text-5xl">
-            {card.destination}
+          {/* H1 carries the city + the search phrase a solo woman googles
+              ("solo female travel safety guide"). The destination is visually
+              dominant; the keyword line sits underneath in the same heading
+              so Google sees one keyword-rich H1. */}
+          <h1 className="font-serif leading-tight text-warm-white">
+            <span className="block text-4xl md:text-5xl">{card.destination}</span>
+            <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.18em] text-warm-white/70 md:text-xs">
+              Solo Female Travel Safety Guide · {card.country}
+            </span>
           </h1>
           {card.isPremium && (
             <span className="mt-2 inline-block bg-gold/90 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-ink">
