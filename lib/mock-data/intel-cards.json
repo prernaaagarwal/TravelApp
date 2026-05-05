@@ -5069,5 +5069,217 @@
       "booking": "https://www.booking.com/searchresults.html?ss=Chiang+Mai&aid=PLACEHOLDER",
       "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
     }
+  },
+  {
+    "slug": "lisbon-portugal",
+    "destination": "Lisbon",
+    "country": "Portugal",
+    "audience": "both",
+    "contributorSlug": "ananya-mumbai",
+    "lastUpdated": "2026-04-28",
+    "verifiedByCount": 6,
+    "heroImageUrl": "/images/intel/lisbon-portugal.jpg",
+    "tldr": [
+      "Tram 28 is one of Europe’s most-pickpocketed routes — Lisbon police estimate 70% of pickpocket victims are women. Crossbody bag in front, phone in a zipped pocket, hands on the bag at every stop.",
+      "Use Bolt, FreeNow, or Uber from the airport — they’re ~€8 cheaper than the ‘official’ taxi rank (which charges €18–25 for the €10–14 ride into the city).",
+      "The ‘couvert’ on your table (bread, olives, cheese, sardine paste) is NEVER free — €3–15 per plate. Push it back to the waiter if you don’t want it; you only pay for what you eat.",
+      "Drug pushers in Bairro Alto, Chiado, and Praça do Comércio offer ‘cocaine / hash’ on the street — almost always oregano sold at €40 a gram. Refuse all; in some cases plainclothes officers run entrapment stings.",
+      "Lisbon’s calçada (mosaic cobblestone) is gorgeous and lethal in the rain. Grippy soles (not your nice flats), and plan flat days (Baixa, Belém by tram) vs hill days (Alfama, Graça)."
+    ],
+    "neighborhoods": [
+      {
+        "name": "Príncipe Real / Avenida",
+        "safetyRating": 5,
+        "vibe": "Leafy, upscale, design shops, quiet residential",
+        "stayHere": true,
+        "notes": "Safest base for first-time solo women. Walk to Bairro Alto for nightlife, Chiado for shopping, Liberdade Metro 5 min away. Embaixada concept-store + Sunday biological market (Príncipe Real Garden)."
+      },
+      {
+        "name": "Alfama",
+        "safetyRating": 4,
+        "vibe": "Oldest quarter, fado bars, narrow lanes, photogenic",
+        "stayHere": true,
+        "notes": "Atmospheric and walkable. Watch your bag in Largo do Chafariz de Dentro and along the tram-28 route. Avoid the steep south-side lanes alone after midnight."
+      },
+      {
+        "name": "Baixa / Chiado",
+        "safetyRating": 4,
+        "vibe": "Central grid, walkable, shops, restaurants",
+        "stayHere": true,
+        "notes": "Great first base if you want to be in the middle of everything. Praça do Comércio gets shell-game scammers; Rua Augusta has the worst restaurant tourist traps. Stay one street off the main axis."
+      },
+      {
+        "name": "Bairro Alto",
+        "safetyRating": 3,
+        "vibe": "Nightlife, cocktail bars, drug pushers after midnight",
+        "stayHere": false,
+        "notes": "Daytime is empty and lovely; from 11pm it’s street-drinking, drug-pusher density and noise. Visit, don’t sleep here. If you stay anyway, pick a building with a lift and door buzzer."
+      }
+    ],
+    "scams": [
+      {
+        "title": "Tram 28 organised pickpocket gangs",
+        "severity": "critical",
+        "where": "Lisbon — Tram 28 (and Tram 12, 24) full route, peak at Sé Cathedral, Miradouro de Santa Luzia, Graça",
+        "what": "Coordinated teams (often 3–4 people, sometimes children) crowd you at the door, distract by ‘falling’ or asking the time, and lift wallet / phone in seconds. Lisbon police: women are 70% of victims, phones the most-stolen item.",
+        "avoid": "Crossbody bag IN FRONT, hand on it. Phone in a zipped inside pocket — never back pocket, never in hand near a stop. Stand AWAY from the doors at every stop. Pre-book the Sé / Castelo direction in a Bolt instead if you’re carrying valuables."
+      },
+      {
+        "title": "Fake-police ‘wallet check’",
+        "severity": "high",
+        "where": "Lisbon — Baixa, Rossio, near Praça do Comércio, Belém",
+        "what": "Plainclothes ‘officers’ flash a fake badge, claim ‘checking for counterfeit notes’, ask to see your wallet — pocket cash and cards while ‘inspecting’.",
+        "avoid": "Real Portuguese police never demand your wallet on the street. Politely say ‘I’ll come to the police station with you’ — the scammer will leave. Call 112 if pressured."
+      },
+      {
+        "title": "Three-card monte / shell game",
+        "severity": "medium",
+        "where": "Lisbon — Praça do Comércio, Rossio Square, Rua Augusta",
+        "what": "Crew of 3–5 working together; first ‘player’ wins big to draw you in; you’re fleeced for €50–500 in three rounds. Always rigged.",
+        "avoid": "Walk past. Never engage, never ‘just one round’. If you see one going, the pickpockets are working the crowd around it — keep moving and check your bag."
+      },
+      {
+        "title": "Restaurant couvert / no-price surprise charge",
+        "severity": "high",
+        "where": "Lisbon — Rua Augusta, near Sé Cathedral, Belém around the Pastéis line",
+        "what": "Bread, olives, cheese, sardine paste appear on the table without being ordered — €3–15 each plate, added to the bill. ‘Specials of the day’ verbally pitched without prices = €40+ a plate.",
+        "avoid": "Anything you didn’t order, push back to the waiter — you don’t pay for what you didn’t accept. Read menu prices for every item before agreeing. Avoid restaurants with hawkers outside; Time Out Market and side-street tascas are honest-priced."
+      },
+      {
+        "title": "Bird poop / mustard distraction theft",
+        "severity": "medium",
+        "where": "Lisbon — Praça do Comércio, Belém Tower / Jerónimos line, Miradouros",
+        "what": "Substance lands on your shoulder; ‘kind stranger’ offers to clean while accomplice picks pocket. Identical to the Rome / Barcelona pattern.",
+        "avoid": "Politely refuse help. Move into a café or shop before cleaning. Never put your bag down."
+      },
+      {
+        "title": "Airport ‘official taxi’ overcharge",
+        "severity": "high",
+        "where": "Lisbon — Humberto Delgado (LIS) airport taxi rank",
+        "what": "Official meter cabs charge €18–25 for a €10–14 ride into the city. Some quote ‘flat €40’ for the same trip and refuse the meter. ‘Luggage fees’ added at €1.60 per bag without warning.",
+        "avoid": "Walk to Departures (one floor up) — Bolt / Uber / FreeNow pickups there avoid the rank fee, run €10–14 to anywhere central. Or take the Metro Linha Vermelha (red line) — €1.85 to Saldanha / Alameda."
+      },
+      {
+        "title": "ATM skimming",
+        "severity": "high",
+        "where": "Lisbon — standalone ATMs in Baixa, Bairro Alto, Belém near tourist sites",
+        "what": "Skimmer + pinhole camera. Account drained 1–8 hours after withdrawal. Multibanco machines OUTSIDE bank lobbies are most-reported.",
+        "avoid": "Use ATMs INSIDE bank branches only — Caixa Geral, Millennium BCP, Santander, Novo Banco lobbies. Cover PIN entry. Choose ‘charge in EUR’ if asked (DCC ‘home currency’ option = 5–8% worse rate)."
+      },
+      {
+        "title": "‘Cocaine / hashish?’ oregano-pusher",
+        "severity": "medium",
+        "where": "Lisbon — Bairro Alto, Chiado, Praça do Comércio, Rossio after dark",
+        "what": "Street pusher offers ‘cocaine, hashish’ at €40 a gram — overwhelmingly it’s oregano, talc, or paracetamol. Some are paired with plainclothes-officer entrapment stings; either way, you walk away poorer or with a record.",
+        "avoid": "Polite firm ‘no thank you’, keep walking. They’re looking for hesitation; if you stop, they pivot to harder pitches. Don’t make eye contact."
+      },
+      {
+        "title": "Online apartment rental fraud",
+        "severity": "critical",
+        "where": "Lisbon — direct WhatsApp / Facebook Marketplace / Instagram DMs, especially Alfama and Bairro Alto listings",
+        "what": "‘Owner’ messages with a too-good price, asks for a wire transfer or Western Union deposit; the apartment doesn’t exist or the keys never arrive. Increasingly common as Lisbon’s rental crisis pushes scammers up-market.",
+        "avoid": "Book ONLY through Booking.com, Airbnb’s official app, or VRBO. Pay via the platform, never wire-transfer or PayPal F&F. Verify the building exists on Google Street View before paying."
+      },
+      {
+        "title": "‘Free’ rose / friendship bracelet near tourist sites",
+        "severity": "medium",
+        "where": "Lisbon — Belém Tower / Jerónimos approach, Sé Cathedral steps, Castelo de São Jorge gates",
+        "what": "Hawker presses a rose into your hand or ties a bracelet on your wrist ‘a gift’, then aggressively demands €5–20. Refusal escalates to a scene.",
+        "avoid": "Hands in pockets when approached. Polite firm ‘no’, walk past. If tied: take it off, drop it, walk on — don’t pay."
+      }
+    ],
+    "transport": [
+      {
+        "mode": "Bolt + Uber + FreeNow apps",
+        "tip": "Bolt is usually cheapest in Lisbon. FreeNow is best for booked-ahead. Uber for English-only drivers. Airport pickups are at Departures (one level up), not the official taxi rank.",
+        "approxCost": "€5–10 most central rides; €10–14 airport → city centre"
+      },
+      {
+        "mode": "Lisbon Metro (Viva Viagem card)",
+        "tip": "Buy a Viva Viagem card from any Metro vending machine (€0.50 once) and load €1.85 per ride OR a 24-hr pass (€6.80). Verde (green) and Azul (blue) lines cover most tourist needs. Verify your destination has step-free access if mobility-limited.",
+        "approxCost": "€1.85 per ride; €6.80 / 24-hr unlimited"
+      },
+      {
+        "mode": "Tram 28 (with pickpocket caution)",
+        "tip": "Iconic but the most-targeted pickpocket route in the city. If you ride: stand AWAY from doors at every stop, crossbody bag in front, no phone in hand. Better still — ride at 7:30am before the crowds, you’ll have a seat and clean photos.",
+        "approxCost": "€3 single ride (cash) or €1.85 with Viva Viagem"
+      },
+      {
+        "mode": "Aerobus / Metro Linha Vermelha (airport)",
+        "tip": "Linha Vermelha (red Metro line) connects LIS airport to Saldanha and Alameda in 20 min for €1.85. Aerobus runs 7am–11pm, €4 to most central drops. Both are cheaper and more honest than the airport taxi rank.",
+        "approxCost": "€1.85 Metro / €4 Aerobus"
+      }
+    ],
+    "hiddenGems": [
+      {
+        "name": "LX Factory Sunday market + women-led studios",
+        "type": "Repurposed industrial complex with maker shops + Sunday market",
+        "angle": "Combined (FO + FM)",
+        "why": "Old print factory turned co-working / shop / studio cluster under the 25 de Abril Bridge. Sunday market 11am–7pm has women-led ceramics, leather, illustration, vintage. Way calmer than Time Out Market for solo browsing.",
+        "approxCost": "Free entry; coffee €2.50, lunch €10–18"
+      },
+      {
+        "name": "Costa da Caparica (beach by ferry)",
+        "type": "Day-trip Atlantic beach",
+        "angle": "Solo-female specific",
+        "why": "30 min from Lisbon (ferry to Cacilhas + bus 124, or Metro Sul do Tejo). 30 km of dunes; stop 8 (Praia da Saúde) and stop 14 (Praia do Castelo) are the safest, most family-friendly stretches. Lifeguards in summer.",
+        "approxCost": "Ferry + bus combo €5 round-trip"
+      },
+      {
+        "name": "Sintra at sunrise (Pena Palace, 8am opening)",
+        "type": "UNESCO palace day trip",
+        "angle": "FO+FM",
+        "why": "By 11am Sintra is a tour-bus zoo. Take the 6:42am train from Rossio (€2.30), be at Pena Palace gates for the 8:00 opening, you’ll have the terraces almost alone for an hour. Pre-book timed entry online — 6 weeks ahead in summer.",
+        "approxCost": "Train €4.60 round-trip; Pena entry €14"
+      },
+      {
+        "name": "Time Out Market counter seating (solo-friendly)",
+        "type": "Curated food hall, solo-comfortable",
+        "angle": "Solo-female",
+        "why": "Yes, it’s touristy. But the counter seats at Henrique Sá Pessoa, Manteigaria, and Marlene Vieira are designed for solo eaters and the staff are used to women dining alone. Best low-stress first dinner in Lisbon.",
+        "approxCost": "Mains €10–22; pastel de nata €1.30"
+      },
+      {
+        "name": "Miradouro de Santa Catarina (sunset)",
+        "type": "Free local viewpoint, no entry fee",
+        "angle": "FO+FM",
+        "why": "Locals call it ‘Miradouro do Adamastor’. Free, no fence, no ticket queue. River + bridge sunset view, kiosk café for €4 sangria, eclectic crowd of Lisbon students. Skip Miradouro de São Pedro de Alcântara unless you want the tour bus."
+      }
+    ],
+    "preBookChecklist": [
+      "Buy a Viva Viagem card on arrival at the Metro vending machine (€0.50 once, then load each ride)",
+      "Pre-book Sintra Pena Palace timed entry — 6 weeks ahead in summer; 2 weeks off-season",
+      "Travel insurance covering pickpocketing + medical (Lisbon hospitals charge non-EU visitors directly)",
+      "Confirm any apartment booking ONLY via Booking.com / Airbnb / VRBO official apps — never wire-transfer to a WhatsApp ‘owner’",
+      "Pack grippy-soled shoes — Lisbon’s calçada cobblestones are slippery in rain"
+    ],
+    "dosAndDonts": {
+      "do": [
+        "Eat pastéis de nata at Manteigaria (Chiado or Time Out) — fresher than the Belém line and a tenth of the wait",
+        "Use the Metro for distance, walk for atmosphere — Verde (green) line connects most you’ll need",
+        "Carry €5 / €10 notes — many cafés and tascas can’t break a €50",
+        "Keep your passport in the hotel safe; carry a photocopy + photo on your phone"
+      ],
+      "dont": [
+        "Accept the couvert (bread / olives / cheese on the table) without checking the price",
+        "Buy ‘cocaine’ in Bairro Alto — it’s oregano at best, an entrapment sting at worst",
+        "Photograph people in Alfama windows or doorways without permission — locals push back",
+        "Ride Tram 28 with valuables in a back pocket or open bag — pickpockets work this route every day"
+      ]
+    },
+    "estimatedDailyBudget": { "currency": "EUR", "backpacker": 70, "midRange": 150, "comfortable": 300 },
+    "emergencyNumbers": [
+      { "label": "EU Emergency", "number": "112" },
+      { "label": "Police (PSP Tourism)", "number": "+351-213-421-634" },
+      { "label": "Ambulance (INEM)", "number": "112" },
+      { "label": "Fire", "number": "117" },
+      { "label": "APAV Women's Helpline", "number": "116-006" }
+    ],
+    "isPremium": false,
+    "premiumPreview": null,
+    "affiliateLinks": {
+      "booking": "https://www.booking.com/searchresults.html?ss=Lisbon&aid=PLACEHOLDER",
+      "worldNomads": "https://www.worldnomads.com/travel-insurance?affiliate=PLACEHOLDER"
+    }
   }
 ]
