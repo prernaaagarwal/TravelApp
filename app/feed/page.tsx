@@ -108,12 +108,38 @@ export default async function FeedPage({
       ? destination.trim()
       : undefined;
 
+  // ── Per-destination solo-female safety rating ───────────────────────────
+  // Fetch every intel card's neighborhoods array, compute avg + count of
+  // safetyRating values per slug. The ReceiptsClient renders this as
+  // "Solo-female safety: 4.2/5 · 4 hoods rated" — one number per
+  // destination, not per trip. Replaces the previous pseudo-random
+  // soloScoreFor(trip.id) hack which produced inconsistent 8.4–9.6
+  // values for the same destination across cards.
+  type Hood = { safetyRating?: number };
+  const { data: rawCards } = await supabase
+    .from("intel_cards")
+    .select("slug, neighborhoods");
+  const safetyByDestination: Record<string, { avg: number; count: number }> = {};
+  for (const card of rawCards ?? []) {
+    const hoods = (card.neighborhoods as Hood[] | null) ?? [];
+    const ratings = hoods
+      .map((h) => h.safetyRating)
+      .filter((r): r is number => typeof r === "number");
+    if (ratings.length === 0) continue;
+    const avg = ratings.reduce((a, b) => a + b, 0) / ratings.length;
+    safetyByDestination[card.slug as string] = {
+      avg:   Math.round(avg * 10) / 10,
+      count: ratings.length,
+    };
+  }
+
   return (
     <ReceiptsClient
       trips={allTrips}
       contributors={contributors}
       destinations={destinations}
       initialDestination={initialDestination}
+      safetyByDestination={safetyByDestination}
     />
   );
 }

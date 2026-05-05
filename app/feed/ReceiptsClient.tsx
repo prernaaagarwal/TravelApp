@@ -60,14 +60,14 @@ interface Destination {
   count: number;
 }
 
-// Stable pseudo-random in 8.4–9.6 range so each trip card has a distinct
-// solo-safety score without needing a real field. Derived from the trip id.
-function soloScoreFor(id: string): number {
-  let h = 0;
-  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) | 0;
-  const tenths = Math.abs(h) % 13; // 0..12 → 8.4..9.6
-  return Math.round((8.4 + tenths * 0.1) * 10) / 10;
-}
+// Minimum number of contributor-rated neighborhoods before we'll show a
+// safety score for a destination. Below this, the card renders
+// "Not enough data yet" instead of a misleading low-sample number.
+const SAFETY_MIN_HOODS = 3;
+
+// Threshold for the "high safety" pill colour and the "show only safe
+// destinations" filter. 4.0+ on a 1–5 scale = recommended-by-default.
+const SAFETY_HIGH_THRESHOLD = 4.0;
 
 // "Best · Oct / Nov / Dec" — three months starting from the trip's actual
 // start month. Approximation, not data.
@@ -96,11 +96,17 @@ export function ReceiptsClient({
   contributors,
   destinations,
   initialDestination,
+  safetyByDestination,
 }: {
   trips: Trip[];
   contributors: Contributor[];
   destinations: Destination[];
   initialDestination?: string;
+  // Per-destination solo-female safety rating, derived from the average of
+  // contributor-rated neighborhood safetyRating values on the destination's
+  // intel card. `count` is the number of rated neighborhoods — destinations
+  // below SAFETY_MIN_HOODS are shown as "Not enough data yet".
+  safetyByDestination: Record<string, { avg: number; count: number }>;
 }) {
   const [selectedSlug, setSelectedSlug] = useState<string>(
     initialDestination ?? "",
@@ -128,7 +134,16 @@ export function ReceiptsClient({
       // Budget: match the reference's 25% headroom rule.
       if (t.totalCostInr > budget[0] * 1.25) return false;
 
-      if (soloOnly && soloScoreFor(t.id) < 8) return false;
+      // "Show only safe destinations" filter: keep trips whose destination
+      // has ≥ SAFETY_MIN_HOODS rated neighborhoods AND avg ≥ threshold.
+      // Destinations with too little data are filtered OUT (not silently
+      // counted as safe).
+      if (soloOnly) {
+        const safety = safetyByDestination[t.destinationSlug];
+        if (!safety || safety.count < SAFETY_MIN_HOODS || safety.avg < SAFETY_HIGH_THRESHOLD) {
+          return false;
+        }
+      }
 
       if (month && !bestMonthsFor(t.tripDates.start).includes(month)) {
         return false;
@@ -148,7 +163,7 @@ export function ReceiptsClient({
         .toLowerCase();
       return haystack.includes(q);
     });
-  }, [allTrips, contributors, selectedSlug, query, budget, soloOnly, month]);
+  }, [allTrips, contributors, selectedSlug, query, budget, soloOnly, month, safetyByDestination]);
 
   const contribStats = useMemo(() => {
     const m = new Map<string, { dossiers: number; receipts: number }>();
@@ -294,8 +309,12 @@ export function ReceiptsClient({
               <div className="flex h-9 items-center gap-3">
                 <Switch checked={soloOnly} onCheckedChange={setSoloOnly} />
                 <span className="text-sm text-ww-muted">
-                  Safety score ≥{" "}
-                  <span className="font-mono tabular-nums text-ink">8.0</span>
+                  Safety ≥{" "}
+                  <span className="font-mono tabular-nums text-ink">{SAFETY_HIGH_THRESHOLD.toFixed(1)}</span>
+                  /5 ·{" "}
+                  <a href="/methodology" className="underline underline-offset-2 hover:text-ink">
+                    methodology
+                  </a>
                 </span>
               </div>
             </div>
@@ -423,6 +442,7 @@ export function ReceiptsClient({
                     receipts: trip.topNotes.length,
                   }
                 }
+                safety={safetyByDestination[trip.destinationSlug] ?? null}
               />
             ))}
           </div>
@@ -466,16 +486,20 @@ function TripCard({
   index,
   contributor,
   stats,
+  safety,
 }: {
   trip: Trip;
   index: number;
   contributor: Contributor | undefined;
   stats: { dossiers: number; receipts: number };
+  // Per-destination safety. Null when no intel card exists for the slug;
+  // also rendered as "Not enough data yet" when count < SAFETY_MIN_HOODS.
+  safety: { avg: number; count: number } | null;
 }) {
   const total = trip.totalCostInr;
   const perDay = Math.round(total / trip.dayCount);
   const months = bestMonthsFor(trip.tripDates.start);
-  const score = soloScoreFor(trip.id);
+  const safetyEnoughData = safety !== null && safety.count >= SAFETY_MIN_HOODS;
   const subLine = subLocationsFor(trip);
   const title = cleanTitle(trip.destination);
   const description = trip.topNotes[0] ?? trip.highlight;
@@ -577,16 +601,29 @@ function TripCard({
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <span
-              className={`inline-flex items-center gap-1 rounded-sm border px-2 py-0.5 font-mono text-[11px] tracking-wide ${
-                score >= 9
-                  ? "border-sage/40 bg-sage-light/40 text-sage"
-                  : "border-ink/20 bg-warm-white text-ink/70"
-              }`}
-            >
-              <ShieldCheck className="h-3 w-3" />
-              Solo {score.toFixed(1)}/10
-            </span>
+            {safetyEnoughData ? (
+              <a
+                href="/methodology"
+                title="How this score is calculated"
+                className={`inline-flex items-center gap-1 rounded-sm border px-2 py-0.5 font-mono text-[11px] tracking-wide hover:underline ${
+                  safety!.avg >= SAFETY_HIGH_THRESHOLD
+                    ? "border-sage/40 bg-sage-light/40 text-sage"
+                    : "border-ink/20 bg-warm-white text-ink/70"
+                }`}
+              >
+                <ShieldCheck className="h-3 w-3" />
+                Safety {safety!.avg.toFixed(1)}/5 · {safety!.count} hoods rated
+              </a>
+            ) : (
+              <a
+                href="/methodology"
+                title="Why we don't show a score yet"
+                className="inline-flex items-center gap-1 rounded-sm border border-ww-border bg-warm-white px-2 py-0.5 font-mono text-[11px] tracking-wide text-ww-muted hover:underline"
+              >
+                <ShieldCheck className="h-3 w-3" />
+                Not enough data yet
+              </a>
+            )}
             <span className="inline-flex items-center rounded-sm border border-ink/20 bg-warm-white px-2 py-0.5 font-mono text-[11px] tracking-wide text-ink/70">
               Best · {months.join(" / ")}
             </span>
