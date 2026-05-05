@@ -122,20 +122,12 @@ export default async function ProfilePage({
             ← Home
           </Link>
           {isOwner && (
-            <div className="flex items-center gap-4">
-              <Link
-                href="/feed"
-                className="font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted hover:text-ink"
-              >
-                Trip Receipts →
-              </Link>
-              <Link
-                href="/settings"
-                className="font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted hover:text-ink"
-              >
-                Account settings →
-              </Link>
-            </div>
+            <Link
+              href="/settings"
+              className="font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted hover:text-ink"
+            >
+              Account settings →
+            </Link>
           )}
         </div>
 

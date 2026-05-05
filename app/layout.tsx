@@ -3,7 +3,7 @@ import { Cormorant_Garamond, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/shared/Header";
 import { Footer } from "@/components/shared/Footer";
-import { MobileNavWrapper } from "@/components/shared/MobileNavWrapper";
+import { MobileNav } from "@/components/shared/MobileNav";
 import { PostHogProvider } from "@/components/shared/PostHogProvider";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { organizationLd, websiteLd } from "@/lib/jsonld";
@@ -88,7 +88,7 @@ export default function RootLayout({
           <Header />
           <div className="flex-1">{children}</div>
           <Footer />
-          <MobileNavWrapper />
+          <MobileNav />
         </PostHogProvider>
         <PWA />
       </body>

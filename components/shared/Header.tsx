@@ -3,7 +3,7 @@ import { Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
 import { CommandPalette } from "@/components/shared/CommandPalette";
-import { PRIMARY_NAV, resolveMeHref } from "@/lib/nav";
+import { PRIMARY_NAV } from "@/lib/nav";
 
 export async function Header() {
   const supabase = await createClient();
@@ -24,8 +24,6 @@ export async function Header() {
     isStaff = profile?.role === "admin" || profile?.role === "moderator";
   }
 
-  const meHref = resolveMeHref(profileSlug);
-
   return (
     <header className="sticky top-0 z-40 border-b border-ww-border/60 bg-sand/85 backdrop-blur-sm">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:px-6">
@@ -37,18 +35,15 @@ export async function Header() {
         </Link>
 
         <nav className="hidden gap-6 md:flex">
-          {PRIMARY_NAV.map((item) => {
-            const href = item.key === "me" ? meHref : item.href!;
-            return (
-              <Link
-                key={item.key}
-                href={href}
-                className="text-sm uppercase tracking-wider text-ww-muted transition-colors hover:text-ink"
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+          {PRIMARY_NAV.map((item) => (
+            <Link
+              key={item.key}
+              href={item.href}
+              className="whitespace-nowrap text-sm uppercase tracking-wider text-ww-muted transition-colors hover:text-ink"
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="flex items-center gap-2">

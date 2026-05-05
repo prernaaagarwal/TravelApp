@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { Map } from "lucide-react";
 import { CommunityTabs } from "@/components/community/CommunityTabs";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { INTERNATIONAL_CITY_SLUGS } from "@/lib/international-destinations";
@@ -240,26 +238,6 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
           ✓ Your report has been submitted for review. It will appear on the Beware Board once approved.
         </div>
       )}
-
-      {/* Cross-link to Trip Receipts — keeps /feed discoverable now that it's
-          no longer in the primary nav. */}
-      <Link
-        href="/feed"
-        className="group mb-6 flex items-center justify-between gap-4 border border-ww-border bg-warm-white px-4 py-3 transition-colors hover:border-rust"
-      >
-        <div className="flex items-center gap-3">
-          <Map className="h-4 w-4 shrink-0 text-rust" />
-          <div>
-            <p className="font-mono text-sm font-medium text-ink">Trip Receipts</p>
-            <p className="font-mono text-[11px] text-ww-muted">
-              Real itineraries with real costs — what other women actually spent.
-            </p>
-          </div>
-        </div>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-rust transition-transform group-hover:translate-x-1">
-          Open →
-        </span>
-      </Link>
 
       <CommunityTabs
         posts={posts}

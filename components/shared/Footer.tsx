@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-// Only non-duplicate links — Intel / Community / Safety / Buddy / Me live in
-// the primary nav (Header + MobileNav). Trip Receipts is reached via Community
-// and the Me tab. Keeping the Footer slim avoids the dual-navigation problem.
+// Only non-duplicate links — Intel, Community, Safety, Buddy, and Trip
+// Receipts already live in the primary nav (Header + MobileNav). Keeping the
+// Footer slim avoids the dual-navigation problem.
 const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/onboarding", label: "Get Started" },
