@@ -21,12 +21,12 @@ I am the solo founder. I have a content/marketing background, no formal engineer
 
 ## The non-negotiable rules
 
-### 1. Mock data only. Forever (in V0).
-- Every page reads from `/lib/mock-data/*.json`
-- Zero database connections. No Supabase, Postgres, Mongo, Firebase.
-- Zero real auth. No Clerk, Auth.js, Auth0.
-- Zero real payments. No Stripe, no Razorpay.
-- If I ask for a "real" feature, remind me of this rule and propose a mock equivalent.
+### 1. Mock data has been replaced by Supabase. Don't add a second backend.
+- V0 shipped on JSON files in `/lib/mock-data/*`. **V1 (current) reads live data from Supabase** across most routes: `/`, `/explore`, `/feed`, `/community`, `/intel/[slug]`, `/contributor/[name]`, all `/account/*`, and all `/admin/*`.
+- Server components use `createClient` from `@/lib/supabase/server`. Auth is `@supabase/ssr` (cookie-based session). RLS policies enforce read-access; mutations go through server actions.
+- **Don't introduce a second database, ORM, or auth provider** (no Postgres-direct, no Prisma, no Clerk, no Auth.js). If a route still reads from `/lib/mock-data/*.json`, that's an intentional V0 holdover — leave it unless asked.
+- **Don't introduce real payments yet.** No Stripe, no Razorpay. Membership tier is a column on `profiles`, not a billing system.
+- If I ask for a backend feature you're unsure about, propose the Supabase-shaped solution (table + RLS + server action) before writing code.
 
 ### 2. Stay in scope.
 The 9 routes in `/PRD.md` Section 3.1 are the entire product. If I ask for a 10th route, ask me: *"This isn't in the PRD. Are you adding to V0 or V1? If V0, what are we removing to keep scope?"*
@@ -86,6 +86,14 @@ shadcn/ui (theme: stone base, customized colors)
 lucide-react (icons)
 Cormorant Garamond (Google Fonts) — display
 DM Mono (Google Fonts) — body + UI
+
+Supabase (Postgres + Auth + Storage) via @supabase/ssr — backend for routes listed in rule §1
+Sentry (@sentry/nextjs) — error tracking
+PostHog (posthog-js, posthog-node) — product analytics
+Resend — transactional email (OTP, notifications)
+Leaflet + leaflet.heat + leaflet.markercluster — Beware Board maps
+Zod — schema validation on form actions and API inputs
+Vitest + Playwright — unit and e2e tests (see /tests)
 ```
 
 If you suggest anything outside this list, you must (a) tell me why, (b) propose alternatives, and (c) get my "yes" before installing.
