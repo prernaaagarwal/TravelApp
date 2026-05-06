@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabase/client";
+import { submitGoaBrief } from "@/app/actions/goa-brief";
 
 const STORAGE_KEY = "ww-exit-intent-shown";
 
@@ -64,14 +64,11 @@ export function ExitIntentModal() {
     setLoading(true);
     setError("");
 
-    const supabase = createClient();
-    const { error: insertErr } = await supabase
-      .from("email_captures")
-      .insert({ email, source: "exit-intent-goa-brief" });
+    const { error: actionErr } = await submitGoaBrief(email);
 
     setLoading(false);
-    if (insertErr) {
-      setError("Something went wrong. Try again.");
+    if (actionErr) {
+      setError(actionErr);
       return;
     }
     setDone(true);
@@ -115,7 +112,8 @@ export function ExitIntentModal() {
             </h2>
             <p className="mb-5 text-sm leading-relaxed text-ww-muted">
               The 7 scams every solo woman hits in Goa, the one beach to avoid
-              after dark, and where to actually stay. PDF, your inbox, no spam.
+              after dark, and where to actually stay. Straight to your inbox.
+              No spam.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3">

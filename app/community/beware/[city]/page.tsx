@@ -28,7 +28,7 @@ export default async function CityScamMapPage({ params }: { params: Promise<{ ci
 
   const { data: rows } = await supabase
     .from("beware_reports")
-    .select("id,title,category,severity,description,location,reported_by_name,helpful_count,gps_lat,gps_lng,created_at")
+    .select("id,title,category,severity,description,location,reported_by_name,helpful_count,gps_lat,gps_lng,created_at,report_type,washroom_type,washroom_state")
     .eq("destination_slug", city)
     .eq("status", "approved")
     .not("gps_lat", "is", null)
@@ -43,20 +43,27 @@ export default async function CityScamMapPage({ params }: { params: Promise<{ ci
     helpfulIds = new Set((hp ?? []).map((r) => String(r.report_id)));
   }
 
-  const dbReports: MapReport[] = (rows ?? []).map((r) => ({
-    id: String(r.id),
-    lat: r.gps_lat as number,
-    lng: r.gps_lng as number,
-    type: normaliseCategory(r.category ?? "scam"),
-    title: r.title,
-    place: r.location ?? entry.config.name,
-    desc: r.description,
-    date: new Date(r.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }),
-    confirms: r.helpful_count ?? 0,
-    reporter: r.reported_by_name ?? "Anonymous",
-    isDemo: false,
-    isHelpfulByMe: helpfulIds.has(String(r.id)),
-  }));
+  const dbReports: MapReport[] = (rows ?? []).map((r) => {
+    const isWashroom = r.report_type === "washroom";
+    return {
+      id: String(r.id),
+      lat: r.gps_lat as number,
+      lng: r.gps_lng as number,
+      type: isWashroom ? "washroom" : normaliseCategory(r.category ?? "scam"),
+      title: r.title,
+      place: r.location ?? entry.config.name,
+      desc: r.description,
+      date: new Date(r.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }),
+      confirms: r.helpful_count ?? 0,
+      reporter: r.reported_by_name ?? "Anonymous",
+      isDemo: false,
+      isHelpfulByMe: helpfulIds.has(String(r.id)),
+      ...(isWashroom && r.washroom_type ? { washroomType: r.washroom_type as string } : {}),
+      ...(isWashroom && r.washroom_state
+        ? { washroomState: r.washroom_state as "usable" | "poor" | "unsafe" }
+        : {}),
+    };
+  });
 
   const demoReports: MapReport[] = entry.reports.map((r) => ({
     ...r,

@@ -6,7 +6,7 @@ export const mapReportJsonSchema = z.object({
   id:       z.string(),
   lat:      z.number().min(-90).max(90),
   lng:      z.number().min(-180).max(180),
-  type:     z.enum(["scam", "harassment", "transport", "stay", "safe"]),
+  type:     z.enum(["scam", "harassment", "transport", "stay", "safe", "washroom"]),
   title:    z.string().min(1),
   place:    z.string(),
   desc:     z.string(),
