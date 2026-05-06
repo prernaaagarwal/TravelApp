@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { timingSafeEqual } from "node:crypto";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { buildDigestForUser, formatDigestEmail, isDigestEmpty } from "@/lib/digest";
 import { sendWeeklyDigest } from "@/lib/email";
@@ -24,7 +25,13 @@ function isAuthedCron(request: Request): boolean {
   if (!auth) return false;
   const match = auth.match(/^Bearer\s+(.+)$/i);
   if (!match) return false;
-  return match[1] === process.env.CRON_SECRET;
+  const expected = process.env.CRON_SECRET;
+  if (!expected) return false;
+  // Constant-time compare so request timing doesn't leak the secret.
+  const a = Buffer.from(match[1], "utf8");
+  const b = Buffer.from(expected, "utf8");
+  if (a.length !== b.length) return false;
+  return timingSafeEqual(a, b);
 }
 
 function adminSupabase() {

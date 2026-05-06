@@ -7,6 +7,10 @@ import path from "path";
 //   2. Nominatim live fetch                                              — dev fallback only
 const CACHE_HEADER = { "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=86400" };
 
+// Slug must match the boundary filename pattern. Restricts the value before it
+// reaches path.join — without this, "../foo" could resolve outside boundaries/.
+const SLUG_RE = /^[a-z0-9-]{2,80}$/;
+
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const slug   = searchParams.get("slug");
@@ -15,7 +19,7 @@ export async function GET(req: Request) {
   const country = searchParams.get("country");
 
   // 1. Try bundled local file first (zero network, works in all environments)
-  if (slug) {
+  if (slug && SLUG_RE.test(slug)) {
     try {
       const filePath = path.join(process.cwd(), "lib", "mock-data", "boundaries", `${slug}.json`);
       const raw = await fs.readFile(filePath, "utf-8");
