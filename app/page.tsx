@@ -14,13 +14,29 @@ export const metadata = { title: "Wander Women — Trip Intel for Solo Women Tra
 // publishes a new card, without rebuilding the site.
 export const revalidate = 60;
 
+const FALLBACK_TOTAL_DESTINATIONS = 21;
+const COUNT_TIMEOUT_MS = 1500;
+
+// Don't let a slow or unreachable Supabase block the hero. If the count
+// query takes longer than COUNT_TIMEOUT_MS or rejects, fall back to the
+// last-known total so the page still renders fast.
+async function getTotalDestinations(): Promise<number> {
+  try {
+    const supabase = createStaticClient();
+    const result = await Promise.race([
+      supabase.from("intel_cards").select("*", { count: "exact", head: true }),
+      new Promise<{ count: null }>((resolve) =>
+        setTimeout(() => resolve({ count: null }), COUNT_TIMEOUT_MS),
+      ),
+    ]);
+    return result.count ?? FALLBACK_TOTAL_DESTINATIONS;
+  } catch {
+    return FALLBACK_TOTAL_DESTINATIONS;
+  }
+}
+
 export default async function HomePage() {
-  // Live count of published intel cards (auto-updates as new ones land)
-  const supabase = createStaticClient();
-  const { count } = await supabase
-    .from("intel_cards")
-    .select("*", { count: "exact", head: true });
-  const totalDestinations = count ?? 21;
+  const totalDestinations = await getTotalDestinations();
 
   // pre-select data each section needs
   const askPosts = communityPosts.filter((p) => p.tab === "ask").slice(0, 3);
