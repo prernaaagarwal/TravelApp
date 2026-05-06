@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { createClient as createBrowserClient } from "@/lib/supabase/client";
 import { createClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 import { ShareIntelButton } from "@/components/shared/ShareIntelButton";
@@ -59,11 +60,21 @@ export async function generateMetadata({ params }: { params: Params }) {
   };
 }
 
+// Supabase rows are loosely typed at the query layer; downstream `as` casts
+// handle each field at usage. Match the previous implicit-any behavior.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type IntelCardRow = Record<string, any>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type ContributorRow = Record<string, any>;
+
 export default async function IntelPage({ params }: { params: Params }) {
   const { slug } = await params;
   const supabase = await createClient();
 
-  const { data: raw } = await supabase.from("intel_cards").select("*").eq("slug", slug).single();
+  const raw = await safeQuery<IntelCardRow | null>(
+    supabase.from("intel_cards").select("*").eq("slug", slug).single(),
+    null,
+  );
   if (!raw) notFound();
 
   const card = {
@@ -89,9 +100,12 @@ export default async function IntelPage({ params }: { params: Params }) {
     affiliateLinks: (raw.affiliate_links ?? {}) as { booking?: string; worldNomads?: string },
   };
 
-  const { data: rawContributor } = raw.contributor_slug
-    ? await supabase.from("contributors").select("*").eq("slug", raw.contributor_slug).single()
-    : { data: null };
+  const rawContributor = raw.contributor_slug
+    ? await safeQuery<ContributorRow | null>(
+        supabase.from("contributors").select("*").eq("slug", raw.contributor_slug).single(),
+        null,
+      )
+    : null;
 
   const contributor = rawContributor ? {
     slug: rawContributor.slug,

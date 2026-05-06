@@ -2,6 +2,7 @@ import { CommunityTabs } from "@/components/community/CommunityTabs";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { INTERNATIONAL_CITY_SLUGS } from "@/lib/international-destinations";
 import { createClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
 import rawPosts from "@/lib/mock-data/community-posts.json";
 import rawBeware from "@/lib/mock-data/beware-entries.json";
 import { JsonLd } from "@/components/shared/JsonLd";
@@ -52,12 +53,18 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   let helpfulPostIds = new Set<string>();
   let helpfulBewareIds = new Set<string>();
   if (user) {
-    const [{ data: hp }, { data: hb }] = await Promise.all([
-      supabase.from("community_post_helpful").select("post_id").eq("user_id", user.id),
-      supabase.from("beware_helpful").select("report_id").eq("user_id", user.id),
+    const [hp, hb] = await Promise.all([
+      safeQuery<{ post_id: string }[]>(
+        supabase.from("community_post_helpful").select("post_id").eq("user_id", user.id),
+        [],
+      ),
+      safeQuery<{ report_id: string }[]>(
+        supabase.from("beware_helpful").select("report_id").eq("user_id", user.id),
+        [],
+      ),
     ]);
-    helpfulPostIds   = new Set((hp ?? []).map((r) => String(r.post_id)));
-    helpfulBewareIds = new Set((hb ?? []).map((r) => String(r.report_id)));
+    helpfulPostIds   = new Set(hp.map((r) => String(r.post_id)));
+    helpfulBewareIds = new Set(hb.map((r) => String(r.report_id)));
   }
 
   const tab = VALID_TABS.has(sp.tab ?? "") ? (sp.tab as string) : "ask";
@@ -67,16 +74,34 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
   const city = sp.city ?? "all";
   const submitted = sp.submitted === "beware" ? "beware" : undefined;
 
+  type DbPost = {
+    id: string;
+    tab: string;
+    title: string | null;
+    content: string;
+    author_name: string | null;
+    author_age_range: string | null;
+    home_city: string | null;
+    destination: string | null;
+    image_urls: unknown;
+    created_at: string;
+    like_count: number | null;
+    reply_count: number | null;
+  };
+
   // Fetch approved user-submitted posts from Supabase and merge with mock data.
   // RLS policy "Anyone reads approved posts" lets unauthenticated reads work.
-  const { data: dbPosts } = await supabase
-    .from("community_posts")
-    .select(
-      "id, tab, title, content, author_name, author_age_range, home_city, destination, image_urls, created_at, like_count, reply_count",
-    )
-    .eq("status", "approved");
+  const dbPosts = await safeQuery<DbPost[]>(
+    supabase
+      .from("community_posts")
+      .select(
+        "id, tab, title, content, author_name, author_age_range, home_city, destination, image_urls, created_at, like_count, reply_count",
+      )
+      .eq("status", "approved"),
+    [],
+  );
 
-  const dbNormalized: RawPost[] = (dbPosts ?? []).map((p) => ({
+  const dbNormalized: RawPost[] = dbPosts.map((p) => ({
     id: p.id,
     tab: p.tab,
     title: p.title ?? "",
@@ -93,13 +118,30 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
 
   const allPosts: RawPost[] = [...(rawPosts as unknown as RawPost[]), ...dbNormalized];
 
+  type DbBewareRow = {
+    id: string;
+    destination_slug: string | null;
+    city: string | null;
+    category: string | null;
+    title: string;
+    severity: string | null;
+    description: string;
+    reported_by_name: string | null;
+    created_at: string;
+    location: string | null;
+    helpful_count: number | null;
+  };
+
   // Same pattern for beware reports: mock + approved DB rows.
-  const { data: dbBewares } = await supabase
-    .from("beware_reports")
-    .select(
-      "id, destination_slug, city, category, title, severity, description, reported_by_name, created_at, location, helpful_count",
-    )
-    .eq("status", "approved");
+  const dbBewares = await safeQuery<DbBewareRow[]>(
+    supabase
+      .from("beware_reports")
+      .select(
+        "id, destination_slug, city, category, title, severity, description, reported_by_name, created_at, location, helpful_count",
+      )
+      .eq("status", "approved"),
+    [],
+  );
 
   type RawBeware = {
     id: string;
@@ -115,7 +157,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     helpfulCount: number;
   };
 
-  const dbBewareNormalized: RawBeware[] = (dbBewares ?? []).map((b) => ({
+  const dbBewareNormalized: RawBeware[] = dbBewares.map((b) => ({
     id:              b.id,
     destinationSlug: b.destination_slug ?? "",
     city:            b.city ?? "",
