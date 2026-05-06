@@ -3,7 +3,6 @@ import { Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
 import { CommandPalette } from "@/components/shared/CommandPalette";
-import { MobileMenu } from "@/components/shared/MobileMenu";
 import { PRIMARY_NAV } from "@/lib/nav";
 
 export async function Header() {
@@ -94,7 +93,6 @@ export async function Header() {
               </Button>
             </>
           )}
-          <MobileMenu />
         </div>
       </div>
     </header>
