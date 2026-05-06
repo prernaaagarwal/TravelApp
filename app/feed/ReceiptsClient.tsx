@@ -547,7 +547,7 @@ function TripCard({
             href={`/contributor/${trip.contributorSlug}`}
             className="group/author mt-4 flex items-center gap-3"
           >
-            {contributor ? (
+            {contributor && contributor.photoUrl ? (
               <Image
                 src={contributor.photoUrl}
                 alt={contributor.name}
@@ -557,7 +557,7 @@ function TripCard({
               />
             ) : (
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-sand font-mono text-[10px] text-ink">
-                W
+                {contributor?.name?.[0]?.toUpperCase() ?? "W"}
               </span>
             )}
             <span className="text-xs text-ww-muted">
