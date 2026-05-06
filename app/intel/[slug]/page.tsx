@@ -74,6 +74,8 @@ export default async function IntelPage({ params }: { params: Params }) {
   const raw = await safeQuery<IntelCardRow | null>(
     supabase.from("intel_cards").select("*").eq("slug", slug).single(),
     null,
+    1500,
+    "intel.card",
   );
   if (!raw) notFound();
 
@@ -104,6 +106,8 @@ export default async function IntelPage({ params }: { params: Params }) {
     ? await safeQuery<ContributorRow | null>(
         supabase.from("contributors").select("*").eq("slug", raw.contributor_slug).single(),
         null,
+        1500,
+        "intel.contributor",
       )
     : null;
 

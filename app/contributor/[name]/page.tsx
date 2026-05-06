@@ -43,6 +43,8 @@ export default async function ContributorPage({ params }: { params: Params }) {
   const raw = await safeQuery<FullContributorRow | null>(
     supabase.from("contributors").select("*").eq("slug", name).single(),
     null,
+    1500,
+    "contributor.profile",
   );
   if (!raw) notFound();
 
@@ -67,14 +69,20 @@ export default async function ContributorPage({ params }: { params: Params }) {
     safeQuery<CardRow[]>(
       supabase.from("intel_cards").select("slug,destination,country,hero_image_url,tldr").eq("contributor_slug", name),
       [],
+      1500,
+      "contributor.cards",
     ),
     safeQuery<PostRow[]>(
       supabase.from("community_posts").select("id,content,destination,like_count,created_at").eq("author_name", contributor.name).eq("tab", "ask").eq("status", "approved").limit(4),
       [],
+      1500,
+      "contributor.posts",
     ),
     safeQuery<StatsRow | null>(
       supabase.from("contributor_stats").select("*").eq("slug", name).maybeSingle(),
       null,
+      1500,
+      "contributor.stats",
     ),
   ]);
 
