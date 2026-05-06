@@ -78,6 +78,14 @@ for (const vp of VIEWPORTS) {
         }
 
         // Horizontal-overflow guard: page must fit the viewport.
+        // Wait for network idle first — the PWA service-worker registration
+        // and post-hydration prefetch can race with page.evaluate and
+        // destroy the execution context. networkidle settles those.
+        // Cap the wait at 5s so a never-idle route (PostHog beacon loops,
+        // long-polling sockets, etc.) doesn't burn the whole test timeout.
+        await page
+          .waitForLoadState("networkidle", { timeout: 5000 })
+          .catch(() => {});
         const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
         expect(
           scrollWidth,

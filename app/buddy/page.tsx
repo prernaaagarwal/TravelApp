@@ -134,7 +134,7 @@ export default async function BuddyPage() {
         {showMock ? (
           // mock matches
           buddyMatches.slice(0, 3).map((b, i) => (
-            <MockBuddyCard key={b.id} buddy={b} rank={i} />
+            <MockBuddyCard key={b.id} buddy={b} rank={i} isLoggedIn={!!user} />
           ))
         ) : (
           dbMatches!.slice(0, 5).map((b) => {
@@ -215,7 +215,14 @@ export default async function BuddyPage() {
   );
 }
 
-function MockBuddyCard({ buddy }: { buddy: typeof buddyMatches[0]; rank: number }) {
+function MockBuddyCard({
+  buddy,
+  isLoggedIn,
+}: {
+  buddy: typeof buddyMatches[0];
+  rank: number;
+  isLoggedIn: boolean;
+}) {
   return (
     <article className="relative border border-ww-border bg-sand p-5">
       <span className="absolute right-4 top-4 rounded-full bg-sand border border-ww-border px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
@@ -248,13 +255,20 @@ function MockBuddyCard({ buddy }: { buddy: typeof buddyMatches[0]; rank: number 
           </div>
         </div>
       </div>
-      <div className="mt-5 flex flex-wrap gap-2 border-t border-ww-border pt-4">
-        <Link
-          href="/account/signup"
-          className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
-        >
-          Join to connect →
-        </Link>
+      <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-ww-border pt-4">
+        {isLoggedIn ? (
+          <p className="font-mono text-[10px] text-ww-muted">
+            Illustrative profile — not contactable. Real matches appear once
+            women register for the same destination as you.
+          </p>
+        ) : (
+          <Link
+            href="/account/signup"
+            className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
+          >
+            Join to connect →
+          </Link>
+        )}
       </div>
     </article>
   );

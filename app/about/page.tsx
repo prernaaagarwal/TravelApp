@@ -12,64 +12,74 @@ export default function AboutPage() {
     <main>
       {/* ── 1. Founder — portrait + bio + pull quote + CTA ────────────────── */}
       <section className="px-6 py-24 md:px-10 md:py-32">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-20">
-          {/* Portrait + EST stamp */}
-          <div className="relative">
-            <div className="aspect-[3/4] overflow-hidden border border-ww-border bg-sand">
-              <Image
-                src="/images/hero-traveler.jpg"
-                alt="The founder — silhouette at dawn, somewhere in India"
-                width={900}
-                height={1200}
-                className="h-full w-full object-cover grayscale"
-                style={{ filter: "grayscale(0.6) sepia(0.2)" }}
-              />
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-20">
+            {/* Portrait + EST stamp */}
+            <div className="relative">
+              <div className="aspect-[3/4] overflow-hidden border border-ww-border bg-sand">
+                <Image
+                  src="/images/hero-traveler.jpg"
+                  alt="The founder — silhouette at dawn, somewhere in India"
+                  width={900}
+                  height={1200}
+                  className="h-full w-full object-cover grayscale"
+                  style={{ filter: "grayscale(0.6) sepia(0.2)" }}
+                />
+              </div>
+              {/* circular stamp */}
+              <div className="absolute -bottom-6 -right-6 flex h-32 w-32 rotate-12 items-center justify-center rounded-full border-2 border-rust/40 bg-warm-white/95 backdrop-blur-sm">
+                <p className="text-center font-mono text-[10px] font-bold uppercase leading-tight tracking-wider text-rust">
+                  Est.<br />
+                  2026<br />
+                  ———<br />
+                  Founder
+                </p>
+              </div>
             </div>
-            {/* circular stamp */}
-            <div className="absolute -bottom-6 -right-6 flex h-32 w-32 rotate-12 items-center justify-center rounded-full border-2 border-rust/40 bg-warm-white/95 backdrop-blur-sm">
-              <p className="text-center font-mono text-[10px] font-bold uppercase leading-tight tracking-wider text-rust">
-                Est.<br />
-                2026<br />
-                ———<br />
-                Founder
-              </p>
+
+            {/* Intro text — sits next to the portrait */}
+            <div>
+              <span className="mb-5 inline-block font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
+                The Founder
+              </span>
+              <h1 className="mb-8 font-serif text-4xl leading-[0.95] text-ink md:text-6xl">
+                A guidebook
+                <br />
+                <span className="italic text-rust">for the rest of us.</span>
+              </h1>
+              <div className="space-y-6 text-base leading-relaxed text-ww-muted">
+                {/* ── 1. The bus to Rishikesh ─────────────────────── */}
+                <p>In 2017, I did something that felt a little unhinged.</p>
+                <p>
+                  I had moved from Kolkata to Delhi with a plan. For six months I
+                  tried to find someone to travel with. Friends were busy.
+                  Schedules never aligned. So one evening, tired of waiting, I
+                  walked to the bus stop and bought a ticket to Rishikesh. Alone.
+                  With no plan. I had never done anything like that in my life.
+                </p>
+                <p>
+                  I grew up shy, introverted, quietly terrified of doing most
+                  things by myself. That first trip cracked something open. So I
+                  kept going — 20 countries, most of India, alone every time. The
+                  one that changed everything was a 30-day DIY backpacking trip
+                  across Europe on a shoestring.
+                </p>
+                <p>
+                  I stepped off the plane in Paris genuinely nervous. On the last
+                  day, I sat in Rome and cried — not because I was scared or
+                  lonely, but because I was so full. Because I had done something
+                  I once thought was only for other kinds of women.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Body */}
-          <div>
-            <span className="mb-5 inline-block font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-              The Founder
-            </span>
-            <h1 className="mb-8 font-serif text-4xl leading-[0.95] text-ink md:text-6xl">
-              A guidebook
-              <br />
-              <span className="italic text-rust">for the rest of us.</span>
-            </h1>
+          {/* Continuation — full-width below both columns. From "Here's what
+              I noticed" onward, the story drops out of the 2-col grid into a
+              single centered reading column so it doesn't stay pinned in the
+              narrow right-hand strip after the image ends. */}
+          <div className="mx-auto mt-14 max-w-3xl md:mt-20">
             <div className="space-y-6 text-base leading-relaxed text-ww-muted">
-              {/* ── 1. The bus to Rishikesh ─────────────────────── */}
-              <p>In 2017, I did something that felt a little unhinged.</p>
-              <p>
-                I had moved from Kolkata to Delhi with a plan. For six months I
-                tried to find someone to travel with. Friends were busy.
-                Schedules never aligned. So one evening, tired of waiting, I
-                walked to the bus stop and bought a ticket to Rishikesh. Alone.
-                With no plan. I had never done anything like that in my life.
-              </p>
-              <p>
-                I grew up shy, introverted, quietly terrified of doing most
-                things by myself. That first trip cracked something open. So I
-                kept going — 20 countries, most of India, alone every time. The
-                one that changed everything was a 30-day DIY backpacking trip
-                across Europe on a shoestring.
-              </p>
-              <p>
-                I stepped off the plane in Paris genuinely nervous. On the last
-                day, I sat in Rome and cried — not because I was scared or
-                lonely, but because I was so full. Because I had done something
-                I once thought was only for other kinds of women.
-              </p>
-
               <hr className="mx-auto my-10 h-px w-12 border-0 bg-rust/40" aria-hidden />
 
               {/* ── 2. What I noticed ────────────────────────────── */}
