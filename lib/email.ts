@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import { buildBody } from "@/lib/email-template";
+import { buildBody, escapeHtml } from "@/lib/email-template";
 import { env } from "@/lib/config";
 
 const FROM = env.EMAIL_FROM;
@@ -194,6 +194,53 @@ export async function sendWeeklyDigest(
       "List-Unsubscribe": `<${unsubscribeUrl}>`,
       "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
     },
+  });
+}
+
+// Exit-intent lead magnet: sends the top Goa scams pulled live from the
+// intel_cards row, plus a CTA back to /intel/goa-india. The email IS the
+// brief — there's no PDF. Caller is responsible for the email_captures
+// insert; this function only sends.
+export async function sendGoaSafetyBrief(
+  to: string,
+  args: {
+    scams: Array<{ title: string; severity: string; what: string }>;
+  },
+) {
+  const resend = getResend();
+  if (!resend) return;
+
+  const scamRows = args.scams
+    .map((s, i) => {
+      const color =
+        s.severity === "critical"
+          ? "#c4522a"
+          : s.severity === "high"
+            ? "#b5860a"
+            : "#4a7c59";
+      return `<tr><td style="padding:14px 0;border-bottom:1px solid #e0d8cc">
+        <p style="font-family:monospace;font-size:10px;color:${color};margin:0 0 6px;text-transform:uppercase;letter-spacing:0.15em">${i + 1}. ${escapeHtml(s.severity)}</p>
+        <p style="font-family:Georgia,serif;font-size:15px;color:#1a1510;margin:0 0 6px">${escapeHtml(s.title)}</p>
+        <p style="font-family:monospace;font-size:12px;color:#8a7d72;margin:0;line-height:1.5">${escapeHtml(s.what)}</p>
+      </td></tr>`;
+    })
+    .join("");
+
+  const html = `<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;color:#1a1510;background:#f5f0e6;padding:32px">
+    <p style="font-family:monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#8a7d72;margin:0 0 20px">Wander Women</p>
+    <h1 style="font-size:26px;font-weight:400;margin:0 0 12px">Your Goa safety brief.</h1>
+    <p style="font-family:monospace;font-size:13px;line-height:1.6;color:#8a7d72;margin:0 0 24px">The scams every solo woman runs into in Goa &mdash; written by women who&rsquo;ve lived it. Full intel (neighbourhoods, transport, hidden gems) is on the site.</p>
+    <table style="width:100%;border-collapse:collapse;border-top:1px solid #e0d8cc">${scamRows}</table>
+    <p style="margin:24px 0 0"><a href="${SITE_URL}/intel/goa-india" style="background:#1a1510;color:#faf8f4;padding:12px 22px;font-family:monospace;font-size:11px;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase">Read the full Goa intel &rarr;</a></p>
+    <hr style="border:none;border-top:1px solid #e0d8cc;margin:32px 0 16px"/>
+    <p style="font-family:monospace;font-size:10px;color:#8a7d72;margin:0">You signed up at <a href="${SITE_URL}" style="color:#c4522a;text-decoration:none">wanderwomen.in</a>. Reply to this email &mdash; that&rsquo;s the founder, not a bot.</p>
+  </div>`;
+
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "Your Goa safety brief — Wander Women",
+    html,
   });
 }
 
