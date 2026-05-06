@@ -5,6 +5,7 @@ import {
   columnForKind,
   type UnsubscribeKind,
 } from "@/lib/unsubscribe-token";
+import { env, requireEnv } from "@/lib/config";
 
 // One-click unsubscribe handler — no login required.
 //
@@ -16,14 +17,12 @@ import {
 // notification_preferences to false, and either redirect (GET) or return
 // a tiny 200 (POST).
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-
 function adminSupabase() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-  return createSupabaseClient(url, key, {
-    auth: { autoRefreshToken: false, persistSession: false },
-  });
+  return createSupabaseClient(
+    env.NEXT_PUBLIC_SUPABASE_URL,
+    requireEnv("SUPABASE_SERVICE_ROLE_KEY"),
+    { auth: { autoRefreshToken: false, persistSession: false } },
+  );
 }
 
 async function applyUnsubscribe(
@@ -54,7 +53,7 @@ export async function GET(request: Request) {
     // Bad / tampered token. Don't write anything; show a friendly page
     // that points to /settings. No 500, no stack trace.
     return NextResponse.redirect(
-      `${SITE_URL}/email/unsubscribed?error=invalid`,
+      `${env.NEXT_PUBLIC_SITE_URL}/email/unsubscribed?error=invalid`,
       { status: 303 },
     );
   }
@@ -62,13 +61,13 @@ export async function GET(request: Request) {
   const ok = await applyUnsubscribe(payload.userId, payload.kind);
   if (!ok) {
     return NextResponse.redirect(
-      `${SITE_URL}/email/unsubscribed?error=write`,
+      `${env.NEXT_PUBLIC_SITE_URL}/email/unsubscribed?error=write`,
       { status: 303 },
     );
   }
 
   return NextResponse.redirect(
-    `${SITE_URL}/email/unsubscribed?kind=${encodeURIComponent(payload.kind)}`,
+    `${env.NEXT_PUBLIC_SITE_URL}/email/unsubscribed?kind=${encodeURIComponent(payload.kind)}`,
     { status: 303 },
   );
 }

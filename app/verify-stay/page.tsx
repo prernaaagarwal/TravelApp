@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { ShieldCheck } from "lucide-react";
 import { StayVerifyForm } from "@/components/verify/StayVerifyForm";
+import { env } from "@/lib/config";
 
 export const metadata = {
   title: "Verify Your Stay — Wander Women",
@@ -12,7 +13,7 @@ export const metadata = {
 // The AI safety analysis runs against the Anthropic API. Without a configured
 // key the feature is temporarily disabled — we show a "coming back soon"
 // state instead of a form that can't actually do anything.
-const isAiEnabled = !!process.env.ANTHROPIC_API_KEY;
+const isAiEnabled = !!env.ANTHROPIC_API_KEY;
 
 export default async function VerifyStayPage() {
   const supabase = await createClient();

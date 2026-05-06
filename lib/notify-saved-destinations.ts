@@ -1,15 +1,15 @@
 import { createClient as createSupabaseClient, type SupabaseClient } from "@supabase/supabase-js";
 import { CITY_LABELS } from "@/lib/constants";
 import { sendBewareAlertToSaver } from "@/lib/email";
+import { env } from "@/lib/config";
 
 // Service-role client. We need to read auth.users for emails and bypass RLS
 // on saved_destinations / notification_preferences for users other than the
 // caller (the admin approving the report).
 function adminSupabase(): SupabaseClient | null {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) return null;
-  return createSupabaseClient(url, key, {
+  const key = env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!key) return null;
+  return createSupabaseClient(env.NEXT_PUBLIC_SUPABASE_URL, key, {
     auth: { autoRefreshToken: false, persistSession: false },
   });
 }

@@ -16,8 +16,9 @@ import { ShareIntelButton } from "@/components/shared/ShareIntelButton";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { intelCardLd, breadcrumbLd } from "@/lib/jsonld";
 import { ViewTracker } from "@/components/intel/ViewTracker";
+import { env } from "@/lib/config";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.app";
+const SITE_URL = env.NEXT_PUBLIC_SITE_URL;
 
 type Params = Promise<{ slug: string }>;
 

@@ -1,5 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { CITY_LABELS } from "@/lib/constants";
+import { env } from "@/lib/config";
 
 // Pure functions for the weekly digest. The cron handler does I/O; this
 // file just turns inputs into a payload + the payload into HTML so each
@@ -133,7 +134,7 @@ export function isDigestEmpty(payload: DigestPayload): boolean {
 // into email-template) because the layout is digest-specific — grouped by
 // destination with section headers — and reusing buildBody's heading +
 // single-paragraph format would be awkward.
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const SITE_URL = env.NEXT_PUBLIC_SITE_URL;
 
 function escape(s: string): string {
   return s

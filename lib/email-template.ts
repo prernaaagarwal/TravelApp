@@ -3,7 +3,9 @@
 // that the templated/escaped output can be unit-tested without mocking
 // any external service.
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { env } from "@/lib/config";
+
+const SITE_URL = env.NEXT_PUBLIC_SITE_URL;
 
 export function escapeHtml(s: string): string {
   return s

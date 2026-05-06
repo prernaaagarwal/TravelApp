@@ -1,4 +1,5 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
+import { env } from "@/lib/config";
 
 // HMAC-signed unsubscribe token. The token is its own auth — no login
 // required to honour an unsubscribe click. Per founder direction:
@@ -20,14 +21,14 @@ export type UnsubscribePayload = {
 const VERSION = 1;
 
 function getSecret(): string {
-  const s = process.env.UNSUBSCRIBE_SECRET;
-  if (!s || s.length < 16) {
-    // Fallback during local dev only. In production, throwing would be
-    // safer, but Resend is also a no-op without an API key, so the email
-    // won't actually go out anyway.
-    return "ww-dev-only-do-not-use-in-prod-________";
+  if (env.UNSUBSCRIBE_SECRET) return env.UNSUBSCRIBE_SECRET;
+  // In production, refuse to sign or verify with a known-public string —
+  // tokens would be forgeable. In dev/test, fall back so local flows work
+  // without forcing every contributor to set the env var.
+  if (env.NODE_ENV === "production") {
+    throw new Error("UNSUBSCRIBE_SECRET must be set (>= 16 chars) in production");
   }
-  return s;
+  return "ww-dev-only-do-not-use-in-prod-________";
 }
 
 function b64urlEncode(input: Buffer | string): string {

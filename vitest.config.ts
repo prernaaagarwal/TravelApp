@@ -14,6 +14,14 @@ export default defineConfig({
     environment: "happy-dom",
     globals: false,
     include: ["tests/**/*.test.ts", "tests/**/*.test.tsx"],
+    // Required env so lib/config.ts (validated at module load) doesn't throw
+    // when imported transitively by tested modules. Placeholders only —
+    // the test suite never connects to a real Supabase project.
+    env: {
+      NEXT_PUBLIC_SUPABASE_URL: "https://test-placeholder.supabase.co",
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: "test-placeholder-anon-key",
+      NEXT_PUBLIC_SITE_URL: "https://wanderwomen.app",
+    },
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "json-summary"],
