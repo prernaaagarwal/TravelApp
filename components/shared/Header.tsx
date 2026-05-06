@@ -25,7 +25,10 @@ export async function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ww-border/60 bg-sand/85 backdrop-blur-sm">
+    <header
+      data-testid="site-header"
+      className="sticky top-0 z-40 border-b border-ww-border/60 bg-sand/85 backdrop-blur-sm"
+    >
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:px-6">
         <Link
           href="/"
