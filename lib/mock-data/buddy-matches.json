@@ -11,7 +11,7 @@
     "travelStyle": ["food", "culture", "relaxation"],
     "styleTags": ["Same dates", "Same budget", "Hostel-friendly"],
     "idVerified": true,
-    "photoUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop&crop=faces&auto=format"
+    "photoUrl": ""
   },
   {
     "id": "buddy-002",
@@ -25,7 +25,7 @@
     "travelStyle": ["adventure", "food"],
     "styleTags": ["First-timer", "Same dates", "Backpacker"],
     "idVerified": false,
-    "photoUrl": "https://images.unsplash.com/photo-1548142813-c348350df52b?w=400&h=400&fit=crop&crop=faces&auto=format"
+    "photoUrl": ""
   },
   {
     "id": "buddy-003",
@@ -39,7 +39,7 @@
     "travelStyle": ["relaxation", "yoga", "food"],
     "styleTags": ["Experienced", "Wellness focus", "Solo veteran"],
     "idVerified": true,
-    "photoUrl": "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=400&h=400&fit=crop&crop=faces&auto=format"
+    "photoUrl": ""
   },
   {
     "id": "buddy-004",
@@ -53,7 +53,7 @@
     "travelStyle": ["yoga", "adventure", "offbeat"],
     "styleTags": ["Same dates", "Yoga retreat", "Hostel-friendly"],
     "idVerified": true,
-    "photoUrl": "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=400&h=400&fit=crop&crop=faces&auto=format"
+    "photoUrl": ""
   },
   {
     "id": "buddy-005",
@@ -67,7 +67,7 @@
     "travelStyle": ["yoga", "relaxation"],
     "styleTags": ["First-time yoga retreat", "Same dates"],
     "idVerified": false,
-    "photoUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=faces&auto=format"
+    "photoUrl": ""
   },
   {
     "id": "buddy-006",
@@ -81,7 +81,7 @@
     "travelStyle": ["adventure", "offbeat", "culture"],
     "styleTags": ["Mountain regular", "Trek-ready", "Same dates"],
     "idVerified": true,
-    "photoUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=faces&auto=format"
+    "photoUrl": ""
   },
   {
     "id": "buddy-007",
@@ -95,7 +95,7 @@
     "travelStyle": ["adventure", "food"],
     "styleTags": ["First-timer", "Backpacker", "Same dates"],
     "idVerified": false,
-    "photoUrl": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=faces&auto=format"
+    "photoUrl": ""
   },
   {
     "id": "buddy-008",
@@ -109,7 +109,7 @@
     "travelStyle": ["culture", "food", "art"],
     "styleTags": ["Foreign visitor", "Heritage focus", "Mid-range stays"],
     "idVerified": true,
-    "photoUrl": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=faces&auto=format"
+    "photoUrl": ""
   },
   {
     "id": "buddy-009",
@@ -123,7 +123,7 @@
     "travelStyle": ["culture", "art", "food"],
     "styleTags": ["Heritage hotels", "Same dates", "Art lover"],
     "idVerified": true,
-    "photoUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=faces&auto=format"
+    "photoUrl": ""
   },
   {
     "id": "buddy-010",
@@ -137,6 +137,6 @@
     "travelStyle": ["food", "yoga", "relaxation"],
     "styleTags": ["Backwaters trip", "Wellness focus", "Same dates"],
     "idVerified": true,
-    "photoUrl": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&h=400&fit=crop&crop=faces&auto=format"
+    "photoUrl": ""
   }
 ]
