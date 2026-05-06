@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { ImportClient } from "./ImportClient";
 import { TEMPLATE_JSON } from "./template";
+import { env } from "@/lib/config";
 
 export const metadata = {
   title: "Bulk Import Intel Cards — Wander Women Admin",
@@ -13,8 +14,7 @@ export const dynamic = "force-dynamic";
 export default async function ImportPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  const adminEmail = process.env.ADMIN_EMAIL;
-  if (!user || !adminEmail || user.email !== adminEmail) {
+  if (!user || !env.ADMIN_EMAIL || user.email !== env.ADMIN_EMAIL) {
     redirect("/account/login?next=/admin/intel/import");
   }
 

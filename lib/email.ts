@@ -1,13 +1,13 @@
 import { Resend } from "resend";
 import { buildBody } from "@/lib/email-template";
+import { env } from "@/lib/config";
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const FROM = process.env.EMAIL_FROM ?? "Wander Women <noreply@wanderwomen.in>";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const FROM = env.EMAIL_FROM;
+const SITE_URL = env.NEXT_PUBLIC_SITE_URL;
 
 function getResend(): Resend | null {
-  if (!RESEND_API_KEY) return null;
-  return new Resend(RESEND_API_KEY);
+  if (!env.RESEND_API_KEY) return null;
+  return new Resend(env.RESEND_API_KEY);
 }
 
 export async function sendTripApproved(to: string) {

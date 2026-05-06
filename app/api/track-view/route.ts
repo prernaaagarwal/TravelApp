@@ -1,13 +1,18 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createHash } from "node:crypto";
 import { createClient } from "@/lib/supabase/server";
+import { env } from "@/lib/config";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-// Salt the fingerprint with a stable secret so two independent attackers
-// can't pre-compute hashes of likely IPs to identify viewers.
-const FP_SALT = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "wanderwomen-fp-salt";
+// Salt the fingerprint with a stable server-only secret so two independent
+// attackers can't pre-compute hashes of likely IPs to identify viewers.
+// Prefer a dedicated FINGERPRINT_SALT; fall back to UNSUBSCRIBE_SECRET (which
+// is already required for HMAC tokens) so a single env var covers both. If
+// neither is set, skip the anonymous fingerprint entirely — degrading view
+// dedup is far better than burning a hardcoded literal salt into source.
+const FP_SALT = env.FINGERPRINT_SALT ?? env.UNSUBSCRIBE_SECRET ?? null;
 const SLUG_RE = /^[a-z0-9-]{2,80}$/;
 
 export async function POST(req: NextRequest) {
@@ -26,7 +31,7 @@ export async function POST(req: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
 
   let fingerprint: string | null = null;
-  if (!user) {
+  if (!user && FP_SALT) {
     const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
       ?? req.headers.get("x-real-ip")
       ?? "0.0.0.0";
