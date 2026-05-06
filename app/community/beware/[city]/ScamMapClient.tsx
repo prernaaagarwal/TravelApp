@@ -26,6 +26,7 @@ const MAP_COLORS = {
   harassment: "#8b2252",  // deep crimson — no CSS var equivalent
   transport:  "#b5710a",  // amber — no CSS var equivalent
   stay:       "#1a4a7a",  // navy — no CSS var equivalent
+  washroom:   "#3d8b8b",  // teal — utility/clean, distinct from danger hues
   heatMid:    "#f5c842",  // heat gradient mid
   heatHigh:   "#e8760a",  // heat gradient high
 } as const;
@@ -36,16 +37,21 @@ const COLORS: Record<MapReport["type"], string> = {
   transport:  MAP_COLORS.transport,
   stay:       MAP_COLORS.stay,
   safe:       MAP_COLORS.sage,
+  washroom:   MAP_COLORS.washroom,
 };
 
-const TYPES: MapReport["type"][] = ["scam", "harassment", "transport", "stay", "safe"];
+const TYPES: MapReport["type"][] = ["scam", "harassment", "transport", "stay", "safe", "washroom"];
 
+// Heatmap intensity per type. Washrooms aren't a "danger" signal so they
+// stay near the floor — their value is in the pin (where exactly is one
+// usable now), not the heat blob.
 const INTENSITY: Record<MapReport["type"], number> = {
   harassment: 1.0,
   scam:       0.8,
   transport:  0.7,
   stay:       0.6,
   safe:       0.1,
+  washroom:   0.1,
 };
 
 const HEAT_GRADIENT = {
@@ -58,6 +64,26 @@ const HEAT_GRADIENT = {
 const ZOOM_BREAKPOINT = 13;
 const LABEL_MIN_ZOOM  = 12;
 const LABEL_MAX_ZOOM  = 13;
+
+const WASHROOM_TYPE_LABEL: Record<string, string> = {
+  "public-toilet":  "Public toilet",
+  "mall":           "Mall",
+  "cafe":           "Café / restaurant",
+  "petrol-pump":    "Petrol pump",
+  "metro-station":  "Metro station",
+  "sulabh":         "Sulabh",
+  "hotel-lobby":    "Hotel lobby",
+  "other":          "Other",
+};
+
+const WASHROOM_STATE_STYLE: Record<
+  "usable" | "poor" | "unsafe",
+  { label: string; bg: string; fg: string }
+> = {
+  usable: { label: "Usable", bg: "#d4e8d8", fg: "#2f5e3c" },  // sage-light + sage-dark
+  poor:   { label: "Poor",   bg: "#f5e8c0", fg: "#7a5a07" },  // gold-light + gold-dark
+  unsafe: { label: "Unsafe", bg: "#f0d5c8", fg: "#8a3318" },  // rust-light + rust-dark
+};
 
 function createIcon(L: typeof LeafletNS, type: MapReport["type"]) {
   const color = COLORS[type];
@@ -732,6 +758,26 @@ function DetailPanel({
       <div className="overflow-y-auto px-4 pb-6 space-y-3">
         <h3 className="font-serif text-xl leading-snug text-ink">{report.title}</h3>
         <p className="font-mono text-[11px] text-ww-muted">📍 {report.place}</p>
+        {report.type === "washroom" && (report.washroomType || report.washroomState) && (
+          <div className="flex flex-wrap gap-2">
+            {report.washroomType && (
+              <span className="rounded border border-ww-border bg-sand px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+                {WASHROOM_TYPE_LABEL[report.washroomType] ?? report.washroomType}
+              </span>
+            )}
+            {report.washroomState && (
+              <span
+                className="rounded px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest"
+                style={{
+                  background: WASHROOM_STATE_STYLE[report.washroomState].bg,
+                  color: WASHROOM_STATE_STYLE[report.washroomState].fg,
+                }}
+              >
+                {WASHROOM_STATE_STYLE[report.washroomState].label}
+              </span>
+            )}
+          </div>
+        )}
         <p className="font-mono text-xs leading-relaxed text-ink">{report.desc}</p>
         <div className="flex flex-wrap gap-3 font-mono text-[10px] text-ww-muted">
           <span>{report.date}</span>

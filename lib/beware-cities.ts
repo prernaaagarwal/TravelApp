@@ -13,7 +13,7 @@ export type MapReport = {
   id: string;
   lat: number;
   lng: number;
-  type: "scam" | "harassment" | "transport" | "stay" | "safe";
+  type: "scam" | "harassment" | "transport" | "stay" | "safe" | "washroom";
   title: string;
   place: string;
   desc: string;
@@ -22,6 +22,10 @@ export type MapReport = {
   reporter: string;
   isDemo?: boolean;
   isHelpfulByMe?: boolean;
+  // Set only when type === "washroom" — drives the detail panel's
+  // place-type and condition badges.
+  washroomType?: string;
+  washroomState?: "usable" | "poor" | "unsafe";
 };
 
 export type Neighbourhood = { name: string; lat: number; lng: number };
@@ -141,6 +145,7 @@ export const BEWARE_CITIES: Record<string, CityEntry> = {
 
 export function normaliseCategory(raw: string): MapReport["type"] {
   const s = raw.toLowerCase();
+  if (s.includes("washroom") || s.includes("toilet")) return "washroom";
   if (s.includes("harass")) return "harassment";
   if (s.includes("transport") || s.includes("taxi") || s.includes("auto") || s.includes("bus")) return "transport";
   if (s.includes("stay") || s.includes("accom") || s.includes("hotel") || s.includes("hostel")) return "stay";
