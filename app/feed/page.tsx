@@ -101,6 +101,8 @@ export default async function FeedPage({
       .eq("status", "approved")
       .order("created_at", { ascending: false }),
     [],
+    1500,
+    "feed.trip_submissions",
   );
 
   const dbNormalized: Trip[] = dbTrips.map((t) => ({
@@ -160,6 +162,8 @@ export default async function FeedPage({
   const rawCards = await safeQuery<SafetyCard[]>(
     supabase.from("intel_cards").select("slug, neighborhoods"),
     [],
+    1500,
+    "feed.intel_cards.neighborhoods",
   );
   const safetyByDestination: Record<string, { avg: number; count: number }> = {};
   for (const card of rawCards) {

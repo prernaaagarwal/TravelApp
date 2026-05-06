@@ -40,10 +40,14 @@ export default async function ExplorePage() {
         .select("slug,destination,country,audience,contributor_slug,hero_image_url,tldr,is_premium,estimated_daily_budget")
         .order("destination"),
       [],
+      1500,
+      "explore.intel_cards",
     ),
     safeQuery<DbContrib[]>(
       supabase.from("contributors").select("slug,name,photo_url"),
       [],
+      1500,
+      "explore.contributors",
     ),
   ]);
 

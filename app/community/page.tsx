@@ -57,10 +57,14 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
       safeQuery<{ post_id: string }[]>(
         supabase.from("community_post_helpful").select("post_id").eq("user_id", user.id),
         [],
+        1500,
+        "community.helpful_posts",
       ),
       safeQuery<{ report_id: string }[]>(
         supabase.from("beware_helpful").select("report_id").eq("user_id", user.id),
         [],
+        1500,
+        "community.helpful_bewares",
       ),
     ]);
     helpfulPostIds   = new Set(hp.map((r) => String(r.post_id)));
@@ -99,6 +103,8 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
       )
       .eq("status", "approved"),
     [],
+    1500,
+    "community.posts",
   );
 
   const dbNormalized: RawPost[] = dbPosts.map((p) => ({
@@ -141,6 +147,8 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
       )
       .eq("status", "approved"),
     [],
+    1500,
+    "community.beware_reports",
   );
 
   type RawBeware = {
