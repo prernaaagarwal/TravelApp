@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { createClient, createStaticClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { contributorLd } from "@/lib/jsonld";
 
@@ -24,57 +25,80 @@ export async function generateMetadata({ params }: { params: Params }) {
   };
 }
 
+// Supabase rows are loosely typed at the query layer; downstream usage
+// handles each field. Match the previous implicit-any behavior.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type FullContributorRow = Record<string, any>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type CardRow = Record<string, any>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type PostRow = Record<string, any>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type StatsRow = Record<string, any>;
+
 export default async function ContributorPage({ params }: { params: Params }) {
   const { name } = await params;
   const supabase = await createClient();
 
-  const { data: raw } = await supabase.from("contributors").select("*").eq("slug", name).single();
+  const raw = await safeQuery<FullContributorRow | null>(
+    supabase.from("contributors").select("*").eq("slug", name).single(),
+    null,
+  );
   if (!raw) notFound();
 
   const contributor = {
-    slug: raw.slug,
-    name: raw.name,
-    fullName: raw.full_name,
-    homeCity: raw.home_city,
-    ageRange: raw.age_range,
-    tripCount: raw.trip_count,
-    tagline: raw.tagline,
+    slug: raw.slug as string,
+    name: raw.name as string,
+    fullName: raw.full_name as string,
+    homeCity: raw.home_city as string,
+    ageRange: raw.age_range as string,
+    tripCount: raw.trip_count as number,
+    tagline: raw.tagline as string,
     bio: raw.bio as string,
-    photoUrl: raw.photo_url,
+    photoUrl: raw.photo_url as string,
     badges: raw.badges as string[],
-    instagram: raw.instagram,
-    totalContributions: raw.total_contributions,
-    answersInCommunity: raw.answers_in_community,
-    earningsThisMonth: raw.earnings_this_month,
+    instagram: raw.instagram as string,
+    totalContributions: raw.total_contributions as number,
+    answersInCommunity: raw.answers_in_community as number,
+    earningsThisMonth: raw.earnings_this_month as number,
   };
 
-  const [{ data: rawCards }, { data: rawPosts }, { data: stats }] = await Promise.all([
-    supabase.from("intel_cards").select("slug,destination,country,hero_image_url,tldr").eq("contributor_slug", name),
-    supabase.from("community_posts").select("id,content,destination,like_count,created_at").eq("author_name", contributor.name).eq("tab", "ask").eq("status", "approved").limit(4),
-    supabase.from("contributor_stats").select("*").eq("slug", name).maybeSingle(),
+  const [rawCards, rawPosts, stats] = await Promise.all([
+    safeQuery<CardRow[]>(
+      supabase.from("intel_cards").select("slug,destination,country,hero_image_url,tldr").eq("contributor_slug", name),
+      [],
+    ),
+    safeQuery<PostRow[]>(
+      supabase.from("community_posts").select("id,content,destination,like_count,created_at").eq("author_name", contributor.name).eq("tab", "ask").eq("status", "approved").limit(4),
+      [],
+    ),
+    safeQuery<StatsRow | null>(
+      supabase.from("contributor_stats").select("*").eq("slug", name).maybeSingle(),
+      null,
+    ),
   ]);
 
   // Real, live stats from the view. Falls back to seed values if the view
   // isn't available (e.g. legacy contributors with all zeros).
   const liveStats = {
-    intelCardCount:        (stats?.intel_card_count        as number | undefined) ?? 0,
-    intelTotalViews:       (stats?.intel_total_views       as number | undefined) ?? 0,
-    intelVerifications:    (stats?.intel_verifications     as number | undefined) ?? 0,
-    bewareCount:           (stats?.beware_count            as number | undefined) ?? 0,
-    bewareTotalHelpful:    (stats?.beware_total_helpful    as number | undefined) ?? 0,
-    postCount:             (stats?.post_count              as number | undefined) ?? 0,
-    postTotalHelpful:      (stats?.post_total_helpful      as number | undefined) ?? 0,
+    intelCardCount:        stats?.intel_card_count        ?? 0,
+    intelTotalViews:       stats?.intel_total_views       ?? 0,
+    intelVerifications:    stats?.intel_verifications     ?? 0,
+    bewareCount:           stats?.beware_count            ?? 0,
+    bewareTotalHelpful:    stats?.beware_total_helpful    ?? 0,
+    postCount:             stats?.post_count              ?? 0,
+    postTotalHelpful:      stats?.post_total_helpful      ?? 0,
   };
 
-  const herCards = (rawCards ?? []).map((c) => ({
+  const herCards = rawCards.map((c) => ({
     slug: c.slug,
     destination: c.destination,
     country: c.country,
     heroImageUrl: c.hero_image_url,
-    tldr: c.tldr as string[],
+    tldr: c.tldr,
   }));
 
-  const herPosts = (rawPosts ?? []).map((p) => ({
+  const herPosts = rawPosts.map((p) => ({
     id: p.id,
     content: p.content,
     destination: p.destination,

@@ -2,6 +2,7 @@ import tripFeed from "@/lib/mock-data/trip-feed.json";
 import contributors from "@/lib/mock-data/contributors.json";
 import { ReceiptsClient } from "./ReceiptsClient";
 import { createClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
 
 export const dynamic = "force-dynamic";
 
@@ -71,16 +72,38 @@ export default async function FeedPage({
   const { destination } = await searchParams;
   const supabase = await createClient();
 
-  // Approved DB-submitted trips augment the mock seed feed.
-  const { data: dbTrips } = await supabase
-    .from("trip_submissions")
-    .select(
-      "id, contributor_slug, destination_slug, destination, trip_start, trip_end, day_count, total_cost_inr, total_cost_usd, cost_stay, cost_food, cost_transport, cost_activities, cost_misc, top_notes, highlight",
-    )
-    .eq("status", "approved")
-    .order("created_at", { ascending: false });
+  type DbTrip = {
+    id: string;
+    contributor_slug: string | null;
+    destination_slug: string;
+    destination: string;
+    trip_start: string;
+    trip_end: string;
+    day_count: number;
+    total_cost_inr: number;
+    total_cost_usd: number;
+    cost_stay: number;
+    cost_food: number;
+    cost_transport: number;
+    cost_activities: number;
+    cost_misc: number;
+    top_notes: unknown;
+    highlight: string;
+  };
 
-  const dbNormalized: Trip[] = (dbTrips ?? []).map((t) => ({
+  // Approved DB-submitted trips augment the mock seed feed.
+  const dbTrips = await safeQuery<DbTrip[]>(
+    supabase
+      .from("trip_submissions")
+      .select(
+        "id, contributor_slug, destination_slug, destination, trip_start, trip_end, day_count, total_cost_inr, total_cost_usd, cost_stay, cost_food, cost_transport, cost_activities, cost_misc, top_notes, highlight",
+      )
+      .eq("status", "approved")
+      .order("created_at", { ascending: false }),
+    [],
+  );
+
+  const dbNormalized: Trip[] = dbTrips.map((t) => ({
     id:              t.id,
     contributorSlug: t.contributor_slug ?? "",
     destinationSlug: t.destination_slug,
@@ -133,18 +156,20 @@ export default async function FeedPage({
   // soloScoreFor(trip.id) hack which produced inconsistent 8.4–9.6
   // values for the same destination across cards.
   type Hood = { safetyRating?: number };
-  const { data: rawCards } = await supabase
-    .from("intel_cards")
-    .select("slug, neighborhoods");
+  type SafetyCard = { slug: string; neighborhoods: Hood[] | null };
+  const rawCards = await safeQuery<SafetyCard[]>(
+    supabase.from("intel_cards").select("slug, neighborhoods"),
+    [],
+  );
   const safetyByDestination: Record<string, { avg: number; count: number }> = {};
-  for (const card of rawCards ?? []) {
-    const hoods = (card.neighborhoods as Hood[] | null) ?? [];
+  for (const card of rawCards) {
+    const hoods = card.neighborhoods ?? [];
     const ratings = hoods
       .map((h) => h.safetyRating)
       .filter((r): r is number => typeof r === "number");
     if (ratings.length === 0) continue;
     const avg = ratings.reduce((a, b) => a + b, 0) / ratings.length;
-    safetyByDestination[card.slug as string] = {
+    safetyByDestination[card.slug] = {
       avg:   Math.round(avg * 10) / 10,
       count: ratings.length,
     };
