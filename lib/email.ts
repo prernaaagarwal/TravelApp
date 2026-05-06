@@ -100,6 +100,103 @@ export async function sendBewareRejected(to: string, reason?: string) {
   });
 }
 
+// ── Identity verification (Buddy gate) ──────────────────────────────────────
+export async function sendVerificationApproved(to: string) {
+  const resend = getResend();
+  if (!resend) return;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "You're verified on Wander Women",
+    html: buildBody(
+      "You're verified.",
+      "Phone confirmed and ID reviewed — you can now send hellos on the Buddy page. As promised, we've deleted your ID photo from our servers; we keep only the verified flag and the date.",
+      { cta: { label: "Find a buddy →", href: `${SITE_URL}/buddy` } }
+    ),
+  });
+}
+
+export async function sendVerificationRejected(to: string, reason?: string) {
+  const resend = getResend();
+  if (!resend) return;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "Update on your Wander Women verification",
+    html: buildBody(
+      "We couldn't verify your account.",
+      "Our team reviewed your submission and couldn't confirm your identity from the photo. You can re-upload a clearer ID-and-selfie photo at any time.",
+      { reason, cta: { label: "Try again →", href: `${SITE_URL}/account/verify` } }
+    ),
+  });
+}
+
+// ── Buddy profile reports ───────────────────────────────────────────────────
+export async function sendBuddyReportAcknowledged(to: string) {
+  const resend = getResend();
+  if (!resend) return;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "Thanks for the report — we'll review within 24 hours",
+    html: buildBody(
+      "Thanks for the report.",
+      "A member of our team will review the profile within 24 hours. If two or more members of the community have flagged the same profile, it has already been auto-paused while we review. We'll email you once we've reached a decision."
+    ),
+  });
+}
+
+export async function sendBuddyReportResolved(
+  to: string,
+  outcome: "actioned" | "dismissed",
+) {
+  const resend = getResend();
+  if (!resend) return;
+  const dismissed = outcome === "dismissed";
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: dismissed
+      ? "We reviewed the profile you flagged"
+      : "We took action on the profile you flagged",
+    html: buildBody(
+      dismissed ? "Reviewed — no violation found." : "We took action.",
+      dismissed
+        ? "Our team reviewed the profile you reported and didn't find a violation of our community guidelines. The profile is back online. If you see new behaviour that worries you, please report again."
+        : "Our team reviewed the profile you reported and removed it from Buddy matching. Thank you for keeping this community safer."
+    ),
+  });
+}
+
+// Sunday-morning digest. Bundles medium-severity bewares + new intel cards
+// in saved destinations + (optionally) platform-wide new intel cards into
+// one calm email. Critical/high beware reports keep their per-approval
+// path in lib/notify-saved-destinations.ts.
+//
+// `htmlBody` is built by lib/digest.ts:formatDigestEmail (already includes
+// the unsubscribe link in the footer). We also set RFC 8058 List-Unsubscribe
+// headers so Gmail / Apple Mail render their inline native "Unsubscribe"
+// button at the top of the email.
+export async function sendWeeklyDigest(
+  to: string,
+  htmlBody: string,
+  unsubscribeUrl: string,
+) {
+  const resend = getResend();
+  if (!resend) return;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "This week in your saved destinations — Wander Women",
+    html: htmlBody,
+    headers: {
+      // RFC 2369 + RFC 8058: client-rendered native unsubscribe button.
+      "List-Unsubscribe": `<${unsubscribeUrl}>`,
+      "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+    },
+  });
+}
+
 // Sent to a user who saved a destination when a new beware report is approved
 // for that destination. The retention loop: dossier read → save → return when
 // something changes. Sender is responsible for batching / rate-limiting.

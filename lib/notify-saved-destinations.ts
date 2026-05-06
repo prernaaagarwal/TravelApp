@@ -34,6 +34,11 @@ export type BewareAlertPayload = {
   excludeUserId: string | null;
 };
 
+// Severities that fire the real-time alert. Mediums and lows are deferred
+// to the weekly digest so opted-in users aren't blasted with marginal
+// reports — only critical/high warrant interrupting their day.
+const REALTIME_SEVERITIES = new Set(["critical", "high"]);
+
 // Find every user who has saved this destination AND has opted in to beware
 // alerts AND has email notifications enabled, then send one alert email per
 // user. Errors per-recipient don't abort the loop — we want a partial send
@@ -41,7 +46,14 @@ export type BewareAlertPayload = {
 // this is safe to fire-and-forget.
 export async function notifySaversOfBewareReport(
   payload: BewareAlertPayload,
-): Promise<{ sent: number; skipped: number }> {
+): Promise<{ sent: number; skipped: number; deferredToDigest?: boolean }> {
+  // Severity gate: only critical + high go out instantly. Anything else
+  // waits for the Sunday digest cron (app/api/cron/weekly-digest).
+  const sev = (payload.reportSeverity ?? "").toLowerCase();
+  if (!REALTIME_SEVERITIES.has(sev)) {
+    return { sent: 0, skipped: 0, deferredToDigest: true };
+  }
+
   const admin = adminSupabase();
   if (!admin) return { sent: 0, skipped: 0 };
 

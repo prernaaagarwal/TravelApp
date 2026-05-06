@@ -14,6 +14,7 @@ import { createPost, togglePostHelpful, reportPost, toggleBewareHelpful, reportB
 import { createClient } from "@/lib/supabase/client";
 import { BEWARE_CITIES } from "@/lib/beware-cities";
 import { INTERNATIONAL_COUNTRIES } from "@/lib/international-destinations";
+import { CollapsibleText } from "./CollapsibleText";
 import { BewareModerationBanner } from "@/components/community/BewareModerationBanner";
 
 type Post = {
@@ -70,7 +71,7 @@ const TAB_META = {
     label: "Beware Board",
     short: "Beware",
     placeholder: "Report a scam or safety issue",
-    cta: "Report a scam",
+    cta: "Submit a report",
   },
 } as const;
 
@@ -534,7 +535,7 @@ function PostCard({ post, userEmail }: { post: Post; userEmail: string | null })
         <h3 className="mb-2 font-serif text-lg leading-snug text-ink">{post.title}</h3>
       )}
 
-      <p className="mb-3 text-sm leading-relaxed text-ink">{post.content}</p>
+      <CollapsibleText text={post.content} className="mb-3" clamp={2} />
 
       {post.imageUrls && post.imageUrls.length > 0 && (
         <div className="mb-3 grid grid-cols-3 gap-1.5">
@@ -800,7 +801,7 @@ function BewareCard({ b, userEmail }: { b: Beware; userEmail: string | null }) {
 
       <h3 className="mb-2 font-mono text-sm font-semibold text-ink">{b.title}</h3>
 
-      <p className="mb-3 text-xs leading-relaxed text-ww-muted">{b.description}</p>
+      <CollapsibleText text={b.description} className="mb-3" clamp={2} />
 
       <div className="mb-3 flex flex-wrap gap-3 font-mono text-[10px] text-ww-muted">
         <span>📍 {b.location}</span>

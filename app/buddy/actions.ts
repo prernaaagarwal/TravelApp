@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
+import { assertVerified } from "@/lib/buddy-verification";
 
 export async function registerBuddyTrip(formData: FormData) {
   const supabase = await createClient();
@@ -33,12 +34,16 @@ export async function registerBuddyTrip(formData: FormData) {
 }
 
 export async function sendConnection(matchId: string) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return { error: "Not logged in" };
+  let userId: string;
+  try {
+    ({ userId } = await assertVerified());
+  } catch (e) {
+    return { error: e instanceof Error ? e.message : "Verification required." };
+  }
 
+  const supabase = await createClient();
   const { error } = await supabase.from("buddy_connections").insert({
-    from_user_id: user.id,
+    from_user_id: userId,
     to_match_id: matchId,
     status: "pending",
   });

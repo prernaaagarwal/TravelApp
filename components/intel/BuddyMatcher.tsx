@@ -101,9 +101,12 @@ export function BuddyMatcher({ buddies }: { buddies: Buddy[] }) {
                     <h3 className="font-serif text-2xl text-ink">
                       {b.firstName}
                     </h3>
-                    {b.instagramVerified && (
-                      <span className="font-mono text-[10px] text-sage">
-                        ✓ verified
+                    {b.idVerified && (
+                      <span
+                        className="font-mono text-[10px] text-sage"
+                        title="Verified means: phone confirmed + photo ID reviewed by our team. The ID photo is deleted on approval."
+                      >
+                        ✓ phone + ID verified
                       </span>
                     )}
                   </div>

@@ -260,7 +260,7 @@ function NotAContributor() {
             href="/contribute/report"
             className="border border-ww-border bg-warm-white px-5 py-2 font-mono text-[10px] uppercase tracking-widest text-ww-muted transition-colors hover:border-ink hover:text-ink"
           >
-            Report a scam →
+            Submit a report →
           </Link>
         </div>
       </div>

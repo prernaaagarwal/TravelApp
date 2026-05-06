@@ -5,6 +5,7 @@ import { Header } from "@/components/shared/Header";
 import { Footer } from "@/components/shared/Footer";
 import { MobileNav } from "@/components/shared/MobileNav";
 import { PostHogProvider } from "@/components/shared/PostHogProvider";
+import { CookieConsentBanner } from "@/components/shared/CookieConsentBanner";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { organizationLd, websiteLd } from "@/lib/jsonld";
 import { PWA } from "@/components/shared/PWA";
@@ -89,6 +90,7 @@ export default function RootLayout({
           <div className="flex-1">{children}</div>
           <Footer />
           <MobileNav />
+          <CookieConsentBanner />
         </PostHogProvider>
         <PWA />
       </body>

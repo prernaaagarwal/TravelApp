@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CookiePreferencesLink } from "@/components/shared/CookiePreferencesLink";
 
 // Only non-duplicate links — Intel, Community, Safety, Buddy, and Trip
 // Receipts already live in the primary nav (Header + MobileNav). Keeping the
@@ -61,7 +62,7 @@ export function Footer() {
 
         <div className="mt-5 flex flex-col items-start justify-between gap-3 font-mono text-[10px] text-ww-muted md:flex-row md:items-center">
           <span>© 2026 Wander Women — V0 demo build.</span>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <Link href="/privacy" className="hover:text-ink">
               Privacy
             </Link>
@@ -71,6 +72,7 @@ export function Footer() {
             <Link href="/code-of-conduct" className="hover:text-ink">
               Code of Conduct
             </Link>
+            <CookiePreferencesLink />
           </div>
         </div>
       </div>

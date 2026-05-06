@@ -166,7 +166,7 @@ export function SafetyReport({
           {copied ? "Copied" : "Share report"}
         </Button>
         <Button asChild variant="outline" size="sm" className="gap-2 border-ww-border text-ww-muted hover:text-ink">
-          <Link href="/contribute/report">Report a scam</Link>
+          <Link href="/contribute/report">Submit a report</Link>
         </Button>
         <Button asChild size="sm" className="bg-rust text-warm-white hover:bg-rust/90 gap-2 ml-auto">
           <Link href="/verify-stay">Verify another stay</Link>

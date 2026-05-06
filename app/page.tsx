@@ -273,7 +273,7 @@ export default async function HomePage() {
               buttonText="Request access →"
             />
             <p className="mt-5 font-mono text-[10px] uppercase tracking-widest text-ww-muted/70">
-              Women only · we verify · no spam, ever
+              Women only · phone + ID verification for Buddy matching · no spam, ever
             </p>
           </div>
 
