@@ -222,8 +222,14 @@ function MockBuddyCard({ buddy }: { buddy: typeof buddyMatches[0]; rank: number 
         Demo match
       </span>
       <div className="flex flex-wrap items-start gap-4">
-        <Image src={buddy.photoUrl} alt={buddy.firstName}
-          width={64} height={64} className="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-ww-border" />
+        {buddy.photoUrl ? (
+          <Image src={buddy.photoUrl} alt={buddy.firstName}
+            width={64} height={64} className="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-ww-border" />
+        ) : (
+          <div className="h-16 w-16 shrink-0 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xl font-medium ring-2 ring-ww-border">
+            {buddy.firstName[0].toUpperCase()}
+          </div>
+        )}
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-baseline gap-2">
             <h3 className="font-serif text-2xl text-ink">{buddy.firstName}</h3>
