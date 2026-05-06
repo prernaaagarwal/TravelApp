@@ -8,6 +8,8 @@ const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/onboarding", label: "Get Started" },
   { href: "/account/membership", label: "Membership" },
+  { href: "/shop", label: "Safety Kit" },
+  { href: "/methodology", label: "How We Score" },
   { href: "/feedback", label: "Feedback" },
 ];
 
