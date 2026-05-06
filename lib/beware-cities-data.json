@@ -1024,6 +1024,102 @@
         "date": "2 days ago",
         "confirms": 59,
         "reporter": "Divya K."
+      },
+      {
+        "id": "varanasi-india-s8",
+        "lat": 25.4524,
+        "lng": 82.8593,
+        "type": "scam",
+        "title": "Airport taxi overcharge on arrival",
+        "place": "Lal Bahadur Shastri Airport, arrivals exit",
+        "desc": "Quoted ₹2,000–₹2,500 for a ride worth ₹800–₹950. Touts swarm you the moment you exit. Use the prepaid counter inside the terminal or pre-book Ola/Uber. Sedan to ghats = ₹800–₹950 fixed.",
+        "date": "Verified Jan 2025",
+        "confirms": 24,
+        "reporter": "Multiple reports"
+      },
+      {
+        "id": "varanasi-india-s9",
+        "lat": 25.3267,
+        "lng": 82.9876,
+        "type": "scam",
+        "title": "\"Your hotel is closed/burned down\" taxi lie",
+        "place": "Varanasi Junction (Cantt) Railway Station",
+        "desc": "Driver insists your booked hotel is flooded, shut, or changed and takes you to a commission hotel instead. Your hotel is NOT closed. Call ahead to verify and book Ola from the station.",
+        "date": "Verified 2025",
+        "confirms": 31,
+        "reporter": "Multiple reports"
+      },
+      {
+        "id": "varanasi-india-s10",
+        "lat": 25.3076,
+        "lng": 83.0107,
+        "type": "scam",
+        "title": "Boat ride mid-river hostage",
+        "place": "Dashashwamedh Ghat & Assi Ghat",
+        "desc": "Quoted ₹200–₹300 per person for a sunrise boat ride. Boatman stops mid-river and demands ₹2,000–₹5,000 to \"complete the tour,\" refusing to return until paid. Fair private boat = ₹1,200–₹2,000 total for a group. Agree on TOTAL fare before boarding — not per person, not per hour.",
+        "date": "Verified 2025",
+        "confirms": 47,
+        "reporter": "Multiple reports"
+      },
+      {
+        "id": "varanasi-india-s11",
+        "lat": 25.311,
+        "lng": 83.0119,
+        "type": "scam",
+        "title": "Manikarnika wood donation gang",
+        "place": "Manikarnika Ghat (Burning Ghat)",
+        "desc": "Men claim to be volunteers helping poor families cremate their dead. Pressure you to donate ₹300+ per kg of wood. It's a gang — money never reaches any family. Anyone can stand and watch freely. Politely walk away.",
+        "date": "Verified Jan 2025",
+        "confirms": 18,
+        "reporter": "VaranasiGuru"
+      },
+      {
+        "id": "varanasi-india-s12",
+        "lat": 25.3112,
+        "lng": 83.0115,
+        "type": "scam",
+        "title": "\"No photography license\" fake fine at cremation ghat",
+        "place": "Manikarnika Ghat",
+        "desc": "Man approaches claiming you need a paid license to take photos and threatens police. There is no such license. Don't pay. Walk away. (Photography here is disrespectful regardless.)",
+        "date": "Verified 2025",
+        "confirms": 14,
+        "reporter": "Miriam (blog)"
+      },
+      {
+        "id": "varanasi-india-s13",
+        "lat": 25.3109,
+        "lng": 83.0107,
+        "type": "scam",
+        "title": "Fake Kashi Vishwanath darshan website",
+        "place": "Online — fake KV booking sites",
+        "desc": "Fake sites like kashivishwanath.in charge for Sugam Darshan, Rudrabhishek and Aarti bookings — especially during Sawan when the official site suspends bookings. ₹10 lakh extracted from hundreds of devotees. Book ONLY via shrikashivishwanath.org.",
+        "date": "Jul 2025",
+        "confirms": 22,
+        "reporter": "KV Temple Trust"
+      },
+      {
+        "id": "varanasi-india-s14",
+        "lat": 25.3105,
+        "lng": 83.0103,
+        "type": "scam",
+        "title": "Locker shop prasad pressure near KV Temple",
+        "place": "Vishwanath Gali (lane to Kashi Vishwanath Temple)",
+        "desc": "Shops offer to store your phone and shoes before temple entry. Once stored, they pressure you to buy overpriced prasad (₹150+ per basket vs ₹20 actual). Free lockers are available INSIDE the temple corridor, provided by the KV Temple Trust.",
+        "date": "Verified Jan 2025",
+        "confirms": 11,
+        "reporter": "VaranasiGuru"
+      },
+      {
+        "id": "varanasi-india-s15",
+        "lat": 25.2902,
+        "lng": 83.0102,
+        "type": "scam",
+        "title": "Fake sadhu tilak then aggressive donation demand",
+        "place": "Ghats — Dashashwamedh & Assi",
+        "desc": "Man in saffron puts a tilak on your forehead without asking, then demands ₹500–₹2,000 — and becomes aggressive or \"curses\" you if you refuse. Genuine tilak donations are ₹10–₹20 and always agreed first. Don't engage unsolicited \"priests.\"",
+        "date": "Verified Jan 2025",
+        "confirms": 28,
+        "reporter": "Multiple reports"
       }
     ]
   },
