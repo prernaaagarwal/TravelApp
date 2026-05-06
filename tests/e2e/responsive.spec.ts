@@ -78,6 +78,10 @@ for (const vp of VIEWPORTS) {
         }
 
         // Horizontal-overflow guard: page must fit the viewport.
+        // Wait for network idle first — the PWA service-worker registration
+        // and post-hydration prefetch can race with page.evaluate and
+        // destroy the execution context. networkidle settles those.
+        await page.waitForLoadState("networkidle").catch(() => {});
         const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
         expect(
           scrollWidth,
