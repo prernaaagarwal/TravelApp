@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createHash } from "node:crypto";
 import { createClient } from "@/lib/supabase/server";
+import { env } from "@/lib/config";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -11,7 +12,7 @@ export const dynamic = "force-dynamic";
 // is already required for HMAC tokens) so a single env var covers both. If
 // neither is set, skip the anonymous fingerprint entirely — degrading view
 // dedup is far better than burning a hardcoded literal salt into source.
-const FP_SALT = process.env.FINGERPRINT_SALT ?? process.env.UNSUBSCRIBE_SECRET ?? null;
+const FP_SALT = env.FINGERPRINT_SALT ?? env.UNSUBSCRIBE_SECRET ?? null;
 const SLUG_RE = /^[a-z0-9-]{2,80}$/;
 
 export async function POST(req: NextRequest) {

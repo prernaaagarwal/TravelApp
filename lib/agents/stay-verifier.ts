@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { env } from "@/lib/config";
 
 export type RiskColor = "green" | "yellow" | "red";
 
@@ -110,7 +111,7 @@ function parseAgentJson(text: string): StayVerification {
 
 export async function verifyStay(input: VerifyStayInput): Promise<StayVerification> {
   try {
-    const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+    const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
 
     const response = await client.messages.create({
       model: "claude-sonnet-4-6",

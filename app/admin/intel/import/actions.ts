@@ -4,13 +4,13 @@ import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { parseImport, type ImportRowError } from "@/lib/intel-import";
 import type { IntelCardImport } from "@/lib/intel-card-schema";
+import { env } from "@/lib/config";
 
 // ─── Auth ───────────────────────────────────────────────────────────────
 async function assertAdmin() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  const adminEmail = process.env.ADMIN_EMAIL;
-  if (!user || !adminEmail || user.email !== adminEmail) {
+  if (!user || !env.ADMIN_EMAIL || user.email !== env.ADMIN_EMAIL) {
     throw new Error("Unauthorized");
   }
   return { supabase, adminId: user.id };

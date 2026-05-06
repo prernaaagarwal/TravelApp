@@ -4,6 +4,7 @@ import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { buildDigestForUser, formatDigestEmail, isDigestEmpty } from "@/lib/digest";
 import { sendWeeklyDigest } from "@/lib/email";
 import { unsubscribeUrl } from "@/lib/unsubscribe-token";
+import { env, requireEnv } from "@/lib/config";
 
 // Vercel Cron handler — Sunday 03:00 UTC = 08:30 IST so the email lands in
 // IST inboxes by 09:00 local. Schedule lives in vercel.json.
@@ -17,15 +18,13 @@ import { unsubscribeUrl } from "@/lib/unsubscribe-token";
 
 export const maxDuration = 60; // Vercel function timeout (seconds)
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-
 function isAuthedCron(request: Request): boolean {
   if (request.headers.get("x-vercel-cron")) return true;
   const auth = request.headers.get("authorization");
   if (!auth) return false;
   const match = auth.match(/^Bearer\s+(.+)$/i);
   if (!match) return false;
-  const expected = process.env.CRON_SECRET;
+  const expected = env.CRON_SECRET;
   if (!expected) return false;
   // Constant-time compare so request timing doesn't leak the secret.
   const a = Buffer.from(match[1], "utf8");
@@ -35,11 +34,11 @@ function isAuthedCron(request: Request): boolean {
 }
 
 function adminSupabase() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-  return createSupabaseClient(url, key, {
-    auth: { autoRefreshToken: false, persistSession: false },
-  });
+  return createSupabaseClient(
+    env.NEXT_PUBLIC_SUPABASE_URL,
+    requireEnv("SUPABASE_SERVICE_ROLE_KEY"),
+    { auth: { autoRefreshToken: false, persistSession: false } },
+  );
 }
 
 async function runDigest(): Promise<{
@@ -89,7 +88,7 @@ async function runDigest(): Promise<{
         continue;
       }
 
-      const unsubUrl = unsubscribeUrl({ userId, kind: "digest" }, SITE_URL);
+      const unsubUrl = unsubscribeUrl({ userId, kind: "digest" }, env.NEXT_PUBLIC_SITE_URL);
       const html = formatDigestEmail(payload, unsubUrl);
       await sendWeeklyDigest(email, html, unsubUrl);
       sent++;

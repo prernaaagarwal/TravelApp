@@ -3,6 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { createClient as createSupabaseClient, type SupabaseClient } from "@supabase/supabase-js";
 import { revalidatePath } from "next/cache";
+import { env, requireEnv } from "@/lib/config";
 import {
   sendTripApproved, sendTripRejected,
   sendPostApproved, sendPostRejected,
@@ -37,9 +38,11 @@ async function assertAdmin(): Promise<AssertedAdmin> {
 // Service-role client used only for reading auth.users emails. Never returned
 // to the caller and never used for writes that should respect RLS.
 function adminSupabase() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-  return createSupabaseClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });
+  return createSupabaseClient(
+    env.NEXT_PUBLIC_SUPABASE_URL,
+    requireEnv("SUPABASE_SERVICE_ROLE_KEY"),
+    { auth: { autoRefreshToken: false, persistSession: false } },
+  );
 }
 
 async function getEmail(userId: string): Promise<string | null> {

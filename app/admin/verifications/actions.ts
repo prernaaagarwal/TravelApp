@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createClient as createSupabaseClient, type SupabaseClient } from "@supabase/supabase-js";
 import { revalidatePath } from "next/cache";
 import { sendVerificationApproved, sendVerificationRejected } from "@/lib/email";
+import { env, requireEnv } from "@/lib/config";
 
 async function assertAdmin(): Promise<{ supabase: SupabaseClient; adminId: string }> {
   const supabase = await createClient();
@@ -21,9 +22,11 @@ async function assertAdmin(): Promise<{ supabase: SupabaseClient; adminId: strin
 }
 
 function adminSupabase() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-  return createSupabaseClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });
+  return createSupabaseClient(
+    env.NEXT_PUBLIC_SUPABASE_URL,
+    requireEnv("SUPABASE_SERVICE_ROLE_KEY"),
+    { auth: { autoRefreshToken: false, persistSession: false } },
+  );
 }
 
 async function getEmail(userId: string): Promise<string | null> {

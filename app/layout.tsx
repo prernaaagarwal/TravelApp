@@ -9,6 +9,7 @@ import { CookieConsentBanner } from "@/components/shared/CookieConsentBanner";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { organizationLd, websiteLd } from "@/lib/jsonld";
 import { PWA } from "@/components/shared/PWA";
+import { env } from "@/lib/config";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -24,7 +25,7 @@ const dmMono = DM_Mono({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.app";
+const SITE_URL = env.NEXT_PUBLIC_SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

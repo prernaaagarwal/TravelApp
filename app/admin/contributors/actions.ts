@@ -3,12 +3,12 @@
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { env } from "@/lib/config";
 
 async function assertAdmin() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  const adminEmail = process.env.ADMIN_EMAIL;
-  if (!user || !adminEmail || user.email !== adminEmail) {
+  if (!user || !env.ADMIN_EMAIL || user.email !== env.ADMIN_EMAIL) {
     throw new Error("Unauthorized");
   }
   return supabase;

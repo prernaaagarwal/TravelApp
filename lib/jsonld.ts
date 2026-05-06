@@ -1,4 +1,6 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://wanderwomen.app";
+import { env } from "@/lib/config";
+
+const SITE_URL = env.NEXT_PUBLIC_SITE_URL;
 
 export function organizationLd() {
   return {
