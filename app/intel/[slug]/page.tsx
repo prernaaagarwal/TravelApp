@@ -126,7 +126,7 @@ export default async function IntelPage({ params }: { params: Params }) {
   } : null;
 
   return (
-    <div className="bg-warm-white">
+    <div className="overflow-x-clip bg-warm-white">
       <ViewTracker slug={raw.slug} />
       <JsonLd
         data={intelCardLd({
