@@ -10,7 +10,11 @@ export function MobileNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-ww-border/60 bg-sand/95 backdrop-blur md:hidden">
+    <nav
+      data-testid="mobile-nav"
+      aria-label="Mobile navigation"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-ww-border/60 bg-sand/95 backdrop-blur md:hidden"
+    >
       <ul className="mx-auto flex max-w-md items-stretch justify-around">
         {PRIMARY_NAV.map((item) => {
           const Icon = item.icon;
