@@ -4,7 +4,6 @@ import { INTERNATIONAL_CITY_SLUGS } from "@/lib/international-destinations";
 import { createClient } from "@/lib/supabase/server";
 import { safeQuery } from "@/lib/safe-query";
 import rawPosts from "@/lib/mock-data/community-posts.json";
-import rawBeware from "@/lib/mock-data/beware-entries.json";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { faqPageLd } from "@/lib/jsonld";
 
@@ -151,7 +150,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     "community.beware_reports",
   );
 
-  type RawBeware = {
+  type NormalizedBeware = {
     id: string;
     destinationSlug: string;
     city: string;
@@ -165,7 +164,10 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     helpfulCount: number;
   };
 
-  const dbBewareNormalized: RawBeware[] = dbBewares.map((b) => ({
+  // V1: Beware Board feed is DB-only. The previous mock JSON merge has been
+  // removed — every entry is now a real, moderated submission. Sparse
+  // categories show their empty state honestly until more reports arrive.
+  const allBewares: NormalizedBeware[] = dbBewares.map((b) => ({
     id:              b.id,
     destinationSlug: b.destination_slug ?? "",
     city:            b.city ?? "",
@@ -178,11 +180,6 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
     location:        b.location ?? "",
     helpfulCount:    b.helpful_count ?? 0,
   }));
-
-  const allBewares: RawBeware[] = [
-    ...(rawBeware as unknown as RawBeware[]),
-    ...dbBewareNormalized,
-  ];
 
   // Filter posts by location
   let filteredPosts = allPosts.filter((p) => {

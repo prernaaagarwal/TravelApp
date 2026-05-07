@@ -2,9 +2,33 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BadgeCheck, ArrowLeft } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
 import rawPosts from "@/lib/mock-data/community-posts.json";
 import { ReplyForm } from "@/components/community/ReplyForm";
 import { VerifyReplyButton } from "@/components/community/VerifyReplyButton";
+
+type DbPostRow = {
+  id: string;
+  tab: string;
+  title: string | null;
+  content: string;
+  author_name: string | null;
+  author_age_range: string | null;
+  home_city: string | null;
+  destination: string | null;
+  image_urls: unknown;
+  created_at: string;
+};
+type DbReplyRow = {
+  id: string;
+  author_name: string | null;
+  content: string;
+  created_at: string;
+  is_verified: boolean | null;
+  verified_by_name: string | null;
+};
+type ProfileRow = { username: string | null };
+type ContributorRow = { slug: string };
 
 type RawPost = {
   id: string;
@@ -39,14 +63,19 @@ export default async function CommunityPostPage({
 
   // Resolve post: try DB first, fall back to mock seed posts.
   let post: RawPost | null = null;
-  const { data: dbPost } = await supabase
-    .from("community_posts")
-    .select(
-      "id, tab, title, content, author_name, author_age_range, home_city, destination, image_urls, created_at",
-    )
-    .eq("id", id)
-    .eq("status", "approved")
-    .maybeSingle();
+  const dbPost = await safeQuery<DbPostRow | null>(
+    supabase
+      .from("community_posts")
+      .select(
+        "id, tab, title, content, author_name, author_age_range, home_city, destination, image_urls, created_at",
+      )
+      .eq("id", id)
+      .eq("status", "approved")
+      .maybeSingle(),
+    null,
+    1500,
+    "communityPost.dbPost",
+  );
 
   if (dbPost) {
     post = {
@@ -70,16 +99,21 @@ export default async function CommunityPostPage({
 
   // Replies: verified first (newest verified at top), then unverified by oldest.
   // Oldest-first for unverified gives the OP a sensible reading order.
-  const { data: dbReplies } = await supabase
-    .from("community_replies")
-    .select("id, author_name, content, created_at, is_verified, verified_by_name")
-    .eq("post_id", post.id)
-    .eq("status", "approved")
-    .order("is_verified", { ascending: false })
-    .order("verified_at", { ascending: false, nullsFirst: false })
-    .order("created_at", { ascending: true });
+  const dbReplies = await safeQuery<DbReplyRow[]>(
+    supabase
+      .from("community_replies")
+      .select("id, author_name, content, created_at, is_verified, verified_by_name")
+      .eq("post_id", post.id)
+      .eq("status", "approved")
+      .order("is_verified", { ascending: false })
+      .order("verified_at", { ascending: false, nullsFirst: false })
+      .order("created_at", { ascending: true }),
+    [],
+    1500,
+    "communityPost.replies",
+  );
 
-  const replies: Reply[] = (dbReplies ?? []).map((r) => ({
+  const replies: Reply[] = dbReplies.map((r) => ({
     id:             r.id,
     authorName:     r.author_name ?? null,
     content:        r.content,
@@ -89,20 +123,23 @@ export default async function CommunityPostPage({
   }));
 
   // Determine if the current viewer is a contributor — used to show the
-  // Verify button on each reply. Same check as the server action uses.
+  // Verify button on each reply. The server action re-checks before allowing
+  // the mutation, so a fallback-to-false here is safe (UI just hides a button).
   let isContributor = false;
   if (user) {
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("username")
-      .eq("id", user.id)
-      .single();
+    const profile = await safeQuery<ProfileRow | null>(
+      supabase.from("profiles").select("username").eq("id", user.id).single(),
+      null,
+      1500,
+      "communityPost.viewerProfile",
+    );
     if (profile?.username) {
-      const { data: contributor } = await supabase
-        .from("contributors")
-        .select("slug")
-        .eq("slug", profile.username)
-        .maybeSingle();
+      const contributor = await safeQuery<ContributorRow | null>(
+        supabase.from("contributors").select("slug").eq("slug", profile.username).maybeSingle(),
+        null,
+        1500,
+        "communityPost.viewerContributor",
+      );
       isContributor = !!contributor;
     }
   }

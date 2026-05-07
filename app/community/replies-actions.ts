@@ -1,28 +1,38 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
 import { revalidatePath } from "next/cache";
 import type { SupabaseClient } from "@supabase/supabase-js";
+
+type ProfileRow = { username: string | null; first_name: string | null };
+type ContributorRow = { slug: string; name: string | null };
 
 // A user counts as a "contributor" if their profile.username matches a row
 // in the contributors table. No new role enum needed — we just reuse the
 // existing contributors directory.
+//
+// Fail-closed on timeout: if either lookup falls back, the user is treated
+// as a non-contributor and the verify mutation is denied. Better to refuse
+// a legitimate verifier momentarily than to let an attacker through.
 async function isContributor(
   supabase: SupabaseClient,
   userId: string,
 ): Promise<{ ok: boolean; name: string | null }> {
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("username, first_name")
-    .eq("id", userId)
-    .single();
+  const profile = await safeQuery<ProfileRow | null>(
+    supabase.from("profiles").select("username, first_name").eq("id", userId).single(),
+    null,
+    1500,
+    "replies.isContributor.profile",
+  );
   if (!profile?.username) return { ok: false, name: null };
 
-  const { data: contributor } = await supabase
-    .from("contributors")
-    .select("slug, name")
-    .eq("slug", profile.username)
-    .maybeSingle();
+  const contributor = await safeQuery<ContributorRow | null>(
+    supabase.from("contributors").select("slug, name").eq("slug", profile.username).maybeSingle(),
+    null,
+    1500,
+    "replies.isContributor.contributor",
+  );
   if (!contributor) return { ok: false, name: null };
 
   return { ok: true, name: contributor.name ?? profile.first_name ?? null };
@@ -41,11 +51,14 @@ export async function submitReply(
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return { error: "Sign in to reply." };
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("first_name, username")
-    .eq("id", user.id)
-    .single();
+  // Profile lookup is just for the display name on the reply card; "Community
+  // member" fallback is acceptable if the lookup falls back.
+  const profile = await safeQuery<{ first_name: string | null; username: string | null } | null>(
+    supabase.from("profiles").select("first_name, username").eq("id", user.id).single(),
+    null,
+    1500,
+    "replies.submitReply.profile",
+  );
   const authorName = profile?.first_name ?? profile?.username ?? "Community member";
 
   const { error } = await supabase.from("community_replies").insert({

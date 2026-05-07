@@ -8,20 +8,33 @@ import { contributorLd } from "@/lib/jsonld";
 
 type Params = Promise<{ name: string }>;
 
+type StaticParamRow = { slug: string };
+type ContributorMetaRow = { full_name: string; bio: string };
+
 export async function generateStaticParams() {
   const supabase = createStaticClient();
-  const { data } = await supabase.from("contributors").select("slug");
-  return (data ?? []).map((c) => ({ name: c.slug as string }));
+  const data = await safeQuery<StaticParamRow[]>(
+    supabase.from("contributors").select("slug"),
+    [],
+    3000,
+    "contributor.generateStaticParams",
+  );
+  return data.map((c) => ({ name: c.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { name } = await params;
   const supabase = await createClient();
-  const { data } = await supabase.from("contributors").select("full_name,bio").eq("slug", name).single();
+  const data = await safeQuery<ContributorMetaRow | null>(
+    supabase.from("contributors").select("full_name,bio").eq("slug", name).single(),
+    null,
+    1500,
+    "contributor.generateMetadata",
+  );
   if (!data) return { title: "Contributor not found — Wander Women" };
   return {
     title: `${data.full_name} — Wander Women Contributor`,
-    description: (data.bio as string).split("\n")[0],
+    description: data.bio.split("\n")[0],
   };
 }
 

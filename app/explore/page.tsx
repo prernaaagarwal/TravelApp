@@ -1,6 +1,10 @@
 import { ExploreGrid } from "@/components/intel/ExploreGrid";
 import { createClient } from "@/lib/supabase/server";
 import { safeQuery } from "@/lib/safe-query";
+import {
+  defaultExploreFilterFor,
+  getCurrentSegment,
+} from "@/lib/onboarding-segment";
 
 export const metadata = {
   title: "Solo Female Travel Destinations — India & Beyond",
@@ -33,7 +37,7 @@ type DbContrib = {
 export default async function ExplorePage() {
   const supabase = await createClient();
 
-  const [dbCards, dbContribs] = await Promise.all([
+  const [dbCards, dbContribs, segment] = await Promise.all([
     safeQuery<DbCard[]>(
       supabase
         .from("intel_cards")
@@ -49,7 +53,10 @@ export default async function ExplorePage() {
       1500,
       "explore.contributors",
     ),
+    getCurrentSegment(),
   ]);
+
+  const defaultFilter = defaultExploreFilterFor(segment?.destination);
 
   const cards = dbCards.map((c) => ({
     slug: c.slug,
@@ -87,7 +94,11 @@ export default async function ExplorePage() {
         </p>
       </div>
 
-      <ExploreGrid cards={cards} contributors={contributors} />
+      <ExploreGrid
+        cards={cards}
+        contributors={contributors}
+        defaultFilter={defaultFilter}
+      />
     </div>
   );
 }

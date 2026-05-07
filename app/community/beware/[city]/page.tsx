@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { ScamMapClient } from "./ScamMapClient";
+import { ScamMapWrapper } from "./ScamMapWrapper";
 import { BEWARE_CITIES, normaliseCategory, type MapReport } from "@/lib/beware-cities";
 import { BewareModerationBanner } from "@/components/community/BewareModerationBanner";
 
@@ -76,7 +76,7 @@ export default async function CityScamMapPage({ params }: { params: Promise<{ ci
       <div className="mx-auto max-w-3xl px-4 pt-6">
         <BewareModerationBanner />
       </div>
-      <ScamMapClient
+      <ScamMapWrapper
         citySlug={entry.config.slug}
         cityName={entry.config.name}
         center={entry.config.center}

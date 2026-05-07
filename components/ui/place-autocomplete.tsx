@@ -81,27 +81,12 @@ export function PlaceAutocomplete({
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
-  // Lazy-load the Places library on mount. If the load fails (network /
-  // auth / key revoked), gracefully fall back to text-only mode so the
-  // form is still submittable.
+  // Cleanup the debounce timer on unmount. The Places SDK is loaded lazily
+  // inside fetchSuggestions on first keystroke, NOT on mount — pages that
+  // include this component but never get typed in (rendered-but-not-used)
+  // don't pay the ~35 KB loader cost.
   useEffect(() => {
-    let cancelled = false;
-    loadPlacesLibrary()
-      .then((lib) => {
-        if (cancelled) return;
-        if (!lib) {
-          setAvailable(false);
-          return;
-        }
-        placesLibRef.current = lib;
-      })
-      .catch(() => {
-        if (cancelled) return;
-        setAvailable(false);
-        setError("Place lookup unavailable — type the location instead.");
-      });
     return () => {
-      cancelled = true;
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
   }, []);
@@ -118,8 +103,7 @@ export function PlaceAutocomplete({
   }, []);
 
   const fetchSuggestions = useCallback(async (input: string) => {
-    const lib = placesLibRef.current;
-    if (!lib || !input.trim()) {
+    if (!input.trim()) {
       setSuggestions([]);
       setIsOpen(false);
       return;
@@ -127,6 +111,20 @@ export function PlaceAutocomplete({
     setLoading(true);
     setError(null);
     try {
+      // Lazy-load the Places SDK on the first real keystroke — saves ~35 KB
+      // on routes that include this component but where the user never
+      // types (e.g. someone landing on /contribute/report and bouncing).
+      let lib = placesLibRef.current;
+      if (!lib) {
+        const loaded = await loadPlacesLibrary();
+        if (!loaded) {
+          setAvailable(false);
+          setLoading(false);
+          return;
+        }
+        lib = loaded;
+        placesLibRef.current = lib;
+      }
       // One session token per typing-then-selecting sequence — Google
       // bills the AutocompleteSuggestion calls + the final fetchFields
       // as a single session ($0.003 per session).

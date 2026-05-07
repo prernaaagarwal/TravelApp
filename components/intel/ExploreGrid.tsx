@@ -23,9 +23,15 @@ type Contributor = {
   photoUrl: string;
 };
 
+type Filter = "all" | "india" | "international";
+
 type Props = {
   cards: Card[];
   contributors: Contributor[];
+  /** Initial filter, derived server-side from the viewer's onboarding segment.
+   *  Onboarded users land on the region they picked in /onboarding instead of
+   *  seeing every card; first-time visitors still see "all". */
+  defaultFilter?: Filter;
 };
 
 const FILTERS = [
@@ -34,10 +40,8 @@ const FILTERS = [
   { label: "Outside India",  value: "international" },
 ] as const;
 
-type Filter = (typeof FILTERS)[number]["value"];
-
-export function ExploreGrid({ cards, contributors }: Props) {
-  const [active, setActive] = useState<Filter>("all");
+export function ExploreGrid({ cards, contributors, defaultFilter = "all" }: Props) {
+  const [active, setActive] = useState<Filter>(defaultFilter);
 
   const filtered = cards.filter((c) => {
     if (active === "all")           return true;
