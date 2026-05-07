@@ -501,50 +501,6 @@ export default function SafetyPreviewPage() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════
-          5 — BUILT FOR SOLO WOMEN, BY SOLO WOMEN
-          ════════════════════════════════════════════════════════ */}
-      <section className="mx-auto max-w-6xl px-5 pb-16 md:px-8 md:pb-24">
-        <div className="rounded-3xl border border-ww-border bg-warm-white p-6 md:p-10">
-          <p className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-blue">
-            <Sparkles className="h-3.5 w-3.5" aria-hidden />
-            Built for solo women, by solo women
-          </p>
-          <h2 className="mb-8 max-w-3xl font-serif text-2xl leading-[1.1] text-ink md:text-4xl">
-            Free in open beta. No login to browse. No tracking, no telemetry.
-          </h2>
-
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-10">
-            {[
-              { stat: "4", label: "core safety tools" },
-              { stat: "11", label: "cities on the Beware Board" },
-              { stat: "15", label: "products in the safety kit" },
-              { stat: "0", label: "login required to browse" },
-            ].map((s) => (
-              <div key={s.label}>
-                <p className="font-serif text-3xl leading-none text-ink md:text-5xl">
-                  {s.stat}
-                </p>
-                <p className="mt-2 font-mono text-[11px] leading-relaxed text-ww-muted">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-ww-border/60 pt-5 font-mono text-[11px] text-ww-muted">
-            <span>
-              Safety is the spine of Wander Women — if something here is missing
-              or wrong,{" "}
-              <Link href="/feedback" className="underline hover:text-ink">
-                tell us
-              </Link>
-              .
-            </span>
-          </div>
-        </div>
-      </section>
-
       {/* ── Foot ─────────────────────────────────────────────── */}
       <div className="border-t border-gold/30 bg-gold-light/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 md:px-8">
