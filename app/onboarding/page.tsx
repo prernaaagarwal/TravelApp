@@ -35,17 +35,23 @@ export default async function OnboardingPage({
     country: c.country,
   }));
 
-  // Detect whether profile setup is needed (only for logged-in users)
+  // Detect whether profile setup is needed (only for logged-in users).
+  // Gate only on the visible Identity essentials (first_name + home_city).
+  // ageGroup lives inside the `segment` JSON column and is set elsewhere —
+  // requiring it here forces users with a fully-filled Identity panel back
+  // through the wizard whenever they tap "Travel India" on the landing page.
   let needsProfileSetup = false;
   if (user) {
-    const { data: profile } = await supabase
+    const { data: profile, error } = await supabase
       .from("profiles")
-      .select("first_name, home_city, segment")
+      .select("first_name, home_city")
       .eq("id", user.id)
-      .single();
-    const segment = (profile?.segment as Record<string, unknown>) ?? {};
-    needsProfileSetup =
-      !profile?.first_name || !profile?.home_city || !segment.ageGroup;
+      .maybeSingle();
+    // If the query errored (network / RLS hiccup), don't punish the user by
+    // forcing setup — let them through to the destination picker.
+    if (!error) {
+      needsProfileSetup = !profile?.first_name || !profile?.home_city;
+    }
   }
 
   const stepCount = needsProfileSetup ? 3 : 2;
