@@ -76,10 +76,10 @@ export default function AboutPage() {
           </div>
 
           {/* Continuation — single reading column below the 2-col intro.
-              Left-aligns to the parent max-w-6xl so the left edge matches the
-              image above; max-w-3xl keeps the line length readable instead of
-              spanning the full container width. */}
-          <div className="mt-14 max-w-3xl md:mt-20">
+              Inherits the parent max-w-6xl so both left and right edges line
+              up with the founder image's edges above (no inner max-w that
+              would clip the right side short). */}
+          <div className="mt-14 md:mt-20">
             <div className="space-y-6 text-base leading-relaxed text-ww-muted">
               <hr className="my-10 h-px w-12 border-0 bg-rust/40" aria-hidden />
 
