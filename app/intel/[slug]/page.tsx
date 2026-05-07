@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Phone } from "lucide-react";
 import { PreBookChecklist } from "@/components/intel/PreBookChecklist";
+import { getChecklistState } from "@/app/actions/checklist";
 import {
   Accordion,
   AccordionContent,
@@ -96,6 +97,15 @@ export default async function IntelPage({ params }: { params: Params }) {
     "intel.card",
   );
   if (!raw) notFound();
+
+  // Pre-fetch checklist state + auth in parallel so the PreBookChecklist
+  // hydrates with the user's saved ticks (no flicker on render). Both fall
+  // back to "empty + signed-out" if the queries time out.
+  const [{ data: { user } }, checklistState] = await Promise.all([
+    supabase.auth.getUser(),
+    getChecklistState(slug),
+  ]);
+  const isLoggedIn = !!user;
 
   const card = {
     slug: raw.slug,
@@ -435,7 +445,13 @@ export default async function IntelPage({ params }: { params: Params }) {
             <p className="mb-4 font-mono text-xs text-ww-muted">
               Tick these off. Progress saves automatically.
             </p>
-            <PreBookChecklist items={card.preBookChecklist} slug={card.slug} />
+            <PreBookChecklist
+              items={card.preBookChecklist}
+              slug={card.slug}
+              isLoggedIn={isLoggedIn}
+              initialCheckedIndexes={checklistState.checkedIndexes}
+              initialShareToken={checklistState.shareToken}
+            />
           </section>
 
           {/* ── Money tiers ───────────────────────────────────────────── */}
