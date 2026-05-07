@@ -30,6 +30,8 @@ type MetadataRow = {
   country: string;
   tldr: unknown;
   scams: unknown;
+  hero_image_url: string | null;
+  last_updated: string | null;
 };
 
 export async function generateStaticParams() {
@@ -49,7 +51,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   const data = await safeQuery<MetadataRow | null>(
     supabase
       .from("intel_cards")
-      .select("destination,country,tldr,scams")
+      .select("destination,country,tldr,scams,hero_image_url,last_updated")
       .eq("slug", slug)
       .single(),
     null,
@@ -67,15 +69,44 @@ export async function generateMetadata({ params }: { params: Params }) {
     ? `${summary} Scam warnings: ${scamList}. Verified intel for solo women travellers in ${data.destination}, ${data.country}.`
     : summary;
 
+  const trimmedDescription = description.slice(0, 300);
+  const ogImageUrl = data.hero_image_url ?? `${SITE_URL}/og-default.jpg`;
+  const ogImageAlt = `${data.destination}, ${data.country}`;
+  const lastUpdatedIso = data.last_updated
+    ? new Date(data.last_updated).toISOString()
+    : undefined;
+  const pageTitle = `Solo Female Travel ${data.destination} — Wander Women`;
+
   return {
     title: `Solo Female Travel ${data.destination}, ${data.country} — Safety, Scams, Hidden Gems`,
-    description: description.slice(0, 300),
-    openGraph: {
-      title: `Solo Female Travel ${data.destination} — Wander Women`,
-      description: description.slice(0, 300),
-      type: "article",
-    },
+    description: trimmedDescription,
     alternates: { canonical: `/intel/${slug}` },
+    openGraph: {
+      type: "article",
+      title: pageTitle,
+      description: trimmedDescription,
+      url: `${SITE_URL}/intel/${slug}`,
+      // Per-page hero image — without this, every intel page shares the
+      // site-wide hero-rishikesh.jpg from /app/layout.tsx, which kills CTR
+      // on social shares for non-Rishikesh destinations.
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: ogImageAlt,
+        },
+      ],
+      ...(lastUpdatedIso
+        ? { publishedTime: lastUpdatedIso, modifiedTime: lastUpdatedIso }
+        : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: trimmedDescription,
+      images: [ogImageUrl],
+    },
   };
 }
 
