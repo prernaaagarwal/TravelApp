@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { RustButton } from "@/components/ui/RustButton";
 
 export const metadata = {
   title: "About — Wander Women",
@@ -153,13 +154,12 @@ export default function AboutPage() {
             </p>
 
             <div className="mt-10">
-              <Link
-                href="/account/membership"
-                className="inline-flex items-center gap-3 bg-rust px-7 py-3.5 font-mono text-xs uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-              >
-                Join the Founding 200
-                <span aria-hidden>→</span>
-              </Link>
+              <RustButton size="lg" asChild>
+                <Link href="/account/membership">
+                  Join the Founding 200
+                  <span aria-hidden>→</span>
+                </Link>
+              </RustButton>
             </div>
           </div>
         </div>

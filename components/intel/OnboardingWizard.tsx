@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { updateSegment, completeProfile } from "@/app/onboarding/actions";
 import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { AGE_OPTIONS } from "@/lib/constants";
+import { RustButton } from "@/components/ui/RustButton";
 
 type Destination = { slug: string; label: string; country: string };
 
@@ -198,13 +199,9 @@ export function OnboardingWizard({
 
           {profileError && <p className="mt-3 font-mono text-xs text-rust">{profileError}</p>}
 
-          <button
-            type="submit"
-            disabled={!profileValid || submitting}
-            className="mt-6 w-full bg-rust px-6 py-3 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-40"
-          >
+          <RustButton type="submit" size="md" block disabled={!profileValid || submitting} className="mt-6">
             {submitting ? "Saving…" : "Continue →"}
-          </button>
+          </RustButton>
         </form>
       )}
 

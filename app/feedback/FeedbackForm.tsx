@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { submitFeedback, type FeedbackPayload } from "./actions";
+import { RustButton } from "@/components/ui/RustButton";
 
 const BROUGHT_YOU_OPTIONS = [
   { value: "planning",    label: "Planning a solo trip" },
@@ -224,14 +225,10 @@ export default function FeedbackForm({ defaultEmail = "" }: Props) {
       )}
 
       <div className="border-t border-ww-border pt-6">
-        <button
-          type="submit"
-          disabled={isPending}
-          className="inline-flex items-center gap-2 bg-rust px-7 py-3.5 font-mono text-xs uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-60"
-        >
+        <RustButton type="submit" size="lg" disabled={isPending}>
           {isPending ? "Sending…" : "Send feedback"}
           <span aria-hidden>→</span>
-        </button>
+        </RustButton>
         <p className="mt-3 font-mono text-[10px] text-ww-muted/70">
           Every field is optional. Submit what you want, skip the rest.
         </p>

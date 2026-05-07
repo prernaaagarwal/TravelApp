@@ -3,6 +3,7 @@ import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 import HeroBackground from "@/components/shared/HeroBackground";
 import WhatsInside from "@/components/landing/WhatsInside";
 import { ContinueWhereYouLeftOff } from "@/components/landing/ContinueWhereYouLeftOff";
+import { RustButton } from "@/components/ui/RustButton";
 import communityPosts from "@/lib/mock-data/community-posts.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
 import { createStaticClient } from "@/lib/supabase/server";
@@ -132,13 +133,12 @@ export default async function HomePage() {
 
           {/* dual CTA */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link
-              href="/onboarding?region=india"
-              className="inline-flex items-center justify-center gap-2 rounded-none bg-rust px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-            >
-              Travel India
-              <span aria-hidden>→</span>
-            </Link>
+            <RustButton size="lg" asChild>
+              <Link href="/onboarding?region=india">
+                Travel India
+                <span aria-hidden>→</span>
+              </Link>
+            </RustButton>
             <Link
               href="/onboarding?region=foreign"
               className="inline-flex items-center justify-center gap-2 rounded-none border border-warm-white/40 px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-colors hover:border-warm-white hover:bg-warm-white/5"
@@ -265,12 +265,9 @@ export default async function HomePage() {
                 The Beware Board is moderated and date-stamped. Approved reports
                 show up here and on the city scam map within 24 hours.
               </p>
-              <Link
-                href="/contribute/report"
-                className="inline-flex items-center gap-2 border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90"
-              >
-                Submit a report →
-              </Link>
+              <RustButton size="sm" asChild>
+                <Link href="/contribute/report">Submit a report →</Link>
+              </RustButton>
             </div>
           </div>
         )}

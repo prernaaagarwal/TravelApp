@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { RustButton } from "@/components/ui/RustButton";
 import {
   AlertTriangle,
   ArrowRight,
@@ -407,13 +408,12 @@ function PersonaCard({
 
         {/* Solid terracotta CTA button */}
         <div className="mt-auto">
-          <Link
-            href={ctaHref}
-            className="inline-flex items-center gap-3 bg-rust px-6 py-3.5 font-mono text-xs uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-          >
-            {ctaLabel}
-            <span aria-hidden>→</span>
-          </Link>
+          <RustButton size="md" asChild>
+            <Link href={ctaHref}>
+              {ctaLabel}
+              <span aria-hidden>→</span>
+            </Link>
+          </RustButton>
         </div>
       </div>
     </article>

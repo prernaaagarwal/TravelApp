@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ProfileEditClient } from "./ProfileEditClient";
 import { MyReports } from "@/components/profile/MyReports";
 import { ReportUserButton } from "@/components/profile/ReportUserButton";
+import { RustButton } from "@/components/ui/RustButton";
 import { CITY_LABELS, WORRY_LABELS, BADGE_META, TRIP_LABELS } from "@/lib/constants";
 import type { Segment, Badge, SavedDestRow, IntelCardRow } from "@/types";
 
@@ -197,12 +198,9 @@ export default async function ProfilePage({
         {/* ── Connect as buddy (non-owner only, if overlap) ─── */}
         {showBuddyCTA && (
           <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
-            <Link
-              href="/buddy"
-              className="inline-flex w-full items-center justify-center gap-1.5 rounded-none bg-rust px-4 py-2 font-mono text-sm text-warm-white hover:bg-rust/90"
-            >
-              Connect as buddy →
-            </Link>
+            <RustButton size="md" block asChild>
+              <Link href="/buddy">Connect as buddy →</Link>
+            </RustButton>
           </div>
         )}
 
@@ -388,13 +386,12 @@ export default async function ProfilePage({
               real users is the difference between this becoming a guidebook for
               women and yet another travel app.
             </p>
-            <Link
-              href="/feedback"
-              className="inline-flex items-center gap-2 bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-            >
-              Share feedback
-              <span aria-hidden>→</span>
-            </Link>
+            <RustButton size="sm" asChild>
+              <Link href="/feedback">
+                Share feedback
+                <span aria-hidden>→</span>
+              </Link>
+            </RustButton>
           </div>
         )}
 
