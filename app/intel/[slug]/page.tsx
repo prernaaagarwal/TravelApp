@@ -23,20 +23,38 @@ const SITE_URL = env.NEXT_PUBLIC_SITE_URL;
 
 type Params = Promise<{ slug: string }>;
 
+type StaticParamRow = { slug: string };
+type MetadataRow = {
+  destination: string;
+  country: string;
+  tldr: unknown;
+  scams: unknown;
+};
+
 export async function generateStaticParams() {
   const supabase = createBrowserClient();
-  const { data } = await supabase.from("intel_cards").select("slug");
-  return (data ?? []).map((c) => ({ slug: c.slug }));
+  const data = await safeQuery<StaticParamRow[]>(
+    supabase.from("intel_cards").select("slug"),
+    [],
+    3000,
+    "intel.generateStaticParams",
+  );
+  return data.map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { slug } = await params;
   const supabase = createBrowserClient();
-  const { data } = await supabase
-    .from("intel_cards")
-    .select("destination,country,tldr,scams")
-    .eq("slug", slug)
-    .single();
+  const data = await safeQuery<MetadataRow | null>(
+    supabase
+      .from("intel_cards")
+      .select("destination,country,tldr,scams")
+      .eq("slug", slug)
+      .single(),
+    null,
+    1500,
+    "intel.generateMetadata",
+  );
   if (!data) return { title: "Not found — Wander Women" };
 
   const summary = Array.isArray(data.tldr)

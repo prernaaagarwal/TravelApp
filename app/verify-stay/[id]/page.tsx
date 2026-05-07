@@ -1,10 +1,19 @@
 import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
 import { ShieldCheck, AlertTriangle, RefreshCw } from "lucide-react";
 import { SafetyReport } from "@/components/verify/SafetyReport";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import type { StayVerification } from "@/lib/agents/stay-verifier";
+
+type StayVerificationRow = {
+  status: "analyzing" | "complete" | "failed";
+  property_name: string | null;
+  platform: string | null;
+  booking_url: string;
+  analysis_json: unknown;
+};
 
 export default async function VerifyStayResultPage({
   params,
@@ -17,12 +26,17 @@ export default async function VerifyStayResultPage({
 
   if (!user) redirect("/account/login?next=/verify-stay");
 
-  const { data: row } = await supabase
-    .from("stay_verifications")
-    .select("*")
-    .eq("id", id)
-    .eq("user_id", user.id)
-    .single();
+  const row = await safeQuery<StayVerificationRow | null>(
+    supabase
+      .from("stay_verifications")
+      .select("*")
+      .eq("id", id)
+      .eq("user_id", user.id)
+      .single(),
+    null,
+    1500,
+    "verifyStay.row",
+  );
 
   if (!row) notFound();
 

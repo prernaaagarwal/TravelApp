@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
 import Link from "next/link";
 import Image from "next/image";
 import { RegisterTripForm } from "@/components/intel/RegisterTripForm";
@@ -9,6 +10,25 @@ import { VerificationMethodology } from "@/components/account/VerificationMethod
 import { getVerificationStatus } from "@/lib/buddy-verification";
 import buddyMatches from "@/lib/mock-data/buddy-matches.json";
 import { formatDestinationSlug } from "@/lib/utils";
+
+type MyTripRow = {
+  destination_slug: string;
+  travel_start?: string | null;
+  travel_end?: string | null;
+};
+type BuddyMatchRow = {
+  id: string;
+  user_id: string;
+  destination_slug: string;
+  first_name?: string;
+  age_range?: string;
+  home_city?: string;
+  travel_start?: string;
+  travel_end?: string;
+  travel_style?: string[];
+};
+type ProfileFlagRow = { id: string; id_verified: boolean; is_paused: boolean };
+type SentConnectionRow = { to_match_id: string };
 
 export const metadata = {
   title: "Find a Solo Female Travel Buddy — Verified Matches by Destination",
@@ -22,29 +42,39 @@ export default async function BuddyPage() {
   const status = await getVerificationStatus();
 
   // user's own registered trip
-  const { data: myTrip } = user
-    ? await supabase.from("buddy_matches").select("*").eq("user_id", user.id).single()
-    : { data: null };
+  const myTrip = user
+    ? await safeQuery<MyTripRow | null>(
+        supabase.from("buddy_matches").select("*").eq("user_id", user.id).single(),
+        null,
+        1500,
+        "buddy.myTrip",
+      )
+    : null;
 
   // DB matches for user's destination (exclude self + paused profiles)
   let dbMatches: Array<Record<string, unknown>> | null = null;
   if (myTrip && user) {
-    const { data: rawMatches } = await supabase
-      .from("buddy_matches")
-      .select("*")
-      .eq("destination_slug", myTrip.destination_slug)
-      .neq("user_id", user.id)
-      .limit(20);
+    const rawMatches = await safeQuery<BuddyMatchRow[]>(
+      supabase
+        .from("buddy_matches")
+        .select("*")
+        .eq("destination_slug", myTrip.destination_slug)
+        .neq("user_id", user.id)
+        .limit(20),
+      [],
+      1500,
+      "buddy.rawMatches",
+    );
 
-    if (rawMatches && rawMatches.length > 0) {
+    if (rawMatches.length > 0) {
       const matchUserIds = rawMatches.map((m) => m.user_id);
-      const { data: profileFlags } = await supabase
-        .from("profiles")
-        .select("id, id_verified, is_paused")
-        .in("id", matchUserIds);
-      const flagsByUser = new Map(
-        (profileFlags ?? []).map((p) => [p.id, p]),
+      const profileFlags = await safeQuery<ProfileFlagRow[]>(
+        supabase.from("profiles").select("id, id_verified, is_paused").in("id", matchUserIds),
+        [],
+        1500,
+        "buddy.profileFlags",
       );
+      const flagsByUser = new Map(profileFlags.map((p) => [p.id, p]));
       // Drop paused profiles entirely; surface verified flag on the row
       dbMatches = rawMatches
         .filter((m) => !flagsByUser.get(m.user_id)?.is_paused)
@@ -59,10 +89,15 @@ export default async function BuddyPage() {
   }
 
   // connections already sent by user
-  const { data: sentConnections } = user
-    ? await supabase.from("buddy_connections").select("to_match_id").eq("from_user_id", user.id)
-    : { data: null };
-  const sentIds = new Set((sentConnections ?? []).map((c) => c.to_match_id));
+  const sentConnections = user
+    ? await safeQuery<SentConnectionRow[]>(
+        supabase.from("buddy_connections").select("to_match_id").eq("from_user_id", user.id),
+        [],
+        1500,
+        "buddy.sentConnections",
+      )
+    : [];
+  const sentIds = new Set(sentConnections.map((c) => c.to_match_id));
 
   // fall back to mock data if no DB matches
   const showMock = !myTrip || !dbMatches || dbMatches.length === 0;
