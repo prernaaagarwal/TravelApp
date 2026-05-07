@@ -26,13 +26,16 @@ for (const vp of VIEWPORTS) {
       );
 
       for (const card of EXPECTED_CARDS) {
-        // Scope the eyebrow lookup INSIDE the card link, not the whole page —
-        // otherwise a duplicate "Beware Board" or "Safety Shop" string in the
-        // header nav or footer can win the .first() race and fail visibility
-        // when those nav regions are hidden at this viewport.
-        const link = page.locator(`a[href="${card.href}"]`).first();
-        await expect(link, `link to ${card.href} should exist`).toBeVisible();
-        const eyebrow = link.getByText(card.eyebrow, { exact: true });
+        // Scope to the safety-hub card itself by combining href with the
+        // unique card class signature. Without the class scope, the Header
+        // primary nav and MobileNav both also link to /community?tab=beware
+        // and /shop, and the (DOM-order-first) Header link is hidden at
+        // mobile widths via md:flex — making .first() pick a hidden node.
+        const cardLink = page.locator(
+          `a.group.flex.flex-col.border[href="${card.href}"]`,
+        );
+        await expect(cardLink, `safety-hub card link to ${card.href}`).toBeVisible();
+        const eyebrow = cardLink.getByText(card.eyebrow, { exact: true });
         await expect(eyebrow, `eyebrow "${card.eyebrow}" should be inside card`).toBeVisible();
       }
 
