@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Wander Women">
+  <rect width="32" height="32" rx="6" fill="#c4522a"/>
+  <text
+    x="16"
+    y="23.5"
+    font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif"
+    font-size="22"
+    font-style="italic"
+    font-weight="600"
+    fill="#faf8f4"
+    text-anchor="middle"
+    dominant-baseline="alphabetic"
+  >W</text>
+</svg>
