@@ -22,7 +22,7 @@ export type PrimaryNavItem = {
 // new visitors. Routes still exist; they're just no longer headline.
 export const PRIMARY_NAV: PrimaryNavItem[] = [
   { key: "intel",     label: "Intel",        href: "/explore",         icon: Compass },
-  { key: "beware",    label: "Beware Board", href: "/community/beware", icon: AlertTriangle },
+  { key: "beware",    label: "Beware Board", href: "/community?tab=beware", icon: AlertTriangle },
   { key: "community", label: "Community",    href: "/community",       icon: Users },
   { key: "safety",    label: "Safety",       href: "/safety",          icon: ShieldCheck },
 ];

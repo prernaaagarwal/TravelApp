@@ -143,7 +143,7 @@ export default async function HomePage() {
               <span aria-hidden>→</span>
             </Link>
             <Link
-              href="/community/beware"
+              href="/community?tab=beware"
               className="inline-flex items-center justify-center gap-2 rounded-none border border-warm-white/40 px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-colors hover:border-warm-white hover:bg-warm-white/5"
             >
               Beware Board

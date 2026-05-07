@@ -26,10 +26,14 @@ for (const vp of VIEWPORTS) {
       );
 
       for (const card of EXPECTED_CARDS) {
-        const eyebrow = page.getByText(card.eyebrow, { exact: true }).first();
-        await expect(eyebrow, `eyebrow "${card.eyebrow}" should be visible`).toBeVisible();
+        // Scope the eyebrow lookup INSIDE the card link, not the whole page —
+        // otherwise a duplicate "Beware Board" or "Safety Shop" string in the
+        // header nav or footer can win the .first() race and fail visibility
+        // when those nav regions are hidden at this viewport.
         const link = page.locator(`a[href="${card.href}"]`).first();
         await expect(link, `link to ${card.href} should exist`).toBeVisible();
+        const eyebrow = link.getByText(card.eyebrow, { exact: true });
+        await expect(eyebrow, `eyebrow "${card.eyebrow}" should be inside card`).toBeVisible();
       }
 
       await expect(page.locator("body")).not.toContainText("Women's Basics");
