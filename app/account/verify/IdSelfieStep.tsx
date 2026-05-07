@@ -61,7 +61,7 @@ export function IdSelfieStep({
 
   return (
     <div
-      className={`rounded-xl border bg-warm-white p-6 shadow-sm transition-opacity ${
+      className={`rounded-2xl border bg-warm-white p-6 transition-opacity ${
         enabled ? "border-ww-border" : "border-ww-border/40 opacity-50"
       }`}
     >

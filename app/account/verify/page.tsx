@@ -25,7 +25,7 @@ export default async function VerifyPage() {
     return (
       <main className="min-h-screen bg-sand px-4 py-12">
         <div className="mx-auto max-w-xl space-y-4">
-          <div className="rounded-xl border border-sage/40 bg-sage-light/30 p-6 shadow-sm">
+          <div className="rounded-2xl border border-sage/40 bg-sage-light/30 p-6">
             <p className="mb-1 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-sage">
               <span aria-hidden>✓</span>
               You&apos;re verified

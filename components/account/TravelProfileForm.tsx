@@ -278,7 +278,7 @@ export function TravelProfileForm({ firstName, homeCity, instagram, segment }: P
 
 function Section({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
   return (
-    <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+    <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
       <h3 className="font-serif text-lg text-ink">{title}</h3>
       {subtitle && <p className="mt-0.5 mb-3 font-mono text-[11px] text-ww-muted">{subtitle}</p>}
       {!subtitle && <div className="mb-3" />}

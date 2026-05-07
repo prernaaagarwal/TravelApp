@@ -50,7 +50,7 @@ export function PhoneStep({
   }
 
   return (
-    <div className="rounded-xl border border-ww-border bg-warm-white p-6 shadow-sm">
+    <div className="rounded-2xl border border-ww-border bg-warm-white p-6">
       <p className="mb-2 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
         <span className="grid h-5 w-5 place-items-center rounded-full bg-rust text-warm-white">1</span>
         Confirm your phone

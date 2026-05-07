@@ -37,7 +37,7 @@ export default async function ReportPage() {
           </p>
         </div>
 
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
+        <div className="bg-warm-white border border-ww-border rounded-2xl p-6">
           <ReportForm />
         </div>
       </div>

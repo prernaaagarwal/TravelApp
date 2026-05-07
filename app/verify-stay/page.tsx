@@ -67,11 +67,11 @@ export default async function VerifyStayPage() {
       </div>
 
       {isAiEnabled ? (
-        <div className="rounded-2xl border border-ww-border bg-warm-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-ww-border bg-warm-white p-6">
           <StayVerifyForm usedThisMonth={usedThisMonth} />
         </div>
       ) : (
-        <div className="relative rounded-2xl border border-ww-border bg-warm-white p-6 shadow-sm">
+        <div className="relative rounded-2xl border border-ww-border bg-warm-white p-6">
           {/* Disabled mock form */}
           <div className="pointer-events-none select-none opacity-40">
             <label className="block mb-2 font-mono text-[10px] uppercase tracking-widest text-ww-muted">

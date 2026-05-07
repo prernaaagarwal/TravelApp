@@ -41,7 +41,7 @@ export default function MembershipForm({ defaultEmail }: { defaultEmail?: string
   }
 
   return (
-    <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
+    <div className="bg-warm-white border border-ww-border rounded-2xl p-6">
       <p className="text-xs uppercase tracking-wider text-ww-muted mb-4">
         Reserve your spot
       </p>

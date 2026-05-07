@@ -17,8 +17,8 @@ export function VerificationMethodology({
     <div
       className={
         compact
-          ? "rounded-lg border border-sage/30 bg-sage-light/20 p-4"
-          : "rounded-xl border border-ww-border bg-warm-white p-6 shadow-sm"
+          ? "rounded-xl border border-sage/30 bg-sage-light/20 p-4"
+          : "rounded-2xl border border-ww-border bg-warm-white p-6"
       }
     >
       <p className="mb-2 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-sage">
