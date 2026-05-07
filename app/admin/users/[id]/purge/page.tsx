@@ -145,7 +145,7 @@ export default async function PurgeUserPage({
           </li>
           <li>
             <strong>Photos in beware reports:</strong> not deleted. The
-            reports are anonymized but their content remains the platform's
+            reports are anonymized but their content remains the platform&apos;s
             record. If you need to delete photos individually, do so before
             purging.
           </li>

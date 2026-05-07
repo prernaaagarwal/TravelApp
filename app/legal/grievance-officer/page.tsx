@@ -215,7 +215,7 @@ export default function GrievanceOfficerPage() {
             necessary, the police or civil courts.
           </Bullet>
           <Bullet>
-            Emergencies — call 112 (national emergency) or 1091 (women's
+            Emergencies — call 112 (national emergency) or 1091 (women&apos;s
             helpline). The Grievance Officer is not an emergency contact.
           </Bullet>
           <Bullet>

@@ -1,34 +1,39 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { createClient as createSupabaseClient } from "@supabase/supabase-js";
+import {
+  createClient as createSupabaseClient,
+  type SupabaseClient,
+} from "@supabase/supabase-js";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { env, requireEnv } from "@/lib/config";
 
-// DPDP / GDPR data-purge endpoint.
+// DPDP / GDPR data-purge endpoint — "right to erasure".
 //
-// This is the "right to erasure" mechanism we have to surface for legal
-// review. It deletes all data associated with a user account, in this
-// order:
-//   1. Storage objects (avatars, ID-verification photos)
-//   2. Tables that don't cascade from auth.users
-//   3. The auth.users row itself (cascades to profiles + child rows
-//      that have ON DELETE CASCADE configured)
-//   4. An audit-log entry recording the purge actor + reason
+// HOW THIS WORKS (simplified from earlier draft):
 //
-// Some tables (moderation_audit_log, beware_reports authored by the
-// user, etc.) we *don't* delete — that data is the platform's record.
-// We anonymize foreign-keys instead by setting them to NULL.
+// The database schema already does most of the work via foreign-key
+// cascades from auth.users:
+//   - profiles ON DELETE CASCADE        → auto-deleted
+//   - user_verifications, saved_destinations, notifications, buddy_*
+//     all reference profiles(id) ON DELETE CASCADE → auto-deleted
+//   - beware_reports.reported_by_id, community_posts.author_id,
+//     community_replies.author_id, intel_card_views.viewer_id all
+//     ON DELETE SET NULL → auto-anonymized (rows preserved)
 //
-// IMPORTANT: this is a one-way action. There is no undo. The admin must
-// type the literal string "PURGE-{userId}" into a confirmation field
-// for the action to proceed. This is the same pattern Stripe uses for
-// account deletion.
+// So the action only needs to do what cascades CAN'T:
+//   1. Delete storage objects (avatar bucket, id-verification bucket)
+//   2. Call admin.auth.admin.deleteUser() — triggers all cascades
+//   3. Audit-log the purge
+//
+// Admin-only (not moderator). Requires literal "PURGE-{userId}"
+// confirmation phrase to proceed. One-way.
 
-type AdminClient = ReturnType<typeof createSupabaseClient>;
-
-function adminSupabase(): AdminClient {
+function adminSupabase(): SupabaseClient {
+  // Annotated as bare SupabaseClient so the schema-typed default doesn't
+  // narrow writes to `never` (the typed default can't see service-role-
+  // bypass writes that don't match a public-table RLS policy).
   return createSupabaseClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
     requireEnv("SUPABASE_SERVICE_ROLE_KEY"),
@@ -36,9 +41,11 @@ function adminSupabase(): AdminClient {
   );
 }
 
-async function assertAdmin() {
+async function assertAdmin(): Promise<{ adminId: string }> {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   if (!user) throw new Error("Unauthorized");
   const { data: profile } = await supabase
     .from("profiles")
@@ -46,7 +53,7 @@ async function assertAdmin() {
     .eq("id", user.id)
     .single();
   if (!profile || profile.role !== "admin") {
-    // Note: only admin (not moderator) can purge — destructive action
+    // Only admin (not moderator) can purge — destructive action.
     throw new Error("Only admins can purge accounts");
   }
   return { adminId: user.id };
@@ -77,24 +84,20 @@ export async function purgeUser(formData: FormData): Promise<void> {
   let adminId: string;
   try {
     ({ adminId } = await assertAdmin());
-  } catch (err) {
+  } catch {
     redirect(`/admin/users/${targetUserId}/purge?error=unauthorized`);
   }
 
   // Block self-purge — admin cannot purge themselves
   if (adminId === targetUserId) {
-    redirect(
-      `/admin/users/${targetUserId}/purge?error=cannot_self_purge`,
-    );
+    redirect(`/admin/users/${targetUserId}/purge?error=cannot_self_purge`);
   }
 
   const result = await runPurge(targetUserId, adminId, reason);
 
   if (!result.ok) {
     const errMsg = encodeURIComponent(result.error ?? "purge_failed");
-    redirect(
-      `/admin/users/${targetUserId}/purge?error=${errMsg}`,
-    );
+    redirect(`/admin/users/${targetUserId}/purge?error=${errMsg}`);
   }
 
   revalidatePath("/admin/users");
@@ -111,9 +114,8 @@ export async function runPurge(
   const steps: PurgeResult["steps"] = [];
 
   // ── Step 1. Delete storage objects ────────────────────────────────────
-  // Avatars (named by user id), ID verification photos
+  // Storage cleanup is the only thing the auth.users cascade doesn't do.
   try {
-    // Avatars
     const { data: avatarFiles } = await admin.storage
       .from("avatars")
       .list(userId, { limit: 100 });
@@ -135,7 +137,9 @@ export async function runPurge(
   }
 
   try {
-    // ID verification photos (path is `{userId}/<filename>` per submitIdSelfie)
+    // ID verification photos (path is `{userId}/<filename>` per submitIdSelfie).
+    // For approved verifications these are already deleted on approval; for
+    // pending or rejected they may still exist.
     const { data: idFiles } = await admin.storage
       .from("id-verification")
       .list(userId, { limit: 100 });
@@ -156,84 +160,15 @@ export async function runPurge(
     });
   }
 
-  // Beware photos — path is typically beware_reports.id-keyed; safe to skip
-  // here because beware_reports rows are anonymized below, not deleted.
-  // Photos remain attached to the (now-anonymized) report. If founder later
-  // wants to nuke beware photos by author too, add another step.
-
-  // ── Step 2. Anonymize foreign-keys on tables we keep ──────────────────
-  // Beware reports authored by the user — keep the public record,
-  // but null out the FK so they're no longer linkable to a person
-  try {
-    await admin
-      .from("beware_reports")
-      .update({ submitted_by: null })
-      .eq("submitted_by", userId);
-    steps.push({ step: "anonymize_beware_reports", ok: true });
-  } catch (err) {
-    steps.push({
-      step: "anonymize_beware_reports",
-      ok: false,
-      detail: err instanceof Error ? err.message : "unknown",
-    });
-  }
-
-  // Community posts authored by the user — same pattern (preserve discussion)
-  try {
-    await admin
-      .from("community_posts")
-      .update({ author_id: null })
-      .eq("author_id", userId);
-    await admin
-      .from("community_replies")
-      .update({ author_id: null })
-      .eq("author_id", userId);
-    steps.push({ step: "anonymize_community_authorship", ok: true });
-  } catch (err) {
-    steps.push({
-      step: "anonymize_community_authorship",
-      ok: false,
-      detail: err instanceof Error ? err.message : "unknown",
-    });
-  }
-
-  // ── Step 3. Hard-delete user-only personal data ───────────────────────
-  // Tables that contain ONLY data linked to this user (no community impact)
-  const userOnlyTables = [
-    "user_verifications",
-    "saved_destinations",
-    "user_checklists",
-    "notifications",
-    "vault_signups",
-    "buddy_matches",
-    "intel_card_views",
-    "feedback",
-    "email_captures",
-  ];
-  for (const table of userOnlyTables) {
-    try {
-      // Most tables key on user_id; some key on viewer_id (intel_card_views)
-      // and others. Try common columns.
-      const candidates = ["user_id", "viewer_id", "submitted_by", "id"];
-      for (const col of candidates) {
-        const { error } = await admin.from(table).delete().eq(col, userId);
-        if (!error) {
-          // success on this column — stop trying others
-          break;
-        }
-      }
-      steps.push({ step: `delete_${table}`, ok: true });
-    } catch (err) {
-      steps.push({
-        step: `delete_${table}`,
-        ok: false,
-        detail: err instanceof Error ? err.message : "unknown",
-      });
-    }
-  }
-
-  // ── Step 4. Delete the auth.users row ─────────────────────────────────
-  // This cascades to `profiles` (FK ON DELETE CASCADE in 001_init.sql).
+  // ── Step 2. Delete the auth.users row ─────────────────────────────────
+  // This triggers the FK cascades that handle everything else:
+  //   - profiles row deleted (ON DELETE CASCADE from auth.users)
+  //   - user_verifications, saved_destinations, notifications, buddy_*,
+  //     etc. cascade-deleted via profiles
+  //   - beware_reports.reported_by_id, community_posts.author_id,
+  //     community_replies.author_id, intel_card_views.viewer_id all
+  //     auto-anonymized via ON DELETE SET NULL (rows preserved as
+  //     platform record, FK nulled)
   try {
     const { error } = await admin.auth.admin.deleteUser(userId);
     if (error) {
@@ -251,11 +186,14 @@ export async function runPurge(
     return { ok: false, userId, steps, error: msg };
   }
 
-  // ── Step 5. Audit-log the purge ──────────────────────────────────────
-  // We retain the audit row even though the user is gone — the audit
-  // log is the platform's record of WHO purged WHO and WHY.
+  // ── Step 3. Audit-log the purge ───────────────────────────────────────
+  // We retain the audit row even though the user is gone — the audit log
+  // is the platform's record of WHO purged WHO and WHY.
+  // moderation_audit_log allows admin role inserts via RLS; using the
+  // typed supabase client (admin-session) here, not the service-role one.
   try {
-    await admin.from("moderation_audit_log").insert({
+    const supabase = await createClient();
+    await supabase.from("moderation_audit_log").insert({
       actor_id: adminId,
       action: "purge_user",
       target_type: "user",
