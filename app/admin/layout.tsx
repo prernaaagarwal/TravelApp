@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import { Shield, ClipboardList, FileText, Users, UserCog, ArrowLeft, ShieldCheck, Flag } from "lucide-react";
+import { Shield, ClipboardList, FileText, Users, UserCog, ArrowLeft, ShieldCheck, Flag, BarChart3 } from "lucide-react";
 
 export const metadata = { title: "Admin — Wander Women" };
 
@@ -52,6 +52,13 @@ export default async function AdminLayout({
           >
             <ClipboardList className="h-3.5 w-3.5" />
             Queue
+          </Link>
+          <Link
+            href="/admin/metrics"
+            className="flex items-center gap-2 px-3 py-2 font-mono text-xs text-ww-muted transition-colors hover:bg-sand hover:text-ink"
+          >
+            <BarChart3 className="h-3.5 w-3.5" />
+            Metrics
           </Link>
           <Link
             href="/admin/intel"
