@@ -56,7 +56,7 @@ export function ReplyForm({ postId }: { postId: string }) {
         </button>
       </div>
       {error && (
-        <p className="mt-2 font-mono text-[11px] text-red-600">{error}</p>
+        <p className="mt-2 font-mono text-[11px] text-rust">{error}</p>
       )}
     </form>
   );

@@ -65,7 +65,7 @@ export function EmailSignupForm({
         {isPending ? "Sending…" : buttonText}
       </button>
       {error && (
-        <p className={`text-xs font-mono ${dark ? "text-red-300" : "text-red-600"}`}>
+        <p className={`text-xs font-mono ${dark ? "text-rust/80" : "text-rust"}`}>
           {error}
         </p>
       )}

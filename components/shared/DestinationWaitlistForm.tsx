@@ -72,7 +72,7 @@ export function DestinationWaitlistForm({ destination, compact = false }: Props)
         {isPending ? "Sending…" : "Notify me"}
       </button>
       {error && (
-        <p className="font-mono text-[11px] text-red-600 sm:basis-full">{error}</p>
+        <p className="font-mono text-[11px] text-rust sm:basis-full">{error}</p>
       )}
     </form>
   );
