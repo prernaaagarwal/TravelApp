@@ -413,83 +413,7 @@ export default function SafetyPreviewPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════
-          4 — FROM THE SAFETY KIT (Shop)
-          ════════════════════════════════════════════════════════ */}
-      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-        <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.25em] text-blue">
-          From the safety kit
-        </p>
-        <h2 className="mb-4 font-serif text-3xl leading-[1.05] text-ink md:text-5xl">
-          3 from the{" "}
-          <span className="font-medium italic text-gold">15-product</span>{" "}
-          safety kit.
-        </h2>
-        <p className="mb-8 max-w-3xl font-mono text-sm leading-relaxed text-ww-muted">
-          Hand-picked by women who travel solo. Affiliate-backed — you pay
-          nothing extra, we earn a small commission that funds more intel cards.
-        </p>
-
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            {
-              name: "Doorstop alarm",
-              why: "Most short-let rentals don't have deadbolts. This bolts any door from the inside.",
-              price: "≈ €18",
-              tint: "from-blue-light/80 to-blue-light/30",
-            },
-            {
-              name: "RFID crossbody",
-              why: "Card-skimming is the #1 scam category we track. RFID lining = no skim.",
-              price: "≈ €42",
-              tint: "from-rust-light/80 to-rust-light/20",
-            },
-            {
-              name: "Personal alarm — 130dB",
-              why: "Loud enough to scatter a crowd. Fits in your palm. No app needed.",
-              price: "≈ €24",
-              tint: "from-purple-light/80 to-purple-light/20",
-            },
-          ].map((p) => (
-            <article
-              key={p.name}
-              className="group flex flex-col overflow-hidden rounded-3xl border border-ww-border bg-warm-white transition-shadow hover:shadow-[0_8px_24px_-12px_rgba(26,21,16,0.18)]"
-            >
-              <div
-                className={`h-44 bg-gradient-to-br ${p.tint} md:h-52`}
-                aria-hidden
-              />
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="mb-2 font-serif text-xl leading-tight text-ink md:text-2xl">
-                  {p.name}
-                </h3>
-                <p className="mb-5 flex-1 font-mono text-xs leading-relaxed text-ww-muted">
-                  {p.why}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="font-serif text-xl text-ink md:text-2xl">
-                    {p.price}
-                  </span>
-                  <Link
-                    href="/shop"
-                    className="rounded-full border border-ink/20 bg-sand px-4 py-1.5 font-mono text-[11px] uppercase tracking-widest text-ink transition-colors hover:border-ink/40 hover:bg-sand/70"
-                  >
-                    View
-                  </Link>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <p className="mt-6 font-mono text-[11px] text-ww-muted">
-          <Link href="/shop" className="underline hover:text-ink">
-            Browse the full 15-product kit →
-          </Link>
-        </p>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════
-          5 — SAFETY PACK (was: WhatsApp Vault)
+          4 — SAFETY PACK (was: WhatsApp Vault)
           ════════════════════════════════════════════════════════ */}
       <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.25em] text-blue">
@@ -578,7 +502,7 @@ export default function SafetyPreviewPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════
-          6 — BUILT FOR SOLO WOMEN, BY SOLO WOMEN
+          5 — BUILT FOR SOLO WOMEN, BY SOLO WOMEN
           ════════════════════════════════════════════════════════ */}
       <section className="mx-auto max-w-6xl px-5 pb-16 md:px-8 md:pb-24">
         <div className="rounded-3xl border border-ww-border bg-warm-white p-6 md:p-10">
