@@ -2,10 +2,12 @@ import Link from "next/link";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 import HeroBackground from "@/components/shared/HeroBackground";
 import WhatsInside from "@/components/landing/WhatsInside";
+import { ContinueWhereYouLeftOff } from "@/components/landing/ContinueWhereYouLeftOff";
 import communityPosts from "@/lib/mock-data/community-posts.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
 import { createStaticClient } from "@/lib/supabase/server";
 import { safeQuery } from "@/lib/safe-query";
+import { getCurrentSegment } from "@/lib/onboarding-segment";
 
 export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
 
@@ -63,9 +65,10 @@ async function getBewareTicker(): Promise<TickerEntry[]> {
 }
 
 export default async function HomePage() {
-  const [totalDestinations, bewares] = await Promise.all([
+  const [totalDestinations, bewares, segment] = await Promise.all([
     getTotalDestinations(),
     getBewareTicker(),
+    getCurrentSegment(),
   ]);
 
   // pre-select data each section needs
@@ -87,6 +90,17 @@ export default async function HomePage() {
   return (
     <main>
       <ExitIntentModal />
+
+      {/* Personalised "continue where you left off" — only renders for users
+          who completed /onboarding (segment.destination is set). Sits above
+          the hero so first-time visitors don't see it; onboarded visitors
+          get a one-tap return path to their destination. */}
+      {segment?.destination && (
+        <ContinueWhereYouLeftOff
+          destination={segment.destination}
+          need={segment.need}
+        />
+      )}
 
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section id="hero" className="relative overflow-hidden bg-ink px-6 pt-20 pb-16 md:pt-28 md:pb-24">
