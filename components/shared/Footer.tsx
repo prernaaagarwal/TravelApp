@@ -77,25 +77,26 @@ export function Footer() {
 
         <p className="mt-10 border-t border-ww-border/60 pt-5 font-mono text-[10px] leading-relaxed text-ww-muted/80">
           <span className="font-semibold text-ink/80">Beware Board notice:</span>{" "}
-          Entries in this V0 demo are illustrative mock data. V1 reports will
-          be user-submitted, reviewed by a human moderator within 24 hours
-          against our{" "}
+          Reports are user-submitted, reviewed by a human moderator within
+          36 hours against our{" "}
           <Link href="/code-of-conduct" className="underline hover:text-ink">
             Code of Conduct
           </Link>
           , and may be edited or rejected if they don&apos;t meet our evidence
-          and defamation standards. Take-down requests:{" "}
-          <a
-            href="mailto:trust@wanderwomen.in"
+          and defamation standards. Each report represents an individual
+          incident, not a statistical safety claim about a destination.
+          Take-down and grievance requests:{" "}
+          <Link
+            href="/legal/grievance-officer"
             className="underline hover:text-ink"
           >
-            trust@wanderwomen.in
-          </a>
+            grievance@wanderwomen.in
+          </Link>
           .
         </p>
 
         <div className="mt-5 flex flex-col items-start justify-between gap-3 font-mono text-[10px] text-ww-muted md:flex-row md:items-center">
-          <span>© 2026 Wander Women — V0 demo build.</span>
+          <span>© 2026 Wander Women.</span>
           <div className="flex flex-wrap gap-4">
             <Link href="/privacy" className="hover:text-ink">
               Privacy

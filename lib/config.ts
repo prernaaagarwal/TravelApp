@@ -31,6 +31,10 @@ const envSchema = z.object({
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1).optional(),
   CRON_SECRET: z.string().min(8).optional(),
   ANTHROPIC_API_KEY: z.string().optional(),
+  // IndexNow key — see lib/indexnow.ts for setup. Optional in dev; without
+  // it, notifications are no-ops. Setting it in production gets new
+  // beware reports indexed by Bing (and therefore ChatGPT search) in hours.
+  INDEXNOW_KEY: z.string().min(8).optional(),
   ADMIN_EMAIL: z.string().email().optional(),
   // FOUNDER_EMAIL is the recipient of the daily ops digest. Falls back to
   // ADMIN_EMAIL if unset, but separate vars let the founder route ops mail

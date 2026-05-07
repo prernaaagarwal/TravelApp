@@ -7,6 +7,41 @@
 
 ---
 
+## ⚠️ Wedge addendum — supersedes V0 scope (added 2026-05-07)
+
+This PRD remains canonical for V0 / demo specs and as product memory.
+However, after V1 shipped (live Supabase backend, 36 routes, 33 tables),
+the wedge memo at `docs/strategy/wedge.md` supersedes the platform-style
+scope below for the **current V1 roadmap.**
+
+**Deferred from V1 main nav** (routes still live, just not headline):
+
+- `/buddy` — buddy matching (Wave 2; ships at 1,000 verified users)
+- `/vault` — WhatsApp Vault as a paid SKU (now bundled into membership)
+- `/feed` — trip reports / Trip Feed (Wave 2; tab inside contributor profile, not top-level)
+- `/shop` — safety products (inline placement on Intel Cards, not a route in nav)
+- `/onboarding` — 3-question segmentation flow (deferred indefinitely; behavior beats interrogation)
+
+**Killed from V1** (not just deferred):
+
+- Foreign-women segment as co-equal primary persona (kept indexable as SEO surface; not promoted in landing CTA)
+- Paid acquisition at launch (turned on only after 90 days of organic data)
+- B2B safety-intel-as-a-service (Year-3 unlock, not V1)
+
+**The one-sentence wedge** (memorize):
+
+> *A women-only, named-contributor incident map for solo travel in India —
+> with the Beware Board as the entry point and verified intel cards as the
+> conversion surface.*
+
+**The single V1 metric:** 500 paid members at end of month 6.
+Below 200 = pivot. Above 800 = accelerate.
+
+For the current spec, read `docs/strategy/wedge.md` first. The sections
+below remain accurate as V0 product memory.
+
+---
+
 ## 0. The single most important page in this PRD
 
 **Read this first. Re-read it before every build session.**

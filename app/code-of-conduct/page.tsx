@@ -16,7 +16,7 @@ export default function CodeOfConductPage() {
         Code of Conduct
       </h1>
       <p className="mb-8 font-mono text-xs leading-relaxed text-ww-muted">
-        Last updated: 5 May 2026 · V0 draft, pending legal review before V1 launch
+        Last updated: 7 May 2026 · Version 1.0 (draft, pending legal review)
       </p>
 
       {/* ── In short ─────────────────────────────────────────────── */}
@@ -286,11 +286,11 @@ export default function CodeOfConductPage() {
       </Section>
 
       <p className="mt-12 border-t border-ww-border/60 pt-5 font-mono text-[10px] leading-relaxed text-ww-muted/80">
-        This page is a V0 draft. Before any user-submitted Beware report is
-        published in V1, we will engage a defamation lawyer to review and
-        tighten this language for India + EU + US jurisdictions. If you are
-        reading this and you are a media-law lawyer who cares about women’s
-        travel safety: please{" "}
+        This page is a draft pending external legal review. We are
+        engaging defamation counsel to tighten this language for India +
+        EU + US jurisdictions before publishing the final version. If you
+        are reading this and you are a media-law lawyer who cares about
+        women&rsquo;s travel safety: please{" "}
         <Link href="/feedback" className="underline hover:text-ink">
           get in touch
         </Link>
