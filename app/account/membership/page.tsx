@@ -28,26 +28,27 @@ export default async function MembershipPage() {
           {/* Plain-English framing — the FIRST thing a new user reads */}
           <div className="mb-6 border border-sage/30 bg-sage-light px-4 py-3">
             <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-sage">
-              In beta · This is free
+              In beta · No payment processing yet
             </p>
             <p className="font-mono text-xs leading-relaxed text-ink">
-              No payment now. No payment when we exit beta — founding members
-              lock in the rate for life. Sign up, we&apos;ll WhatsApp you in
-              48 hours to confirm your spot.
+              Pay nothing now. When payment opens, founding members lock at
+              ₹999/year for life. Public price will be ₹1,999/year. Sign up,
+              we&apos;ll WhatsApp you in 48 hours to confirm your spot.
             </p>
           </div>
 
           <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
             Founding 200 ·{" "}
-            <span className="text-ww-muted/60 line-through">₹499 / year</span>{" "}
-            <span className="not-italic text-sage">free in beta</span>
+            <span className="text-ink">₹999 / year locked for life</span>{" "}
+            <span className="not-italic text-sage">(₹0 during beta)</span>
           </p>
           <h1 className="font-serif text-3xl text-ink mb-3 sm:text-4xl">
             Join before the doors close.
           </h1>
           <p className="text-sm text-ww-muted leading-relaxed mb-6">
-            The first 200 women get founding membership for life. While we&apos;re
-            building this, it&apos;s free — and your honest feedback shapes it.
+            The first 200 women lock in ₹999/year for life. Pay nothing during
+            beta — your honest feedback is the only ask. Public price after
+            beta will be ₹1,999/year.
           </p>
 
           <div className="mb-4 border border-sage/40 bg-sage-light/40 px-3 py-2">

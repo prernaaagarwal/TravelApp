@@ -26,10 +26,17 @@ for (const vp of VIEWPORTS) {
       );
 
       for (const card of EXPECTED_CARDS) {
-        const eyebrow = page.getByText(card.eyebrow, { exact: true }).first();
-        await expect(eyebrow, `eyebrow "${card.eyebrow}" should be visible`).toBeVisible();
-        const link = page.locator(`a[href="${card.href}"]`).first();
-        await expect(link, `link to ${card.href} should exist`).toBeVisible();
+        // Scope to the safety-hub card itself by combining href with the
+        // unique card class signature. Without the class scope, the Header
+        // primary nav and MobileNav both also link to /community?tab=beware
+        // and /shop, and the (DOM-order-first) Header link is hidden at
+        // mobile widths via md:flex — making .first() pick a hidden node.
+        const cardLink = page.locator(
+          `a.group.flex.flex-col.border[href="${card.href}"]`,
+        );
+        await expect(cardLink, `safety-hub card link to ${card.href}`).toBeVisible();
+        const eyebrow = cardLink.getByText(card.eyebrow, { exact: true });
+        await expect(eyebrow, `eyebrow "${card.eyebrow}" should be inside card`).toBeVisible();
       }
 
       await expect(page.locator("body")).not.toContainText("Women's Basics");

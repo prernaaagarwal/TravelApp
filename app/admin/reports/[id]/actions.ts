@@ -3,6 +3,8 @@
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { notifyIndexNowFireAndForget } from "@/lib/indexnow";
+import { env } from "@/lib/config";
 
 async function getModeratorId(): Promise<string> {
   const supabase = await createClient();
@@ -42,13 +44,27 @@ export async function approveReport(
   if (gpsLat != null && !isNaN(gpsLat)) update.gps_lat = gpsLat;
   if (gpsLng != null && !isNaN(gpsLng)) update.gps_lng = gpsLng;
 
-  const { error } = await supabase
+  // Use .select() so we get city_slug back for the IndexNow ping below.
+  const { data: updated, error } = await supabase
     .from("beware_reports")
     .update(update)
     .eq("id", reportId)
-    .eq("status", "pending");
+    .eq("status", "pending")
+    .select("id, city_slug")
+    .single();
 
   if (error) throw new Error(error.message);
+
+  // Ping IndexNow so Bing / ChatGPT-search / Yandex pick up the new
+  // report within hours. Fire-and-forget so a slow IndexNow response
+  // doesn't block the moderator's redirect.
+  if (updated?.city_slug) {
+    const siteUrl = env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+    notifyIndexNowFireAndForget([
+      `${siteUrl}/community/beware/${updated.city_slug}`,
+      `${siteUrl}/community/beware`,
+    ]);
+  }
 
   revalidatePath("/admin");
   redirect("/admin");

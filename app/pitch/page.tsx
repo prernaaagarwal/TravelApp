@@ -122,7 +122,7 @@ export default function PitchPage() {
           {[
             {
               stream: "Founding membership",
-              price: "₹499/year",
+              price: "₹999/year",
               note: "First 200 slots. Unlocks premium card sections.",
               color: "border-l-rust",
             },

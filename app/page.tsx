@@ -131,26 +131,40 @@ export default async function HomePage() {
             Free to browse.
           </p>
 
-          {/* dual CTA */}
+          {/* Single primary CTA — wedge focus, India-first per
+              docs/strategy/wedge.md. Foreign-women content stays
+              indexable; the secondary link below keeps it reachable
+              without competing for attention with the primary action. */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <RustButton size="lg" asChild>
-              <Link href="/onboarding?region=india">
-                Travel India
+              <Link href="/explore">
+                Explore Intel
                 <span aria-hidden>→</span>
               </Link>
             </RustButton>
             <Link
-              href="/onboarding?region=foreign"
+              href="/community?tab=beware"
               className="inline-flex items-center justify-center gap-2 rounded-none border border-warm-white/40 px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-colors hover:border-warm-white hover:bg-warm-white/5"
             >
-              <span className="hidden sm:inline">Travel </span>Outside India
+              Beware Board
               <span aria-hidden>→</span>
             </Link>
           </div>
+          {/* Foreign-women secondary discovery — kept indexable but
+              demoted from co-equal CTA to a small text link. */}
+          <p className="mt-4 font-mono text-xs text-warm-white/60">
+            Visiting India from abroad?{" "}
+            <Link
+              href="/intel/delhi-india"
+              className="underline decoration-warm-white/40 underline-offset-4 hover:decoration-warm-white"
+            >
+              Start with our foreign-women intel →
+            </Link>
+          </p>
 
           {/* micro trust line */}
           <p className="mt-8 font-mono text-xs text-warm-white/65">
-            Free to browse · Founding membership free in beta · No spam, ever
+            Free during beta · ₹999/year founding rate locks for life when payment opens · No spam, ever
           </p>
         </div>
       </section>
