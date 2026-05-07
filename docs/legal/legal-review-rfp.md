@@ -48,29 +48,38 @@ individuals (drivers, vendors).
 
 ### Workstream 2 — DPDP Act 2023 compliance (BLOCKING)
 
-We collect government IDs (Aadhaar, passport, driving license) and selfies for
-contributor verification, store them in Supabase (data residency: AWS Mumbai
-ap-south-1), and process them via Anthropic's Claude API (cross-border to US).
+We collect government IDs (Aadhaar, passport, driving license) and a selfie
+combined into a single "selfie-with-ID" photo for contributor verification.
+Storage is Supabase (data residency: AWS Mumbai ap-south-1). On approval,
+the ID photo is *deleted* from storage and only a boolean flag plus the
+moderator's audit-logged decision is retained. ID images are not currently
+processed via any automated AI service — review is human-only. (Anthropic
+Claude is used in a separate stay-verification flow for accommodation
+photos; no cross-border transfer occurs in the user-identity flow.)
 
 **Specific questions:**
 1. Are we a Data Fiduciary under DPDP Act 2023? At what user threshold do we
    become a Significant Data Fiduciary?
-2. Is our consent flow at `/account/verify` legally sufficient for:
-   - ID upload
-   - Selfie upload
-   - Cross-border transfer to Anthropic for image analysis
-3. What is the minimum consent revocation flow we must build?
-4. What retention period is permissible for verified ID after a user deletes
-   their account?
-5. Are children (under-18) at risk of using the platform, and if so, what
+2. Is our consent flow at `/account/verify` legally sufficient for ID
+   upload + selfie + retention until human review?
+3. Is photo-deletion-on-approval enough for DPDP "purpose limitation" and
+   "storage limitation" — or do we need explicit consent renewal?
+4. What is the minimum consent revocation flow we must build?
+5. What retention period is permissible for the ID photo for *rejected*
+   verifications, where we may want to retain for fraud-prevention?
+6. Once we integrate a regulated KYC provider (HyperVerge / IDfy / Persona),
+   what consent updates are required for cross-border / cross-system data
+   transfer?
+7. Are children (under-18) at risk of using the platform, and if so, what
    age-gating is legally required?
-6. What are our Data Protection Officer obligations at current scale?
+8. What are our Data Protection Officer obligations at current scale?
 
 **Documents we'll provide:**
-- Verification flow walkthrough
-- `user_verifications` table schema
-- Anthropic API data-processing terms
+- `/account/verify` route walkthrough (phone OTP + photo upload + admin review)
+- `user_verifications` table schema (migration 048)
+- Admin approval action, including the storage-deletion step
 - Draft Privacy Policy
+- Stay-verifier prompt sent to Anthropic Claude (separate flow)
 
 ### Workstream 3 — Women-only platform legal posture (BLOCKING)
 

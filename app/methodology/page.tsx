@@ -145,41 +145,70 @@ export default function MethodologyPage() {
             id="verification"
           >
             <p>
-              Before a contributor publishes their first card, they complete a
-              four-step verification flow:
+              Before a contributor is verified as a woman traveler, they
+              complete a four-step verification flow:
             </p>
             <ol className="my-4 list-decimal space-y-2 pl-6">
               <li>
-                <strong>Government ID upload</strong> — Aadhaar, passport, or
-                driving license, encrypted at rest in Supabase storage.
+                <strong>Phone OTP</strong> — a one-time SMS code via Supabase
+                Auth confirms a real, reachable number. Time-stamped on{" "}
+                <code className="rounded bg-sand px-1 font-mono text-sm">
+                  user_verifications.phone_verified_at
+                </code>
+                .
               </li>
               <li>
-                <strong>Selfie capture</strong> — paired with the ID for
-                consistency review.
+                <strong>Selfie-with-ID upload</strong> — a single photo
+                showing the contributor holding their government ID
+                (Aadhaar, passport, or driving license). Uploaded to a
+                private Supabase Storage bucket; the path is recorded on{" "}
+                <code className="rounded bg-sand px-1 font-mono text-sm">
+                  id_photo_path
+                </code>
+                .
               </li>
               <li>
-                <strong>AI-assisted consistency check</strong> — Anthropic
-                Claude performs OCR and a qualitative consistency review
-                between the ID photo and the selfie. We do not perform
-                automated biometric matching, liveness detection, or gender
-                classification. Claude is a pre-filter, not a decision-maker.
-              </li>
-              <li>
-                <strong>Human review</strong> — a trained moderator approves
-                or rejects the verification. Every decision is logged in our{" "}
+                <strong>Human review</strong> — a trained moderator opens
+                the photo at{" "}
+                <code className="rounded bg-sand px-1 font-mono text-sm">
+                  /admin/verifications
+                </code>{" "}
+                and approves or rejects. We do not run automated biometric
+                matching, liveness detection, or gender classification on
+                this photo. Every decision is logged in{" "}
                 <code className="rounded bg-sand px-1 font-mono text-sm">
                   moderation_audit_log
                 </code>{" "}
-                table with reviewer ID and timestamp, retained for at least
-                180 days per IT Rules 2021.
+                with reviewer ID and timestamp, retained for at least 180
+                days per IT Rules 2021.
+              </li>
+              <li>
+                <strong>Photo deletion on approval</strong> — when a
+                verification is approved, the ID photo is{" "}
+                <em>immediately deleted</em> from storage and{" "}
+                <code className="rounded bg-sand px-1 font-mono text-sm">
+                  id_photo_path
+                </code>{" "}
+                is nulled. We retain only a boolean on the contributor&rsquo;s
+                profile (<code className="rounded bg-sand px-1 font-mono text-sm">
+                  id_verified = true
+                </code>
+                ) plus the moderator&rsquo;s timestamped decision. This is a
+                deliberate minimum-data design — the smallest possible breach
+                blast radius if storage is ever compromised.
               </li>
             </ol>
             <p>
-              Contributors self-identify as women and accept our community
-              terms at signup. As we scale, we will integrate a regulated KYC
-              provider (HyperVerge or equivalent) for biometric verification —
-              that integration is roadmapped at a volume threshold of 500
-              verifications per week.
+              Contributors self-identify as women under our community terms;
+              the human reviewer adjudicates inconsistent cases. As volume
+              scales, we will integrate a regulated KYC provider (HyperVerge,
+              IDfy, or equivalent) for biometric verification — see{" "}
+              <code className="rounded bg-sand px-1 font-mono text-sm">
+                docs/legal/verification-stack-memo.md
+              </code>{" "}
+              for the cost-triggered transition plan. Anthropic Claude is
+              currently used for a separate stay-verification flow
+              (accommodation photo analysis), not for ID verification.
             </p>
           </Pillar>
 
