@@ -217,21 +217,22 @@ export default async function IntelPage({ params }: { params: Params }) {
 
         {/* hero text overlay */}
         <div className="absolute bottom-0 left-0 px-6 pb-6">
-          <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-warm-white/60">
+          <p className="mb-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-warm-white/80">
+            <span className="h-2 w-2 rounded-full bg-rust" aria-hidden />
             {card.audience === "foreign" ? "For foreign women" : card.audience === "indian" ? "For Indian women" : "All solo women"}
           </p>
           {/* H1 carries the city + the search phrase a solo woman googles
               ("solo female travel safety guide"). The destination is visually
               dominant; the keyword line sits underneath in the same heading
               so Google sees one keyword-rich H1. */}
-          <h1 className="font-serif leading-tight text-warm-white">
-            <span className="block text-4xl md:text-5xl">{card.destination}</span>
-            <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.18em] text-warm-white/70 md:text-xs">
+          <h1 className="font-serif leading-[1.02] tracking-tight text-warm-white">
+            <span className="block text-5xl md:text-7xl">{card.destination}</span>
+            <span className="mt-2 block font-mono text-[11px] uppercase tracking-[0.18em] text-warm-white/70 md:text-xs">
               Solo Female Travel Safety Guide · {card.country}
             </span>
           </h1>
           {card.isPremium && (
-            <span className="mt-2 inline-block bg-gold/90 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-ink">
+            <span className="mt-3 inline-block rounded-full bg-gold/90 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-ink">
               + Founding member bonus inside
             </span>
           )}
@@ -275,7 +276,7 @@ export default async function IntelPage({ params }: { params: Params }) {
           </div>
 
           {/* ── Share row ─────────────────────────────────────────────── */}
-          <div className="flex flex-col gap-3 border border-dashed border-ww-border bg-warm-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 rounded-2xl border border-dashed border-ww-border bg-warm-white px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="font-mono text-[11px] uppercase tracking-widest text-ww-muted">
               Send this to whoever you&apos;re travelling with →
             </p>
@@ -300,7 +301,7 @@ export default async function IntelPage({ params }: { params: Params }) {
             {Array.isArray(card.tldr) ? (
               <ol className="space-y-3">
                 {(card.tldr as string[]).map((point, i) => (
-                  <li key={i} className="flex gap-4 border border-ww-border bg-sand p-4">
+                  <li key={i} className="flex gap-4 rounded-2xl border border-ww-border bg-warm-white p-4">
                     <span className="mt-0.5 shrink-0 font-mono text-2xl font-light leading-none text-rust/30">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -310,7 +311,7 @@ export default async function IntelPage({ params }: { params: Params }) {
               </ol>
             ) : (
               <div className="space-y-3">
-                <div className="border border-ww-border bg-sand p-4">
+                <div className="rounded-2xl border border-ww-border bg-warm-white p-4">
                   <p className="text-sm leading-relaxed text-ink">
                     {(card.tldr as { summary: string }).summary}
                   </p>
@@ -334,7 +335,7 @@ export default async function IntelPage({ params }: { params: Params }) {
                 <AccordionItem
                   key={i}
                   value={`hood-${i}`}
-                  className="border border-ww-border bg-sand px-0"
+                  className="rounded-2xl border border-ww-border bg-warm-white px-0"
                 >
                   <AccordionTrigger className="px-4 py-3 hover:no-underline">
                     <div className="flex flex-1 items-center gap-3 text-left">
@@ -391,7 +392,7 @@ export default async function IntelPage({ params }: { params: Params }) {
             {SUPPORTED_BEWARE_CITIES.has(card.slug) ? (
               <a
                 href={`/community/beware/${card.slug}`}
-                className="flex items-center justify-between border border-rust/30 bg-rust-light/60 px-5 py-5 transition-colors hover:bg-rust-light"
+                className="flex items-center justify-between rounded-2xl border border-rust/30 bg-rust-light/60 px-5 py-5 transition-colors hover:bg-rust-light"
               >
                 <div>
                   <p className="font-mono text-sm font-semibold text-rust">
@@ -406,7 +407,7 @@ export default async function IntelPage({ params }: { params: Params }) {
             ) : (
               <div className="space-y-1.5">
                 {card.scams.slice(0, 4).map((scam, i) => (
-                  <div key={i} className="flex items-center gap-3 border border-ww-border bg-sand px-4 py-3">
+                  <div key={i} className="flex items-center gap-3 rounded-2xl border border-ww-border bg-warm-white px-4 py-3">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
                       {scam.severity}
                     </span>
@@ -427,7 +428,7 @@ export default async function IntelPage({ params }: { params: Params }) {
             <h2 className="mb-4 font-serif text-2xl text-ink">Getting around</h2>
             <div className="space-y-2">
               {card.transport.map((t, i) => (
-                <div key={i} className="flex gap-4 border border-ww-border bg-sand p-4">
+                <div key={i} className="flex gap-4 rounded-2xl border border-ww-border bg-warm-white p-4">
                   <span className="mt-0.5 shrink-0 text-lg">🚌</span>
                   <div className="min-w-0 flex-1">
                     <div className="mb-1 flex flex-wrap items-baseline gap-2">
@@ -449,7 +450,7 @@ export default async function IntelPage({ params }: { params: Params }) {
             </p>
             <div className="space-y-3">
               {card.hiddenGems.map((gem, i) => (
-                <div key={i} className="border border-ww-border bg-sand p-4">
+                <div key={i} className="rounded-2xl border border-ww-border bg-warm-white p-4">
                   <div className="mb-2 flex flex-wrap items-start justify-between gap-2">
                     <div>
                       <h3 className="font-mono text-sm font-semibold text-ink">{gem.name}</h3>
@@ -505,7 +506,7 @@ export default async function IntelPage({ params }: { params: Params }) {
                 { label: "Comfortable", amount: b.comfortable, desc: "Boutique hotel, restaurant dining, app taxis", color: "border-l-blue" },
               ];
               return (
-                <div className="divide-y divide-ww-border border border-ww-border bg-sand">
+                <div className="divide-y divide-ww-border rounded-2xl border border-ww-border bg-warm-white">
                   <div className="grid grid-cols-[1fr_auto] gap-4 px-4 py-2">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">Tier</span>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">{cur} / day</span>
@@ -536,7 +537,7 @@ export default async function IntelPage({ params }: { params: Params }) {
             {((card.dosAndDonts?.do?.length ?? 0) > 0 || (card.dosAndDonts?.dont?.length ?? 0) > 0) && (
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {(card.dosAndDonts?.do?.length ?? 0) > 0 && (
-                  <div className="border border-sage/30 bg-sage-light/30 p-4">
+                  <div className="rounded-2xl border border-sage/30 bg-sage-light/30 p-5">
                     <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-sage">Do</p>
                     <ul className="space-y-1.5">
                       {card.dosAndDonts.do.map((d, i) => (
@@ -548,7 +549,7 @@ export default async function IntelPage({ params }: { params: Params }) {
                   </div>
                 )}
                 {(card.dosAndDonts?.dont?.length ?? 0) > 0 && (
-                  <div className="border border-rust/30 bg-rust-light/30 p-4">
+                  <div className="rounded-2xl border border-rust/30 bg-rust-light/30 p-5">
                     <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-rust">Don&apos;t</p>
                     <ul className="space-y-1.5">
                       {card.dosAndDonts.dont.map((d, i) => (
@@ -572,7 +573,7 @@ export default async function IntelPage({ params }: { params: Params }) {
             sections above (TLDR, Scams, Don't, Neighborhoods, Emergency).
           */}
           {card.isPremium && (
-            <section className="relative overflow-hidden border border-ww-border">
+            <section className="relative overflow-hidden rounded-2xl border border-ww-border">
               <div className="border-b border-ww-border bg-sand/50 px-4 py-2">
                 <p className="flex items-center justify-between gap-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
                   <span>Bonus chapter — founding members</span>
@@ -632,7 +633,7 @@ export default async function IntelPage({ params }: { params: Params }) {
                   key={i}
                   href={`tel:${e.number}`}
                   aria-label={`Call ${e.label} at ${e.number}`}
-                  className="group flex items-center justify-between gap-3 border border-ww-border bg-sand px-4 py-3 transition-colors hover:border-rust hover:bg-rust-light/40"
+                  className="group flex items-center justify-between gap-3 rounded-2xl border border-ww-border bg-warm-white px-4 py-3 transition-colors hover:border-rust hover:bg-rust-light/40"
                 >
                   <span className="font-mono text-xs text-ww-muted group-hover:text-ink">
                     {e.label}
@@ -665,7 +666,7 @@ export default async function IntelPage({ params }: { params: Params }) {
                   href={card.affiliateLinks.booking}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between border border-ww-border bg-blue-light px-4 py-3 hover:bg-blue/10 transition-colors"
+                  className="flex items-center justify-between rounded-2xl border border-blue/30 bg-blue-light/60 px-5 py-4 hover:bg-blue-light transition-colors"
                 >
                   <div>
                     <p className="font-mono text-[10px] uppercase tracking-widest text-blue">
@@ -683,7 +684,7 @@ export default async function IntelPage({ params }: { params: Params }) {
                   href={card.affiliateLinks.worldNomads}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between border border-ww-border bg-sage-light px-4 py-3 hover:bg-sage/10 transition-colors"
+                  className="flex items-center justify-between rounded-2xl border border-sage/30 bg-sage-light/60 px-5 py-4 hover:bg-sage-light transition-colors"
                 >
                   <div>
                     <p className="font-mono text-[10px] uppercase tracking-widest text-sage">
@@ -701,7 +702,7 @@ export default async function IntelPage({ params }: { params: Params }) {
 
           {/* ── Full contributor card ─────────────────────────────────── */}
           {contributor && (
-            <section className="border border-ww-border bg-sand p-6">
+            <section className="rounded-2xl border border-ww-border bg-warm-white p-6">
               <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
                 About the contributor
               </p>
@@ -781,7 +782,7 @@ export default async function IntelPage({ params }: { params: Params }) {
               <a
                 key={item.label}
                 href={item.href}
-                className={`flex items-center justify-between border border-ww-border bg-sand px-4 py-3 font-mono text-xs hover:bg-ww-border ${item.color}`}
+                className={`flex items-center justify-between rounded-2xl border border-ww-border bg-warm-white px-4 py-3 font-mono text-xs hover:bg-ww-border ${item.color}`}
               >
                 {item.label}
                 <span>→</span>
@@ -790,7 +791,7 @@ export default async function IntelPage({ params }: { params: Params }) {
 
             {/* contributor mini-card */}
             {contributor && (
-              <div className="mt-6 border border-ww-border bg-sand p-4">
+              <div className="mt-6 rounded-2xl border border-ww-border bg-warm-white p-4">
                 <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
                   Written by
                 </p>
