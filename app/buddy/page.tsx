@@ -106,13 +106,18 @@ export default async function BuddyPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-12">
       <div className="mb-6">
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
+        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-sage">
+          <span className="h-2 w-2 rounded-full bg-sage" aria-hidden />
           Solo female travel buddy match
         </p>
-        <h1 className="mb-3 font-serif text-4xl text-ink md:text-5xl">
-          Solo, but not alone.
+        <h1 className="mb-4 font-serif text-4xl leading-[1.02] tracking-tight text-ink md:text-6xl">
+          Solo, but{" "}
+          <span className="font-serif font-medium italic text-gold">
+            not alone
+          </span>
+          .
         </h1>
-        <p className="font-mono text-sm leading-relaxed text-ww-muted">
+        <p className="max-w-xl font-mono text-sm leading-relaxed text-ww-muted">
           Match with women going where you&apos;re going on dates that actually
           overlap. Buddy profiles are phone + ID verified by our team — see
           below for exactly what that means.

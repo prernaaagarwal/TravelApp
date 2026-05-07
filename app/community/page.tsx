@@ -6,6 +6,13 @@ import { safeQuery } from "@/lib/safe-query";
 import rawPosts from "@/lib/mock-data/community-posts.json";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { faqPageLd } from "@/lib/jsonld";
+import Link from "next/link";
+import {
+  MessageCircleQuestion,
+  AlertTriangle,
+  Map,
+  ChevronRight,
+} from "lucide-react";
 
 export const metadata = {
   title: "Solo Female Travel Community — Q&A, Scam Reports, Local Tips",
@@ -288,20 +295,92 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
           </div>
         </div>
       )}
-      <div className="mb-10">
-        <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
+      <div className="mb-8">
+        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-rust">
+          <span className="h-2 w-2 rounded-full bg-rust" aria-hidden />
           Solo female travel community
         </p>
-        <h1 className="mb-3 font-serif text-3xl text-ink sm:text-4xl md:text-5xl">
-          The group chat,
-          <br />
-          but actually useful.
+        <h1 className="mb-4 font-serif text-4xl leading-[1.02] tracking-tight text-ink sm:text-5xl md:text-6xl">
+          The group chat,{" "}
+          <span className="font-serif font-medium italic text-gold">
+            but actually
+          </span>{" "}
+          useful.
         </h1>
-        <p className="font-mono text-sm leading-relaxed text-ww-muted">
+        <p className="max-w-xl font-mono text-sm leading-relaxed text-ww-muted">
           Ask anything. Share what happened. Flag what others need to know.
           A women-only space where real travellers answer real questions — fast,
           honest, no filters.
         </p>
+      </div>
+
+      {/* Quick-action cards */}
+      <div className="mb-10 grid gap-3 sm:grid-cols-3">
+        <Link
+          href="/community?tab=ask"
+          className="group flex items-center gap-3 rounded-2xl border border-rust/30 bg-rust-light/40 p-4 transition-colors hover:border-rust/60"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rust/10 text-rust">
+            <MessageCircleQuestion className="h-5 w-5" aria-hidden />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="mb-0.5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
+              <span className="h-1.5 w-1.5 rounded-full bg-rust" aria-hidden />
+              Ask
+            </p>
+            <p className="truncate font-serif text-base leading-tight text-ink">
+              Ask the community
+            </p>
+          </div>
+          <ChevronRight
+            className="h-4 w-4 shrink-0 text-rust transition-transform group-hover:translate-x-0.5"
+            aria-hidden
+          />
+        </Link>
+
+        <Link
+          href="/contribute/report"
+          className="group flex items-center gap-3 rounded-2xl border border-gold/30 bg-gold-light/60 p-4 transition-colors hover:border-gold/60"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold">
+            <AlertTriangle className="h-5 w-5" aria-hidden />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="mb-0.5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-gold">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
+              Report
+            </p>
+            <p className="truncate font-serif text-base leading-tight text-ink">
+              Saw a scam?
+            </p>
+          </div>
+          <ChevronRight
+            className="h-4 w-4 shrink-0 text-gold transition-transform group-hover:translate-x-0.5"
+            aria-hidden
+          />
+        </Link>
+
+        <Link
+          href="/explore"
+          className="group flex items-center gap-3 rounded-2xl border border-blue/30 bg-blue-light/40 p-4 transition-colors hover:border-blue/60"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue/10 text-blue">
+            <Map className="h-5 w-5" aria-hidden />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="mb-0.5 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-blue">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue" aria-hidden />
+              Browse
+            </p>
+            <p className="truncate font-serif text-base leading-tight text-ink">
+              Browse by city
+            </p>
+          </div>
+          <ChevronRight
+            className="h-4 w-4 shrink-0 text-blue transition-transform group-hover:translate-x-0.5"
+            aria-hidden
+          />
+        </Link>
       </div>
 
       {submitted === "beware" && (

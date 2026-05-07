@@ -38,24 +38,29 @@ export default async function VerifyStayPage() {
     <main className="mx-auto max-w-2xl px-4 py-10 md:py-16">
       <div className="mb-8">
         <div
-          className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium mb-4 ${
+          className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-4 font-mono text-[11px] uppercase tracking-[0.25em] ${
             isAiEnabled
               ? "bg-sage-light text-sage"
               : "bg-ww-border/60 text-ww-muted"
           }`}
         >
-          <ShieldCheck className="h-3.5 w-3.5" />
+          <span
+            className={`h-2 w-2 rounded-full ${isAiEnabled ? "bg-sage" : "bg-ww-muted"}`}
+            aria-hidden
+          />
+          <ShieldCheck className="h-3.5 w-3.5" aria-hidden />
           AI Safety Check
-          {!isAiEnabled && <span className="ml-1 font-mono text-[10px] uppercase tracking-widest">· Beta · Offline</span>}
+          {!isAiEnabled && <span className="ml-1">· Beta · Offline</span>}
         </div>
         <h1
-          className={`font-serif text-2xl sm:text-3xl md:text-4xl mb-3 ${
+          className={`mb-4 font-serif text-4xl leading-[1.02] tracking-tight md:text-6xl ${
             isAiEnabled ? "text-ink" : "text-ww-muted/80"
           }`}
         >
-          Is this stay safe?
+          Is this stay{" "}
+          <span className="font-serif font-medium italic text-gold">safe?</span>
         </h1>
-        <p className={`leading-relaxed ${isAiEnabled ? "text-ww-muted" : "text-ww-muted/70"}`}>
+        <p className={`max-w-xl font-mono text-sm leading-relaxed ${isAiEnabled ? "text-ww-muted" : "text-ww-muted/70"}`}>
           Paste any booking link — Airbnb, Booking.com, Agoda, MakeMyTrip, or others.
           We&apos;ll run a safety and scam analysis tuned for solo women travellers.
         </p>
