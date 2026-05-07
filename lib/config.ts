@@ -32,9 +32,15 @@ const envSchema = z.object({
   CRON_SECRET: z.string().min(8).optional(),
   ANTHROPIC_API_KEY: z.string().optional(),
   ADMIN_EMAIL: z.string().email().optional(),
+  // FOUNDER_EMAIL is the recipient of the daily ops digest. Falls back to
+  // ADMIN_EMAIL if unset, but separate vars let the founder route ops mail
+  // to a different inbox than admin alerts.
+  FOUNDER_EMAIL: z.string().email().optional(),
   EMAIL_FROM: z
     .string()
     .default("Wander Women <noreply@wanderwomen.in>"),
+  // Sender for the daily ops digest. Defaults to EMAIL_FROM if unset.
+  RESEND_FROM: z.string().optional(),
   RESEND_API_KEY: z.string().optional(),
   UNSUBSCRIBE_SECRET: z.string().min(16).optional(),
   FINGERPRINT_SALT: z.string().min(8).optional(),
