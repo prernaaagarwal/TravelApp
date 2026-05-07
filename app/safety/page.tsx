@@ -216,7 +216,7 @@ export default async function SafetyPage() {
               <h2 className="mb-3 font-serif text-2xl leading-snug text-ink">
                 {card.title}
               </h2>
-              <p className="mb-6 flex-1 font-mono text-xs leading-relaxed text-ink/70">
+              <p className="mb-6 flex-1 font-mono text-sm leading-relaxed text-ink/70">
                 {card.body}
               </p>
               <span
