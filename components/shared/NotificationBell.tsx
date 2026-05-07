@@ -73,7 +73,7 @@ export function NotificationBell({ initialUnread, notifications, profileSlug }: 
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-2 w-80 border border-ww-border bg-warm-white shadow-lg">
+        <div className="absolute right-0 top-full z-50 mt-2 w-80 border border-ww-border bg-warm-white shadow-2xl">
           <div className="flex items-center justify-between border-b border-ww-border px-4 py-3">
             <span className="font-mono text-[10px] uppercase tracking-widest text-ink">
               Notifications

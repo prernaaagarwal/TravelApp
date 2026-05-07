@@ -196,7 +196,7 @@ export function ReceiptsClient({
       <section className="relative">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-end gap-10 px-6 pt-10 pb-12 lg:grid-cols-12 lg:pt-16">
           <div className="lg:col-span-7">
-            <p className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ww-muted">
+            <p className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-ww-muted">
               <span className="h-px w-8 bg-ink/40" />
               Solo female travel reports · The Honest Budget Issue
             </p>
@@ -347,7 +347,7 @@ export function ReceiptsClient({
       <section id="feed" className="mx-auto max-w-7xl px-6 pt-12">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-ww-muted">
+            <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.2em] text-ww-muted">
               The Feed
             </p>
             <h2 className="font-serif text-3xl tracking-tight md:text-4xl">
@@ -456,7 +456,7 @@ export function ReceiptsClient({
                 <Users className="h-5 w-5 text-rust" />
               </span>
               <div>
-                <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-rust">
+                <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
                   Coming soon
                 </p>
                 <p className="font-serif text-2xl leading-tight tracking-tight text-ink">
@@ -506,7 +506,7 @@ function TripCard({
 
   return (
     <article className="group">
-      <div className="mb-3 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-ww-muted">
+      <div className="mb-3 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-ww-muted">
         <span>
           № {String(index + 1).padStart(2, "0")}
           {trip.category ? ` · ${trip.category}` : ""}

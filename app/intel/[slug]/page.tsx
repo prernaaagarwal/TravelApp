@@ -217,7 +217,7 @@ export default async function IntelPage({ params }: { params: Params }) {
 
         {/* hero text overlay */}
         <div className="absolute bottom-0 left-0 px-6 pb-6">
-          <p className="mb-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-warm-white/80">
+          <p className="mb-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-warm-white/80">
             <span className="h-2 w-2 rounded-full bg-rust" aria-hidden />
             {card.audience === "foreign" ? "For foreign women" : card.audience === "indian" ? "For Indian women" : "All solo women"}
           </p>
@@ -227,7 +227,7 @@ export default async function IntelPage({ params }: { params: Params }) {
               so Google sees one keyword-rich H1. */}
           <h1 className="font-serif leading-[1.02] tracking-tight text-warm-white">
             <span className="block text-5xl md:text-7xl">{card.destination}</span>
-            <span className="mt-2 block font-mono text-[11px] uppercase tracking-[0.18em] text-warm-white/70 md:text-xs">
+            <span className="mt-2 block font-mono text-[11px] uppercase tracking-[0.2em] text-warm-white/70 md:text-xs">
               Solo Female Travel Safety Guide · {card.country}
             </span>
           </h1>

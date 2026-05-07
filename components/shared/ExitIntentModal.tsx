@@ -82,7 +82,7 @@ export function ExitIntentModal() {
       onClick={() => setOpen(false)}
     >
       <div
-        className="relative w-full max-w-md border border-ww-border bg-warm-white p-8 shadow-xl"
+        className="relative w-full max-w-md border border-ww-border bg-warm-white p-8 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button

@@ -299,7 +299,7 @@ export default async function MessagesPage() {
                       {accepted && recipient?.home_city && `${recipient.home_city} · `}
                       Trip: {destinationLabel(recipient?.destination_slug ?? "")}
                     </p>
-                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.15em]">
+                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em]">
                       {accepted ? (
                         <span className="text-sage">✓ Accepted — take it to your trusted channel</span>
                       ) : (

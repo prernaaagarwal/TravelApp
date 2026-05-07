@@ -238,7 +238,7 @@ export default function AboutPage() {
             <div className="max-w-2xl">
               <div className="mb-5 flex items-center gap-3">
                 <span className="h-px w-10 bg-rust" />
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-ww-muted">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
                   Origin
                 </span>
               </div>

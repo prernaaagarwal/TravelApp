@@ -106,7 +106,7 @@ export default async function BuddyPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-12">
       <div className="mb-6">
-        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-sage">
+        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-sage">
           <span className="h-2 w-2 rounded-full bg-sage" aria-hidden />
           Solo female travel buddy match
         </p>
@@ -193,7 +193,7 @@ export default async function BuddyPage() {
             return (
               <article key={buddy.id} className="border border-ww-border bg-sand p-5">
                 <div className="flex flex-wrap items-start gap-4">
-                  <div className="h-16 w-16 shrink-0 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xl font-medium">
+                  <div className="h-16 w-16 shrink-0 rounded-full bg-rust-light flex items-center justify-center text-rust text-xl font-medium">
                     {(buddy.first_name?.[0] ?? "W").toUpperCase()}
                   </div>
                   <div className="min-w-0 flex-1">
@@ -273,7 +273,7 @@ function MockBuddyCard({
           <Image src={buddy.photoUrl} alt={buddy.firstName}
             width={64} height={64} className="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-ww-border" />
         ) : (
-          <div className="h-16 w-16 shrink-0 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xl font-medium ring-2 ring-ww-border">
+          <div className="h-16 w-16 shrink-0 rounded-full bg-rust-light flex items-center justify-center text-rust text-xl font-medium ring-2 ring-ww-border">
             {buddy.firstName[0].toUpperCase()}
           </div>
         )}

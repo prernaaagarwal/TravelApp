@@ -124,7 +124,7 @@ export async function Header() {
               <Link
                 href={`/profile/${profileSlug}`}
                 aria-label="My profile"
-                className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium hover:bg-rust/30 transition-colors"
+                className="h-8 w-8 rounded-full bg-rust-light flex items-center justify-center text-rust text-xs font-medium hover:bg-rust-light/70 transition-colors"
               >
                 {initial}
               </Link>

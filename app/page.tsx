@@ -294,7 +294,7 @@ export default async function HomePage() {
             {/* Eyebrow with rules on both sides */}
             <div className="mb-8 flex items-center justify-center gap-3">
               <span className="h-px w-10 bg-rust" />
-              <span className="font-mono text-xs uppercase tracking-[0.18em] text-ww-muted">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
                 The invitation · 05
               </span>
               <span className="h-px w-10 bg-rust" />

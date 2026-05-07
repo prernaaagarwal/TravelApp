@@ -80,7 +80,7 @@ export function ReportBuddyButton({ reportedUserId }: { reportedUserId: string }
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md rounded-xl border border-ww-border bg-warm-white p-6 shadow-lg"
+            className="w-full max-w-md rounded-2xl border border-ww-border bg-warm-white p-6 shadow-2xl"
           >
             {done ? (
               <div>
