@@ -14,8 +14,6 @@
  * plain text inputs so the form still works.
  */
 
-import { setOptions, importLibrary } from "@googlemaps/js-api-loader";
-
 type PlacesLibrary = google.maps.PlacesLibrary;
 
 let loaderPromise: Promise<PlacesLibrary | null> | null = null;
@@ -35,6 +33,9 @@ export function isPlacesAvailable(): boolean {
  * Load and return the Google Maps Places library.
  * Returns null when no API key is configured (graceful degradation).
  * Throws if the load itself fails (network, auth) so callers can show errors.
+ *
+ * The `@googlemaps/js-api-loader` module is dynamic-imported here so the
+ * ~35 KB loader code only ships in a separate chunk fetched on first call.
  */
 export async function loadPlacesLibrary(): Promise<PlacesLibrary | null> {
   const apiKey = getPlacesApiKey();
@@ -43,6 +44,7 @@ export async function loadPlacesLibrary(): Promise<PlacesLibrary | null> {
   if (loaderPromise) return loaderPromise;
 
   loaderPromise = (async () => {
+    const { setOptions, importLibrary } = await import("@googlemaps/js-api-loader");
     if (!optionsApplied) {
       setOptions({ key: apiKey, v: PLACES_VERSION });
       optionsApplied = true;
