@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { submitLead } from "@/app/actions/leads";
+import { RustButton } from "@/components/ui/RustButton";
 
 type Source = "landing-founding" | "contributor-apply";
 
@@ -57,15 +58,11 @@ export function EmailSignupForm({
             : "border-ww-border bg-warm-white text-ink placeholder:text-ww-muted"
         }`}
       />
-      <button
-        type="submit"
-        disabled={isPending}
-        className="shrink-0 bg-rust px-7 py-3 font-mono text-sm uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-50"
-      >
+      <RustButton type="submit" size="lg" disabled={isPending} className="shrink-0">
         {isPending ? "Sending…" : buttonText}
-      </button>
+      </RustButton>
       {error && (
-        <p className={`text-xs font-mono ${dark ? "text-red-300" : "text-red-600"}`}>
+        <p className={`text-xs font-mono ${dark ? "text-rust/80" : "text-rust"}`}>
           {error}
         </p>
       )}

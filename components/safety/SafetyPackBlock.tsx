@@ -14,7 +14,7 @@ export function SafetyPackBlock({ as = "h2" }: { as?: "h1" | "h2" } = {}) {
   const Heading = as;
   return (
     <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-      <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.25em] text-blue">
+      <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.2em] text-blue">
         Safety Pack
       </p>
       <Heading className="mb-4 font-serif text-3xl leading-[1.05] text-ink md:text-5xl">

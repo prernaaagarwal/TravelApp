@@ -17,7 +17,7 @@ export default function LoginPage() {
           <p className="mt-2 font-mono text-xs text-ww-muted">Sign in to your account</p>
         </div>
 
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
+        <div className="bg-warm-white border border-ww-border rounded-2xl p-6">
           <Suspense fallback={<FormSkeleton />}>
             <LoginInner />
           </Suspense>

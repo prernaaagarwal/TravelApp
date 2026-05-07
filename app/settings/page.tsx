@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { RustButton } from "@/components/ui/RustButton";
 import { NotificationToggles } from "./NotificationToggles";
 import { DangerZoneButtons } from "./DangerZoneButtons";
 import { PrivacyDataSection } from "./PrivacyDataSection";
@@ -75,7 +75,7 @@ export default async function SettingsPage() {
         </div>
 
         {/* ── Beta feedback (prominent for early users) ─ */}
-        <div className="rounded-xl border border-rust/30 bg-rust/[0.04] p-5 shadow-sm">
+        <div className="rounded-2xl border border-rust/30 bg-rust/[0.04] p-5">
           <p className="mb-1 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-rust">
             <span className="h-1.5 w-1.5 rounded-full bg-rust" />
             Beta · We need your view
@@ -88,23 +88,22 @@ export default async function SettingsPage() {
             real users is the difference between this becoming a guidebook for
             women and yet another travel app.
           </p>
-          <Link
-            href="/feedback"
-            className="inline-flex items-center gap-2 bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-          >
-            Share feedback
-            <span aria-hidden>→</span>
-          </Link>
+          <RustButton size="sm" asChild>
+            <Link href="/feedback">
+              Share feedback
+              <span aria-hidden>→</span>
+            </Link>
+          </RustButton>
         </div>
 
         {/* ── Profile photo ────────────────────────── */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
+        <div className="bg-warm-white border border-ww-border rounded-2xl p-6">
           <p className="mb-4 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Profile photo</p>
           <AvatarUploadWrapper userId={user.id} currentUrl={profile?.photo_url ?? null} />
         </div>
 
         {/* ── Account ──────────────────────────────── */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
+        <div className="bg-warm-white border border-ww-border rounded-2xl p-6">
           <p className="mb-4 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Account</p>
           <form action={updateEmail} className="space-y-3">
             {profile?.phone && (
@@ -144,7 +143,7 @@ export default async function SettingsPage() {
         </div>
 
         {/* ── Membership ───────────────────────────── */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm space-y-3">
+        <div className="bg-warm-white border border-ww-border rounded-2xl p-6 space-y-3">
           <div className="flex items-center justify-between">
             <p className="font-mono text-[10px] uppercase tracking-wider text-ww-muted">Membership</p>
             <Badge
@@ -168,23 +167,23 @@ export default async function SettingsPage() {
             </p>
           )}
           {tier === "free" && (
-            <div className="rounded-lg border border-rust/20 bg-rust/5 p-4">
+            <div className="rounded-xl border border-rust/20 bg-rust/5 p-4">
               <p className="mb-1 font-mono text-sm font-medium text-ink">
                 Upgrade to Founding membership
               </p>
               <p className="mb-3 font-mono text-xs text-ww-muted">
                 Unlock premium intel, early features, and support the community.
               </p>
-              <Button asChild size="sm" className="bg-rust text-warm-white hover:bg-rust/90">
+              <RustButton size="sm" asChild>
                 <Link href="/account/membership">Join the Founding 200 →</Link>
-              </Button>
+              </RustButton>
             </div>
           )}
         </div>
 
         {/* ── Contributor dashboard ────────────────── */}
         {contributorRow && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
+          <div className="bg-warm-white border border-ww-border rounded-2xl p-6">
             <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
               Contributor
             </p>
@@ -195,7 +194,7 @@ export default async function SettingsPage() {
         )}
 
         {/* ── Notifications ────────────────────────── */}
-        <div className="bg-warm-white border border-ww-border rounded-xl px-6 py-5 shadow-sm">
+        <div className="bg-warm-white border border-ww-border rounded-2xl px-6 py-5">
           <p className="mb-4 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
             Notifications
           </p>
@@ -215,7 +214,7 @@ export default async function SettingsPage() {
         </div>
 
         {/* ── Trip vault ───────────────────────────── */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
+        <div className="bg-warm-white border border-ww-border rounded-2xl p-6">
           <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
             Trip vault
           </p>
@@ -234,7 +233,7 @@ export default async function SettingsPage() {
         <PrivacyDataSection />
 
         {/* ── Danger zone ──────────────────────────── */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm space-y-3">
+        <div className="bg-warm-white border border-ww-border rounded-2xl p-6 space-y-3">
           <p className="font-mono text-[10px] uppercase tracking-wider text-ww-muted">Account</p>
           <DangerZoneButtons />
         </div>

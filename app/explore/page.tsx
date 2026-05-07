@@ -82,7 +82,7 @@ export default async function ExplorePage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-12">
       <div className="mb-10 max-w-xl">
-        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-blue">
+        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-blue">
           <span className="h-2 w-2 rounded-full bg-blue" aria-hidden />
           Trip intel library
         </p>

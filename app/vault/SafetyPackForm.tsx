@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { Save, Printer, Mail, Check } from "lucide-react";
+import { RustButton } from "@/components/ui/RustButton";
 import {
   saveSafetyPack,
   emailSafetyPack,
@@ -231,14 +232,10 @@ export function SafetyPackForm({ initial }: { initial: SafetyPack }) {
 
       {/* Actions */}
       <div className="flex flex-wrap items-center gap-3 border-t border-ww-border pt-5">
-        <button
-          type="submit"
-          disabled={isSaving}
-          className="inline-flex items-center gap-2 border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 disabled:opacity-50"
-        >
+        <RustButton type="submit" size="sm" disabled={isSaving}>
           {saved ? <Check className="h-3 w-3" /> : <Save className="h-3 w-3" />}
           {isSaving ? "Saving…" : saved ? "Saved" : "Save pack"}
-        </button>
+        </RustButton>
 
         <Link
           href="/vault/print"
@@ -287,14 +284,10 @@ export function SafetyPackForm({ initial }: { initial: SafetyPack }) {
               />
               {emailMsg && <p className="font-mono text-xs text-rust">{emailMsg}</p>}
               <div className="flex flex-wrap items-center gap-2">
-                <button
-                  type="submit"
-                  disabled={isEmailing || !emailTo}
-                  className="inline-flex items-center gap-2 border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 disabled:opacity-50"
-                >
+                <RustButton type="submit" size="sm" disabled={isEmailing || !emailTo}>
                   {emailSent ? <Check className="h-3 w-3" /> : <Mail className="h-3 w-3" />}
                   {isEmailing ? "Sending…" : emailSent ? "Sent" : "Send"}
-                </button>
+                </RustButton>
                 <button
                   type="button"
                   onClick={() => {

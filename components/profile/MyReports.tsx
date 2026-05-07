@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Clock, CheckCircle, XCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { RustButton } from "@/components/ui/RustButton";
 
 interface Report {
   id: string;
@@ -42,12 +43,9 @@ export function MyReports({ reports }: Props) {
         <p className="mt-1 font-mono text-xs text-ww-muted">
           Help protect other travellers — submit a scam or safety warning.
         </p>
-        <Link
-          href="/contribute/report"
-          className="mt-4 inline-block border border-rust bg-rust px-5 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-        >
-          File a report →
-        </Link>
+        <RustButton size="sm" asChild className="mt-4">
+          <Link href="/contribute/report">File a report →</Link>
+        </RustButton>
       </div>
     );
   }

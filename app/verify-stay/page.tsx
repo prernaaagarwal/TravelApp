@@ -38,7 +38,7 @@ export default async function VerifyStayPage() {
     <main className="mx-auto max-w-2xl px-4 py-10 md:py-16">
       <div className="mb-8">
         <div
-          className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-4 font-mono text-[11px] uppercase tracking-[0.25em] ${
+          className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-4 font-mono text-[11px] uppercase tracking-[0.2em] ${
             isAiEnabled
               ? "bg-sage-light text-sage"
               : "bg-ww-border/60 text-ww-muted"
@@ -67,11 +67,11 @@ export default async function VerifyStayPage() {
       </div>
 
       {isAiEnabled ? (
-        <div className="rounded-2xl border border-ww-border bg-warm-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-ww-border bg-warm-white p-6">
           <StayVerifyForm usedThisMonth={usedThisMonth} />
         </div>
       ) : (
-        <div className="relative rounded-2xl border border-ww-border bg-warm-white p-6 shadow-sm">
+        <div className="relative rounded-2xl border border-ww-border bg-warm-white p-6">
           {/* Disabled mock form */}
           <div className="pointer-events-none select-none opacity-40">
             <label className="block mb-2 font-mono text-[10px] uppercase tracking-widest text-ww-muted">

@@ -24,7 +24,7 @@ export function HelloDecisionButtons({ connectionId }: { connectionId: string })
 
   if (done) {
     return (
-      <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-ww-muted">
+      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
         {done === "accepted" ? "✓ Accepted" : "✕ Declined"}
       </span>
     );

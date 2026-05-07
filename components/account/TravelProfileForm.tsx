@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { updateProfile } from "@/app/account/profile/actions";
+import { RustButton } from "@/components/ui/RustButton";
 
 const TRIP_COUNT_OPTIONS = [
   { value: "0",   label: "First solo trip", emoji: "🌱" },
@@ -262,14 +263,9 @@ export function TravelProfileForm({ firstName, homeCity, instagram, segment }: P
           <p className="font-mono text-[10px] text-ww-muted">
             {savedAt ? "✓ Saved" : "Changes are saved when you click below."}
           </p>
-          <button
-            type="button"
-            onClick={save}
-            disabled={pending}
-            className="border border-rust bg-rust px-5 py-2 font-mono text-xs uppercase tracking-widest text-warm-white hover:bg-rust/90 disabled:opacity-50"
-          >
+          <RustButton type="button" size="md" onClick={save} disabled={pending}>
             {pending ? "Saving…" : "Save profile"}
-          </button>
+          </RustButton>
         </div>
       </div>
     </div>
@@ -278,7 +274,7 @@ export function TravelProfileForm({ firstName, homeCity, instagram, segment }: P
 
 function Section({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
   return (
-    <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+    <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
       <h3 className="font-serif text-lg text-ink">{title}</h3>
       {subtitle && <p className="mt-0.5 mb-3 font-mono text-[11px] text-ww-muted">{subtitle}</p>}
       {!subtitle && <div className="mb-3" />}

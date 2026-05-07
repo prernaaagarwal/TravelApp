@@ -6,6 +6,7 @@ import { RegisterTripForm } from "@/components/intel/RegisterTripForm";
 import { ConnectButton } from "@/components/intel/ConnectButton";
 import { ReportBuddyButton } from "@/components/buddy/ReportBuddyButton";
 import { BuddyVerifiedBadge } from "@/components/buddy/BuddyVerifiedBadge";
+import { RustButton } from "@/components/ui/RustButton";
 import { VerificationMethodology } from "@/components/account/VerificationMethodology";
 import { getVerificationStatus } from "@/lib/buddy-verification";
 import buddyMatches from "@/lib/mock-data/buddy-matches.json";
@@ -106,7 +107,7 @@ export default async function BuddyPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-12">
       <div className="mb-6">
-        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-sage">
+        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-sage">
           <span className="h-2 w-2 rounded-full bg-sage" aria-hidden />
           Solo female travel buddy match
         </p>
@@ -135,12 +136,9 @@ export default async function BuddyPage() {
             You can browse profiles now — sending a connection requires phone +
             ID verification first.
           </p>
-          <Link
-            href="/account/verify"
-            className="shrink-0 border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90"
-          >
-            Verify now →
-          </Link>
+          <RustButton size="sm" asChild className="shrink-0">
+            <Link href="/account/verify">Verify now →</Link>
+          </RustButton>
         </div>
       )}
 
@@ -193,7 +191,7 @@ export default async function BuddyPage() {
             return (
               <article key={buddy.id} className="border border-ww-border bg-sand p-5">
                 <div className="flex flex-wrap items-start gap-4">
-                  <div className="h-16 w-16 shrink-0 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xl font-medium">
+                  <div className="h-16 w-16 shrink-0 rounded-full bg-rust-light flex items-center justify-center text-rust text-xl font-medium">
                     {(buddy.first_name?.[0] ?? "W").toUpperCase()}
                   </div>
                   <div className="min-w-0 flex-1">
@@ -231,12 +229,9 @@ export default async function BuddyPage() {
                       <ReportBuddyButton reportedUserId={buddy.user_id} />
                     </>
                   ) : (
-                    <Link
-                      href="/account/login?next=/buddy"
-                      className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
-                    >
-                      Sign in to connect →
-                    </Link>
+                    <RustButton size="sm" asChild>
+                      <Link href="/account/login?next=/buddy">Sign in to connect →</Link>
+                    </RustButton>
                   )}
                 </div>
               </article>
@@ -273,7 +268,7 @@ function MockBuddyCard({
           <Image src={buddy.photoUrl} alt={buddy.firstName}
             width={64} height={64} className="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-ww-border" />
         ) : (
-          <div className="h-16 w-16 shrink-0 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xl font-medium ring-2 ring-ww-border">
+          <div className="h-16 w-16 shrink-0 rounded-full bg-rust-light flex items-center justify-center text-rust text-xl font-medium ring-2 ring-ww-border">
             {buddy.firstName[0].toUpperCase()}
           </div>
         )}
@@ -302,12 +297,9 @@ function MockBuddyCard({
             women register for the same destination as you.
           </p>
         ) : (
-          <Link
-            href="/account/signup"
-            className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
-          >
-            Join to connect →
-          </Link>
+          <RustButton size="sm" asChild>
+            <Link href="/account/signup">Join to connect →</Link>
+          </RustButton>
         )}
       </div>
     </article>

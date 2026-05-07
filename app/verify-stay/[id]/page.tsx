@@ -4,6 +4,7 @@ import { safeQuery } from "@/lib/safe-query";
 import { ShieldCheck, AlertTriangle, RefreshCw } from "lucide-react";
 import { SafetyReport } from "@/components/verify/SafetyReport";
 import { Button } from "@/components/ui/button";
+import { RustButton } from "@/components/ui/RustButton";
 import Link from "next/link";
 import type { StayVerification } from "@/lib/agents/stay-verifier";
 
@@ -61,9 +62,9 @@ export default async function VerifyStayResultPage({
         <p className="text-ww-muted text-sm mb-6">
           We couldn&apos;t complete the analysis. This doesn&apos;t count toward your monthly limit.
         </p>
-        <Button asChild size="sm" className="bg-rust text-warm-white hover:bg-rust/90">
+        <RustButton size="sm" asChild>
           <Link href="/verify-stay">Try again</Link>
-        </Button>
+        </RustButton>
       </main>
     );
   }

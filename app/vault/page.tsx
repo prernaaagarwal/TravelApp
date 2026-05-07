@@ -4,6 +4,7 @@ import { getSafetyPack } from "./safety-pack-actions";
 import { SafetyPackForm } from "./SafetyPackForm";
 import { VaultSignupForm } from "./VaultSignupForm";
 import { SafetyPackBlock } from "@/components/safety/SafetyPackBlock";
+import { RustButton } from "@/components/ui/RustButton";
 
 /**
  * /vault — V1 Safety Pack.
@@ -51,12 +52,9 @@ export default async function VaultPage() {
                 phone dies mid-trip.
               </p>
               <div className="flex justify-center gap-3">
-                <Link
-                  href="/account/login?next=/vault"
-                  className="border border-rust bg-rust px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-warm-white hover:bg-rust/90"
-                >
-                  Sign in →
-                </Link>
+                <RustButton size="md" asChild>
+                  <Link href="/account/login?next=/vault">Sign in →</Link>
+                </RustButton>
                 <Link
                   href="/account/signup?next=/vault"
                   className="border border-ink bg-transparent px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-ink hover:bg-ink hover:text-warm-white"

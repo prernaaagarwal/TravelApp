@@ -62,7 +62,7 @@ export function MultiSelect({
       {open && (
         <div
           role="listbox"
-          className="absolute left-0 right-0 top-full z-30 mt-1 max-h-64 overflow-y-auto border border-ww-border bg-warm-white shadow-lg"
+          className="absolute left-0 right-0 top-full z-30 mt-1 max-h-64 overflow-y-auto border border-ww-border bg-warm-white shadow-2xl"
         >
           {options.map((o) => {
             const isSelected = selected.includes(o.value);

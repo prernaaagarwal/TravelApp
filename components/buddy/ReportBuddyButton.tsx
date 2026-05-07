@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { Flag } from "lucide-react";
 import { reportBuddyProfile } from "@/app/buddy/report-actions";
+import { RustButton } from "@/components/ui/RustButton";
 
 const REASONS = [
   "Profile is not a woman",
@@ -80,7 +81,7 @@ export function ReportBuddyButton({ reportedUserId }: { reportedUserId: string }
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-md rounded-xl border border-ww-border bg-warm-white p-6 shadow-lg"
+            className="w-full max-w-md rounded-2xl border border-ww-border bg-warm-white p-6 shadow-2xl"
           >
             {done ? (
               <div>
@@ -169,13 +170,9 @@ export function ReportBuddyButton({ reportedUserId }: { reportedUserId: string }
                   >
                     Cancel
                   </button>
-                  <button
-                    type="submit"
-                    disabled={pending || !reason}
-                    className="border border-rust bg-rust px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-50"
-                  >
+                  <RustButton type="submit" size="sm" disabled={pending || !reason}>
                     {pending ? "Sending…" : "Submit report"}
-                  </button>
+                  </RustButton>
                 </div>
               </form>
             )}

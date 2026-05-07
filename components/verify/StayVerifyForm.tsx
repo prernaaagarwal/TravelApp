@@ -3,17 +3,17 @@
 import { useTransition, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, Loader2, AlertCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { RustButton } from "@/components/ui/RustButton";
 import { submitStayVerification } from "@/app/verify-stay/actions";
 
 const PLATFORMS = [
-  { name: "Airbnb", color: "bg-rose-100 text-rose-700" },
-  { name: "Booking.com", color: "bg-blue-100 text-blue-700" },
-  { name: "Agoda", color: "bg-red-100 text-red-700" },
-  { name: "MakeMyTrip", color: "bg-orange-100 text-orange-700" },
-  { name: "Hostelworld", color: "bg-green-100 text-green-700" },
-  { name: "VRBO", color: "bg-teal-100 text-teal-700" },
+  { name: "Airbnb", color: "bg-rust-light text-rust" },
+  { name: "Booking.com", color: "bg-blue-light text-blue" },
+  { name: "Agoda", color: "bg-gold-light text-gold" },
+  { name: "MakeMyTrip", color: "bg-purple-light text-purple" },
+  { name: "Hostelworld", color: "bg-sage-light text-sage" },
+  { name: "VRBO", color: "bg-sand text-ink border border-ww-border" },
 ];
 
 export function StayVerifyForm({ usedThisMonth }: { usedThisMonth: number }) {
@@ -55,17 +55,13 @@ export function StayVerifyForm({ usedThisMonth }: { usedThisMonth: number }) {
         </div>
 
         {error && (
-          <div className="flex items-start gap-2 rounded-lg bg-red-50 border border-red-200 px-3 py-2 text-sm text-red-700">
+          <div className="flex items-start gap-2 rounded-xl bg-rust/5 border border-rust/30 px-3 py-2 text-sm text-rust">
             <AlertCircle className="h-4 w-4 mt-0.5 shrink-0" />
             <span>{error}</span>
           </div>
         )}
 
-        <Button
-          type="submit"
-          disabled={isPending}
-          className="w-full h-11 bg-rust text-warm-white hover:bg-rust/90 font-medium"
-        >
+        <RustButton type="submit" size="md" block disabled={isPending}>
           {isPending ? (
             <span className="flex items-center gap-2">
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -74,7 +70,7 @@ export function StayVerifyForm({ usedThisMonth }: { usedThisMonth: number }) {
           ) : (
             "Run Safety Analysis"
           )}
-        </Button>
+        </RustButton>
       </form>
 
       <div className="flex flex-wrap gap-2">

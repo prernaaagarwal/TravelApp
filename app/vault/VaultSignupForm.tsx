@@ -73,21 +73,21 @@ export function VaultSignupForm() {
         name="email"
         required
         placeholder="your@email.com"
-        className="w-full border border-ink bg-warm-white px-4 py-2.5 font-mono text-sm text-ink placeholder:text-ww-muted focus:outline-none focus:ring-1 focus:ring-rust"
+        className="w-full border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-sm text-ink placeholder:text-ww-muted focus:border-ink focus:outline-none"
       />
       <input
         type="tel"
         name="phone"
         required
         placeholder="WhatsApp number (+91 98765 43210)"
-        className="w-full border border-ink bg-warm-white px-4 py-2.5 font-mono text-sm text-ink placeholder:text-ww-muted focus:outline-none focus:ring-1 focus:ring-rust"
+        className="w-full border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-sm text-ink placeholder:text-ww-muted focus:border-ink focus:outline-none"
       />
       <input
         type="text"
         name="trip_destination"
         required
         placeholder="Where are you going? (e.g. Goa, Hampi)"
-        className="w-full border border-ink bg-warm-white px-4 py-2.5 font-mono text-sm text-ink placeholder:text-ww-muted focus:outline-none focus:ring-1 focus:ring-rust"
+        className="w-full border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-sm text-ink placeholder:text-ww-muted focus:border-ink focus:outline-none"
       />
       <div className="grid grid-cols-2 gap-2">
         <div>
@@ -97,7 +97,7 @@ export function VaultSignupForm() {
           <input
             type="date"
             name="travel_start"
-            className="w-full border border-ink bg-warm-white px-3 py-2 font-mono text-xs text-ink focus:outline-none focus:ring-1 focus:ring-rust"
+            className="w-full border border-ww-border bg-warm-white px-3 py-2 font-mono text-xs text-ink focus:border-ink focus:outline-none"
           />
         </div>
         <div>
@@ -107,7 +107,7 @@ export function VaultSignupForm() {
           <input
             type="date"
             name="travel_end"
-            className="w-full border border-ink bg-warm-white px-3 py-2 font-mono text-xs text-ink focus:outline-none focus:ring-1 focus:ring-rust"
+            className="w-full border border-ww-border bg-warm-white px-3 py-2 font-mono text-xs text-ink focus:border-ink focus:outline-none"
           />
         </div>
       </div>

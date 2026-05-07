@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ProfileEditClient } from "./ProfileEditClient";
 import { MyReports } from "@/components/profile/MyReports";
 import { ReportUserButton } from "@/components/profile/ReportUserButton";
+import { RustButton } from "@/components/ui/RustButton";
 import { CITY_LABELS, WORRY_LABELS, BADGE_META, TRIP_LABELS } from "@/lib/constants";
 import type { Segment, Badge, SavedDestRow, IntelCardRow } from "@/types";
 
@@ -132,10 +133,10 @@ export default async function ProfilePage({
         </div>
 
         {/* ── Identity ─────────────────────────────────── */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-6 shadow-sm">
+        <div className="bg-warm-white border border-ww-border rounded-2xl p-6">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-rust/20 flex items-center justify-center text-rust text-2xl font-medium">
+              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-rust-light flex items-center justify-center text-rust text-2xl font-medium">
                 {profile.photo_url ? (
                   // eslint-disable-next-line @next/next/no-img-element -- CDN URL with cache-bust query param not compatible with next/image domains
                   <img src={profile.photo_url} alt={displayName} className="h-full w-full object-cover" />
@@ -196,19 +197,16 @@ export default async function ProfilePage({
 
         {/* ── Connect as buddy (non-owner only, if overlap) ─── */}
         {showBuddyCTA && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
-            <Link
-              href="/buddy"
-              className="inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-rust px-4 py-2 font-mono text-sm text-warm-white hover:bg-rust/90"
-            >
-              Connect as buddy →
-            </Link>
+          <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
+            <RustButton size="md" block asChild>
+              <Link href="/buddy">Connect as buddy →</Link>
+            </RustButton>
           </div>
         )}
 
         {/* ── Headed next ──────────────────────────────── */}
         {hasNextDest && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+          <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
             <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Headed next</p>
             <div className="flex flex-wrap gap-1.5">
               {nextDestList.map((slug) => (
@@ -226,7 +224,7 @@ export default async function ProfilePage({
 
         {/* ── Watches out for ──────────────────────────── */}
         {hasWorries && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+          <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
             <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Watches out for</p>
             <div className="flex flex-wrap gap-1.5">
               {segment.worries!.map((w) => (
@@ -242,7 +240,7 @@ export default async function ProfilePage({
         )}
 
         {/* ── Contribution stats — always 3 pills ─────── */}
-        <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+        <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
           <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
             Community
           </p>
@@ -255,7 +253,7 @@ export default async function ProfilePage({
 
         {/* ── Badges ───────────────────────────────────── */}
         {hasBadges && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+          <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
             <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Badges</p>
             <div className="flex flex-wrap gap-2">
               {(badges as Badge[]).map((b) => {
@@ -277,7 +275,7 @@ export default async function ProfilePage({
 
         {/* ── Intel cards contributed ──────────────────── */}
         {hasIntel && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+          <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
             <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Intel written</p>
             <div className="space-y-2">
               {(intelCards as IntelCardRow[]).map((card) => (
@@ -307,7 +305,7 @@ export default async function ProfilePage({
 
         {/* ── Saved destinations ───────────────────────── */}
         {hasSaved && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+          <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
             <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">Saved destinations</p>
             <div className="flex flex-wrap gap-2">
               {(savedDests as SavedDestRow[]).map((s) => {
@@ -330,7 +328,7 @@ export default async function ProfilePage({
 
         {/* ── Travel preferences (read-only for non-owner) ── */}
         {!isOwner && hasPrefs && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+          <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
             <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
               Travel preferences
             </p>
@@ -359,7 +357,7 @@ export default async function ProfilePage({
 
         {/* ── Bio + Instagram (non-owner) ─────────── */}
         {!isOwner && hasBio && (
-          <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+          <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
             {profile.instagram && (
               <a
                 href={`https://instagram.com/${profile.instagram.replace("@", "")}`}
@@ -375,7 +373,7 @@ export default async function ProfilePage({
 
         {/* ── Owner: beta feedback CTA ──────────────────── */}
         {isOwner && (
-          <div className="rounded-xl border border-rust/30 bg-rust/[0.04] p-5 shadow-sm">
+          <div className="rounded-2xl border border-rust/30 bg-rust/[0.04] p-5">
             <p className="mb-1 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-rust">
               <span className="h-1.5 w-1.5 rounded-full bg-rust" />
               Beta · We need your view
@@ -388,19 +386,18 @@ export default async function ProfilePage({
               real users is the difference between this becoming a guidebook for
               women and yet another travel app.
             </p>
-            <Link
-              href="/feedback"
-              className="inline-flex items-center gap-2 bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-            >
-              Share feedback
-              <span aria-hidden>→</span>
-            </Link>
+            <RustButton size="sm" asChild>
+              <Link href="/feedback">
+                Share feedback
+                <span aria-hidden>→</span>
+              </Link>
+            </RustButton>
           </div>
         )}
 
         {/* ── Owner: my reports ────────────────────────── */}
         {isOwner && (
-          <div className="rounded-xl border border-ww-border bg-warm-white p-5 shadow-sm">
+          <div className="rounded-2xl border border-ww-border bg-warm-white p-5">
             <p className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ww-muted">
               My reports
             </p>

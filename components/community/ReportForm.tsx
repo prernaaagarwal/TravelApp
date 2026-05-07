@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { RustButton } from "@/components/ui/RustButton";
 import { PlaceAutocomplete } from "@/components/ui/place-autocomplete";
 import { type SelectedPlace } from "@/lib/google-places";
 import { submitBewareReport } from "@/app/contribute/report/actions";
@@ -467,15 +467,15 @@ export function ReportForm() {
           >
             Choose files
           </button>
-          <button
+          <RustButton
             type="button"
+            size="sm"
             onClick={triggerCapture}
             disabled={captureDisabled}
             title={gpsStatus !== "got" ? "Turn on location first" : photos.length >= MAX_PHOTOS ? "Photo limit reached" : "Open camera"}
-            className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             📷 Capture
-          </button>
+          </RustButton>
         </div>
 
         {photos.length > 0 && (
@@ -535,17 +535,13 @@ export function ReportForm() {
 
       {error && <p className="text-sm text-rust">{error}</p>}
 
-      <Button
-        type="submit"
-        disabled={submitting || !acknowledged}
-        className="w-full bg-rust text-warm-white hover:bg-rust/90 disabled:opacity-50"
-      >
+      <RustButton type="submit" size="md" block disabled={submitting || !acknowledged}>
         {submitting
           ? "Submitting report…"
           : reportType === "washroom"
           ? "Submit washroom report →"
           : "Submit beware report →"}
-      </Button>
+      </RustButton>
 
       <p className="text-center text-xs text-ww-muted">
         Reviewed by a human moderator within 24 hours · published only after

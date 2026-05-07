@@ -3,6 +3,7 @@
 import { useRef, useState, useTransition } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { submitIdSelfie } from "./actions";
+import { RustButton } from "@/components/ui/RustButton";
 
 export function IdSelfieStep({
   userId,
@@ -61,7 +62,7 @@ export function IdSelfieStep({
 
   return (
     <div
-      className={`rounded-xl border bg-warm-white p-6 shadow-sm transition-opacity ${
+      className={`rounded-2xl border bg-warm-white p-6 transition-opacity ${
         enabled ? "border-ww-border" : "border-ww-border/40 opacity-50"
       }`}
     >
@@ -102,13 +103,9 @@ export function IdSelfieStep({
           className="hidden"
         />
 
-        <button
-          type="submit"
-          disabled={!enabled || !file || pending}
-          className="border border-rust bg-rust px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-40"
-        >
+        <RustButton type="submit" size="sm" disabled={!enabled || !file || pending}>
           {pending ? "Uploading…" : "Submit for review →"}
-        </button>
+        </RustButton>
 
         <p className="font-mono text-[10px] text-ww-muted">
           JPG / PNG / WebP · max 4 MB

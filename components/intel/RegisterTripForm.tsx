@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { RustButton } from "@/components/ui/RustButton";
 import { registerBuddyTrip } from "@/app/buddy/actions";
 
 const DESTINATIONS = [
@@ -106,9 +106,9 @@ export function RegisterTripForm({ defaultFirstName }: { defaultFirstName?: stri
 
       {error && <p className="text-sm text-rust">{error}</p>}
 
-      <Button type="submit" disabled={loading} className="w-full bg-rust text-warm-white hover:bg-rust/90">
+      <RustButton type="submit" size="md" block disabled={loading}>
         {loading ? "Registering…" : "Register my trip →"}
-      </Button>
+      </RustButton>
     </form>
   );
 }

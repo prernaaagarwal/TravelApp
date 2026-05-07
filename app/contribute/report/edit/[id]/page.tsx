@@ -62,7 +62,7 @@ export default async function EditReportPage({
           </p>
         </div>
 
-        <div className="rounded-xl border border-ww-border bg-warm-white p-6 shadow-sm">
+        <div className="rounded-2xl border border-ww-border bg-warm-white p-6">
           <EditReportForm
             reportId={id}
             defaults={{

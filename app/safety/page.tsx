@@ -173,7 +173,7 @@ export default async function SafetyPage() {
     <div className="mx-auto max-w-4xl px-6 py-12">
       {/* ── Hero ─────────────────────────────────────────── */}
       <div className="mb-10">
-        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-rust">
+        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-rust">
           <span className="h-2 w-2 rounded-full bg-rust" aria-hidden />
           <ShieldCheck className="h-3.5 w-3.5" aria-hidden />
           Solo female travel safety toolkit

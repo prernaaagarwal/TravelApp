@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Flag } from "lucide-react";
 import { reportUser } from "@/app/profile/[username]/actions";
+import { RustButton } from "@/components/ui/RustButton";
 
 const REASONS = [
   "Not a woman",
@@ -93,13 +94,9 @@ export function ReportUserButton({
       {error && <p className="font-mono text-xs text-rust">{error}</p>}
 
       <div className="flex items-center gap-3">
-        <button
-          type="submit"
-          disabled={!reason || submitting}
-          className="bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-40"
-        >
+        <RustButton type="submit" size="sm" disabled={!reason || submitting}>
           {submitting ? "Sending…" : "Submit report"}
-        </button>
+        </RustButton>
         <button
           type="button"
           onClick={() => { setOpen(false); setReason(""); setDetails(""); setError(""); }}
