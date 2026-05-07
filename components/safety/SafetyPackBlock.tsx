@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ShieldCheck, Printer, Mail } from "lucide-react";
 
 /**
@@ -72,16 +71,12 @@ export function SafetyPackBlock({ as = "h2" }: { as?: "h1" | "h2" } = {}) {
           </div>
 
           <div className="shrink-0 self-center">
-            <Link
-              href="/vault"
-              className="block rounded-2xl bg-ink p-3 transition-transform hover:scale-[1.02]"
-              aria-label="Open Safety Pack"
+            <div
+              className="rounded-2xl bg-ink p-3"
+              aria-hidden
             >
               <div className="relative h-32 w-32 md:h-36 md:w-36">
-                <div
-                  className="grid h-full w-full grid-cols-7 grid-rows-7 gap-[2px]"
-                  aria-hidden
-                >
+                <div className="grid h-full w-full grid-cols-7 grid-rows-7 gap-[2px]">
                   {QR_PATTERN.map((on, i) => (
                     <span
                       key={i}
@@ -90,9 +85,9 @@ export function SafetyPackBlock({ as = "h2" }: { as?: "h1" | "h2" } = {}) {
                   ))}
                 </div>
               </div>
-            </Link>
+            </div>
             <p className="mt-2 text-center font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-              Scan to open on phone
+              5 minutes to set up
             </p>
           </div>
         </div>
