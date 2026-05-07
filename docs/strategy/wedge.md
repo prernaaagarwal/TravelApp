@@ -162,21 +162,31 @@ investor meeting.
 
 That is the wedge. Memorize it.
 
-## Engineering implications (this week's PRs)
+## Engineering implications
 
-To make the wedge legible in code, ship these changes within 14 days:
+### ✅ Shipped (2026-05-07, commit referenced in build-status.md)
 
-1. **Remove `/buddy`, `/vault`, `/feed`, `/shop`, `/onboarding` from main nav.**
-   Keep the routes accessible but un-linked. Sentry-test for dead-link traffic
-   first.
-2. **Single landing CTA** — replace the Priya/Sara split with one Priya-anchored
-   hero. Move foreign-women content to a footer link.
-3. **Update `app/layout.tsx` Header component** to the wedge nav: Home, Explore,
-   Beware Board, Community, Account.
-4. **Pricing page consolidation** — kill the Vault ₹199 SKU display. Bundle
-   into the membership.
-5. **Update `PRD.md`** — mark Wave 2 features as deferred. The PRD remains
-   useful as a product memory, but the wedge doc is the *current* spec.
+1. **Primary nav culled to 4 items.** `lib/nav.ts` now lists Intel
+   (`/explore`), Beware Board (`/community/beware`), Community
+   (`/community`), Safety (`/safety`). Routes for `/buddy` and `/feed`
+   remain live but no longer surface in Header / MobileNav.
+2. **Footer reshaped.** `components/shared/Footer.tsx` split into
+   "Wander Women" (About, Methodology, Membership, Feedback) + "More"
+   (Trip Reports, Buddy, Vault, Safety Kit). Deferred features remain
+   discoverable but un-promoted.
+3. **Single landing CTA.** `app/page.tsx` replaced the Priya/Sara
+   dual CTA with one primary action ("Explore Intel" → `/explore`) +
+   a secondary Beware Board action. Foreign-women content stays
+   indexable via a small text link to `/intel/delhi-india`.
+4. **Pricing locked.** All ₹499 mentions swept to ₹999 in earlier
+   commit. Vault is bundled into the founding membership per
+   `app/pricing/page.tsx`.
+
+### 📝 Still pending
+
+5. **Update `PRD.md`** — mark Wave 2 features as deferred. The PRD
+   remains useful as a product memory, but the wedge doc is the
+   *current* spec. (Founder action — a few minutes editing PRD.md.)
 
 ## How to know when to revisit this doc
 

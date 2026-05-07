@@ -1,16 +1,23 @@
 import Link from "next/link";
 import { CookiePreferencesLink } from "@/components/shared/CookiePreferencesLink";
 
-// Only non-duplicate links — Intel, Community, Safety, Buddy, and Trip
-// Receipts already live in the primary nav (Header + MobileNav). Keeping the
-// Footer slim avoids the dual-navigation problem.
-const NAV_LINKS = [
+// Footer is the discovery layer for everything that's NOT primary-nav
+// material. Per docs/strategy/wedge.md, /buddy /vault /feed /shop
+// /onboarding are deferred from main nav but remain reachable here as
+// "More from Wander Women" — un-promoted but discoverable. Routes are
+// live; only the surface changes.
+const PRIMARY_LINKS = [
   { href: "/about", label: "About" },
-  { href: "/onboarding", label: "Get Started" },
+  { href: "/methodology", label: "Methodology" },
   { href: "/account/membership", label: "Membership" },
-  { href: "/shop", label: "Safety Kit" },
-  { href: "/methodology", label: "How We Score" },
   { href: "/feedback", label: "Feedback" },
+];
+
+const MORE_LINKS = [
+  { href: "/feed", label: "Trip Reports" },
+  { href: "/buddy", label: "Buddy" },
+  { href: "/vault", label: "WhatsApp Vault" },
+  { href: "/shop", label: "Safety Kit" },
 ];
 
 export function Footer() {
@@ -30,17 +37,42 @@ export function Footer() {
             </p>
           </div>
 
-          <nav className="grid grid-cols-2 gap-x-10 gap-y-2 sm:grid-cols-4 md:gap-x-12">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="font-mono text-xs text-ww-muted transition-colors hover:text-ink"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="grid gap-8 sm:grid-cols-2 md:gap-12">
+            <nav>
+              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ww-muted/70">
+                Wander Women
+              </p>
+              <ul className="space-y-2">
+                {PRIMARY_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="font-mono text-xs text-ww-muted transition-colors hover:text-ink"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <nav>
+              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-ww-muted/70">
+                More
+              </p>
+              <ul className="space-y-2">
+                {MORE_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="font-mono text-xs text-ww-muted transition-colors hover:text-ink"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </div>
 
         <p className="mt-10 border-t border-ww-border/60 pt-5 font-mono text-[10px] leading-relaxed text-ww-muted/80">

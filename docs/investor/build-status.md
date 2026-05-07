@@ -1,15 +1,19 @@
 # Build status — what's live, what's mocked, what's coming
 
 > Single source of truth for "is this real?" Send this to investors in the
-> data room. Updated: April 2026. Owner: Founder.
+> data room. Updated: 7 May 2026. Owner: Founder.
 
 ## TL;DR for the investor with 90 seconds
 
 We have 62 routes. **36 are backed by live Supabase data and real auth.**
 6 still read mock JSON (intentional, low-priority surfaces). 33 Postgres
-tables. 52 SQL migrations. 22 cities indexed on the Beware Board with real
+tables. 53 SQL migrations. 22 cities indexed on the Beware Board with real
 moderated reports. Auth uses magic links. Admin moderation tools work.
 **Payments are not yet live** — that is the first thing the round funds.
+
+Primary nav is the 4-item wedge: **Intel · Beware Board · Community · Safety.**
+Buddy, Vault, Feed (Trip Reports), Shop, Onboarding are deferred per the
+wedge memo — routes still live, just not headline.
 
 This is not a Figma deck. It is a working V1 with measurable gaps.
 
