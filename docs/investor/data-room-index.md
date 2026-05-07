@@ -59,12 +59,16 @@ That's the 10-minute briefing. Anything beyond is for diligence.
 | Live URL: `wanderwomen.in/privacy` | Comprehensive privacy policy draft | When their counsel does diligence |
 | Live URL: `wanderwomen.in/terms` | Comprehensive ToS draft | Same |
 | Live URL: `wanderwomen.in/legal/grievance-officer` | IT Rules 2021 RGO page | Required for safe-harbor diligence |
+| Live URL: `wanderwomen.in/safety/contributor-safety` | Public contributor-safety policy: 4 promises, 4-hour SLA, escalation paths | When they ask "how do you protect contributors" |
 
 ### "How do you operate this?"
 
 | Doc | What it is | When investors ask for it |
 |---|---|---|
 | `docs/operations/moderation-policy.md` | One-page moderation policy, all 3 queues | When they ask "what's your trust & safety" |
+| `docs/operations/moderation-bus-factor.md` | 3-tier moderation roster + OOO + flight protocols (internal, names redacted in repo) | When they ask "what happens when you sleep" |
+| `docs/strategy/identity-tier-spec.md` | Implementation spec for the 4-tier identity flow on /account/profile | When they ask "is the privacy policy enforceable" |
+| `docs/investor/contributor-safety-30-sec-script.md` | 30-second verbal answer + 10-second compressed + follow-up handling | Pre-pitch memorization |
 | `docs/strategy/quarterly-audit-runbook.md` | Quarterly 150-min audit flow | When they ask about cadence |
 | `docs/investor/pre-pitch-checklist.md` | 50-min pre-pitch refresh | If you forward your own cadence |
 | `app/api/cron/daily-ops-digest/route.ts` (live) | Daily 5-min ops email infrastructure | When they ask "do you read your own dashboards" |
