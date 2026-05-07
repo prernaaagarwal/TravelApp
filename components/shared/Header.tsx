@@ -2,8 +2,12 @@ import Link from "next/link";
 import { Mail, Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
 import { CommandPalette } from "@/components/shared/CommandPalette";
 import { PRIMARY_NAV } from "@/lib/nav";
+
+type MyMatchRow = { id: string };
+type PendingConnRow = { id: string };
 
 export async function Header() {
   const supabase = await createClient();
@@ -12,6 +16,7 @@ export async function Header() {
   let profileSlug: string | null = null;
   let initial = "W";
   let isStaff = false;
+  let pendingHellos = 0;
   if (user) {
     const { data: profile } = await supabase
       .from("profiles")
@@ -22,6 +27,29 @@ export async function Header() {
     const name = profile?.first_name ?? user.email ?? "W";
     initial = name[0].toUpperCase();
     isStaff = profile?.role === "admin" || profile?.role === "moderator";
+
+    // Pending hellos waiting for me to accept/decline. Two queries because
+    // buddy_connections.to_match_id references buddy_matches, not auth.users.
+    // Wrapped in safeQuery so a slow/dead DB never blocks the header render.
+    const myMatch = await safeQuery<MyMatchRow | null>(
+      supabase.from("buddy_matches").select("id").eq("user_id", user.id).maybeSingle(),
+      null,
+      1500,
+      "header.myMatch",
+    );
+    if (myMatch) {
+      const pending = await safeQuery<PendingConnRow[]>(
+        supabase
+          .from("buddy_connections")
+          .select("id")
+          .eq("to_match_id", myMatch.id)
+          .eq("recipient_decision", "pending"),
+        [],
+        1500,
+        "header.pendingHellos",
+      );
+      pendingHellos = pending.length;
+    }
   }
 
   return (
@@ -65,11 +93,25 @@ export async function Header() {
               )}
               <Link
                 href="/account/messages"
-                aria-label="Hellos"
-                title="Hellos"
-                className="text-ww-muted hover:text-ink p-1"
+                aria-label={
+                  pendingHellos > 0
+                    ? `Hellos — ${pendingHellos} pending`
+                    : "Hellos"
+                }
+                title={
+                  pendingHellos > 0
+                    ? `${pendingHellos} pending hello${pendingHellos === 1 ? "" : "s"}`
+                    : "Hellos"
+                }
+                className="relative text-ww-muted hover:text-ink p-1"
               >
                 <Mail className="h-4 w-4" />
+                {pendingHellos > 0 && (
+                  <span
+                    className="absolute right-0.5 top-0.5 h-2 w-2 rounded-full bg-rust ring-2 ring-sand"
+                    aria-hidden="true"
+                  />
+                )}
               </Link>
               <Link
                 href="/settings"
