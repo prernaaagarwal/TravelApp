@@ -1,17 +1,17 @@
 import Link from "next/link";
-import bewares from "@/lib/mock-data/beware-entries.json";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 import HeroBackground from "@/components/shared/HeroBackground";
 import WhatsInside from "@/components/landing/WhatsInside";
 import communityPosts from "@/lib/mock-data/community-posts.json";
 import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
 import { createStaticClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
 
 export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
 
-// Refresh the intel-cards count at most once a minute. Means the
-// "Browse all N destinations" CTA auto-updates whenever the admin
-// publishes a new card, without rebuilding the site.
+// Refresh the intel-cards count + Beware ticker at most once a minute.
+// Means new approved reports show up on the landing without rebuilding
+// the site, but a bursty submission day doesn't hammer the DB.
 export const revalidate = 60;
 
 const FALLBACK_TOTAL_DESTINATIONS = 21;
@@ -35,11 +35,54 @@ async function getTotalDestinations(): Promise<number> {
   }
 }
 
+type TickerEntry = { city: string; title: string; severity: string };
+
+// Pull the most recent 30 approved Beware reports for the landing ticker.
+// safeQuery falls back to [] on slow/dead Supabase — the ticker section
+// then renders an empty-state CTA instead of three blank marquee rows.
+async function getBewareTicker(): Promise<TickerEntry[]> {
+  const supabase = createStaticClient();
+  const rows = await safeQuery<{ city: string | null; title: string; severity: string | null }[]>(
+    supabase
+      .from("beware_reports")
+      .select("city, title, severity")
+      .eq("status", "approved")
+      .order("created_at", { ascending: false })
+      .limit(30),
+    [],
+    1500,
+    "landing.beware_ticker",
+  );
+  return rows
+    .filter((r) => r.title)
+    .map((r) => ({
+      city: r.city ?? "",
+      title: r.title,
+      severity: (r.severity ?? "medium").toLowerCase(),
+    }));
+}
+
 export default async function HomePage() {
-  const totalDestinations = await getTotalDestinations();
+  const [totalDestinations, bewares] = await Promise.all([
+    getTotalDestinations(),
+    getBewareTicker(),
+  ]);
 
   // pre-select data each section needs
   const askPosts = communityPosts.filter((p) => p.tab === "ask").slice(0, 3);
+
+  // Bucket approved reports into the three marquee rows. "critical" reports
+  // remain in row 1 if any seeded entries still carry that label; new
+  // submissions only emit low/medium/high so most days row 1 is "high"-led.
+  const criticals = bewares.filter((b) => b.severity === "critical");
+  const highs = bewares.filter((b) => b.severity === "high");
+  const mediums = bewares.filter((b) => b.severity === "medium");
+  const tickerRows = [
+    [...criticals, ...highs.slice(0, 3)],
+    highs.slice(0, 8),
+    mediums,
+  ];
+  const tickerHasContent = tickerRows.some((r) => r.length > 0);
 
   return (
     <main>
@@ -118,6 +161,14 @@ export default async function HomePage() {
       />
 
       {/* ── Beware Board scam ticker ──────────────────────────────────── */}
+      {/*
+        V1: ticker reads live, moderator-approved beware_reports from Supabase
+        (see getBewareTicker above). Severity buckets that come back empty
+        simply hide their marquee row; if every bucket is empty we render an
+        empty-state CTA pointing users to /contribute/report instead of three
+        blank scrolling rails. The "V0 demo mock data" disclaimer is gone —
+        nothing illustrative ships here anymore.
+      */}
       <section id="ticker" className="overflow-hidden border-y border-ww-border bg-ink py-10">
         {/* header */}
         <div className="mb-6 flex items-baseline gap-4 px-6">
@@ -125,72 +176,83 @@ export default async function HomePage() {
             Live Beware Board
           </p>
           <span className="h-px flex-1 bg-warm-white/10" />
-          <Link href="/community" className="font-mono text-[10px] uppercase tracking-widest text-rust hover:underline">
+          <Link href="/community?tab=beware" className="font-mono text-[10px] uppercase tracking-widest text-rust hover:underline">
             See all reports →
           </Link>
         </div>
 
-        {/* row 1 — critical, scrolls left */}
-        {(() => {
-          const row = [...bewares.filter(b => b.severity === "critical"), ...bewares.filter(b => b.severity === "high").slice(0,3)];
-          const doubled = [...row, ...row];
-          return (
-            <div className="mb-3 overflow-hidden">
-              <div className="flex w-max gap-3" style={{animation:"marquee-left 28s linear infinite"}}>
-                {doubled.map((b, i) => (
-                  <div key={i} className="flex shrink-0 items-center gap-2 border border-rust/30 bg-rust/10 px-3 py-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-rust" />
-                    <span className="font-mono text-xs text-rust/90">{b.city}</span>
-                    <span className="font-mono text-xs text-warm-white/60">{b.title}</span>
-                  </div>
-                ))}
+        {tickerHasContent ? (
+          <>
+            {tickerRows[0].length > 0 && (
+              <div className="mb-3 overflow-hidden">
+                <div
+                  className="flex w-max gap-3"
+                  style={{ animation: "marquee-left 28s linear infinite" }}
+                >
+                  {[...tickerRows[0], ...tickerRows[0]].map((b, i) => (
+                    <div key={i} className="flex shrink-0 items-center gap-2 border border-rust/30 bg-rust/10 px-3 py-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-rust" />
+                      <span className="font-mono text-xs text-rust/90">{b.city}</span>
+                      <span className="font-mono text-xs text-warm-white/60">{b.title}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          );
-        })()}
+            )}
 
-        {/* row 2 — high, scrolls right */}
-        {(() => {
-          const row = bewares.filter(b => b.severity === "high").slice(0,8);
-          const doubled = [...row, ...row];
-          return (
-            <div className="mb-3 overflow-hidden">
-              <div className="flex w-max gap-3" style={{animation:"marquee-right 35s linear infinite"}}>
-                {doubled.map((b, i) => (
-                  <div key={i} className="flex shrink-0 items-center gap-2 border border-gold/30 bg-gold/10 px-3 py-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                    <span className="font-mono text-xs text-gold/90">{b.city}</span>
-                    <span className="font-mono text-xs text-warm-white/60">{b.title}</span>
-                  </div>
-                ))}
+            {tickerRows[1].length > 0 && (
+              <div className="mb-3 overflow-hidden">
+                <div
+                  className="flex w-max gap-3"
+                  style={{ animation: "marquee-right 35s linear infinite" }}
+                >
+                  {[...tickerRows[1], ...tickerRows[1]].map((b, i) => (
+                    <div key={i} className="flex shrink-0 items-center gap-2 border border-gold/30 bg-gold/10 px-3 py-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                      <span className="font-mono text-xs text-gold/90">{b.city}</span>
+                      <span className="font-mono text-xs text-warm-white/60">{b.title}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          );
-        })()}
+            )}
 
-        {/* row 3 — medium, scrolls left slower */}
-        {(() => {
-          const row = bewares.filter(b => b.severity === "medium");
-          const doubled = [...row, ...row];
-          return (
-            <div className="overflow-hidden">
-              <div className="flex w-max gap-3" style={{animation:"marquee-left 42s linear infinite"}}>
-                {doubled.map((b, i) => (
-                  <div key={i} className="flex shrink-0 items-center gap-2 border border-sage/30 bg-sage/10 px-3 py-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-sage" />
-                    <span className="font-mono text-xs text-sage/90">{b.city}</span>
-                    <span className="font-mono text-xs text-warm-white/60">{b.title}</span>
-                  </div>
-                ))}
+            {tickerRows[2].length > 0 && (
+              <div className="overflow-hidden">
+                <div
+                  className="flex w-max gap-3"
+                  style={{ animation: "marquee-left 42s linear infinite" }}
+                >
+                  {[...tickerRows[2], ...tickerRows[2]].map((b, i) => (
+                    <div key={i} className="flex shrink-0 items-center gap-2 border border-sage/30 bg-sage/10 px-3 py-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-sage" />
+                      <span className="font-mono text-xs text-sage/90">{b.city}</span>
+                      <span className="font-mono text-xs text-warm-white/60">{b.title}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
+            )}
+          </>
+        ) : (
+          <div className="px-6">
+            <div className="border border-warm-white/15 bg-warm-white/[0.03] px-5 py-6 text-center">
+              <p className="mb-2 font-serif text-lg text-warm-white">
+                Be the first to flag a scam.
+              </p>
+              <p className="mx-auto mb-4 max-w-md font-mono text-xs leading-relaxed text-warm-white/60">
+                The Beware Board is moderated and date-stamped. Approved reports
+                show up here and on the city scam map within 24 hours.
+              </p>
+              <Link
+                href="/contribute/report"
+                className="inline-flex items-center gap-2 border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90"
+              >
+                Submit a report →
+              </Link>
             </div>
-          );
-        })()}
-
-        {/* disclaimer */}
-        <p className="mt-6 px-6 font-mono text-[10px] text-warm-white/25">
-          All Beware Board entries shown in this V0 demo are illustrative mock data and do not represent real incidents.
-        </p>
+          </div>
+        )}
       </section>
 
       {/* ── Contributor model ─────────────────────────────────────────── */}
