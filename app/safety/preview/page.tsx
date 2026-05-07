@@ -3,7 +3,6 @@ import {
   Radio,
   MapPin,
   ChevronRight,
-  Clipboard,
   ShoppingBag,
   BadgeCheck,
   Sparkles,
@@ -179,49 +178,7 @@ export default function SafetyPreviewPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════
-          2 — VERIFY A STAY (paste-URL block)
-          ════════════════════════════════════════════════════════ */}
-      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-        <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.25em] text-blue">
-          Verify a stay
-        </p>
-        <h2 className="mb-4 font-serif text-3xl leading-[1.05] text-ink md:text-5xl">
-          Paste any Airbnb, Booking, or hotel link.
-        </h2>
-        <p className="mb-7 max-w-3xl font-mono text-sm leading-relaxed text-ww-muted">
-          We score it on women-specific safety: door locks, host record,
-          neighborhood walk-home rating, and any past scam reports for the area.
-          Members-only while we tune the model — sign-in takes one OTP.
-        </p>
-
-        <div className="rounded-2xl border border-ww-border bg-warm-white p-2 shadow-[0_1px_0_rgba(26,21,16,0.04)]">
-          <div className="flex items-center gap-2 rounded-xl bg-sand/60 px-3 py-2">
-            <Clipboard className="h-4 w-4 text-ww-muted" aria-hidden />
-            <span className="flex-1 truncate font-mono text-xs text-ww-muted md:text-sm">
-              Paste a listing URL — airbnb.com/rooms/…
-            </span>
-            <button
-              type="button"
-              className="rounded-full px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:bg-ww-border/50"
-            >
-              Paste
-            </button>
-            <Link
-              href="/verify-stay"
-              className="rounded-full bg-ink px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-colors hover:bg-ink/90 md:px-5 md:py-2.5 md:text-xs"
-            >
-              Verify stay
-            </Link>
-          </div>
-        </div>
-        <p className="mt-3 font-mono text-[11px] text-ww-muted">
-          Cross-checks against the Beware Board, contributor reports, and known
-          unsafe-host flags.
-        </p>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════
-          3 — BEWARE BOARD
+          2 — BEWARE BOARD
           ════════════════════════════════════════════════════════ */}
       <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
         <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
@@ -411,7 +368,7 @@ export default function SafetyPreviewPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════
-          4 — SAFETY PACK (was: WhatsApp Vault)
+          3 — SAFETY PACK (was: WhatsApp Vault)
           ════════════════════════════════════════════════════════ */}
       <SafetyPackBlock />
 
