@@ -16,6 +16,19 @@ import { BEWARE_CITIES } from "@/lib/beware-cities";
 import { INTERNATIONAL_COUNTRIES } from "@/lib/international-destinations";
 import { CollapsibleText } from "./CollapsibleText";
 import { BewareModerationBanner } from "@/components/community/BewareModerationBanner";
+import { Search, HelpCircle, MapPin, ChevronRight } from "lucide-react";
+
+const AVATAR_TONES = [
+  "bg-rust-light",
+  "bg-blue-light",
+  "bg-sage-light",
+  "bg-gold-light",
+  "bg-purple-light",
+];
+function avatarTone(seed: string): string {
+  const code = seed?.charCodeAt(0) ?? 0;
+  return AVATAR_TONES[code % AVATAR_TONES.length];
+}
 
 type Post = {
   id: string;
@@ -143,19 +156,20 @@ export function CommunityTabs({
   return (
     <div>
       {/* Persistent search bar */}
-      <div className="relative mb-4">
+      <div className="relative mb-4 flex items-center gap-2 rounded-full border border-ww-border bg-warm-white px-4 py-1 focus-within:border-ink">
+        <Search className="h-4 w-4 shrink-0 text-ww-muted" aria-hidden />
         <input
           type="search"
           aria-label="Search community"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search questions, stories, scam reports…"
-          className="w-full border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-sm text-ink placeholder:text-ww-muted/50 focus:border-ink focus:outline-none"
+          className="w-full bg-transparent py-2 font-mono text-sm text-ink placeholder:text-ww-muted/60 focus:outline-none"
         />
         {searchQuery && (
           <button
             onClick={() => setSearchQuery("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs text-ww-muted hover:text-ink"
+            className="shrink-0 font-mono text-xs text-ww-muted hover:text-ink"
             aria-label="Clear search"
           >
             ✕
@@ -164,12 +178,12 @@ export function CommunityTabs({
       </div>
 
     <Tabs value={active} onValueChange={(v) => { setSearchQuery(""); updateQuery({ tab: v }); }}>
-      <TabsList className="mb-2 w-full justify-start gap-1 overflow-x-auto bg-transparent p-0">
+      <TabsList className="mb-2 w-full justify-start gap-2 overflow-x-auto bg-transparent p-0">
         {(Object.keys(TAB_META) as TabKey[]).map((key) => (
           <TabsTrigger
             key={key}
             value={key}
-            className="border border-ww-border bg-sand px-4 py-2 font-mono text-xs uppercase tracking-widest text-ww-muted data-[state=active]:border-ink data-[state=active]:bg-ink data-[state=active]:text-warm-white data-[state=active]:shadow-none"
+            className="shrink-0 rounded-full border border-ww-border bg-warm-white px-4 py-2 font-mono text-xs uppercase tracking-widest text-ink hover:border-ink/40 data-[state=active]:border-ink data-[state=active]:bg-ink data-[state=active]:text-warm-white data-[state=active]:shadow-none"
           >
             <span className="hidden sm:inline">{TAB_META[key].label}</span>
             <span className="sm:hidden">{TAB_META[key].short}</span>
@@ -177,12 +191,12 @@ export function CommunityTabs({
         ))}
       </TabsList>
 
-      <div className="mt-4 mb-2 grid grid-cols-1 gap-2 border-b border-ww-border pb-3 sm:flex sm:flex-wrap sm:items-center">
+      <div className="mt-4 mb-2 flex flex-wrap items-center gap-2 border-b border-ww-border/60 pb-4">
         <select
           value={sort}
           onChange={(e) => updateQuery({ sort: e.target.value })}
           disabled={isPending}
-          className="h-9 border border-ww-border bg-sand px-3 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+          className="h-9 rounded-full border border-ww-border bg-warm-white px-4 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
           aria-label="Sort"
         >
           <option value="newest">Newest first</option>
@@ -194,7 +208,7 @@ export function CommunityTabs({
           value={country}
           onChange={(e) => updateQuery({ country: e.target.value, city: null, intlCountry: null })}
           disabled={isPending}
-          className="h-9 border border-ww-border bg-sand px-3 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+          className="h-9 rounded-full border border-ww-border bg-warm-white px-4 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
           aria-label="Country"
         >
           <option value="india">India</option>
@@ -206,7 +220,7 @@ export function CommunityTabs({
             value={city}
             onChange={(e) => updateQuery({ city: e.target.value === "all" ? null : e.target.value })}
             disabled={isPending}
-            className="h-9 border border-ww-border bg-sand px-3 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+            className="h-9 rounded-full border border-ww-border bg-warm-white px-4 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
             aria-label="City"
           >
             <option value="all">All cities</option>
@@ -229,7 +243,7 @@ export function CommunityTabs({
                 })
               }
               disabled={isPending}
-              className="h-9 border border-ww-border bg-sand px-3 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+              className="h-9 rounded-full border border-ww-border bg-warm-white px-4 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
               aria-label="International country"
             >
               <option value="all">All countries</option>
@@ -247,7 +261,7 @@ export function CommunityTabs({
                   updateQuery({ city: e.target.value === "all" ? null : e.target.value })
                 }
                 disabled={isPending}
-                className="h-9 border border-ww-border bg-sand px-3 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
+                className="h-9 rounded-full border border-ww-border bg-warm-white px-4 font-mono text-[10px] uppercase tracking-widest text-ink hover:border-ink focus:border-ink focus:outline-none"
                 aria-label="City"
               >
                 <option value="all">All cities</option>
@@ -264,9 +278,10 @@ export function CommunityTabs({
         {country === "india" && city !== "all" && supportedSet.has(city) && (
           <Link
             href={`/community/beware/${city}`}
-            className="col-span-2 h-9 flex items-center justify-center sm:col-auto sm:ml-auto border border-rust/40 bg-rust/5 px-3 font-mono text-[10px] uppercase tracking-widest text-rust hover:bg-rust/10 transition-colors"
+            className="ml-auto inline-flex h-9 items-center gap-1.5 rounded-full border border-rust/40 bg-rust/5 px-4 font-mono text-[10px] uppercase tracking-widest text-rust hover:bg-rust/10 transition-colors"
           >
-            📍 See {cityName} scam map →
+            <MapPin className="h-3 w-3" aria-hidden />
+            See {cityName} scam map →
           </Link>
         )}
       </div>
@@ -284,11 +299,11 @@ export function CommunityTabs({
                 <>
                   <Link
                     href={userEmail ? "/contribute/report" : "/account/login?next=/contribute/report"}
-                    className="mb-6 flex items-center justify-between border border-dashed border-rust/40 bg-rust/5 px-4 py-3 hover:border-rust transition-colors"
+                    className="mb-6 flex items-center gap-3 rounded-full border border-rust/30 bg-rust/5 p-1.5 pl-5 transition-colors hover:border-rust/60"
                   >
-                    <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
-                      {meta.cta} →
+                    <span className="flex-1 truncate font-mono text-xs text-ww-muted">{meta.placeholder}</span>
+                    <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90">
+                      {meta.cta} <ChevronRight className="h-3 w-3" aria-hidden />
                     </span>
                   </Link>
                   <BewareList bewares={visibleBewares} userEmail={userEmail} />
@@ -300,7 +315,7 @@ export function CommunityTabs({
                   {bewares.length > visible && (
                     <button
                       onClick={() => setVisible((v) => v + 10)}
-                      className="mt-6 w-full border border-ww-border bg-sand py-3 font-mono text-xs uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors"
+                      className="mt-6 w-full rounded-full border border-ww-border bg-warm-white py-3 font-mono text-xs uppercase tracking-widest text-ink hover:border-ink/40 transition-colors"
                     >
                       Load more reports
                     </button>
@@ -313,11 +328,14 @@ export function CommunityTabs({
                   ) : (
                     <Link
                       href="/account/login?next=/community"
-                      className="mb-6 flex items-center justify-between border border-dashed border-ww-border bg-sand px-4 py-3 hover:border-ink transition-colors"
+                      className="mb-6 flex items-center gap-3 rounded-full border border-ww-border bg-warm-white p-1.5 pl-4 transition-colors hover:border-ink/40"
                     >
-                      <span className="font-mono text-xs text-ww-muted">{meta.placeholder}</span>
-                      <span className="font-mono text-[10px] uppercase tracking-widest text-rust">
-                        Sign in to post →
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-rust-light text-rust">
+                        <HelpCircle className="h-4 w-4" aria-hidden />
+                      </span>
+                      <span className="flex-1 truncate font-mono text-xs text-ww-muted">{meta.placeholder}</span>
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-ink px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-ink/90">
+                        Sign in to post <ChevronRight className="h-3 w-3" aria-hidden />
                       </span>
                     </Link>
                   )}
@@ -334,7 +352,7 @@ export function CommunityTabs({
                   {tabPosts.length > visible && (
                     <button
                       onClick={() => setVisible((v) => v + 10)}
-                      className="mt-6 w-full border border-ww-border bg-sand py-3 font-mono text-xs uppercase tracking-widest text-ww-muted hover:border-ink hover:text-ink transition-colors"
+                      className="mt-6 w-full rounded-full border border-ww-border bg-warm-white py-3 font-mono text-xs uppercase tracking-widest text-ink hover:border-ink/40 transition-colors"
                     >
                       Load more posts
                     </button>
@@ -370,10 +388,15 @@ function ComposeForm({ tab, placeholder, cta }: { tab: string; placeholder: stri
     return (
       <button
         onClick={() => setOpen(true)}
-        className="mb-6 flex w-full items-center justify-between border border-dashed border-ww-border bg-sand px-4 py-3 hover:border-ink transition-colors"
+        className="mb-6 flex w-full items-center gap-3 rounded-full border border-ww-border bg-warm-white p-1.5 pl-4 transition-colors hover:border-ink/40"
       >
-        <span className="font-mono text-xs text-ww-muted">{placeholder}</span>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-rust">{cta} →</span>
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-rust-light text-rust">
+          <HelpCircle className="h-4 w-4" aria-hidden />
+        </span>
+        <span className="flex-1 truncate text-left font-mono text-xs text-ww-muted">{placeholder}</span>
+        <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-ink px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-ink/90">
+          {cta} <ChevronRight className="h-3 w-3" aria-hidden />
+        </span>
       </button>
     );
   }
@@ -516,32 +539,49 @@ function PostCard({ post, userEmail }: { post: Post; userEmail: string | null })
   const local = isLocal(post.homeCity, post.destination);
 
   return (
-    <article className="border border-ww-border bg-sand p-4">
-      <div className="mb-2 flex flex-wrap items-center gap-2 font-mono text-[10px] text-ww-muted">
-        <span className="font-semibold text-ink">{post.author}</span>
-        <span>·</span>
-        <span>{post.authorAgeRange}</span>
-        <span>·</span>
-        <span>{post.homeCity}</span>
-        {local && (
-          <span className="rounded bg-sage-light/60 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-widest text-sage">
-            Local
+    <article className="rounded-2xl border border-ww-border bg-warm-white p-5 transition-colors hover:border-ink/30 md:p-6">
+      {/* Header — avatar + author + date */}
+      <div className="mb-3 flex items-start justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <span
+            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${avatarTone(post.author)} font-serif text-lg text-ink`}
+          >
+            {(post.author?.[0] ?? "W").toUpperCase()}
           </span>
-        )}
-        <span className="ml-auto">{post.postedAt}</span>
+          <div className="min-w-0">
+            <p className="font-mono text-xs text-ink">
+              <strong className="font-semibold">{post.author}</strong>
+              {post.authorAgeRange && (
+                <span className="text-ww-muted"> · {post.authorAgeRange}</span>
+              )}
+              {post.homeCity && (
+                <span className="text-ww-muted"> · {post.homeCity}</span>
+              )}
+            </p>
+            {local && (
+              <p className="mt-0.5 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.2em] text-sage">
+                <span className="h-1.5 w-1.5 rounded-full bg-sage" aria-hidden />
+                Local
+              </p>
+            )}
+          </div>
+        </div>
+        <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+          {post.postedAt}
+        </span>
       </div>
 
       {post.title && (
-        <h3 className="mb-2 font-serif text-lg leading-snug text-ink">{post.title}</h3>
+        <h3 className="mb-2 font-serif text-lg leading-snug text-ink md:text-xl">{post.title}</h3>
       )}
 
-      <CollapsibleText text={post.content} className="mb-3" clamp={2} />
+      <CollapsibleText text={post.content} className="mb-3 font-serif text-base leading-snug text-ink md:text-lg" clamp={2} />
 
       {post.imageUrls && post.imageUrls.length > 0 && (
         <div className="mb-3 grid grid-cols-3 gap-1.5">
           {post.imageUrls.slice(0, 3).map((url, i) => (
             <a key={i} href={url} target="_blank" rel="noopener noreferrer">
-              <div className="relative aspect-square overflow-hidden border border-ww-border">
+              <div className="relative aspect-square overflow-hidden rounded-xl border border-ww-border">
                 <Image src={url} alt="Photo attached to community post" fill className="object-cover hover:opacity-90 transition-opacity" />
               </div>
             </a>
@@ -549,38 +589,38 @@ function PostCard({ post, userEmail }: { post: Post; userEmail: string | null })
         </div>
       )}
 
-      <div className="flex flex-wrap items-center gap-3 border-t border-ww-border pt-3">
-        {post.destination && (
-          <Link
-            href={`/intel/${post.destination}`}
-            className="font-mono text-[10px] uppercase tracking-widest text-rust hover:underline"
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-ww-border/60 pt-4">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+          {post.destination && (
+            <Link
+              href={`/intel/${post.destination}`}
+              className="text-rust hover:underline"
+            >
+              #{post.destination.replace(/-(india|japan|thailand|vietnam|uae|south-korea|france)$/, "")}
+            </Link>
+          )}
+          <span>{post.replyCount} replies</span>
+          <button
+            onClick={onHelpful}
+            disabled={busy}
+            className={`transition-colors ${liked ? "text-rust" : "hover:text-rust"}`}
+            aria-label={liked ? "Remove helpful" : "Mark helpful"}
           >
-            #{post.destination.replace(/-(india|japan|thailand|vietnam|uae|south-korea|france)$/, "")}
-          </Link>
-        )}
-        <span className="font-mono text-[10px] text-ww-muted">{post.replyCount} replies</span>
-        <button
-          onClick={onHelpful}
-          disabled={busy}
-          className={`font-mono text-[10px] uppercase tracking-widest transition-colors ${
-            liked ? "text-rust" : "text-ww-muted hover:text-rust"
-          }`}
-          aria-label={liked ? "Remove helpful" : "Mark helpful"}
-        >
-          {liked ? "♥" : "♡"} {count}
-        </button>
-        <button
-          onClick={() => setReportOpen((o) => !o)}
-          disabled={reported}
-          className="font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-rust transition-colors disabled:opacity-50"
-        >
-          {reported ? "Reported ✓" : "Report"}
-        </button>
+            {liked ? "♥" : "♡"} {count}
+          </button>
+          <button
+            onClick={() => setReportOpen((o) => !o)}
+            disabled={reported}
+            className="hover:text-rust transition-colors disabled:opacity-50"
+          >
+            {reported ? "Reported ✓" : "Report"}
+          </button>
+        </div>
         <Link
           href={`/community/post/${post.id}`}
-          className="ml-auto font-mono text-[10px] uppercase tracking-widest text-blue hover:underline"
+          className="inline-flex items-center gap-1 rounded-full px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-blue hover:bg-blue-light/60"
         >
-          Reply →
+          Reply <ChevronRight className="h-3 w-3" aria-hidden />
         </Link>
       </div>
 
@@ -762,10 +802,12 @@ function BewareCard({ b, userEmail }: { b: Beware; userEmail: string | null }) {
   const [reported, setReported] = useState(false);
 
   const sev = b.severity as "critical" | "high" | "medium";
-  const border =
-    sev === "critical" ? "border-l-rust" : sev === "high" ? "border-l-gold" : "border-l-sage";
   const badge =
-    sev === "critical" ? "bg-rust/10 text-rust" : sev === "high" ? "bg-gold/10 text-gold" : "bg-sage/10 text-sage";
+    sev === "critical"
+      ? "bg-rust-light text-rust"
+      : sev === "high"
+      ? "bg-gold-light text-gold"
+      : "bg-sage-light text-sage";
 
   async function onHelpful() {
     if (!userEmail) {
@@ -790,38 +832,51 @@ function BewareCard({ b, userEmail }: { b: Beware; userEmail: string | null }) {
   }
 
   return (
-    <article className={`border border-ww-border border-l-4 bg-sand p-4 ${border}`}>
-      <div className="mb-2 flex flex-wrap items-center gap-2">
-        <span className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest ${badge}`}>
+    <article className="rounded-2xl border border-ww-border bg-warm-white p-5 transition-colors hover:border-ink/30 md:p-6">
+      <div className="mb-3 flex flex-wrap items-center gap-2">
+        <span className={`rounded-full px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-widest ${badge}`}>
           {sev}
         </span>
-        <span className="font-mono text-[10px] text-ww-muted">{b.category}</span>
-        <span className="ml-auto font-mono text-[10px] text-ww-muted">{b.reportedDate}</span>
+        <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+          {b.category}
+        </span>
+        <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+          {b.reportedDate}
+        </span>
       </div>
 
-      <h3 className="mb-2 font-mono text-sm font-semibold text-ink">{b.title}</h3>
+      <h3 className="mb-2 font-serif text-lg leading-snug text-ink md:text-xl">{b.title}</h3>
 
-      <CollapsibleText text={b.description} className="mb-3" clamp={2} />
+      <CollapsibleText text={b.description} className="mb-3 font-serif text-base leading-snug text-ink md:text-lg" clamp={2} />
 
-      <div className="mb-3 flex flex-wrap gap-3 font-mono text-[10px] text-ww-muted">
-        <span>📍 {b.location}</span>
+      <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+        <span className="inline-flex items-center gap-1">
+          <MapPin className="h-3 w-3" aria-hidden />
+          {b.location}
+        </span>
         <Link href={`/intel/${b.destinationSlug}`} className="text-rust hover:underline">
           #{b.city}
         </Link>
         {b.hasScamMap && (
-          <Link href={`/community/beware/${b.destinationSlug}`} className="text-rust hover:underline">
-            📍 See scam map →
+          <Link
+            href={`/community/beware/${b.destinationSlug}`}
+            className="inline-flex items-center gap-1 text-rust hover:underline"
+          >
+            <MapPin className="h-3 w-3" aria-hidden />
+            See scam map →
           </Link>
         )}
         <span>Reported by {b.reportedBy}</span>
       </div>
 
-      <div className="flex flex-wrap gap-2 border-t border-ww-border pt-3">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-ww-border/60 pt-4">
         <button
           onClick={onHelpful}
           disabled={busy}
-          className={`border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
-            liked ? "border-sage bg-sage text-warm-white" : "border-sage/30 bg-sage-light/50 text-sage hover:bg-sage-light"
+          className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-widest transition-colors ${
+            liked
+              ? "bg-sage text-warm-white hover:bg-sage/90"
+              : "bg-sage-light/60 text-sage hover:bg-sage-light"
           }`}
         >
           Helpful ({count})
@@ -829,7 +884,7 @@ function BewareCard({ b, userEmail }: { b: Beware; userEmail: string | null }) {
         <button
           onClick={() => setReportOpen((o) => !o)}
           disabled={reported}
-          className="ml-auto border border-ww-border bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:border-rust hover:text-rust transition-colors disabled:opacity-50"
+          className="rounded-full px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-rust transition-colors disabled:opacity-50"
         >
           {reported ? "Reported ✓" : "Report"}
         </button>

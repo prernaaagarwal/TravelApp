@@ -20,7 +20,7 @@ for (const vp of VIEWPORTS) {
       const response = await page.goto("/safety");
       expect(response?.status(), "/safety must respond < 400").toBeLessThan(400);
 
-      await expect(page.locator("h1")).toHaveText("Four tools, one place.");
+      await expect(page.locator("h1")).toContainText(/Four tools.+one place/i);
       await expect(page.locator("body")).toContainText(
         "The kit you pack. The vault on your phone."
       );

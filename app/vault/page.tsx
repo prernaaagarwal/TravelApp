@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ShieldCheck, Printer, Mail } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getSafetyPack } from "./safety-pack-actions";
 import { SafetyPackForm } from "./SafetyPackForm";
 import { VaultSignupForm } from "./VaultSignupForm";
+import { SafetyPackBlock } from "@/components/safety/SafetyPackBlock";
 
 /**
  * /vault — V1 Safety Pack.
@@ -32,37 +32,8 @@ export default async function VaultPage() {
 
   return (
     <div>
-      {/* ── Hero ──────────────────────────────────────────── */}
-      <section className="border-b border-ww-border bg-sand px-6 py-14">
-        <div className="mx-auto max-w-3xl">
-          <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-            Safety Pack
-          </p>
-          <h1 className="mb-4 font-serif text-4xl leading-tight text-ink md:text-5xl">
-            One page a stranger could use to help you.
-          </h1>
-          <p className="max-w-2xl font-mono text-sm leading-relaxed text-ww-muted">
-            Save your trip details, emergency contacts, stay info and insurance
-            in one place. Download as PDF for offline use, or email a copy to
-            someone who&apos;ll have your back if your phone dies.
-          </p>
-
-          <div className="mt-5 flex flex-wrap gap-3">
-            <span className="inline-flex items-center gap-2 border border-ww-border bg-warm-white px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-              <ShieldCheck className="h-3 w-3 text-sage" />
-              Free · no per-trip fee
-            </span>
-            <span className="inline-flex items-center gap-2 border border-ww-border bg-warm-white px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-              <Printer className="h-3 w-3 text-rust" />
-              Print or save as PDF
-            </span>
-            <span className="inline-flex items-center gap-2 border border-ww-border bg-warm-white px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-              <Mail className="h-3 w-3 text-blue" />
-              Email to a backup contact
-            </span>
-          </div>
-        </div>
-      </section>
+      {/* ── Hero (shared SafetyPackBlock) ─────────────────── */}
+      <SafetyPackBlock as="h1" />
 
       {/* ── Form / Sign-in CTA ───────────────────────────── */}
       <section className="px-6 py-12">
