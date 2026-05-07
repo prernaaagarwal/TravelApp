@@ -288,118 +288,107 @@ export default async function HomePage() {
       </section>
 
       {/* ── Final CTA · 05 — The invitation (members + contributors) ──── */}
-      <section id="join" className="relative w-full overflow-hidden bg-warm-white py-20 md:py-28">
+      <section id="join" className="relative w-full overflow-hidden bg-warm-white py-16 md:py-20">
         {/* faint terracotta + sage washes for depth */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-40 -top-40 h-[40rem] w-[40rem] rounded-full bg-rust/10 blur-3xl"
+          className="pointer-events-none absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-rust/10 blur-3xl"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -bottom-40 -left-40 h-[40rem] w-[40rem] rounded-full bg-sage/10 blur-3xl"
+          className="pointer-events-none absolute -bottom-40 -left-40 h-[32rem] w-[32rem] rounded-full bg-sage/10 blur-3xl"
         />
 
-        <div className="relative mx-auto max-w-4xl px-6 md:px-10">
+        <div className="relative mx-auto max-w-3xl px-6 md:px-10">
           {/* Members CTA — centered */}
           <div className="text-center">
             {/* Eyebrow with rules on both sides */}
-            <div className="mb-8 flex items-center justify-center gap-3">
-              <span className="h-px w-10 bg-rust" />
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
+            <div className="mb-5 flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-rust" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
                 The invitation · 05
               </span>
-              <span className="h-px w-10 bg-rust" />
+              <span className="h-px w-8 bg-rust" />
             </div>
 
             {/* Headline */}
-            <h2 className="mb-8 font-serif text-5xl leading-[0.95] text-ink md:text-7xl lg:text-8xl">
-              Travel like she&apos;s
-              <br />
+            <h2 className="mb-5 font-serif text-4xl leading-[1.05] text-ink md:text-5xl lg:text-6xl">
+              Travel like she&apos;s{" "}
               <span className="italic text-rust">already been there.</span>
             </h2>
 
             {/* Subline */}
-            <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-ww-muted md:text-xl">
+            <p className="mx-auto mb-7 max-w-xl text-base leading-relaxed text-ww-muted md:text-lg">
               We&apos;re opening 200 spots this month. No referrals, no waitlist
               theatre — just the women who want in first.
             </p>
 
             {/* Email signup — keeps existing Supabase leads wiring */}
-            <div className="mx-auto max-w-xl">
+            <div className="mx-auto max-w-md">
               <EmailSignupForm
                 source="landing-founding"
                 placeholder="your@email.com"
                 buttonText="Request access →"
               />
-              <p className="mt-5 font-mono text-[10px] uppercase tracking-widest text-ww-muted/70">
+              <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-ww-muted/70">
                 Women only · phone + ID verification for Buddy matching · no spam, ever
               </p>
             </div>
           </div>
 
-          {/* Contributors block — sits inside the same section, separated by
-              a subtle divider so the two CTAs (request access / apply as
-              contributor) read as one ask, not two stacked sections. */}
-          <div id="contributors" className="mt-14 border-t border-ww-border pt-10 md:mt-16 md:pt-12">
-            <div className="mb-6">
-              <p id="contributors-label" className="mb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
-                For contributors
-              </p>
-              <h3 className="font-serif text-2xl text-ink md:text-3xl">
-                Or write what you know.
-              </h3>
-              <p className="mt-3 max-w-xl font-mono text-sm leading-relaxed text-ww-muted">
-                We&apos;re looking for the first founding contributors — women
-                who know one route or city deeply and want to share what
-                guidebooks miss.
-              </p>
-            </div>
+          {/* Contributors block — same centered axis as the hero so the
+              section reads as one composition, not two stacked screens. */}
+          <div id="contributors" className="mt-10 border-t border-ww-border pt-8 text-center md:mt-12 md:pt-10">
+            <p id="contributors-label" className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
+              For contributors
+            </p>
+            <h3 className="font-serif text-2xl text-ink md:text-3xl">
+              Or write what you know.
+            </h3>
+            <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-ww-muted">
+              We&apos;re looking for women who know one route or city deeply
+              and want to share what guidebooks miss.
+            </p>
 
-            <div className="grid gap-3 border border-ww-border bg-warm-white/70 p-5 sm:grid-cols-3 md:p-6">
-              <div>
-                <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">01</p>
-                <p className="font-mono text-sm font-semibold text-ink">You write</p>
-                <p className="mt-1 text-xs leading-relaxed text-ww-muted">
+            <ol className="mx-auto mt-7 grid max-w-2xl gap-5 text-left sm:grid-cols-3 sm:gap-4">
+              <li>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-rust">01 · You write</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-ink/80">
                   One Trip Intel Card on a city or route you&apos;ve travelled
-                  solo more than three times.
+                  solo 3+ times.
                 </p>
-              </div>
-              <div>
-                <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">02</p>
-                <p className="font-mono text-sm font-semibold text-ink">We publish</p>
-                <p className="mt-1 text-xs leading-relaxed text-ww-muted">
-                  Your name, photo, and bio on the card. You&apos;re credited
-                  everywhere it&apos;s shared.
+              </li>
+              <li>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-rust">02 · We publish</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-ink/80">
+                  Your name, photo, and bio on every card. Credited everywhere
+                  it&apos;s shared.
                 </p>
-              </div>
-              <div>
-                <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-rust">03</p>
-                <p className="font-mono text-sm font-semibold text-ink">You earn</p>
-                <p className="mt-1 text-xs leading-relaxed text-ww-muted">
-                  Revenue share when founding members read and cite your card.
-                  We&apos;ll publish the per-card numbers once we have real data.
+              </li>
+              <li>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-rust">03 · You earn</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-ink/80">
+                  Revenue share when members cite your card. Founding rate is
+                  2× for life.
                 </p>
-              </div>
-            </div>
+              </li>
+            </ol>
 
-            <p className="mt-5 font-mono text-xs leading-relaxed text-ww-muted">
-              Founding contributors get 2× the standard share for life.{" "}
+            <p className="mt-7 font-mono text-xs text-ww-muted">
               <Link href="/account/membership" className="text-rust underline underline-offset-2">
                 Apply to be a founding contributor →
               </Link>
             </p>
           </div>
 
-          {/* Manifesto — sign-off for the whole section */}
-          <div className="mt-14 text-center md:mt-16">
-            <p className="mx-auto max-w-2xl font-serif text-xl italic leading-snug text-ww-muted md:text-2xl">
-              &ldquo;The internet was built for the average traveller.
-              We&apos;re building for the rest of us.&rdquo;
-            </p>
-            <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-ww-muted/60">
+          {/* Manifesto — tight sign-off, not a separate section */}
+          <p className="mx-auto mt-10 max-w-xl text-center font-serif text-lg italic leading-snug text-ww-muted md:mt-12 md:text-xl">
+            &ldquo;The internet was built for the average traveller.
+            We&apos;re building for the rest of us.&rdquo;
+            <span className="mt-2 block font-mono text-[10px] not-italic uppercase tracking-widest text-ww-muted/60">
               — the founding 12
-            </p>
-          </div>
+            </span>
+          </p>
         </div>
       </section>
     </main>
