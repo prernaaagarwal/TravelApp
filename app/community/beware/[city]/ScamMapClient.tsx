@@ -580,7 +580,7 @@ function FilterDropdown({
         {label} <span className="text-ww-muted">▾</span>
       </button>
       {open && (
-        <div className="absolute right-0 top-full z-[10000] mt-1 min-w-[130px] border border-ww-border bg-warm-white shadow-lg">
+        <div className="absolute right-0 top-full z-[10000] mt-1 min-w-[130px] border border-ww-border bg-warm-white shadow-2xl">
           <button
             onClick={onToggleAll}
             className={`w-full px-3 py-2 text-left font-mono text-[9px] uppercase tracking-widest transition-colors hover:bg-sand ${allOn ? "text-ink font-semibold" : "text-ww-muted"}`}

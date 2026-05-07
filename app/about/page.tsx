@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { RustButton } from "@/components/ui/RustButton";
 
 export const metadata = {
   title: "About — Wander Women",
@@ -74,12 +75,11 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Continuation — drops out of the 2-col grid into a single
-              reading column that starts at the image's left edge (same
-              margin as the page container). The bio columns above
-              introduce; this flows below at the same primary margin so
-              the page has one consistent left edge, not three. */}
-          <div className="mt-14 max-w-3xl md:mt-20">
+          {/* Continuation — single reading column below the 2-col intro.
+              Inherits the parent max-w-6xl so both left and right edges line
+              up with the founder image's edges above (no inner max-w that
+              would clip the right side short). */}
+          <div className="mt-14 md:mt-20">
             <div className="space-y-6 text-base leading-relaxed text-ww-muted">
               <hr className="my-10 h-px w-12 border-0 bg-rust/40" aria-hidden />
 
@@ -130,19 +130,25 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* ── Signature ───────────────────────────────────────── */}
-            <div className="mt-10 border-t border-ww-border/60 pt-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink">
-                Prerna Agarwal — Founder, Wander Women
+            {/* ── Founder credentials ─────────────────────────────────
+                Sized up from a footnote to a credibility stamp — the line
+                "20 countries · 9 years" is founder-market-fit evidence and
+                deserves to read at body weight, not micro-copy weight. */}
+            <div className="mt-10 border-t border-ww-border/60 pt-8">
+              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
+                Founder · Wander Women
               </p>
-              <p className="mt-1 font-mono text-xs italic text-ww-muted">
+              <p className="font-serif text-3xl leading-tight text-ink md:text-4xl">
+                Prerna Agarwal
+              </p>
+              <p className="mt-3 font-mono text-sm italic leading-relaxed text-ww-muted md:text-base">
                 Solo traveller. 20 countries. 9 years. Still going.
               </p>
               <a
                 href="https://www.instagram.com/prernaatravels/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-block font-mono text-xs text-rust underline-offset-2 hover:underline"
+                className="mt-3 inline-block font-mono text-sm text-rust underline-offset-2 hover:underline md:text-base"
               >
                 @prernaatravels →
               </a>
@@ -154,13 +160,12 @@ export default function AboutPage() {
             </p>
 
             <div className="mt-10">
-              <Link
-                href="/account/membership"
-                className="inline-flex items-center gap-3 bg-rust px-7 py-3.5 font-mono text-xs uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-              >
-                Join the Founding 200
-                <span aria-hidden>→</span>
-              </Link>
+              <RustButton size="lg" asChild>
+                <Link href="/account/membership">
+                  Join the Founding 200
+                  <span aria-hidden>→</span>
+                </Link>
+              </RustButton>
             </div>
           </div>
         </div>
@@ -239,7 +244,7 @@ export default function AboutPage() {
             <div className="max-w-2xl">
               <div className="mb-5 flex items-center gap-3">
                 <span className="h-px w-10 bg-rust" />
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-ww-muted">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
                   Origin
                 </span>
               </div>

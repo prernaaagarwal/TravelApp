@@ -33,7 +33,7 @@ export function VerifyReplyButton({
 
   return (
     <span className="flex items-center gap-2">
-      {error && <span className="text-[10px] text-red-600">{error}</span>}
+      {error && <span className="text-[10px] text-rust">{error}</span>}
       <button
         type="button"
         onClick={handleClick}

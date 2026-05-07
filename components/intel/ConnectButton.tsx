@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { sendConnection } from "@/app/buddy/actions";
+import { RustButton } from "@/components/ui/RustButton";
 
 const MAX_MESSAGE_LENGTH = 280;
 
@@ -57,12 +58,9 @@ export function ConnectButton({
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
-      >
+      <RustButton size="sm" onClick={() => setOpen(true)}>
         Send hello →
-      </button>
+      </RustButton>
 
       {open && (
         <div
@@ -110,13 +108,9 @@ export function ConnectButton({
               >
                 Cancel
               </button>
-              <button
-                onClick={handleSend}
-                disabled={loading}
-                className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 disabled:opacity-50"
-              >
+              <RustButton size="sm" onClick={handleSend} disabled={loading}>
                 {loading ? "Sending…" : message.trim() ? "Send hello →" : "Send wave →"}
-              </button>
+              </RustButton>
             </div>
           </div>
         </div>

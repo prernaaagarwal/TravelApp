@@ -160,7 +160,7 @@ export function BewareNearbyPanel({ reports }: Props) {
       {/* Header */}
       <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-blue">
+          <p className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-blue">
             <span className="h-2 w-2 rounded-full bg-blue" aria-hidden />
             Beware Board
           </p>

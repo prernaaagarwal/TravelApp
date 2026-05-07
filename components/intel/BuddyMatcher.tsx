@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { Buddy } from "@/types";
+import { RustButton } from "@/components/ui/RustButton";
 
 const STYLES = ["food", "culture", "nature", "nightlife", "relaxation", "adventure"];
 
@@ -60,12 +61,9 @@ export function BuddyMatcher({ buddies }: { buddies: Buddy[] }) {
             placeholder="Goa, Manali, Jaipur..."
             className="min-w-0 flex-1 border border-ww-border bg-warm-white px-4 py-2.5 font-mono text-base text-ink placeholder:text-ww-muted focus:outline-none focus:border-ink"
           />
-          <button
-            type="submit"
-            className="border border-rust bg-rust px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
-          >
+          <RustButton type="submit" size="md">
             Find matches →
-          </button>
+          </RustButton>
         </div>
         {submitted && (
           <p className="mt-3 font-mono text-[10px] text-sage">

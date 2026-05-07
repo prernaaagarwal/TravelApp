@@ -256,7 +256,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-warm-white border border-ww-border rounded-xl p-5 shadow-sm">
+    <div className="bg-warm-white border border-ww-border rounded-2xl p-5">
       <h3 className="font-serif text-lg text-ink">{title}</h3>
       {subtitle && (
         <p className="mb-3 mt-0.5 font-mono text-[10px] text-ww-muted">{subtitle}</p>

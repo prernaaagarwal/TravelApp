@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useConsent } from "@/lib/consent";
+import { RustButton } from "@/components/ui/RustButton";
 
 // Fixed-bottom banner shown only on first visit (no localStorage["ww-consent"]
 // set yet) or when the user explicitly clicks "Manage cookie preferences"
@@ -74,13 +75,9 @@ export function CookieConsentBanner() {
               >
                 Reject non-essential
               </button>
-              <button
-                type="button"
-                onClick={acceptAll}
-                className="border border-rust bg-rust px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-              >
+              <RustButton type="button" size="sm" onClick={acceptAll}>
                 Accept all
-              </button>
+              </RustButton>
             </div>
           </div>
         ) : (
@@ -133,13 +130,9 @@ export function CookieConsentBanner() {
               >
                 Reject all non-essential
               </button>
-              <button
-                type="button"
-                onClick={saveCustom}
-                className="border border-rust bg-rust px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-              >
+              <RustButton type="button" size="sm" onClick={saveCustom}>
                 Save preferences
-              </button>
+              </RustButton>
             </div>
           </div>
         )}

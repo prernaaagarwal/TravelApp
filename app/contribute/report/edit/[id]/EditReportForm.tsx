@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { RustButton } from "@/components/ui/RustButton";
 import { PlaceAutocomplete } from "@/components/ui/place-autocomplete";
 import { type SelectedPlace } from "@/lib/google-places";
 import { resubmitReport } from "@/app/contribute/report/actions";
@@ -310,13 +310,9 @@ export function EditReportForm({ reportId, defaults }: Props) {
 
       {error && <p className="text-sm text-rust">{error}</p>}
 
-      <Button
-        type="submit"
-        disabled={submitting}
-        className="w-full bg-rust text-warm-white hover:bg-rust/90"
-      >
+      <RustButton type="submit" size="md" block disabled={submitting}>
         {submitting ? "Resubmitting…" : "Resubmit for review →"}
-      </Button>
+      </RustButton>
 
       <p className="text-center text-xs text-ww-muted">
         Your revised report will go back into the review queue.

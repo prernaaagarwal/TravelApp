@@ -25,7 +25,7 @@ export function PrivacyDataSection() {
     : "No consent decision recorded yet.";
 
   return (
-    <div className="space-y-3 rounded-xl border border-ww-border bg-warm-white p-6 shadow-sm">
+    <div className="space-y-3 rounded-2xl border border-ww-border bg-warm-white p-6">
       <p className="font-mono text-[10px] uppercase tracking-wider text-ww-muted">
         Privacy &amp; data
       </p>

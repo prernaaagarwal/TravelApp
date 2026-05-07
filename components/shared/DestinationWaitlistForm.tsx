@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { submitLead } from "@/app/actions/leads";
+import { RustButton } from "@/components/ui/RustButton";
 
 type Props = {
   // The destination string the user searched for. Captured into the leads
@@ -62,17 +63,16 @@ export function DestinationWaitlistForm({ destination, compact = false }: Props)
           compact ? "px-3 py-2 text-xs" : "px-4 py-3 text-sm"
         }`}
       />
-      <button
+      <RustButton
         type="submit"
+        size={compact ? "sm" : "md"}
         disabled={isPending}
-        className={`shrink-0 bg-rust font-mono uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-50 ${
-          compact ? "px-4 py-2 text-[10px]" : "px-6 py-3 text-xs"
-        }`}
+        className="shrink-0"
       >
         {isPending ? "Sending…" : "Notify me"}
-      </button>
+      </RustButton>
       {error && (
-        <p className="font-mono text-[11px] text-red-600 sm:basis-full">{error}</p>
+        <p className="font-mono text-[11px] text-rust sm:basis-full">{error}</p>
       )}
     </form>
   );

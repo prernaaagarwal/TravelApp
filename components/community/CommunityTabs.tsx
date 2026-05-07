@@ -10,6 +10,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import { RustButton } from "@/components/ui/RustButton";
 import { createPost, togglePostHelpful, reportPost, toggleBewareHelpful, reportBeware } from "@/app/community/actions";
 import { createClient } from "@/lib/supabase/client";
 import { BEWARE_CITIES } from "@/lib/beware-cities";
@@ -495,13 +496,9 @@ function ComposeForm({ tab, placeholder, cta }: { tab: string; placeholder: stri
         >
           Cancel
         </button>
-        <button
-          type="submit"
-          disabled={loading || uploading}
-          className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors disabled:opacity-50"
-        >
+        <RustButton type="submit" size="sm" disabled={loading || uploading}>
           {loading ? "Submitting…" : `${cta} →`}
-        </button>
+        </RustButton>
       </div>
     </form>
   );
@@ -680,18 +677,18 @@ function ReportInline({
         >
           Cancel
         </button>
-        <button
+        <RustButton
           type="button"
+          size="sm"
           disabled={busy}
           onClick={async () => {
             setBusy(true);
             await onSubmit(reason);
             setBusy(false);
           }}
-          className="border border-rust bg-rust px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 disabled:opacity-50"
         >
           {busy ? "Submitting…" : "Submit report"}
-        </button>
+        </RustButton>
       </div>
     </div>
   );

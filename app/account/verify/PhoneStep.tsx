@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { sendPhoneOtp, verifyPhoneOtp } from "./actions";
+import { RustButton } from "@/components/ui/RustButton";
 
 export function PhoneStep({
   defaultPhone,
@@ -50,7 +51,7 @@ export function PhoneStep({
   }
 
   return (
-    <div className="rounded-xl border border-ww-border bg-warm-white p-6 shadow-sm">
+    <div className="rounded-2xl border border-ww-border bg-warm-white p-6">
       <p className="mb-2 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
         <span className="grid h-5 w-5 place-items-center rounded-full bg-rust text-warm-white">1</span>
         Confirm your phone
@@ -81,13 +82,9 @@ export function PhoneStep({
               className="w-full border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm text-ink focus:border-ink focus:outline-none"
             />
           </div>
-          <button
-            type="submit"
-            disabled={pending}
-            className="border border-rust bg-rust px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-50"
-          >
+          <RustButton type="submit" size="sm" disabled={pending}>
             {pending ? "Sending…" : "Send code →"}
-          </button>
+          </RustButton>
         </form>
       ) : (
         <form onSubmit={handleVerify} className="space-y-3">
@@ -122,13 +119,9 @@ export function PhoneStep({
               className="w-40 border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm tracking-widest text-ink focus:border-ink focus:outline-none"
             />
           </div>
-          <button
-            type="submit"
-            disabled={pending || token.length < 6}
-            className="border border-rust bg-rust px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-50"
-          >
+          <RustButton type="submit" size="sm" disabled={pending || token.length < 6}>
             {pending ? "Verifying…" : "Verify code →"}
-          </button>
+          </RustButton>
         </form>
       )}
 

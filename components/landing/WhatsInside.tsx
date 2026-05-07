@@ -1,12 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
+import { RustButton } from "@/components/ui/RustButton";
 import {
   AlertTriangle,
   ArrowRight,
-  Bus,
   Heart,
-  MapPin,
-  Moon,
   Shield,
   Star,
 } from "lucide-react";
@@ -51,7 +49,7 @@ export default function WhatsInside({
             <div className="max-w-2xl">
               <div className="mb-5 flex items-center gap-3">
                 <span className="h-px w-10 bg-rust" />
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-ww-muted">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-ww-muted">
                   What&apos;s inside · 01
                 </span>
               </div>
@@ -135,7 +133,7 @@ export default function WhatsInside({
                 </p>
               </div>
 
-              {/* Intel rows */}
+              {/* Intel rows — 2 examples to keep the mobile view tight */}
               <div className="divide-y divide-ink/10 border-y border-ink/10">
                 <IntelRow
                   icon={<Shield className="h-4 w-4" />}
@@ -147,27 +145,12 @@ export default function WhatsInside({
                   label="Period supplies"
                   value="Whisper / Stayfree at More Megastore (Tapovan). Cups: only Apollo Pharmacy, Haridwar Rd."
                 />
-                <IntelRow
-                  icon={<MapPin className="h-4 w-4" />}
-                  label="Female-run stay"
-                  value="Zostel Plus (women dorm, ₹650) · Ganga Beach House (Anjali, host) ₹2,400"
-                />
-                <IntelRow
-                  icon={<Moon className="h-4 w-4" />}
-                  label="Night curfew"
-                  value="Most ashrams lock 10pm. Cafes shut 9:30pm. Plan dinner accordingly."
-                />
-                <IntelRow
-                  icon={<Bus className="h-4 w-4" />}
-                  label="Overnight train"
-                  value="Avoid sleeper. 3AC coach B2 berth 31-40 — closest to TTE, safest for solo F."
-                />
               </div>
 
               {/* Footer CTA */}
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-                  + 47 more intel points in this dossier
+                  + 50 more intel points in this dossier
                 </div>
                 <Link
                   href="/intel/rishikesh-india"
@@ -200,7 +183,7 @@ export default function WhatsInside({
             <div className="max-w-2xl">
               <div className="mb-5 flex items-center gap-3">
                 <span className="h-px w-10 bg-rust" />
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-warm-white/55">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-warm-white/55">
                   What&apos;s inside · 02
                 </span>
               </div>
@@ -259,74 +242,54 @@ export default function WhatsInside({
             />
           </div>
 
+          {/* Community bridge — one live thread tucked inside the personas
+              section so it acts as a quiet handoff to /community without
+              spawning a whole new page-tall section. id="community" moves
+              here from the deleted standalone section as a safety net for
+              any external #community anchors. */}
+          {askPosts[0] && (
+            <Link
+              id="community"
+              href="/community"
+              className="group mt-14 block border border-warm-white/10 bg-warm-white/[0.04] p-6 transition-colors hover:border-warm-white/30 md:mt-16 md:p-7"
+            >
+              <div className="mb-4 flex items-center gap-3 font-mono text-[10px] uppercase tracking-widest">
+                <span className="text-rust">Live community thread</span>
+                <span className="h-px flex-1 bg-warm-white/10" />
+                <span className="text-warm-white/50">{askPosts[0].replyCount} replies</span>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rust-light font-mono text-sm font-semibold text-rust">
+                  {askPosts[0].author[0]}
+                </div>
+                <div className="flex-1">
+                  <p className="font-serif text-lg leading-snug text-warm-white md:text-xl">
+                    &ldquo;{askPosts[0].content}&rdquo;
+                  </p>
+                  <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-warm-white/55">
+                    {askPosts[0].author}
+                    {askPosts[0].homeCity ? ` · ${askPosts[0].homeCity}` : ""}
+                    {askPosts[0].destination
+                      ? ` → ${askPosts[0].destination.replace("-india", "").replace("-", " ")}`
+                      : ""}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-5 flex items-center justify-end font-mono text-[10px] uppercase tracking-widest text-rust">
+                <span className="inline-flex items-center gap-2 transition-transform group-hover:translate-x-1">
+                  Join the conversation
+                  <span aria-hidden>→</span>
+                </span>
+              </div>
+            </Link>
+          )}
+
           {/* Foot note */}
-          <p className="mt-12 text-center font-mono text-[10px] uppercase tracking-widest text-warm-white/45">
+          <p className="mt-10 text-center font-mono text-[10px] uppercase tracking-widest text-warm-white/45">
             Not sure which? Most women start with the path closest to home, then unlock the other.
           </p>
-        </div>
-      </section>
-
-      {/* ── 03 — Community ─────────────────────────────────────────── */}
-      <section id="community" className="bg-warm-white py-24 md:py-32">
-        <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mb-16 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
-            <BlockHeader
-              compact
-              number="03"
-              tag="Community"
-              line1="Women asking"
-              line2="the real questions."
-            />
-            <Link
-              href="/community"
-              className="self-start font-mono text-xs uppercase tracking-widest text-rust hover:underline md:self-end"
-            >
-              Join the conversation →
-            </Link>
-          </div>
-
-          <div className="space-y-5 md:space-y-6">
-            {askPosts.map((post) => (
-              <Link
-                key={post.id}
-                href="/community"
-                className="group block border border-ww-border bg-warm-white p-6 transition-colors hover:border-ink/25 md:p-9"
-              >
-                <div className="mb-6 flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-widest">
-                  <span className="bg-ink px-2.5 py-1 text-warm-white">
-                    {post.destination
-                      ? post.destination.replace("-india", "").replace("-", " ")
-                      : "Ask"}
-                  </span>
-                  <span className="text-ww-muted">{post.homeCity}</span>
-                  <span className="text-ww-border">·</span>
-                  <span className="text-ww-muted">{post.replyCount} replies</span>
-                  <span className="text-ww-border">·</span>
-                  <span className="text-ww-muted">{post.likeCount} found this helpful</span>
-                </div>
-
-                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-                  <div className="lg:col-span-2">
-                    <div className="mb-2 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-                      Q
-                    </div>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-rust-light font-mono text-base font-semibold text-rust">
-                      {post.author[0]}
-                    </div>
-                    <div className="mt-2 font-mono text-xs font-semibold text-ink">
-                      {post.author}
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-10">
-                    <p className="font-serif text-xl leading-snug text-ink md:text-2xl">
-                      &ldquo;{post.content}&rdquo;
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
     </>
@@ -351,72 +314,6 @@ function IntelRow({
         <span className="font-mono text-[10px] uppercase tracking-widest">{label}</span>
       </div>
       <div className="col-span-12 leading-relaxed text-ink sm:col-span-8">{value}</div>
-    </div>
-  );
-}
-
-function BlockHeader({
-  number,
-  tag,
-  line1,
-  line2,
-  description,
-  dark,
-  compact,
-}: {
-  number: string;
-  tag: string;
-  line1: string;
-  line2: string;
-  description?: string;
-  dark?: boolean;
-  compact?: boolean;
-}) {
-  const muted = dark ? "text-warm-white/55" : "text-ww-muted";
-  const headlineColor = dark ? "text-warm-white" : "text-ink";
-
-  if (compact) {
-    return (
-      <div className="max-w-2xl">
-        <div className="mb-5 flex items-center gap-3">
-          <span className="h-px w-10 bg-rust" />
-          <span className={`font-mono text-xs uppercase tracking-[0.18em] ${muted}`}>
-            {tag} · {number}
-          </span>
-        </div>
-        <h2
-          className={`font-serif text-4xl leading-[0.95] ${headlineColor} md:text-5xl`}
-        >
-          {line1}
-          <br />
-          <span className="italic text-rust">{line2}</span>
-        </h2>
-      </div>
-    );
-  }
-
-  return (
-    <div className="mb-16 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
-      <div className="max-w-2xl">
-        <div className="mb-5 flex items-center gap-3">
-          <span className="h-px w-10 bg-rust" />
-          <span className={`font-mono text-xs uppercase tracking-[0.18em] ${muted}`}>
-            {tag} · {number}
-          </span>
-        </div>
-        <h2
-          className={`font-serif text-4xl leading-[0.95] ${headlineColor} md:text-6xl`}
-        >
-          {line1}
-          <br />
-          <span className="italic text-rust">{line2}</span>
-        </h2>
-      </div>
-      {description && (
-        <p className={`leading-relaxed md:max-w-sm ${dark ? "text-warm-white/65" : "text-ww-muted"}`}>
-          {description}
-        </p>
-      )}
     </div>
   );
 }
@@ -511,13 +408,12 @@ function PersonaCard({
 
         {/* Solid terracotta CTA button */}
         <div className="mt-auto">
-          <Link
-            href={ctaHref}
-            className="inline-flex items-center gap-3 bg-rust px-6 py-3.5 font-mono text-xs uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-          >
-            {ctaLabel}
-            <span aria-hidden>→</span>
-          </Link>
+          <RustButton size="md" asChild>
+            <Link href={ctaHref}>
+              {ctaLabel}
+              <span aria-hidden>→</span>
+            </Link>
+          </RustButton>
         </div>
       </div>
     </article>

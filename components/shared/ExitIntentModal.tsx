@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { submitGoaBrief } from "@/app/actions/goa-brief";
+import { RustButton } from "@/components/ui/RustButton";
 
 const STORAGE_KEY = "ww-exit-intent-shown";
 
@@ -82,7 +83,7 @@ export function ExitIntentModal() {
       onClick={() => setOpen(false)}
     >
       <div
-        className="relative w-full max-w-md border border-ww-border bg-warm-white p-8 shadow-xl"
+        className="relative w-full max-w-md border border-ww-border bg-warm-white p-8 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -128,13 +129,9 @@ export function ExitIntentModal() {
               {error && (
                 <p className="font-mono text-xs text-rust">{error}</p>
               )}
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-rust px-6 py-3 font-mono text-xs uppercase tracking-widest text-warm-white hover:bg-rust/90 disabled:opacity-50"
-              >
+              <RustButton type="submit" size="md" block disabled={loading}>
                 {loading ? "Sending…" : "Send me the brief →"}
-              </button>
+              </RustButton>
               <p className="text-center font-mono text-[10px] text-ww-muted">
                 One email. Unsubscribe in one click.
               </p>

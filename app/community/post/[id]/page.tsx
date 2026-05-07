@@ -6,6 +6,7 @@ import { safeQuery } from "@/lib/safe-query";
 import rawPosts from "@/lib/mock-data/community-posts.json";
 import { ReplyForm } from "@/components/community/ReplyForm";
 import { VerifyReplyButton } from "@/components/community/VerifyReplyButton";
+import { RustButton } from "@/components/ui/RustButton";
 
 type DbPostRow = {
   id: string;
@@ -242,12 +243,9 @@ export default async function CommunityPostPage({
             <p className="mb-3 font-mono text-sm text-ink">
               Sign in to reply to this thread.
             </p>
-            <Link
-              href={`/account/login?next=/community/post/${post.id}`}
-              className="inline-flex items-center gap-2 bg-rust px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-            >
-              Sign in to reply →
-            </Link>
+            <RustButton size="sm" asChild>
+              <Link href={`/account/login?next=/community/post/${post.id}`}>Sign in to reply →</Link>
+            </RustButton>
           </div>
         )}
       </section>

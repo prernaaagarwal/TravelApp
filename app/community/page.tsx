@@ -296,7 +296,7 @@ export default async function CommunityPage({ searchParams }: { searchParams: Se
         </div>
       )}
       <div className="mb-8">
-        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.25em] text-rust">
+        <p className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-rust">
           <span className="h-2 w-2 rounded-full bg-rust" aria-hidden />
           Solo female travel community
         </p>

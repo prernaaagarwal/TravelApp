@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail, Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { RustButton } from "@/components/ui/RustButton";
 import { createClient } from "@/lib/supabase/server";
 import { safeQuery } from "@/lib/safe-query";
 import { CommandPalette } from "@/components/shared/CommandPalette";
@@ -124,7 +125,7 @@ export async function Header() {
               <Link
                 href={`/profile/${profileSlug}`}
                 aria-label="My profile"
-                className="h-8 w-8 rounded-full bg-rust/20 flex items-center justify-center text-rust text-xs font-medium hover:bg-rust/30 transition-colors"
+                className="h-8 w-8 rounded-full bg-rust-light flex items-center justify-center text-rust text-xs font-medium hover:bg-rust-light/70 transition-colors"
               >
                 {initial}
               </Link>
@@ -134,13 +135,9 @@ export async function Header() {
               <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
                 <Link href="/account/login">Sign in</Link>
               </Button>
-              <Button
-                asChild
-                size="sm"
-                className="bg-[#b54727] text-white hover:bg-[#a03f22]"
-              >
+              <RustButton size="sm" asChild>
                 <Link href="/account/membership">Join</Link>
-              </Button>
+              </RustButton>
             </>
           )}
         </div>

@@ -26,6 +26,14 @@ export async function submitGoaBrief(
     .insert({ email: cleaned, source: "exit-intent-goa-brief" });
 
   if (insertErr) {
+    // Log the real error server-side so future failures (RLS, missing
+    // table, network) are diagnosable instead of hidden behind a generic
+    // string. The exit-intent modal lives behind first-party traffic only,
+    // so logging email + code is acceptable for debugging.
+    console.error("[goa-brief] email_captures insert failed", {
+      code: insertErr.code,
+      message: insertErr.message,
+    });
     return { error: "Something went wrong. Try again." };
   }
 

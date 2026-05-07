@@ -23,7 +23,7 @@ export function VerifyClient({
 
   if (photoSubmitted) {
     return (
-      <div className="rounded-xl border border-sage/40 bg-sage-light/30 p-6 shadow-sm">
+      <div className="rounded-2xl border border-sage/40 bg-sage-light/30 p-6">
         <p className="mb-2 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-sage">
           <span aria-hidden>✓</span>
           Submitted — pending review

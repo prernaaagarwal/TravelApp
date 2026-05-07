@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { submitReply } from "@/app/community/replies-actions";
+import { RustButton } from "@/components/ui/RustButton";
 
 export function ReplyForm({ postId }: { postId: string }) {
   const [content, setContent] = useState("");
@@ -47,16 +48,12 @@ export function ReplyForm({ postId }: { postId: string }) {
         <span className="font-mono text-[10px] text-ww-muted">
           {content.length} / 2000
         </span>
-        <button
-          type="submit"
-          disabled={isPending || content.trim().length < 2}
-          className="bg-rust px-5 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-50"
-        >
+        <RustButton type="submit" size="sm" disabled={isPending || content.trim().length < 2}>
           {isPending ? "Posting…" : "Post reply"}
-        </button>
+        </RustButton>
       </div>
       {error && (
-        <p className="mt-2 font-mono text-[11px] text-red-600">{error}</p>
+        <p className="mt-2 font-mono text-[11px] text-rust">{error}</p>
       )}
     </form>
   );
