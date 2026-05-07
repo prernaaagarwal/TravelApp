@@ -8,7 +8,6 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
-import { SafetyPackBlock } from "@/components/safety/SafetyPackBlock";
 
 export const metadata = {
   title: "Safety redesign preview — Wander Women",
@@ -366,11 +365,6 @@ export default function SafetyPreviewPage() {
           </div>
         </div>
       </section>
-
-      {/* ════════════════════════════════════════════════════════
-          3 — SAFETY PACK (was: WhatsApp Vault)
-          ════════════════════════════════════════════════════════ */}
-      <SafetyPackBlock />
 
       {/* ── Foot ─────────────────────────────────────────────── */}
       <div className="border-t border-gold/30 bg-gold-light/60">
