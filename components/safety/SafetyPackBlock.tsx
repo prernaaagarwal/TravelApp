@@ -3,20 +3,25 @@ import { ShieldCheck, Printer, Mail } from "lucide-react";
 
 /**
  * SafetyPackBlock — shared section that pitches the Safety Pack
- * (the /vault feature). Used at the bottom of /safety/preview and
- * at the top of /buddy. Self-contained: brings its own max-w-6xl
- * container so it can drop into any page.
+ * (the /vault feature). Used at the top of /vault, /buddy and at
+ * the bottom of /safety/preview. Self-contained: brings its own
+ * max-w-6xl container so it can drop into any page.
+ *
+ * Pass `as="h1"` when this is the page's primary heading (e.g. on
+ * /vault). Defaults to h2 since most other pages already have their
+ * own h1 above this block.
  */
-export function SafetyPackBlock() {
+export function SafetyPackBlock({ as = "h2" }: { as?: "h1" | "h2" } = {}) {
+  const Heading = as;
   return (
     <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
       <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.25em] text-blue">
         Safety Pack
       </p>
-      <h2 className="mb-4 font-serif text-3xl leading-[1.05] text-ink md:text-5xl">
+      <Heading className="mb-4 font-serif text-3xl leading-[1.05] text-ink md:text-5xl">
         <span className="font-medium italic text-gold">One page</span> a
         stranger could use to help you.
-      </h2>
+      </Heading>
       <p className="mb-8 max-w-3xl font-mono text-sm leading-relaxed text-ww-muted">
         Save your trip details, emergency contacts, insurance and stay info all
         on one page. Download as PDF for offline use, or email a copy to someone
