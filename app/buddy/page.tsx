@@ -7,7 +7,6 @@ import { ConnectButton } from "@/components/intel/ConnectButton";
 import { ReportBuddyButton } from "@/components/buddy/ReportBuddyButton";
 import { BuddyVerifiedBadge } from "@/components/buddy/BuddyVerifiedBadge";
 import { VerificationMethodology } from "@/components/account/VerificationMethodology";
-import { SafetyPackBlock } from "@/components/safety/SafetyPackBlock";
 import { getVerificationStatus } from "@/lib/buddy-verification";
 import buddyMatches from "@/lib/mock-data/buddy-matches.json";
 import { formatDestinationSlug } from "@/lib/utils";
@@ -105,9 +104,7 @@ export default async function BuddyPage() {
   const viewerVerified = status?.idVerified ?? false;
 
   return (
-    <>
-      <SafetyPackBlock />
-      <div className="mx-auto max-w-2xl px-6 py-12">
+    <div className="mx-auto max-w-2xl px-6 py-12">
       <div className="mb-6">
         <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
           Solo female travel buddy match
@@ -249,8 +246,7 @@ export default async function BuddyPage() {
           </div>
         )}
       </div>
-      </div>
-    </>
+    </div>
   );
 }
 
