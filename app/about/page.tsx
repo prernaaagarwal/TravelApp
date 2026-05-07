@@ -74,13 +74,13 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Continuation — full-width below both columns. From "Here's what
-              I noticed" onward, the story drops out of the 2-col grid into a
-              single centered reading column so it doesn't stay pinned in the
-              narrow right-hand strip after the image ends. */}
-          <div className="mx-auto mt-14 max-w-3xl md:mt-20">
+          {/* Continuation — single reading column below the 2-col intro.
+              Left-aligns to the parent max-w-6xl so the left edge matches the
+              image above; max-w-3xl keeps the line length readable instead of
+              spanning the full container width. */}
+          <div className="mt-14 max-w-3xl md:mt-20">
             <div className="space-y-6 text-base leading-relaxed text-ww-muted">
-              <hr className="mx-auto my-10 h-px w-12 border-0 bg-rust/40" aria-hidden />
+              <hr className="my-10 h-px w-12 border-0 bg-rust/40" aria-hidden />
 
               {/* ── 2. What I noticed ────────────────────────────── */}
               <p>
@@ -103,7 +103,7 @@ export default function AboutPage() {
               </p>
               <p>That knowledge was going nowhere useful.</p>
 
-              <hr className="mx-auto my-10 h-px w-12 border-0 bg-rust/40" aria-hidden />
+              <hr className="my-10 h-px w-12 border-0 bg-rust/40" aria-hidden />
 
               {/* ── 3. What it became ────────────────────────────── */}
               <p>
