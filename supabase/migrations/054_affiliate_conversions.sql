@@ -17,6 +17,19 @@
 -- Once we have ~6 months of conversions data, we can compute click-to-
 -- conversion ratios per partner and stop quoting industry benchmarks.
 
+-- ─── 1. Add partner_brand to safety_products ─────────────────────────────
+-- Must come FIRST: the affiliate_reconciliation_monthly view below joins
+-- affiliate_clicks → safety_products and reads sp.partner_brand. PostgreSQL
+-- resolves view column references at creation time, so the column has to
+-- exist before CREATE VIEW runs. Existing rows get NULL and need a one-
+-- time backfill (see /scripts/backfill-partner-brand.sql).
+alter table safety_products
+  add column if not exists partner_brand text;
+
+comment on column safety_products.partner_brand is
+  'Affiliate partner this product links to. Used by affiliate_reconciliation_monthly to match clicks to conversions. Examples: amazon, booking, airalo, world_nomads.';
+
+-- ─── 2. affiliate_conversions table ──────────────────────────────────────
 create table if not exists affiliate_conversions (
   id                 uuid          primary key default gen_random_uuid(),
   partner            text          not null,           -- e.g. 'amazon', 'booking', 'airalo', 'world_nomads'
@@ -56,7 +69,7 @@ create policy "Admins update conversions" on affiliate_conversions
     exists (select 1 from profiles where id = auth.uid() and role = 'admin')
   );
 
--- ─── Reconciliation view ─────────────────────────────────────────────────
+-- ─── 3. Reconciliation view ──────────────────────────────────────────────
 -- The headline number for diligence: per-partner per-month click count from
 -- our side, conversion count + commission from theirs, and the implied
 -- click-to-conversion rate. This is the answer to "what's your real RPM."
@@ -101,12 +114,3 @@ order by month desc, partner asc;
 
 comment on view affiliate_reconciliation_monthly is
   'Clicks (our side) vs conversions (partner side) per partner per closed month. The headline diligence number. Excludes the current in-flight month.';
-
--- safety_products needs a partner_brand column for the join to work. If
--- not present, this migration adds it. Existing rows get NULL and need a
--- one-time backfill (see /scripts/backfill-partner-brand.sql).
-alter table safety_products
-  add column if not exists partner_brand text;
-
-comment on column safety_products.partner_brand is
-  'Affiliate partner this product links to. Used by affiliate_reconciliation_monthly to match clicks to conversions. Examples: amazon, booking, airalo, world_nomads.';
