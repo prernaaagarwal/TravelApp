@@ -3,10 +3,7 @@ import Image from "next/image";
 import {
   AlertTriangle,
   ArrowRight,
-  Bus,
   Heart,
-  MapPin,
-  Moon,
   Shield,
   Star,
 } from "lucide-react";
@@ -135,7 +132,7 @@ export default function WhatsInside({
                 </p>
               </div>
 
-              {/* Intel rows */}
+              {/* Intel rows — 2 examples to keep the mobile view tight */}
               <div className="divide-y divide-ink/10 border-y border-ink/10">
                 <IntelRow
                   icon={<Shield className="h-4 w-4" />}
@@ -147,27 +144,12 @@ export default function WhatsInside({
                   label="Period supplies"
                   value="Whisper / Stayfree at More Megastore (Tapovan). Cups: only Apollo Pharmacy, Haridwar Rd."
                 />
-                <IntelRow
-                  icon={<MapPin className="h-4 w-4" />}
-                  label="Female-run stay"
-                  value="Zostel Plus (women dorm, ₹650) · Ganga Beach House (Anjali, host) ₹2,400"
-                />
-                <IntelRow
-                  icon={<Moon className="h-4 w-4" />}
-                  label="Night curfew"
-                  value="Most ashrams lock 10pm. Cafes shut 9:30pm. Plan dinner accordingly."
-                />
-                <IntelRow
-                  icon={<Bus className="h-4 w-4" />}
-                  label="Overnight train"
-                  value="Avoid sleeper. 3AC coach B2 berth 31-40 — closest to TTE, safest for solo F."
-                />
               </div>
 
               {/* Footer CTA */}
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
-                  + 47 more intel points in this dossier
+                  + 50 more intel points in this dossier
                 </div>
                 <Link
                   href="/intel/rishikesh-india"
