@@ -52,29 +52,29 @@ export function ExploreGrid({ cards, contributors, defaultFilter = "all" }: Prop
 
   return (
     <div>
-      {/* filter chips */}
-      <div className="mb-8 flex flex-wrap gap-2">
+      {/* filter pills */}
+      <div className="mb-8 flex flex-wrap items-center gap-2">
         {FILTERS.map((f) => (
           <button
             key={f.value}
             onClick={() => setActive(f.value)}
-            className={`border px-4 py-1.5 font-mono text-xs uppercase tracking-widest transition-colors ${
+            className={`rounded-full border px-4 py-2 font-mono text-[11px] uppercase tracking-widest transition-colors ${
               active === f.value
                 ? "border-ink bg-ink text-warm-white"
-                : "border-ww-border bg-sand text-ww-muted hover:border-ink hover:text-ink"
+                : "border-ww-border bg-warm-white text-ink hover:border-ink/40"
             }`}
           >
             {f.label}
           </button>
         ))}
-        <span className="ml-auto self-center font-mono text-[10px] text-ww-muted">
+        <span className="ml-auto self-center font-mono text-[10px] uppercase tracking-widest text-ww-muted">
           {filtered.length} cards
         </span>
       </div>
 
       {/* empty state — turns the dead end into a waitlist signal */}
       {filtered.length === 0 && (
-        <div className="border border-dashed border-ww-border bg-warm-white px-6 py-12 text-center">
+        <div className="rounded-2xl border border-dashed border-ww-border bg-warm-white px-6 py-12 text-center">
           <p className="mx-auto mb-1 max-w-md font-mono text-sm text-ink">
             No cards for this filter yet.
           </p>
@@ -96,7 +96,7 @@ export function ExploreGrid({ cards, contributors, defaultFilter = "all" }: Prop
             <Link
               key={card.slug}
               href={`/intel/${card.slug}`}
-              className="group flex flex-col border border-ww-border bg-sand transition-shadow hover:shadow-md"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-ww-border bg-warm-white transition-shadow hover:shadow-[0_8px_24px_-12px_rgba(26,21,16,0.18)]"
             >
               {/* image */}
               <div className="relative h-44 overflow-hidden bg-rust-light">
@@ -111,17 +111,17 @@ export function ExploreGrid({ cards, contributors, defaultFilter = "all" }: Prop
                 {/* badges over image */}
                 <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
                   {card.isPremium && (
-                    <span className="bg-gold/90 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-ink">
+                    <span className="rounded-full bg-gold/90 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-ink">
                       + Bonus chapter
                     </span>
                   )}
                   {card.audience === "indian" && (
-                    <span className="bg-rust px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-warm-white">
+                    <span className="rounded-full bg-rust px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-warm-white">
                       Indian women
                     </span>
                   )}
                   {card.audience === "foreign" && (
-                    <span className="bg-blue px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-warm-white">
+                    <span className="rounded-full bg-blue px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-warm-white">
                       Foreign women
                     </span>
                   )}
@@ -129,23 +129,23 @@ export function ExploreGrid({ cards, contributors, defaultFilter = "all" }: Prop
               </div>
 
               {/* body */}
-              <div className="flex flex-1 flex-col p-4">
+              <div className="flex flex-1 flex-col p-5">
                 <div className="mb-1 flex items-start justify-between gap-2">
-                  <h2 className="font-serif text-xl leading-tight text-ink group-hover:text-rust transition-colors">
+                  <h2 className="font-serif text-xl leading-tight text-ink transition-colors group-hover:text-rust md:text-2xl">
                     {card.destination}
                   </h2>
-                  <span className="shrink-0 font-mono text-[10px] text-ww-muted">
+                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
                     {card.country}
                   </span>
                 </div>
 
-                <p className="mb-4 line-clamp-2 text-xs leading-relaxed text-ww-muted">
+                <p className="mb-4 line-clamp-2 font-mono text-xs leading-relaxed text-ww-muted">
                   {Array.isArray(card.tldr)
                     ? card.tldr[0]
                     : (card.tldr as unknown as { summary: string })?.summary ?? ""}
                 </p>
 
-                <div className="mt-auto flex items-center justify-between border-t border-ww-border pt-3">
+                <div className="mt-auto flex items-center justify-between border-t border-ww-border/60 pt-4">
                   {/* contributor */}
                   <div className="flex items-center gap-2">
                     {contrib && (
