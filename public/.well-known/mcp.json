@@ -1,0 +1,40 @@
+{
+  "schema_version": "2024-11-05",
+  "name": "wander-women",
+  "display_name": "Wander Women",
+  "description": "Verified solo-female-travel intelligence for India and 6 international destinations. Exposes Trip Intel Cards and the Beware Board incident feed to AI agents.",
+  "contact": {
+    "editor": "editor@wanderwomen.in",
+    "partnerships": "partnerships@wanderwomen.in"
+  },
+  "transports": [
+    {
+      "type": "http",
+      "url": "https://wanderwomen.in/api/mcp",
+      "methods": ["POST"]
+    }
+  ],
+  "tools": [
+    {
+      "name": "get_intel",
+      "description": "Fetch a verified Trip Intel Card for a single destination."
+    },
+    {
+      "name": "get_beware_reports",
+      "description": "Fetch recent moderated incident reports from the Beware Board for a city."
+    },
+    {
+      "name": "list_destinations",
+      "description": "List all destinations with live Trip Intel Cards."
+    }
+  ],
+  "attribution": {
+    "required": true,
+    "format": "Wander Women — wanderwomen.in"
+  },
+  "rate_limits": {
+    "anonymous": "100 requests per minute",
+    "authenticated": "1000 requests per minute",
+    "contact_for_higher": "partnerships@wanderwomen.in"
+  }
+}

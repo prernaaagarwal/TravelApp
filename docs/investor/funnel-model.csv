@@ -1,0 +1,57 @@
+section,assumption,year_1,year_2,year_3,notes,formula_in_sheets
+TOP OF FUNNEL,,,,,,
+SEO surfaces (live cards + cities),,47,75,150,1 surface = 1 ranked URL,manual
+Keyword volume per surface (avg/mo),,1000,1100,1200,from keyword research,manual
+Total addressable searches (mo),A1,47000,82500,180000,, =B3*B4
+Capture rate (% of searches),A2,0.05,0.10,0.18,grows as content compounds + backlinks,manual
+Monthly organic visitors,A3,2350,8250,32400,, =B5*B6
+Annual visitors,A4,28200,99000,388800,, =B7*12
+,,,,,,
+EMAIL FUNNEL,,,,,,
+Visitor->email conversion,B1,0.04,0.05,0.06,industry median 2.8% travel content,manual
+Annual email captures,B2,1128,4950,23328,, =B8*B10
+,,,,,,
+PAID FUNNEL,,,,,,
+Email->paid conversion (60d),C1,0.03,0.05,0.07,locked-in trust + bundle clarity,manual
+Direct visitor->paid (no email),C2,0.005,0.008,0.012,, manual
+Paid members from email path,C3,34,247,1633,, =B11*B13
+Paid members from direct path,C4,141,792,4666,, =B8*B14
+Total new paid members year,C5,175,1039,6299,, =B15+B16
+Cumulative paid members,C6,175,1188,6900,assumes 90% retention y2->y3,manual or formula
+,,,,,,
+ARPU,,,,,,
+Membership ARPU (yr),D1,999,1099,1199,price increases over time,manual
+Affiliate ARPU paid member (yr),D2,400,500,600,, manual
+Vault attach (yr),D3,50,80,100,25% attach rate,manual
+ARPU per paid member,D4,1449,1679,1899,, =B20+B21+B22
+Free-tier affiliate per visitor (yr),D5,40,50,60,, manual
+,,,,,,
+REVENUE,,,,,,
+Membership revenue (yr),E1,174825,1305612,8273100,, =B18*B20
+Paid affiliate revenue,E2,70000,594000,4140000,, =B18*B21
+Vault revenue,E3,8750,95040,690000,, =B18*B22
+Free-tier affiliate revenue,E4,1128000,4950000,23328000,scales with raw traffic,manual or =B8*B24
+Total revenue (yr),E5,1381575,6944652,36431100,, =SUM(E27:E30)
+Total revenue (lakhs),E6,13.8,69.4,364.3,, =E31/100000
+,,,,,,
+COSTS (sanity),,,,,,
+Contributor payouts (50 cards/yr y1),F1,100000,300000,600000,, manual
+Hosting + tooling,F2,50000,150000,400000,, manual
+Verification (Anthropic + HyperVerge),F3,30000,180000,900000,, manual
+Team payroll (FT equiv),F4,1800000,3600000,7200000,, manual
+Total costs,F5,1980000,4230000,9100000,, =SUM(F33:F36)
+Net (before round),F6,-598425,2714652,27331100,, =E31-F37
+,,,,,,
+KEY RATIOS,,,,,,
+Visitor->paid blended,G1,0.0062,0.0105,0.0162,, =B17/B8
+ARR run-rate exit (yr),G2,1381575,6944652,36431100,, =E31
+LTV (3-year retention),G3,3500,4500,5500,assuming 2.5x ARPU,manual
+CAC payback (months),G4,12,8,6,, manual
+LTV/CAC,G5,3.5,4.5,5.0,, =B40/B41
+,,,,,,
+NOTES,,,,,,
+1. Cells with formulas in last column convert to live formulas in Sheets,,,,,,
+2. Replace year_1 keyword volume after running keyword-research.md,,,,,,
+3. Update capture rate after SERP rank check,,,,,,
+4. Year 3 numbers assume 100 cards live and B2B safety reports launched,,,,,,
+5. Free-tier affiliate is the largest revenue line - investors miss this,,,,,,
