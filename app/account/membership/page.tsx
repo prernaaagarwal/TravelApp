@@ -39,7 +39,7 @@ export default async function MembershipPage() {
 
           <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
             Founding 200 ·{" "}
-            <span className="text-ww-muted/60 line-through">₹499 / year</span>{" "}
+            <span className="text-ww-muted/60 line-through">₹999 / year</span>{" "}
             <span className="not-italic text-sage">free in beta</span>
           </p>
           <h1 className="font-serif text-3xl text-ink mb-3 sm:text-4xl">
