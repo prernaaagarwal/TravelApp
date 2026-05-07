@@ -802,10 +802,12 @@ function BewareCard({ b, userEmail }: { b: Beware; userEmail: string | null }) {
   const [reported, setReported] = useState(false);
 
   const sev = b.severity as "critical" | "high" | "medium";
-  const border =
-    sev === "critical" ? "border-l-rust" : sev === "high" ? "border-l-gold" : "border-l-sage";
   const badge =
-    sev === "critical" ? "bg-rust/10 text-rust" : sev === "high" ? "bg-gold/10 text-gold" : "bg-sage/10 text-sage";
+    sev === "critical"
+      ? "bg-rust-light text-rust"
+      : sev === "high"
+      ? "bg-gold-light text-gold"
+      : "bg-sage-light text-sage";
 
   async function onHelpful() {
     if (!userEmail) {
@@ -830,38 +832,51 @@ function BewareCard({ b, userEmail }: { b: Beware; userEmail: string | null }) {
   }
 
   return (
-    <article className={`border border-ww-border border-l-4 bg-sand p-4 ${border}`}>
-      <div className="mb-2 flex flex-wrap items-center gap-2">
-        <span className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest ${badge}`}>
+    <article className="rounded-2xl border border-ww-border bg-warm-white p-5 transition-colors hover:border-ink/30 md:p-6">
+      <div className="mb-3 flex flex-wrap items-center gap-2">
+        <span className={`rounded-full px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-widest ${badge}`}>
           {sev}
         </span>
-        <span className="font-mono text-[10px] text-ww-muted">{b.category}</span>
-        <span className="ml-auto font-mono text-[10px] text-ww-muted">{b.reportedDate}</span>
+        <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+          {b.category}
+        </span>
+        <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+          {b.reportedDate}
+        </span>
       </div>
 
-      <h3 className="mb-2 font-mono text-sm font-semibold text-ink">{b.title}</h3>
+      <h3 className="mb-2 font-serif text-lg leading-snug text-ink md:text-xl">{b.title}</h3>
 
-      <CollapsibleText text={b.description} className="mb-3" clamp={2} />
+      <CollapsibleText text={b.description} className="mb-3 font-serif text-base leading-snug text-ink md:text-lg" clamp={2} />
 
-      <div className="mb-3 flex flex-wrap gap-3 font-mono text-[10px] text-ww-muted">
-        <span>📍 {b.location}</span>
+      <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+        <span className="inline-flex items-center gap-1">
+          <MapPin className="h-3 w-3" aria-hidden />
+          {b.location}
+        </span>
         <Link href={`/intel/${b.destinationSlug}`} className="text-rust hover:underline">
           #{b.city}
         </Link>
         {b.hasScamMap && (
-          <Link href={`/community/beware/${b.destinationSlug}`} className="text-rust hover:underline">
-            📍 See scam map →
+          <Link
+            href={`/community/beware/${b.destinationSlug}`}
+            className="inline-flex items-center gap-1 text-rust hover:underline"
+          >
+            <MapPin className="h-3 w-3" aria-hidden />
+            See scam map →
           </Link>
         )}
         <span>Reported by {b.reportedBy}</span>
       </div>
 
-      <div className="flex flex-wrap gap-2 border-t border-ww-border pt-3">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-ww-border/60 pt-4">
         <button
           onClick={onHelpful}
           disabled={busy}
-          className={`border px-3 py-1 font-mono text-[10px] uppercase tracking-widest transition-colors ${
-            liked ? "border-sage bg-sage text-warm-white" : "border-sage/30 bg-sage-light/50 text-sage hover:bg-sage-light"
+          className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-widest transition-colors ${
+            liked
+              ? "bg-sage text-warm-white hover:bg-sage/90"
+              : "bg-sage-light/60 text-sage hover:bg-sage-light"
           }`}
         >
           Helpful ({count})
@@ -869,7 +884,7 @@ function BewareCard({ b, userEmail }: { b: Beware; userEmail: string | null }) {
         <button
           onClick={() => setReportOpen((o) => !o)}
           disabled={reported}
-          className="ml-auto border border-ww-border bg-sand px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:border-rust hover:text-rust transition-colors disabled:opacity-50"
+          className="rounded-full px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-rust transition-colors disabled:opacity-50"
         >
           {reported ? "Reported ✓" : "Report"}
         </button>
