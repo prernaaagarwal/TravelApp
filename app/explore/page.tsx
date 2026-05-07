@@ -94,7 +94,8 @@ export default async function ExplorePage() {
           .
         </h1>
         <p className="font-mono text-sm leading-relaxed text-ww-muted">
-          Every card written by a woman who has actually been there. Verified,
+          Every card written by a woman who has actually been there.{" "}
+          <strong className="font-semibold text-sage">Verified</strong>,
           updated, and honest about what the guidebooks skip.
         </p>
       </div>

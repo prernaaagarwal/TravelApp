@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ShieldCheck, ShoppingBag, MessageCircle, MapPin, BadgeCheck } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
+import { safeQuery } from "@/lib/safe-query";
+import { BewareNearbyPanel } from "@/components/safety/BewareNearbyPanel";
 
 export const metadata = {
   title: "Solo Female Travel Safety Toolkit — Kit, Vault, Scam Map",
@@ -111,6 +113,19 @@ const SIGN_IN_CARD: HubCard = {
   authState: "out",
 };
 
+type DbBewareRow = {
+  id: string;
+  title: string;
+  severity: string | null;
+  category: string | null;
+  gps_lat: number | null;
+  gps_lng: number | null;
+  location: string | null;
+  created_at: string;
+  destination_slug: string | null;
+  helpful_count: number | null;
+};
+
 export default async function SafetyPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
@@ -119,6 +134,40 @@ export default async function SafetyPage() {
     ...PUBLIC_CARDS,
     user ? AUTH_CARD : SIGN_IN_CARD,
   ];
+
+  // Fetch the latest geolocated approved beware reports for the nearby panel.
+  // RLS allows anonymous reads of approved rows. We only return rows that have
+  // gps coords — without lat/lng we can't compute distance to the user. Limit
+  // 100 keeps the payload small while giving the client room to filter to a
+  // 50 km radius.
+  const dbBewares = await safeQuery<DbBewareRow[]>(
+    supabase
+      .from("beware_reports")
+      .select("id,title,severity,category,gps_lat,gps_lng,location,created_at,destination_slug,helpful_count")
+      .eq("status", "approved")
+      .not("gps_lat", "is", null)
+      .not("gps_lng", "is", null)
+      .order("created_at", { ascending: false })
+      .limit(100),
+    [],
+    1500,
+    "safety.beware_reports",
+  );
+
+  const bewareReports = dbBewares
+    .filter((r) => r.gps_lat !== null && r.gps_lng !== null)
+    .map((r) => ({
+      id: r.id,
+      title: r.title,
+      severity: (r.severity ?? "medium").toLowerCase(),
+      category: r.category ?? "scam",
+      lat: r.gps_lat as number,
+      lng: r.gps_lng as number,
+      location: r.location ?? "",
+      createdAt: r.created_at,
+      destinationSlug: r.destination_slug ?? "",
+      helpfulCount: r.helpful_count ?? 0,
+    }));
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
@@ -167,7 +216,7 @@ export default async function SafetyPage() {
               <h2 className="mb-3 font-serif text-2xl leading-snug text-ink">
                 {card.title}
               </h2>
-              <p className="mb-6 flex-1 font-mono text-xs leading-relaxed text-ink/70">
+              <p className="mb-6 flex-1 font-mono text-sm leading-relaxed text-ink/70">
                 {card.body}
               </p>
               <span
@@ -178,6 +227,11 @@ export default async function SafetyPage() {
             </Link>
           );
         })}
+      </div>
+
+      {/* ── Beware Board nearby panel ────────────────────── */}
+      <div className="mt-10">
+        <BewareNearbyPanel reports={bewareReports} />
       </div>
 
       {/* ── Footnote ─────────────────────────────────────── */}

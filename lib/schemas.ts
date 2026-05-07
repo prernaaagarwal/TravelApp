@@ -41,7 +41,7 @@ export const submitBewareReportSchema = z.object({
   title:              z.string().min(3, "Title required").max(200),
   description:        z.string().min(10, "Description too short").max(2000),
   category:           z.string().max(50).optional().nullable(),
-  severity:           z.enum(["low", "medium", "high"]).optional().default("medium"),
+  severity:           z.enum(["low", "medium", "high", "critical"]).optional().default("medium"),
   city:               z.string().max(100).optional().nullable(),
   location:           z.string().max(200).optional().nullable(),
   destination_slug:   z.string().max(100).optional().nullable(),
