@@ -117,3 +117,90 @@ export function faqPageLd(items: { question: string; answer: string }[]) {
     })),
   };
 }
+
+// Build the canonical 4–5 FAQ entries for an intel card from its structured
+// fields. Designed for AI engines (Perplexity, ChatGPT, Google AI Overviews)
+// that lift FAQPage schema directly when answering long-tail safety queries.
+//
+// Why pre-computed: if we let the page emit FAQs from a hand-written list per
+// card, contributors will skip the field. Pulling from the structured fields
+// guarantees coverage on every card without extra editorial work.
+export function intelCardFaqs(card: {
+  destination: string;
+  country: string;
+  scams: { title: string; what?: string; avoid?: string }[];
+  transport?: { mode: string; tip: string; approxCost?: string }[];
+  estimatedDailyBudget?: {
+    backpacker?: number;
+    midRange?: number;
+    comfortable?: number;
+    currency?: string;
+  } | null;
+  lastUpdated?: string | null;
+  contributorName?: string | null;
+}): { question: string; answer: string }[] {
+  const { destination, country } = card;
+  const items: { question: string; answer: string }[] = [];
+  const sourceLine = card.contributorName
+    ? `Verified by ${card.contributorName}, a named contributor on Wander Women.`
+    : "Verified by Wander Women's editorial team.";
+  const updatedSuffix = card.lastUpdated
+    ? ` Last verified ${card.lastUpdated}.`
+    : "";
+
+  // Q1 — the headline safety question every search engine sees
+  const topScam = card.scams[0];
+  items.push({
+    question: `Is ${destination} safe for solo female travelers?`,
+    answer: topScam
+      ? `${destination}, ${country} is generally manageable for solo women travelers who plan ahead. The most commonly reported issue is "${topScam.title}"${topScam.avoid ? ` — ${topScam.avoid}` : ""}. ${sourceLine}${updatedSuffix}`
+      : `${destination}, ${country} is generally manageable for solo women travelers who plan ahead. ${sourceLine}${updatedSuffix}`,
+  });
+
+  // Q2 — the top 3 scams as one consolidated answer (lifts well in AI summaries)
+  if (card.scams.length > 0) {
+    const scamSummary = card.scams
+      .slice(0, 3)
+      .map((s, i) => `${i + 1}. ${s.title}${s.what ? `: ${s.what}` : ""}`)
+      .join(" ");
+    items.push({
+      question: `What are the most common scams in ${destination}?`,
+      answer: `Top reported scams in ${destination}, ${country}: ${scamSummary} ${sourceLine}`,
+    });
+  }
+
+  // Q3 — daily budget (high-intent query, often searched as "cost to travel")
+  if (card.estimatedDailyBudget) {
+    const cur = card.estimatedDailyBudget.currency ?? "INR";
+    const parts: string[] = [];
+    if (card.estimatedDailyBudget.backpacker)
+      parts.push(`backpacker ~${card.estimatedDailyBudget.backpacker} ${cur}/day`);
+    if (card.estimatedDailyBudget.midRange)
+      parts.push(`mid-range ~${card.estimatedDailyBudget.midRange} ${cur}/day`);
+    if (card.estimatedDailyBudget.comfortable)
+      parts.push(`comfortable ~${card.estimatedDailyBudget.comfortable} ${cur}/day`);
+    if (parts.length > 0) {
+      items.push({
+        question: `How much does it cost to travel solo in ${destination}?`,
+        answer: `Estimated daily budgets for solo women travelers in ${destination}: ${parts.join(", ")}. Includes accommodation, food, and local transport. ${sourceLine}`,
+      });
+    }
+  }
+
+  // Q4 — transport (often the most-asked tactical question)
+  const topTransport = card.transport?.[0];
+  if (topTransport) {
+    items.push({
+      question: `What is the best way to get around ${destination}?`,
+      answer: `${topTransport.mode} is the most reliable option in ${destination}: ${topTransport.tip}${topTransport.approxCost ? ` (approx ${topTransport.approxCost})` : ""}. ${sourceLine}`,
+    });
+  }
+
+  // Q5 — emergency / "what should I know" — broad-intent capstone
+  items.push({
+    question: `What should I know before traveling solo to ${destination}?`,
+    answer: `Read the latest verified intel for ${destination} on Wander Women — covers neighborhoods, scams, transport, hidden gems, and budget. ${sourceLine}${updatedSuffix}`,
+  });
+
+  return items;
+}

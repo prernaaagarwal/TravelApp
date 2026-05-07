@@ -16,7 +16,7 @@ import { SUPPORTED_BEWARE_CITIES } from "@/lib/beware-cities";
 import { EmailSignupForm } from "@/components/shared/EmailSignupForm";
 import { ShareIntelButton } from "@/components/shared/ShareIntelButton";
 import { JsonLd } from "@/components/shared/JsonLd";
-import { intelCardLd, breadcrumbLd } from "@/lib/jsonld";
+import { intelCardLd, breadcrumbLd, faqPageLd, intelCardFaqs } from "@/lib/jsonld";
 import { ViewTracker } from "@/components/intel/ViewTracker";
 import { env } from "@/lib/config";
 
@@ -203,6 +203,22 @@ export default async function IntelPage({ params }: { params: Params }) {
           { name: "Explore",  url: `${SITE_URL}/explore` },
           { name: card.destination, url: `${SITE_URL}/intel/${card.slug}` },
         ])}
+      />
+      {/* FAQPage JSON-LD — lifted directly by Perplexity, ChatGPT, Google
+          AI Overviews. Generated from the card's structured fields so every
+          intel card gets coverage without per-card editorial work. */}
+      <JsonLd
+        data={faqPageLd(
+          intelCardFaqs({
+            destination: card.destination,
+            country: card.country,
+            scams: card.scams,
+            transport: card.transport,
+            estimatedDailyBudget: card.estimatedDailyBudget,
+            lastUpdated: card.lastUpdated,
+            contributorName: contributor?.fullName ?? contributor?.name ?? null,
+          }),
+        )}
       />
       {/* ── Hero image ───────────────────────────────────────────────── */}
       <div className="relative h-64 w-full overflow-hidden bg-rust-light md:h-80">
