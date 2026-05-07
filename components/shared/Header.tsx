@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Settings, Shield } from "lucide-react";
+import { Mail, Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/lib/supabase/server";
 import { CommandPalette } from "@/components/shared/CommandPalette";
@@ -63,6 +63,14 @@ export async function Header() {
                   <Shield className="h-4 w-4" />
                 </Link>
               )}
+              <Link
+                href="/account/messages"
+                aria-label="Hellos"
+                title="Hellos"
+                className="text-ww-muted hover:text-ink p-1"
+              >
+                <Mail className="h-4 w-4" />
+              </Link>
               <Link
                 href="/settings"
                 aria-label="Settings"

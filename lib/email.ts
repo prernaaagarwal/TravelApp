@@ -131,6 +131,51 @@ export async function sendVerificationRejected(to: string, reason?: string) {
   });
 }
 
+// ── Buddy hellos ────────────────────────────────────────────────────────────
+// Sent to a recipient when another verified user has sent them a hello.
+// We deliberately do NOT include the sender's message body in the email —
+// readers come to /account/messages to view + accept/decline. That gives us
+// a single moderation surface and prevents email-as-bypass for blocked users.
+export async function sendHelloReceived(
+  to: string,
+  args: { senderFirstName: string; senderHomeCity: string | null; destinationLabel: string },
+) {
+  const resend = getResend();
+  if (!resend) return;
+  const fromLine = args.senderHomeCity
+    ? `${args.senderFirstName} from ${args.senderHomeCity}`
+    : args.senderFirstName;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: `${args.senderFirstName} wants to connect for ${args.destinationLabel}`,
+    html: buildBody(
+      `You have a new hello.`,
+      `${fromLine} wants to connect for your overlapping trip to ${args.destinationLabel}. Read their message and accept or decline — neither side sees contact details until you both consent.`,
+      { cta: { label: "View hello →", href: `${SITE_URL}/account/messages` } },
+    ),
+  });
+}
+
+// Sent back to the original sender when the recipient accepts.
+export async function sendHelloAccepted(
+  to: string,
+  args: { recipientFirstName: string; destinationLabel: string },
+) {
+  const resend = getResend();
+  if (!resend) return;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: `${args.recipientFirstName} accepted your hello`,
+    html: buildBody(
+      `${args.recipientFirstName} accepted your hello.`,
+      `She accepted your hello for ${args.destinationLabel}. Open your inbox to see her first name and home city, and take the conversation to whichever channel you both trust.`,
+      { cta: { label: "Open inbox →", href: `${SITE_URL}/account/messages` } },
+    ),
+  });
+}
+
 // ── Buddy profile reports ───────────────────────────────────────────────────
 export async function sendBuddyReportAcknowledged(to: string) {
   const resend = getResend();
