@@ -163,7 +163,14 @@ export default async function HomePage() {
             <span className="text-rust">7 years</span> of solo travel experience in India.
           </p>
           <p className="mt-3 font-mono text-xs leading-relaxed text-ww-muted">
-            Be one of the first <span className="text-ink">200 founding members</span> who shape what this becomes.
+            Be one of the first{" "}
+            <Link
+              href="#join"
+              className="font-semibold text-rust underline-offset-4 hover:underline"
+            >
+              200 founding members
+            </Link>{" "}
+            who shape what this becomes.
           </p>
         </div>
       </section>
