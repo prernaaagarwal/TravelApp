@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ExternalLink, Copy, Check, ShieldCheck, AlertTriangle, Ban } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { RustButton } from "@/components/ui/RustButton";
 import Link from "next/link";
 import type { StayVerification, RiskColor } from "@/lib/agents/stay-verifier";
 
@@ -168,9 +169,9 @@ export function SafetyReport({
         <Button asChild variant="outline" size="sm" className="gap-2 border-ww-border text-ww-muted hover:text-ink">
           <Link href="/contribute/report">Submit a report</Link>
         </Button>
-        <Button asChild size="sm" className="bg-rust text-warm-white hover:bg-rust/90 gap-2 ml-auto">
+        <RustButton size="sm" asChild className="ml-auto">
           <Link href="/verify-stay">Verify another stay</Link>
-        </Button>
+        </RustButton>
       </div>
 
       <p className="text-xs text-ww-muted leading-relaxed pt-2">

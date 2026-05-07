@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { RustButton } from "@/components/ui/RustButton";
 import { NotificationToggles } from "./NotificationToggles";
 import { DangerZoneButtons } from "./DangerZoneButtons";
 import { PrivacyDataSection } from "./PrivacyDataSection";
@@ -88,13 +88,12 @@ export default async function SettingsPage() {
             real users is the difference between this becoming a guidebook for
             women and yet another travel app.
           </p>
-          <Link
-            href="/feedback"
-            className="inline-flex items-center gap-2 bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90"
-          >
-            Share feedback
-            <span aria-hidden>→</span>
-          </Link>
+          <RustButton size="sm" asChild>
+            <Link href="/feedback">
+              Share feedback
+              <span aria-hidden>→</span>
+            </Link>
+          </RustButton>
         </div>
 
         {/* ── Profile photo ────────────────────────── */}
@@ -175,9 +174,9 @@ export default async function SettingsPage() {
               <p className="mb-3 font-mono text-xs text-ww-muted">
                 Unlock premium intel, early features, and support the community.
               </p>
-              <Button asChild size="sm" className="bg-rust text-warm-white hover:bg-rust/90">
+              <RustButton size="sm" asChild>
                 <Link href="/account/membership">Join the Founding 200 →</Link>
-              </Button>
+              </RustButton>
             </div>
           )}
         </div>

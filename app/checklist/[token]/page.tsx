@@ -4,6 +4,7 @@ import { Check, ArrowRight } from "lucide-react";
 import { createStaticClient } from "@/lib/supabase/server";
 import { safeQuery } from "@/lib/safe-query";
 import { formatDestinationSlug } from "@/lib/utils";
+import { RustButton } from "@/components/ui/RustButton";
 
 /**
  * Read-only view of someone else's pre-book checklist, fetched via the
@@ -151,13 +152,12 @@ export default async function SharedChecklistPage({
           You&apos;re viewing a read-only share. Sign in to start your own
           checklist for {destinationLabel}.
         </p>
-        <Link
-          href={`/intel/${shared.destination_slug}`}
-          className="inline-flex shrink-0 items-center gap-2 border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90"
-        >
-          See full intel
-          <ArrowRight className="h-3 w-3" aria-hidden />
-        </Link>
+        <RustButton size="sm" asChild className="shrink-0">
+          <Link href={`/intel/${shared.destination_slug}`}>
+            See full intel
+            <ArrowRight className="h-3 w-3" aria-hidden />
+          </Link>
+        </RustButton>
       </div>
     </div>
   );

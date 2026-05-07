@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { VerificationMethodology } from "@/components/account/VerificationMethodology";
 import { VerifyClient } from "./VerifyClient";
+import { RustButton } from "@/components/ui/RustButton";
 
 export const metadata = {
   title: "Verify your account — Wander Women",
@@ -34,12 +35,9 @@ export default async function VerifyPage() {
               Phone confirmed and ID reviewed. You can send hellos on the Buddy
               page. Your ID photo has been deleted from our servers.
             </p>
-            <Link
-              href="/buddy"
-              className="mt-4 inline-flex items-center gap-2 border border-rust bg-rust px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white"
-            >
-              Find a buddy →
-            </Link>
+            <RustButton size="sm" asChild className="mt-4">
+              <Link href="/buddy">Find a buddy →</Link>
+            </RustButton>
           </div>
         </div>
       </main>

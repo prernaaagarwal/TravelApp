@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { RustButton } from "@/components/ui/RustButton";
 import { joinWaitlist } from "./actions";
 
 export default function MembershipForm({ defaultEmail }: { defaultEmail?: string }) {
@@ -97,13 +98,9 @@ export default function MembershipForm({ defaultEmail }: { defaultEmail?: string
 
         {error && <p className="text-rust text-sm">{error}</p>}
 
-        <Button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-rust text-warm-white hover:bg-rust/90"
-        >
+        <RustButton type="submit" size="md" block disabled={loading}>
           {loading ? "Reserving your spot…" : "Join the Founding 200 →"}
-        </Button>
+        </RustButton>
 
         <p className="text-center text-xs text-ww-muted pt-1">
           We&apos;ll WhatsApp you within 48 hours to confirm your spot.

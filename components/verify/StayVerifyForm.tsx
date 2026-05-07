@@ -3,8 +3,8 @@
 import { useTransition, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, Loader2, AlertCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { RustButton } from "@/components/ui/RustButton";
 import { submitStayVerification } from "@/app/verify-stay/actions";
 
 const PLATFORMS = [
@@ -61,11 +61,7 @@ export function StayVerifyForm({ usedThisMonth }: { usedThisMonth: number }) {
           </div>
         )}
 
-        <Button
-          type="submit"
-          disabled={isPending}
-          className="w-full h-11 bg-rust text-warm-white hover:bg-rust/90 font-medium"
-        >
+        <RustButton type="submit" size="md" block disabled={isPending}>
           {isPending ? (
             <span className="flex items-center gap-2">
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -74,7 +70,7 @@ export function StayVerifyForm({ usedThisMonth }: { usedThisMonth: number }) {
           ) : (
             "Run Safety Analysis"
           )}
-        </Button>
+        </RustButton>
       </form>
 
       <div className="flex flex-wrap gap-2">

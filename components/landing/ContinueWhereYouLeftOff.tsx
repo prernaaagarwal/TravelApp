@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { formatDestinationSlug } from "@/lib/utils";
+import { RustButton } from "@/components/ui/RustButton";
 
 /**
  * Personalised banner shown at the top of the landing page to onboarded
@@ -56,13 +57,12 @@ export function ContinueWhereYouLeftOff({
             <span className="font-semibold">{destinationLabel}</span>.
           </p>
         </div>
-        <Link
-          href={href}
-          className="inline-flex shrink-0 items-center gap-2 border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
-        >
-          {ctaLabel}
-          <ArrowRight className="h-3 w-3" aria-hidden />
-        </Link>
+        <RustButton size="sm" asChild className="shrink-0">
+          <Link href={href}>
+            {ctaLabel}
+            <ArrowRight className="h-3 w-3" aria-hidden />
+          </Link>
+        </RustButton>
       </div>
     </section>
   );

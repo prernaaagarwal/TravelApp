@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { sendPhoneOtp, verifyPhoneOtp } from "./actions";
+import { RustButton } from "@/components/ui/RustButton";
 
 export function PhoneStep({
   defaultPhone,
@@ -81,13 +82,9 @@ export function PhoneStep({
               className="w-full border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm text-ink focus:border-ink focus:outline-none"
             />
           </div>
-          <button
-            type="submit"
-            disabled={pending}
-            className="border border-rust bg-rust px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-50"
-          >
+          <RustButton type="submit" size="sm" disabled={pending}>
             {pending ? "Sending…" : "Send code →"}
-          </button>
+          </RustButton>
         </form>
       ) : (
         <form onSubmit={handleVerify} className="space-y-3">
@@ -122,13 +119,9 @@ export function PhoneStep({
               className="w-40 border border-ww-border bg-warm-white px-3 py-2 font-mono text-sm tracking-widest text-ink focus:border-ink focus:outline-none"
             />
           </div>
-          <button
-            type="submit"
-            disabled={pending || token.length < 6}
-            className="border border-rust bg-rust px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-warm-white transition-opacity hover:opacity-90 disabled:opacity-50"
-          >
+          <RustButton type="submit" size="sm" disabled={pending || token.length < 6}>
             {pending ? "Verifying…" : "Verify code →"}
-          </button>
+          </RustButton>
         </form>
       )}
 

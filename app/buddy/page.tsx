@@ -6,6 +6,7 @@ import { RegisterTripForm } from "@/components/intel/RegisterTripForm";
 import { ConnectButton } from "@/components/intel/ConnectButton";
 import { ReportBuddyButton } from "@/components/buddy/ReportBuddyButton";
 import { BuddyVerifiedBadge } from "@/components/buddy/BuddyVerifiedBadge";
+import { RustButton } from "@/components/ui/RustButton";
 import { VerificationMethodology } from "@/components/account/VerificationMethodology";
 import { getVerificationStatus } from "@/lib/buddy-verification";
 import buddyMatches from "@/lib/mock-data/buddy-matches.json";
@@ -135,12 +136,9 @@ export default async function BuddyPage() {
             You can browse profiles now — sending a connection requires phone +
             ID verification first.
           </p>
-          <Link
-            href="/account/verify"
-            className="shrink-0 border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90"
-          >
-            Verify now →
-          </Link>
+          <RustButton size="sm" asChild className="shrink-0">
+            <Link href="/account/verify">Verify now →</Link>
+          </RustButton>
         </div>
       )}
 
@@ -231,12 +229,9 @@ export default async function BuddyPage() {
                       <ReportBuddyButton reportedUserId={buddy.user_id} />
                     </>
                   ) : (
-                    <Link
-                      href="/account/login?next=/buddy"
-                      className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
-                    >
-                      Sign in to connect →
-                    </Link>
+                    <RustButton size="sm" asChild>
+                      <Link href="/account/login?next=/buddy">Sign in to connect →</Link>
+                    </RustButton>
                   )}
                 </div>
               </article>
@@ -302,12 +297,9 @@ function MockBuddyCard({
             women register for the same destination as you.
           </p>
         ) : (
-          <Link
-            href="/account/signup"
-            className="border border-rust bg-rust px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-warm-white hover:bg-rust/90 transition-colors"
-          >
-            Join to connect →
-          </Link>
+          <RustButton size="sm" asChild>
+            <Link href="/account/signup">Join to connect →</Link>
+          </RustButton>
         )}
       </div>
     </article>

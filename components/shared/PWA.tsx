@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback, useSyncExternalStore } from "react";
 import { Share, X, Download, RefreshCw } from "lucide-react";
+import { RustButton } from "@/components/ui/RustButton";
 
 // ─── Public component ────────────────────────────────────────────────
 // Mounts the SW registration plus the two UI affordances (update toast,
@@ -221,13 +222,9 @@ function InstallBanner() {
           <p className="font-mono text-xs text-ink">Install Wander Women</p>
           <p className="font-mono text-[10px] text-ww-muted">Quick access from your home screen.</p>
         </div>
-        <button
-          type="button"
-          onClick={install}
-          className="border border-rust bg-rust px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-colors hover:bg-rust/80"
-        >
+        <RustButton type="button" size="sm" onClick={install}>
           Install
-        </button>
+        </RustButton>
         <button
           type="button"
           onClick={dismiss}
@@ -254,13 +251,9 @@ function InstallBanner() {
             <p className="font-mono text-xs text-ink">Add to home screen</p>
             <p className="font-mono text-[10px] text-ww-muted">One-tap access on your iPhone.</p>
           </div>
-          <button
-            type="button"
-            onClick={() => setIosOpen(true)}
-            className="border border-rust bg-rust px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-warm-white transition-colors hover:bg-rust/80"
-          >
+          <RustButton type="button" size="sm" onClick={() => setIosOpen(true)}>
             How
-          </button>
+          </RustButton>
           <button
             type="button"
             onClick={dismiss}

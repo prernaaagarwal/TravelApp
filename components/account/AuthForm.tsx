@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { RustButton } from "@/components/ui/RustButton";
 
 const RESEND_COOLDOWN_SEC = 60;
 const CODE_LENGTH         = 6;
@@ -169,13 +169,9 @@ export function AuthForm({
 
           {error && <p className="font-mono text-xs text-rust">{error}</p>}
 
-          <Button
-            type="submit"
-            disabled={loading || code.length !== CODE_LENGTH}
-            className="w-full bg-rust text-warm-white hover:bg-rust/90"
-          >
+          <RustButton type="submit" size="md" block disabled={loading || code.length !== CODE_LENGTH}>
             {loading ? "Verifying…" : "Verify & continue"}
-          </Button>
+          </RustButton>
         </form>
 
         <div className="flex items-center justify-between border-t border-ww-border pt-3 font-mono text-[11px] text-ww-muted">
@@ -236,17 +232,13 @@ export function AuthForm({
 
         {error && <p className="font-mono text-xs text-rust">{error}</p>}
 
-        <Button
-          type="submit"
-          disabled={loading || !email || !declared}
-          className="w-full bg-rust text-warm-white hover:bg-rust/90 disabled:opacity-40"
-        >
+        <RustButton type="submit" size="md" block disabled={loading || !email || !declared}>
           {loading
             ? "Sending…"
             : emailVerb === "send_link"
               ? `${primaryLabel} with email`
               : `${primaryLabel} with email code`}
-        </Button>
+        </RustButton>
 
         {postSendNote && (
           <p className="text-center font-mono text-[10px] leading-relaxed text-ww-muted">

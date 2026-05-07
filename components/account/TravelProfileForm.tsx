@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { updateProfile } from "@/app/account/profile/actions";
+import { RustButton } from "@/components/ui/RustButton";
 
 const TRIP_COUNT_OPTIONS = [
   { value: "0",   label: "First solo trip", emoji: "🌱" },
@@ -262,14 +263,9 @@ export function TravelProfileForm({ firstName, homeCity, instagram, segment }: P
           <p className="font-mono text-[10px] text-ww-muted">
             {savedAt ? "✓ Saved" : "Changes are saved when you click below."}
           </p>
-          <button
-            type="button"
-            onClick={save}
-            disabled={pending}
-            className="border border-rust bg-rust px-5 py-2 font-mono text-xs uppercase tracking-widest text-warm-white hover:bg-rust/90 disabled:opacity-50"
-          >
+          <RustButton type="button" size="md" onClick={save} disabled={pending}>
             {pending ? "Saving…" : "Save profile"}
-          </button>
+          </RustButton>
         </div>
       </div>
     </div>
