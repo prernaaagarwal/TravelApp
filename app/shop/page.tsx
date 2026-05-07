@@ -91,7 +91,7 @@ export default function ShopPage() {
                     <h2 className="mb-1 font-serif text-lg leading-snug text-ink md:text-xl">
                       {product.name}
                     </h2>
-                    <p className="mb-4 flex-1 font-mono text-xs leading-relaxed text-ww-muted">
+                    <p className="mb-4 flex-1 font-mono text-sm leading-relaxed text-ww-muted">
                       {product.whyItMatters}
                     </p>
 
