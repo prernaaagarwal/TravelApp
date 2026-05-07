@@ -631,7 +631,7 @@ export default async function IntelPage({ params }: { params: Params }) {
                   Free in beta — unlock now →
                 </a>
                 <span className="mt-3 font-mono text-[10px] tracking-widest text-warm-white/40">
-                  V1: <span className="line-through">₹999 / year</span>
+                  ₹999/year locked for life when payment opens
                 </span>
               </div>
             </section>

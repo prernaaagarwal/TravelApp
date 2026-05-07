@@ -164,7 +164,7 @@ export default async function HomePage() {
 
           {/* micro trust line */}
           <p className="mt-8 font-mono text-xs text-warm-white/65">
-            Free to browse · Founding membership free in beta · No spam, ever
+            Free during beta · ₹999/year founding rate locks for life when payment opens · No spam, ever
           </p>
         </div>
       </section>

@@ -11,9 +11,10 @@
 
 1. `docs/investor/build-status.md` — what's actually built (3 min)
 2. `docs/strategy/wedge.md` — what's in scope and what's deferred (2 min)
-3. `docs/investor/funnel-model.xlsx` — open in Sheets, poke any cell (3 min)
-4. `docs/investor/sensitivity-table.md` — 3×3 grid that defends every cell (1 min)
-5. `docs/legal/trust-and-verification.md` — the 101-word verification para (1 min)
+3. `docs/investor/modeled-vs-measured.md` — the honesty slide: what we know vs what we're modeling (1 min)
+4. `docs/investor/funnel-model.xlsx` — open in Sheets, poke any cell (3 min)
+5. `docs/investor/sensitivity-table.md` — 3×3 grid that defends every cell (1 min)
+6. `docs/legal/trust-and-verification.md` — the 101-word verification para (1 min)
 
 That's the 10-minute briefing. Anything beyond is for diligence.
 

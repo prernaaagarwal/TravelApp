@@ -148,6 +148,13 @@ export default function PricingPage() {
       {/* Hero */}
       <section className="border-b border-ww-border px-6 pt-20 pb-12 md:px-10 md:pt-28">
         <div className="mx-auto max-w-3xl text-center">
+          {/* Honesty banner: prices are anchored, but no payment path is live
+              yet. Investors and users both deserve to know that up-front. */}
+          <div className="mx-auto mb-6 inline-block border border-rust/30 bg-rust/5 px-4 py-2">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-rust">
+              Beta · Payments not yet open · Reserve your founding seat — pay nothing now
+            </p>
+          </div>
           <p className="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-ww-muted">
             Membership
           </p>
