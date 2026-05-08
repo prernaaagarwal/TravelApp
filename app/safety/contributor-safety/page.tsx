@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MethodologyTabs } from "@/components/shared/MethodologyTabs";
 
 // Contributor Safety Policy — public-facing.
 //
@@ -105,6 +106,7 @@ const FAQ_ITEMS: { q: string; a: string }[] = [
 export default function ContributorSafetyPage() {
   return (
     <main className="bg-warm-white">
+      <MethodologyTabs />
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="border-b border-ww-border px-6 pt-20 pb-12 md:px-10 md:pt-28">
         <div className="mx-auto max-w-3xl">
