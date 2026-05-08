@@ -13,18 +13,40 @@ the work.
 
 ---
 
+## ⚠️ Read this before pasting into the deck
+
+**Most numbers in this template are industry benchmarks I (Claude) inserted
+as placeholders, not numbers the founder has actually measured or
+modeled.** Every benchmark is tagged inline with `*(benchmark — replace
+with your own)*`.
+
+Before this slide goes in front of an investor:
+
+1. Open the founder's actual model (`docs/investor/funnel-model.xlsx`).
+2. For every tagged cell below, either (a) replace the number with the
+   founder's real model assumption, or (b) leave the benchmark in place
+   AND keep the tag visible — it tells the investor "this is industry
+   data, not our forecast."
+3. Strip the `⚠️` callout from the top before printing.
+
+The two numbers that are NOT benchmarks and don't need replacement:
+**₹999/year founding price** and **₹1,999/year public price**. These are
+founder-set anchors. Everything else is a placeholder.
+
+---
+
 ## The slide (paste into Keynote / Slides / PDF as a 2×N table)
 
 | Measured (what we know today) | Modeled (what we're assuming for projection) |
 | :--- | :--- |
-| **Surface area: 16 cities live** with verified Trip Intel, Beware Board, and Community shipped | **Coverage: 100 cities by Q4 2027** at current research velocity (3 cities/month avg) |
-| **Click volume: ~12,400 affiliate clicks** captured in `affiliate_clicks` (last 60 days, post-launch) | **Click-to-conversion: 2.1%** (industry benchmark across travel affiliate networks; we have 0 months of own data) |
-| **Signup count: live in `profiles`** — see the cohort dashboard for the current number | **Conversion to paid: 12% of free signups** in the founding-200 window, dropping to 4% steady-state |
-| **Content output: 50+ Trip Intel Cards published, 200+ Beware Board entries** moderated and live | **ARPU: ₹999/year (founding) and ₹1,999/year (public)** — no payment processing live yet, so 0 closed transactions |
-| **Editorial process: 3-source verification** documented at `/methodology` and enforced on every card | **Retention (year 1): 65%** — drawn from comparable women's-vertical SaaS (Refinery29 Premium, NotJustSouls); we have <12 months of operating history |
-| **Email opt-in rate: ~7%** of unique landing visitors (PostHog session funnel, last 30d) | **CAC payback: 9 months** — assumes content-led acquisition continues at current organic rate. 0 paid spend to date |
-| **Distribution: 4 partner programs live** (Amazon Associates, Booking, Airalo, World Nomads) with the click-side instrumented | **Commission RPM: ₹40 per 1,000 clicks** (industry blend); see `affiliate_conversions` table — 0 reconciled months at the time of this deck |
-| **Founder/team: 1 founder full-time, 0 hires** | **Team plan: 2 hires Q1 2027** (head of content + 1 engineer) — contingent on this round closing |
+| **Surface area: cities live** *(replace with current count from `intel_cards` table)* with verified Trip Intel, Beware Board, and Community shipped | **Coverage target by Q4 2027** *(replace with founder roadmap)* — at current research velocity *(replace with actual cities/month rate)* |
+| **Affiliate clicks captured** in `affiliate_clicks` *(replace with actual count from the table; query: `select count(*) from affiliate_clicks;`)* | **Click-to-conversion rate** *(benchmark — replace with your own)*. Industry blend across travel affiliate networks: typically 1–3%. Drop the placeholder once `affiliate_reconciliation_monthly` has 6 months of real data. |
+| **Signup count: live in `profiles`** — see the cohort dashboard for the current number | **Free-to-paid conversion** *(benchmark — replace with your own)*. Founding-200 window typically converts higher than steady-state; pick a number you'll defend. |
+| **Content output: Trip Intel Cards published, Beware Board entries** moderated and live *(replace with current counts)* | **ARPU: ₹999/year (founding), ₹1,999/year (public)** — payment processing not live yet, so 0 closed transactions to date. |
+| **Editorial process: multi-source verification** documented at `/methodology` and enforced on every card *(replace with the actual N — 3-source, 5-source, etc.)* | **Year-1 retention** *(benchmark — replace with your own)*. Comparable women's-vertical SaaS sees a wide range; pick what your model assumes. <12 months of operating history means this number is genuinely modeled, not measured. |
+| **Email opt-in rate** *(replace with actual figure from PostHog session funnel — query the last 30d cohort)* | **CAC payback** *(benchmark — replace with your own)*. Assumes content-led acquisition at current organic rate. 0 paid spend to date, so any CAC number here is theoretical. |
+| **Distribution: partner programs live** (Amazon Associates, Booking, Airalo, World Nomads) — click-side instrumented, conversion-side pending | **Commission RPM** *(benchmark — replace with your own)*. ₹40 per 1,000 clicks is an industry blend; see `affiliate_conversions` table for the path to your real number. |
+| **Founder/team: 1 founder full-time, 0 hires** | **Team plan: hires by [DATE]** *(replace with actual hiring plan)* — contingent on this round closing. |
 
 ---
 
