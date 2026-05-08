@@ -32,7 +32,7 @@ const TIERS = [
     highlight: false,
     features: [
       { included: true, text: "Read intel-card briefings (top section)" },
-      { included: true, text: "Full Beware Board access — all 22 cities" },
+      { included: true, text: "Full Beware Board access" },
       { included: true, text: "Browse contributor profiles" },
       { included: true, text: "Community Q&A read-only" },
       { included: false, text: "Full intel: scams, transport, hidden gems" },
@@ -54,12 +54,12 @@ const TIERS = [
     features: [
       { included: true, text: "Everything in Free, plus:" },
       { included: true, text: "Full intel — every section unlocked" },
-      { included: true, text: "Direct contributor DMs (4 / month)" },
+      { included: true, text: "Direct contributor messaging" },
       { included: true, text: "WhatsApp Vault — trip docs + emergency contacts" },
       { included: true, text: "Founding-200 badge on community posts" },
       { included: true, text: "Voting power on next cities we cover" },
       { included: true, text: "Price-locked at ₹999 — never goes up" },
-      { included: true, text: "Early access to new intel cards (1 week)" },
+      { included: true, text: "Early access to new intel cards" },
     ],
   },
   {
@@ -75,12 +75,11 @@ const TIERS = [
     features: [
       { included: true, text: "Everything in Founding Member, plus:" },
       { included: true, text: "Unlimited contributor DMs" },
-      { included: true, text: "Custom intel requests (2 / year)" },
-      { included: true, text: "Quarterly safety pack PDFs (premium edition)" },
+      { included: true, text: "Custom intel requests" },
+      { included: true, text: "Premium safety pack PDFs" },
       { included: true, text: "Priority moderation queue for your reports" },
       { included: true, text: "Crew-only community channel" },
-      { included: true, text: "Annual contributor video calls" },
-      { included: true, text: "30-day no-questions-asked refund" },
+      { included: true, text: "Contributor video calls" },
     ],
   },
 ];
@@ -88,7 +87,7 @@ const TIERS = [
 const FAQ_ITEMS = [
   {
     q: "What does ₹999 actually get me?",
-    a: "Three things: full intel (the deeper sections free users don't see), direct DMs to contributors (4 a month — 'I'm going next Tuesday, is this hostel still safe?'), and founding-200 status with voting power on which cities we cover next. Plus the WhatsApp Vault is bundled in — no separate purchase.",
+    a: "Three things: full intel (the deeper sections free users don't see), direct messaging to contributors, and founding-200 status with voting power on which cities we cover next. Plus the WhatsApp Vault is bundled in — no separate purchase.",
   },
   {
     q: "Is the price actually locked?",
@@ -96,19 +95,15 @@ const FAQ_ITEMS = [
   },
   {
     q: "What's the difference between Founding and Crew?",
-    a: "Crew is for travelers who plan 3+ trips a year. Unlimited contributor DMs, custom intel requests, and a Crew-only channel. Founding Member is enough for most users — Crew is the upgrade.",
+    a: "Crew is for travelers who plan multiple trips a year. Unlimited contributor messaging, custom intel requests, and a Crew-only channel. Founding Member is enough for most users — Crew is the upgrade.",
   },
   {
     q: "Can I cancel?",
-    a: "Yes. 30-day no-questions-asked refund on all paid tiers. After that, your access continues until your renewal date but doesn't auto-charge again.",
-  },
-  {
-    q: "What if I'm not happy with the intel?",
-    a: "If a Trip Intel Card turns out factually wrong on a verifiable point — wrong train number, wrong price, wrong neighborhood name — and we can't update within 14 days of you flagging it, we refund the full year. That's our methodology promise.",
+    a: "Yes. Cancel any time before your next renewal — your access continues until that date and we don't auto-charge again.",
   },
   {
     q: "Are payments secure?",
-    a: "Payments are processed through Razorpay (India) and Stripe (international). We don't store card details. Membership status is the only billing data we keep on our profiles table.",
+    a: "Payments aren't live yet — see the beta banner at the top of this page. When they are, we'll process through a PCI-DSS compliant provider and never store card details ourselves. Membership status is the only billing data we keep on our profiles table.",
   },
 ];
 
@@ -177,8 +172,8 @@ export default function PricingPage() {
           ))}
         </div>
         <p className="mx-auto mt-8 max-w-2xl text-center font-mono text-xs text-ww-muted">
-          Prices in INR, inclusive of GST. International cards welcome via
-          Stripe — pricing converts at current rates.
+          Prices shown in INR. International cards will be supported when
+          payment processing goes live; payment provider TBD.
         </p>
       </section>
 
@@ -191,10 +186,8 @@ export default function PricingPage() {
           <ul className="grid gap-3 md:grid-cols-2">
             {[
               "Verified, named contributors on every card",
-              "Beware Board access for all 22 cities",
+              "Full Beware Board access",
               "Mobile-optimized — works at 2G",
-              "30-day refund — no questions asked",
-              "Editorial corrections within 14 days",
               "Open Methodology — see how we verify",
             ].map((item) => (
               <li
