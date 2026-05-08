@@ -5,8 +5,35 @@ import { env } from "@/lib/config";
 const FROM = env.EMAIL_FROM;
 const SITE_URL = env.NEXT_PUBLIC_SITE_URL;
 
+// Once-per-process flag so dev/test logs don't spam if many emails are
+// attempted in a single run.
+let warnedMissingKey = false;
+
 function getResend(): Resend | null {
-  if (!env.RESEND_API_KEY) return null;
+  if (!env.RESEND_API_KEY) {
+    // In production, fail LOUDLY. A silent no-op here previously meant the
+    // exit-intent Goa-brief form (and login OTP, post-approval emails, etc.)
+    // returned success while no email was ever sent — easy to ship and
+    // impossible to notice without checking logs. Throwing here surfaces the
+    // misconfiguration in Sentry and in the user-facing form.
+    if (process.env.NODE_ENV === "production") {
+      throw new Error(
+        "RESEND_API_KEY is not set in production. " +
+        "Add it in Vercel → Settings → Environment Variables, then redeploy. " +
+        "Email cannot be sent until this is fixed.",
+      );
+    }
+    // In dev / test, warn once and return null so local development without
+    // a live email backend still works. Tests use a placeholder env that
+    // doesn't include this key.
+    if (!warnedMissingKey) {
+      console.warn(
+        "[email] RESEND_API_KEY not set — emails are a no-op in this environment.",
+      );
+      warnedMissingKey = true;
+    }
+    return null;
+  }
   return new Resend(env.RESEND_API_KEY);
 }
 
