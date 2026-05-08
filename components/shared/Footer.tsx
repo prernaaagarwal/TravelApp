@@ -2,10 +2,8 @@ import Link from "next/link";
 import { CookiePreferencesLink } from "@/components/shared/CookiePreferencesLink";
 
 // Footer is the discovery layer for everything that's NOT primary-nav
-// material. Per docs/strategy/wedge.md, /buddy /vault /feed /shop
-// /onboarding are deferred from main nav but remain reachable here as
-// "More from Wander Women" — un-promoted but discoverable. Routes are
-// live; only the surface changes.
+// material. Trip Reports lives in the primary nav; the rest of the
+// secondary product surfaces live here so they remain discoverable.
 const PRIMARY_LINKS = [
   { href: "/about", label: "About" },
   { href: "/methodology", label: "Methodology" },
@@ -15,7 +13,6 @@ const PRIMARY_LINKS = [
 ];
 
 const MORE_LINKS = [
-  { href: "/feed", label: "Trip Reports" },
   { href: "/buddy", label: "Buddy" },
   { href: "/vault", label: "WhatsApp Vault" },
   { href: "/shop", label: "Safety Kit" },
