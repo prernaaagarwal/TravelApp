@@ -7,14 +7,15 @@ import { cn } from "@/lib/utils";
 
 // Sibling-tab navigation rendered at the top of /methodology AND
 // /safety/contributor-safety. Both pages live under the same umbrella
-// in the IA — the tab nav makes that explicit so a visitor on either
-// page can jump to the other without going back to the footer.
+// in the IA — "How We Score" — and this tab nav makes that explicit so
+// a visitor on either page can jump to the other without going back to
+// the footer.
 //
 // Both URLs remain canonical (no redirect / merge of pages), so the
 // existing /safety/contributor-safety links across the site continue
 // to work and SEO indexability is preserved.
 const TABS = [
-  { href: "/methodology", label: "How We Verify" },
+  { href: "/methodology", label: "Methodology" },
   { href: "/safety/contributor-safety", label: "Contributor Safety" },
 ];
 
@@ -25,7 +26,7 @@ export function MethodologyTabs() {
     <div className="border-b border-ww-border bg-warm-white">
       <div className="mx-auto max-w-6xl px-6 md:px-10">
         <nav
-          aria-label="Methodology"
+          aria-label="How We Score"
           className="-mb-px flex gap-6 overflow-x-auto md:gap-10"
         >
           {TABS.map((t) => {

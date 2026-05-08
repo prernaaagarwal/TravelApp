@@ -8,7 +8,7 @@ import { CookiePreferencesLink } from "@/components/shared/CookiePreferencesLink
 // live; only the surface changes.
 const PRIMARY_LINKS = [
   { href: "/about", label: "About" },
-  { href: "/methodology", label: "Methodology" },
+  { href: "/methodology", label: "How We Score" },
   { href: "/account/membership", label: "Membership" },
   { href: "/feedback", label: "Feedback" },
 ];
