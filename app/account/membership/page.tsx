@@ -1,18 +1,15 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import MembershipForm from "./MembershipForm";
 
 export const metadata = { title: "Founding 200 — Wander Women" };
 
 export default async function MembershipPage() {
-  // Founding membership is for signed-in users only. If anonymous, route them
-  // through signup first and bring them back here when their account exists.
+  // Pricing + benefits are shown to anyone (the page is linked from marketing
+  // surfaces). Only the claim action requires an account — anonymous visitors
+  // see a sign-up CTA in place of the form.
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) {
-    redirect("/account/signup?next=/account/membership");
-  }
 
   return (
     <main className="min-h-screen bg-sand px-4 py-12">
@@ -78,7 +75,35 @@ export default async function MembershipPage() {
           </ul>
         </div>
 
-        <MembershipForm defaultEmail={user.email ?? ""} />
+        {user ? (
+          <MembershipForm defaultEmail={user.email ?? ""} />
+        ) : (
+          <div className="border border-ww-border bg-warm-white px-4 py-5">
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
+              Claim a founding spot
+            </p>
+            <p className="mb-4 text-sm leading-relaxed text-ink">
+              Founding spots are limited to 200. Create a free account to claim
+              yours — pay nothing during beta.
+            </p>
+            <Link
+              href="/account/signup?next=/account/membership"
+              className="inline-flex w-full items-center justify-center gap-2 bg-rust px-5 py-3 font-mono text-xs uppercase tracking-widest text-warm-white transition-colors hover:bg-rust/90"
+            >
+              Sign up to claim your spot
+              <span aria-hidden>→</span>
+            </Link>
+            <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-ww-muted/70">
+              Already a member?{" "}
+              <Link
+                href="/account/login?next=/account/membership"
+                className="text-rust underline-offset-2 hover:underline"
+              >
+                Sign in
+              </Link>
+            </p>
+          </div>
+        )}
       </div>
     </main>
   );
