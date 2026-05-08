@@ -153,12 +153,11 @@ export default async function LandingClarityPreview() {
           <div className="mt-8 max-w-2xl">
             <p className="font-mono text-sm text-warm-white/85">
               <span className="text-rust">Safety intel is free forever.</span>{" "}
-              Scam reports, emergency numbers, the Beware Board — never
-              paywalled.
+              Scam reports, emergency numbers, the Beware Board.
             </p>
             <p className="mt-1.5 font-mono text-xs text-warm-white/65">
               Everything else is free during beta, then ₹999/year for founding
-              members locked for life (public price ₹1,999).{" "}
+              members (public price ₹1,999).{" "}
               <Link
                 href="/account/membership"
                 className="text-warm-white underline underline-offset-2 hover:text-rust"
