@@ -21,7 +21,7 @@ export async function generateMetadata({
   const { destination } = await searchParams;
   const filtered = !!destination;
   return {
-    title: "Solo Female Travel Planner — Real Itineraries & Costs",
+    title: "Plan My Trip — Real Itineraries & Costs",
     description:
       "Real solo female travel itineraries with rupee + USD cost breakdowns. What women actually spent, where they stayed, what they wish they'd known.",
     alternates: { canonical: "/feed" },

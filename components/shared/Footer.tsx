@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CookiePreferencesLink } from "@/components/shared/CookiePreferencesLink";
 
 // Footer is the discovery layer for everything that's NOT primary-nav
-// material. Planner lives in the primary nav; the rest of the
+// material. Plan My Trip lives in the primary nav; the rest of the
 // secondary product surfaces live here so they remain discoverable.
 const PRIMARY_LINKS = [
   { href: "/about", label: "About" },

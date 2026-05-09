@@ -8,7 +8,7 @@ import type { SearchResult, SearchResultType } from "@/lib/search";
 import { DestinationWaitlistForm } from "@/components/shared/DestinationWaitlistForm";
 
 const TYPE_META: Record<SearchResultType, { label: string; Icon: typeof FileText; tone: string }> = {
-  intel:  { label: "Intel",   Icon: Compass,         tone: "border-rust  text-rust"  },
+  intel:  { label: "Destinations",   Icon: Compass,         tone: "border-rust  text-rust"  },
   beware: { label: "Beware",  Icon: ShieldAlert,     tone: "border-gold  text-gold"  },
   post:   { label: "Post",    Icon: MessagesSquare,  tone: "border-sage  text-sage"  },
 };

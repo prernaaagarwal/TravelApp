@@ -9,10 +9,10 @@ export const metadata = {
 
 const ROUTES = [
   { label: "Landing", href: "/", desc: "Hero, trust bar, scam ticker, membership CTA" },
-  { label: "Trip Intel Card", href: "/intel/goa-india", desc: "Full Goa card — scams, transport, checklist, budget" },
+  { label: "Destination Card", href: "/intel/goa-india", desc: "Full Goa card — scams, transport, checklist, budget" },
   { label: "Explore", href: "/explore", desc: "15-card filterable library" },
   { label: "Community", href: "/community", desc: "3 tabs: Ask, Real Experiences, Beware Board" },
-  { label: "Planner", href: "/feed", desc: "12 real itineraries with cost breakdowns" },
+  { label: "Plan My Trip", href: "/feed", desc: "12 real itineraries with cost breakdowns" },
   { label: "Buddy", href: "/buddy", desc: "Buddy matching with overlap tags" },
   { label: "Vault", href: "/vault", desc: "WhatsApp document vault upsell" },
   { label: "Contributor profile", href: `/contributor/${contributors[0].slug}`, desc: "Public profile — bio, badges, cards written" },
