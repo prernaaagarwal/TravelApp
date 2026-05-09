@@ -16,8 +16,8 @@ export default function HeroBackground() {
   return (
     <div className="absolute inset-0">
       <Image
-        src="/images/22178E5F-2A28-48B8-B747-7D0A5BE4E76B_1_105_c_2.JPEG"
-        alt="A woman standing above the clouds at sunrise in the mountains"
+        src="/images/hero-traveler.jpg"
+        alt="A woman watching dawn over the Ganges in Rishikesh"
         fill
         priority
         sizes="100vw"
