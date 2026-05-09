@@ -119,7 +119,7 @@ export default async function HomePage() {
           </p>
 
           {/* headline, Cormorant, ~64px on desktop */}
-          <h1 className="mb-6 font-serif text-3xl leading-[1.1] tracking-tight text-warm-white sm:text-5xl md:text-7xl">
+          <h1 className="mb-6 font-serif text-3xl leading-[1.1] tracking-tight text-warm-white sm:text-5xl md:text-7xl font-bold">
             Stress free travel. The guidebook that was never written for you,{" "}
             <em className="not-italic text-rust">yet</em>
           </h1>
