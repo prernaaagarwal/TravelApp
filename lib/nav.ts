@@ -21,7 +21,7 @@ export const PRIMARY_NAV: PrimaryNavItem[] = [
   { key: "intel",     label: "Intel",        href: "/explore",   icon: Compass },
   { key: "community", label: "Community",    href: "/community", icon: Users },
   { key: "safety",    label: "Safety",       href: "/safety",    icon: ShieldCheck },
-  { key: "feed",      label: "Trip Reports", href: "/feed",      icon: FileText },
+  { key: "feed",      label: "Planner", href: "/feed",      icon: FileText },
 ];
 
 export function isPrimaryNavActive(item: PrimaryNavItem, pathname: string): boolean {

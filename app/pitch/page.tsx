@@ -12,7 +12,7 @@ const ROUTES = [
   { label: "Trip Intel Card", href: "/intel/goa-india", desc: "Full Goa card — scams, transport, checklist, budget" },
   { label: "Explore", href: "/explore", desc: "15-card filterable library" },
   { label: "Community", href: "/community", desc: "3 tabs: Ask, Real Experiences, Beware Board" },
-  { label: "Trip Reports", href: "/feed", desc: "12 real itineraries with cost breakdowns" },
+  { label: "Planner", href: "/feed", desc: "12 real itineraries with cost breakdowns" },
   { label: "Buddy", href: "/buddy", desc: "Buddy matching with overlap tags" },
   { label: "Vault", href: "/vault", desc: "WhatsApp document vault upsell" },
   { label: "Contributor profile", href: `/contributor/${contributors[0].slug}`, desc: "Public profile — bio, badges, cards written" },
