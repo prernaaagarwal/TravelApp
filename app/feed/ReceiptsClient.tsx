@@ -243,8 +243,8 @@ export function ReceiptsClient({
             <figure className="relative">
               <div className="aspect-[4/5] overflow-hidden rounded-sm shadow-[0_1px_0_rgba(26,21,16,0.04),0_12px_32px_-16px_rgba(26,21,16,0.18)]">
                 <Image
-                  src="/images/hero-feed-traveler.jpg"
-                  alt="Solo traveller at golden hour"
+                  src="/images/22178E5F-2A28-48B8-B747-7D0A5BE4E76B_1_105_c_2 copy.JPEG"
+                  alt="Solo traveller above the clouds at sunrise"
                   width={960}
                   height={1200}
                   priority
