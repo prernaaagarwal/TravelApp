@@ -19,12 +19,11 @@ export default function AboutPage() {
             <div className="relative">
               <div className="aspect-[3/4] overflow-hidden border border-ww-border bg-sand">
                 <Image
-                  src="/images/hero-traveler.jpg"
-                  alt="The founder — silhouette at dawn, somewhere in India"
+                  src="/images/IMG_7517.jpg"
+                  alt="Prerna Agarwal, founder of Wander Women, at the Eiffel Tower in Paris"
                   width={900}
                   height={1200}
-                  className="h-full w-full object-cover grayscale"
-                  style={{ filter: "grayscale(0.6) sepia(0.2)" }}
+                  className="h-full w-full object-cover"
                 />
               </div>
               {/* circular stamp */}
