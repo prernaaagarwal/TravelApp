@@ -33,6 +33,10 @@ export function Footer() {
             <p className="mt-2 font-mono text-xs leading-relaxed text-ww-muted">
               Trip intel built by women who actually travel solo.
             </p>
+            <p className="mt-3 flex items-center gap-2 font-mono text-xs font-semibold tracking-wider text-ink/80">
+              <span>🇮🇳</span>
+              <span>MADE IN INDIA</span>
+            </p>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 md:gap-12">
