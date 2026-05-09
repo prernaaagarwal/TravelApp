@@ -6,8 +6,7 @@ import { CookiePreferencesLink } from "@/components/shared/CookiePreferencesLink
 // secondary product surfaces live here so they remain discoverable.
 const PRIMARY_LINKS = [
   { href: "/about", label: "About" },
-  { href: "/methodology", label: "Methodology" },
-  { href: "/safety/contributor-safety", label: "Contributor Safety" },
+  { href: "/methodology", label: "How We Score" },
   { href: "/account/membership", label: "Membership" },
   { href: "/feedback", label: "Feedback" },
 ];

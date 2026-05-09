@@ -9,6 +9,7 @@ import {
   Sigma,
 } from "lucide-react";
 import { JsonLd } from "@/components/shared/JsonLd";
+import { MethodologyTabs } from "@/components/shared/MethodologyTabs";
 import { env } from "@/lib/config";
 
 const SITE_URL = env.NEXT_PUBLIC_SITE_URL;
@@ -46,6 +47,7 @@ export default function MethodologyPage() {
   return (
     <main className="bg-warm-white">
       <JsonLd data={articleLd} />
+      <MethodologyTabs />
 
       {/* Hero */}
       <section className="border-b border-ww-border px-6 py-20 md:px-10 md:py-28">
