@@ -115,7 +115,7 @@ export default async function HomePage() {
         <div className="relative z-20 mx-auto max-w-4xl">
           {/* eyebrow */}
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-warm-white/80">
-            Women-only, Solo travel intelligence, India
+            Women-only, Solo travel intelligence
           </p>
 
           {/* headline, Cormorant, ~64px on desktop */}
