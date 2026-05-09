@@ -10,7 +10,7 @@ import { createStaticClient } from "@/lib/supabase/server";
 import { safeQuery } from "@/lib/safe-query";
 import { getCurrentSegment } from "@/lib/onboarding-segment";
 
-export const metadata = { title: "Wander Women — Trip Intel for Solo Women Travellers" };
+export const metadata = { title: "Wander Women, Trip Intel for Solo Women Travellers" };
 
 // Refresh the intel-cards count + Beware ticker at most once a minute.
 // Means new approved reports show up on the landing without rebuilding
@@ -41,7 +41,7 @@ async function getTotalDestinations(): Promise<number> {
 type TickerEntry = { city: string; title: string; severity: string };
 
 // Pull the most recent 30 approved Beware reports for the landing ticker.
-// safeQuery falls back to [] on slow/dead Supabase — the ticker section
+// safeQuery falls back to [] on slow/dead Supabase, the ticker section
 // then renders an empty-state CTA instead of three blank marquee rows.
 async function getBewareTicker(): Promise<TickerEntry[]> {
   const supabase = createStaticClient();
@@ -76,7 +76,7 @@ export default async function HomePage() {
   const askPosts = communityPosts.filter((p) => p.tab === "ask").slice(0, 3);
 
   // Bucket approved reports into the three marquee rows. "critical" reports
-  // remain in row 1 if any seeded entries still carry that label; new
+  // remain in row 1 if any seeded entries still carry that label, new
   // submissions only emit low/medium/high so most days row 1 is "high"-led.
   const criticals = bewares.filter((b) => b.severity === "critical");
   const highs = bewares.filter((b) => b.severity === "high");
@@ -92,9 +92,9 @@ export default async function HomePage() {
     <main>
       <ExitIntentModal />
 
-      {/* Personalised "continue where you left off" — only renders for users
+      {/* Personalised "continue where you left off", only renders for users
           who completed /onboarding (segment.destination is set). Sits above
-          the hero so first-time visitors don't see it; onboarded visitors
+          the hero so first-time visitors don't see it, onboarded visitors
           get a one-tap return path to their destination. */}
       {segment?.destination && (
         <ContinueWhereYouLeftOff
@@ -103,7 +103,7 @@ export default async function HomePage() {
         />
       )}
 
-      {/* ── Hero ─────────────────────────────────────────────────────── */}
+      {/* Hero */}
       <section id="hero" className="relative overflow-hidden bg-ink px-6 pt-20 pb-16 md:pt-28 md:pb-24">
         <HeroBackground />
 
@@ -115,24 +115,24 @@ export default async function HomePage() {
         <div className="relative z-20 mx-auto max-w-4xl">
           {/* eyebrow */}
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-warm-white/80">
-            Women-only · Solo travel intelligence · India
+            Women-only, Solo travel intelligence, India
           </p>
 
-          {/* headline — Cormorant, ~64px on desktop */}
+          {/* headline, Cormorant, ~64px on desktop */}
           <h1 className="mb-6 font-serif text-3xl leading-[1.1] tracking-tight text-warm-white sm:text-5xl md:text-7xl">
             Stress free travel. The guidebook that was never written for you,{" "}
             <em className="not-italic text-rust">yet</em>
           </h1>
 
-          {/* subline — single concrete promise (safety) up front */}
+          {/* subline, single concrete promise (safety) up front */}
           <p className="mb-10 max-w-2xl text-base leading-relaxed text-warm-white/85 md:text-lg">
-            Find out if a place is actually safe — before you go. Honest scam
+            Find out if a place is actually safe, before you go. Honest scam
             reports and ground-truth tips from women who&apos;ve been there.
             Free to browse.
           </p>
 
-          {/* dual CTA — split by audience at first touch. Indian women
-              go to /onboarding?region=india; visitors from abroad go to
+          {/* dual CTA, split by audience at first touch. Indian women
+              go to /onboarding?region=india, visitors from abroad go to
               /onboarding?region=foreign. Each path personalises the
               onboarding flow + intel surfaces shown after. */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -144,7 +144,8 @@ export default async function HomePage() {
             </RustButton>
             <Link
               href="/onboarding?region=foreign"
-              className="inline-flex items-center justify-center gap-2 rounded-none border border-warm-white/40 px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-colors hover:border-warm-white hover:bg-warm-white/5"
+              className="inline-flex items-center justify-center gap-2 rounded-none border border-warm-white/40 px-7 py-3.5 font-mono text-sm uppercase tracking-widest text-warm-white transition-[...]
+            "
             >
               <span className="hidden sm:inline">Travel </span>Outside India
               <span aria-hidden>→</span>
@@ -153,12 +154,12 @@ export default async function HomePage() {
 
           {/* micro trust line */}
           <p className="mt-8 font-mono text-xs text-warm-white/65">
-            Free during beta · ₹999/year founding rate locks for life when payment opens · No spam, ever
+            Free during beta, ₹999/year founding rate locks for life when payment opens, No spam, ever
           </p>
         </div>
       </section>
 
-      {/* ── Trust bar ────────────────────────────────────────────────── */}
+      {/* Trust bar */}
       <section id="trust" className="border-y border-ww-border bg-sand px-6 py-8">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-serif text-xl leading-relaxed text-ink md:text-2xl">
@@ -178,19 +179,19 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── What's inside (Intel + Personas + Community combined) ────── */}
+      {/* What's inside (Intel + Personas + Community combined) */}
       <WhatsInside
         askPosts={askPosts}
         totalDestinations={totalDestinations}
       />
 
-      {/* ── Beware Board scam ticker ──────────────────────────────────── */}
+      {/* Beware Board scam ticker */}
       {/*
         V1: ticker reads live, moderator-approved beware_reports from Supabase
         (see getBewareTicker above). Severity buckets that come back empty
-        simply hide their marquee row; if every bucket is empty we render an
+        simply hide their marquee row, if every bucket is empty we render an
         empty-state CTA pointing users to /contribute/report instead of three
-        blank scrolling rails. The "V0 demo mock data" disclaimer is gone —
+        blank scrolling rails. The "V0 demo mock data" disclaimer is gone,
         nothing illustrative ships here anymore.
       */}
       <section id="ticker" className="overflow-hidden border-y border-ww-border bg-ink py-10">
@@ -276,7 +277,7 @@ export default async function HomePage() {
         )}
       </section>
 
-      {/* ── Final CTA · 05 — The invitation (members + contributors) ──── */}
+      {/* Final CTA, 05, The invitation (members + contributors) */}
       <section id="join" className="relative w-full overflow-hidden bg-warm-white py-16 md:py-20">
         {/* faint terracotta + sage washes for depth */}
         <div
@@ -289,13 +290,13 @@ export default async function HomePage() {
         />
 
         <div className="relative mx-auto max-w-3xl px-6 md:px-10">
-          {/* Members CTA — centered */}
+          {/* Members CTA, centered */}
           <div className="text-center">
             {/* Eyebrow with rules on both sides */}
             <div className="mb-5 flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-rust" />
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ww-muted">
-                The invitation · 05
+                The invitation, 05
               </span>
               <span className="h-px w-8 bg-rust" />
             </div>
@@ -309,10 +310,10 @@ export default async function HomePage() {
             {/* Subline */}
             <p className="mx-auto mb-7 max-w-xl text-base leading-relaxed text-ww-muted md:text-lg">
               We&apos;re opening 200 spots this month. No referrals, no waitlist
-              theatre — just the women who want in first.
+              theatre, just the women who want in first.
             </p>
 
-            {/* Email signup — keeps existing Supabase leads wiring */}
+            {/* Email signup, keeps existing Supabase leads wiring */}
             <div className="mx-auto max-w-md">
               <EmailSignupForm
                 source="landing-founding"
@@ -320,12 +321,12 @@ export default async function HomePage() {
                 buttonText="Request access →"
               />
               <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-ww-muted/70">
-                Women only · phone + ID verification for Buddy matching · no spam, ever
+                Women only, phone + ID verification for Buddy matching, no spam, ever
               </p>
             </div>
           </div>
 
-          {/* Contributors block — same centered axis as the hero so the
+          {/* Contributors block, same centered axis as the hero so the
               section reads as one composition, not two stacked screens. */}
           <div id="contributors" className="mt-10 border-t border-ww-border pt-8 text-center md:mt-12 md:pt-10">
             <p id="contributors-label" className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-rust">
@@ -370,12 +371,12 @@ export default async function HomePage() {
             </p>
           </div>
 
-          {/* Manifesto — tight sign-off, not a separate section */}
+          {/* Manifesto, tight sign-off, not a separate section */}
           <p className="mx-auto mt-10 max-w-xl text-center font-serif text-lg italic leading-snug text-ww-muted md:mt-12 md:text-xl">
             &ldquo;The internet was built for the average traveller.
             We&apos;re building for the rest of us.&rdquo;
             <span className="mt-2 block font-mono text-[10px] not-italic uppercase tracking-widest text-ww-muted/60">
-              — the founding 12
+              , the founding 12
             </span>
           </p>
         </div>
