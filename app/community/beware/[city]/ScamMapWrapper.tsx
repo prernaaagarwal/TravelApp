@@ -12,6 +12,9 @@
  * The leaflet runtime itself was already lazy-imported via `await import()`
  * inside the component's effect; this wrapper code-splits the surrounding
  * client component too.
+ *
+ * Shared copy for the stats control hint (same on every Beware city map) lives
+ * in `lib/beware-map-stats-hint.ts` — import from there if you add another map.
  */
 
 import dynamic from "next/dynamic";
