@@ -12,6 +12,7 @@ import type {
 } from "leaflet";
 import type { Feature as GeoJSONFeature, Polygon as GeoJSONPolygon, GeoJsonObject } from "geojson";
 import type { MapReport, Neighbourhood } from "@/lib/beware-cities";
+import { BEWARE_MAP_REPORTS_STATS_HINT } from "@/lib/beware-map-stats-hint";
 import { toggleBewareHelpful, reportBeware } from "@/app/community/actions";
 
 // Heat layer type — leaflet.heat extends L with heatLayer() but @types
@@ -417,16 +418,12 @@ export function ScamMapClient({
     }
   }, [selected]);
 
-  const FILTER_BAR_H = 40;
   const allOn = activeTypes.size === TYPES.length;
 
   return (
     <div className="flex flex-col" style={{ height: "calc(100dvh - 56px)" }}>
-      {/* Filter bar — chips on mobile, stats + dropdown on desktop */}
-      <div
-        className="flex shrink-0 items-center border-b border-ww-border bg-warm-white px-4"
-        style={{ height: FILTER_BAR_H }}
-      >
+      {/* Filter bar — chips on mobile, stats + dropdown on desktop (min-height avoids clipping hint + stats lines) */}
+      <div className="flex min-h-[44px] shrink-0 items-center border-b border-ww-border bg-warm-white px-4 py-2 md:min-h-[52px]">
         {/* Mobile: type chip buttons */}
         <div className="flex items-center gap-2 overflow-x-auto scrollbar-none md:hidden">
           <button
@@ -459,10 +456,18 @@ export function ScamMapClient({
         {/* Desktop: clickable stats text + filter dropdown */}
         <div className="hidden md:flex w-full items-center justify-between gap-4">
           <button
+            type="button"
+            aria-expanded={listOpen}
+            aria-controls="beware-map-report-sheet"
             onClick={() => { setListOpen((o: boolean) => !o); setSelected(null); }}
-            className="font-mono text-[10px] uppercase tracking-widest text-ww-muted hover:text-ink transition-colors"
+            className="flex flex-col items-start gap-0.5 text-left transition-colors hover:text-ink"
           >
-            {visibleCount} reports · {cityName} · Updated today
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-widest text-rust">
+              {BEWARE_MAP_REPORTS_STATS_HINT}
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted">
+              {visibleCount} reports · {cityName} · Updated today
+            </span>
           </button>
           <FilterDropdown activeTypes={activeTypes} onToggleType={toggleType} onToggleAll={toggleAll} />
         </div>
@@ -474,10 +479,16 @@ export function ScamMapClient({
 
         {/* Stats pill — mobile only; desktop uses SidePanel header */}
         <button
+          type="button"
+          aria-expanded={listOpen}
+          aria-controls="beware-map-report-sheet"
           onClick={() => { setListOpen((o: boolean) => !o); setSelected(null); }}
-          className="absolute left-1/2 top-3 z-[999] -translate-x-1/2 rounded-full border border-ww-border bg-warm-white/90 px-3 py-1 shadow-sm backdrop-blur-sm hover:border-rust transition-colors md:hidden"
+          className="absolute left-3 top-3 z-[999] flex max-w-[calc(100%-6rem)] flex-col items-start gap-0.5 rounded-2xl border border-ww-border bg-warm-white/95 px-3 py-2 text-left shadow-sm backdrop-blur-sm hover:border-rust transition-colors md:hidden"
         >
-          <span className="font-mono text-[10px] text-ww-muted">
+          <span className="font-mono text-[9px] font-semibold uppercase tracking-widest text-rust leading-tight">
+            {BEWARE_MAP_REPORTS_STATS_HINT}
+          </span>
+          <span className="font-mono text-[10px] uppercase tracking-widest text-ww-muted leading-tight">
             {visibleCount} reports · {cityName} · Updated today
           </span>
         </button>
@@ -516,6 +527,7 @@ export function ScamMapClient({
 
         {/* Side panel — hidden until listOpen, both mobile + desktop */}
         <SidePanel
+          id="beware-map-report-sheet"
           listOpen={listOpen}
           onClose={() => setListOpen(false)}
           reports={[...reports]
@@ -610,11 +622,13 @@ function FilterDropdown({
 }
 
 function SidePanel({
+  id,
   listOpen,
   onClose,
   reports,
   onSelect,
 }: {
+  id: string;
   listOpen: boolean;
   onClose: () => void;
   reports: MapReport[];
@@ -622,6 +636,7 @@ function SidePanel({
 }) {
   return (
     <div
+      id={id}
       className={`fixed z-[9999] flex-col border-ww-border bg-warm-white shadow-2xl
         inset-x-0 bottom-0 border-t max-h-[65dvh]
         md:inset-y-0 md:left-0 md:right-auto md:top-14 md:bottom-0 md:w-[360px] md:max-h-none md:border-r md:border-t-0
