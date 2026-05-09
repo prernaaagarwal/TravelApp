@@ -221,8 +221,8 @@ export default function AboutPage() {
             <div className="absolute bottom-0 left-4 z-20 w-2/3 -rotate-3 border border-ink/10 bg-warm-white p-2 shadow-md">
               <div className="relative aspect-[4/5] overflow-hidden bg-sand">
                 <Image
-                  src="/images/intel-rishikesh-journal.jpg"
-                  alt="A field journal and map of Rishikesh on a wooden table"
+                  src="/images/20230814_103103_3.jpg"
+                  alt="A woman in a pink striped dress sitting against a rustic terracotta brick wall"
                   fill
                   sizes="(max-width: 1024px) 70vw, 36vw"
                   className="object-cover"
