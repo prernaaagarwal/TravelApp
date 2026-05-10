@@ -2,66 +2,23 @@ import tripFeed from "@/lib/mock-data/trip-feed.json";
 import contributors from "@/lib/mock-data/contributors.json";
 import { ReceiptsClient } from "./ReceiptsClient";
 import { createClient } from "@/lib/supabase/server";
-import { safeQuery } from "@/lib/safe-query";
 
 export const dynamic = "force-dynamic";
 
 type SearchParams = Promise<{ destination?: string; submitted?: string }>;
 
-// Filtered views like `/feed?destination=jaipur-india` would otherwise compete
-// with `/intel/jaipur-india` for the destination keyword in Google's index.
-// Canonicalise every filtered URL back to `/feed`, and noindex the filter
-// variants so the destination keyword crown stays uncontested with the
-// curated intel cards. Plain `/feed` stays indexable.
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: SearchParams;
-}) {
-  const { destination } = await searchParams;
-  const filtered = !!destination;
-  return {
-    title: "Plan My Trip — Real Itineraries & Costs",
-    description:
-      "Real solo female travel itineraries with rupee + USD cost breakdowns. What women actually spent, where they stayed, what they wish they'd known.",
-    alternates: { canonical: "/feed" },
-    robots: filtered
-      ? { index: false, follow: true }
-      : { index: true, follow: true },
-  };
-}
+export const metadata = {
+  title: "Trip Receipts — Wander Women",
+  description:
+    "Real itineraries with rupee + USD costs. Receipts, not inspiration.",
+};
 
 type Trip = Parameters<typeof ReceiptsClient>[0]["trips"][number];
 
-// Slug pattern: `<city-words>-<country>`. Strip the country segment and
-// title-case the rest. New destinations need no extra mapping.
 function cityFromSlug(slug: string): string {
   const parts = slug.split("-");
   parts.pop();
   return parts.map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
-}
-
-// Region fallback for DB-submitted trips that don't ship with a `region` tag.
-// Covers the 9 cities currently in the seed feed; everything else falls back
-// to the country word from the slug.
-const REGION_FALLBACK: Record<string, string> = {
-  "goa-india":       "Goa",
-  "rishikesh-india": "Uttarakhand",
-  "jaipur-india":    "Rajasthan",
-  "kasol-india":     "Himachal",
-  "hampi-india":     "Karnataka",
-  "kochi-india":     "Kerala",
-  "udaipur-india":   "Rajasthan",
-  "varanasi-india":  "Uttar Pradesh",
-  "bangalore-india": "Karnataka",
-  "delhi-india":     "Delhi",
-};
-
-function regionFromSlug(slug: string): string {
-  if (REGION_FALLBACK[slug]) return REGION_FALLBACK[slug];
-  const parts = slug.split("-");
-  const country = parts[parts.length - 1] ?? "";
-  return country.charAt(0).toUpperCase() + country.slice(1);
 }
 
 export default async function FeedPage({
@@ -72,46 +29,19 @@ export default async function FeedPage({
   const { destination } = await searchParams;
   const supabase = await createClient();
 
-  type DbTrip = {
-    id: string;
-    contributor_slug: string | null;
-    destination_slug: string;
-    destination: string;
-    trip_start: string;
-    trip_end: string;
-    day_count: number;
-    total_cost_inr: number;
-    total_cost_usd: number;
-    cost_stay: number;
-    cost_food: number;
-    cost_transport: number;
-    cost_activities: number;
-    cost_misc: number;
-    top_notes: unknown;
-    highlight: string;
-  };
+  const { data: dbTrips } = await supabase
+    .from("trip_submissions")
+    .select(
+      "id, contributor_slug, destination_slug, destination, trip_start, trip_end, day_count, total_cost_inr, total_cost_usd, cost_stay, cost_food, cost_transport, cost_activities, cost_misc, top_notes, highlight",
+    )
+    .eq("status", "approved")
+    .order("created_at", { ascending: false });
 
-  // Approved DB-submitted trips augment the mock seed feed.
-  const dbTrips = await safeQuery<DbTrip[]>(
-    supabase
-      .from("trip_submissions")
-      .select(
-        "id, contributor_slug, destination_slug, destination, trip_start, trip_end, day_count, total_cost_inr, total_cost_usd, cost_stay, cost_food, cost_transport, cost_activities, cost_misc, top_notes, highlight",
-      )
-      .eq("status", "approved")
-      .order("created_at", { ascending: false }),
-    [],
-    1500,
-    "feed.trip_submissions",
-  );
-
-  const dbNormalized: Trip[] = dbTrips.map((t) => ({
+  const dbNormalized: Trip[] = (dbTrips ?? []).map((t) => ({
     id:              t.id,
     contributorSlug: t.contributor_slug ?? "",
     destinationSlug: t.destination_slug,
     destination:     t.destination,
-    category:        "Trip",
-    region:          regionFromSlug(t.destination_slug),
     tripDates:       { start: t.trip_start, end: t.trip_end },
     dayCount:        t.day_count,
     totalCostInr:    t.total_cost_inr,
@@ -144,39 +74,26 @@ export default async function FeedPage({
     .map(([slug, count]) => ({ slug, name: cityFromSlug(slug), count }))
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  // Pre-select a destination when arriving from onboarding / budget CTA.
   const initialDestination =
     destination && destCounts.has(destination.trim())
       ? destination.trim()
       : undefined;
 
-  // ── Per-destination solo-female safety rating ───────────────────────────
-  // Fetch every intel card's neighborhoods array, compute avg + count of
-  // safetyRating values per slug. The ReceiptsClient renders this as
-  // "Solo-female safety: 4.2/5 · 4 hoods rated" — one number per
-  // destination, not per trip. Replaces the previous pseudo-random
-  // soloScoreFor(trip.id) hack which produced inconsistent 8.4–9.6
-  // values for the same destination across cards.
-  type Hood = { safetyRating?: number };
-  type SafetyCard = { slug: string; neighborhoods: Hood[] | null };
-  const rawCards = await safeQuery<SafetyCard[]>(
-    supabase.from("intel_cards").select("slug, neighborhoods"),
-    [],
-    1500,
-    "feed.intel_cards.neighborhoods",
-  );
+  // Fetch safety ratings per destination
+  const { data: hoodData } = await supabase
+    .from("neighborhood_safety")
+    .select("destination_slug, safety_rating");
+
   const safetyByDestination: Record<string, { avg: number; count: number }> = {};
-  for (const card of rawCards) {
-    const hoods = card.neighborhoods ?? [];
-    const ratings = hoods
-      .map((h) => h.safetyRating)
-      .filter((r): r is number => typeof r === "number");
-    if (ratings.length === 0) continue;
-    const avg = ratings.reduce((a, b) => a + b, 0) / ratings.length;
-    safetyByDestination[card.slug] = {
-      avg:   Math.round(avg * 10) / 10,
-      count: ratings.length,
-    };
+  for (const row of hoodData ?? []) {
+    const slug = row.destination_slug as string;
+    const rating = row.safety_rating as number;
+    if (!safetyByDestination[slug]) {
+      safetyByDestination[slug] = { avg: 0, count: 0 };
+    }
+    const entry = safetyByDestination[slug];
+    entry.avg = (entry.avg * entry.count + rating) / (entry.count + 1);
+    entry.count += 1;
   }
 
   return (
