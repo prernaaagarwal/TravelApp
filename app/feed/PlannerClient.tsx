@@ -5,7 +5,6 @@ import { User } from "@supabase/supabase-js";
 import { matchItinerary, getTransportInfo, type MatchInputs } from "@/lib/match-itinerary";
 import { type Itinerary } from "@/lib/itineraries";
 import { Slider } from "@/components/ui/slider";
-import { ArrowUpRight, MapPin, Calendar, Wallet, MessageSquare, Shield, Package, AlertTriangle, Home, Train } from "lucide-react";
 import { saveTripAction } from "./actions";
 
 const MONTHS_SHORT = [
