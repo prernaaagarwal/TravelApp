@@ -116,7 +116,7 @@ export function PlannerClient({ user, savedTrips }: { user: User | null; savedTr
             <em className="italic text-rust">30 seconds</em>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg leading-relaxed text-ww-muted">
-            Get a complete day-by-day itinerary with real budgets, safety tips, and advice from women who've actually been there. 15 destinations, zero fluff.
+            Get a complete day-by-day itinerary with real budgets, safety tips, and advice from women who&apos;ve actually been there. 15 destinations, zero fluff.
           </p>
         </div>
       </section>
@@ -253,7 +253,7 @@ export function PlannerClient({ user, savedTrips }: { user: User | null; savedTr
           <div className="rounded-sm border border-rust/30 bg-rust/5 p-8 text-center">
             <AlertTriangle className="mx-auto mb-3 h-8 w-8 text-rust" />
             <p className="font-serif text-xl text-ink">
-              We don't have <strong>{destination}</strong> yet.
+              We don&apos;t have <strong>{destination}</strong> yet.
             </p>
             <p className="mt-2 text-sm text-ww-muted">
               Coming soon. Try: Goa, Rishikesh, Jaipur, Udaipur, Kochi, Hampi, Varanasi, Kasol, Manali, Bangalore, Delhi, Mumbai.
@@ -399,7 +399,7 @@ export function PlannerClient({ user, savedTrips }: { user: User | null; savedTr
                   </div>
                   <div className="rounded-sm border border-rust/20 bg-rust-light/20 p-4">
                     <p className="mb-1 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-rust">
-                      <MessageSquare className="h-3.5 w-3.5" /> Women's tip
+                      <MessageSquare className="h-3.5 w-3.5" /> Women&apos;s tip
                     </p>
                     <p className="text-xs leading-relaxed text-ink/80">{day.womens_tip}</p>
                   </div>
