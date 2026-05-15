@@ -3,7 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { ScamMapWrapper } from "./ScamMapWrapper";
 import { BEWARE_CITIES, normaliseCategory, type MapReport } from "@/lib/beware-cities";
 import { BewareModerationBanner } from "@/components/community/BewareModerationBanner";
-
+export const revalidate = 3600;
 export async function generateStaticParams() {
   return Object.keys(BEWARE_CITIES).map((city) => ({ city }));
 }
