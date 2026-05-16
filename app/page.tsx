@@ -9,7 +9,7 @@ import { ExitIntentModal } from "@/components/shared/ExitIntentModal";
 import { createStaticClient } from "@/lib/supabase/server";
 import { safeQuery } from "@/lib/safe-query";
 import { getCurrentSegment } from "@/lib/onboarding-segment";
-
+export const revalidate = 3600;
 export const metadata = { title: "Wander Women, Destinations for Solo Women Travellers" };
 
 // Refresh the intel-cards count + Beware ticker at most once a minute.
