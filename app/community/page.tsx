@@ -13,7 +13,7 @@ import {
   Map,
   ChevronRight,
 } from "lucide-react";
-
+export const revalidate = 3600;
 export const metadata = {
   title: "Solo Female Travel Community — Q&A, Scam Reports, Local Tips",
   description:
